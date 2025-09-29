@@ -7,6 +7,14 @@
 
 \usepackage{ctex}
 \usepackage{xeCJK}
+
+\let\fangsong\relax
+\newCJKfontfamily\fangsong{FangSong}[AutoFakeBold=2]
+
+\let\kaishu\relax
+\newCJKfontfamily\kaishu{KaiTi}[AutoFakeBold=2]
+
+
 \usepackage{amsmath} % 建议
 \usepackage{amssymb} % 可选，提供更多符号
 
@@ -90,9 +98,10 @@
 \DeclareMathAccent{\wideparen}{\mathord}{ugmL}{"F3}
 \newcommand{\sigmaalg}{\sigma-\text{代数}}
 \newcommand{\setjot}[1][0]{\setlength{\jot}{#1 pt}}
-\renewcommand{\cal}[1]{\mathcal{#1}}
 \DeclareMathOperator{\st}{\text{s.t.}}
 \DeclareMathOperator{\aew}{\text{a.e.}}
+\newcommand{\mcal}[1]{\mathcal{#1}}
+\newcommand{\mbb}[1]{\mathbb{#1}}
 
 
 %填空题下划线

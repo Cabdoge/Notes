@@ -9,7 +9,7 @@
         \item $A\in\mathcal{B}\Rightarrow X\setminus A\in\mathcal{B}$
         \item $A_1,A_2,A_3,\cdots,A_n,\cdots\in\mathcal{B}\Rightarrow\bigcup_{i=1}^{\infty}{A_i\in\mathcal{B}}$
     \end{enumerate}
-    则称$\mathcal{B}$是$X$的一个$\sigma-\text{代数}$
+    则称$\mathcal{B}$是$X$的一个\textbf{$\bm{\sigma}-\text{代数}$}
 \end{definition}
 
 除了上述定义中满足的三个条件之外，还可以证明$\sigma-\text{代数}$满足以下两个性质.
@@ -38,7 +38,7 @@
         \item $m(\varnothing)=0,m(X)=1$
         \item $\forall$两两不交集合$\{A_i\}_{i\in\mathbb{N}}(A_i\in\mathcal{B})$，$m\left(\bigcup_{i=1}^{\infty}{A_i}\right)=\sum_{i=1}^{\infty}{m(A_i)}$
     \end{enumerate}
-    则称$m$为$(X,\mathcal{B})$上的一个概率测度，$(X,\mathcal{B},m)$是一个概率测度空间。
+    则称$m$为$(X,\mathcal{B})$上的一个\textbf{概率测度}，$(X,\mathcal{B},m)$是一个\textbf{概率测度空间}。
 \end{definition}
 特别地，如果在上面的定义中去掉$m(X)=1$的限制，则称$m$为\bluebf{有限测度}，$(X,\mathcal{B},m)$为\bluebf{有限测度空间}.
 
@@ -65,7 +65,7 @@
         \item $A,B\in\mathcal{S}\Rightarrow A\cap B\in\mathcal{S}$
         \item $A\in\mathcal{S}\Rightarrow \exists\text{有限多个两两不交集合}E_i\in\mathcal{S}(i=1,2,\cdots,n)$，使得$X\setminus A=\bigcup_{i=1}^n{E_i}$
     \end{enumerate}
-    称$\mathcal{S}$是$X$的一个半代数.
+    称$\mathcal{S}$是$X$的一个\textbf{半代数}.
 \end{definition}
 
 \begin{instance}
@@ -153,7 +153,7 @@
         \item $A,B\in\mathcal{A}\Rightarrow A\cap B\in\mathcal{A}$
         \item $A\in\mathcal{A}\Rightarrow A^c=X\setminus A\in\mathcal{A}$
     \end{enumerate}
-    称$\mathcal{A}$是$X$的一个代数.
+    称$\mathcal{A}$是$X$的一个\textbf{代数}.
 \end{definition}
 结合第一个和第二个条件，还可以得到代数的以下性质：
 \begin{proposition}{代数的性质}
@@ -163,7 +163,7 @@
 从半代数的例子中可以看出，$[0,1]^n$内的矩体和空集构成半代数，相较于所有的可测集构成的$\sigma-\text{代数}$要简单许多，因此研究清楚半代数并将这些结论延申到$\sigma-$代数上也会比直接在$\sigma-$代数上做文章方便，为此，需要介绍\bluebf{最小代数}和\bluebf{延拓定理}.\par
 \begin{definition}{最小代数}
     设$X$是一个集合，$\mathcal{S}$是$X$的一个半代数，定义\[\mathcal{A}(\mathcal{S})=\bigcap_{\substack{\mathcal{A}\supseteq\mathcal{S}\\\mathcal{A}\,\text{代数}}}{\mathcal{A}}\]
-    则$\mathcal{A}(\mathcal{S})$是一个代数，称为包含$\mathcal{S}$的最小代数.
+    则$\mathcal{A}(\mathcal{S})$是一个代数，称为包含$\mathcal{S}$的\textbf{最小代数}.
 \end{definition}
 下面我们证明$\mathcal{A}(\mathcal{S})$是一个代数.
 \begin{proof}
@@ -177,7 +177,7 @@
 类似地，可以定义最小$\sigma-\text{代数}$的概念.
 \begin{definition}{最小$\sigmaalg$}
     设$X$是一个集合，$\mathcal{S}$是$X$的一个半代数，定义\[\mathcal{B}(\mathcal{A})= \bigcap_{\substack{\mathcal{B}\supseteq\mathcal{A}\\\mathcal{B}\,\sigmaalg}}{\mathcal{B}}\]
-    则$\mathcal{B}(\mathcal{A})$是一个$\sigmaalg$，称为包含$\mathcal{A}$的最小$\sigmaalg$.
+    则$\mathcal{B}(\mathcal{A})$是一个$\sigmaalg$，称为包含$\mathcal{A}$的\textbf{最小$\sigmaalg$}.
 \end{definition}
 同样可以证明$\mathcal{B}(\mathcal{A})$为一个$\sigmaalg$.
 \begin{proof}
@@ -237,8 +237,8 @@
         \item $\tau(\varnothing)=0$
         \item $\forall\bigcup_{i=1}^n{E_i}\in\mathcal{S},\, E_i\in\mathcal{S}(i=1,2,\cdots,n),\, E_i两两不交$，有$\tau\left(\bigcup_{i=1}^n{E_i}\right)=\sum_{i=1}^n{\tau(E_i)}$
     \end{enumerate}
-    则称$\tau$是有限可加的.\par
-    如果$n=\infty$，称$\tau$是可列可加的.
+    则称$\tau$是\textbf{有限可加}的.\par
+    如果$n=\infty$，称$\tau$是\textbf{可列可加}的.
 \end{definition}
 显然，可列可加函数包含有限可加函数.\par
 在代数$\mathcal{A}$和$\sigmaalg\mathcal{B}$上，也可以类似地定义有限可加函数和可列可加函数.例如概率测度空间$(X,\mathcal{B},m)$中的测度$m$是定义在$\sigmaalg\mathcal{B}$上的可列可加函数.\par
@@ -292,6 +292,7 @@
     \end{aligned}}$，则$\tau$可延拓到$\mathcal{B}\left(\mathcal{A}(\mathcal{S})\right)$上的概率测度，其中$\mathcal{B}\left(\mathcal{A}(\mathcal{S})\right)$和$\mathcal{B}$只相差一个零测集.
 \end{instance}
 
+\vspace{-1 em}
 \section{单调类}
 \vspace{-1em}
 \begin{definition}{单调类}
@@ -300,7 +301,7 @@
         \item $\forall A_i\in\mathcal{C}(i\in\mathbb{N})$，$A_1\subseteq A_2\subseteq \cdots\subseteq A_n\subseteq\cdots\Rightarrow \bigcup_{i=1}^\infty{A_i}\in\mathcal{C}$
         \item $\forall A_i\in\mathcal{C}(i\in\mathbb{N})$，$A_1\supseteq A_2\supseteq\cdots\supseteq A_n\supseteq\cdots\Rightarrow\bigcap_{i=1}^\infty A_i\in\mathcal{C}$
     \end{enumerate}
-    则称$\mathcal{C}$是$X$的一个单调类.
+    则称$\mathcal{C}$是$X$的一个\textbf{单调类}.
 \end{definition}
 
 单调类满足下述的一个基本性质.
@@ -318,7 +319,7 @@
 \begin{definition}{最小单调类}
     设$\mathcal{S}$是$X$的一些子集构成的集合类，定义
     \[\mathcal{C}(\mathcal{S})=\bigcap_{\substack{\mathcal{C}\supseteq\mathcal{S}\\ \mathcal{C}\,\text{单调类}}}{\mathcal{C}}\]
-    称为包含$\mathcal{S}$的最小单调类.
+    称为包含$\mathcal{S}$的\textbf{最小单调类}.
 \end{definition}
 
 下面一个定理介绍了一个代数生成的最小单调类和最小$\sigmaalg$之间的关系.
@@ -327,7 +328,7 @@
 \end{theorem}
 \begin{proof}
     由于$\mathcal{B}(\mathcal{A})$是一个$\sigmaalg$，所以$\mathcal{B}(\mathcal{A})$中任意子集的可数交与可数并包含于$\mathcal{B}(\mathcal{A})$，因此$\mathcal{B}(\mathcal{A})$是一个单调类，所以$\mathcal{B}(\mathcal{A})\supseteq\mathcal{C}(\mathcal{A})$.\par
-    现证$\mathcal{C}(\mathcal{A})\supseteq\cal{B}(\cal{A})$，由于$\cal{C}(\cal{A})\supseteq\cal{A}$，所以只需证明$\cal{C}(\cal{A})$是一个$\sigmaalg$.
+    现证$\mathcal{C}(\mathcal{A})\supseteq\mcal{B}(\mcal{A})$，由于$\mcal{C}(\mcal{A})\supseteq\mcal{A}$，所以只需证明$\mcal{C}(\mcal{A})$是一个$\sigmaalg$.
     \begin{itemize}
         \item 取补运算在$\mathcal{C}(\mathcal{A})$中封闭.\par
         定义$\mathcal{F}=\{E\in\mathcal{C}(\mathcal{A})|X\setminus E\in\mathcal{C}(\mathcal{A})\}$，现证$\mathcal{F}=\mathcal{C}(\mathcal{A})$.
@@ -387,8 +388,7 @@
         $\Rightarrow \bigcup_{i=1}^\infty{B_i} \in \mathcal{F}$.\par
         对于单调减的情形同理可证.
     \end{enumerate}\par
-    进而可知$\mathcal{F} \supseteq \mathcal{C}(\mathcal{A}) \xLongrightarrow{\text{定理}\ref{thm:1.4}}\mathcal{F}\supseteq \mathcal{B}({A}) = \mathcal{B}$.\par
-    综上得$\mathcal{F}=\mathcal{B}(\mathcal{A})$.
+    进而可知$\mathcal{F} \supseteq \mathcal{C}(\mathcal{A}) \xLongrightarrow{\text{定理}\ref{thm:1.4}}\mathcal{F}\supseteq \mathcal{B}({A}) = \mathcal{B}$.综上得$\mathcal{F}=\mathcal{B}(\mathcal{A})$.
 \end{proof}
 \begin{remark}
     上述证明过程中除了最后一步实际上并未使用单调集的性质，因此也可以脱离单调集，仅使用$\sigmaalg$相关概念证明$\mathcal{F} \supseteq \mathcal{B}(\mathcal{A})$.\par
@@ -404,29 +404,30 @@
 假设$(X_i,\mathcal{B}_i,m_i)$为一列概率测度空间$-\infty<i<+\infty,i\in\mathbb{Z}$，我们定义集合
 \[X=\prod_{i=-\infty}^{+\infty}{X_i}=\left\{(\cdots,x_{-1},x_0,x_1,\cdots)|x_i \in X_i\right\}\]
 在这个集合上可以定义其半代数.
-\begin{definition}{可测矩形}
-    $\mathcal{S}=\left\{ \prod_{i=1}^{m-1}{X_i} \times A_m \times A_{m+1} \times \cdots \times A_{n-1} \times A_n \times \prod_{i=n+1}^{+\infty}{X_i} : A_k \in \mathcal{B}_k, m \leqslant k \leqslant n,\;m,n \in \mathbb{Z}\right\}$，称其为可测矩形，它是$X=\prod_{i=-\infty}^{+\infty}{X_i}$的半代数.
+\begin{definition}{可测矩形}\label{def:1.10}
+    $\mathcal{S}=\left\{ \prod_{i=1}^{m-1}{X_i} \times A_m \times A_{m+1} \times \cdots \times A_{n-1} \times A_n \times \prod_{i=n+1}^{+\infty}{X_i} : A_k \in \mathcal{B}_k, m \leqslant k \leqslant n,\;m,n \in \mathbb{Z}\right\}$，称其为可测矩形，它是$X=\prod_{i=-\infty}^{+\infty}{X_i}$的\textbf{半代数}.
 \end{definition}
 
 利用该半代数和前面提到的利用半代数生成代数、用代数生成$\sigmaalg$的方法，我们可以定义$X$上的$\sigmaalg$.
-\begin{definition}{积$\sigmaalg$}
-        定义$\mathcal{B}= \mathcal{B}(\mathcal{A}(\mathcal{S}))$，称为积$\sigmaalg$，为$X=\prod_{i=-\infty}^{+\infty}{X_i}$上的$\sigmaalg$.
+\begin{definition}{积$\sigmaalg$}\label{def:1.11}
+        定义$\mathcal{B}= \mathcal{B}(\mathcal{A}(\mathcal{S}))$，称为\textbf{积$\sigmaalg$}，为$X=\prod_{i=-\infty}^{+\infty}{X_i}$上的$\sigmaalg$.
 \end{definition}
 类似地，我们可以通过在可测矩形上定义$\tau$函数并将其延拓到$\mathcal{B}(\mathcal{A}(\mathcal{S})))$来得到$(X,\mathcal{B})$上的概率测度.
-\begin{definition}{积测度}
+\begin{definition}{积测度}\label{def:1.12}
     在$\mathcal{S}$上定义
     \begin{align*}
         \tau:\mathcal{S}&\to[0,1] \\
         \prod_{i=1}^{m-1}{X_i} \times A_m \times \cdots \times A_n \times \prod_{i=n+1}^{+\infty}{X_i} &\mapsto m_m(A_m) \times \cdots \times m_n(A_n)
     \end{align*}
-    将$\tau$唯一地延拓到$\mathcal{B}=\mathcal{B}(\mathcal{A}(\mathcal{S}))$，可以得到$\mathcal{B}$上的概率测度，记为$m$，叫做积测度.
+    将$\tau$唯一地延拓到$\mathcal{B}=\mathcal{B}(\mathcal{A}(\mathcal{S}))$，可以得到$\mathcal{B}$上的概率测度，记为$m$，叫\textbf{积测度}.
 \end{definition}
 由此，我们就得到了$X$上的$\sigmaalg$和相应的测度，它们构成了一个概率测度空间.
 \begin{definition}{积概率空间}
-    上述的$(X,\mathcal{B},m)$称为$(X_i,\mathcal{B}_i,m_i)$的积概率空间，记作$\prod_{i=-\infty}^{+\infty}{(X_i,\mathcal{B}_i,m_i})$
+    上述的$(X,\mathcal{B},m)$称为$(X_i,\mathcal{B}_i,m_i)$的\textbf{积概率空间}，记作$\prod_{i=-\infty}^{+\infty}{(X_i,\mathcal{B}_i,m_i})$
 \end{definition}
 类似地，可以相应定义$\prod_{i=0}^\infty{X_i}$和$\prod_{i=-\infty}^0{X_i}$.\par
 在本课程中，通常遇到的积概率空间是由完全相同的概率测度空间构成的，其中每一个概率测度空间中的测度均为离散测度.\par
+\vspace{2 em}
 \begin{instance}
     $X_i={1,2,\cdots,n}\qquad \mathcal{B}_i=\{ X_i\text{的所有子集}\}$\par
     $\setjot\begin{aligned}
@@ -440,12 +441,12 @@
 \section{积分与测度相关概念}
 
 \begin{definition}{Borel $\sigmaalg$}
-    设$X=\mathbb{R}$，包含所有开集的最小$\sigmaalg$称为Borel $\sigmaalg$$\mathcal{B}(\mathbb{R})$.
+    设$X=\mathbb{R}$，包含所有开集的最小$\sigmaalg$称为\textbf{Borel $\sigmaalg$$\mathcal{B}(\mathbb{R})$}.
 \end{definition}
 
 借助Borel $\sigmaalg$，可以定义$(X,\mathcal{B},m)$上的可测函数，这里给出其等价定义.
 \begin{definition}{可测函数}
-    设$(X,\mathcal{B},m)$概率测度空间，对于函数$f:X\to\mathbb{R}$，如果$\forall c \in \mathbb{R}$，$f^{-1}\left((-\infty,c)\right) \in \mathbb{R}$，则称$f$是一个可测函数.
+    设$(X,\mathcal{B},m)$概率测度空间，对于函数$f:X\to\mathbb{R}$，如果$\forall c \in \mathbb{R}$，$f^{-1}\left((-\infty,c)\right) \in \mathbb{R}$，则称$f$是一个\textbf{可测函数}.
 \end{definition}
 
 下面仿照实变函数中Lebesgue积分的定义方式定义从简单函数到一般可测函数在概率测度空间上的积分.
@@ -492,8 +493,8 @@
 
 \begin{definition}{绝对连续}
     设$X$是一个集合，$\mathcal{B}$是$X$的一个$\sigmaalg$，$\mu,m$是$(X,\mathcal{B})$的概率测度.\par
-    如果$\forall B \in \mathcal{B}$，$m(B)=0 \Rightarrow \mu(B)=0$，称$\mu$绝对连续于$m$，记为$\mu \ll m$.\par
-    如果$\mu \ll m $且$m \ll \mu$，称$\mu$和$m$等价.
+    如果$\forall B \in \mathcal{B}$，$m(B)=0 \Rightarrow \mu(B)=0$，称$\mu$\textbf{绝对连续}于$m$，记为$\mu \ll m$.\par
+    如果$\mu \ll m $且$m \ll \mu$，称$\mu$和$m$\textbf{等价}.
 \end{definition}
 
 除了上述的定义之外，我们也可以利用下述定理使用函数刻画何时$\mu \ll m$.

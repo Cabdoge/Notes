@@ -58,7 +58,7 @@
 由上面的例子可以看出，在同一个集合上可以定义不同的拓扑(至少有平凡拓扑和离散拓扑两种拓扑)，不同的拓扑之间可以用以下关系比较.
 
 \begin{definition}{拓扑的精细与粗糙}
-    设$\cal{T}_1,\cal{T}_2$是集合$X$上的两个拓扑，如果$\cal{T}_1\subset \cal{T}_2$，则称$\cal{T}_2$比$\cal{T}_1$\textbf{精细}，或称$\cal{T}_1$比$\cal{T}_2$\textbf{粗糙}.
+    设$\mcal{T}_1,\mcal{T}_2$是集合$X$上的两个拓扑，如果$\mcal{T}_1\subset \mcal{T}_2$，则称$\mcal{T}_2$比$\mcal{T}_1$\textbf{精细}，或称$\mcal{T}_1$比$\mcal{T}_2$\textbf{粗糙}.
 \end{definition}
 特别地，如果定义中的包含加强为真包含，称\bluebf{严格精细}和\bluebf{严格粗糙}.
 \begin{conclusion}
@@ -73,7 +73,7 @@
 
 但并非所有的拓扑都可以比较大小，如下例所示：
 \begin{instance}
-    $X=\{a,b,c\},\cal{T}_1=\{\varnothing,X,\{a\},\{a,b\}\},\cal{T}_2=\{\varnothing,X,\{a\},\{a,c\}\}$，这两个拓扑无法比较大小.
+    $X=\{a,b,c\},\mcal{T}_1=\{\varnothing,X,\{a\},\{a,b\}\},\mcal{T}_2=\{\varnothing,X,\{a\},\{a,c\}\}$，这两个拓扑无法比较大小.
 \end{instance}
 
 
@@ -98,12 +98,12 @@
 \section{拓扑基}
 \vspace{-1 em}
 \begin{definition}{拓扑基}
-    设$X$是一个集合，$\cal{B}$是$X$的子集族，若$\cal{B}$满足条件：
+    设$X$是一个集合，$\mcal{B}$是$X$的子集族，若$\mcal{B}$满足条件：
     \begin{enumerate}
-        \item $\forall\, x\in X,\exists\, B\in\cal{B},\st x\in B,\ie X=\bigcup_{B\in\cal{B}}{B}$
-        \item 若$B_1,B_2\in\cal{B},x\in B_1\cap B_2$，则$\exists\, B\in\cal{B},\st x\in B\subset B_1\cap B_2$
+        \item $\forall\, x\in X,\exists\, B\in\mcal{B},\st x\in B,\ie X=\bigcup_{B\in\mcal{B}}{B}$
+        \item 若$B_1,B_2\in\mcal{B},x\in B_1\cap B_2$，则$\exists\, B\in\mcal{B},\st x\in B\subset B_1\cap B_2$
     \end{enumerate}
-    则称$\cal{B}$为$X$的\textbf{拓扑基}.
+    则称$\mcal{B}$为$X$的\textbf{拓扑基}.
 \end{definition}
 下图直观地展示了拓扑基的第二个条件.
 \begin{figure}[h]
@@ -113,54 +113,54 @@
 \end{figure}
 
 \begin{theorem}{拓扑基生成拓扑}
-    设$\cal{B}$为$X$的拓扑基，$\cal{T}=\{\cal{B}\text{中任意多个子集的并}\}$，则$\cal{T}$是$X$上的拓扑，称其为由拓扑基$\cal{B}$生成的拓扑，$\cal{B}$中的子集称为\textbf{基元素}.
+    设$\mcal{B}$为$X$的拓扑基，$\mcal{T}=\{\mcal{B}\text{中任意多个子集的并}\}$，则$\mcal{T}$是$X$上的拓扑，称其为由拓扑基$\mcal{B}$生成的拓扑，$\mcal{B}$中的子集称为\textbf{基元素}.
 \end{theorem}
 
 \begin{proof}
     \begin{enumerate}[label=(\roman*)]
-        \item $\varnothing,X\in\cal{T}$
+        \item $\varnothing,X\in\mcal{T}$
         \item 对任意并的封闭性显然
-        \item $U_1=\bigcup_{\alpha}{B_\alpha},U_2=\bigcup_{\beta}{C_\beta},\; B_\alpha,C_\beta\in\cal{B}$，则$U_1\cap U_2=\bigcup_{\alpha,\beta}({B_\alpha\cap C_\beta})\in\cal{T}$.\par
-        由条件2，$\forall\, x\in B_\alpha\cap C_\beta,\exists\, D_x\in \cal{B},\st x\in D_x\subset B_\alpha\cap C_\beta$.\par
-        因此$B_\alpha\cap C_\beta = \bigcup_{x\in B_\alpha\cap C_\beta}{D_x} \xLongrightarrow{D_x\in\cal{T}} B_\alpha\cap C_\beta\in\cal{T}$.\par
-        所以$U_1\cap U_2\in\cal{T}$.\par
+        \item $U_1=\bigcup_{\alpha}{B_\alpha},U_2=\bigcup_{\beta}{C_\beta},\; B_\alpha,C_\beta\in\mcal{B}$，则$U_1\cap U_2=\bigcup_{\alpha,\beta}({B_\alpha\cap C_\beta})\in\mcal{T}$.\par
+        由条件2，$\forall\, x\in B_\alpha\cap C_\beta,\exists\, D_x\in \mcal{B},\st x\in D_x\subset B_\alpha\cap C_\beta$.\par
+        因此$B_\alpha\cap C_\beta = \bigcup_{x\in B_\alpha\cap C_\beta}{D_x} \xLongrightarrow{D_x\in\mcal{T}} B_\alpha\cap C_\beta\in\mcal{T}$.\par
+        所以$U_1\cap U_2\in\mcal{T}$.\par
     \end{enumerate}
 \end{proof}
 
 
 \begin{instance}
-    在$\mathbb{R}_{std}$上，$\cal{B}=\{\mathbb{R}\text{中所有开区间}\}$，$\cal{B}$生成$\mathbb{R}_   {std}$.
+    在$\mathbb{R}_{std}$上，$\mcal{B}=\{\mathbb{R}\text{中所有开区间}\}$，$\mcal{B}$生成$\mathbb{R}_   {std}$.
 \end{instance}
 
 \begin{instance}
-    $X\neq\varnothing,\cal{B}=\{\{x\}|x\in X\}$，$\cal{B}$生成$X$上离散拓扑.
+    $X\neq\varnothing,\mcal{B}=\{\{x\}|x\in X\}$，$\mcal{B}$生成$X$上离散拓扑.
 \end{instance}
 
-上述的$\cal{B}$一定是一个拓扑基，条件1显然，而$\cal{B}$中的所有元素都是单点集，因此交集为空，自然条件2成立.
+上述的$\mcal{B}$一定是一个拓扑基，条件1显然，而$\mcal{B}$中的所有元素都是单点集，因此交集为空，自然条件2成立.
 
 \begin{instance}
-    $\mathbb{R}$，$\cal{B}=\{\left[a,b\right)|a<b\}$是一个拓扑基，验证其确为一个拓扑基.\par
+    在$\mathbb{R}$上，$\mcal{B}=\{\left[a,b\right)|a<b\}$是一个拓扑基，验证其确为一个拓扑基.\par
     \begin{enumerate}[leftmargin=3.75em]
-        \item $\forall\, x\in\mathbb{R},x\in[x,x+1)\in \cal{B}$
+        \item $\forall\, x\in\mathbb{R},x\in[x,x+1)\in \mcal{B}$
         \item $[a,b)\cap[c,d) = [\max\{a,c\},\min\{c,d\})$.\par
         则$\forall\, x\in [a,b)\cap[c,d),x\in[\max\{a,c\},\min\{c,d\})$
     \end{enumerate}\par
-    $\cal{B}$生成了$\mathbb{R}$上的拓扑，称为\bluebf{下极限拓扑}，记作$\mathbb{R}_l$.
+    $\mcal{B}$生成了$\mathbb{R}$上的拓扑，称为\bluebf{下极限拓扑}，记作$\mathbb{R}_l$.
 \end{instance}
 
 
 \begin{lemma}{拓扑基的等价刻画}
-    假设$\cal{B}$是$X$中的子集族，如果$\cal{B}$满足：
+    假设$\mcal{B}$是$X$中的子集族，如果$\mcal{B}$满足：
     \begin{enumerate}
-        \item $\forall\, x\in X,\exists\, B\in\cal{B},\st x\in B$.
-        \item $B_1,B_2\in\cal{B}\Rightarrow B_1\cap B_2=\varnothing\,\text{或}\,B_1\cap B_2\in\cal{B}$
+        \item $\forall\, x\in X,\exists\, B\in\mcal{B},\st x\in B$.
+        \item $B_1,B_2\in\mcal{B}\Rightarrow B_1\cap B_2=\varnothing\,\text{或}\,B_1\cap B_2\in\mcal{B}$
     \end{enumerate}
-    则$\cal{B}$是$X$的拓扑基.
+    则$\mcal{B}$是$X$的拓扑基.
 \end{lemma}
 从上述引理中可以看出，相较于$X$上的拓扑，$X$上的拓扑基所满足的条件更加简单，它是更加规则的集合.
 
 \begin{lemma}{开集的描述}
-    设$X$是一个集合，$\cal{B}$是$X$上一个拓扑基，则$U\subset X$在由$\cal{B}$生成的拓扑中是开集当且仅当$\forall\, x\in U,\exists\, B_x\in\cal{B},\st x\in B_x\subset U$.
+    设$X$是一个集合，$\mcal{B}$是$X$上一个拓扑基，则$U\subset X$在由$\mcal{B}$生成的拓扑中是开集当且仅当$\forall\, x\in U,\exists\, B_x\in\mcal{B},\st x\in B_x\subset U$.
 \end{lemma}
 \begin{proof}
     “$\Rightarrow$” 根据定义，存在一组基元素$B_\lambda,\lambda\in\Lambda$，使得$U=\bigcup_{\lambda\in\Lambda}{B_\lambda}$.\par

@@ -1,4 +1,4 @@
-\documentclass[lang=en,a4paper,11pt,openany,twoside]{elegantbook}
+\documentclass[lang=cn,a4paper,11pt,openany,twoside]{elegantbook}
 
 \let\arrowvert\relax
 %\usepackage{unicode-math}
@@ -112,6 +112,20 @@
 %elegantbook部分修改
 \usepackage{elegantfix}
 
+\usepackage{tcolorbox}
+
+\usepackage{xcolor}
+\definecolor{mygray}{RGB}{240,240,240}
+\tcbset{
+  colback=mygray,
+  boxrule=0pt,
+}
+\graphicspath{ {./images/} }
+\newcommand{\HRule}{\begin{center}\rule{0.9\linewidth}{0.2mm}\end{center}}
+\newcommand{\customfootnote}[1]{
+  \let\thefootnote\relax\footnotetext{#1}
+}
+
 %强制右页开始
 \makeatletter
 \newcommand{\ForceRightPage}{%
@@ -124,9 +138,6 @@
 }
 \makeatother
 
-\renewcommand{\figurename}{Figure}
-\renewcommand{\tablename}{Table}
-\renewcommand{\contentsname}{Contents}
 
 \raggedbottom
 
