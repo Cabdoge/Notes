@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.5.28)  29 SEP 2025 15:46
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.5.28)  4 OCT 2025 16:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1360,27 +1360,27 @@ Package csquotes Info: ... none found.
  (./基础拓扑学笔记.aux)
 \openout1 = `基础拓扑学笔记.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 162.
-LaTeX Font Info:    ... okay on input line 162.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 162.
-LaTeX Font Info:    ... okay on input line 162.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 162.
-LaTeX Font Info:    ... okay on input line 162.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 162.
-LaTeX Font Info:    ... okay on input line 162.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 162.
-LaTeX Font Info:    ... okay on input line 162.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 162.
-LaTeX Font Info:    ... okay on input line 162.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 162.
-LaTeX Font Info:    ... okay on input line 162.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 162.
-LaTeX Font Info:    ... okay on input line 162.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 162.
-LaTeX Font Info:    ... okay on input line 162.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 162.
-LaTeX Font Info:    ... okay on input line 162.
-Package hyperref Info: Link coloring ON on input line 162.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 165.
+LaTeX Font Info:    ... okay on input line 165.
+Package hyperref Info: Link coloring ON on input line 165.
  (./基础拓扑学笔记.out) (./基础拓扑学笔记.out)
 \@outlinefile=\write7
 \openout7 = `基础拓扑学笔记.out'.
@@ -1451,10 +1451,10 @@ Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file '基础拓扑学笔记.bbl' not found.
 
 No file 基础拓扑学笔记.bbl.
-Package biblatex Info: Reference section=0 on input line 162.
-Package biblatex Info: Reference segment=0 on input line 162.
+Package biblatex Info: Reference section=0 on input line 165.
+Package biblatex Info: Reference segment=0 on input line 165.
 \c@lstlisting=\count572
-Package hyperref Info: Option `pageanchor' set `false' on input line 167.
+Package hyperref Info: Option `pageanchor' set `false' on input line 170.
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: xetex
 * paper: a4paper
@@ -1490,31 +1490,31 @@ Package hyperref Info: Option `pageanchor' set `false' on input line 167.
 File: example-image.pdf Graphic file (type pdf)
 <use example-image.pdf>
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/n' will be
-(Font)              scaled to size 10.95pt on input line 167.
+(Font)              scaled to size 10.95pt on input line 170.
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/n' will be
-(Font)              scaled to size 24.88pt on input line 167.
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 167.
+(Font)              scaled to size 24.88pt on input line 170.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 170.
 (d:/texlive/2025/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 167.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 170.
  (d:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 167.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 170.
  (d:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+esvect on input line 167.
+LaTeX Font Info:    Trying to load font information for U+esvect on input line 170.
  (d:/texlive/2025/texmf-dist/tex/latex/esvect/uesvect.fd
 File: uesvect.fd 
 )
-LaTeX Font Info:    Trying to load font information for OMX+mdugm on input line 167.
+LaTeX Font Info:    Trying to load font information for OMX+mdugm on input line 170.
  (d:/texlive/2025/texmf-dist/tex/latex/mathdesign/mdugm/omxmdugm.fd
 File: omxmdugm.fd 2013/08/29 Fontinst v1.933 font definitions for OMX/mdugm.
 )
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/n' will be
-(Font)              scaled to size 14.4pt on input line 167.
+(Font)              scaled to size 14.4pt on input line 170.
 
 
 [1
@@ -1523,7 +1523,7 @@ LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/n' will be
 
 ]
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/n' will be
-(Font)              scaled to size 17.28pt on input line 173.
+(Font)              scaled to size 17.28pt on input line 176.
  (./基础拓扑学笔记.toc)
 \tf@toc=\write8
 \openout8 = `基础拓扑学笔记.toc'.
@@ -1591,26 +1591,74 @@ File: fig/2.2.1.png Graphic file (type bmp)
 
 [6]
 
-[7])
+[7]
+File: fig/2.2.png Graphic file (type bmp)
+<fig/2.2.png>
 
-[8] (./基础拓扑学笔记.aux)
+Overfull \hbox (0.93738pt too wide) in paragraph at lines 198--199
+[]\TU/SimSun(0)/m/n/10.95 下 面 考 虑 集 合 $\OMS/cmsy/m/n/10.95 B[] \OT1/cmr/m/n/10.95 = [] \OML/cmm/m/it/10.95 :$
+ []
+
+
+Overfull \hbox (17.6493pt too wide) in paragraph at lines 198--199
+\TU/SimSun(0)/m/n/10.95 很 容 易 证 明 它 满 足 拓 扑 基 的 条 件 \TU/TeXGyreTermesX(0)/m/n/10.95 1. \TU/SimSun(0)/m/n/10.95 并 且 $[] \OMS/cmsy/m/n/10.95 \
+ []
+
+
+
+[8]
+File: fig/2.3.png Graphic file (type bmp)
+<fig/2.3.png>
+File: fig/2.4.png Graphic file (type bmp)
+<fig/2.4.png>
+
+
+[9]
+File: fig/2.5.png Graphic file (type bmp)
+<fig/2.5.png>
+
+
+[10]
+File: fig/2.6.png Graphic file (type bmp)
+<fig/2.6.png>
+File: fig/2.7.png Graphic file (type bmp)
+<fig/2.7.png>
+
+
+[11]
+
+[12]
+File: fig/2.8.png Graphic file (type bmp)
+<fig/2.8.png>
+File: fig/2.9.png Graphic file (type bmp)
+<fig/2.9.png>
+
+Overfull \hbox (127.36761pt too wide) in paragraph at lines 474--474
+[][][] 
+ []
+
+File: example-image.pdf Graphic file (type pdf)
+<use example-image.pdf>
+)
+
+[13] (./基础拓扑学笔记.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2022/08/05>
  ***********
 Package rerunfilecheck Info: File `基础拓扑学笔记.out' has not changed.
-(rerunfilecheck)             Checksum: CA888603AC4F2878E5CF1262F611F393;720.
+(rerunfilecheck)             Checksum: D5C0CFC766307B5B3C0C6CDE4C15C9D3;1167.
 Package logreq Info: Writing requests to '基础拓扑学笔记.run.xml'.
 \openout1 = `基础拓扑学笔记.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 49144 strings out of 475796
- 1046559 string characters out of 5774033
- 2053394 words of memory out of 5000000
- 71198 multiletter control sequences out of 15000+600000
+ 49276 strings out of 475796
+ 1049236 string characters out of 5774033
+ 2055017 words of memory out of 5000000
+ 71322 multiletter control sequences out of 15000+600000
  570437 words of font info for 140 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  103i,14n,129p,692b,1418s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on 基础拓扑学笔记.pdf (11 pages).
+Output written on 基础拓扑学笔记.pdf (16 pages).

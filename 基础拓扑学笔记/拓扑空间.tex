@@ -18,8 +18,8 @@
     \end{enumerate}
 \end{proposition}
 \begin{proof}
-    第三条性质的证明：设$U_1=\bigcup_\alpha{(a_\alpha,b_\alpha)},U_2=\bigcup_\beta=(c_\beta,d_\beta)$.\par
-    则$U_1\cup U_2=\left(\bigcup_\alpha{(a_\alpha,b_\alpha)}\right)\cap\left(\bigcup_\beta{(c_\beta,d_\beta)}\right) = \bigcup_{\alpha,\beta}\big((a_\alpha,b_\alpha)\cap(c_\beta,d_\beta)\big)$.\par
+    第三条性质的证明：设$U_1=\bigcup_\alpha{(a_\alpha,b_\alpha)},U_2=\bigcup_\beta{(c_\beta,d_\beta)}$.\par
+    则$U_1\cap U_2=\left(\bigcup_\alpha{(a_\alpha,b_\alpha)}\right)\cap\left(\bigcup_\beta{(c_\beta,d_\beta)}\right) = \bigcup_{\alpha,\beta}\big((a_\alpha,b_\alpha)\cap(c_\beta,d_\beta)\big)$.\par
     其中$(a_\alpha,b_\alpha)\cap(c_\beta,d_\beta)$一定是空集或是开区间，所以$U_1\cup U_2$也是开集.\par
     对于有限多个的情形应用数学归纳法即可.\par
 \end{proof}
@@ -62,12 +62,12 @@
 \end{definition}
 特别地，如果定义中的包含加强为真包含，称\bluebf{严格精细}和\bluebf{严格粗糙}.
 \begin{conclusion}
-    平凡拓扑是最粗糙的拓扑，因为它仅包含了空集和补集，是满足条件1的最低要求.\par
+    平凡拓扑是最粗糙的拓扑，因为它仅包含了空集和全集，是满足条件1的最低要求.\par
     离散拓扑是最精细的拓扑，因为它已经包含了集合中的所有子集.\par
 \end{conclusion}
 
 \begin{instance}
-    在$\mathbb{R}$上，$\mathbb{R}_{trival}\subsetneqq\mathbb{R}_{fc}\subsetneqq\mathbb{R}_{std}\subsetneqq\mathbb{R}_{discrete}$.\par
+    在$\mathbb{R}$上，$\mathbb{R}_{trivial}\subsetneqq\mathbb{R}_{fc}\subsetneqq\mathbb{R}_{std}\subsetneqq\mathbb{R}_{discrete}$.\par
     其中$\mathbb{R}_{fc}\subsetneqq\mathbb{R}_{std}$的原因在于任意有限集的补集都是$\mathbb{R}_{std}$中的开集，因此$\mathbb{R}_{fc}\subset \mathbb{R}_{std}$.并且如果我们取$\mathbb{R}_{std}$中的开集$(0,1)$，它的补集是一个无限集，因此不在$\mathbb{R}_{fc}$中，所以$\mathbb{R}_{fc}\subsetneqq \mathbb{R}_{std}$是严格包含的关系.
 \end{instance}
 
@@ -129,7 +129,7 @@
 
 
 \begin{instance}
-    在$\mathbb{R}_{std}$上，$\mcal{B}=\{\mathbb{R}\text{中所有开区间}\}$，$\mcal{B}$生成$\mathbb{R}_   {std}$.
+    在$\mathbb{R}_{std}$上，$\mcal{B}=\{\mathbb{R}\text{中所有开区间}\}$，$\mcal{B}$生成$\mathbb{R}_{std}$.
 \end{instance}
 
 \begin{instance}
@@ -149,7 +149,7 @@
 \end{instance}
 
 
-\begin{lemma}{拓扑基的等价刻画}
+\begin{lemma}{拓扑基的充分条件}\label{lem:2.1}
     假设$\mcal{B}$是$X$中的子集族，如果$\mcal{B}$满足：
     \begin{enumerate}
         \item $\forall\, x\in X,\exists\, B\in\mcal{B},\st x\in B$.
@@ -159,7 +159,7 @@
 \end{lemma}
 从上述引理中可以看出，相较于$X$上的拓扑，$X$上的拓扑基所满足的条件更加简单，它是更加规则的集合.
 
-\begin{lemma}{开集的描述}
+\begin{lemma}{开集的描述}\label{lem:2.2}
     设$X$是一个集合，$\mcal{B}$是$X$上一个拓扑基，则$U\subset X$在由$\mcal{B}$生成的拓扑中是开集当且仅当$\forall\, x\in U,\exists\, B_x\in\mcal{B},\st x\in B_x\subset U$.
 \end{lemma}
 \begin{proof}
@@ -168,4 +168,318 @@
     “$\Leftarrow$” 根据假设，$U=\bigcup_{x\in U}{B_x}$，$U$是一组基元素的并.因此$U$是开的.
 \end{proof}
 
+下面举几个拓扑基及其生成的拓扑的例子.
+\begin{instance}
+    考虑$\mathbb{R}$，$\mcal{B}=\{(a,b),(a,b)-K\}$，其中$K=\left\{\frac{1}{n}\Big|n\in\mathbb{Z}^+\right\}$，
+    则$\mcal{B}$是拓扑基.\par
+    $(a,b)\cap \left((c,d)-K\right)=(\max\{a,c\},\min\{b,d\})-K$.\par
+    $\left((a,b)-K\right)\cap \left((c,d)-K\right)=(\max\{a,c\},\min\{b,d\})-K$.\par
+    因此$\mcal{B}$是$\mathbb{R}$上的一个拓扑基，它生成的拓扑称为\bluebf{K-拓扑}.\par
+\end{instance}
 
+\begin{instance}
+    考虑$\mathbb{R}$，$\mcal{B}=\big\{\left[n,n+1\right)|n\in\mathbb{Z}\big\}$是拓扑基.\par
+    其原因为，任意两个这样的左闭右开区间，如果它们两个相同，则交集就是自身，否则交集为空.
+\end{instance}
+
+
+考虑$X=\mathbb{R}^n$，若$x=(x_1,x_2,\cdots,x_n),y=(y_1,y_2,\cdots,y_n)\in\mathbb{R}^n$，定义两点距离为欧氏距离，即$d(x,y)=\sqrt{(x_1-y_1)^2+\cdots+(x_n-y_n)^2}$.定义其中的开球为$B(x,\varepsilon)=\left\{y\in\mathbb{R}^n|d(x,y)<\varepsilon\right\}$.把所有开球的集合记为$\mcal{B}_1=\left\{B(x,\varepsilon)\subset\mathbb{R}^n|x\in\mathbb{R}^n,\varepsilon>0\right\}$.那么我们就有以下的引理\par
+\begin{lemma*}
+        $\mcal{B}_1$是$\mathbb{R}^n$上的拓扑基.
+\end{lemma*}
+    \begin{wrapfigure}{r}{0.35\textwidth}
+        \vspace{-1.5 em}
+        \includegraphics[width=0.35\textwidth]{fig/2.2.png}
+        \captionof{figure}{开圆盘构成拓扑基}
+        \vspace{-1 em}
+    \end{wrapfigure}
+    $\mcal{B}_1$显然满足第一个条件.对于第二个条件，取$n=2$的情形考虑一个点属于两个开圆盘的交集，从右图中可以直观地看出这个点一定在包含于两个圆盘交集的某个开圆盘中，因此第二个条件也成立.\par
+   我们称$\mcal{B}_1$生成了$\mathbb{R}^n$上的\bluebf{标准拓扑}或\bluebf{欧式拓扑}，记作$\mathbb{E}^n$.\par
+   下面考虑集合$\mcal{B}_2=\left\{(a_1,b_1)\times \cdots \times (a_n,b_n)|(a_i,b_i)\subset\mathbb{R}\right\}.$
+很容易证明它满足拓扑基的条件1.并且$\left((a_1,b_1)\times\cdots\times(a_n,b_n)\right)\cap \left((c_1,d_1)\times\cdots\times(c_n,d_n)\right)=\big(\max\{a_1,c_1\},\min\{b_1,d_1\}\big)\times\cdots\times\big(\max\{a_n,c_n\},\min\{b_n,d_n\}\big)$，其中只要有一个集合为空集，则整个交集都是空集；反之，交集属于$\mcal{B}_2$，因此满足条件2.综上可得到以下引理\par
+\begin{lemma*}
+    $\mcal{B}_2$是$\mathbb{R}^n$上的拓扑基.
+\end{lemma*}
+
+\begin{problem}
+    $\mcal{B}_2$是否也生成了$\mathbb{R}^n$上的标准拓扑?
+\end{problem}
+
+为了解答这个问题，我们需要知道在给定拓扑的情况下，什么样的拓扑基可以生成这个拓扑，因此引出了以下的命题.
+
+\begin{proposition}{给定拓扑的拓扑基}\label{prop:2.3}
+    $(X,\mcal{T})$是一个拓扑空间，$\mathcal{C}$是$X$上开集的集合.如果$\forall\, \text{开集}U\subset X,\forall\, x\in U$，$\exists\,\text{开集}V\in\mcal{C},\st x\in V\subset U$，则$\mcal{C}$是生成拓扑$\mcal{T}$的一个拓扑基.
+\end{proposition}
+\begin{proof}
+    \begin{enumerate}
+        \item 验证$\mcal{C}$是一个拓扑基.\par
+        \begin{enumerate}[(a)]
+            \item $\forall x\in X,X\in\mcal{T}$，根据假设，$\exists\,\text{开集}V\in\mcal{C},\st x\in V\subset X$.
+            \item 假设$V_1,V_2\in\mcal{C}$，由于$V_1,V_2$是开集，所以$V_1\cap V_2$是一个开集.\par
+            那么称$\forall\, x\in V_1\cap V_2$，根据假设$\exists\, V_3\in\mcal{C},\st x\in V_3\subset V_1\cap V_2$.
+        \end{enumerate}
+        所以$\mcal{C}$是一个拓扑基.
+        \item 假设$\mcal{C}$生成了拓扑$\mcal{T}_1$，下面证明$\mcal{T}=\mcal{T}_1$，只需证明互相包含即可.\par
+        "$\subset$" $\forall\, W\in\mcal{T}_1$，$W$是$\mcal{C}$中子集的并，并且这些子集在$\mcal{T}$中是开集，因此$W$是$\mcal{T}$中的开集，即$W\subset\mcal{T}$，所以$\mcal{T}_1\subset\mcal{T}$.\par
+        "$\supset$" $\forall\, U\in\mcal{T},\forall\, x\in U$，根据假设，$\exists\, V\in\mcal{C},\st x\in V\subset U$.由引理\ref{lem:2.2}，$U\subset \mcal{T}_1$，因此$\mcal{T}_1\supset \mcal{T}$.\par
+        所以$\mcal{T}=\mcal{T}_1$.
+    \end{enumerate}
+\end{proof}
+
+现在可以回答上面的问题了，上述问题的答案是正确的.\par
+\begin{wrapfigure}{r}{0.25\textwidth}
+    \vspace{-3 em}
+    \includegraphics[width=0.25\textwidth]{fig/2.3.png}
+    \captionof{figure}{}
+    \vspace{-5 em}
+\end{wrapfigure}\par
+(1)首先$(a_1,b_1)\times \cdots \times (a_n,b_n)$是$\mathbb{E}^n$上的开集.取$n=2$为例，如右图所示，取长方形中的任意一个点，都可以在长方体里找到一个包含这个点的圆，因此满足引理\ref{lem:2.2}中对开集的描述.\par
+\vspace{3 em}
+
+\begin{wrapfigure}{r}{0.3\textwidth}
+    \vspace{-1 em}
+    \includegraphics[width=0.3\textwidth]{fig/2.4.png}
+    \captionof{figure}{}
+    \vspace{-1 em}
+\end{wrapfigure}\par
+(2)若$U$是$\mathbb{E}^n$中的开集，对于$\forall\, x\in U$，$\exists\, V\in\mcal{B}_2,\st x\in V\subset U$.若取$n=2$，在右图上，也就是在包含某个点的开圆盘中，总可以取一个长方形包含这个点.
+
+这表明一个拓扑空间可以有很多不同的拓扑基，这一现象和线性空间可以有不同的基是类似的.
+
+\section{拓扑子空间}
+
+\begin{proposition}
+    $(X,\mcal{T})$是一个拓扑空间，$A\subset X$，$\mcal{T}_A=\left\{U\cap A|U\in\mcal{T}\right\}$，则$\mcal{T}_A$是$A$上的拓扑.
+\end{proposition}
+\begin{proof}
+    \begin{enumerate}[(i)]
+        \item 取$U=\varnothing$，则$\varnothing=\varnothing\cap A\in\mcal{T}_A$.取$U=X$，则$A=X\cap A\in\mcal{T}_A$.
+        \item 取$U_\lambda\cap A,\lambda\in\Lambda,U_\lambda\in\mcal{T}$，有$\bigcup_{\lambda\in\Lambda}U_\lambda\in\mcal{T}$，则$\bigcup_{\lambda\in\Lambda}\left(U_\lambda\cap A\right)=\left(\bigcup_{\lambda\in\Lambda}U_\lambda\right)\cap A\in\mcal{T}_A$.
+        \item 因为$U_1\cap U_2\in\mcal{T}$，所以$\left(U_1\cap A\right)\cap \left(U_2\cap A\right)=(U_1\cap U_2)\cap A\in\mcal{T}_A$.
+    \end{enumerate}
+\end{proof}
+
+这个拓扑的定义方式和限制映射有些类似，它被我们称为\bluebf{子空间拓扑}.
+
+\begin{definition}{拓扑子空间}
+    $(A,\mcal{T}_A)$称为$(X,\mcal{T})$的\textbf{子空间}，$\mcal{T}_A$称为$A$上的\textbf{子空间拓扑}，或称\textbf{诱导拓扑}.
+\end{definition}
+
+\begin{instance}
+    考虑$\mbb{Z}\subset\mbb{R}_\mathrm{Std}$，$\forall\, z\in\mbb{Z}$，$\{z\}=\left(z-\frac{1}{z},z+\frac{1}{z}\right)\cap\mbb{Z}$是子空间$\mathbb{Z}$中的开集，所以在$\mbb{Z}$上的子空间拓扑为离散拓扑.
+\end{instance}
+
+\begin{instance}
+    考虑$[0,1]\subset\mbb{R}_\mathrm{Std}$，$\left[0,0.3\right),\left(0.7,1\right]$是子空间拓扑中的开集.
+\end{instance}
+
+
+\begin{lemma}
+    $(X,\mcal{T})$是一个拓扑空间，$\mcal{B}$是生成$\mcal{T}$的一个拓扑基，$A\subset X,\mcal{B}_A=\left\{B\cap A|B\in\mcal{B}\right\}$，则$\mcal{B}_A$是$A$上生成$\mcal{T}_A$的拓扑基.
+\end{lemma}
+也就是大空间的拓扑基和子空间作交就是子空间的拓扑基.
+\begin{proof}
+    \begin{enumerate}[(1)]
+        \item $\forall\, B\in\mcal{B}$，$\mcal{B}$是$\mcal{T}$中的开集，$S=B\cap A\in\mcal{T}_A$.
+        \item $\forall\, U\cap A\in \mcal{T}_A$，其中$U\in\mcal{T}$，$\forall\, x\in U\cap A\subset U$，$\exists\, B\in\mcal{B},\st x\in\mcal{B}\subset U$.\par
+        则$x\in B\cap A\subset U\cap A$，其中$B\cap A\in\mcal{B}_A$
+    \end{enumerate}\par
+    由命题\ref{prop:2.3}可知引理成立.
+\end{proof}
+\begin{instance}
+    考虑欧氏平面上的圆周$\mathbb{S}^1\subset\mathbb{E}^1$，则这个圆周和平面内任意开圆盘作交得到的弧构成了一个圆周的一个拓扑基.\par
+    同样的，考虑球面$\mbb{S}^2\subset\mbb{E}^3$，则球面和开球所交得的弯曲的开圆盘构成了拓扑基.
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.65\textwidth]{fig/2.5.png}
+        \captionof{figure}{$S^1$上的拓扑基}
+    \end{figure}
+\end{instance}
+
+\begin{lemma}
+    $(X,\mcal{T})$是一个拓扑空间，$B\subset A\subset X$，令$(A,\mcal{T}_A)$和$(B,\mcal{T}_B)$是$(X,\mcal{T})$上的子空间拓扑，并且$(B,(\mcal{T}_A)_B)$是$(A,\mcal{T}_A)$上的子空间拓扑，则$\mcal{T}_B=(\mcal{T}_A)_B$.
+\end{lemma}
+这个引理实际上就是在告诉我们直接从$X$上诱导的子空间拓扑和先从$X$上诱导到$A$再从$A$上诱导到$B$上的子空间拓扑是一样的.
+\begin{proof}
+    “$\supset$”$\forall\, U\in(\mcal{T}_A)_B$，则$\exists\, \text{开集}U_1\in\mcal{T}_A,\st U=U_1\cap B$.\par
+    又因为$U_1\in\mcal{T}_A$，所以$\exists\, \text{开集}U_2\in\mcal{T},\st U_1=U_2\cap A$.\par
+    $\Rightarrow U=(U_2\cap A)\cap B=U_2\cap B$，因此$U\in\mcal{T}_B\Rightarrow \mcal{T}_B\supset(\mcal{T}_A)_B$.\par
+    “$\subset$”$\forall\, U\in\mcal{T}_B,U=U_2\cap B$，其中$U_2\in\mcal{T}$.\par
+    由$B\subset A$，所以$U=(U_2\cap A)\cap B$，其中$U_2\cap A\in\mcal{T}_A$，因此$U\in(\mcal{T}_A)_B\Rightarrow \mcal{T}_B\subset(\mcal{T}_A)_B$
+\end{proof}
+
+\section{乘积空间}
+
+\begin{lemma}
+    设$X,Y$为拓扑空间，$X\times Y$为其卡氏积，$\mcal{B}=\{U\times V|U,V\,\text{为}\,X,Y\,\text{中开集}\}$，则$\mcal{B}$为$X\times Y$上的一个拓扑基.
+\end{lemma}
+\begin{proof}
+    (a)\; $\forall\, (x,y)\in X\times Y,(x,y)\in X\times Y\in\mcal{B}$.\par
+    \begin{wrapfigure}{r}{0.35\textwidth}
+        \vspace{-3.5 em}
+        \includegraphics[width=0.35\textwidth]{fig/2.6.png}
+        \captionof{figure}{乘积空间的拓扑基}
+        \vspace{-1 em}
+    \end{wrapfigure}\par
+    (b)\; $U_1\times V_1,U_2\times V_2\in\mcal{B}$，$(U_1\times V_1)\cap(U_2\times V_2)=(U_1\cap U_2)\times (V_1\cap V_2)\in\mcal{B}$.\par
+    由引理\ref{lem:2.1}可知$\mcal{B}$为$X\times Y$上的一个拓扑基.
+\end{proof}
+\vspace{5 em}
+
+\begin{definition}{乘积拓扑}
+    $\mcal{B}$所生成的拓扑称为$X\times Y$上的\textbf{乘积拓扑}，称$(X\times Y,\mcal{B})$为$X$和$Y$的\textbf{乘积拓扑空间}.
+\end{definition}
+
+
+\begin{lemma}
+    设$\mcal{B}_1$是$X$的一个拓扑基，$\mcal{B}_2$是$Y$的一个拓扑基，则$\mcal{B}_3=\{B_1\times B_2|B_i\in\mcal{B}_i\}$是生成$X\times Y$上乘积拓扑的一个拓扑基. 
+\end{lemma}
+这一引理让我们可以只使用基元素就可以得到乘积拓扑的拓扑基，相较于之前的引理，使用的集合大小大大减少.\par
+\begin{proof} 
+    (1)\;$\forall\, B_1\times B_2\in B_3,B_1\times B_2$是$X\times Y$中的开集.\par
+    \begin{wrapfigure}{r}{0.25\textwidth}
+        \vspace{-3 em}
+        \includegraphics[width=0.25\textwidth]{fig/2.7.png}
+        \captionof{figure}{}
+        \vspace{-1 em}
+    \end{wrapfigure}
+    (2)\;假设$W$是$X\times Y$中的开集，$\forall\, (x,y)\in W$，根据定义，$\exists\, U,V$分别为$X,Y$中开集$,\st (x,y)\in U\times V\subset W$.\par
+    则$\exists\, B_1\in\mcal{B}_1,\st x\in B_1\subset U$，$\exists\, B_2\in\mcal{B}_2,\st y\in B_2\subset V$.\par
+    因此$(x,y)\in B_1\times B_2 \subset U\times V\subset W$.\par
+    由命题\ref{prop:2.3}可知引理成立.
+\end{proof}
+
+\vspace{2 em}
+\begin{instance}
+    考虑$\mbb{E}^2=\mbb{E}^1\times\mbb{E}^1$，$(a,b)\times(c,d)$是$\mbb{E}^2$上的一个拓扑基，它生成了$\mbb{E}^2$上的标准拓扑.
+\end{instance}
+
+\begin{lemma}
+    设$X,Y$是拓扑空间，$A\subset X,B\subset Y$，则$A\times B$作为$X\times Y$子空间诱导的子空间拓扑\uline{等同于}$A\times B$的乘积拓扑，其中$A,B$分别是$X,Y$的子空间.
+\end{lemma}
+\begin{proof}
+    $\mcal{B}=\{(U\cap A)\times (V\cap B)|U,V\,\text{分别为}\,X,Y\,\text{中开集}\}$，则$\mcal{B}$是生成$A\times B$上乘积拓扑的一个拓扑基.下面验证$\mcal{B}$恰好生成$A\times B$上的诱导拓扑.\par
+    \begin{enumerate}[(1)]
+        \item $(U\cap A)\times (V\cap B)=(U\times V)\cap (A\times B)$.因为$U\times V$是$X\times Y$中的开集，所以$(U\cap A)\times (V\cap B)$是$A\times B$上诱导拓扑中的开集.
+        \item 假设$W$是$A\times B$上诱导拓扑中的开集，则$\exists\,X\times Y$中的开集$W_1,\st W=W_1\cap(A\times B)$.\par
+        $\forall\, (x,y)\in W\subset W_1,\exists\, X,Y$中的开集$U_1,V_1,\st(x,y)\in U_1\times V_1\subset W_1$.\par
+        所以$(x,y)\in(U_1\times V_1)\cap(A\times B)\subset W_1\cap(A\times B)$，其中$(U_1\times V_1)\cap (A\times B)=(U_1\cap A)\times (V_1\cap B)\in\mcal{B},W_1\cap(A\times B)=W$.\par
+    \end{enumerate}\par
+    最后由命题\ref{prop:2.3}可知引理成立.
+\end{proof}
+
+
+\begin{instance}
+    考虑$\mbb{S}^1\subset \mbb{E}^2$,$[0,1]\subset\mbb{E}^1$，$\mbb{S}^1\times[0,1]\subset\mbb{E}^2\times\mbb{E}^1=\mbb{E}^3$构成了三维欧氏空间的圆柱面
+\end{instance}
+\begin{instance}
+    考虑$\mbb{S}^1\subset \mbb{E}^2$，$\mbb{S}^1\times[0,1]\subset\mbb{E}^2\times\mbb{E}^2=\mbb{E}^4$构成了一个环面.
+\end{instance}
+
+\begin{definition}{n维乘积拓扑}
+    设$X_1,X_2,\cdots,X_n$是拓扑空间，则$\mcal{B}=\{U_1\times U_2\times\cdots\times U_n|U_i\in X_i\,\text{为}\,X_i\,\text{中开集}\}$是$X_1\times X_2\times\cdots\times X_n$的乘积拓扑上的拓扑基.
+\end{definition}
+
+\begin{definition}{投射}
+    定义$\begin{aligned}[t]
+        p_i: X_1\times X_2\times\cdots X_n &\to X_i \\
+        (x_1,x_2,\cdots,x_n) &\mapsto x_i
+    \end{aligned}$为$X_1\times X_2\times\cdots\times X_n$到$X_i$的\textbf{投射}.
+\end{definition}
+
+
+\section{闭集}
+
+\begin{definition}{闭集}
+    设$(X,\mcal{T})$是一个拓扑空间，$C\subset X$，如果$X-C$是开集，则称$C$为$X$中的\textbf{闭集}.
+\end{definition}
+
+\begin{instance}
+    在$\mbb{E}^1$中，闭区间$\left[a,b\right]$是闭集，$\left(-\infty,b\right]$也是闭集.\par
+    在$\mbb{E}^2$中，$\overline{B(x,\varepsilon)}=\{y\in\mbb{E}^2|x-\varepsilon\leq y\leq x+\varepsilon\}$是闭集.
+\end{instance}
+
+\begin{instance}
+    考虑有限补拓扑$\mbb{R}_{fc}$，那么$C\subset\mbb{R}_{fc}$是闭集当且仅当$C=\mbb{R}$或$C$为有限集.
+\end{instance}
+
+
+\begin{proposition}{闭集的性质}
+    设$X$是一个拓扑空间，则
+    \begin{enumerate}
+        \item $\varnothing$和$X$都是闭集.
+        \item 任意多个闭集的交集是闭集.
+        \item 有限多个闭集的并集是闭集.
+    \end{enumerate}
+\end{proposition}
+闭集的三条性质和开集的三条性质一一对应，只是其中交集和并集交换位置.
+\begin{proof}
+    (2) 设$C_\lambda,\lambda\in\Lambda$是$X$中闭集，则$X-\bigcap_{\lambda\in\Lambda}C_\lambda=\bigcup_{\lambda\in\Lambda}(X-C_\lambda)$是开集，因此$\bigcap_{\lambda\in\Lambda}C_\lambda$是闭集.\par
+    (3) $\forall\, \text{闭集}\,C_1,C_2\in X$，$(X-C_1)\cap(X-C_2)=X-(C_1\cup C_2)$为$X$中开集，所以$C_1\cup C_2$是闭集.
+\end{proof}
+
+
+\begin{instance}
+    在$\mbb{E}^n$中，单点集$\{pt\}$是闭集.这是因为$\mbb{E}^n-\{pt\}$是一个开集.\par
+    $\forall\, x\in\mbb{E}^n-\{pt\}$，总能取$\varepsilon_x=\frac{d(x,pt)}{2}$，使得$B(x,\varepsilon_x)\subset\mbb{E}^n-\{pt\}$，因此$\mbb{E}^n-\{pt\}$是开集.
+\end{instance}
+
+\begin{instance}
+    考虑$\mbb{R}$上的一个拓扑基$\left\{\left[n,n+1\right)\right|n\in\mbb{Z}\}$生成的拓扑$\mcal{T}$，但在$\mcal{T}$中单点集$\{0\}$不是闭集.\par
+    假设$\{0\}$是闭集，则$\mathbb{R}\setminus\{0\}=(-\infty,0)\cup(0,+\infty)$是开集，$\frac{1}{2}\in\mbb{R}\setminus\{0\}$，则存在一个基元素$[n,n+1),n\in\mb{Z},\st \frac{1}{2}\in[n,n+1)\subset\mbb{R}\setminus\{0\}$.但不存在这样的$n$，矛盾!
+\end{instance}
+
+
+
+\begin{lemma}{子空间上的闭集}
+    $(X,\mcal{T})$是一个拓扑空间，$A\subset X$且$(A,\mcal{T}_A)$为拓扑子空间，则$C\subset A$是$(A,\mcal{T}_A)$中的闭集当且仅当$\exists\,$闭集$C_1\in X,\st C=C_1\cap A$.
+\end{lemma}
+\begin{proof}
+    $C$是$(A,\mcal{T}_A)$的闭集$\Leftrightarrow A-C$是$(A,\mcal{T}_A)$中的开集\par
+    \begin{wrapfigure}{r}{0.25\textwidth}
+        \vspace{-3.5 em}
+        \includegraphics[width=0.25\textwidth]{fig/2.8.png}
+        \captionof{figure}{}
+        \vspace{-1 em}
+    \end{wrapfigure}
+    $\Leftrightarrow \exists$开集$U\in X,\st A-C=U_1\cap A,\ie C=(X-U_1)\cap A$.\par
+    其中$X-U_1$是$X$中的闭集.\par
+    记$C_1=X-U_1$即得$C=C_1\cap A$.
+\end{proof}
+
+
+\section{Hausdorff性}
+
+\begin{definition}{Hausdorff空间}
+    一个.扑空间$(X,\mcal{T})$是\textbf{Hausdorff}的，如果对$X$中任意两个不同的点$x,y$,都$\exists\, x,y$的邻域$U,V$且$U\cap V=\varnothing$.
+\end{definition}
+\begin{wrapfigure}[2]{r}{0.25\textwidth}
+    \vspace{-2 em}
+    \includegraphics[width=0.25\textwidth]{fig/2.9.png}
+    \captionof{figure}{Hausdorff性}
+    \vspace{-7 em}
+\end{wrapfigure}\par
+\begin{instance}
+    很显然地，欧式拓扑下的欧氏空间$\mbb{E}^n$是Hausdorff的.\par
+\end{instance}\par
+\begin{instance}
+    如果$X$至少包含两个元素，那么它的平凡拓扑不是Hausdorff的.\par
+    这是因为对于$X$中任意两个不同的点$x,y$，它们唯一的邻域是$X$，必然相交，所以不可能找到两个不相交的邻域.\par
+\end{instance}\par
+
+
+下面介绍Hausdorff性的一个必要条件.
+\begin{lemma}{Hausdorff性的必要条件}
+    如果$X$是Hausdorff的，则$X$中的任意单点集为闭集.
+\end{lemma}\par
+\wrapfix
+\begin{proof}
+    $\forall\, \{x\}\subset X$，只需证明其补集$X\setminus \{x\}$为开集.\par
+    $\forall\, y\in X\setminus \{x\},y\neq x$，由于$X$是Hausdorff的，$\exists\, x,y$的邻域$U_x,U_y,\st U_x\cap U_y=\varnothing$，所以$y\in U_y\subset X-\{x\}$，因此$X-\{x\}$为开集.\par
+\end{proof}
+由上述引理立即可知，之前提及的$\mbb{R}$上的拓扑基$\left\{\left[n,n+1\right)\right|n\in\mbb{Z}\}$生成的拓扑$\mcal{T}$不是Hausdorff的，因为单点集$\{0\}$不是闭集.\par
+下面一个例子展示了上述引理只是Hausdorff性的必要条件而非充分条件，二者并非一回事.
+\begin{instance}
+    $\mbb{R}_{fc}$不是Hausdorff的(但是它的任意单点集是有限集).\par
+    取$x\neq y\in\mbb{R}$，假设$\exists\,x,y$的邻域$U_x,U_y,\st U_x\cap U_y=\varnothing$，则$U_y\subset\mbb{R}-U_x$，其中$U_y$是无限集，而$\mbb{R}-U_x$是有限集，矛盾!
+\end{instance}
