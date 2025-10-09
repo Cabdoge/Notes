@@ -1,0 +1,22 @@
+\chapter{平面圆锥曲线}
+
+\section{射影空间}
+
+在复分析中，为了将复平面紧化，引入了添加上无穷远点后的复平面$\mathbb{C}\cup\{\infty\}$，即\bluebf{扩充复平面}，并且扩充复平面上的任意一个点和一个复球面上的点一一对应.\par
+现在，让我们从另一个视角来看扩充复平面.将复数域零点去掉后，$\mathbb{C}^*=\mathbb{C}\setminus\{0\}$对复数乘法成群，因此它对$\mathbb{C}^2$有如下的群作用：$\setjot[-8]\begin{aligned}
+    \mathbb{C}^* \times \mathbb{C}^2 &\to \mathbb{C}^2 \\
+    (\lambda,(x,y)) &\mapsto (\lambda x,\lambda y)
+\end{aligned}$.\par
+下一步，在$\mathbb{C}^2\setminus\{0\}$上商掉$\mathbb{C}^*$，定义$\mathbb{C}\mathbb{P}^1=\left(\mathbb{C}^2\setminus\{0\}\right)/\mathbb{C}^* = \left\{ [x_1,x_2] | (x_1,x_2)\in \mathbb{C}^2\setminus\{0\}\right\}$，称为\bluebf{射影空间}，其中的等价关系可以描述为：若$x_2\neq 0,(x_1,x_2)\sim \left(\frac{x_1}{x_2},1\right)$.\par
+
+
+\begin{definition}{$n$维射影空间}
+    定义\textbf{$n$维射影空间}为$\mathbb{C}\mathbb{P}^n=\left(\mathbb{C}^{n+1}\setminus\{0\}\right)/\mathbb{C}^*$，其中，$\mathbb{C}^*$对$\mathbb{C}^{n+1}$的群作用为：
+    \begin{align*}
+        \mathbb{C}^*\times \mathbb{C}^{n+1} &\to \mathbb{C}^{n+1} \\
+        (\lambda,(x_1,x_2,\cdots,x_n)) &\mapsto (\lambda x_1,\lambda x_2,\cdots,\lambda x_n)
+    \end{align*}
+\end{definition}
+\begin{remark}
+    $\mathbb{C}\mathbb{P}^n$为紧集.
+\end{remark}

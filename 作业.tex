@@ -1,0 +1,16 @@
+\documentclass{ctexart}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\begin{document}
+\begin{enumerate}
+    \item 设$T(x)=\begin{cases}
+        1,x=0 \\
+        \dfrac{x}{2},0<x\leqslant 1\\
+    \end{cases}$，证明：$T(x)$不能保持任何一个Borel概率测度.
+    \item 设$T$为概率空间$(X,\mathcal{B},\mu)$的一个保测映射，我们已经知道$T$保持测度的充分必要条件是对任意$f\in L^1(\mu)$，有$\int{f}\,d\mu=\int{f\circ T}\,d\mu$.\par
+    问：当把$L^1(\mu)$换成$L^\infty(\mu)$时结论还成立吗，为什么?
+    \item 保测映射$T:(X,\mathcal{B},m)\to(X,\mathcal{B},m)$遍历等价于下面的条件：当$f$是可测函数并满足$f(Tx)\geqslant f(x),a.e.$时，有$f(x)=const,a.e.$.(用反证法)
+    \item 设$f:X\to X$为紧致度量空间$(X,d)$上的连续同胚且是极小的(即每条轨道都在$X$中稠密)，证明：对于任意$\varepsilon>0,x\in X$，存在$L=L(x,\varepsilon)$，使得$\{f^n(x),f^{n+1}(x),\cdots,f^{n+L}(x)\}\cap B(x,\varepsilon)\neq\varnothing$对每个$n\in\mathbb{N}$都成立.(提示:$\bigcup_{i\in\mathbb{Z}}{f^i{B(x,\varepsilon)}}=X$).
+\end{enumerate}
+\end{document}
