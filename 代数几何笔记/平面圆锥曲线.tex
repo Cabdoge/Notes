@@ -20,3 +20,50 @@
 \begin{remark}
     $\mathbb{C}\mathbb{P}^n$为紧集.
 \end{remark}
+
+
+
+\begin{wrapfigure}{r}{0.3\textwidth}
+    \vspace{-1 em}
+    \begin{tikzcd}[every label/.append style={font=\small},font=\small]
+    & & {\begin{gathered}
+        \mathbb{C}^*=\mathbb{C}\setminus\{0\}\\
+        \dfrac{x_2}{x_1}=z
+    \end{gathered}}
+    \arrow[dd,"\varphi"] \\
+    {\begin{gathered} U_1\cup U_2\\ [x_1,x_2]\end{gathered}}
+    \arrow[rru,"\varphi_1"] \arrow[drr,"\varphi_2"'] & & \\
+    & & {\begin{gathered}\mathbb{C}^*=\mathbb{C}\setminus\{0\}\\\dfrac{x_1}{x_2}=\dfrac{1}{z}\end{gathered}}
+\end{tikzcd}
+    \captionof{figure}{$\mathbb{C}\mathbb{P}^1$和$\mathbb{C}^*$的关系}
+    \vspace{-5 em}
+\end{wrapfigure}
+下面介绍$\mathbb{C}\mathbb{P}^1$的性质与上面的某些结构.\par
+首先，定义$U_1=\{[x_1,x_2]|x_1\neq 0\}$和$U_2=\{[x_1,x_2]|x_2\neq 0\}$，则$\mathbb{C}\mathbb{P}^1=U_1\cup U_2$.\par
+接下来，我们就可以在$U_1$上定义到$\mathbb{C}$的映射：$\setjot[-6]\begin{aligned}[t]
+    \varphi_1: U_1 &\xrightarrow{\cong} \mathbb{C} \\
+    [x_1,x_2] &\mapsto \frac{x_2}{x_1}    
+\end{aligned}$.\par
+对上述映射，同时可以定义其逆映射$\setjot[-6]\begin{aligned}[t]
+    \varphi_1^{-1}: \mathbb{C} &\rightarrow U_1 \\
+    x &\mapsto [1,x]
+\end{aligned}$.\par
+因此我们找到了$U_1$和$\mathbb{C}$之间的双射，所以$U_1$和$\mathbb{C}$是相同的.\par
+同样的道理可以定义$U_1$到$\mathbb{C}$之间的同构.\par
+综上所述，$\mathbb{C}\mathbb{P}^1=U_1\cup U_2$和$\mathbb{C}^*$之间可以形成如右图所示的交换图.
+
+因此，现在我们就有两种方式来理解$\mathbb{C}\mathbb{R}^1$.其一是扩充复平面$\mathbb{C}\cup\{\infty\}$，其二是$\mathbb{C}^2$的商空间$(\mathbb{C}-\{0,0\})/\mathbb{C}^*$.其中第二种方法$\mathbb{C}^2$可以推广到任意域上的有限维线性空间$V:k(\mathbb{F}_p,\mathbb{Q},\mathbb{R})$，定义$\mathbb{P}(V)=(V\setminus\{0\})/k^*$.例如可以定义$\mathbb{C}\mathbb{P}^2=\left(\mathbb{C}^3\setminus\{0\}\right)/\mathbb{C}^*=\mathbb{C}^2\cup(\mathbb{C}\mathbb{P}^1)$.
+
+下面一个话题是复分析中的分式线性变换.一个分式线性变换可以写成
+\begin{align*}
+    f: \mathbb{C}\cup\{\infty\} &\to \mathbb{C}\cup\{\infty\} \\
+    z &\mapsto \frac{az+b}{cz+d},\quad \begin{pmatrix}
+        a & b \\
+        c & d
+    \end{pmatrix}\text{是非退化二阶方阵}
+\end{align*}
+如果从射影空间的角度来看，上面的映射可以写成
+\begin{align*}
+    f: \mathbb{C}\mathbb{P}^1 &\to \mathbb{C}\mathbb{P}^1 \\
+    [x_1,x_2]=\left[1,\frac{x_2}{x_1}\right] &\mapsto \left[1,\frac{a\tfrac{x_2}{x_1}+b}{c\tfrac{x_2}{x_1}+d}\right] = [cx_2+dx_1,ax_2+bx_1]
+\end{align*}

@@ -392,8 +392,43 @@ $\begin{aligned}
     令$E_c=\{x\in X|f(x)\geq c\}(\forall\, c\in\mbb{R})$.\par
     $\forall\, y\in T^{-1}E_c\setminus S,f(y)=f(Ty)\geq c\Rightarrow y\in E_c$.\par
     因此$T^{-1}E_c\setminus S\subseteq E_c$，由保测映射$m(T^{-1}E_c)=m(E_c)\Rightarrow m(T^{-1}E_c\triangle E_c=0)$.\par
-    由定理$\ref{thm:2.4}(2)$可得$m(E_c)=0$或$1$.从而可以找到$g=c$，使得$f$上所有点几乎处处在$g=c$上，进而$f=c\aew.$\par
+    由定理$\ref{thm:2.4}(2)$可得$m(E_c)=0$或$1$.\par
+    取$c_0=\inf\{c|m(E_c)=0\}$，则$f=c_0 \aew$.
 \end{proof}
+
+下面看几个常见的遍历映射的例子.
+\begin{instance}
+    考虑旋转映射$X=[0,1),\setjot[-6]\begin{aligned}[t]
+        X &\to X \\
+        x &\mapsto x+\alpha \mod 1
+    \end{aligned}$，我们的问题是在$(X,\mcal{B}_X,m_\mathrm{Leb})$上$R_\alpha$是否是一个遍历映射.\par
+    
+    \begin{wrapfigure}{r}{0.25\textwidth}
+        \vspace{-1 em}
+        \includegraphics[width=0.25\textwidth]{fig/2.5.png}
+        \captionof{figure}{$[0,1)$表为圆周}
+        \vspace{-1 em}
+    \end{wrapfigure}
+    我们有两种方法对这一问题进行解答，第一种方法为直接使用遍历映射的定义.\par
+    从定义来看，如果$R_\alpha$是一个遍历映射，那么对于任意满足$R_\alpha^{-1}(B)=B$的可测集$B$是零测集或是全测集.\par
+    这一方法的核心思路是把$[0,1)$表示成一个圆周$S^1$.这样这个映射作用在$S^1$上是一个旋转变换，因此可以通过分析点的旋转来判断是否是遍历映射.\par
+    \begin{enumerate}[(1)]
+        \item 当$\alpha\in\mathbb{Q}$时，$\alpha=\frac{n}{m}(m\in\mathbb{N}^+,n\in\mathbb{Z},(m,n)=1)$.\par
+        此时$R_\alpha$是一个周期映射，周期为$n$，故$\forall\, n\in X,R_\alpha^m(n)=n$.\par
+        则$\left\{0,\frac{1}{m},\frac{2}{m},\cdots,\frac{(m-1)}{m}\right\}$是$X$的一个周期轨道.\par
+        下面在该周期轨道中的每一个附近选取一个测度相等的小邻域，$B=(-\varepsilon,\varepsilon)\cup\left(\frac{1}{m}-\varepsilon,\frac{1}{m}+\varepsilon\right)\cup\cdots\cup \left(\frac{m-1}{m}-\varepsilon,\frac{m-1}{m}+\varepsilon\right)$.\par
+        由$R_\alpha$的周期性可知$R_\alpha^{-1}B=B$，但由于邻域选取的较小，故$0<m(B)<1$，则$R_\alpha$不是遍历映射.
+        \item 当$\alpha\in\mathbb{R}\setminus\mathbb{Q}$时，一个重要的性质是此时所有轨道$\big\{\{n\alpha\}_{n\in\mbb{Z}}\big\}$在$X=[0,1)\cong S^1$中是稠密的，这个性质可以使用抽屉原理加以证明.\par
+        设$B\in X$是一个可测集，且满足$R_\alpha^{-1}B=B$.\par
+        如果$B$是零测集，证毕.\par
+        \begin{wrapfigure}{r}{0.35\textwidth}
+            \vspace{-1 em}
+            \includegraphics[width=0.35\textwidth]{fig/2.6.png}
+            \vspace{-1 em}
+        \end{wrapfigure}
+        如果$B$不是零测集，即$m(B)>0$，那么在$B$中存在Lebesgue点$x_0$，使得$\lim_{\delta\to 0}{\frac{m\left((x_0-\delta,x_0+\delta)\cap B\right)}{2\delta}}=1$
+    \end{enumerate}
+\end{instance}
 
 
 

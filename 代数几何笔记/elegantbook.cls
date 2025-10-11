@@ -444,6 +444,7 @@
   \newcommand{\exercisename}{练习} % 练习=习题
   \newcommand{\remarkname}{注}
   \newcommand{\assumptionname}{假设}
+  \newcommand{\noticename}{提醒}
   \newcommand{\conclusionname}{结论}
   \newcommand{\solutionname}{解}
   \newcommand{\propertyname}{性质}
@@ -873,14 +874,15 @@
   \par}
 
 \newenvironment{instance}{
-  \par\noindent\textbf{\color{second}例\;}
+  \par\noindent\textbf{\color{second}例\ \;}
   \color{black!90}\cfs}{
   \par}
 
 \newenvironment{solution}{\par\noindent\textbf{\color{main}\solutionname} \citshape}{\par}
-\newenvironment{remark}{\noindent\textbf{\color{third}\remarkname}}{\par}
+\newenvironment{remark}{\noindent\textbf{\color{third}\remarkname}\ \ \;}{\par}
+\newenvironment{notice}{\noindent\textbf{\color{second}\fontsize{9.5pt}{11.5pt}\selectfont\raisebox{0.15ex}\noticename}\hspace{0.02em}\citshape}{\par}
 \newenvironment{assumption}{\par\noindent\textbf{\color{third}\assumptionname} \citshape}{\par}
-\newenvironment{conclusion}{\par\noindent\textbf{\color{third}\conclusionname} \citshape}{\par}
+\newenvironment{conclusion}{\par\noindent\textbf{\color{third}\fontsize{9.5pt}{11.5pt}\selectfont\raisebox{0.15ex}\conclusionname}\hspace{-0.23em} \citshape}{\par}
 \newenvironment{property}{\par\noindent\textbf{\color{third}\propertyname} \citshape}{\par}
 \newenvironment{custom}[1]{\par\noindent\textbf{\color{third} #1} \citshape}{\par}
 
