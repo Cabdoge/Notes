@@ -370,7 +370,7 @@ $\begin{aligned}
     $T^{-1}A=T^{-1}(X\setminus B)=T^{-1}X\setminus T^{-1}B = X\setminus B=A\ \Rightarrow T^{-n}A=A$，\par
     $\Rightarrow \forall\, n\in\mbb{N},m(T^{-n}A\cap B)=m(A\cap B)=m \left((X\setminus B)\cap B\right) =0$.与(4)矛盾!
 \end{proof}
-
+从直观上理解，遍历映射的定义和结论2是说在该映射下几乎保持不变的集合要么几乎是全集，要么几乎是空集.结论3和结论4是在说任意一个正测度的集合在映射的作用下会遍历几乎整个空间.只不过结论3只从集合本身出发，而结论4利用两个正测度的集合的关系来描述遍历性.
 
 
 \begin{theorem}{遍历映射的等价函数刻画}
@@ -407,7 +407,7 @@ $\begin{aligned}
         \vspace{-1 em}
         \includegraphics[width=0.25\textwidth]{fig/2.5.png}
         \captionof{figure}{$[0,1)$表为圆周}
-        \vspace{-1 em}
+        \vspace{-4 em}
     \end{wrapfigure}
     我们有两种方法对这一问题进行解答，第一种方法为直接使用遍历映射的定义.\par
     从定义来看，如果$R_\alpha$是一个遍历映射，那么对于任意满足$R_\alpha^{-1}(B)=B$的可测集$B$是零测集或是全测集.\par
@@ -419,19 +419,48 @@ $\begin{aligned}
         下面在该周期轨道中的每一个附近选取一个测度相等的小邻域，$B=(-\varepsilon,\varepsilon)\cup\left(\frac{1}{m}-\varepsilon,\frac{1}{m}+\varepsilon\right)\cup\cdots\cup \left(\frac{m-1}{m}-\varepsilon,\frac{m-1}{m}+\varepsilon\right)$.\par
         由$R_\alpha$的周期性可知$R_\alpha^{-1}B=B$，但由于邻域选取的较小，故$0<m(B)<1$，则$R_\alpha$不是遍历映射.
         \item 当$\alpha\in\mathbb{R}\setminus\mathbb{Q}$时，一个重要的性质是此时所有轨道$\big\{\{n\alpha\}_{n\in\mbb{Z}}\big\}$在$X=[0,1)\cong S^1$中是稠密的，这个性质可以使用抽屉原理加以证明.\par
+        下面证明当$\alpha$为无理数时，$R_\alpha$是一个遍历映射.\par
         设$B\in X$是一个可测集，且满足$R_\alpha^{-1}B=B$.\par
         如果$B$是零测集，证毕.\par
-        \begin{wrapfigure}{r}{0.35\textwidth}
-            \vspace{-1 em}
-            \includegraphics[width=0.35\textwidth]{fig/2.6.png}
-            \vspace{-1 em}
-        \end{wrapfigure}
-        如果$B$不是零测集，即$m(B)>0$，那么在$B$中存在Lebesgue点$x_0$，使得$\lim_{\delta\to 0}{\frac{m\left((x_0-\delta,x_0+\delta)\cap B\right)}{2\delta}}=1$
+        如果$B$不是零测集，即$m(B)>0$ \par
+        那么在$B$中存在Lebesgue点$x_0$，使得$\lim_{\delta\to 0}{\frac{m\left((x_0-\delta,x_0+\delta)\cap B\right)}{2\delta}}=1$.\par
+        则$\forall\,\varepsilon>0,\exists\,\delta>0,\st,\forall\,r<\delta,2r(1-\varepsilon)\leq m\big((x_0-r,x_0+r)\cap B\big)\leq 2r(1+\varepsilon)$.\par
+        \begin{minipage}[t]{0.645\textwidth}
+            取$k\in\mb{Z}$，$\st\{k\alpha\}<\delta$.\par
+            现令$2r=\{k\alpha\}$，则$r\in(0,\delta)$.\par
+            由$R_\alpha$为可测映射，所以$R_\alpha^{-1}B=B\Rightarrow R_{k\alpha}^{-1}(B)=B$.\par
+            且$(x_0-r,x_0+r)\cap B\xLongrightarrow{R_{k\alpha}}(x_0-r+\{k\alpha\},x_0+r+\{k\alpha\})\cap B$，其中$x_0-r+\{k\alpha\}=x_0+r,x_0+r+\{k\alpha\}=x_0+3r$.\par
+            以此类推，得到区间$I_0=(x_0-r,x_0+r),I_1=(x_0+r,x_0+3r),\cdots$，
+        \end{minipage}
+        \begin{minipage}[t]{0.32\textwidth}
+            \vspace{-1em}
+            \includegraphics[width=1\textwidth]{fig/2.6.png}
+            \captionof{figure}{$R_{k\alpha}$作用在区间上}
+        \end{minipage}
+        使得$I_i\cap I_j=\varnothing,m(I_i)=m(I_j)(\forall\, i,j)$，那么$m \left(X\setminus\bigcup_i{I_i}\right)<2r$.\par
+        所以$m(B)\geq \sum_i{m(I_i)}(1-\varepsilon)\geq(1-2r)(1-\varepsilon)$.\par
+        令$\varepsilon\to 0,r\to 0$可得$m(B)=1$.\par
+        因此$B$要么是零测集，要么是全测集，$R_\alpha$是遍历映射.
+    \end{enumerate}\par
+    第二个方法是利用函数来判断$R_\alpha$是否为遍历映射.\par
+    设$L^2(X,\mcal{B}_X,m_\mathrm{Leb})$是$X$上所有平方可积函数构成的空间，则它是一个完备内积空间，即Hilbert空间，其中的内积定义为$
+    \langle f,g\rangle=\int_X \bar{f}g\d m$.\par
+    $L^2(X,\mcal{B}_X,m_\mathrm{Leb})$中有一组标准正交基$\big\{e_n=e^{2\pi inx}|n\in\mb{Z}\big\}$，$\| e_n \|=\left(\int_0^1{\left|e^{2\pi inx}\right|^2\d x}\right)^{1/2}=1$.\par
+    $\forall\,f\in L^2(X,\mcal{B}_X,m_\mathrm{Leb})$，$\exists\, c_n\in\mb{C},\st f(x)=\sum_{n\in\mb{Z}}{c_n\cdot e_n}\Leftrightarrow \left\|f(x)-\sum_{n=-N}^N{c_n e_n}\right\|_{L^2}\to 0(N\to 0)$.其中$f\in L^2(X,\mcal{B}_X,m_\mathrm{Leb})(f:X\to\mb{C})$，系数$c_n=\int_0^1{f(x)e^{-2\pi inx}}\d x$.\par
+    \begin{enumerate}[(1)]
+        \item $\alpha\in\mb{Q},\alpha=\frac{n}{m}(m\in\mb{N}^*,n\in\mb{Z},(m,n)=1)$.\par
+        则$\exists\, f(x)=e_m=e^{2\pi imx}$，$f\circ R_\alpha(x)=e^{2\pi im(x+\alpha)}=e^{2\pi imx}=f$.\par
+        由于$f\neq const$，所以$R_\alpha:X\to X$不是遍历映射.
+        \item $\alpha\in\mb{R}\setminus\mb{Q}$，设$f\in L^2(X,\mcal{B}_X,m_\mathrm{Leb})$满足$f\circ R_\alpha=f\aew$.\par
+        则$f(x)=\sum_{n\in\mb{Z}}{c_n\cdot e_n}$，其中$c_n$是$f$是关于基$\{e_m\}_{m\in\mb{Z}}$的坐标.\par
+        $f\circ R_\alpha(x)=\sum_{n\in\mb{Z}}{c_n e^{2\pi in(x+\alpha)}}=\sum_{n\in\mb{Z}}{(c_n e^{2\pi in\alpha})\cdot e^{2\pi inx}}$，且$f\circ R_\alpha(x)\in L^2(X,\mcal{B}_X,m_\mathrm{Leb})$.\par
+        因为$f\circ R_\alpha=f\aew \Rightarrow f\circ R_\alpha$和$f$代表$L^2(X,\mcal{B}_X,m_\mathrm{Leb})$中的同一元素，因此二者坐标相同，即$c_n=c_n\cdot e^{2\pi in\alpha}$.\par
+        由于$\alpha\in\mb{R}\setminus\mb{Q}$，$e^{2\pi in\alpha}\neq 1 \Rightarrow c_n=0(n\neq 0)$.\par
+        因此$f=\sum_{n\in\mb{Z}}{c_ne_n}=c_0e_0=c_0\in L^2(X,\mcal{B}_X,m_\mathrm{Leb})$.故$R_\alpha$为遍历映射.
     \end{enumerate}
 \end{instance}
 
-
-
+ 
 
 
 

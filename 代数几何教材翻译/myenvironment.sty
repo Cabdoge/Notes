@@ -1,0 +1,191 @@
+% myenvironment.sty
+% 提供 mynote、side、homework 三个环境 + 简洁填空线 \fillin
+% 编码：UTF-8
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{myenvironment}[2025/08/30 v1.1 tcolorbox + homework(list) + simple fillin]
+
+%================ 依赖宏包 ================
+\RequirePackage{ctex}          % 中文与字体接口
+\RequirePackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\RequirePackage{xcolor}
+\RequirePackage{tikz}
+\usetikzlibrary{shadings}
+% homework 环境依赖
+\RequirePackage{xparse}        % NewDocumentEnvironment
+\RequirePackage{keyval}        % 解析 [index=...]
+\RequirePackage{enumitem}      % 让内嵌列表继承左边界与键值选项
+
+%================ 颜色（可在文档中重定义） ================
+\providecolor{noteBlue}{RGB}{60,113,183}
+\providecolor{barStart}{RGB}{149,182,221}
+\providecolor{barEnd}{RGB}{252,252,252}
+
+%================ 字体族（可在文档中重定义） ================
+% 仅在本包环境内部使用的 CJK 家族名：FS(仿宋)、KT(楷体)
+% 用户可在加载本包后重设为系统中实际存在的字体名
+\providecommand{\myeFSfontname}{FangSong} % Windows: FangSong / 仿宋_GB2312
+\providecommand{\myeKTfontname}{KaiTi}    % Windows: KaiTi / 楷体
+
+% 注册家族（若用户已设置同名家族，则保留用户设置）
+\@ifundefined{CJK@family@FS}{%
+  \setCJKfamilyfont{FS}{\myeFSfontname}
+}{}
+\@ifundefined{CJK@family@KT}{%
+  \setCJKfamilyfont{KT}{\myeKTfontname}
+}{}
+
+%================ 计数器（mynote） ================
+\newcounter{mynotecounter}[section]
+\renewcommand\themynotecounter{\thesection.\arabic{mynotecounter}}
+
+%================ mynote 环境 ================
+% 可调参数（用户可在导言区重定义）
+\newcommand{\mynoteLeft}{45pt}         % 左边距，同时也是渐变条宽度
+\newcommand{\mynoteRight}{3pt}
+\newcommand{\mynoteTop}{3pt}
+\newcommand{\mynoteBottom}{3pt}
+\newcommand{\mynoteBeforeSkip}{10pt}
+\newcommand{\mynoteAfterSkip}{10pt}
+\newcommand{\mynoteRuleLen}{.08*\linewidth} % 顶部短横线长度
+\newcommand{\mynoteRuleThick}{1.8pt}        % 顶部短横线厚度
+\newcommand{\mynoteRuleShift}{-1.8pt}       % 顶部短横线整体 y 偏移（相对盒子上沿）
+
+\newtcolorbox{mynote}{%
+  enhanced,
+  breakable,
+  blanker,
+  colback=white,
+  left=\mynoteLeft+5pt, right=\mynoteRight, top=\mynoteTop, bottom=\mynoteBottom,
+  width=\textwidth,
+  before skip=\mynoteBeforeSkip, after skip=\mynoteAfterSkip,
+  arc=0pt, outer arc=0pt,
+  boxrule=0pt,
+  overlay unbroken={%
+    % 左侧渐变条：宽度等于 \mynoteLeft
+    \shade[left color=barStart,right color=barEnd]
+      ([xshift=0pt]interior.north west) rectangle
+      ([xshift=\mynoteLeft]interior.south west);
+    % 顶部短横线：上沿与盒子上沿平行，整体 y 偏移 \mynoteRuleShift
+    \fill[noteBlue]
+      ([yshift=\mynoteRuleShift]interior.north west) rectangle
+      ([xshift=\mynoteRuleLen, yshift=\mynoteRuleShift+\mynoteRuleThick]interior.north west);
+  },
+  overlay first={%
+    \shade[left color=barStart,right color=barEnd]
+      ([xshift=0pt]interior.north west) rectangle
+      ([xshift=\mynoteLeft]interior.south west);
+    \fill[noteBlue]
+      ([yshift=\mynoteRuleShift]interior.north west) rectangle
+      ([xshift=\mynoteRuleLen, yshift=\mynoteRuleShift+\mynoteRuleThick]interior.north west);
+  },
+  overlay middle={%
+    \shade[left color=barStart,right color=barEnd]
+      ([xshift=0pt]interior.north west) rectangle
+      ([xshift=\mynoteLeft]interior.south west);
+  },
+  overlay last={%
+    \shade[left color=barStart,right color=barEnd]
+      ([xshift=0pt]interior.north west) rectangle
+      ([xshift=\mynoteLeft]interior.south west);
+  },
+  % 标题：楷体；正文：仿宋
+  before upper={%
+    \refstepcounter{mynotecounter}%
+    {\color{noteBlue}\bfseries \CJKfamily{KT} 注~\themynotecounter}\quad
+    \CJKfamily{FS}%
+    \setlength{\parindent}{2em}% 盒内默认首行缩进
+  },
+  fontupper=\CJKfamily{FS},
+}
+
+%================ side 环境 ================
+\newcommand{\sideLeft}{3pt}
+\newcommand{\sideRight}{3pt}
+\newcommand{\sideTop}{3pt}
+\newcommand{\sideBottom}{3pt}
+\newcommand{\sideBeforeSkip}{10pt}
+\newcommand{\sideAfterSkip}{10pt}
+\newcommand{\sideRule}{3pt}
+\newcommand{\sideRuleColor}{gray!60}
+
+\newtcolorbox{side}{%
+  blanker,
+  breakable,
+  left=\sideLeft,
+  right=\sideRight,
+  top=\sideTop,
+  bottom=\sideBottom,
+  width=\textwidth,
+  borderline west={\sideRule}{0pt}{\sideRuleColor},
+  colback=white,
+  before skip=\sideBeforeSkip,
+  after skip=\sideAfterSkip,
+  arc=0pt,
+  outer arc=0pt,
+  boxrule=0pt,
+  leftrule=\sideRule,
+}
+
+%================ homework 环境（列表法，安全版） ================
+% 用法：
+%   \begin{homework} 题干 ... \end{homework}
+%   \begin{homework}[index=1] ... \end{homework} % 重置编号为 1
+\makeatletter
+
+% 计数器与键
+\newcounter{homework}
+\newcommand{\thehomeworklabel}{\arabic{homework}.}
+\define@key{homework}{index}{\setcounter{homework}{#1-1}}
+
+% 可调间距
+\newlength{\homeworklabelleftpad}   % 题号前留白
+\newlength{\homeworklabelsep}       % 题号后留白
+\setlength{\homeworklabelleftpad}{0.75em}
+\setlength{\homeworklabelsep}{0.75em}
+
+% 计算“左白+题号+右白”的总宽
+\newlength{\homework@labelwidth}
+\newcommand{\homework@calcwidth}{%
+  \settowidth{\homework@labelwidth}{%
+    \hspace*{\homeworklabelleftpad}\thehomeworklabel\hspace{\homeworklabelsep}%
+  }%
+}
+
+% 标签盒子（定宽，便于 list 对齐）
+\newcommand{\homework@labbox}{%
+  \makebox[\homework@labelwidth][l]{%
+    \hspace*{\homeworklabelleftpad}\thehomeworklabel\hspace{\homeworklabelsep}%
+  }%
+}
+
+% 环境：真实左边界 + 稳定的垂直间距（不重定义任何全局环境）
+\NewDocumentEnvironment{homework}{O{}}{%
+  \setkeys{homework}{#1}%
+  \refstepcounter{homework}%
+  \homework@calcwidth
+  \begin{list}{}{%
+    \labelwidth=\homework@labelwidth
+    \leftmargin=\homework@labelwidth
+    \labelsep=0pt
+    \itemindent=0pt
+    \parsep=0pt
+    \itemsep=0pt
+    \topsep=.5\baselineskip  % 环境前后垂直间距，按需调整
+    \partopsep=0pt
+  }%
+  \item[\homework@labbox]%
+  % 在本环境的分组作用域内，让内嵌列表自动左齐到题号后
+  \setlist[enumerate]{leftmargin=*,nosep}
+  \setlist[itemize]{leftmargin=*,nosep}
+  \setlist[description]{leftmargin=0pt,labelindent=0pt,nosep}
+}{%
+  \end{list}%
+}
+
+\makeatother
+
+
+
+%================ 结束 ================
+\endinput

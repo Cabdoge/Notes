@@ -1,0 +1,577 @@
+\chapter{三次曲线与群运算律}
+
+\section{参数化三次曲线的例子}
+
+一些平面三次曲线可以像二次曲线一样被参数化:
+
+有结点的三次曲线 \(C : \left( {{y}^{2} = {x}^{3} + {x}^{2}}\right)  \subset  {\mathbb{R}}^{2}\) 是由映射 \(\varphi  : {\mathbb{R}}^{1} \rightarrow  {\mathbb{R}}^{2}\) 给出的像 \(t \mapsto\)  \(\left( {{t}^{2} - 1,{t}^{3} - t}\right)\) (验证一下即可)；
+
+尖点三次曲线 \(\;C : \left( {{y}^{2} = {x}^{3}}\right)  \subset  {\mathbb{R}}^{2}\) 是由 \(\varphi  : {\mathbb{R}}^{1} \rightarrow  {\mathbb{R}}^{2}\) 给出的像，表达式为 \(t \mapsto  \left( {{t}^{2},{t}^{3}}\right)\) :
+
+\begin{center}
+\includegraphics[max width=0.8\textwidth]{images/bo_d3lj80c601uc738kffi0_32_266_1160_1141_681_0.jpg}
+\captionof{figure}{参数化三次曲线}
+\end{center}
+\hspace*{3em} 
+
+
+思考像曲线及映射 \(\varphi\) 的奇点.这些例子将在整个课程中反复出现，因此花些时间研究这些方程；参见练习2.1-2.
+
+\section{曲线 \(\left( {{y}^{2} = x\left( {x - 1}\right) \left( {x - \lambda }\right) }\right)\) 没有有理参数化}
+
+参数化曲线很方便；例如，如果你对丢番图问题感兴趣，可以期望有一个规则给出所有 \(\mathbb{Q}\) -值点，如(1.1)所示.(1.1)的参数化形式为 \(x = f\left( t\right) ,y = g\left( t\right)\) ，其中 \(f\) 和 \(g\) 是有理函数，即两个多项式的商.
+
+定理 设 \(k\) 为特征为 \(\neq  2\) 的域，且设 \(\lambda  \in  k\) 满足 \(\lambda  \neq  0,1\) ；设 \(f,g \in  k\left( t\right)\) 为满足以下条件的有理函数
+
+\[
+{f}^{2} = g\left( {g - 1}\right) \left( {g - \lambda }\right) .
+\]
+ (*)
+
+则 \(f,g \in  k\) .
+
+这等价于说不存在任何由有理函数给出的非平凡映射 \({\mathbb{R}}^{1} \rightarrow  C : \left( {{y}^{2} = }\right.\)  \(x\left( {x - 1}\right) \left( {x - \lambda }\right) )\) .这反映了簇的一个非常强的“刚性”性质.
+
+该定理的证明是在域 \(k\left( t\right)\) 上的算术，利用了 \(k\left( t\right)\) 是唯一分解整环(UFD) \(k\left\lbrack  t\right\rbrack\) 的分式域的事实.证明较长，准备详细学习或暂时跳过(跳转至2.4).练习2.12中有一个通过在 \(\mathbb{Q}\) 上的算术进行不存在性证明的非常相似的例子.
+
+证明 利用 \(k\left\lbrack  t\right\rbrack\) 是唯一分解整环的事实，我写成
+
+\[
+f = r/s\;\text{ with }r,s \in  k\left\lbrack  t\right\rbrack  \text{ and coprime, }
+\]
+
+\[
+g = p/q\;\text{ with }p,q \in  k\left\lbrack  t\right\rbrack  \text{ and coprime. }
+\]
+
+去分母后， \(\left( *\right)\) 变为
+
+\[
+{r}^{2}{q}^{3} = {s}^{2}p\left( {p - q}\right) \left( {p - {\lambda q}}\right) .
+\]
+
+由于 \(r\) 和 \(s\) 互素，右侧的因子 \({s}^{2}\) 必须整除 \({q}^{3}\) ，同理，由于 \(p\) 和 \(q\) 互素，左侧因子 \({q}^{3}\) 必须整除 \({s}^{2}\) .因此，
+
+\[
+{s}^{2} \mid  {q}^{3}\text{ and }{q}^{3} \mid  {s}^{2},\;\text{ so that }{s}^{2} = a{q}^{3}\;\text{ with }a \in  k
+\]
+
+( \(a\) 是 \(k\left\lbrack  t\right\rbrack\) 的单位，因此属于 \(k\) ).
+
+然后
+
+\[
+{aq} = {\left( s/q\right) }^{2}\;\text{ is a square in }k\left\lbrack  t\right\rbrack  \text{ . }
+\]
+
+此外，
+
+\[
+{r}^{2} = {ap}\left( {p - q}\right) \left( {p - {\lambda q}}\right) ,
+\]
+
+因此通过考虑素因数分解，存在非零常数 \(b,c,d \in  k\) 使得
+
+\[
+{bp},\;c\left( {p - q}\right) ,\;d\left( {p - {\lambda q}}\right)
+\]
+
+都是 \(k\left\lbrack  t\right\rbrack\) 中的平方.如果我能证明 \(p,q\) 是常数，那么根据前述内容， \(r,s\) 也将是常数，从而证明该定理.为了证明 \(p,q\) 是常数，设 \(K\) 为 \(k\) 的代数闭包；则 \(p,q \in  K\left\lbrack  t\right\rbrack\) 满足下一个引理的条件.
+
+引理2.3 设 \(K\) 为代数闭域， \(p,q \in  K\left\lbrack  t\right\rbrack\) 为互素元素，且假设4个不同的线性组合(即4个不同比值 \(\left( {\lambda  : \mu }\right)  \in  {\mathbb{P}}^{1}K\) 对应的 \({\lambda p} + {\mu q}\) )在 \(K\left\lbrack  t\right\rbrack\) 中均为平方；则 \(p,q \in  K\) .
+
+证明(费马的“无限下降法”)引理的假设和结论在用 \(p,q\) 替换时不受影响
+
+\[
+{p}^{\prime } = {ap} + {bq},\;{q}^{\prime } = {cp} + {dq},
+\]
+
+其中 \(a,b,c,d \in  K\) 和 \({ad} - {bc} \neq  0\) .因此我可以假设给定的4个平方是
+
+\[
+p,\;p - q,\;p - {\lambda q},\;q.
+\]
+
+则 \(p = {u}^{2},q = {v}^{2}\) ，且 \(u,v \in  K\left\lbrack  t\right\rbrack\) 互素，满足
+
+\[
+\max \left( {\deg u,\deg v}\right)  < \max \left( {\deg p,\deg q}\right) .
+\]
+
+现在通过反证法，假设 \(\max \left( {\deg p,\deg q}\right)  > 0\) 且在所有满足引理条件的 \(p,q\) 中取最小.则两者
+
+\[
+p - q = {u}^{2} - {v}^{2} = \left( {u - v}\right) \left( {u + v}\right)
+\]
+
+和
+
+\[
+p - {\lambda q} = {u}^{2} - \lambda {v}^{2} = \left( {u - {\mu v}}\right) \left( {u + {\mu v}}\right)
+\]
+
+(其中 \(\mu  = \sqrt{\lambda }\) )在 \(K\left\lbrack  t\right\rbrack\) 中是平方，因此由 \(u,v\) 的互素性，我得出 \(u - v\) 和 \(u + v,u - {\mu v},u + {\mu v}\) 均为平方.这与 \(\max \left( {\deg p,\deg q}\right)\) 的最小性矛盾.证毕.
+
+\section{2.4 线性系统}
+
+写成 \(\left( {X,Y,Z}\right) \}\) 中次数为 \(d\) 的 \({S}_{d} = \{\) 次型；(回想一下，型即齐次多项式).任意元素 \(F \in  {S}_{d}\) 可以唯一表示为
+
+\[
+F = \sum {a}_{ijk}{X}^{i}{Y}^{j}{Z}^{k}
+\]
+
+其中 \({a}_{ijk} \in  k\) ，求和遍及所有满足 \(i + j + k = d\) 的 \(i,j,k \geq  0\) ；这当然意味着 \({S}_{d}\) 是一个以 \(k\) 为基的向量空间
+
+\({Z}^{d}\)
+
+\[
+X{Z}^{d - 1}Y{Z}^{d - 1}
+\]
+
+\[
+{X}^{d - 1}Z{X}^{d - 2}{YZ}\ldots X{Y}^{d - 2}Z
+\]
+
+\[
+{X}^{d}\;{X}^{d - 1}Y\;{X}^{d - 2}{Y}^{2}\;\ldots \;{Y}^{d}
+\]
+
+特别地， \(\dim {S}_{d} = \left( \begin{matrix} d + 2 \\  2 \end{matrix}\right)\) .对于 \({P}_{1},\ldots ,{P}_{n} \in  {\mathbb{P}}^{2}\) ，定义
+
+\[
+{S}_{d}\left( {{P}_{1},\ldots ,{P}_{n}}\right)  = \left\{  {F \in  {S}_{d} \mid  F\left( {P}_{i}\right)  = 0\text{ for }i = 1,\ldots ,n}\right\}   \subset  {S}_{d}.
+\]
+
+每个条件 \(F\left( {P}_{i}\right)  = 0\) (更准确地说， \(F\left( {{X}_{i},{Y}_{i},{Z}_{i}}\right)  = 0\) ，其中 \(\left. {{P}_{i} = \left( {{X}_{i} : {Y}_{i} : {Z}_{i}}\right) }\right)\) 是对 \(F\) 的一个线性条件，因此 \({S}_{d}\left( {{P}_{1},\ldots ,{P}_{n}}\right)\) 是维数为 \(\geq  \left( \begin{matrix} d + 2 \\  2 \end{matrix}\right)  - n\) 的向量空间.
+
+引理2.5 设 \(k\) 为无限域，且令 \(F \in  {S}_{d}\) .
+
+(i) 设 \(L \subset  {\mathbb{P}}_{k}^{2}\) 为一条直线；若 \(F \equiv  0\) 在 \(L\) 上，则 \(F\) 在 \(k\left\lbrack  {X,Y,Z}\right\rbrack\) 中可被 \(L\) 的方程整除.即， \(F = H \cdot  {F}^{\prime }\) ，其中 \(H\) 是 \(L\) 的方程，且 \({F}^{\prime } \in  {S}_{d - 1}\) .
+
+(ii) 设 \(C \subset  {\mathbb{P}}_{k}^{2}\) 为非空非退化的圆锥曲线；若 \(F \equiv  0\) 在 \(C\) 上，则 \(F\) 在 \(k\left\lbrack  {X,Y,Z}\right\rbrack\) 中可被 \(C\) 的方程整除.即， \(F = Q \cdot  {F}^{\prime }\) ，其中 \(Q\) 是 \(C\) 的方程，且 \({F}^{\prime } \in  {S}_{d - 2}\) .
+
+如果你认为这个命题显而易见，恭喜你的直觉:你刚刚猜到了 Nullstellensatz(零点定理)的一个特例.现在请自己寻找证明(跳转至 2.6).
+
+证明 (i) 通过坐标变换，我可以假设 \(H = X\) .那么对于任意 \(F \in  {S}_{d}\) ，存在唯一的表达式 \(F = X \cdot  {F}_{d - 1}^{\prime } + G\left( {Y,Z}\right)\) :只需将所有含有 \(X\) 的单项式归入第一个加数，剩下的必定是仅含 \(Y,Z\) 的多项式.现在
+
+\[
+F \equiv  0\text{ on }L \Leftrightarrow  G \equiv  0\text{ on }L \Leftrightarrow  G\left( {Y,Z}\right)  = 0.
+\]
+
+最后一步成立是因为 (1.8):若 \(G\left( {Y,Z}\right)  \neq  0\) ，则它在 \({\mathbb{P}}_{k}^{1}\) 上最多有 \(d\) 个零点，而若 \(k\) 是无限的，则 \({\mathbb{P}}_{k}^{1}\) 也是无限的.
+
+(ii) 通过坐标变换， \(Q = {XZ} - {Y}^{2}\) .现在我来证明对于任意 \(F \in  {S}_{d}\) ，存在唯一的表达式
+
+\[
+F = Q \cdot  {F}_{d - 2}^{\prime } + A\left( {X,Z}\right)  + {YB}\left( {X,Z}\right)  :
+\]
+
+如果我将 \({XZ} - Q\) 代入 \(F\) 中所有出现的 \({Y}^{2}\) ，剩下的在 \(Y\) 中的次数为 \(\leq  1\) ，因此形式为 \(A\left( {X,Z}\right)  + {YB}\left( {X,Z}\right)\) .现在如同 (1.7)， \(C\) 是由 \(X = {U}^{2},Y = {UV},Z = {V}^{2}\) 给出的参数化圆锥曲线，因此
+
+\[
+F \equiv  0\text{ on }C \Leftrightarrow  A\left( {{U}^{2},{V}^{2}}\right)  + {UVB}\left( {{U}^{2},{V}^{2}}\right)  \equiv  0\text{ on }C
+\]
+
+\[
+\Leftrightarrow  A\left( {{U}^{2},{V}^{2}}\right)  + {UVB}\left( {{U}^{2},{V}^{2}}\right)  = 0 \in  k\left\lbrack  {U,V}\right\rbrack
+\]
+
+\[
+\Leftrightarrow  A\left( {X,Z}\right)  = B\left( {X,Z}\right)  = 0\text{ . }
+\]
+
+这里最后的等式是通过分别考虑形式 \(A\left( {{U}^{2},{V}^{2}}\right)  + {UVB}\left( {{U}^{2},{V}^{2}}\right)\) 中偶次和奇次项得到的.证毕.
+
+练习 2.2 给出了类似的“显式”零点定理的例子.
+
+推论 设 \(L : \left( {H = 0}\right)  \subset  {\mathbb{P}}_{k}^{2}\) 为一条直线(或 \(C : \left( {Q = 0}\right)  \subset  {\mathbb{P}}_{k}^{2}\) 为非退化圆锥曲线)；假设给定点 \({P}_{1},\ldots ,{P}_{n} \in  {\mathbb{P}}_{k}^{2}\) ，并考虑某固定 \(d\) 的 \({S}_{d}\left( {{P}_{1},\ldots ,{P}_{n}}\right)\) .则
+
+(i) 若 \({P}_{1},\ldots ,{P}_{a} \in  L,{P}_{a + 1},\ldots ,{P}_{n} \notin  L\) 和 \(a > d\) ，则
+
+\[
+{S}_{d}\left( {{P}_{1},\ldots ,{P}_{n}}\right)  = H \cdot  {S}_{d - 1}\left( {{P}_{a + 1},\ldots ,{P}_{n}}\right) .
+\]
+
+(ii) 如果 \({P}_{1},\ldots ,{P}_{a} \in  C,{P}_{a + 1},\ldots ,{P}_{n} \notin  C\) 和 \(a > {2d}\) ，则
+
+\[
+{S}_{d}\left( {{P}_{1},\ldots ,{P}_{n}}\right)  = Q \cdot  {S}_{d - 2}\left( {{P}_{a + 1},\ldots ,{P}_{n}}\right) .
+\]
+
+证明 (i) 如果 \(F\) 是 \(d\) 次齐次的，且曲线 \(D : \left( {F = 0}\right)\) 在点 \({P}_{1},\ldots ,{P}_{a}\) 处与 \(L\) 相交，且满足 \(a > d\) ，则根据(1.9)，我必须有 \(L \subset  D\) ，因此根据引理， \(F = H \cdot  {F}^{\prime }\) ；现在由于 \({P}_{a + 1},\ldots ,{P}_{n} \notin  L\) ，显然 \({F}^{\prime } \in  {S}_{d - 1}\left( {{P}_{a + 1},\ldots ,{P}_{n}}\right)\) .(ii)完全相同.证毕.
+
+命题 2.6 设 \(k\) 是一个无限域，且有 \({P}_{1},\ldots ,{P}_{8} \in  {\mathbb{P}}_{k}^{2}\) 个不同的点；假设 \({P}_{1},\ldots ,{P}_{8}\) 中没有4点共线，且没有7点位于非退化二次曲线上，则
+
+\[
+\dim {S}_{3}\left( {{P}_{1},\ldots ,{P}_{8}}\right)  = 2.
+\]
+
+证明 为简便起见，我称一组点为共二次曲线(conconic)，如果它们都位于同一非退化二次曲线上.(2.6) 的证明分为若干情况.
+
+主要情况 无3点共线，无6点共二次曲线.这是“通用位置”情况.
+
+假设反设 \(\dim {S}_{3}\left( {{P}_{1},\ldots ,{P}_{8}}\right)  \geq  3\) ，且令 \({P}_{9},{P}_{10}\) 是直线 \(L = {P}_{1}{P}_{2}\) 上的不同点.则
+
+\[
+\dim {S}_{3}\left( {{P}_{1},\ldots ,{P}_{10}}\right)  \geq  \dim {S}_{3}\left( {{P}_{1},\ldots ,{P}_{8}}\right)  - 2 \geq  1,
+\]
+
+因此存在 \(0 \neq  F \in  {S}_{3}\left( {{P}_{1},\ldots ,{P}_{10}}\right)\) .根据推论 2.5， \(F = H \cdot  Q\) ，且满足 \(Q \in  {S}_{2}\left( {{P}_{3},\ldots ,{P}_{8}}\right)\) .现在我得到了与情况假设矛盾:如果 \(Q\) 是非退化的，则6点 \({P}_{3},\ldots ,{P}_{8}\) 共二次曲线；而如果 \(Q\) 是一对直线或重直线，则至少3点共线.
+
+\begin{center}
+\includegraphics[max width=0.3\textwidth]{images/bo_d3lj80c601uc738kffi0_36_587_1142_501_255_0.jpg}
+\end{center}
+\hspace*{3em} 
+
+图 2.2:一个可约三次曲线上的10个点
+
+第一退化情况 假设 \({P}_{1},{P}_{2},{P}_{3} \in  L\) 共线，且令 \(L : \left( {H = 0}\right)\) .令 \({P}_{9}\) 是直线 \(L\) 上的第4个点.则根据推论 2.5，
+
+\[
+{S}_{3}\left( {{P}_{1},\ldots ,{P}_{9}}\right)  = H \cdot  {S}_{2}\left( {{P}_{4},\ldots ,{P}_{8}}\right) .
+\]
+
+此外，由于 \({P}_{4},\ldots ,{P}_{8}\) 中没有4点共线，根据推论 1.11，
+
+\[
+\dim {S}_{2}\left( {{P}_{4},\ldots ,{P}_{8}}\right)  = 1\text{ , and then }\;\dim {S}_{3}\left( {{P}_{1},\ldots ,{P}_{9}}\right)  = 1\text{ , }
+\]
+
+这意味着 \(\dim {S}_{3}\left( {{P}_{1},\ldots ,{P}_{8}}\right)  \leq  2\) .
+
+第二退化情况 假设 \({P}_{1},\ldots ,{P}_{6} \in  C\) 共二次曲线，且 \(C : \left( {Q = 0}\right)\) 是非退化二次曲线.然后选择与 \({P}_{1},\ldots ,{P}_{6}\) 不同的 \({P}_{9} \in  Q\) .再次根据推论 2.5，
+
+\[
+{S}_{3}\left( {{P}_{1},\ldots ,{P}_{9}}\right)  = Q \cdot  {S}_{1}\left( {{P}_{7},{P}_{8}}\right) ;
+\]
+
+直线 \(L = {P}_{7}{P}_{8}\) 是唯一的，因此 \({S}_{3}\left( {{P}_{1},\ldots ,{P}_{9}}\right)\) 是由 \({QL}\) 张成的一维空间，因此 \(\dim {S}_{3}\left( {{P}_{1},\ldots ,{P}_{8}}\right)  \leq  2\) .证毕.
+
+推论 2.7 设 \({C}_{1},{C}_{2}\) 为两条三次曲线，其交点由9个不同点组成， \({C}_{1} \cap  {C}_{2} = \left\{  {{P}_{1},\ldots ,{P}_{9}}\right\}\) .则经过 \({P}_{1},\ldots ,{P}_{8}\) 的三次曲线 \(D\) 也经过 \({P}_{9}\) .
+
+证明 若4个点 \({P}_{1},\ldots ,{P}_{8}\) 位于一条直线 \(L\) 上，则 \({C}_{1}\) 和 \({C}_{2}\) 各自与 \(L\) 相交于 \(\geq  4\) 个点，因此包含 \(L\) ，这与对 \({C}_{1} \cap  {C}_{2}\) 的假设矛盾.出于完全相同的理由，不能有7个点共圆.因此满足(2.6)的假设，故我可以得出结论
+
+\[
+\dim {S}_{3}\left( {{P}_{1},\ldots ,{P}_{8}}\right)  = 2
+\]
+
+这意味着两条三次曲线 \({C}_{1},{C}_{2}\) 的方程 \({F}_{1},{F}_{2}\) 构成 \({S}_{3}\left( {{P}_{1},\ldots ,{P}_{8}}\right)\) 的一组基，因此 \(D : \left( {G = 0}\right)\) ，其中 \(G = \lambda {F}_{1} + \mu {F}_{2}\) .现在 \({F}_{1},{F}_{2}\) 在 \({P}_{9}\) 处消失，因此 \(G\) 也消失.证毕.
+
+\section{2.8 平面三次曲线上的群运算}
+
+设 \(k \subset  \mathbb{C}\) 是 \(\mathbb{C}\) 的一个子域， \(F \in  k\left\lbrack  {X,Y,Z}\right\rbrack\) 是定义(非空)平面曲线 \(C : \left( {F = 0}\right)  \subset  {\mathbb{P}}_{k}^{2}\) 的三次型.假设 \(F\) 满足以下两个条件:
+
+(a) \(F\) 是不可约的(因此 \(C\) 不包含直线或圆锥曲线)；
+
+(b) 对每个点 \(P \in  C\) ，存在唯一一条直线 \(L \subset  {\mathbb{P}}_{k}^{2}\) ，使得 \(P\) 是 \(F \mid  L\) 的重根.
+
+注意，从几何角度看，条件(b) 表示 \(C\) 应为非奇异点，所指的直线 \(L\) 是切线 \(L = {T}_{P}C\) (参见例2.3).这将成为在 \(\$ 6\) 中对非奇异性和簇的切空间一般定义的动机.
+
+固定任意点 \(O \in  C\) ，进行如下构造:
+
+构造 (i) 对 \(A \in  C\) ，令 \(\bar{A} = {3rd}\) 为 \(C\) 与直线 \({OA}\) 的交点；
+
+(ii) 对 \(A,B \in  C\) ，写出 \(R = {3rd}\) 为 \({AB}\) 与 \(C\) 的交点，并通过 \(A + B = \bar{R}\) 定义 \(A + B\) (见下图).
+
+定理 上述构造在 \(C\) 上定义了一个阿贝尔群运算，以 \(O\) 作为零元(中性元).证明 结合律是关键；我先从简单部分开始证明.
+
+(I) 我必须证明加法和逆元运算是良定义的.如果 \(P,Q \in  C\) 是任意两点，那么要么 \(P \neq  Q\) ，且直线 \(L = {PQ} \subset  {\mathbb{P}}_{k}^{2}\) 唯一确定，要么 \(P = Q\) ，此时根据假设(b)，存在唯一一条直线 \(L \subset  {\mathbb{P}}_{k}^{2}\) 使得 \(P\) 是 \(F \mid  L\) 的重零点；无论哪种情况， \(F \mid  L\) 都是两个变量的三次型，具有两个给定的 \(k\) 值零点.因此它可以分解为三个线性因子的乘积，因此无一例外，第三个剩余交点 \(R\) 是定义良好的，且其坐标属于 \(k\) .注意，允许任意的 \(P = Q,P = R,Q = R\) 或 \(P = Q = R\) ；这些在代数上对应于 \(F \mid  L\) 具有重零点，在几何上对应于切点和拐点.
+
+\begin{center}
+\includegraphics[max width=0.8\textwidth]{images/bo_d3lj80c601uc738kffi0_38_276_641_1131_1057_0.jpg}
+\end{center}
+\hspace*{3em} 
+
+图2.3:三次曲线及其群运算
+
+(II) 验证给定点 \(O\) 是单位元完全是形式上的:由于 \({OA}\bar{A}\) 共线，构造 \(O + A\) 包括取直线 \(L = {OA}\) 得到第三个交点 \(\bar{A}\) ，然后用同一条直线 \(L = O\bar{A}\) 返回到 \(A\) .
+
+(III) 我想我把 \(A + B = B + A\) 留给读者.
+
+(IV)为了求逆，首先定义构造中(i)所述的点 \(\bar{O}\) :设 \(L\) 为一条直线，使得 \(F \mid  L\) 具有 \(O\) 作为重零点，并定义 \(\bar{O}\) 为 \(L\) 与 \(C\) 的第三个交点；然后容易验证， \(\bar{O}A\) 与 \(C\) 的第三个交点即为每个 \(A \in  C\) 的 \(A\) 的逆.
+
+\section{2.9 一般情况下的结合律}
+
+现在我给出“充分一般”点的结合律证明:假设 \(A,B,C\) 是 \(C\) 上的三个给定点；则 \(\left( {A + B}\right)  + C = \bar{S}\) 的构造使用了4条直线(见上图)
+
+\[
+{L}_{1} : {ABR},\;{L}_{2} : {RO}\bar{R},\;{L}_{3} : C\bar{R}S\text{ and }{L}_{4} : {SO}\bar{S}.
+\]
+
+\(\left( {B + C}\right)  + A = \bar{T}\) 的构造使用了4条直线
+
+\[
+{M}_{1} : {BCQ},\;{M}_{2} : {QO}\bar{Q},\;{M}_{3} : A\bar{Q}T\text{ and }{M}_{4} : {TO}\bar{T}.
+\]
+
+我想证明 \(\bar{S} = \bar{T}\) ，显然为此只需证明 \(S = T\) ；为此，考虑两个三次曲线
+
+\[
+{D}_{1} = {L}_{1} + {M}_{2} + {L}_{3}\;\text{ and }\;{D}_{2} = {M}_{1} + {L}_{2} + {M}_{3}.
+\]
+
+然后根据构造，
+
+\[
+C \cap  {D}_{1} = \{ A,B,C,O,R,\bar{R},Q,\bar{Q},S\} ,
+\]
+
+\[
+\text{ and }C \cap  {D}_{2} = \{ A,B,C,O,R,\bar{R},Q,\bar{Q},T\} \text{ . }
+\]
+
+现在只要9个点 \(A,B,C,O,R,\bar{R},Q,\bar{Q},S\) 均不相同，两个三次曲线 \(C\) 和 \({D}_{1}\) 满足推论2.7的条件；因此， \({D}_{2}\) 必定经过 \(S\) ，而这唯一可能的情况是 \(S = T\) .
+
+完成论证有多种方法.其中最彻底的方法是真正处理两条曲线的交点，考虑多重交点(大致用“交点理想”表示)，与推论2.7对应的陈述是Max Noether引理(参见[Fulton，第120页和第124页]).
+
+\section{2.10 连续性证明}
+
+我简述一种“连续性”论证方法，利用了 \(k \subset  \mathbb{C}\) 的事实.记 \({C}_{\mathbb{C}} \subset  {\mathbb{P}}_{\mathbb{C}}^{2}\) 为复化曲线 \(C\) ，即满足同一方程 \(F\left( {X,Y,Z}\right)  = 0\) 的复数比值集合 \(\left( {X : Y : Z}\right)\) .若结合律对所有 \(A,B,C \in  {C}_{\mathbb{C}}\) 成立，则显然对 \(C\) 中的所有点也成立.因此，我可以假设 \(k = \mathbb{C}\) .
+
+关心此事的读者不难找到以下两条陈述的证明(见练习2.8):
+
+引理(i) \(A + B\) 是 \(A\) 和 \(B\) 的连续函数；
+
+(ii)对于所有 \(A,B,C \in  C\) ，存在任意接近 \(A,B,C\) 的 \({A}^{\prime },{B}^{\prime },{C}^{\prime } \in  C\) ，使得由它们构造的9个点 \({A}^{\prime },{B}^{\prime },{C}^{\prime },O,R,\bar{R},Q,\bar{Q},S\) 均不相同.
+
+加法法则是由 \(\left( {A,B}\right)  \mapsto  A + B\) 给出的映射 \(\varphi  : C \times  C \rightarrow  C\) .根据(i)， \(\varphi\) 是连续的，因此以下两个映射(抱歉！)也是连续的
+
+\[
+f = \varphi  \circ  \left( {\varphi  \times  {\operatorname{id}}_{C}}\right) \;\text{ and }\;g = \varphi  \circ  \left( {{\operatorname{id}}_{C} \times  \varphi }\right)  : C \times  C \times  C \rightarrow  C
+\]
+
+由 \(\left( {A,B,C}\right)  \mapsto  \left( {A + B}\right)  + C\) 和 \(A + \left( {B + C}\right)\) 给出.此外，根据(ii)，构造中9个点均不同的三元组(A, B, C)组成的子集 \(U \subset  C \times  C \times  C\) 是稠密的；由上述论证， \(f\) 和 \(g\) 在 \(U\) 上重合，且因其连续性，故在任意处均重合.证毕.
+
+备注 连续性论证如其所述涉及 \(\mathbb{C}\) 的拓扑，因此并非纯代数的.事实上，加法映射 \(\varphi\) 是簇(varieties) \(\varphi  : C \times  C \rightarrow  C\) 的态射，稍后将证明(见(4.14))，其余论证也可以用这种纯代数形式重新表述:对于使9个点互异的 \(C \times  C \times  C\) 的子集是Zariski拓扑下的稠密开集，且两个在稠密开集上重合的态射必在全体上重合.(希望此备注能为课程其余部分提供有用的动机；若感到困惑，暂时可忽略.)
+
+\section{2.11 帕斯卡定理(神秘六边形)}
+
+图中包含 \({ABCDEF}\) 中的一个六边形 \({\mathbb{P}}_{k}^{2}\) ，其对边成对延长直至
+
+\begin{center}
+\includegraphics[max width=0.6\textwidth]{images/bo_d3lj80c601uc738kffi0_40_464_1080_769_535_0.jpg}
+\end{center}
+\hspace*{3em} 
+
+图2.4:神秘六边形
+
+它们在点 \(P,Q,R\) 相交.假设图中的九点和六条直线均互不相同；则
+
+\[
+{ABCDEF}\text{ are conconic } \Leftrightarrow  {PQR}\text{ are collinear. }
+\]
+
+这个著名定理是(2.7)的一个相当类似的应用，仅为趣味而给出；当然，也有其他证明方法，参见任何几何教材，例如[Berger, 16.2.10和16.8.3-5].
+
+证明 在图中，考虑两组三条直线
+
+\[
+{L}_{1} : {PAF},\;{L}_{2} : {QDE},\;{L}_{3} : {RBC}\text{ , }
+\]
+
+和
+
+\[
+{M}_{1} : {PCD},\;{M}_{2} : {QAB},\;{M}_{3} : {REF};
+\]
+
+设 \({C}_{1} = {L}_{1} + {L}_{2} + {L}_{3}\) 和 \({C}_{2} = {M}_{1} + {M}_{2} + {M}_{3}\) .现在我准备应用(2.7)，因为显然 \({C}_{1}\) 和 \({C}_{2}\) 是两条三次曲线，且满足
+
+\[
+{C}_{1} \cap  {C}_{2} = \{ A,B,C,D,E,F,P,Q,R\} .
+\]
+
+假设 \({PQR}\) 共线，且含有 \(L = {PQR}\) ；设 \(\Gamma\) 为经过 \({ABCDE}\) 的二次曲线(其存在性和唯一性由命题1.11保证).则按构造， \(L + \Gamma\) 是经过8点 \(A,B,C,D,E,P,Q,R\) 的三次曲线，依据(2.7)，它必包含 \(F\) ；根据假设， \(F \notin  L\) ，因此必然有 \(F \in  \Gamma\) ，证明这六点共圆锥(二次曲线).
+
+反之，假设 \({ABCDEF}\) 位于二次曲线 \(\Gamma\) 上，设 \(L = {PQ}\) ；则 \(L + \Gamma\) 是经过 \(A,B,C,D,E,F,P,Q\) 的三次曲线，故根据(2.7)它必经过 \(R\) .现在 \(R\) 不可能位于二次曲线 \(\Gamma\) 上(否则 \(\Gamma\) 是两条直线的组合，且图中的六条直线中必有重合)，因此 \(R \in  L\) ，即 \({PQR}\) 共线.证毕.
+
+\section{2.12 拐点，标准形}
+
+任意 \({\mathbb{P}}_{\mathbb{R}}^{2}\) 或 \({\mathbb{P}}_{\mathbb{C}}^{2}\) 中的三次曲线均可化为标准形
+
+\[
+C : {Y}^{2}Z = {X}^{3} + {aX}{Z}^{2} + b{Z}^{3},
+\]
+
+\[
+\left( {* * }\right)
+\]
+
+或仿射形式
+
+\[
+{y}^{2} = {x}^{3} + {ax} + b.
+\]
+
+现在考虑上述曲线 \(C\) ；它与无穷远直线 \(L : \left( {Z = 0}\right)\) 相交于何处？这很简单，只需将 \(Z = 0\) 代入定义多项式 \(F =  - {Y}^{2}Z + {X}^{3} + {aX}{Z}^{2} + b{Z}^{3}\) ，得到 \(F \mid  L = {X}^{3}\) ；这意味着 \(F \mid  L\) 在 \(P = \left( {0,1,0}\right)\) 处有三重零点.为理解其几何意义，设 \(Y = 1\) ，得到以(0,1,0)为中心的仿射坐标(x, z)下的方程:
+
+\[
+z = {x}^{3} + {ax}{z}^{2} + b{z}^{3}.
+\]
+
+该曲线可被 \(z = {x}^{3}\) 高度精确地近似:其行为由下式描述
+
+\begin{center}
+\includegraphics[max width=0.2\textwidth]{images/bo_d3lj80c601uc738kffi0_41_793_1592_303_140_0.jpg}
+\end{center}
+\hspace*{3em} 
+
+图2.5:拐点
+
+表示 \(C\) 在(0,1,0)处有一个拐点.更一般地，曲线 \(C\) 上的拐点 \(P\) 定义为存在一条直线 \(L \subset  {\mathbb{P}}_{k}^{2}\) ，使得 \(F \mid  L\) 在 \(P\) 处有重根 \(\geq  3\) (参见例2.9；实际上根据(2.8, b)必然有 \(L = {T}_{P}C\) ，重根的重数由(1.9)确定).用定义方程的导数和二阶导数来解释这一点并不难:例如，如果定义方程是 \(y = f\left( x\right)\) ，那么拐点的条件仅为 \(\frac{{d}^{2}f}{d{x}^{2}}\left( P\right)  = 0\) ；这在图中对应曲线经历从“向下凹”到“向上凹”的转变.关于平面曲线存在拐点的一般判据可用Hessian矩阵表示，详见[Fulton，第116页]或例7.3，(iii).
+
+可以证明(参见例2.10)，反之若平面三次曲线 \(C\) 有拐点，则其方程可化为上述的标准形式 \(\left( {* * }\right)\) .
+
+\section{2.13 简化的群运算律}
+
+标准形式 \(\left( {* * }\right)\) 对于群运算律极为方便:取拐点 \(O = \left( {0,1,0}\right)\) 作为单位元.在此条件下，群运算律特别简洁，原因如下:
+
+(a) \(C = \{ O\}  \cup\) 是仿射曲线 \({C}_{0} : \left( {{y}^{2} = {x}^{3} + {ax} + b}\right)\) ；因此将 \(C\) 视为仿射曲线是合理的，偶尔提及无穷远点 \(O\) ，即群运算律的零元.
+
+(b) 通过 \(O\) 的直线是构造群运算律(2.8)中(i)部分的主要元素，这些直线在射影意义下由 \(X = {\lambda Z}\) 给出，在仿射意义下由 \(x = \lambda\) 给出；任意此类直线与 \(C\) 相交于点 \(\left( {\lambda , \pm  \sqrt{{\lambda }^{3} + {a\lambda } + b}}\right)\) 及无穷远点.因此若 \(P = \left( {x,y}\right)\) ，则(2.8, i)中构造的点 \(\bar{P}\) 为(x, - y)；故 \(P \mapsto  \bar{P}\) 是曲线 \({C}_{0}\) 的自然对称 \(\left( {x,y}\right)  \mapsto  \left( {x, - y}\right)\) :
+
+\begin{center}
+\includegraphics[max width=0.4\textwidth]{images/bo_d3lj80c601uc738kffi0_42_528_1157_630_664_0.jpg}
+\end{center}
+\hspace*{3em} 
+
+图2.6:以 \(x\) 轴为反射轴的取负
+
+(c) 群运算律(2.8, IV)的逆元通过 \(\bar{O}\) 描述，该点是唯一一条直线 \(L\) 与曲线 \(F \mid  L\) 的交点中， \(O\) 为重根的第三个交点；然而在本例中，该直线是无穷远直线 \(L : \left( {Z = 0}\right)\) ，且 \(L \cap  C = {3O}\) ，因此 \(\bar{O} = O\) ，群运算律的逆元简化为 \(- P = \bar{P}\) .
+
+我现在可以将群运算律重新表述为定理2.8的一个大大简化的版本:
+
+定理 设 \(C\) 是标准形式的三次曲线 \(\left( {* * }\right)\) ; 则在 \(C\) 上存在唯一的群运算，使得 \(O = \left( {0,1,0}\right)\) 是单位元，逆元由 \(\left( {x,y}\right)  \mapsto  \left( {x, - y}\right)\) 给出，且对所有 \(P,Q,R \in  C\) ，
+
+\[
+P + Q + R = O \Leftrightarrow  P,Q,R\text{ are collinear. }
+\]
+
+\section{第二章习题}
+
+2.1 设 \(C : \left( {{y}^{2} = {x}^{3} + {x}^{2}}\right)  \subset  {\mathbb{R}}^{2}\) .证明通过(0,0)的一条变量直线与 \(C\) 还有一个交点，由此推导出(2.1)中给出的 \(C\) 的参数化.对 \(\left( {{y}^{2} = {x}^{3}}\right)\) 和 \(\left( {{x}^{3} = {y}^{3} - {y}^{4}}\right)\) 也做同样的操作.
+
+2.2 设 \(\varphi  : {\mathbb{R}}^{1} \rightarrow  {\mathbb{R}}^{2}\) 是由 \(t \mapsto  \left( {{t}^{2},{t}^{3}}\right)\) 给出的映射；直接证明任何在像 \(C = \varphi \left( {\mathbb{R}}^{1}\right)\) 上消失的多项式 \(f \in  \mathbb{R}\left\lbrack  {X,Y}\right\rbrack\) 都能被 \({Y}^{2} - {X}^{3}\) 整除.[提示:使用引理2.5中的方法.] 确定域 \(k\) 具备什么性质能保证对由相同公式给出的 \(\varphi  : k \rightarrow  {k}^{2}\) 结果成立.
+
+对 \(t \mapsto  \left( {{t}^{2} - 1,{t}^{3} - t}\right)\) 也做同样的操作.
+
+2.3 设 \(C : \left( {f = 0}\right)  \subset  {k}^{2}\) ，且设 \(P = \left( {a,b}\right)  \in  C\) ；假设 \(\partial f/\partial x\left( P\right)  \neq  0\) .证明直线
+
+\[
+L : \frac{\partial f}{\partial x}\left( P\right)  \cdot  \left( {x - a}\right)  + \frac{\partial f}{\partial y}\left( P\right)  \cdot  \left( {y - b}\right)  = 0)
+\]
+
+是 \(C\) 在 \(P\) 处的切线，即 \({k}^{2}\) 中唯一一条使得 \(f \mid  L\) 在 \(P\) 处有重根的直线 \(L\) (详见(6.1)中的推导).
+
+2.4 设 \(C : \left( {{y}^{2} = {x}^{3} + {4x}}\right)\) ，采用简化的群运算(2.13).证明 \(C\) 在 \(P = \left( {2,4}\right)\) 处的切线经过(0,0)，由此推断 \(P\) 是该群运算中的一个四阶点.
+
+2.5 设 \(C : \left( {{y}^{2} = {x}^{3} + {ax} + b}\right)  \subset  {\mathbb{R}}^{2}\) 是非奇异的；找出群运算中所有的二阶点，并理解它们构成的群(需考虑两种情况).然后几何上说明如何寻找 \(C\) 上所有的四阶点.
+
+2.6 设 \(C : \left( {{y}^{2} = {x}^{3} + {ax} + b}\right)  \subset  {\mathbb{R}}^{2}\) ；编写计算机程序绘制 \(C\) 的部分图形，并计算群运算.程序提示输入两点 \(A\) 和 \(B\) 的坐标，随后绘制直线并输出 \(A + B\) 的坐标.(使用实数变量.)
+
+2.7 设 \(C : \left( {{y}^{2} = {x}^{3} + {ax} + b}\right)  \subset  {k}^{2}\) ；若 \(A = \left( {{x}_{1},{y}_{1}}\right)\) 且 \(B = \left( {{x}_{2},{y}_{2}}\right)\) ，说明如何将 \(A + B\) 的坐标表示为 \({x}_{1},{y}_{1},{x}_{2},{y}_{2}\) 的有理函数.[提示:若 \(F\left( X\right)\) 是三次多项式且已知两个根，则可通过观察 \(F\) 的一个系数找到第三个根.此题答案不唯一，因为有多种正确的有理函数表达式.一个解见(4.14).]
+
+2.8 通过写出 \(C\) 在 \(A\) 处切线的方程，求出群运算中 \(C\) 上 \({2A}\) 的公式，并验证当 \(B\) 趋近于 \(A\) 时，该公式是适当的 \(A + B\) 公式的极限.[提示:使用练习2.7，必要时参考(4.14).]
+
+2.9 设 \(x,z\) 为 \({k}^{2}\) 上的坐标，且设 \(f \in  k\left\lbrack  {x,z}\right\rbrack\) ；将 \(f\) 写成
+
+\[
+f = a + {bx} + {cz} + d{x}^{2} + {exz} + f{z}^{2} + \cdots .
+\]
+
+用 \(a,b,c,\ldots\) 表示必须满足的条件，以保证
+
+(i) \(P = \left( {0,0}\right)  \in  C : \left( {f = 0}\right)\) ;
+
+(ii) \(C\) 在 \(P\) 处的切线是 \(\left( {z = 0}\right)\) ；
+
+(iii) \(P\) 是 \(C\) 的一个拐点，且切线为 \(\left( {z = 0}\right)\) .
+
+(回顾(2.12)，若切线 \(L\) 存在，且 \(f \mid  L\) 在 \(P\) 处至少有三重零点，则 \(P \in  C\) 为拐点.)
+
+2.10 设 \(C \subset  {\mathbb{P}}_{k}^{2}\) 为平面三次曲线，假设 \(P \in  C\) 是一个拐点；证明通过在 \({\mathbb{P}}_{k}^{2}\) 中变换坐标，可以将 \(C\) 化为标准形式
+
+\[
+{Y}^{2}Z = {X}^{3} + a{X}^{2}Z + {bX}{Z}^{2} + c{Z}^{3}.
+\]
+
+[提示:取坐标使得 \(P = \left( {0,1,0}\right)\) 及拐点切线为 \(\left( {Z = 0}\right)\) ；利用前一题，在局部坐标中 \(\left( {x,z}\right) ,Y\) 将以二次项 \({Y}^{2}Z\) 出现，其余仅线性出现.然后通过完全平方式消去 \(Y\) 中的线性项.]
+
+2.11(尖点三次曲线上的群运算.)考虑曲线
+
+\[
+C : \left( {z = {x}^{3}}\right)  \subset  {k}^{2};
+\]
+
+\(C\) 是双射映射 \(\varphi  : k \rightarrow  C\) 通过 \(t \mapsto  \left( {t,{t}^{3}}\right)\) 的像，因此继承了加法群 \(k\) 的群运算.证明这是 \(C\) 上唯一的群运算，使得(0,0)为单位元且
+
+\[
+P + Q + R = 0 \Leftrightarrow  P,Q,R\text{ are collinear }
+\]
+
+对于 \(P,Q,R \in  C\) .[提示:你可能会发现恒等式
+
+\[
+\det \left| \begin{array}{lll} 1 & a & {a}^{3} \\  1 & b & {b}^{3} \\  1 & c & {c}^{3} \end{array}\right|  = \left( {a - b}\right) \left( {b - c}\right) \left( {c - a}\right) \left( {a + b + c}\right) .
+\]
+
+用射影术语， \(C\) 是曲线 \(\left( {{Y}^{2}Z = {X}^{3}}\right)\) ，即我们熟悉的在原点有尖点且在(0,1,0)有拐点的曲线，本题的关键是通常构造在奇点的补集上给出了群运算.
+
+2.12(由莱昂纳多·斐波那契，公元1220年提出.)证明对于 \(u,v \in  \mathbb{Z}\) ，
+
+\[
+{u}^{2} + {v}^{2}\text{ and }{u}^{2} - {v}^{2}\text{ both squares } \Rightarrow  v = 0.
+\]
+
+提示(由皮埃尔·德·费马提供，见J.W.S.Cassels，《伦敦数学学会杂志》41卷(1966年)，第207页):
+
+第一步 化简为求解
+
+\[
+{x}^{2} = {u}^{2} + {v}^{2},\;{y}^{2} = {u}^{2} - {v}^{2}
+\]
+ (*)
+
+其中 \(x,y,u,v \in  \mathbb{Z}\) 两两互质.
+
+步骤2 模4的考虑表明 \(x,y,u\) 是奇数， \(v\) 是偶数.
+
+步骤3 因式分解左侧的4对因子
+
+\[
+\left( {x - u}\right) \left( {x + u}\right)  = {v}^{2}
+\]
+
+\[
+\left( {u - y}\right) \left( {u + y}\right)  = {v}^{2}
+\]
+
+\[
+\left( {* * }\right)
+\]
+
+\[
+\left( {x - y}\right) \left( {x + y}\right)  = 2{v}^{2}
+\]
+
+\[
+\left( {{2u} - x - y}\right) \left( {{2u} + x + y}\right)  = {\left( x - y\right) }^{2}
+\]
+
+除了2的幂次外没有其他公因子.
+
+步骤4 如有必要，将 \(y\) 替换为 \(- y\) ，我们可以假设 \(4 \nmid  x - y\) .现在通过考虑 \(\left( {* * }\right)\) 左侧因子的奇偶性，证明
+
+\[
+x - u = 2{v}_{1}^{2},\;u - y = 2{u}_{1}^{2},\;x - y = 2{x}_{1}^{2}
+\]
+
+\[
+\text{ and }{2u} - x - y = 2{y}_{1}^{2}
+\]
+
+其中 \({u}_{1},{v}_{1},{x}_{1},{y}_{1} \in  \mathbb{Z}\) .
+
+步骤5 证明 \({u}_{1},{v}_{1},{x}_{1},{y}_{1}\) 是 \(\left( *\right)\) 的另一个解，且满足 \({v}_{1} < v\) ，并通过“无限下降法”推导出矛盾.
+
+将此论证与(2.2)的证明进行比较，后者更简单，仅因为我不必处理2的幂次问题.
