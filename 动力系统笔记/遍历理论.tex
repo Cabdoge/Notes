@@ -445,22 +445,210 @@ $\begin{aligned}
     第二个方法是利用函数来判断$R_\alpha$是否为遍历映射.\par
     设$L^2(X,\mcal{B}_X,m_\mathrm{Leb})$是$X$上所有平方可积函数构成的空间，则它是一个完备内积空间，即Hilbert空间，其中的内积定义为$
     \langle f,g\rangle=\int_X \bar{f}g\d m$.\par
-    $L^2(X,\mcal{B}_X,m_\mathrm{Leb})$中有一组标准正交基$\big\{e_n=e^{2\pi inx}|n\in\mb{Z}\big\}$，$\| e_n \|=\left(\int_0^1{\left|e^{2\pi inx}\right|^2\d x}\right)^{1/2}=1$.\par
-    $\forall\,f\in L^2(X,\mcal{B}_X,m_\mathrm{Leb})$，$\exists\, c_n\in\mb{C},\st f(x)=\sum_{n\in\mb{Z}}{c_n\cdot e_n}\Leftrightarrow \left\|f(x)-\sum_{n=-N}^N{c_n e_n}\right\|_{L^2}\to 0(N\to 0)$.其中$f\in L^2(X,\mcal{B}_X,m_\mathrm{Leb})(f:X\to\mb{C})$，系数$c_n=\int_0^1{f(x)e^{-2\pi inx}}\d x$.\par
+    $L^2(X,\mcal{B}_X,m_\mathrm{Leb})$中有一组标准正交基$\big\{e_n=\eu^{2\pi inx}|n\in\mb{Z}\big\}$，$\| e_n \|=\left(\int_0^1{\left|\eu^{2\pi inx}\right|^2\d x}\right)^{1/2}=1$.\par
+    $\forall\,f\in L^2(X,\mcal{B}_X,m_\mathrm{Leb})$，$\exists\, c_n\in\mb{C},\st f(x)=\sum_{n\in\mb{Z}}{c_n\cdot e_n}\Leftrightarrow \left\|f(x)-\sum_{n=-N}^N{c_n e_n}\right\|_{L^2}\to 0(N\to 0)$.其中$f\in L^2(X,\mcal{B}_X,m_\mathrm{Leb})(f:X\to\mb{C})$，系数$c_n=\int_0^1{f(x)\eu^{-2\pi inx}}\d x$.\par
     \begin{enumerate}[(1)]
         \item $\alpha\in\mb{Q},\alpha=\frac{n}{m}(m\in\mb{N}^*,n\in\mb{Z},(m,n)=1)$.\par
-        则$\exists\, f(x)=e_m=e^{2\pi imx}$，$f\circ R_\alpha(x)=e^{2\pi im(x+\alpha)}=e^{2\pi imx}=f$.\par
+        则$\exists\, f(x)=e_m=\eu^{2\pi imx}$，$f\circ R_\alpha(x)=\eu^{2\pi im(x+\alpha)}=\eu^{2\pi imx}=f$.\par
         由于$f\neq const$，所以$R_\alpha:X\to X$不是遍历映射.
         \item $\alpha\in\mb{R}\setminus\mb{Q}$，设$f\in L^2(X,\mcal{B}_X,m_\mathrm{Leb})$满足$f\circ R_\alpha=f\aew$.\par
         则$f(x)=\sum_{n\in\mb{Z}}{c_n\cdot e_n}$，其中$c_n$是$f$是关于基$\{e_m\}_{m\in\mb{Z}}$的坐标.\par
-        $f\circ R_\alpha(x)=\sum_{n\in\mb{Z}}{c_n e^{2\pi in(x+\alpha)}}=\sum_{n\in\mb{Z}}{(c_n e^{2\pi in\alpha})\cdot e^{2\pi inx}}$，且$f\circ R_\alpha(x)\in L^2(X,\mcal{B}_X,m_\mathrm{Leb})$.\par
-        因为$f\circ R_\alpha=f\aew \Rightarrow f\circ R_\alpha$和$f$代表$L^2(X,\mcal{B}_X,m_\mathrm{Leb})$中的同一元素，因此二者坐标相同，即$c_n=c_n\cdot e^{2\pi in\alpha}$.\par
-        由于$\alpha\in\mb{R}\setminus\mb{Q}$，$e^{2\pi in\alpha}\neq 1 \Rightarrow c_n=0(n\neq 0)$.\par
+        $f\circ R_\alpha(x)=\sum_{n\in\mb{Z}}{c_n \eu^{2\pi in(x+\alpha)}}=\sum_{n\in\mb{Z}}{(c_n \eu^{2\pi in\alpha})\cdot \eu^{2\pi inx}}$，且$f\circ R_\alpha(x)\in L^2(X,\mcal{B}_X,m_\mathrm{Leb})$.\par
+        因为$f\circ R_\alpha=f\aew \Rightarrow f\circ R_\alpha$和$f$代表$L^2(X,\mcal{B}_X,m_\mathrm{Leb})$中的同一元素，因此二者坐标相同，即$c_n=c_n\cdot \eu^{2\pi in\alpha}$.\par
+        由于$\alpha\in\mb{R}\setminus\mb{Q}$，$\eu^{2\pi in\alpha}\neq 1 \Rightarrow c_n=0(n\neq 0)$.\par
         因此$f=\sum_{n\in\mb{Z}}{c_ne_n}=c_0e_0=c_0\in L^2(X,\mcal{B}_X,m_\mathrm{Leb})$.故$R_\alpha$为遍历映射.
     \end{enumerate}
 \end{instance}
 
- 
+\begin{instance}
+    设$(X,\mcal{B},m)$是一个概率测度空间，$\prod_{n=1}^\infty X_n=Y$是对应的乘积测度空间，$T:Y\to Y$为Bernoulli转移，$Y\xlongrightarrow{T} Y\quad (\cdots,x_{-2},x_{-1},x_0,x_1,x_2,\cdots)\to (\cdots,x_{-1},x_0,x_1,x_2,x_3,\cdots)$是遍历映射.\par
+    \begin{proof}
+        设$B\in\mathbb{Y}$满足$T^{-1}B=B$.\par
+        $\mcal{S}=\{\cdots\times X\times A_m\times\cdots\times A_n\times X\times\cdots|A_i\in\mcal{B}\}$是一个半代数，由它生成的$\sigmaalg\, \mcal{B}(\mcal{A}(\mcal{S}))$是乘积$Y$上的$\sigmaalg$.\par
+        $\forall\,\varepsilon>0,\exists\, A\in\mcal{A}(\mcal{S}),\st m(A\triangle B)<\varepsilon$，由半代数生成代数上元素的结构可知$A=E_1\cup E_2\cup\cdots\cup E_n(E_i\in\mcal{S}\,\text{两两不交})$，再设$E_i=\cdots\times X\times A_{l_1}^i\times\cdots\times A_{i_2}^i\times X\times\cdots$.\par
+        则$A=\cdots\times X\times E\times X\times X\times\cdots,E\subseteq X_{l_1}\times\cdots\times X_{l_2}$.\par
+        当$L$充分大时，
+        {\setjot[-2]\begin{align*}
+        m(T^{-L}A\cap A)&=m\left(T^{-L}(E_1\cup E_2\cup\cdots\cup E_k)\cap(E_1\cup E_2\cup\cdots\cup E_k)\right)\\
+        &=\sum_{1\leq i,j\leq k}{m(T^{-L}E_i\cap E_j)} \\
+        &=\sum_{1\leq i,j\leq k}{m\left(\cdots\times X\times A_{l_1}^j\times\cdots\times A_{l_2}^j\times X\times\cdots\times A_{l_1}^i\times\cdots\times A_{l_2}^i\times X\times\cdots\right)} \\
+        &=\sum_{1\leq i,j\leq k}{m(E_i)m(E_j)}=m(A)\cdot m(A)=m(A)^2
+        \end{align*}}\par
+        又因为$m(A\triangle B)<\varepsilon$，$\setjot[-3]\begin{aligned}[t]
+        m\left(T^{-L}B\cap B\right)&\leq m\left(T^{-L}B\cap A\right)+\varepsilon \\
+        &\leq m\left(\left(T^{-L}A\cup T^{-L}(B\setminus A)\right)\cap A\right)+\varepsilon \\
+        &\leq m \left(T^{-L}A\cap A\right)+m\left(T^{-L}(B\setminus A)\right)+\varepsilon \\
+        &\leq m \left(T^{-L}A\cap A\right)+2\varepsilon \\
+        &= m(A)^2+2\varepsilon \\
+        &\leq \left(m(B)+\varepsilon\right)^2+2\varepsilon 
+        \end{aligned}$\par
+        由假设$m(B)=m \left(T^{-L}B\cap B\right)\leq \left(m(B)+\varepsilon\right)^2+2\varepsilon$.\par
+        令$\varepsilon\to 0$得$m(B)\leq m(B)^2 \Rightarrow m(B)=0\text{或}1$.
+    \end{proof}
+\end{instance}
+
+\vspace{-0.5 em}
+\section{Birkhoff遍历定理}
+\vspace{-0.5 em}
+下面我们要正式介绍之前提到的Birkhoff遍历定理.
+\begin{theorem}{Birkhoff遍历定理}
+    \wideline
+    设$(X,\mcal{B},m)$是一个概率测度空间，$T:X\to X$是保测映射，则对于$\forall\, f\in L^1(X,\mcal{B},m)$，有$\frac{1}{N}\sum_{k=0}^{N-1}{f\left(T^k(x)\right)}\to f^*(\aew x\in X)$，其中$f^*\in L^1(X,\mcal{B},m)$，$f^*\circ T=f^*\aew x\in X$且$\int_X{f^*}\d m=\int f\d m$\par
+    如果$T$是遍历映射，那么$f^*=\int_X f\d m\aew$.
+\end{theorem}
+
+如果定理在保测映射的情形下成立，想要证明它在遍历映射下的情形成立是较为简单的.
+若$f^*\circ T=f^*\aew$，由遍历映射的等价刻画可知$f^*=c(\aew)$，进而$f^*=c=\int_X{f^*}\d m=\int_X{f}\d m\aew$.\par
+
+为了证明这个定理，我们需要引入一些工具，首先介绍下面的引理.\par
+\begin{lemma}\label{lem:2.1}
+    \wideline
+    设$f\in L^1(X,\mcal{B},m)$，记$f_0=0,f_1=f,f_2=f+f\circ T,\cdots,f_n=f+f\circ T+\cdots+f\circ T^{n-1}$.\par
+    定义$F_N=\max_{0\leq n\leq N}{f_n}$，那么$\int_{\{F_N>0\}}{f}\d m\geq 0$.
+\end{lemma}
+\begin{proof}
+    $f_k=f+f\circ T+\cdots+f\circ T^{k-1}$，$f_k\circ T=f\circ T+\cdots+f\circ T^{k}=f_{k+1}-f$，所以$f=f_{k+1}-f_k\circ T$.\par
+    则$F_N\circ T=\max_{0\leq n\leq N}\{f_n\circ T\}=\max_{0\leq n\leq N}\{f_{n+1}-f\}=\max_{0\leq n\leq N}{f_{n+1}}-f$.\par
+    因此$f=\max_{0\leq n\leq N}{f_{n+1}}-F_N\circ T\geq \max_{1\leq n\leq N}{f_n}-F_N\circ T$.\par
+    在$\{F_N>0\}$上，由于$f_0=0$，所以$\max_{1\leq n\leq N}{f_n}=\max_{0\leq n\leq N}{f_n}=F_N \Rightarrow f\geq F_N-F_N\circ T$.\par
+    积分得$\setjot[0]\begin{aligned}[t]
+    \int_{\{F_N>0\}}{f}\d m &\geq \int_{\{F_N>0\}}{F_N}\d m-\int_{\{F_N>0\}}{F_N\circ T}\d m \\
+    &\xlongequal{F_N,F_N\circ T\geq 0}\int_X{F_N}\d m-\int_X{F_N\circ T}\d m \\
+    &\xlongequal{T\text{保测}}0
+    \end{aligned}$.
+\end{proof}
+
+使用该引理，我们可以证明如下的极大遍历定理.\par
+
+\begin{theorem}{极大遍历定理}
+    设$(X,\mcal{B},m)$为概率测度空间，$T:X\to X$为保测映射，$g\in L^1(X,\mcal{B},m)$，$\forall\alpha\in\mb{R}$，定义
+    \[E_\alpha=\left\{x\in X\left|\sup_{n\geq 1}{\frac{1}{n}\sum_{k=0}^{n-1}{g\left(T^k{x}\right)>\alpha }}\right.\right\}\]
+    则$\int_{E_\alpha}{g}\d m\geq \alpha m\left(E_\alpha\right)$.\par
+    如果$T^{-1}A=A(A\subseteq X)$，那么$\int_{E_\alpha\cap A}{g}\d m\geq\alpha m(E_\alpha\cap A)$，其中的保测映射为$T|_A:A\to A$.
+\end{theorem}
+\begin{proof}
+    设$f=g-\alpha$，令$f_0=0,f_1=f,f_2=f+f\circ T,\cdots$，$F_N=\max_{0\leq n\leq N}{f_n}$，则由引理\ref{lem:2.1}可知$\int_{\{F_N>0\}}{f}\d m\geq 0(\forall\, N\in\mb{N})$.\par
+    则$\setjot\begin{aligned}[t]
+        E_\alpha &= \left\{x\in X\left|\sup_{n\geq 1}{\frac{1}{n}\sum_{i=0}^{n-1}{f\left(T^i{n}\right)>0}}\right.\right\}=\left\{x\in X\left|\sup_{n\geq 1}{\frac{1}{n}f_n>0}\right.\right\} \\
+        &= \left\{x\in X\left|\sup_{n\geq 1}{f_n>0}\right.\right\}\\
+        &=\bigcup_{N=1}^\infty{\{F_N>0\}}\text{，其中}F_{N+1}\geq F_n\Rightarrow\{F_N>0\}\subseteq\{F_{N+1}>0\}.
+    \end{aligned}$\par
+    令$N\to\infty$，由单调收敛定理可知$\int{\chi_{\{F_N>0\}}(x)f}\d m\to\int{\chi_{\bigcup_{N=1}^\infty{\{F_N>0\}}}(x)f}\d m\geq 0$.\par
+    即$\int_{\bigcup_{N=1}^\infty{\{F_N>0\}}}{f}\d m\geq 0$.\par
+    $\Leftrightarrow \int_{E_\alpha}(g-\alpha)\d m\geq 0\Leftrightarrow \int_{E_\alpha}{g}\d m\geq \alpha m(E_\alpha)$.\par
+    如果$T^{-1}A=A$，那么考虑映射$T|_A:A\to A$,则$T|_A$是$(A,\mcal{B}|_A,m|_A)$上的保测映射，其中$m|_A(E)=\frac{m(E\cap A)}{m(A)},E\subseteq A$.\par
+    因此$\int_{E_\alpha\cap A}{g}\d m\geq\alpha m(E_\alpha\cap A)$.\par
+\end{proof}
+
+有了以上两个工具，下面我们要正式开始证明Birkhoff遍历定理，证明这个定理的步骤为：
+\begin{enumerate}
+    \item 利用上下极限几乎处处相等证明$\frac{1}{N}\sum_{k=0}^{N-1}{f\left(T^k(x)\right)}$几乎处处收敛于其极限函数$f^*$，过程中会证明$f^*$是$T-$不变的.
+    \item 利用Fatou引理证明$f^*\in L^1(X,\mcal{B},m)$.
+    \item 证明反向的不等式成立，从而积分相等.
+\end{enumerate}
+
+\begin{proof}
+    设$f\in L^1(X,\mcal{B},m)$.\par
+    \begin{itemize}
+        \item $\frac{1}{n}\sum_{i=0}^{n-1}{f\left(T^i(x)\right)}$几乎处处收敛.\par
+        记$\limsup_{n\to\infty}{\frac{1}{n}\sum_{i=0}^{n-1}{f\left(T^i(x)\right)}}=f^*(x)$，$\liminf_{n\to\infty}{\frac{1}{n}\sum_{i=0}^{n-1}{f\left(T^i(x)\right)}}=f_*(x)$，现证$f^*=f_*(\aew x\in X)$.\par
+        $\forall\,\alpha>\beta,\alpha,\beta\in\mb{Q}$，记$E_{\alpha,\beta}=\left\{x\in X \left|f^*(x)>\alpha>\beta>f_*(x) \right.\right\}$.\par
+        那么$\left\{x|f^*(x)\neq f_*(x)\right\}=\bigcup_{\substack{\alpha>\beta \\ \alpha,\beta\in\mb{Q}}}{E_{\alpha,\beta}}$，只需证$\forall\,\alpha>\beta,\alpha,\beta\in\mb{Q},m(E_{\alpha,\beta})=0$. \par
+        $E_{\alpha,\beta}=\left\{x\in X\left|f^*(x)>\alpha,f_*(x)<\beta\right.\right\}=\left\{x\in X\left|\lim_{n\to\infty}\left(\sup_{k\in\mb{N}}{\frac{1}{k}\sum_{i=0}^{k-1}{f\left(T^i(x)\right)}}\right)>\alpha,f_*(x)<\beta\right.\right\}$.\par
+        因此$E_{\alpha,\beta}\subseteq E_\alpha$.\par
+        下面证明$E_{\alpha,\beta}$是$T-$不变集$(T^{-1}E_{\alpha,\beta}=E_{\alpha,\beta})$.\par
+        由$\frac{1}{n+1}\sum_{k=0}^n{f \left(T^k{x}\right)}=\frac{n}{n+1}\left(\frac{1}{n}\sum_{k=0}^{k+1}{f \left(T^k(Tx)\right)}\right)+\frac{1}{n+1}f(x)$，取上极限得$f^*(x)=f^*(Tx)$.\par
+        对$f_*(x)=f_*(Tx)$同理.\par
+        $\forall\, x\in T^{-1}E_{\alpha,\beta},f^*(x)=f^*(Tx)>\alpha,f_*(x)=f_*(Tx)<\beta$.\par
+        所以$x\in E_{\alpha,\beta}\Rightarrow T^{-1}E_{\alpha,\beta}\subseteq E_{\alpha,\beta}$.\par
+        反过来，$\forall\, x\in E_{\alpha,\beta},f^*(Tx)=f^*(x)>\alpha,f_*(Tx)=f_*(x)<\beta$.\par
+        所以$Tx\in E_{\alpha,\beta}\Rightarrow x\in T^{-1}E_{\alpha,\beta}\Rightarrow E_{\alpha,\beta}\subseteq T^{-1}E_{\alpha,\beta}$.\par
+        因此$T^{-1}E_{\alpha,\beta}=E_{\alpha,\beta}$.\par
+        由极大遍历定理可知$\int_{E_{\alpha,\beta}\cap E_\alpha}{f}\d m\geq \alpha m(E_{\alpha,\beta}\cap E_\alpha)\xLongrightarrow{E_{\alpha,\beta}\subseteq E_\alpha}\int_{E_{\alpha,\beta}}{f}\d m\geq \alpha m(E_{\alpha,\beta})$.\par
+        又$E_{\alpha,\beta}=\left\{x\in X\left|f^*(x)>\alpha,f_*(x)<\beta\right.\right\}=\left\{x\in X\left|(-f)_*(x)< -\alpha< -\beta<(-f)_*(x)\right.\right\}$.\par
+        类似地，就有$\int_{E_{\alpha,\beta}}{-f}\d m\leq -\beta m(E_{\alpha,\beta}) \Rightarrow \int_{E_{\alpha,\beta}}{f}\d m\geq \beta m(E_{\alpha,\beta})$.\par
+        因此$\beta m(E_{\alpha,\beta})\geq \int_{E_{\alpha,\beta}}{f}\d m\geq \alpha m(E_{\alpha,\beta})\xLongrightarrow{\alpha\geq\beta} m(E_{\alpha,\beta})=0$.\par
+        \item 极限$f^*$是$T-$不变的，$f^*\circ T=f^*$.\par
+        \item $f^*\in L^1(X,\mcal{B},m)$.\par
+        不妨设$f\geq 0$(一般地，$f=f_+-f_-,f^*=(f_+)*-(f_-)^*$).\par
+        由Fatou引理可知$\int_X{\liminf_{n\to\infty}{\frac{1}{n}\sum_{k=0}^{n-1}{f\left(T^k(x)\right)}}}\d m\leq \liminf_{n\to\infty}{\int_X{\frac{1}{n}\sum_{k=0}^{n-1}{f\left(T^k(x)\right)}}}\d m$.\par
+        $\Rightarrow \int_X{f^*}\d m\leq \liminf_{n\to\infty}{\int_X{\frac{1}{n}\sum_{k=0}^{n-1}{f\left(T^k(x)\right)}}}\d m \xlongequal{T\text{保测}}\liminf_{n\to\infty}{\int_X{\frac{1}{n}\sum_{k=0}^{n-1}{f}}}\d m=\int_X{f}\d m<\infty$\par
+        $\Rightarrow f^*\in L^1(X,\mcal{B},m)$.\par
+        \item $\int_X{f}\d m\leq \int_X{f^*}\d m$.\par
+        由于$f\geq 0$，存在单调增的简单函数列$\{\varphi_n(x)\}_{n\in\mb{N}}$逼近$f$，即$0\leq\varphi_k(x)\leq\varphi_{k+1}(x)\leq f(x)$且$\lim_{k\to\infty}{\varphi_k(x)}=f(x)$.\par
+        由LDCT可知$\int_X{\varphi_k(x)}\d m\to\int_X{f}\d m$，因此$\forall\,\varepsilon>0,\exists\, k\in\mb{N},\st \int_X{f}\d m\leq\int_X{\varphi_k}\d m+\varepsilon$.\par
+        又存在$\varphi_k^* \leq f^*(\forall\, k\in\mb{N})$，$\frac{1}{N}\sum_{n=0}^{N-1}{\varphi_k \left(T^n(x)\right)}\to \varphi_k^*(x)(\aew x\in X)$.\par
+        由于$\varphi_k(x)$是有界函数，由LDCT得$\int_X{\frac{1}{N}\sum_{n=0}^{N-1}{\varphi_k \left(T^n(x)\right)}}\d m\to\int_X{\varphi_k^*}\d m$.\par
+        $\xLongrightarrow{T\text{保测}}\int_X{\varphi_k(x)}\d m=\int_X{\varphi_k^*(x)}\d m$.\par
+        $\Rightarrow \int_X{f}\d m\leq \int_X{\varphi_k}\d m+\varepsilon=\int_X{\varphi_k^*}\d m+\varepsilon \leq \int_X{f^*}\d m+\varepsilon$.\par
+        令$\varepsilon\to 0,\int_X{f}\d m\leq\int_X{f^*}\d m$.
+    \end{itemize}
+\end{proof}
+
+下面看几个与Birkhoff遍历定理相关的例子.
+
+\begin{instance}
+    设$X=[0,1)$，$(X,\mcal{B},m)=\left([0,1),\mcal{B}_{[0,1)},m_\mathrm{Leb}\right)$，$\setjot[-6]\begin{aligned}[t]
+        T:X&\to X\\
+        x&\mapsto 10\cdot x\mod 1
+    \end{aligned}$\par
+    可以证明$\aew x\in [0,1),\forall\, k\in\{0,1,2,\cdots,9\}$，$k$出现在$x$十进制中概率为$\frac{1}{10}$.\par
+    \begin{itemize}
+        \item 设$k\in\{0,1,\cdots,9\}$，$x=0.x_1x_2x_3\cdots=\frac{x_1}{10}+\frac{x_2}{10^2}+\frac{x_3}{10^3}+\cdots$.\par
+        则$\setjot\begin{aligned}[t]
+            k=x_i &\Leftrightarrow x=\frac{x_1}{10}+\frac{x_2}{10^2}+\cdots+\frac{x_i}{10^i}+\cdots = \frac{x_1}{10}+\frac{x_2}{10^2}+\cdots+\frac{x_i}{10^i}+\cdots \\
+            &\Leftrightarrow 10^{i-1}x\mod 1 = \frac{k}{10^{i-1}}+\frac{x_{i+1}}{10^i}+\cdots \\
+            &\Leftrightarrow 10^{i-1}x\mod 1 \in I_k= \left[\frac{k}{10},\frac{k+1}{10}\right) \\
+            &\Leftrightarrow \chi_{I_k}(10^{i-1}x\mod 1)=1
+        \end{aligned}$\par
+        \item $\setjot\begin{aligned}[t]
+            \mb{P}(x_i=k)&=\lim_{N\to\infty}{\frac{\left|\left\{1\leq n\leq N\left|x_n=k\right.\right\}\right|}{N}}\\
+            &= \lim_{N\to\infty}{\frac{1}{N}\sum_{n=1}^N{\chi_{I_k}(10^{n-1}x\mod 1)}} \\
+            &= \lim_{N\to\infty}{\frac{1}{N}\sum_{n=0}^{N-1}{\chi_{I_k}(T^n x)}} \\
+            (\text{若}T\text{遍历}) &=\int_0^1{\chi_{I_k}(x)}\d m =\frac{1}{10}
+        \end{aligned}$.\par
+    \end{itemize}\par
+    下面证明$T$是遍历映射，设$f\in L^2(X,\mcal{B},m)$满足$f\circ T=f \aew$.\par
+    $f=\sum_{n\in\mb{N}}{c_n\eu_n}=\sum_{n\in\mb{N}}{c_n\cdot \eu^{2\pi inx}}$.\par
+    则$f\circ T(x)=\sum_{n\in\mb{N}}{c_n \eu^{2\pi in(10x)}}=\sum_{n\in\mb{N}}{c_n\eu^{2\pi i(10n)x}}$.\par
+    由于$f$与$f\circ T$代表$L^2(X,\mcal{B},m)$同一元素$\Rightarrow$坐标相同$\Rightarrow c_k=c_{10k}(\forall\, k\in\mb{Z})$.\par
+    由Parseval等式$\|f\|^2=\sum_{n\in\mb{Z}}{|c_n|^2}<\infty$.\par
+    如果$k\neq 0$，$c_k=c_{10k}=c_{10^2k}=\cdots=0$，否则与坐标平方和有限矛盾.\par
+    故$f=c_0e_0=c_0$为常数.\par
+\end{instance}
+
+下面是更为有趣、更有意义的例子.\par
+\begin{instance}
+    对$x\in(0,1)$，考虑$x$的连分数展开，$x=a_0+\frac{1}{a_1+\tfrac{1}{a_2+\tfrac{1}{a_3+\raisebox{-.5\height}{$\ddots$}}}}(a_0-0,a_i\in\mb{N}^+)$.\par
+    对$\forall\, k\in\mb{N}^+$，计算$\mb{P}(a_n=k)$.
+    \begin{itemize}
+        \item $\mb{P}(a_n=k)=\lim_{N\to\infty}{\frac{\left|\left\{1\leq n\leq N\left|a_n=k\right.\right\}\right|}{N}}$.
+        \item $(x>0)$，设$a_0,a_1,\cdots,a_n,\cdots$是一个自然数序列$(a_0\geq 0,a_i\geq 1(i\geq 1))$，考虑$a_0,a_0+\frac{1}{a_1},a_0+\frac{1}{a_1+\frac{1}{a_2}},a_0+\frac{1}{a_1+\frac{1}{a_2+\frac{1}{a_3}}},\cdots$.\par
+        其中第$n$个分式为$a_0+\frac{1}{a_1+\frac{1}{a_2+\raisebox{-.5\height}{$\ddots$}\raisebox{-1\height}{$+\tfrac{1}{a_n}$}}}=\frac{p_n}{q_n}=[a_0;a_1,a_2,\cdots,a_n]$.\par
+        如果$\left\{\frac{p_n}{q_n}\right\}$收敛到$x\in\mb{R}_{>0}$，那么称$x=a_0+\frac{1}{a_1+\frac{1}{a_2+\raisebox{-.5\height}{$\ddots$}}}=[a_0;a_1,a_2,\cdots]$为$x$的连分式.\par
+        下面寻找连分数逼近中分子分母的规律，$\frac{p_0}{q_0}=a_0=\frac{a_0}{1},p_0=a_0,q_0=1$.$\frac{p_1}{q_1}=a_0+\frac{1}{a_1}=\frac{a_0a_1+1}{a_1},p_1=a_0a_1+1,q_1=a_1$.\par
+        实际上，$p_i,q_i$满足以下关系$\begin{pmatrix}
+            0 & 1 \\
+            1 & a_0 
+        \end{pmatrix}\begin{pmatrix}
+            0 & 1 \\
+            1 & a_1
+        \end{pmatrix}\cdots\begin{pmatrix}
+            0 & 1 \\
+            1 & a_n
+        \end{pmatrix}=\begin{pmatrix}
+            p_{n-1} & p_n \\
+            q_{n-1} & q_n
+        \end{pmatrix}$$\setjot[-10]\begin{aligned}
+            &\forall\, n\in\mb{N} \\
+            &q_{-1}=0,q_{-1}=1 \\
+        \end{aligned}$
+    \end{itemize}
+\end{instance}
+
+
+
+
 
 
 

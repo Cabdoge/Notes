@@ -48,7 +48,7 @@
 \contentsline {section}{\numberline {3.5}3.7 不可约代数集}{43}{section.3.5}%
 \contentsline {section}{\numberline {3.6}3.8 Nullstellensatz的准备工作}{44}{section.3.6}%
 \contentsline {section}{\numberline {3.7}3.9 定义:根理想}{44}{section.3.7}%
-\contentsline {section}{\numberline {3.8}3.11 例题解析}{47}{section.3.8}%
+\contentsline {section}{\numberline {3.8}3.11 例题解析}{46}{section.3.8}%
 \contentsline {section}{\numberline {3.9}3.12 有限代数}{47}{section.3.9}%
 \contentsline {section}{\numberline {3.10}3.13 诺特正规化}{48}{section.3.10}%
 \contentsline {section}{\numberline {3.11}3.14 备注}{50}{section.3.11}%
@@ -92,7 +92,7 @@
 \contentsline {section}{\numberline {6.5}6.8 \({T}_{P}V\) 的内在性质}{81}{section.6.5}%
 \contentsline {section}{\numberline {6.6}6.11 非奇异性与射影簇}{82}{section.6.6}%
 \contentsline {section}{\numberline {6.7}6.12 实例演示:爆破}{83}{section.6.7}%
-\contentsline {section}{\numberline {6.8}第6章练习题}{84}{section.6.8}%
+\contentsline {section}{\numberline {6.8}第6章练习题}{83}{section.6.8}%
 \contentsline {chapter}{\numberline {第 7{} 章}三次曲面上的27条直线}{85}{chapter.7}%
 \contentsline {section}{\numberline {7.1}7.1 非奇异性的推论}{85}{section.7.1}%
 \contentsline {section}{\numberline {7.2}7.5 寻找所有的 \(S\) 中的直线}{90}{section.7.2}%
