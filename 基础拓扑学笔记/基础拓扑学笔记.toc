@@ -12,3 +12,8 @@
 \contentsline {section}{\numberline {2.7}内部、闭包与边界}{14}{section.2.7}%
 \contentsline {chapter}{\numberline {第三章}映射}{18}{chapter.3}%
 \contentsline {section}{\numberline {3.1}连续映射}{18}{section.3.1}%
+\contentsline {chapter}{\numberline {第四章}分离与可数}{20}{chapter.4}%
+\contentsline {section}{\numberline {4.1}可度量化空间}{20}{section.4.1}%
+\contentsline {section}{\numberline {4.2}正则空间和正规空间}{20}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}分离公理}{20}{subsection.4.2.1}%
+\contentsline {section}{\numberline {4.3}可数性公理}{21}{section.4.3}%
