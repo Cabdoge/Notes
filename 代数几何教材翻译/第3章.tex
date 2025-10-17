@@ -1,0 +1,439 @@
+\chapter{仿射簇与零点定理}
+
+本章前半部分主要涉及纯粹的交换代数.请注意，在本笔记中，“环”均指有单位元的交换环.由于本课程并非主讲交换代数，我将略去若干证明细节.
+
+\section{诺特环}
+
+\begin{proposition}[诺特环的等价定义]
+对于一个环 \(A\)，以下条件是等价的：
+\begin{enumerate}
+    \item 环 \(A\) 的每个理想 \(I\) 都是有限生成的.即，对任意理想 \(I \subset A\)，都存在 \({f}_{1},\ldots ,{f}_{k} \in I\) 使得 \(I = \left( {{f}_{1},\ldots ,{f}_{k}}\right)\).
+    \item \(A\) 的任意理想升链
+    \[
+    {I}_{1} \subset  {I}_{2} \subset  \cdots  \subset  {I}_{m} \subset  \cdots
+    \]
+    最终都会稳定.即，存在一个整数 \(N\)，使得对所有 \(m \geq N\)，都有 \({I}_{m} = {I}_{N}\).这个性质被称为升链条件（Ascending Chain Condition, a.c.c.）.
+    \item \(A\) 的任意非空理想集合都存在极大元.
+\end{enumerate}
+\end{proposition}
+\begin{definition}[诺特环]
+满足上述等价条件的环 \(A\) 称为诺特环（Noetherian ring）.
+\end{definition}
+
+\begin{proof}
+(i) \(\Rightarrow\) (ii)：给定一个理想升链 \({I}_{1} \subset  {I}_{2} \subset  \cdots\)，令 \(I = \bigcup_{m=1}^{\infty} {I}_{m}\).不难验证 \(I\) 也是一个理想.根据条件 (i)，\(I\) 是有限生成的，设 \(I = \left( {{f}_{1},\ldots ,{f}_{k}}\right)\).由于每个生成元 \({f}_{i}\) 都属于某个 \({I}_{{m}_{i}}\)，我们取 \(N = \max \left\{ {m}_{1}, \ldots, {m}_{k} \right\}\)，则所有生成元都属于 \({I}_{N}\)，因此 \(I \subset {I}_{N}\).又因为 \({I}_{N} \subset I\)，所以 \(I = {I}_{N}\).这意味着该理想链在第 \(N\) 项后稳定下来，即对所有 \(m \geq N\)，\({I}_{m} = {I}_{N}\).
+
+(ii) \(\Rightarrow\) (iii)：这部分是显然的.（严格来说，它依赖于选择公理.）
+
+(iii) \(\Rightarrow\) (i)：令 \(I\) 为 \(A\) 的任意理想.考虑 \(I\) 中所有有限生成子理想构成的集合 \(\Sigma = \{ J \mid J \subset I \text{ 且 } J \text{ 是有限生成的} \}\).\(\Sigma\) 非空（因为 \((0)\) 在其中）.根据条件 (iii)，\(\Sigma\) 存在一个极大元，记为 \({J}_{0}\).我们断言 \({J}_{0} = I\).如果不然，则存在元素 \(f \in I \setminus {J}_{0}\).此时，理想 \({J}_{0} + Af\) 仍然是有限生成的，并且严格大于 \({J}_{0}\)，这与 \({J}_{0}\) 的极大性矛盾.因此，必有 \({J}_{0} = I\)，即 \(I\) 是有限生成的.
+\end{proof}
+
+作为练习，请证明 \(\mathbb{Z}\) 和 \(k\left\lbrack  X\right\rbrack\) 都是诺特环.
+
+\begin{proposition}
+(i) 设 \(A\) 为诺特环，\(I \subset  A\) 为其理想，则商环 \(B = A/I\) 也是诺特环.
+
+(ii) 设 \(A\) 为诺特整环，\(K\) 为其分式域.设 \(S \subset A\) 为一个不含0的子集，定义环的局部化
+\[
+B = A\left\lbrack  {S}^{-1}\right\rbrack   = \left\{  {\left. {\frac{a}{b} \in  K}\right| \; a \in  A, \text{ 且 } b \text{ 是1或S中元素的乘积} }\right\}  .
+\]
+则 \(B\) 也是诺特环.
+\end{proposition}
+
+\begin{proof}
+练习：在上述两种情形下，\(B\) 的理想都可以通过 \(A\) 的理想来刻画.具体提示见习题3.4.
+\end{proof}
+
+\begin{theorem}[希尔伯特基定理]
+若环 \(A\) 是诺特环，则其上的多项式环 \(A\left\lbrack  X\right\rbrack\) 也是诺特环.
+\end{theorem}
+
+\begin{proof}
+设 \(J \subset  A\left\lbrack  X\right\rbrack\) 为任意理想，我们需要证明 \(J\) 是有限生成的.对任意整数 \(n \geq 0\)，定义 \(J\) 中多项式的首项系数集合：
+\[
+{I}_{n} = \left\{  {a \in  A\mid {\;\exists f = a{X}^{n} + \cdots \in  J, \deg(f)=n}}\right\} \cup \{0\} .
+\]
+不难验证，每个 \({I}_{n}\) 都是 \(A\) 的理想，并且它们构成一个升链 \({I}_{0} \subset  {I}_{1} \subset  \cdots\).由于 \(A\) 是诺特环，此升链必在某处稳定，即存在 \(N\) 使得对所有 \(n \geq N\)，都有 \({I}_{n} = {I}_{N}\).
+
+现在我们来构造 \(J\) 的一组生成元.对每个 \(i \in \{0, 1, \ldots, N\}\)，由于 \({I}_{i}\) 是诺特环 \(A\) 中的理想，它是有限生成的.设 \({I}_{i} = ({a}_{i,1},\ldots ,{a}_{i,m_i})\).对每个生成元 \({a}_{i,j}\)，我们从 \(J\) 中选取一个次数为 \(i\) 且首项系数为 \({a}_{i,j}\) 的多项式，记为 \({f}_{i,j}\).
+
+我们断言，集合 \(\mathcal{F} = \left\{  {{f}_{i,j} \mid  i = 0,\ldots ,N, j = 1,\ldots ,{m}_{i}}\right\}\) 是理想 \(J\) 的一组生成元.
+令 \(\langle\mathcal{F}\rangle\) 表示由 \(\mathcal{F}\) 生成的理想.我们用归纳法证明对任意 \(g \in J\)，都有 \(g \in \langle\mathcal{F}\rangle\).
+设 \(\deg g = m\).
+若 \(m > N\)，\(g\) 的首项系数 \(b \in I_m = I_N\).因此 \(b\) 可以写成 \(I_N\) 的生成元的线性组合：\(b = \sum_{j=1}^{m_N} c_j a_{N,j}\)，其中 \(c_j \in A\).构造多项式 \(g_1 = g - \sum_{j=1}^{m_N} c_j X^{m-N} f_{N,j}\).\(g_1\) 依然属于 \(J\)，且其次数严格小于 \(m\).
+若 \(m \leq N\)，\(g\) 的首项系数 \(b \in I_m\).因此 \(b = \sum_{j=1}^{m_m} c_j a_{m,j}\).构造多项式 \(g_1 = g - \sum_{j=1}^{m_m} c_j f_{m,j}\).\(g_1\) 依然属于 \(J\)，且其次数严格小于 \(m\).
+
+通过重复这个过程，我们可以不断降低多项式的次数，最终可以把 \(g\) 表示为 \({f}_{i,j}\) 的多项式组合.因此，\(\mathcal{F}\) 生成了 \(J\).
+\end{proof}
+
+\begin{corollary}
+域 \(k\) 上的任意有限生成代数都是诺特环.
+\end{corollary}
+\begin{proof}
+一个有限生成的 \(k\)-代数是指形如 \(A = k\left\lbrack  {{a}_{1},\ldots ,{a}_{n}}\right\rbrack\) 的环，它由 \(k\) 和元素 \({a}_{1},\ldots ,{a}_{n}\) 作为环生成.显然，任何这样的环都同构于一个多项式环的商环，即 \(A \cong  k\left\lbrack  {{X}_{1},\ldots ,{X}_{n}}\right\rbrack  /I\).
+域本身是诺特环.通过对希尔伯特基定理进行归纳，可知 \(k\left\lbrack  {{X}_{1},\ldots ,{X}_{n}}\right\rbrack\) 是诺特环.最后，根据命题3.2(i)，诺特环的商环仍然是诺特环.
+\end{proof}
+
+\section{V-I 对应}
+
+设 \(k\) 为任意域，\(A = k\left\lbrack  {{X}_{1},\ldots ,{X}_{n}}\right\rbrack\).遵循代数几何学家的普遍习惯\customfootnote{严格来说，\({\mathbb{A}}^{n}\) 被视为一个代数簇，而 \({k}^{n}\) 仅仅是一个点的集合.如果愿意，可以暂时将此看作一种讲究.详见下文(4.6)及(8.3).}，我们用 \({\mathbb{A}}_{k}^{n}\) 表示 \(k\) 上的 \(n\) 维仿射空间，它作为点集与 \({k}^{n}\) 相同.给定多项式 \(f\left( {{X}_{1},\ldots ,{X}_{n}}\right)  \in A\) 和点 \(P = \left( {{a}_{1},\ldots ,{a}_{n}}\right)  \in  {\mathbb{A}}_{k}^{n}\)，值 \(f\left( P \right) = f\left( {{a}_{1},\ldots ,{a}_{n}}\right)  \in  k\) 被视为“在点 \(P\) 处对函数 \(f\) 求值”.
+
+我们定义一个从理想集到子集的映射：
+\[
+V: \{ \text{A的理想} \}  \rightarrow  \left\{  {\text{ subsets }X \subset  {\mathbb{A}}_{k}^{n}}\right\}
+\]
+其定义为
+\[
+J \mapsto  V\left( J\right)  = \left\{  {P \in  {\mathbb{A}}_{k}^{n} \mid  f\left( P\right)  = 0 \text{ 对所有 } f \in  J}\right\}  .
+\]
+
+\begin{definition}[代数集]
+子集 \(X \subset  {\mathbb{A}}_{k}^{n}\) 如果是某个理想 \(I\) 的零点集，即 \(X = V\left( I\right)\)，则称其为代数集.
+\end{definition}
+注意，根据推论3.3，理想 \(I\) 总是有限生成的.如果 \(I = \left( {{f}_{1},\ldots ,{f}_{r}}\right)\)，则
+\[
+V\left( I\right)  = \left\{  {P \in  {\mathbb{A}}_{k}^{n} \mid  {f}_{i}\left( P\right)  = 0 \text{ 对所有 } i = 1,\ldots ,r}\right\}  ,
+\]
+因此，代数集就是有限个多项式方程的公共解集.如果 \(I = \left( f\right)\) 是主理想，我们通常用 \(V\left( f\right)\) 代替 \(V\left( I\right)\).这与前两章中记号 \(V : \left( {f = 0}\right)\) 的含义一致.
+
+\section{Zariski拓扑}
+
+\begin{proposition}[Zariski拓扑]
+映射 \(V\) 具有以下性质：
+\begin{enumerate}
+    \item \(V\left( (0) \right)  = {\mathbb{A}}_{k}^{n}\)；\(V\left( A \right)  = \varnothing\).
+    \item 若 \(I \subset  J\)，则 \(V\left( I\right)  \supset  V\left( J\right)\).
+    \item \(V\left( {{I}_{1} \cap  {I}_{2}}\right)  = V\left( {I}_{1}\right)  \cup  V\left( {I}_{2}\right)\).
+    \item \(V\left( {\sum_{{\lambda  \in  \Lambda }}{I}_{\lambda }}\right)  = \bigcap_{{\lambda  \in  \Lambda }}V\left( {I}_{\lambda }\right)\).
+\end{enumerate}
+因此，\({\mathbb{A}}_{k}^{n}\) 的所有代数子集构成了 \({\mathbb{A}}_{k}^{n}\) 上的一个拓扑的闭集.这个拓扑被称为Zariski拓扑.
+\end{proposition}
+
+\begin{proof}
+上述性质大多是直接的.对于(iii)中的包含关系 \(V\left( {I}_{1}\right)  \cup  V\left( {I}_{2}\right) \subset V\left( {{I}_{1} \cap  {I}_{2}}\right)\)，证明如下：假设 \(P \notin  V\left( {I}_{1}\right)  \cup  V\left( {I}_{2}\right)\).这意味着存在 \(f \in  {I}_{1}\) 和 \(g \in  {I}_{2}\) 使得 \(f\left( P\right)  \neq  0\) 且 \(g\left( P\right)  \neq  0\).因此，乘积 \({fg} \in  {I}_{1} \cap  {I}_{2}\)，但 \({fg}\left( P\right) = f(P)g(P) \neq  0\)，所以 \(P \notin  V\left( {{I}_{1} \cap  {I}_{2}}\right)\).
+\end{proof}
+
+\({\mathbb{A}}_{k}^{n}\) 上的Zariski拓扑可以在任意代数集 \(X \subset  {\mathbb{A}}_{k}^{n}\) 上诱导出子空间拓扑：\(X\) 的闭子集就是 \(X\) 的代数子集.
+
+需要注意的是，簇上的Zariski拓扑非常“弱”，与我们熟悉的度量空间（如 \({\mathbb{R}}^{n}\)）上的拓扑截然不同.例如，在 \({\mathbb{A}}_{k}^{1}\) 中，Zariski闭集只有两种可能：整个 \({\mathbb{A}}_{k}^{1}\) 或有限点集.当 \(k = \mathbb{R}\) 或 \(\mathbb{C}\) 时，由于多项式函数是连续的，Zariski闭集在通常的（度量）拓扑下也是闭集.实际上，Zariski开集或闭集是非常特殊的：\({\mathbb{R}}^{n}\) 上的非空Zariski开集是一个真代数子集的补集，因此它在 \({\mathbb{R}}^{n}\) 中必然是稠密的.
+
+Zariski拓扑可能会让初学者感到困惑.但由于它主要作为一种方便的语言使用，其技术细节很少成为障碍，所以困难更多是心理上的.
+
+\section{I-V 对应}
+
+作为 \(V\) 映射的逆向操作，我们定义一个从子集到理想的映射：
+\[
+I: \left\{  {\text{子集 }X \subset  {\mathbb{A}}_{k}^{n}}\right\} \to \{ \text{A的理想} \}
+\]
+其定义为
+\[
+X \mapsto I\left( X\right)  = \{ f \in  k\left\lbrack  X_1, \ldots, X_n \right\rbrack   \mid  f\left( P\right)  = 0 \text{ 对所有 } P \in  X\} .
+\]
+即，\(I(X)\) 是在子集 \(X\) 上恒为零的所有多项式构成的理想.
+
+\begin{proposition}
+(a) 若 \(X \subset  Y\)，则 \(I\left( X\right)  \supset  I\left( Y\right)\).
+
+(b) 对任意子集 \(X \subset  {\mathbb{A}}_{k}^{n}\)，有 \(X \subset  V\left( {I\left( X\right) }\right)\).等号成立当且仅当 \(X\) 是一个代数集.
+
+(c) 对任意理想 \(J \subset  A\)，有 \(J \subset  I\left( {V\left( J\right) }\right)\).此处的包含关系可能是严格的.
+\end{proposition}
+
+\begin{proof}
+(a) 是直接的.
+(b) 和 (c) 中的包含关系是同义反复：如果 \(I(X)\) 定义为在 \(X\) 上所有点都为零的函数集合，那么对于 \(X\) 中的任意一点，\(I(X)\) 中的所有函数在该点自然都为零.
+
+(b) 的后半部分：如果 \(X = V\left( {I\left( X\right) }\right)\)，那么根据定义，\(X\) 是一个代数集.反之，如果 \(X = V\left( {J_0}\right)\) 是一个代数集，那么根据定义有 \(J_0 \subset I(X)\)，再由 \(V\) 映射的性质(a)，我们得到 \(V(I(X)) \subset V(J_0) = X\).结合 \(X \subset V(I(X))\)，等号成立.
+
+(c) 中的包含关系 \(J \subset  I\left( {V\left( J\right) }\right)\) 可能严格成立的原因有两种.理解这两点至关重要，因为它们直接引出了零点定理的正确表述.
+\end{proof}
+
+\paragraph{例1：代数不闭的域} 假设域 \(k\) 不是代数闭的，并设 \(f \in  k\left\lbrack  X\right\rbrack\) 是一个在 \(k\) 中没有根的非零多项式.考虑理想 \(J = \left( f\right)  \subset  k\left\lbrack  X\right\rbrack\).因为 \(1 \notin  J\)，所以 \(J\) 是一个真理想.但是，
+\[
+V\left( J\right)  = \left\{  {P \in  {\mathbb{A}}_{k}^{1} \mid  f\left( P\right)  = 0}\right\}   = \varnothing .
+\]
+因此，\(I\left( {V\left( J\right) }\right) = I(\varnothing) = k\left\lbrack  X\right\rbrack\).所以 \(J \subsetneq I(V(J))\).
+一个类似的例子：在 \({\mathbb{R}}^{2}\) 中，多项式 \({X}^{2} + {Y}^{2}\) 定义了唯一的点 \(P = \left( {0,0}\right)\)，所以 \(V\left( {{X}^{2} + {Y}^{2}}\right)  = \{ P\}\).但在 \(\{ P\}\) 上为零的多项式远不止 \({X}^{2} + {Y}^{2}\) 的倍数，实际上 \(I\left( P\right)  = \left( {X,Y}\right)\).
+
+\paragraph{例2：幂次的影响} 对任意 \(f \in  k\left\lbrack  {{X}_{1},\ldots ,{X}_{n}}\right\rbrack\) 和整数 \(a \geq  2\)，\({f}^{a}\) 与 \(f\) 定义了相同的零点集，即 \({f}^{a}\left( P\right)  = 0 \Leftrightarrow  f\left( P\right)  = 0\).所以 \(V\left( {f}^{a}\right)  = V\left( f\right)\).这意味着 \(f \in  I\left( {V\left( {f}^{a}\right) }\right)\)，但通常情况下 \(f \notin  \left( {f}^{a}\right)\).这里的问题在于，点集本身无法记录“重数”信息.例如，\({X}^{2} = 0\) 定义的“重线”，其点集与 \({X} = 0\) 定义的直线完全相同.
+
+\section{不可约代数集}
+
+\begin{definition}[不可约]
+一个代数集 \(X \subset  {\mathbb{A}}_{k}^{n}\) 是不可约的，如果它不能表示为两个严格的代数子集的并集，即不存在
+\[
+X = {X}_{1} \cup  {X}_{2}\text{，其中 }\;{X}_{1},{X}_{2} \text{ 是代数集且 } {X}_{1} \neq X, {X}_{2} \neq X.
+\]
+\end{definition}
+例如，代数子集 \(V\left( {xy}\right)  \subset  {\mathbb{A}}_{k}^{2}\) 是两条坐标轴的并，即 \(V\left( x\right) \cup V\left( y\right)\)，因此它是可约的.
+
+\begin{proposition}
+(a) 设 \(X \subset  {\mathbb{A}}_{k}^{n}\) 是一个代数集，\(I\left( X\right)\) 是其对应的理想，则
+\[
+X\text{ 不可约 } \Leftrightarrow  I\left( X\right) \text{ 是素理想.}
+\]
+
+(b) 任何代数集 \(X\) 都可以唯一地表示为不可约代数子集的并：
+\[
+X = {X}_{1} \cup  \cdots  \cup  {X}_{r}
+\]
+其中每个 \({X}_{i}\) 都是不可约的，且对于 \(i \neq  j\)，\({X}_{i} \not\subset {X}_{j}\).这些 \({X}_{i}\) 被称为 \(X\) 的不可约分量.
+\end{proposition}
+
+\begin{proof}
+(a) 我们证明 \(X\) 可约当且仅当 \(I(X)\) 不是素理想.
+
+\(\left(  \Rightarrow  \right)\) 假设 \(X = {X}_{1} \cup  {X}_{2}\)，其中 \({X}_{1},{X}_{2}\) 是 \(X\) 的严格代数子集.因为 \({X}_{1} \neq X\)，所以 \(I(X_1) \supsetneq I(X)\)，故存在 \({f}_{1} \in  I\left( {X}_{1}\right)  \setminus  I\left( X\right)\).同理，存在 \({f}_{2} \in  I\left( {X}_{2}\right)  \setminus  I\left( X\right)\).考虑乘积 \({f}_{1}{f}_{2}\).它在 \(X_1\) 和 \(X_2\) 上都为零，因此在 \(X\) 上为零，即 \({f}_{1}{f}_{2} \in  I\left( X\right)\).但 \({f}_{1}, {f}_{2}\) 都不在 \(I(X)\) 中，所以 \(I\left( X\right)\) 不是素理想.
+
+\(\left(  \Leftarrow  \right)\) 假设 \(I\left( X\right)\) 不是素理想，则存在 \({f}_{1},{f}_{2} \notin  I\left( X\right)\) 使得 \({f}_{1}{f}_{2} \in  I\left( X\right)\).令 \({I}_{1} = I\left( X\right) + ({f}_{1})\) 和 \({X}_{1} = V\left( {I}_{1}\right)\).显然 \({X}_{1} \subsetneq  X\).同理，令 \({I}_{2} = I\left( X\right) + ({f}_{2})\) 和 \({X}_{2} = V\left( {I}_{2}\right)\)，则 \({X}_{2} \subsetneq  X\).但是，对任意 \(P \in  X\)，由于 \({f}_{1}{f}_{2}\left( P\right)  = 0\)，必有 \({f}_{1}\left( P\right)  = 0\) 或 \({f}_{2}\left( P\right)  = 0\).这意味着 \(P \in X_1\) 或 \(P \in X_2\).因此 \(X \subset  {X}_{1} \cup  {X}_{2}\).由于 \(X_1, X_2\) 都是 \(X\) 的子集，我们得到 \(X = X_1 \cup X_2\)，故 \(X\) 是可约的.
+
+(b) 首先，我们注意到 \({\mathbb{A}}_{k}^{n}\) 的代数子集满足降链条件（d.c.c.），即任意代数子集的降链
+\[
+{X}_{1} \supset  {X}_{2} \supset  \cdots  \supset  {X}_{m} \supset  \cdots
+\]
+最终都会稳定.这是因为对应的理想升链 \(I\left( {X}_{1}\right)  \subset  I\left( {X}_{2}\right)  \subset  \cdots\) 在诺特环 \(A\) 中必定稳定，从而 \(V(I(X_N)) = V(I(X_{N+1}))\)，即 \({X}_{N} = {X}_{N + 1} = \cdots\).
+降链条件等价于任何非空代数子集族都存在极小元.
+
+现在来证明(b)的存在性.假设存在某个代数集不能被分解为有限个不可约子集的并，令 \(\Sigma\) 为所有这类代数集的集合.若 \(\Sigma\) 非空，则其中必有一个极小元 \(X\).
+\(X\) 本身不可能是不可约的，否则它就不是 \(\Sigma\) 的成员.
+因此 \(X\) 必然是可约的，即 \(X = {X}_{1} \cup  {X}_{2}\)，其中 \({X}_{1},{X}_{2}\) 是 \(X\) 的严格子集.根据 \(X\) 的极小性，\({X}_{1}\) 和 \({X}_{2}\) 都不在 \(\Sigma\) 中，所以它们都可以被分解为有限个不可约子集的并.将这两个分解合并，就得到了 \(X\) 的一个分解，这与 \(X \in \Sigma\) 矛盾.因此 \(\Sigma\) 必须为空.
+唯一性是一个简单的练习，见习题3.8.
+\end{proof}
+
+这个证明是典型的代数风格：逻辑严密但可能掩盖了直观.其核心思想是，如果一个代数集是可约的，就分解它；然后对分解出的部分重复此过程.这个过程必须在有限步内终止，否则将构造出一个无限的严格降链，与降链条件矛盾.
+
+\section{零点定理的准备工作}
+
+现在我们来陈述并证明零点定理（Nullstellensatz）.任何版本的证明都有其难点，我选择将其分为两部分.首先，我将陈述一个交换代数中的重要结论，其证明（具有强烈的几何内涵）将在(3.15)节给出.
+
+\begin{lemma}[Zariski引理]
+设 \(k\) 为一个域，\(A\) 是 \(k\) 上的一个有限生成代数.若 \(A\) 本身也是一个域，则 \(A\) 是 \(k\) 的一个有限代数扩张.
+\end{lemma}
+
+为了粗略地说明其合理性，注意如果 \(t \in  A\) 在 \(k\) 上是超越的，那么 \(k\left\lbrack  t\right\rbrack\) 是一个多项式环，它有无穷多个素理想（由欧几里得证明可知）.可以证明，这意味着 \(k(t)\) 作为 \(k\)-代数不是有限生成的：有限个有理函数 \({p}_{i}/{q}_{i} \in  k\left( t\right)\) 的分母中只涉及有限个素理想.
+
+\section{根理想}
+
+\begin{definition}[根理想]
+若 \(I\) 是环 \(A\) 的一个理想，则 \(I\) 的根（radical）定义为
+\[
+\operatorname{rad}(I) = \sqrt{I} = \left\{  {f \in  A \mid  {f}^{n} \in  I \text{ 对某个整数 } n>0}\right\}  .
+\]
+\end{definition}
+\(\sqrt{I}\) 本身也是一个理想.一个理想 \(I\) 如果满足 \(I = \sqrt{I}\)，则称其为根理想.
+注意，素理想都是根理想.在唯一分解整环（如 \(k\left\lbrack  {{X}_{1},\ldots ,{X}_{n}}\right\rbrack\)）中，一个主理想 \(I = \left( f\right)\)（其中 \(f = \prod {f}_{i}^{{n}_{i}}\) 是 \(f\) 的素因子分解）的根理想是 \(\sqrt{I} = \left( {f}_{\text{red}}\right)\)，其中 \({f}_{\text{red}} = \prod {f}_{i}\) 是 \(f\) 的约化部分.
+
+\begin{theorem}[希尔伯特零点定理]
+设 \(k\) 为一个代数闭域，\(A = k\left\lbrack  {{X}_{1},\ldots ,{X}_{n}}\right\rbrack\).
+\begin{enumerate}
+    \item[\upshape (a)] \(A\) 的每个极大理想都具有 \({m}_{P} = \left( {{X}_{1} - {a}_{1},\ldots ,{X}_{n} - {a}_{n}}\right)\) 的形式，对应于某个点 \(P = \left( {{a}_{1},\ldots ,{a}_{n}}\right)  \in  {\mathbb{A}}_{k}^{n}\).换言之，极大理想就是由所有在某点 \(P\) 处为零的函数构成的理想 \(I(P)\).
+    \item[\upshape (b)] (弱零点定理) 设 \(J \subset  A\) 是一个真理想（即 \(J \neq A\)），则其零点集 \(V\left( J\right)\) 非空.
+    \item[\upshape (c)] (强零点定理) 对任意理想 \(J \subset  A\)，
+    \[
+    I\left( {V\left( J\right) }\right)  = \sqrt{J}.
+    \]
+\end{enumerate}
+\end{theorem}
+
+该定理的核心是(b)，它断言只要一个理想不是整个多项式环，它就必然在 \({\mathbb{A}}_{k}^{n}\) 中有公共零点.注意，如果 \(k\) 不是代数闭的，(b)就不成立.定理的德语名称（Nullstelle = 零点，Satz = 定理）有助于记忆其内容.
+
+\begin{corollary}
+在代数闭域 \(k\) 上，映射 \(V\) 和 \(I\) 建立了在 \({\mathbb{A}}_{k}^{n}\) 的根理想与代数子集之间的一一对应关系.
+\end{corollary}
+\begin{proof}
+对任意代数集 \(X\)，我们有 \(V\left( {I\left( X\right) }\right)  = X\).对任意根理想 \(J\)，根据零点定理(c)，我们有 \(I\left( {V\left( J\right) }\right)  = J\).
+\end{proof}
+
+\begin{proof}[零点定理的证明 (假设Zariski引理)]
+(a) 设 \(m \subset  k\left\lbrack  {{X}_{1},\ldots ,{X}_{n}}\right\rbrack\) 是一个极大理想.令 \(K = k\left\lbrack  {{X}_{1},\ldots ,{X}_{n}}\right\rbrack  /m\).由于 \(m\) 是极大理想，\(K\) 是一个域.同时，\(K\) 是一个有限生成的 \(k\)-代数（由 \({X}_{i}\) 在商环中的像生成）.根据Zariski引理(3.8)，\(K\) 是 \(k\) 的一个代数扩张.但 \(k\) 是代数闭的，所以 \(k \to K\) 必然是同构.
+
+这意味着，对每个 \(i\)，\({X}_{i}\) 在商环中的像 \(\bar{X_i} \in K\) 对应于 \(k\) 中的某个元素 \({a}_{i}\).因此，\({X}_{i} - {a}_{i} \in \ker(k[X_1,\dots,X_n] \to K) = m\).于是，理想 \(\left( {{X}_{1} - {a}_{1},\ldots ,{X}_{n} - {a}_{n}}\right)\) 包含于 \(m\).但前者本身就是一个极大理想，所以两者必须相等.
+
+(a) \(\Rightarrow\) (b) 这很简单.如果 \(J \neq A\)，那么 \(J\) 必然包含于某个极大理想 \(m\) 中（极大理想的存在性由诺特环的升链条件保证）.根据(a)，\(m\) 的形式是 \({m}_{P} = \left( {{X}_{1} - {a}_{1},\ldots ,{X}_{n} - {a}_{n}}\right)\) for some \(P \in {\mathbb{A}}_{k}^{n}\).\(J \subset m_P\) 意味着所有 \(J\) 中的函数在点 \(P\) 处都为零.因此 \(P \in  V\left( J\right)\)，即 \(V(J)\) 非空.
+
+(b) \(\Rightarrow\) (c) 这个证明需要一个巧妙的技巧，称为“拉宾诺维奇的诡计”.设 \(J \subset  k\left\lbrack  {{X}_{1},\ldots ,{X}_{n}}\right\rbrack\) 为任意理想，并设 \(f \in I(V(J))\).这意味着 \(f\) 在 \(V(J)\) 的所有点上都为零.
+我们想证明存在某个 \(N>0\) 使得 \({f}^{N} \in  J\).
+
+引入一个新变量 \(Y\)，并考虑环 \(k\left\lbrack  {{X}_{1},\ldots ,{X}_{n},Y}\right\rbrack\) 中的新理想
+\[
+{J}_{1} = J + \left( {1 - fY}\right)  \subset  k\left\lbrack  {{X}_{1},\ldots ,{X}_{n},Y}\right\rbrack.
+\]
+\(J_1\) 的零点集 \(V(J_1) \subset {\mathbb{A}}^{n+1}\) 由满足 \(g(P)=0\) 对所有 \(g \in J\) 且 \(1-f(P)b=0\) 的点 \((P,b)\) 构成.第二个条件等价于 \(f(P) \neq 0\).
+但我们已知 \(f\) 在 \(V(J)\) 上恒为零，所以不存在这样的点 \((P,b)\).因此 \(V(J_1) = \varnothing\).
+
+由于我们在一个代数闭域上，弱零点定理(b)告诉我们，如果一个理想的零点集为空，那么这个理想必须是整个环.所以 \(J_1 = k\left\lbrack  {{X}_{1},\ldots ,{X}_{n},Y}\right\rbrack\)，即 \(1 \in J_1\).
+这意味着存在表达式
+\[
+1 = \sum_{i} g_i f_i + h(1-fY)
+\]
+其中 \({f}_{i} \in  J\)，而 \({g}_{i}, h \in  k\left\lbrack  {{X}_{1},\ldots ,{X}_{n},Y}\right\rbrack\).
+
+这个等式是在多项式环 \(k\left\lbrack  {{X}_{1},\ldots ,{X}_{n},Y}\right\rbrack\) 中成立的恒等式.我们可以将它看作在有理函数域 \(k(X_1, \ldots, X_n)\) 中关于变量 \(Y\) 的等式，然后代入 \(Y = 1/f\).这使得 \(1-fY\) 项变为0，我们得到：
+\[
+1 = \sum_{i} g_i(X_1, \ldots, X_n, 1/f) f_i.
+\]
+将右边的分母 \(f\) 的幂次全部通分，设最高次幂为 \(f^N\)，我们可以得到
+\[
+1 = \frac{\sum_i \tilde{g_i} f_i}{f^N}
+\]
+其中 \(\tilde{g_i} \in k[X_1, \ldots, X_n]\).整理后得到 \({f}^{N} = \sum_i \tilde{g_i} f_i\)，这表明 \({f}^{N} \in  J\).
+\end{proof}
+
+\section{例子}
+
+(a) \textbf{超曲面}. 最简单的簇是超曲面 \(V\left( f\right)  : \left( {f = 0}\right)  \subset  {\mathbb{A}}_{k}^{n}\).当 \(k\) 是代数闭域时，不可约多项式 \(f \in  k\left\lbrack  {{X}_{1},\ldots ,{X}_{n}}\right\rbrack\) 与不可约超曲面之间存在一一对应.由零点定理可知，两个不同的不可约多项式（非倍数关系）定义了不同的超曲面.这并非显然（例如，在 \(\mathbb{R}\) 上是错误的），但可以通过更经典的消元理论来证明.
+
+(b) \textbf{需要多个生成元的理想}. 除了超曲面，大多数簇都由“许多”方程定义.与直觉相反，一个簇的理想 \(I\left( X\right)\) 通常需要远多于其“余维数”的生成元.下面是一个例子，一条曲线 \(C \subset  {\mathbb{A}}_{k}^{3}\) 的理想 \(I\left( C\right)\) 需要3个生成元（假设 \(k\) 是无限域）.
+
+考虑参数化曲线 \(C = \{ (t^3, t^4, t^5) \mid t \in k \}\).这是一个不可约曲线.可以证明其理想为
+\[ I(C) = (u^3-vw, v^2-uw, w^2-u^2v). \]
+这个理想不能由两个元素生成.这个例子属于一类漂亮的“单项式”簇.一般而言，猜测一个簇的不可约分量可能相当棘手，证明它们不可约则更难.
+
+\section{有限代数}
+
+现在我们开始准备证明Zariski引理(3.8).设 \(A \subset  B\) 为环.
+\begin{definition}
+如果存在有限个元素 \({b}_{1},\ldots ,{b}_{n} \in B\) 使得 \(B = A\left\lbrack  {{b}_{1},\ldots ,{b}_{n}}\right\rbrack\)，则称 \(B\) 是 \(A\) 上的\textbf{有限生成代数}.这意味着 \(B\) 作为环由 \(A\) 和 \({b}_{1},\ldots ,{b}_{n}\) 生成.
+
+如果存在有限个元素 \({b}_{1},\ldots ,{b}_{n} \in B\) 使得 \(B = A{b}_{1} + \cdots  + A{b}_{n}\)，则称 \(B\) 是一个\textbf{有限 \(A\)-模}（或有限 \(A\)-代数）.这意味着 \(B\) 作为 \(A\)-模是有限生成的.
+\end{definition}
+关键区别在于：作为环生成时，允许生成元的多项式表达式；作为模生成时，只允许线性组合.例如，\(k\left\lbrack  X\right\rbrack\) 是有限生成的 \(k\)-代数（由一个元素 \(X\) 生成），但不是有限 \(k\)-模（因为它作为 \(k\)-向量空间的维数是无限的）.
+
+\begin{proposition}
+(i) 设 \(A \subset  B \subset  C\) 为环.若 \(B\) 是有限 \(A\)-模且 \(C\) 是有限 \(B\)-模，则 \(C\) 是有限 \(A\)-模.
+
+(ii) 如果 \(A \subset  B\) 是一个有限 \(A\)-模，则 \(B\) 中的每个元素 \(x\) 都在 \(A\) 上是整的，即 \(x\) 满足一个首一的整系数多项式方程：
+\[
+{x}^{n} + {a}_{n - 1}{x}^{n - 1} + \cdots  + {a}_{0} = 0\;\text{，其中 }{a}_{i} \in  A.
+\]
+
+(iii) 反之，如果 \(x\) 在 \(A\) 上是整的，那么 \(B = A\left\lbrack  x\right\rbrack\) 是一个有限 \(A\)-模.
+\end{proposition}
+
+\begin{proof}
+(i) 和 (iii) 是简单的练习.对于 (ii)，我们使用一个巧妙的“行列式技巧”：
+假设 \(B = \sum_{i=1}^n A{b}_{i}\).对任意 \(x \in B\)，由于 \(x{b}_{i} \in  B\)，它可以表示为基底的线性组合：
+\[
+x{b}_{i} = \sum_{j=1}^n {a}_{ij}{b}_{j} \quad (a_{ij} \in A)
+\]
+这可以写成一个矩阵方程 \(\sum_{j=1}^n \left( {x{\delta }_{ij} - {a}_{ij}}\right) {b}_{j} = 0\).令 \(M\) 为矩阵 \((x{\delta }_{ij} - {a}_{ij})\).根据线性代数，我们有 \(\det(M) \cdot b_j = 0\) 对所有 \(j\) 成立.由于 \(1_B \in B\) 是 \(b_j\) 的线性组合，我们得到 \(\det(M) \cdot 1_B = 0\)，即 \(\det(M)=0\).
+\(\det(M)\) 展开后就是一个关于 \(x\) 的、系数在 \(A\) 中的首一多项式.
+\end{proof}
+
+\section{诺特正规化引理}
+
+\begin{theorem}[诺特正规化引理]
+设 \(k\) 是一个无限域，\(A = k\left\lbrack  {{a}_{1},\ldots ,{a}_{n}}\right\rbrack\) 是一个有限生成的 \(k\)-代数.则存在整数 \(m \leq  n\) 和元素 \({y}_{1},\ldots ,{y}_{m} \in  A\) 使得：
+\begin{enumerate}
+    \item \({y}_{1},\ldots ,{y}_{m}\) 在 \(k\) 上代数无关；
+    \item \(A\) 是一个有限 \(k\left\lbrack  {{y}_{1},\ldots ,{y}_{m}}\right\rbrack\)-模.
+\end{enumerate}
+\end{theorem}
+
+这个定理断言，任何有限生成 \(k\)-代数都可以通过先进行纯超越扩张，然后再进行整扩张得到.
+
+\begin{proof}[证明思路]
+考虑满同态 \(\phi: k\left\lbrack  {{X}_{1},\ldots ,{X}_{n}}\right\rbrack   \rightarrow  A\)，其核为 \(I\).如果 \(I=(0)\)，则定理成立.否则，取非零多项式 \(f \in I\).证明的核心是通过对变量 \({X}_{1},\ldots ,{X}_{n}\) 做一个线性变换，使得 \(f\) 变成一个关于某个新变量（比如 \(X_n\)）的首一多项式，其系数是关于其他 \(n-1\) 个新变量的多项式.
+具体来说，令 \({X}_{i}' = {X}_{i} - {\alpha }_{i}{X}_{n}\) for \(i=1, \ldots, n-1\).对于恰当选择的 \({\alpha }_{i} \in  k\)，多项式 \(f(X_1'+\alpha_1 X_n, \ldots, X_{n-1}'+\alpha_{n-1}X_n, X_n)\) 是一个关于 \(X_n\) 的首一多项式.
+这表明 \(a_n\) 在子代数 \(A' = k[a_1', \ldots, a_{n-1}']\) 上是整的，其中 \(a_i' = \phi(X_i')\).因此 \(A\) 是一个有限 \(A'\)-模.
+然后对 \(A'\) 应用归纳假设即可完成证明.
+\end{proof}
+
+\paragraph{几何意义} 诺特正规化引理在几何上对应于一个有限的、满的线性投影.设 \(V \subset {\mathbb{A}}^n\) 是一个代数簇.引理表明，总存在一个到某个低维仿射空间 \({\mathbb{A}}^m\) 的投影 \(\pi: V \to {\mathbb{A}}^m\)，使得这个投影是有限满射（即每个点的纤维都是有限非空的）.
+
+\section{Zariski引理的证明}
+
+现在我们利用诺特正规化引理来证明Zariski引理(3.8).
+设 \(A = k\left\lbrack  {{a}_{1},\ldots ,{a}_{n}}\right\rbrack\) 是一个有限生成的 \(k\)-代数，且 \(A\) 是一个域.
+根据诺特正规化引理，存在代数无关的元素 \({y}_{1},\ldots ,{y}_{m} \in  A\)，使得 \(A\) 是多项式环 \(B = k\left\lbrack  {{y}_{1},\ldots ,{y}_{m}}\right\rbrack\) 上的一个有限模.
+
+我们有如下引理：
+\begin{lemma}
+如果 \(A\) 是一个域，且 \(B \subset  A\) 是一个子环，使得 \(A\) 是一个有限 \(B\)-模，则 \(B\) 也是一个域.
+\end{lemma}
+\begin{proof}[引理的证明]
+对任意非零元素 \(b \in B\)，其逆元 \({b}^{-1}\) 存在于域 \(A\) 中.由于 \(A\) 是有限 \(B\)-模，\({b}^{-1}\) 在 \(B\) 上是整的.即存在关系
+\[
+{b}^{-n} + {a}_{n - 1}{b}^{-(n - 1)} + \cdots  + {a}_{1}{b}^{-1} + {a}_{0} = 0,\;\text{ 其中 }{a}_{i} \in  B.
+\]
+两边同乘以 \({b}^{n - 1}\)，整理可得
+\[
+{b}^{-1} =  - \left( {{a}_{n - 1} + {a}_{n - 2}b + \cdots  + {a}_{0}{b}^{n - 1}}\right).
+\]
+由于右边所有项都在 \(B\) 中，所以 \({b}^{-1} \in B\).因此 \(B\) 是一个域.
+\end{proof}
+
+回到Zariski引理的证明.我们已经知道 \(B = k\left\lbrack  {{y}_{1},\ldots ,{y}_{m}}\right\rbrack\) 是一个域.但一个多项式环只有在 \(m=0\) 且 \(k\) 是域时才是域.因此 \(m=0\)，这意味着 \(B=k\).
+于是，\(A\) 是 \(k\) 上的一个有限模，即 \(A\) 是 \(k\) 的一个有限维向量空间.所以 \(A\) 是 \(k\) 的一个有限代数扩张.Zariski引理证毕，从而完成了零点定理的全部证明.
+
+\section{可分性附录}
+
+为了确保论证在特征 \(p>0\) 时依然有效，需要一些关于可分扩张的额外考虑.
+在诺特正规化引理的叙述中，如果 \(A\) 是一个整环，我们可以选择 \({y}_{1},\ldots ,{y}_{m}\) 使得 \(A\) 的分式域 \(K\) 是 \(k\left( {{y}_{1},\ldots ,{y}_{m}}\right)\) 的一个可分扩张.这在后续推导“每个簇都双有理等价于一个超曲面”时会用到.
+
+\section{归约到超曲面}
+
+回顾伽罗瓦理论中的本原元定理：
+\begin{theorem}[本原元定理]
+设 \(K\) 是无限域，\(L/K\) 是有限可分域扩张，则存在 \(x \in  L\) 使得 \(L = K\left( x\right)\).
+\end{theorem}
+
+结合诺特正规化引理和本原元定理，我们可以得到以下推论：
+\begin{corollary}
+对任意有限生成 \(k\)-代数 \(A\)（整环），其分式域 \(K\) 可以表示为 \(K = k(y_1, \ldots, y_m, y_{m+1})\)，其中 \(y_1, \ldots, y_m\) 在 \(k\) 上代数无关，而 \(y_{m+1}\) 在 \(k(y_1, \ldots, y_m)\) 上是代数的.
+\end{corollary}
+从代数角度看，这意味着任何有限生成的域扩张都可以分解为一个纯超越扩张，再跟一个单代数扩张.这个结果的几何意义是：任何不可约簇都双有理等价于一个超曲面.具体将在第5章阐明.
+
+\section{第三章习题}
+
+3.1 一个整环 \(A\) 是主理想整环(PID)，如果 \(A\) 的每个理想都是主理想.请直接证明PID满足升链条件.
+
+3.2 证明一个整环 \(A\) 是唯一分解整环(UFD)当且仅当每个主理想的升链稳定，且 \(A\) 的每个不可约元都是素元.
+
+3.3 (i) 证明高斯引理. (ii) 利用高斯引理和归纳法证明，若 \(k\) 是UFD，则 \(k\left\lbrack  {{X}_{1},\ldots ,{X}_{n}}\right\rbrack\) 也是UFD.
+
+3.4 证明命题3.2(ii)：证明环的局部化 \(A[S^{-1}]\) 的理想与其在 \(A\) 中的“收缩”有一一对应关系，并由此推断若 \(A\) 是诺特环，则 \(A[S^{-1}]\) 也是诺特环.
+
+3.5 设 \(J = \left( {{XY},{XZ},{YZ}}\right)  \subset  k\left\lbrack  {X,Y,Z}\right\rbrack\).求 \(V\left( J\right)  \subset  {\mathbb{A}}^{3}\).它是不可约的吗？\(J = I\left( {V\left( J\right) }\right)\) 是否成立？证明 \(J\) 不能由两个元素生成.现在设 \({J}^{\prime } = \left( {{XY},\left( {X - Y}\right) Z}\right)\).求 \(V\left( {J}^{\prime }\right)\)，并计算 \(\sqrt{J^{\prime}}\).
+
+3.6 设 \(J = \left( {{X}^{2} + {Y}^{2} - 1,Y - 1}\right)\).求一个多项式 \(f \in  I\left( {V\left( J\right) }\right)  \setminus  J\).
+
+3.7 设 \(J = \left( {{X}^{2} + {Y}^{2} + {Z}^{2},{XY} + {XZ} + {YZ}}\right)\).确定 \(V\left( J\right)\) 和 \(I\left( {V\left( J\right) }\right)\).
+
+3.8 证明代数集的不可约分量分解是唯一的（在不计顺序的意义下）.
+
+3.9 设 \(f = {X}^{2} - {Y}^{2}\) 和 \(g = {X}^{3} + X{Y}^{2} - {Y}^{3} - {X}^{2}Y - X + Y\).求 \(V\left( {f,g}\right)  \subset  {\mathbb{A}}_{\mathbb{C}}^{2}\) 的不可约分量.
+
+3.10 若 \(J = \left( {{uw} - {v}^{2},{w}^{3} - {u}^{5}}\right)\) ，证明 \(V\left( J\right)\) 有两个不可约分量，其中一个是(3.11, b)中的曲线 \(C\) .
+
+证明同一曲线 \(C\) 可以由两个方程 \({uw} = {v}^{2}\) 和 \({u}^{5} - 2{u}^{2}{vw} + {w}^{3} =\) 0定义.这里的关键是第二个方程，在限制于二次锥面 \(\left( {{uw} = {v}^{2}}\right)\) 时，试图成为一个平方.
+
+3.11 设 \(f = {v}^{2} - {uw},g = {u}^{4} - {vw},h = {w}^{2} - {u}^{3}v\) .按照(3.11, b)的思路确定簇 \(V\left( {f,g,h}\right)  \subset  {\mathbb{A}}^{3}\) .找出 \(V\left( {f,g}\right) ,V\left( {f,h}\right)\) 和 \(V\left( {g,h}\right)\) 是否还有其他有趣的分量.
+
+3.12 (i) 证明对于任意域 \(k\) ， \({\mathbb{A}}_{k}^{1}\) 中的代数集要么是有限的，要么是整个 \({\mathbb{A}}_{k}^{1}\) .由此推断Zariski拓扑是余有限拓扑.
+
+(ii) 设 \(k\) 为任意域， \(f,g \in  k\left\lbrack  {X,Y}\right\rbrack\) 为不可约元素，且彼此不互为倍数.证明 \(V\left( {f,g}\right)\) 是有限的.[提示:写出 \(K = k\left( X\right)\) ；首先证明在PID \(K\left\lbrack  Y\right\rbrack\) 中 \(f,g\) 没有公因子.由此推断存在 \(p,q \in  K\left\lbrack  Y\right\rbrack\) 使得 \({pf} + {qg} = 1\) ；现在通过清除 \(p,q\) 中的分母，证明存在 \(h \in  k\left\lbrack  X\right\rbrack\) 和 \(a,b \in  k\left\lbrack  {X,Y}\right\rbrack\) 使得 \(h = {af} + {bg}\) .因此得出 \(V\left( {f,g}\right)\) 中点的 \(X\) 坐标只有有限多种可能值.]
+
+(iii) 证明任意代数集 \(V \subset  {\mathbb{A}}_{k}^{2}\) 是有限个点和曲线的并.
+
+3.13 (a) 设 \(k\) 为无限域， \(f \in  k\left\lbrack  {{X}_{1},\ldots ,{X}_{n}}\right\rbrack\) ；假设 \(f\) 是非常数的，即 \(f \notin  k\) .证明 \(V\left( f\right)  \neq  {\mathbb{A}}_{k}^{n}\) .[提示:假设 \(f\) 涉及 \({X}_{n}\) ，考虑 \(f = \sum {a}_{i}\left( {{X}_{1},\ldots ,{X}_{n - 1}}\right) {X}_{n}^{i}\) ；现在对 \(n\) 使用归纳法.]
+
+(b) 现在假设 \(k\) 是代数闭的，且 \(f\) 如(a)所述.假设 \(f\) 在 \({X}_{n}\) 中的次数为 \(m\) ，其首项为 \({a}_{m}\left( {{X}_{1},\ldots ,{X}_{n - 1}}\right) {X}_{n}^{m}\) ；证明无论 \({a}_{m} \neq  0\) ，对应每个 \(\left( {{X}_{1},\ldots ,{X}_{n - 1}}\right)\) 的值， \(V\left( f\right)\) 中都有有限且非空的点集.特别地，推断如果 \(n \geq  2\) ，则 \(V\left( f\right)\) 是无限的.
+
+(c) 结合(b)和练习3.12(iii)的结果，推断如果域 \(k\) 是代数闭的，则不同的不可约多项式 \(f \in  k\left\lbrack  {X,Y}\right\rbrack\) 定义了 \({\mathbb{A}}_{k}^{2}\) 中不同的超曲面(参见(3.11, a)).
+
+(d) 将(c)的结果推广到 \({\mathbb{A}}_{k}^{n}\) .
+
+3.14 举例说明(3.13)中给出的诺特正规化(Noether normalisation)证明在有限域 \(k\) 上失效的情况.[提示:找到一个多项式 \(f\left( {X,Y}\right)\) ，使得 \({F}_{d}\left( {\alpha ,1}\right)  = {\alpha }^{q} - \alpha\) ，从而对所有 \(\alpha  \in  k\) 都有 \({F}_{d}\left( {\alpha ,1}\right)  = 0\) .]
+
+3.15 设 \(A\) 为环， \(A \subset  B\) 为有限的 \(A\) -代数.证明如果 \(m\) 是 \(A\) 的极大理想，则 \({mB} \neq  B\) .[提示:反证法，假设 \(B = {mB}\) ；若 \(B = \sum A{b}_{i}\) ，则对每个 \(i\) ，有 \({b}_{i} = \sum {a}_{ij}{b}_{j}\) 且 \({a}_{ij} \in  m\) .现在证明
+
+\[
+\Delta  = \det \left( {{\delta }_{ij} - {a}_{ij}}\right)  = 0,
+\]
+
+并得出 \({1}_{B} \in  m\) ，矛盾.另见[Atiyah 和 Macdonald，命题2.4及推论2.5].
+
+3.16 设 \(A = k\left\lbrack  {{a}_{1},\ldots ,{a}_{n}}\right\rbrack\) 如诺特正规化(3.13)中所述，写作 \(I =\)  \(\ker \left\{  {k\left\lbrack  {{X}_{1},\ldots ,{X}_{n}}\right\rbrack   \rightarrow  k\left\lbrack  {{a}_{1},\ldots ,{a}_{n}}\right\rbrack   = A}\right\}\) ，并考虑 \({\mathbb{A}}_{k}^{n}\) 中的 \(V = V\left( I\right)\) ；为简便起见，假设 \(I\) 为素理想.
+
+设 \({Y}_{1},\ldots ,{Y}_{m}\) 为 \({X}_{1},\ldots ,{X}_{m}\) 中的一般线性形式，写 \(\pi  : {\mathbb{A}}_{k}^{n} \rightarrow  {\mathbb{A}}_{k}^{m}\) 为由 \({Y}_{1},\ldots ,{Y}_{m}\) 定义的线性射影；设 \(p = \pi  \mid  V : V \rightarrow  {\mathbb{A}}_{k}^{m}\) .证明(3.13)中的(i)和(ii)意味着每个 \(P \in  {\mathbb{A}}_{k}^{m},{p}^{-1}\left( P\right)\) 上方是有限集，且当 \(k\) 为代数闭域时非空.[提示: \(I\) 包含每个 \({X}_{i}\) 在 \(k\left\lbrack  {{Y}_{1},\ldots ,{Y}_{m}}\right\rbrack\) 上的首一关系；有限性由此易得.非空性则利用练习3.15证明对任意 \(P = \left( {{b}_{1},\ldots ,{b}_{m}}\right)  \in  {\mathbb{A}}_{k}^{m}\) ，理想 \({J}_{P} = I + \left( {{Y}_{1} - {b}_{1},\ldots ,{Y}_{m} - {b}_{m}}\right)  \neq  k\left\lbrack  {{X}_{1},\ldots ,{X}_{m}}\right\rbrack\) .然后应用Nullstellensatz的非空性断言.]

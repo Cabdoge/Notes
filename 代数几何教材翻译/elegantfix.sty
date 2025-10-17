@@ -41,12 +41,7 @@
 % enumerate 第二级样式
 \setlist[enumerate,2]{label=(\arabic*), leftmargin=2em}
 
-% exercise 改为按 section 编号
-\makeatletter
-\@removefromreset{exer}{chapter}
-\@addtoreset{exer}{section}
-\renewcommand{\theexer}{\thesection.\arabic{exer}}
-\makeatother
+
 
 % exerciseline 分隔标题
 \newcommand{\xsubsectiontitle}{\thesubsection~}

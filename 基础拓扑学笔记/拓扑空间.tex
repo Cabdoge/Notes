@@ -425,7 +425,7 @@
 \end{instance}
 
 \begin{instance}
-    考虑$\mbb{R}$上的一个拓扑基$\left\{\left[n,n+1\right)\right|n\in\mbb{Z}\}$生成的拓扑$\mcal{T}$，但在$\mcal{T}$中单点集$\{0\}$不是闭集.\par
+    考虑$\mbb{R}$上的拓扑基$\left\{\left[n,n+1\right)\right|n\in\mbb{Z}\}$生成的拓扑$\mcal{T}$，但在$\mcal{T}$中单点集$\{0\}$不是闭集.\par
     假设$\{0\}$是闭集，则$\mathbb{R}\setminus\{0\}=(-\infty,0)\cup(0,+\infty)$是开集，$\frac{1}{2}\in\mbb{R}\setminus\{0\}$，则存在一个基元素$[n,n+1),n\in\mb{Z},\st \frac{1}{2}\in[n,n+1)\subset\mbb{R}\setminus\{0\}$.但不存在这样的$n$，矛盾!
 \end{instance}
 
@@ -448,7 +448,7 @@
 \end{proof}
 
 
-\section{Hausdorff性}
+\section{Hausdorff空间}
 
 \begin{definition}{Hausdorff空间}
     一个拓扑空间$(X,\mcal{T})$是\textbf{Hausdorff}的，如果对$X$中任意两个不同的点$x,y$,都$\exists\, x,y$的邻域$U,V$且$U\cap V=\varnothing$.
@@ -483,6 +483,231 @@
     $\mbb{R}_{fc}$不是Hausdorff的(但是它的任意单点集是有限集).\par
     取$x\neq y\in\mbb{R}$，假设$\exists\,x,y$的邻域$U_x,U_y,\st U_x\cap U_y=\varnothing$，则$U_y\subset\mbb{R}-U_x$，其中$U_y$是无限集，而$\mbb{R}-U_x$是有限集，矛盾!
 \end{instance}
+
+\begin{proposition}
+    如果$X$是Hausdorff空间，$A\subset X$是$X$的子空间，则$A$也是Hausdorff空间.
+\end{proposition}
+\begin{proof}
+    $\forall\, a,b\in A,a\neq b$，因为$X$是Hausdorff的，$\exists\, a,b$的邻域$U_a,U_b\in X,\st U_a\cap U_b=\varnothing$.\par
+    $U_a\cap A,U_b\cap A$是$A$中的$a$和$b$的邻域且$(U_a\cap A)\cap(U_b\cap A)=\varnothing$，因此$A$是Hausdorff的.
+\end{proof}
+
+\begin{instance}
+    欧氏空间$\mathbb{E}^n$的任意子空间都是Hausdorff的.
+\end{instance}
+
+\begin{proposition}
+    如果$X$和$Y$是两个Hausdorff空间，则乘积空间$X\times Y$也是Hausdorff空间.
+\end{proposition}
+\begin{proof}
+    $\forall\, (x_1,y_1),(x_2,y_2)\in X\times Y,(x_1,y_1)\neq (x_2,y_2)$，则要么$x_1\neq x_2$，要么$y_1\neq y_2$.\par
+    \begin{wrapfigure}{r}{0.25\textwidth}
+        \vspace{-1 em}
+        \includegraphics[width=0.25\textwidth]{fig/2.10.png}
+        \captionof{figure}{}
+        \vspace{-1 em}
+    \end{wrapfigure}
+    不妨假设$x_1\neq x_2$，因为$X$是Hausdorff的，$\exists\, x_1,x_2$的邻域$U_{x_1},U_{x_2}\in X,\st U_{x_1}\cap U_{x_2}=\varnothing$.\par
+    那么$U_{x_1}\times Y$是$(x_1,y_1)$在$X\times Y$中的邻域 ，$U_{x_2}\times Y$是$(x_2,y_2)$在$X\times Y$中的邻域.\par
+    并且$(U_{x_1}\times Y)\cap(U_{x_2}\times Y)=(U_{x_1}\cap U_{x_2})\times Y=\varnothing$，因此$X\times Y$是Hausdorff的.
+\end{proof}
+
+
+\section{内部、闭包与边界}
+
+\begin{definition}{内部与闭包}
+    设$X$是一个拓扑空间，$A\subset X$是一个子集，则$A$的\textbf{内部}是指$A$中所有开集的并，记作$\mathring{A}$或$\mathrm{Int}(A)$.\par
+    $A$的\textbf{闭包}是指所有包含$A$的闭集的交，记作$\overline{A}$或$\mathrm{Cl}(A)$.\par
+    则$\mathring{A}=\bigcup_{\substack{U\text{开集} \\ U\subset A}}{U},\overline{A}=\bigcap_{\substack{U\text{闭集}\\ U\supset A}}{U}$.
+\end{definition}
+
+\begin{note}
+    $\mathring{A}$是开集，$\overline{A}$是闭集，且$\mathring{A}\subset A\subset \overline{A}$.
+\end{note}
+
+\begin{proposition}{内部与闭包的性质}
+    设$X$是一个拓扑空间，$A,B\subset X$，则
+    \begin{enumerate}[(i)]
+        \item 如果$U$是$X$中的开集，$U\subset A$，则$U\subset \mathring{A}$.
+        \item 如果$V$是$X$中的闭集，$V\supset A$，则$V\supset \overline{A}$.
+        \item $A\subset B\Rightarrow \mathring{A}\subset\mathring{B}$
+        \item $A\subset B\Rightarrow \overline{A}\subset\overline{B}$
+        \item $A$是开集$\Rightarrow A=\mathring{A}$.
+        \item $A$是闭集$\Rightarrow A=\overline{A}$.
+    \end{enumerate}
+\end{proposition}
+\begin{proof}
+    (iii)$\mathring{A}$是开集，$\mathring{A}\subset A\subset B$，由(i)可知$\mathring{A}\subset\mathring{B}$.\par
+    (iv)$\overline{B}$是闭集，$\overline{B}\supset B\supset A$，由(ii)可知$\overline{A}\subset\overline{B}$.\par
+    (v)“$\Rightarrow$” 因为$A$是开集，并且$A\subset A$，由(i)可知$A\subset \mathring{A}$.又因为总有$\mathring{A}\subset A$，所以$A=\mathring{A}$.\par
+    \quad\,“$\Leftarrow$” 因为$\mathring{A}$是开集，并且$A=\mathring{A}$，所以$A$是开集.\par
+\end{proof}
+
+\begin{note}
+    $\mathring{A}$是$A$中最大的开集，$\overline{A}$是包含$A$的最小闭集.
+\end{note}
+
+\begin{instance}
+    \begin{enumerate}
+        \item 在$\mathbb{R}_\mathrm{Std}$中，若$A=[0,1)$，则$\mathring{A}=(0,1),\overline{A}=[0,1]$.
+        \item 在$\mathbb{R}_{discrete}$中，若$A=[0,1)$，由于在$\mathbb{R}_{discrete}$中任意子集都是开集，则$\mathring{A}=[0,1),\overline{A}=[0,1)$.
+        \item 在$\mathbb{R}_{fc}$中，$A=[0,1)$，则$\mathring{A}=\varnothing,\overline{A}=\mb{R}$.
+        \item 在$\mathbb{R}_l$中，$A=[0,1)$，则$\mathring{A}=[0,1),\overline{A}=[0,1)$.\par
+        这是因为$\mathbb{R}-[0,1)=(-\infty,0)\cup [1,+\infty)=\left(\bigcup_{n\in\mb{Z}_+}{[-n,0)}\right)\cup \left(\bigcup_{n\in\mb{Z_+}}{[1,n)}\right)$是开集.
+        \item 在$\mathbb{R}_\mathrm{Std}$中，取$A=\mb{Q}$，则$\mathring{A}=\varnothing,\overline{A}=\mb{R}$.
+    \end{enumerate}
+\end{instance}
+
+
+\begin{definition}{稠密性和可分性}
+    设$X$是一个拓扑空间，$A\subset X$，如果$\overline{A}=X$，则称$A$在$X$中是\textbf{稠密}的.\par
+    如果$X$中存在一个可数的稠密子集，则称$X$是\textbf{可分}的. 
+\end{definition}
+
+
+\begin{instance}
+    在$\mb{R}_{fc}$中，任意有限子集$A$都是稠密的.
+\end{instance}
+
+
+\begin{lemma}\label{lem:2.10}
+    设$X$是一个拓扑空间，$A\subset X$，$y\in X$，则
+    \begin{enumerate}[(i)]
+        \item $y\in \mathring{A}\Leftrightarrow \exists\, \text{开集}\, U\in X,\st y\in U\subset A$.
+        \item $y\in \overline{A}\Leftrightarrow y$的任意邻域都与$A$相交.
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    (i) “$\Rightarrow$”： $\mathring{A}=\bigcup_{\substack{U\text{开集} \\ U\subset A}}{U}$，$y\in \mathring{A}$，因此$\exists\,\open{U}\in X,\st y\in U\subset A$.\par
+    \quad\,“$\Leftarrow$”：显然.\par
+
+    (ii) “$\Rightarrow$” 假设$\exists\,\open U,\st y\in U$且$U\cap A=\varnothing$，则$A\subset X-U$.\par
+    \quad\,由于$U$是开集，$X-U$是闭集. 根据闭包的定义，$\overline{A}$是包含$A$的最小闭集，所以$\overline{A}\subset X-U$.\par
+    \quad\,因为$y\in\overline{A}$，所以$y\in X-U$，这与$y\subset U$，矛盾!\par
+    \quad\,“$\Leftarrow$”假设$y\notin\overline{A}=\bigcap_{\substack{U\close \\ U\supset A}}{U}$.则$\exists\, \close U_0,\st U_0\supset A$且$y\notin U_0$.\par
+    \quad\,考虑$U=X-U_0$，则$y\in U$，$U$是开集，$U\cap A=(X-U_0)\cap A=\varnothing$，矛盾!
+\end{proof}
+
+\begin{instance}
+    \hspace{0.1625\textwidth} 考虑$\mb{E}^2$和$A=\left\{(0,y)\in\mb{E}^2\left|0\leq y<1\right.\right\}$.\par
+    \begin{wrapfigure}{l}{0.15\textwidth}
+        \vspace{-2.5 em}
+        \includegraphics[width=0.15\textwidth]{fig/2.11.png}
+        \captionof{figure}{}
+        \vspace{0 em}
+    \end{wrapfigure}
+    则$\mathring{A}=\varnothing,\overline{A}=\left\{(0,y)\in\mb{E}^2\left|0\leq y\leq 1\right.\right\}$.
+\end{instance}
+
+\vspace{5 em}
+\begin{proposition}
+    设$X$是一个拓扑空间，$A,B\subset X$，则
+    \begin{enumerate}[(i)]
+        \item ${(X-A)}^{\circ} = X-\overline{A}$
+        \item $\overline{X-A} = X-\mathring{A}$
+        \item $\mathring{A}\cap\mathring{B} = {(A\cap B)}^{\circ}$
+        \item $\mathring{A}\cup\mathring{B} \subset {(A\cup B)}^{\circ}$
+        \item $\overline{A}\cap\overline{B} \supset \overline{A\cap B}$
+        \item $\overline{A}\cup\overline{B} = \overline{A\cup B}$
+    \end{enumerate}
+\end{proposition}
+\begin{proof}
+    \begin{enumerate}[(i)]
+        \item “$\subset$”\, $\forall\, x\in (X-A)^\circ$，则$\exists\, x$的邻域$U,\st x\in U\subset X-A$，所以$U\cap A=\varnothing$.\par
+        根据引理\ref{lem:2.10}，$x\notin\overline{A}$，因此$x\in X-\overline{A}$.\par
+        “$\supset$”\, $\overline{A}$是闭集，则$X-\overline{A}$是开集，$A\subset\overline{A}\Rightarrow X-\overline{A}\subset X-A$.\par
+        所以$X-\overline{A}\subset (X-A)^\circ$.
+        \item 将(i)中的$A$替换为$X-A$即可得到.
+        \item “$\subset$”\, $\forall\,x\in\mathring{A}\cap\mathring{B}$. 于是存在$x$的邻域$U_1, U_2$使得$x\in U_1\subset A$且$x\in U_2\subset B$.\par
+        因此$x\in (U_1\cap U_2)\subset A\cap B$，其中$U_1\cap U_2$为开集，根据引理\ref{lem:2.10}，$x\in{(A\cap B)}^\circ$.\par
+        “$\supset$”\, $\left.\begin{array}{lll}
+            A\cap B\subset A \Rightarrow {(A\cap B)}^\circ \subset\mathring{A} \\
+            A\cap B\subset B \Rightarrow {(A\cap B)}^\circ \subset\mathring{B}
+        \end{array}\right\}\Rightarrow (A\cap B)^\circ\subset \mathring{A}\cap\mathring{B}$
+        \item $\left.\begin{array}{lll}
+            A\subset A\cup B \Rightarrow \mathring{A}\subset{(A\cup B)^\circ} \\
+            B\subset A\cup B \Rightarrow \mathring{B}\subset{(A\cup B)}^\circ
+        \end{array}\right\}\Rightarrow (A\cup B)^\circ\subset \mathring{A}\cup\mathring{B}$.\par
+        反之不一定成立，例如$[\mb{R}_\mathrm{std},A=(-1,0],B=(0,1)]$，则$\mathring{A}\cup\mathring{B}=(-1,0)\cup(0,1)$，但$(A\cup B)^\circ=(-1,1)$.
+    \end{enumerate}
+\end{proof}
+
+\begin{definition}{极限点}
+    设$X$是一个拓扑空间，$A\subset X$，$x\in X$. 如果$x$的每个邻域都包含$A$中异于$x$的点，则称$x$是$A$的一个\textbf{极限点}(或\textbf{聚点}). $A$的所有极限点的集合记作$A'$.
+\end{definition}
+上述定义被称为极限点的原因是，如果一个点是极限点，那么我们就可以从每个邻域中选出一个点，这些点列构成了一个收敛的序列.下面给出$x$是$A$的极限点的一个等价描述：
+\begin{note}
+    $x$是$A$的极限点 $\Leftrightarrow x\in\overline{A-\{x\}}$.
+\end{note}
+通过这个等价描述，可以看出$A'\subset\overline{A}$.\par
+
+\begin{instance}
+    (1)\; 考虑$\mb{E}^1$，和$A=[0,1)\cup\{2\}$，$2\notin A'$. 但$1\in A'$.\par
+    (2)\; 考虑$\mb{E}^1$，$A=\mb{Q}$，则$\forall\, x\in\mb{E}^1$，$x\in A'$.
+\end{instance}
+
+\begin{proposition}
+    $X$是一个拓扑空间，$A\subset X$，则$\overline{A}=A\cup A'$.
+\end{proposition}
+\begin{proof}
+    “$\subset$” $\forall\,x\in\overline{A}$，假设$x\notin A$，则根据引理\ref{lem:2.10}，$x$的任意邻域$U$都与$A$相交.\par
+    又因为$x\notin A$，$U\cap A$必须包含除$x$以外的一点，因此$x\in A'$.\par
+    “$\supset$” $A\subset\overline{A},A'\subset\overline{A}$.所以$A\cup A'\subset\overline{A}$.
+\end{proof}
+
+从这个定理可以得到以下的引理：
+
+\begin{corollary}
+    $A\subset X$是闭集$\Leftrightarrow A$包含其所有极限点，即$A'\subset A$.
+\end{corollary}
+上述引理的正确性是显然的，$A$是闭集$\Leftrightarrow A=\overline{A}=A\cup A'\Leftrightarrow A'\subset A$.\par
+
+\begin{definition}{边界}
+    设$X$是一个拓扑空间，$A\subset X$，则$A$的\textbf{边界}是指$\overline{A}-\mathring{A}$，记作$\partial A$.
+\end{definition}
+
+\begin{instance}
+    在$\mb{E}^2$中，取$A=\{(x,y)\in\mb{E}^2|x^2+y^2\leq 1\}$，则$\partial A=A'-\mathring{A}=\{(x,y)\in\mb{E}^2|x^2+y^2=1\}$.
+\end{instance}
+
+\begin{instance}
+    在$\mb{R}_{fc}$中，取$A=[0,1)$，则$\overline{A}=\mb{R},\mathring{A}=\varnothing,\partial A=\mb{R}$.
+\end{instance}
+
+\begin{lemma}
+    设$X$是一个拓扑空间，$A\subset X$，$y\in X$，则$y\in\partial A\Leftrightarrow y$的任意邻域都与$A$和$X-A$相交.
+\end{lemma}
+\begin{proof}
+    “$\Rightarrow$”\, $y\in\partial A=\overline{A}-\mathring{A}$.因此$y\in\overline{A}$，由引理\ref{lem:2.10}可知$y$的任意邻域都与$A$相交.\par
+    又因为$y\notin\mathring{A}$，$y\in X-\mathring{A}=\overline{X-A}$，所以$y$的任意邻域都与$X-A$相交. \par
+    “$\Leftarrow$”\, 上述证明过程相反即可.
+\end{proof}
+
+
+
+\begin{proposition}
+    设$X,Y$是两个拓扑空间，$A\subset X,B\subset Y$，则
+    \begin{enumerate}[(1)]
+        \item $(A\times B)^\circ=\mathring{A}\times \mathring{B}\subset X\times Y$.
+        \item $\overline{A\times B}=\overline{A}\times \overline{B}\subset X\times Y$
+    \end{enumerate}
+\end{proposition}
+\begin{proof}
+    (2)“$\subset$” $\forall\, (x,y)\in\overline{A\times B}$.假设$(x,y)\notin\overline{A}\times\overline{B}$，则要么$x\notin\overline{A}$，要么$y\notin\overline{B}$.\par
+    不妨设$x\notin\overline{A}$，则$\exists\, x$的邻域$U,\st U\cap A=\varnothing$.\par
+    $U\times Y$是$(x,y)$在$X\times Y$中的邻域，且$(U\times Y)\cap(A\times B)=(U\cap A)\times (Y\cap B)=\varnothing$.\par
+    因此$(x,y)\notin \overline{A\times B}$，矛盾! \par
+    “$\supset$” $\forall\,(x,y)\in\overline{A}\times\overline{B}$.设$W$是$(x,y)$在$X\times Y$中的邻域. 则存在$x$的邻域$U$和$y$的邻域$V$使得$(x,y)\in U\times V\subset W$.\par
+    由$x\in\overline{A}$且$y\in\overline{B}$，可知$U\cap A\neq\varnothing$且$V\cap B\neq\varnothing$. 于是$(U\times V)\cap(A\times B)=(U\cap A)\times(V\cap B)\neq\varnothing$.\par
+    因此$W\cap(A\times B)\neq\varnothing$. 这表明$(x,y)\in\overline{A\times B}$.
+\end{proof}
+
+
+
+
+
+
+
 
 
 

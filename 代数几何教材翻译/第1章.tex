@@ -1,21 +1,19 @@
 \chapter{平面圆锥曲线}
 
-
-我从研究圆锥曲线的几何性质开始，作为射影平面 \({\mathbb{P}}^{2}\) 项目的动机.射影几何通常在二年级本科几何课程中提及，这里我将回顾了一些显著特征，着重于齐次坐标，尽管我完全忽略了线性子空间的几何和“交比”等概念.学生最重要的目标应是理解几何思想(例如，“无穷远点”对应曲线的渐近方向)如何用坐标表达.直观几何图像(告诉你应期待什么)与坐标的精确定义(让你能利用直觉)之间的互动，正是代数几何的迷人之处.
+本章首先研究圆锥曲线的几何性质，以此作为引入射影平面 \(\mathbb{P}^2\) 这一课题的动机.射影几何通常在本科二年级的几何课程中有所涉及，此处将回顾其部分显著特征，重点关注齐次坐标，而暂时忽略线性子空间的几何以及“交比”等概念.对读者而言，最重要的目标是理解几何思想（例如，“无穷远点”对应于曲线的渐近方向）如何通过坐标来精确表达.直观的几何图像（它告诉我们应期待什么）与坐标的精确定义（它使我们能驾驭直觉）之间的互动，正是代数几何的魅力所在.
 
 \section{参数化曲线示例}
 
-毕达哥拉斯定理指出，在图中
-
-\[
-{X}^{2} + {Y}^{2} = {Z}^{2},
-\]
+勾股定理指出，在下图所示的直角三角形中，边长满足方程：
 
 \begin{center}
 \includegraphics[max width=0.2\textwidth]{images/bo_d3lj80c601uc738kffi0_16_718_1301_238_171_0.jpg}
 \end{center}
-
-每个古埃及人都知道，(3,4,5)和(5,12,13)是勾股数.问题是如何找到所有整数解？该方程是齐次的，因此令\(x = X/Z,y = Y/Z\)，它对应着圆\(C : \left( {{x}^{2} + {y}^{2} = 1}\right)  \subset  {\mathbb{R}}^{2}\) ，可以被参数化为
+\[
+X^2 + Y^2 = Z^2
+\]
+\par
+众所周知，\((3,4,5)\) 和 \((5,12,13)\) 都是勾股数.问题在于如何找出所有的整数解？该方程是齐次的，若令 \(x = X/Z, y = Y/Z\)，则它对应于单位圆 \(C : x^2 + y^2 = 1 \subset \mathbb{R}^2\).这个圆可以被参数化为
 
 \[
 x = \frac{2\lambda }{{\lambda }^{2} + 1},\;y = \frac{{\lambda }^{2} - 1}{{\lambda }^{2} + 1},\;\text{其中}\;\lambda  = \frac{x}{1 - y};
@@ -23,555 +21,509 @@ x = \frac{2\lambda }{{\lambda }^{2} + 1},\;y = \frac{{\lambda }^{2} - 1}{{\lambd
 
 由此可得通解:
 
-\[
-X = 2\ell m,\;Y = {\ell }^{2} - {m}^{2},\;Z = {\ell }^{2} + {m}^{2}\;\text{其中}\ell ,m \in  \mathbb{Z}\text{互素}
-\]
+\(
+X = 2\ell m, \quad Y = \ell^2 - m^2, \quad Z = \ell^2 + m^2
+\)
+其中 \(\ell, m \in \mathbb{Z}\) 互素（若 \(\ell, m\) 均为奇数，则各项需再除以 2）.注意，由于方程是齐次的，若 \((X, Y, Z)\) 是一个解，则 \((\lambda X, \lambda Y, \lambda Z)\) 对任意 \(\lambda\) 也是解.
 
-(如果 \(\ell ,m\) 均为奇数，则各除以2).注意该方程是齐次的，因此如果(X, Y, Z)是解，则 \(\left( {{\lambda X},{\lambda Y},{\lambda Z}}\right)\) 也是解.
-
-也许这个参数化在学校几何中已经熟悉，无论如何，很容易验证它是正确的.然而，如果我之前不知道它，我可以通过一个简单的几何论证得到它，即从给定点的线性射影: \(P = \left( {0,1}\right)  \in  C\) ，如果 \(\lambda  \in  \mathbb{Q}\)
+这种参数化方法在中学几何中或许已经为人所知，并且其正确性也容易验证.然而，即便事先不知，我们也可以通过一个简单的几何构造——即从圆上一点出发的线性射影——来推导出它.\par
+取定点 \(P = (0,1) \in C\)，对任意有理数 \(\lambda \in \mathbb{Q}\)，过 \(P\) 且斜率为 \(-\lambda\) 的直线 \(L_{\lambda}\) 与圆 \(C\) 交于另一点 \(Q_{\lambda}\).这种基于线性射影构造映射的方法将在后续学习中反复出现.
 \begin{center}
 \includegraphics[max width=0.2\textwidth]{images/bo_d3lj80c601uc738kffi0_17_772_501_356_397_0.jpg}
 \captionof{figure}{圆锥曲线到直线的线性射影}
 \end{center}
 
-是任意值，则通过 \(P\) 且斜率为 \(- \lambda\) 的直线 \({L}_{\lambda }\) 与 \(C\) 相交于另一点 \({Q}_{\lambda }\) .这种通过线性射影构造映射的方法将在后续多次出现.
 
-\section{类似例子}
 
-\(C : \left( {2{X}^{2} + {Y}^{2} = 5{Z}^{2}}\right)\) .同样的方法导出了参数化 \(\mathbb{R} \rightarrow  C\) ，其表达式为
+\section{类似的例子}
+
+考虑圆锥曲线 \(C : 2X^2 + Y^2 = 5Z^2\).使用同样的方法，可以导出如下的参数化 \(\mathbb{R} \to C\)：
 
 \[
 x = \frac{2\sqrt{5}\lambda }{1 + 2{\lambda }^{2}},\;y = \frac{2{\lambda }^{2} - 1}{1 + 2{\lambda }^{2}}.
 \]
 
-这使我们能够理解所有系数属于 \(\mathbb{R}\) 的 \(C\) 上的点，且与前一个例子没有实质区别；那么 \(\mathbb{Q}\) 呢？
+这使我们能够理解所有系数属于 \(\mathbb{R}\) 的 \(C\) 上的点，且与前一个例子没有实质区别；那么如果将\(\mathbb{R}\)改为\(\mathbb{Q}\)，情况会如何变化呢？
+\begin{proposition*}
+如果 \(\left( {a,b,c}\right)  \in  \mathbb{Q}\) 满足 \(2{a}^{2} + {b}^{2} = 5{c}^{2}\) ，则 \(\left( {a,b,c}\right)  = \left( {0,0,0}\right)\).
+\end{proposition*}
+\begin{proof}
+通过乘以公分母并提取公因子，可以假定 \(a, b, c\) 是不全被$5$整除的整数.如若不然，\(5 \mid a\) 且 \(5 \mid b\)，则 \(2a^2+b^2\) 是 25 的倍数，从而 \(25 \mid 5c^2\)，即 \(5 \mid c\)，那么它们就有公因子$5$，可以被提取出来.\par
+因此 \(2a^2 + b^2 \pmod 5\) 的取值必为 \(0+1,0+4,2+0,2+1,2+4,8+0,8+1\)或$8+4\mod 1$之一，
+然而，它们均不能表现为$5c^2$的形式.
+\end{proof}
 
-命题 如果 \(\left( {a,b,c}\right)  \in  \mathbb{Q}\) 满足 \(2{a}^{2} + {b}^{2} = 5{c}^{2}\) ，则 \(\left( {a,b,c}\right)  = \left( {0,0,0}\right)\) .
+注意，这是一个纯算术的论证.
 
-证明 通过乘以公分母并在必要时提取公因子，我可以假设 \(a,b,c\) 是整数，且不全被5整除；此外，如果 \(5 \mid  a\) 且 \(5 \mid  b\) ，则 \({25} \mid  5{c}^{2}\) ，从而 \(5 \mid  c\) ，这与我刚才所说矛盾.现在通过考虑 \(a\) 和 \(b{\;\operatorname{mod}\;5}\) 的可能取值很容易得到矛盾:由于任何平方数都是0、1或4 \({\;\operatorname{mod}\;5}\) ，显然 \(2{a}^{2} + {b}^{2}\) 是 \(0 + 1,0 + 4,2 + 0,2 + 1,2 + 4,8 + 0,8 + 1\) 或 \(8 + 4{\;\operatorname{mod}\;5}\) 之一，且都不可能是 \(5{c}^{2}\) 的形式.证毕.
+\section{\(\mathbb{R}^2\) 中的圆锥曲线}
 
-注意这是一个彻底的算术论证.
-
-\section{\({\mathbb{R}}^{2}\) 中的圆锥曲线}
-
-\({\mathbb{R}}^{2}\) 中的圆锥曲线是由二次方程给出的平面曲线
+\(\mathbb{R}^2\) 中的圆锥曲线是由二次方程定义的平面曲线：
 \[
-q\left( {x,y}\right)  = a{x}^{2} + {bxy} + c{y}^{2} + {dx} + {ey} + f = 0.
+q(x,y) = ax^2 + bxy + cy^2 + dx + ey + f = 0
 \]
 
-每个人都见过非退化圆锥曲线的分类:
+非退化圆锥曲线的分类广为人知：
 
 \begin{center}
 \includegraphics[max width=0.7\textwidth]{images/bo_d3lj80c601uc738kffi0_18_341_562_1004_212_0.jpg}
-\captionof{figure}{非退化圆锥曲线:(a) 椭圆；(b) 抛物线；(c) 双曲线.}
+\captionof{figure}{非退化圆锥曲线：(a) 椭圆；(b) 抛物线；(c) 双曲线}
 \end{center}
 \hspace*{3em} 
 
 
 此外，还有一些特殊情况:
 
-(d) 由 \({x}^{2} + {y}^{2} = 0\) 给出的单点；
-
-(e, f, g) 由以下三个方程中的任意一个给出的空集:(e) \({x}^{2} + {y}^{2} =  - 1\) ，(f) \({x}^{2} =  - 1\) 或 (g) \(0 = 1\) .这三个方程不同，尽管它们在 \({\mathbb{R}}^{2}\) 中定义了相同的零点轨迹；例如考虑它们的复数解.
-
-(h) 直线 \(x = 0\) ；
-
-(i) 直线对 \({xy} = 0\) ；
-
-(j) 平行直线 \(x\left( {x - 1}\right)  = 0\) ；
-
-(k) “重直线” \({x}^{2} = 0\) ；你可以自行决定是否允许最后一种情况:
-
-(l) 由 \(0 = 0\) 给出的整个平面.
+\begin{enumerate}[(a)]
+    \setcounter{enumi}{3}
+    \item 单点：由 \(x^2 + y^2 = 0\)给出$(0,0)$；
+    \item 由 \(x^2 + y^2 = -1\)、\(x^2 = -1\) 或 \(0 = 1\) 等方程给出的空集.尽管这些方程在 \(\mathbb{R}^2\) 中定义了相同的点集（空集），但它们的复数解集是不同的.
+    \item 直线：\(x = 0\)；
+    \item 直线对：\(xy = 0\)；
+    \item 平行直线： \(x(x - 1) = 0\)；
+    \item 二重直线：\(x^2 = 0\)；你可以自行决定是否允许最后一种情况：
+    \item 全平面：\(0 = 0\).
+\end{enumerate}
 
 \section{射影平面}
 
-“凭空”定义:
-
+射影平面 \(\mathbb{P}^2\) 可以“凭空”地定义如下：
 \begin{align*}
-{\mathbb{P}}^{2}\mathbb{R} &= \left\{{\mathbb{R}}^{3}\text{中经过原点的直线}\right\}\\
-&= \{ \text{比例}X : Y : Z\}\\
-&= \left( {{\mathbb{R}}^{3}\setminus \{ 0\} }\right) / \sim  ,\;\text{其中}\left( {X,Y,Z}\right)  \sim  \left( {{\lambda X},{\lambda Y},{\lambda Z}}\right),\forall\,\lambda  \in  \mathbb{R} \setminus  \{ 0\} .
+\mathbb{P}^2(\mathbb{R}) &= \{\mathbb{R}^3 \text{中所有经过原点的直线}\} \\
+&= \{ \text{点的比例 } X:Y:Z \} \\
+&= (\mathbb{R}^3 \setminus \{0\}) / \sim, \quad \text{其中 } (X,Y,Z) \sim (\lambda X, \lambda Y, \lambda Z), \forall \lambda \in \mathbb{R} \setminus \{0\}
 \end{align*}
 
-(有经验的读者将轻松地从 \({\mathbb{R}}^{3}\) 推广到任意域上的向量空间，并用内在论证替代选定坐标系中的计算.)
+（有经验的读者可以轻松地将 \(\mathbb{R}^3\) 推广到任意域上的向量空间，并用更内在的论证替代坐标计算.）
 
-为了表示比值 \(X : Y : Z\) ，其中 \(Z \neq  0\) ，我可以设定 \(x = X/Z,y = Y/Z\) ；这简化了问题，因为该比值对应于仅两个实数.换言之，(X, Y, Z)在 \(\sim\) 下的等价类有唯一代表(x, y,1)，其第三坐标为 \(= 1\) .不幸的是，有时 \(Z\) 可能为 \(= 0\) ，因此这种选择等价类代表的方法就不适用了.这说明 \({\mathbb{P}}^{2}\mathbb{R}\) 包含了 \({\mathbb{R}}^{2}\) 的一个副本.示意图:
+为了表示比例 \(X:Y:Z\)，当 \(Z \neq 0\) 时，可以令 \(x = X/Z, y = Y/Z\).这使得一个比例关系对应于唯一的实数对 \((x,y)\).换言之，\((X,Y,Z)\) 在关系 \(\sim\) 下的等价类有唯一的代表元 \((x,y,1)\)，其第三个坐标为 1.然而，当 \(Z=0\) 时，这种选取代表元的方法便不再适用.这表明 \(\mathbb{P}^2(\mathbb{R})\) 包含了一个 \(\mathbb{R}^2\) 的副本，即仿射部分.如图所示：
 
 \begin{center}
 \includegraphics[max width=0.4\textwidth]{images/bo_d3lj80c601uc738kffi0_19_646_280_616_328_0.jpg}
-\captionof{figure}{由 \({\mathbb{R}}^{2} \hookrightarrow  {\mathbb{R}}^{3} \setminus  \{ 0\}  \rightarrow  {\mathbb{P}}^{2}\mathbb{R}\) 除以 \(\left( {x,y}\right)  \mapsto  \left( {x,y,1}\right)\)}
+\captionof{figure}{通过映射 \((x,y) \mapsto (x,y,1)\) 将 \(\mathbb{R}^2\) 嵌入到 \(\mathbb{P}^2(\mathbb{R})\) 中}
 \end{center}
 \hspace*{3em} 
 
-\({\mathbb{R}}^{3}\) 中通过0的一般直线不包含于平面 \(\left( {Z = 0}\right)\) ，因此它与 \(\left( {Z = 1}\right)\) 恰好相交于一点，该点是该等价类的代表. \(\left( {Z = 0}\right)\) 中的直线永远不与 \(\left( {Z = 1}\right)\) 相交，因此它们对应的不是 \({\mathbb{R}}^{2}\) 的点，而是渐近方向，或 \({\mathbb{R}}^{2}\) 中平行直线簇；所以你可以将 \({\mathbb{P}}^{2}\mathbb{R}\) 视为由 \({\mathbb{R}}^{2}\) 及每个平行直线簇的一个“无穷远点”组成.从这个角度看，你在 \({\mathbb{R}}^{2}\) 中计算，试图通过某种“渐近”论证猜测无穷远处的情况，然后(如有必要)用齐次坐标证明.用 \({\mathbb{R}}^{3}\) 中的直线定义使这一点合理，因为它平等对待了 \({\mathbb{P}}^{2}\mathbb{R}\) 中的所有点.
+一般来说，\(\mathbb{R}^3\) 中过原点的一条直线不包含在平面 \(Z=0\) 内，则它与平面 \(Z=1\) 恰好相交于一点，该点即为此等价类的代表元.而平面 \((Z=0)\) 内的直线永不与平面 \((Z=1)\) 相交，它们对应的不是 \(\mathbb{R}^2\) 中的点，而是“无穷远方向”，或是对应于\(\mathbb{R}^2\)中的平行线束.因此，可以将 \(\mathbb{P}^2(\mathbb{R})\) 视为由 \(\mathbb{R}^2\) 以及每个平行线族的“无穷远点”所组成.从这个角度看，我们可以在 \(\mathbb{R}^2\) 中进行计算，并通过某种“渐近”论证来推测无穷远处的情况，然后在必要时使用齐次坐标进行严格证明.以 \(\mathbb{R}^3\) 中的直线作为定义，使 \(\mathbb{P}^2(\mathbb{R})\) 中的所有点都处于平等地位.
 
-变换群在整个几何学中具有核心重要性；几何图形的性质必须在适当类型的变换下保持不变，才能具有意义. \({\mathbb{R}}^{2}\) 中的仿射坐标变换形式为 \(T\left( z\right)  = Ax + B\) ，其中 \(x = \left( {x,y}\right)  \in  {\mathbb{R}}^{2}\) ， \(A\) 是一个 \(2 \times  2\) 可逆矩阵， \(B\) 是平移向量；如果 \(A\) 是正交矩阵，则该变换 \(T\) 是欧氏变换.众所周知，每个非退化的圆锥曲线都可以通过欧氏变换化简为上述标准形式(a-c)之一.读者可以尝试证明，每个圆锥曲线都可以通过仿射变换化简为形式(a-1)之一.
+变换群在整个几何学中至关重要.一个几何图形的性质必须在适当的变换下保持不变才有意义.\(\mathbb{R}^2\) 中的仿射变换形如 \(T(\mathbf{x}) = A\mathbf{x} + \mathbf{b}\)，其中 \(\mathbf{x} = (x,y) \in \mathbb{R}^2\)，\(A\) 是一个 \(2 \times 2\) 可逆矩阵，\(\mathbf{b}\) 是一个平移向量.如果 \(A\) 是正交矩阵，则该变换 \(T\) 是欧氏变换.众所周知，每个非退化圆锥曲线都可以通过欧氏变换化为标准形式 (a)-(c) 之一.读者可以尝试证明，任何圆锥曲线都可以通过仿射变换化为形式 (a)-(l) 之一.
 
-\({\mathbb{P}}^{2}\mathbb{R}\) 的射影变换或射影映射是形如 \(T\left( \mathbf{X}\right)  = M\mathbf{X}\) 的映射，其中 \(M\) 是一个可逆的 \(3 \times  3\) 矩阵.理解该变换对仿射部分 \({\mathbb{R}}^{2} \subset  {\mathbb{P}}^{2}\mathbb{R}\) 的作用很简单:作为一个部分定义的映射 \({\mathbb{R}}^{2} \rightarrow  {\mathbb{R}}^{2}\) ，它是分式线性变换.
+\(\mathbb{P}^2(\mathbb{R})\) 的射影变换或射影映射是形如 \(T(\mathbf{X}) = M\mathbf{X}\) 的映射，其中 \(M\) 是一个可逆的 \(3 \times 3\) 矩阵.要理解这种变换对仿射部分 \(\mathbb{R}^2 \subset \mathbb{P}^2(\mathbb{R})\) 的作用，可以将其视为一个部分定义的映射 \(\mathbb{R}^2 \to \mathbb{R}^2\)，它是一个分式线性变换：
 
-\[
-\left( \begin{array}{l} x \\  y \end{array}\right)  \mapsto  \left( {A\left( \begin{array}{l} x \\  y \end{array}\right)  + B}\right) /\left( {{cx} + {dy} + e}\right) ,\;\text{ where }\;M = \left( \begin{matrix} A & B \\  c & d \end{matrix}\right) .
-\]
+\(
+\begin{pmatrix} x \\ y \end{pmatrix} \mapsto \frac{A\begin{pmatrix} x \\ y \end{pmatrix} + \mathbf{b}}{c_1x + c_2y + d}, \quad \text{其中 } M = \begin{pmatrix} A & \mathbf{b} \\ \mathbf{c}^T & d \end{pmatrix}
+\)
 
-当 \({cx} + {dy} + e = 0\) 时， \(T\) 当然未定义.或许这看起来不太直观，但它确实存在于自然界:同一(平面)物体的两张不同照片显然通过射影变换相关；参见例如[Berger, 4.7.4]中的图片.因此，一位数学研究生若从事卫星摄影解译工作(无论是为林业委员会的和平目的，还是作为里根总统国防政策带来的广阔职业前景的一部分)，将花费大量时间计算射影变换.
+当分母 \(c_1x + c_2y + d = 0\) 时，\(T\) 未定义.这或许看起来不够直观，但它确实存在于自然界中：同一平面物体的两张不同照片显然通过射影变换相关联.因此，从事卫星摄影解译等工作的数学家会频繁地计算射影变换.
 
-射影变换在这些笔记中隐含使用，通常以“通过适当选择坐标，我可以假设……”的形式出现.
+在本文中，射影变换常以“通过适当选择坐标，我们可以假设……”的形式被隐含地使用.
 
 \section{圆锥曲线的方程}
 
-非齐次二次多项式
+一个非齐次的二次多项式
 
-\[
-q\left( {x,y}\right)  = a{x}^{2} + {bxy} + c{y}^{2} + {dx} + {ey} + f
-\]
+\(
+q(x,y) = ax^2 + bxy + cy^2 + dx + ey + f
+\)
 
-对应于齐次二次多项式
+对应于一个齐次的二次多项式
 
-\[
-Q\left( {X,Y,Z}\right)  = a{X}^{2} + {bXY} + c{Y}^{2} + {dXZ} + {eYZ} + f{Z}^{2};
-\]
+\(
+Q(X,Y,Z) = aX^2 + bXY + cY^2 + dXZ + eYZ + fZ^2
+\)
 
-这种对应关系易于理解为一种操作步骤，或者你也可以将其视为由 \(q \leftrightarrow  Q\) 给出的双射
+这种对应关系可以视为一个操作步骤，也可以看作由 \(q \leftrightarrow Q\) 给出的双射
 
-\[
-q\left( {x,y}\right)  = Q\left( {X/Z,Y/Z,1}\right) \;\text{ with }\;x = X/Z,y = Y/Z
-\]
+\(
+q(x,y) = Q(x,y,1) \quad (\text{令 } Z=1)
+\)
 
-反之亦然，
+反之，
 
-\[
-Q = {Z}^{2}q\left( {X/Z,Y/Z}\right) .
-\]
+\(
+Q(X,Y,Z) = Z^2 q(X/Z, Y/Z)
+\)
 
-圆锥曲线 \(C \subset  {\mathbb{P}}^{2}\) 是由 \(C : \left( {Q\left( {X,Y,Z}\right)  = 0}\right)\) 给出的曲线，其中 \(Q\) 是一个齐次二次表达式；注意条件 \(Q\left( {X,Y,Z}\right)  = 0\) 在等价类上定义良好，因为对于任意 \(\lambda  \in  \mathbb{R}\) ，有 \(Q\left( {\lambda \mathbf{X}}\right)  = {\lambda }^{2}Q\left( \mathbf{X}\right)\) .作为练习，验证射影曲线 \(C\) 在仿射片 \({\mathbb{R}}^{2}\) 中与由 \(\left( {q = 0}\right)\) 给出的仿射圆锥曲线相交.
+射影平面 \(\mathbb{P}^2\) 中的圆锥曲线 \(C\) 是由 \(C: Q(X,Y,Z) = 0\) 定义的曲线，其中 \(Q\) 是一个二次齐次多项式.注意，条件 \(Q(X,Y,Z) = 0\) 在等价类上是良定义的，因为对于任意 \(\lambda \in \mathbb{R} \setminus \{0\}\)，有 \(Q(\lambda\mathbf{X}) = \lambda^2 Q(\mathbf{X})\).作为练习，请验证射影曲线 \(C\) 在仿射平面 \(\mathbb{R}^2\) 中的部分恰好是由 \(q=0\) 给出的仿射圆锥曲线.
 
 \subsection{“无穷远直线”与渐近方向}
 
-\({\mathbb{P}}^{2}\) 中满足 \(Z = 0\) 的点对应于比值 \(\left( {X : Y : 0}\right)\) .这些点构成无穷远直线，是 \({\mathbb{P}}_{\mathbb{R}}^{1} = \mathbb{R} \cup  \{ \infty \}\) 的一个副本(因为 \(\left( {X : Y}\right)  \mapsto  X/Y\) 定义了一个从 \({\mathbb{P}}_{\mathbb{R}}^{1} \rightarrow  \mathbb{R} \cup  \{ \infty \}\) 到 \({\mathbb{P}}_{\mathbb{R}}^{1} = \mathbb{R} \cup  \{ \infty \}\) 的双射).
+\(\mathbb{P}^2\) 中满足 \(Z=0\) 的点对应于比例 \((X:Y:0)\).这些点构成了无穷远直线，它是 \(\mathbb{P}^1(\mathbb{R}) = \mathbb{R} \cup \{\infty\}\) 的一个副本（因为映射 \((X:Y) \mapsto X/Y\) 定义了从 \(\mathbb{P}^1(\mathbb{R})\) 到 \(\mathbb{R} \cup \{\infty\}\) 的双射）.
 
-\({\mathbb{P}}^{2}\) 中的直线定义为由 \(L : \left( {{aX} + {bY} + {cZ} = 0}\right)\) 给出，且
+\(\mathbb{P}^2\) 中的直线由方程 \(L: aX + bY + cZ = 0\) 定义，且
 
-\[
-L\text{ passes through }\left( {X,Y,0}\right)  \Leftrightarrow  {aX} + {bY} = 0\text{ . }
-\]
+\(
+L \text{ 经过点 } (X,Y,0) \iff aX + bY = 0
+\)
 
-在仿射坐标中，同一条直线由 \({ax} + {by} + c = 0\) 给出，因此所有具有相同比例 \(a : b\) 的直线都通过同一个无穷远点.这称为“平行线在无穷远处相交”.
+在仿射坐标中，同一条直线由 \(ax + by + c = 0\) 给出，因此所有具有相同斜率（即相同比例 \(a:b\)）的直线都通过同一个无穷远点.这正是“平行线在无穷远处相交”的精确含义.
 
-例(a) 双曲线 \(\left( {\frac{{x}^{2}}{{a}^{2}} - \frac{{y}^{2}}{{b}^{2}} = 1}\right)\) 在 \({\mathbb{R}}^{2}\) 中对应于 \({\mathbb{P}}^{2}\mathbb{R}\) 中的 \(C : \left( {\frac{{X}^{2}}{{a}^{2}} - \frac{{Y}^{2}}{{b}^{2}} = {Z}^{2}}\right)\) ；显然它在 \(\left( {Z = 0}\right)\) 中与两点 \(\left( {a, \pm  b,0}\right)  \in  {\mathbb{P}}^{2}\mathbb{R}\) 相交，这两点显然对应于双曲线的渐近线.
+例 (a) 双曲线 \(\frac{x^2}{a^2} - \frac{y^2}{b^2} = 1\) 在 \(\mathbb{R}^2\) 中对应于 \(\mathbb{P}^2(\mathbb{R})\) 中的曲线 \(C: \frac{X^2}{a^2} - \frac{Y^2}{b^2} = Z^2\) ；显然它在 \(\left( {Z = 0}\right)\) 中与两点 \(\left( {a, \pm  b,0}\right)  \in  {\mathbb{P}}^{2}\mathbb{R}\) 相交，这两点显然对应于双曲线的渐近线方向.
 
-注意，在 \({\mathbb{P}}^{2}\mathbb{R}\) 的仿射片 \(\left( {X \neq  0}\right)\) 中，仿射坐标为 \(u = Y/X,v = Z/X\) ，因此 \(C\) 变为椭圆 \(\left( {\frac{{u}^{2}}{{b}^{2}} + {v}^{2} = \frac{1}{{a}^{2}}}\right)\) .参见练习1.7中的艺术性诠释.
+注意，在 \(\mathbb{P}^2(\mathbb{R})\) 的另一个仿射片（例如 \(X \neq 0\)）中，若取仿射坐标 \(u=Y/X, v=Z/X\)，则该双曲线方程变为 \(\frac{1}{a^2} - \frac{u^2}{b^2} = v^2\)，即 \(\frac{u^2}{b^2} + v^2 = \frac{1}{a^2}\)，这是一个椭圆.
 
-(b) 抛物线 \(\left( {y = m{x}^{2}}\right)\) 在 \({\mathbb{R}}^{2}\) 中对应于 \({\mathbb{P}}^{2}\mathbb{R}\) 中的 \(C : \left( {{YZ} = m{X}^{2}}\right)\) ；它现在在单点(0,1,0)处与 \(\left( {Z = 0}\right)\) 相交.因此在 \({\mathbb{P}}^{2}\) 中，“抛物线的两支在无穷远处相遇”；注意这是一条具有直观意义的陈述(也许你觉得这很难以置信？)，但这不是仅凭在 \({\mathbb{R}}^{2} -\) 内的思考就能得出的结论，甚至可能没有意义.
+例 (b) 抛物线 \(y = mx^2\) 在 \(\mathbb{R}^2\) 中对应于 \(\mathbb{P}^2(\mathbb{R})\) 中的曲线 \(C: YZ = mX^2\) ；它现在在单点 \((0,1,0)\) 处与 \(\left( {Z = 0}\right)\) 相交.
 
-\section{\({\mathbb{P}}^{2}\) 中圆锥曲线的分类}
+因此，在射影平面中，“抛物线的两支在无穷远处相遇”；注意这是一条具有直观意义的陈述（也许你觉得这很难以置信？），但这不是仅凭在 \(\mathbb{R}^2\) 内的思考就能得出的结论，甚至可能没有意义.
 
-设 \(k\) 为特征为 \(\neq  2\) 的任意域；回顾二次型线性代数中的两个结果:
+\section{\(\mathbb{P}^2\) 中圆锥曲线的分类}
 
-命题 (A) 存在自然的双射
+设 \(k\) 是一个特征不为 2 的任意域.回顾二次型线性代数中的两个结果：
 
-\[
-\left\{  \begin{matrix} \text{ homogeneous } \\  \text{ quadratic polys. } \end{matrix}\right\}   = \left\{  \begin{matrix} \text{ quad. forms } \\  {k}^{3} \rightarrow  k \end{matrix}\right\}  \overset{\text{ bij }}{ \leftrightarrow  }\left\{  \begin{matrix} \text{ symmetric bilinear } \\  \text{ forms on }{k}^{3} \end{matrix}\right\}
-\]
+\begin{proposition}[A]
+存在一个自然的双射关系：
+\(
+\left\{ \begin{array}{c} \text{二次齐次} \\ \text{多项式} \end{array} \right\} = \left\{ \begin{array}{c} \text{二次型} \\ k^3 \to k \end{array} \right\} \overset{\text{bij}}{\longleftrightarrow} \left\{ \begin{array}{c} \text{对称双线性} \\ \text{形式 on } k^3 \end{array} \right\}
+\)
+由以下公式给出：
+\(
+aX^2 + 2bXY + cY^2 + 2dXZ + 2eYZ + fZ^2 \longleftrightarrow \begin{pmatrix} a & b & d \\ b & c & e \\ d & e & f \end{pmatrix}
+\)
+当对应的双线性形式非退化，即其矩阵非奇异时，该二次型称为非退化的.
+\end{proposition}
 
-由公式给出
+\begin{theorem}[B]
+设 \(V\) 是定义在 \(k\) 上的向量空间，\(Q: V \to k\) 是一个二次型.则存在 \(V\) 的一组基，使得 \(Q\) 可以表示为对角形式：
+\(
+Q = \varepsilon_1 x_1^2 + \varepsilon_2 x_2^2 + \cdots + \varepsilon_n x_n^2, \quad \text{其中 } \varepsilon_i \in k
+\)
+（这通常通过 Gram-Schmidt 正交化方法证明.）显然，对于 \(\lambda \in k \setminus \{0\}\)，变量替换 \(x_i \mapsto \lambda x_i\) 会将系数 \(\varepsilon_i\) 变为 \(\lambda^{-2}\varepsilon_i\).
 
-\[
-a{X}^{2} + {2bXY} + c{Y}^{2} + {2dXZ} + {2eYZ} + f{Z}^{2} \leftrightarrow  \left( \begin{array}{lll} a & b & d \\  b & c & e \\  d & e & f \end{array}\right)
-\]
+\end{theorem}
 
-当对应的双线性型非退化，即其矩阵非奇异时，二次型称为非退化的.
-
-定理 (B) 设 \(V\) 为定义在 \(k\) 上的向量空间， \(Q : V \rightarrow  k\) 为二次型；则存在 \(V\) 的一组基，使得
-
-\[
-Q = {\varepsilon }_{1}{x}_{1}^{2} + {\varepsilon }_{2}{x}_{2}^{2} + \cdots  + {\varepsilon }_{n}{x}_{n}^{2},\text{ with }{\varepsilon }_{i} \in  k.
-\]
-
-(这通过Gram-Schmidt正交化法证明，如果你还记得的话.)显然，对于 \(\lambda  \in\)  \(k \setminus  \{ 0\}\) ，代换 \({x}_{i} \mapsto  \lambda {x}_{i}\) 将 \({\varepsilon }_{i}\) 变为 \({\lambda }^{-2}{\varepsilon }_{i}\) .
-
-推论 在适当的坐标系中， \({\mathbb{P}}^{2}\mathbb{R}\) 中的任一圆锥曲线为以下之一:
-
-( \(\alpha\) )非退化圆锥曲线， \(C : \left( {{X}^{2} + {Y}^{2} - {Z}^{2} = 0}\right)\) ；
-
-( \(\beta\) )空集，由 \(\left( {{X}^{2} + {Y}^{2} + {Z}^{2} = 0}\right)\) 给出；
-
-(γ)直线对，由 \(\left( {{X}^{2} - {Y}^{2} = 0}\right)\) 给出；
-
-(δ)单点(0,0,1)，由 \(\left( {{X}^{2} + {Y}^{2} = 0}\right)\) 给出；
-
-(ε)重直线，由 \(\left( {{X}^{2} = 0}\right)\) 给出.
-
-(可选地，整个 \({\mathbb{P}}^{2}\mathbb{R}\) 由 \(\left( {0 = 0}\right)\) 给出.)
-
-证明 任意实数 \(\varepsilon\) 要么为0，要么为±平方数，因此我只需考虑定理中 \(Q\) 为 \({\varepsilon }_{i} = 0\) 或 \(\pm  1\) 的情况.此外，由于我只关心轨迹 \(\left( {Q = 0}\right)\) ，允许将 \(Q\) 乘以-1.这立即导出上述列表.证毕.
-
-关于此推论有两点需要说明:首先，该列表比(1.3)中的要短得多；例如，(1.3)中的3种非退化情况(椭圆、抛物线、双曲线)均对应于 \(\left( \alpha \right)\) 情况，而相交和平行直线对在射影情况下未加区分.其次，该列表从一般代数原理推导出来更为简洁.
-
-\section{1.7 圆锥曲线的参数化}
-
-设 \(C\) 为 \({\mathbb{P}}^{2}\mathbb{R}\) 中一个非退化且非空的圆锥曲线.则根据推论1.6，取新坐标后， \(\left( {X + Z,Y,Z - X}\right) ,C\) 与曲线 \(\left( {{XZ} = {Y}^{2}}\right)\) 在射影意义下等价；该曲线由下式参数化
-
-\[
-\Phi  : {\mathbb{P}}_{\mathbb{R}}^{1} \rightarrow  C \subset  {\mathbb{P}}^{2}\mathbb{R}
-\]
-
-\[
-\left( {U : V}\right)  \mapsto  \left( {{U}^{2} : {UV} : {V}^{2}}\right) .
-\]
-
-备注1 逆映射 \(\Psi  : C \rightarrow  {\mathbb{P}}_{\mathbb{R}}^{1}\) 由下式给出
-
-\[
-\left( {X : Y : Z}\right)  \mapsto  \left( {X : Y}\right)  = \left( {Y : Z}\right) ;
-\]
-
-此处左侧的比值在 \(X \neq  0\) 时定义，右侧的比值在 \(Z \neq  0\) 时定义.用稍后引入的术语， \(\Phi\) 和 \(\Psi\) 是簇的逆同构.
-
-2 在整个 \(§§1 - 2\) 中，默认非空非退化圆锥曲线在射影意义下等价于 \(\left( {{XZ} - {Y}^{2}}\right)\) ；在特征为 \(\neq  2\) 的域上，这一点在练习1.5中得到了证明.(对特征2感兴趣的读者应将此作为非退化圆锥曲线的定义.)
-
-\section{1.8 两变量齐次形式}
-
-设 \(F\left( {U,V}\right)\) 为 \(U,V\) 中一个次数为 \(d\) 的非零齐次多项式，系数属于固定域 \(k\) ；(我将沿用传统，使用“形式”一词表示“齐次多项式”):
-
-\[
-F\left( {U,V}\right)  = {a}_{d}{U}^{d} + {a}_{d - 1}{U}^{d - 1}V + \cdots  + {a}_{i}{U}^{i}{V}^{d - i} + \cdots  + {a}_{0}{V}^{d}.
-\]
-
-\(F\) 对应一个一元非齐次多项式，
-
-\[
-f\left( u\right)  = {a}_{d}{u}^{d} + {a}_{d - 1}{u}^{d - 1} + \cdots  + {a}_{i}{u}^{i} + \cdots  + {a}_{0}.
-\]
-
-显然对于 \(\alpha  \in  k\) ，
-
-\[
-f\left( \alpha \right)  = 0 \Leftrightarrow  \left( {u - \alpha }\right)  \mid  f\left( u\right)
-\]
-
-\[
-\Leftrightarrow  \left( {U - {\alpha V}}\right)  \mid  F\left( {U,V}\right)  \Leftrightarrow  F\left( {\alpha ,1}\right)  = 0;
-\]
-
-因此 \(f\) 的零点对应于 \({\mathbb{P}}^{1}\) 上除点(1,0)——即“点 \(\alpha  = \infty\) ”外的 \(F\) 的零点. \(F\) 在无穷远点有零点意味着什么？
-
-\[
-F\left( {1,0}\right)  = 0 \Leftrightarrow  {a}_{d} = 0 \Leftrightarrow  \deg f < d.
-\]
-
-现定义 \(F\) 在 \({\mathbb{P}}^{1}\) 上的零点的重数为
-
-(i) 对应于 \(\alpha  \in  k\) 处 \(f\) 的重数；或
-
-(ii) 若零点为(1,0)，则为 \(d - \deg f\) .
-
-因此， \(F\) 在点 \(\left( {\alpha ,1}\right)\) 处的零点重数是整除 \(F\) 的最大 \(\left( {U - {\alpha V}}\right)\) 次幂，而在(1,0)处则是整除 \(F\) 的最大 \(V\) 次幂.
-
-命题 设 \(F\left( {U,V}\right)\) 为 \(U,V\) 中次数为 \(d\) 的非零形式.则 \(F\) 在 \({\mathbb{P}}^{1}\) 上最多有 \(d\) 个零点；此外，若 \(k\) 是代数闭域，则 \(F\) 在 \({\mathbb{P}}^{1}\) 上恰有 \(d\) 个零点，前提是这些零点按上述定义的重数计数.
-
-证明 设 \({m}_{\infty }\) 为 \(F\) 在(1,0)处零点的重数；则根据定义， \(d - {m}_{\infty }\) 是非齐次多项式 \(f\) 的次数，命题归结为一元多项式最多有 \(\deg f\) 个根的众所周知的事实.证毕.
-
-注意，在代数闭域上， \(F\) 可分解为线性形式 \({\lambda }_{i} = \left( {{a}_{i}U + {b}_{i}V}\right)\) 的乘积 \(F = \prod {\lambda }_{i}^{{m}_{i}}\) ，以此方式处理时，点(1,0)对应形式 \({\lambda }_{\infty } = V\) ，与其他点处于同等地位.
-
-\section{Bézout定理的简单情形}
-
-Bézout定理指出，如果 \(C\) 和 \(D\) 是次数分别为 \(\deg C = m,\deg D = n\) 的平面曲线，那么它们的交点数为 \({mn}\) ，前提是(i)域是代数闭合的；(ii)交点按正确的重数计数；(iii)我们在 \({\mathbb{P}}^{2}\) 中工作，以正确考虑“无穷远处”的交点.详见例如[Fulton，第112页]的自包含证明.本节将讨论其中一条曲线为直线或圆锥曲线的情况.
-
-定理 设 \(L \subset  {\mathbb{P}}_{k}^{2}\) 为一条直线(分别为 \(C \subset  {\mathbb{P}}_{k}^{2}\) 一条非退化圆锥曲线)，且设 \(D \subset  {\mathbb{P}}_{k}^{2}\) 为由 \(D : \left( {{G}_{d}\left( {X,Y,Z}\right)  = 0}\right)\) 定义的曲线，其中 \(G\) 是 \(X,Y,Z\) 中次数为 \(d\) 的齐次多项式.假设 \(L ⊄ D\) (分别为 \(C ⊄ D\) )；则
-
-\[
-\# \{ L \cap  D\}  \leq  d\;\text{ (respectively }\# \{ C \cap  D\}  \leq  {2d}\text{ ). }
-\]
-
-事实上，存在一个自然的交点重数定义，使得不等式对“按重数计数的点数”仍然成立，且如果 \(k\) 是代数闭合的，则等号成立.
-
-证明 一条直线 \(L \subset  {\mathbb{P}}_{k}^{2}\) 由方程 \(\lambda  = 0\) 给出，其中 \(\lambda\) 是线性形式；为方便起见，我用参数形式表示为
-
-\[
-X = a\left( {U,V}\right) ,\;Y = b\left( {U,V}\right) ,\;Z = c\left( {U,V}\right) ,
-\]
-
-其中 \(a,b,c\) 是 \(U,V\) 中的线性形式.例如，如果 \(\lambda  = {\alpha X} + {\beta Y} + {\gamma Z}\) ，且 \(\gamma  \neq  0\) ，则 \(L\) 可以
-
-表示为
-
-\[
-X = U,\;Y = V,\;Z =  - \frac{\alpha }{\gamma }U - \frac{\beta }{\gamma }V.
-\]
-
-类似地，如(1.7)所述，非退化圆锥曲线可以参数化表示为
-
-\[
-X = a\left( {U,V}\right) ,\;Y = b\left( {U,V}\right) ,\;Z = c\left( {U,V}\right) ,
-\]
-
-其中 \(a,b,c\) 是 \(U,V\) 中的二次形式.这是因为 \(C\) 是 \(\left( {{XZ} = {Y}^{2}}\right)\) 的射影变换，而 \(\left( {{XZ} = {Y}^{2}}\right)\) 的参数形式为 \(\left( {X,Y,Z}\right)  = \left( {{U}^{2},{UV},{V}^{2}}\right)\) ，因此 \(C\) 由下式给出
-
-\[
-\left( \begin{array}{l} X \\  Y \\  Z \end{array}\right)  = M\left( \begin{matrix} {U}^{2} \\  {UV} \\  {V}^{2} \end{matrix}\right)
-\]
-
-其中 \(M\) 是一个非奇异的 \(3 \times  3\) 矩阵.
+\begin{corollary}
+在适当的坐标系下，\(\mathbb{P}^2(\mathbb{R})\) 中的任意圆锥曲线必定是以下五种类型之一：
+\begin{enumerate}[(\(\alpha\))]
+    \item 非退化圆锥曲线，方程为 \(X^2 + Y^2 - Z^2 = 0\)；
+    \item 空集，方程为 \(X^2 + Y^2 + Z^2 = 0\)；
+    \item 两条相交直线，方程为 \(X^2 - Y^2 = 0\)；
+    \item 单点 \((0,0,1)\)，方程为 \(X^2 + Y^2 = 0\)；
+    \item 一条重直线，方程为 \(X^2 = 0\).
+\end{enumerate}
+（当然，还有由 \(0=0\) 给出的整个平面 \(\mathbb{P}^2(\mathbb{R})\).）
+\end{corollary}
+\begin{proof}
+在实数域 \(\mathbb{R}\) 上，任何非零数 \(\varepsilon\) 要么是正的（可以化为 1），要么是负的（可以化为 -1）.因此，我们只需考虑定理 B 中 \(\varepsilon_i \in \{0, 1, -1\}\) 的情况.此外，由于我们只关心零点集 \((Q=0)\)，我们可以将 \(Q\) 乘以 -1.这立即导出了上述列表.
+\end{proof}
+
+关于此推论有两点值得注意：首先，该列表比 1.3 节中的仿射分类要短得多.例如，1.3 节中的三种非退化情况（椭圆、抛物线、双曲线）在射影变换下都等价于 \(\alpha\) 型.其次，该列表是从一般代数原理推导出来的，过程更为简洁.
+
+\section{圆锥曲线的参数化}
+
+设 \(C\) 是 \(\mathbb{P}^2(\mathbb{R})\) 中一个非退化且非空的圆锥曲线.根据推论 1.6，通过适当的坐标变换，\(C\) 在射影意义下等价于曲线 \(XZ = Y^2\).该曲线可以被参数化为：
+
+\(
+\Phi: \mathbb{P}^1(\mathbb{R}) \to C \subset \mathbb{P}^2(\mathbb{R})
+\)
+
+\(
+(U:V) \mapsto (U^2 : UV : V^2)
+\)
+\paragraph{注 1} 其逆映射 \(\Psi: C \to \mathbb{P}^1(\mathbb{R})\) 由下式给出：
+
+\(
+(X:Y:Z) \mapsto (X:Y) = (Y:Z)
+\)
+
+此处，左侧的比值在 \(X \neq 0\) 时有定义，右侧的比值在 \(Z \neq 0\) 时有定义.由于在曲线 \(C\) 上 \(XZ=Y^2\)，当 \(X,Z\) 不全为零时，这两个比值是相等的.用稍后将引入的术语来说，\(\Phi\) 和 \(\Psi\) 是簇之间的同构.
+
+\paragraph{注 2} 在第 1-2 节中，我们默认任何非空、非退化的圆锥曲线在射影意义下都等价于 \(XZ - Y^2 = 0\).在特征不为 2 的域上，这一点在练习 1.5 中得到了证明.（对特征 2 感兴趣的读者应将此作为非退化圆锥曲线的定义.）
+
+\section{二元齐次形式}
+
+设 \(F(U,V)\) 是变量 \(U,V\) 的一个 \(d\) 次非零齐次多项式（通常称为“形式”），其系数属于某个域 \(k\)：
+
+\(
+F(U,V) = a_d U^d + a_{d-1} U^{d-1}V + \cdots + a_i U^i V^{d-i} + \cdots + a_0 V^d
+\)
+
+\(F\) 对应一个单变量的非齐次多项式：
+
+\(
+f(u) = F(u,1) = a_d u^d + a_{d-1} u^{d-1} + \cdots + a_0
+\)
+
+显然，对于 \(\alpha \in k\)，我们有：
+
+\(
+f(\alpha) = 0 \iff (u - \alpha) \mid f(u) \iff (U - \alpha V) \mid F(U,V) \iff F(\alpha, 1) = 0
+\)
+
+因此，\(f\) 的零点对应于 \(F\) 在 \(\mathbb{P}^1\) 上除点 \((1:0)\)（即“无穷远点” \(\alpha = \infty\)）之外的零点.那么，\(F\) 在无穷远点有零点意味着什么呢？
+
+\(
+F(1,0) = 0 \iff a_d = 0 \iff \deg f < d
+\)
+
+现在，我们定义 \(F\) 在 \(\mathbb{P}^1\) 上零点的重数为：
+\begin{enumerate}[(i)]
+    \item 若零点为 \((\alpha:1)\)，其重数等于 \(f(u)\) 在 \(\alpha\) 处的零点重数；
+    \item 若零点为 \((1:0)\)，其重数等于 \(d - \deg f\).
+\end{enumerate}
+因此，\(F\) 在点 \((\alpha:1)\) 处的零点重数是能整除 \(F\) 的 \((U - \alpha V)\) 的最高次幂，而在 \((1:0)\) 处的零点重数是能整除 \(F\) 的 \(V\) 的最高次幂.
+
+\begin{proposition}
+设 \(F(U,V)\) 是 \(U,V\) 的一个 \(d\) 次非零形式.则 \(F\) 在 \(\mathbb{P}^1\) 上最多有 \(d\) 个零点.此外，若 \(k\) 是代数闭域，则 \(F\) 在 \(\mathbb{P}^1\) 上恰好有 \(d\) 个零点（计入重数）.
+\end{proposition}
+\begin{proof}
+设 \(m_\infty\) 为 \(F\) 在 \((1:0)\) 处零点的重数.根据定义，\(d - m_\infty\) 是非齐次多项式 \(f\) 的次数.命题因此归结为“一个单变量多项式的根的个数（计入重数）等于其次数”这一熟知事实.
+\end{proof}
+
+注意，在代数闭域上，\(F\) 可以分解为线性形式 \(\lambda_i = (a_i U + b_i V)\) 的乘积 \(F = \prod \lambda_i^{m_i}\).在这种表示下，点 \((1:0)\) 对应的线性形式是 \(\lambda_\infty = V\)，与其他点处于完全平等的地位.
+
+\section{Bézout 定理的简单情形}
+
+Bézout 定理指出，如果 \(C\) 和 \(D\) 是次数分别为 \(\deg C = m, \deg D = n\) 的平面曲线，那么它们的交点数为 \(mn\)，前提是：(i) 基域是代数闭合的；(ii) 交点按正确的重数计数；(iii) 我们在 \(\mathbb{P}^2\) 中工作，以正确地包含“无穷远处”的交点.本节将讨论其中一条曲线为直线或圆锥曲线的特殊情况.
+
+\begin{theorem}
+设 \(L \subset \mathbb{P}_k^2\) 为一条直线（或 \(C \subset \mathbb{P}_k^2\) 为一条非退化圆锥曲线），并设 \(D \subset \mathbb{P}_k^2\) 是由 \(d\) 次齐次多项式 \(G_d(X,Y,Z)=0\) 定义的曲线.假设 \(L \not\subset D\)（或 \(C \not\subset D\)），则：
+\(
+\#(L \cap D) \le d \quad (\text{或 } \#(C \cap D) \le 2d)
+\)
+事实上，通过定义一个自然的交点重数，上述不等式对“按重数计数的点数”依然成立；并且如果 \(k\) 是代数闭合的，则等号成立.
+\end{theorem}
+\begin{proof}
+一条直线 \(L \subset \mathbb{P}_k^2\) 可以用参数化形式表示为：
+\(
+X = a(U,V), \quad Y = b(U,V), \quad Z = c(U,V)
+\)
+其中 \(a,b,c\) 是关于 \(U,V\) 的线性形式.例如，若直线由 \( \alpha X + \beta Y + \gamma Z = 0\) 定义且 \(\gamma \neq 0\)，则 \(L\) 可以参数化为：
+\(
+X = U, \quad Y = V, \quad Z = - \frac{\alpha}{\gamma}U - \frac{\beta}{\gamma}V
+\)
+类似地，如 (1.7) 所述，一条非退化圆锥曲线 \(C\) 可以参数化为：
+\(
+X = a(U,V), \quad Y = b(U,V), \quad Z = c(U,V)
+\)
+其中 \(a,b,c\) 是关于 \(U,V\) 的二次齐次多项式.这是因为 \(C\) 是 \(XZ=Y^2\) 的射影变换，而 \(XZ=Y^2\) 的参数化为 \((X,Y,Z) = (U^2, UV, V^2)\).因此 \(C\) 的参数化形式为：
+\(
+\begin{pmatrix} X \\ Y \\ Z \end{pmatrix} = M \begin{pmatrix} U^2 \\ UV \\ V^2 \end{pmatrix}
+\)
+其中 \(M\) 是一个非奇异的 \(3 \times 3\) 矩阵.
 
 \begin{center}
 \includegraphics[max width=0.5\textwidth]{images/bo_d3lj80c601uc738kffi0_24_454_273_737_428_0.jpg}
+\captionof{figure}{(a) 参数化的直线；(b) 参数化的圆锥曲线}
 \end{center}
 \hspace*{3em} 
 
-图1.4:(a)参数化直线；(b)参数化圆锥曲线
+此时，\(L\) (或 \(C\)) 与 \(D\) 的交点，对应于使下式成立的比例 \((U:V)\)：
 
-那么 \(L\) (分别为 \(C\) )与 \(D\) 的交点由求解比值 \(\left( {U : V}\right)\) 的值确定，使得
+\(
+F(U,V) = G_d(a(U,V), b(U,V), c(U,V)) = 0
+\)
 
-\[
-F\left( {U,V}\right)  = {G}_{d}\left( {a\left( {U,V}\right) ,b\left( {U,V}\right) ,c\left( {U,V}\right) }\right)  = 0.
-\]
-
-但 \(F\) 是 \(U,V\) 中次数为 \(d\) (分别为 \({2d}\) )的齐次多项式，故结果由(1.8)得出.证毕.
-
-\setboxcounter{corollary}{9}
-\begin{corollary}\label{cor:1.10}
-    若 \({P}_{1},\ldots ,{P}_{5} \in  {\mathbb{P}}^{2}\mathbb{R}\) 为不同点且无四点共线，则最多存在一条经过 \({P}_{1},\ldots ,{P}_{5}\) 的圆锥曲线.ss
-\end{corollary}
-
-\begin{proof}
-    反设 \({C}_{1}\) 和 \({C}_{2}\) 为圆锥曲线，且 \({C}_{1} \neq  {C}_{2}\) 使得
-
-\[
-{C}_{1} \cap  {C}_{2} \supset  \left\{  {{P}_{1},\ldots ,{P}_{5}}\right\}
-\]
-
-\({C}_{1}\) 非空，则若其非退化，则由(1.7)知其在射影意义下等价于参数化曲线
-
-\[
-{C}_{1} = \left\{  {\left( {{U}^{2},{UV},{V}^{2}}\right)  \mid  \left( {U,V}\right)  \in  {\mathbb{P}}^{1}}\right\}  ;
-\]
-由 \(\left( {1.9}\right) ,{C}_{1} \subset  {C}_{2}\) .现在如果 \({Q}_{2}\) 是 \({C}_{2}\) 的方程，则对于所有 \(\left( {U,V}\right)  \in  {\mathbb{P}}^{1}\) 都有 \({Q}_{2}\left( {{U}^{2},{UV},{V}^{2}}\right)  \equiv  0\) ，且一个简单的计算(见练习1.6)表明 \({Q}_{2}\) 是 \(\left( {{XZ} - {Y}^{2}}\right)\) 的倍数；这与 \({C}_{1} \neq  {C}_{2}\) 矛盾.
-
-现在假设 \({C}_{1}\) 是退化的；根据(1.6)，它要么是一对直线，要么是一条直线，很容易看出
-
-\[
-{C}_{1} = {L}_{0} \cup  {L}_{1},\;{C}_{2} = {L}_{0} \cup  {L}_{2},
-\]
-
-其中 \({L}_{1},{L}_{2}\) 是不同的直线.则 \({C}_{1} \cap  {C}_{2} = {L}_{0} \cup  \left( {{L}_{1} \cap  {L}_{2}}\right)\) :
-
-\begin{center}
-\includegraphics[max width=0.4\textwidth]{images/bo_d3lj80c601uc738kffi0_25_718_284_525_437_0.jpg}
-\captionof{figure}{相交的直线}
-\end{center}
-\hspace*{3em} 
-
-
-
-因此 \({P}_{1},\ldots ,{P}_{5}\) 中的4个点位于 \({L}_{0}\) 上，矛盾.
+在直线情况下，\(F(U,V)\) 是 \(U,V\) 的 \(d\) 次齐次多项式；在圆锥曲线情况下，它是 \(2d\) 次齐次多项式.根据命题 1.8，零点的个数分别不超过 \(d\) 和 \(2d\).
 \end{proof}
 
+\begin{corollary}\label{cor:1.10}
+若 \(P_1, \dots, P_5 \in \mathbb{P}^2(\mathbb{R})\) 是五个不同的点，且无四点共线，则最多存在一条经过这五个点的圆锥曲线.
+\end{corollary}
+\begin{proof}
+反设存在两条不同的圆锥曲线 \(C_1\) 和 \(C_2\) 都经过这五个点 \(P_1, \dots, P_5\).
 
-\setcounter{section}{10}
-\section{所有圆锥曲线的空间}
+\(
+C_1 \cap C_2 \supset \{P_1, \dots, P_5\}
+\)
 
-设
+若 \(C_1\) 非退化，根据定理 1.9，交点数 \(\#(C_1 \cap C_2)\) 最多为 \(2 \times 2 = 4\)，与存在五个交点矛盾.因此，若 \(C_1\) 非退化，则必有 \(C_1 \subset C_2\).由于 \(C_1, C_2\) 都是由二次多项式定义的，这蕴含了 \(C_1=C_2\)，与假设矛盾.
 
-\[
-{S}_{2} = \left\{  {\text{ quadratic forms on }{\mathbb{R}}^{3}}\right\}   = \{ 3 \times  3\text{ symmetric matrixes }\}  \cong  {\mathbb{R}}^{6}.
-\]
+若 \(C_1\) 是退化的，根据推论 1.6，它必然是一对直线 \(L_1 \cup L_2\).由于五个点中无四点共线，一条直线上最多只能包含三个点.例如，\(L_1\) 上有 \(P_1, P_2, P_3\)，\(L_2\) 上有 \(P_4, P_5\).此时，\(C_2\) 与 \(L_1\) 的交点数 \(\#(C_2 \cap L_1)\) 至少为 3.根据定理 1.9，这只有在 \(L_1 \subset C_2\) 时才可能.同理，\(C_2\) 与 \(L_2\) 的交点数至少为 2，若 \(L_2 \not\subset C_2\)，则交点数恰好为 2.
+如果 \(C_2\) 也退化为一对直线 \(L_3 \cup L_4\)，那么 \(C_1 \cap C_2 = (L_1 \cup L_2) \cap (L_3 \cup L_4)\).若 \(C_1 \neq C_2\)，则它们最多共享一条公共直线，例如 \(L_1=L_3\).此时交点集为 \(L_1 \cup (L_2 \cap L_4)\)，包含 \(L_1\) 和一个交点.这要求其余四个点都在 \(L_1\) 上，与“无四点共线”的假设矛盾.
+因此，在任何情况下，两条不同的圆锥曲线的交点数都不能达到 5.
+\end{proof}
 
-如果 \(Q \in  {S}_{2}\) ，写作 \(Q = a{X}^{2} + {2bXY} + \cdots  + f{Z}^{2}\) ；对于 \({P}_{0} = \left( {{X}_{0},{Y}_{0},{Z}_{0}}\right)  \in  {\mathbb{P}}^{2}\mathbb{R}\) ，考虑关系 \({P}_{0} \in  C : \left( {Q = 0}\right)\) .这具有以下形式
+\section{所有圆锥曲线构成的空间}
 
-\[
-Q\left( {{X}_{0},{Y}_{0},{Z}_{0}}\right)  = a{X}_{0}^{2} + {2b}{X}_{0}{Y}_{0} + \cdots  + f{Z}_{0}^{2} = 0,
-\]
+令
 
-对于固定的 \({P}_{0}\) ，这是关于 \(\left( {a,b,\ldots ,f}\right)\) 的线性方程.因此
+\(
+S_2 = \{\text{所有 \(\mathbb{R}^3\) 上的二次型}\} = \{\text{所有 \(3 \times 3\) 对称矩阵}\} \cong \mathbb{R}^6
+\)
 
-\[
-{S}_{2}\left( {P}_{0}\right)  = \left\{  {Q \in  {S}_{2} \mid  Q\left( {P}_{0}\right)  = 0}\right\}   \cong  {\mathbb{R}}^{5} \subset  {S}_{2} = {\mathbb{R}}^{6}
-\]
+如果 \(Q \in S_2\)，写作 \(Q = aX^2 + 2bXY + \cdots + fZ^2\).对于给定的点 \(P_0 = (X_0, Y_0, Z_0) \in \mathbb{P}^2(\mathbb{R})\)，我们考虑条件 \(P_0 \in C: (Q=0)\).这个条件可以写成：
 
-是一个5维超平面.对于 \({P}_{1},\ldots ,{P}_{n} \in  {\mathbb{P}}^{2}\mathbb{R}\) ，类似定义
+\(
+Q(X_0, Y_0, Z_0) = aX_0^2 + 2bX_0Y_0 + \cdots + fZ_0^2 = 0
+\)
 
-\[
-{S}_{2}\left( {{P}_{1},\ldots ,{P}_{n}}\right)  = \left\{  {Q \in  {S}_{2} \mid  Q\left( {P}_{i}\right)  = 0\text{ for }i = 1,\ldots ,n}\right\}  ;
-\]
+对于固定的 \(P_0\)，这是关于系数 \((a,b,\dots,f)\) 的一个线性方程.因此，所有经过 \(P_0\) 的圆锥曲线对应的二次型构成 \(S_2\) 的一个子空间：
 
-则在 \(Q\) 的6个系数 \(\left( {a,b,\ldots ,f}\right)\) 中有 \(n\) 个线性方程.由此得到结果:
+\(
+S_2(P_0) = \{Q \in S_2 \mid Q(P_0) = 0\} \cong \mathbb{R}^5 \subset S_2 = \mathbb{R}^6
+\)
 
-命题 \(\dim {S}_{2}\left( {{P}_{1},\ldots ,{P}_{n}}\right)  \geq  6 - n\) .
+这是一个 5 维的超平面.对于 \(n\) 个点 \(P_1, \dots, P_n \in \mathbb{P}^2(\mathbb{R})\)，类似地定义：
 
-我们还可以预期“当 \({P}_{1},\ldots ,{P}_{n}\) 足够一般时等号成立”.更准确地说:
+\(
+S_2(P_1, \dots, P_n) = \{Q \in S_2 \mid Q(P_i) = 0 \text{ for } i=1, \dots, n\}
+\)
 
-推论 如果 \(n \leq  5\) 且 \({P}_{1},\ldots ,{P}_{n}\) 中没有4点共线，则
+这相当于对 \(Q\) 的 6 个系数 \((a,b,\dots,f)\) 施加了 \(n\) 个线性方程.由此可得：
 
-\[
-\dim {S}_{2}\left( {{P}_{1},\ldots ,{P}_{n}}\right)  = 6 - n.
-\]
+\begin{proposition}
+\(\dim S_2(P_1, \dots, P_n) \ge 6 - n\).
+\end{proposition}
 
-证明 推论1.10表明如果 \(n = 5\) ，则 \(\dim {S}_{2}\left( {{P}_{1},\ldots ,{P}_{5}}\right)  \leq  1\) ，这在此情况下给出推论.如果 \(n \leq  4\) ，则我可以加入点 \({P}_{n + 1},\ldots ,{P}_{5}\) ，同时保持没有4点共线的条件，且由于每个点最多施加一个线性条件，这给出
+我们还可以预期“当 \(P_1, \dots, P_n\) 的位置足够一般时，等号成立”.更准确地说：
 
-\[
-1 = \dim {S}_{2}\left( {{P}_{1},\ldots ,{P}_{5}}\right)  \geq  \dim {S}_{2}\left( {{P}_{1},\ldots ,{P}_{n}}\right)  - \left( {5 - n}\right) \text{ . Q.E.D. }
-\]
+\begin{corollary}
+如果 \(n \le 5\) 且点 \(P_1, \dots, P_n\) 中无四点共线，则
+\(
+\dim S_2(P_1, \dots, P_n) = 6 - n
+\)
+\end{corollary}
+\begin{proof}
+推论 1.10 表明，当 \(n=5\) 时，\(\dim S_2(P_1, \dots, P_5) \le 1\).结合命题 1.11，我们得到 \(\dim S_2(P_1, \dots, P_5) = 1\).
+如果 \(n < 5\)，我们可以加入新的点 \(P_{n+1}, \dots, P_5\)，同时保持无四点共线的条件.由于每增加一个点，子空间的维数至多减少 1，我们有：
+\(
+1 = \dim S_2(P_1, \dots, P_5) \ge \dim S_2(P_1, \dots, P_n) - (5-n)
+\)
+结合 \(\dim S_2(P_1, \dots, P_n) \ge 6-n\)，可得 \(\dim S_2(P_1, \dots, P_n) = 6-n\).
+\end{proof}
 
-注意，如果给定6个点 \({P}_{1},\ldots ,{P}_{6} \in  {\mathbb{P}}^{2}\mathbb{R}\) ，它们可能在圆锥曲线上，也可能不在.
+注意，如果给定 6 个点 \(P_1, \dots, P_6 \in \mathbb{P}^2(\mathbb{R})\)，它们不一定落在某条圆锥曲线上.
 
-\section{1.12 两条圆锥曲线的交点}
+\section{两条圆锥曲线的交点}
 
-如上所述，两条圆锥曲线常常在4个点相交:
+如前所述，两条圆锥曲线通常在 4 个点相交：
 
 \begin{center}
 \includegraphics[max width=0.2\textwidth]{images/bo_d3lj80c601uc738kffi0_26_669_694_351_261_0.jpg}
 \end{center}
 \hspace*{3em} 
 
-反过来，根据推论1.11，给定4个点 \({P}_{1},\ldots ,{P}_{4} \in  {\mathbb{P}}^{2}\) ，在适当条件下 \({S}_{2}\left( {{P}_{1},\ldots ,{P}_{4}}\right)\) 是一个二维向量空间，因此选择 \({S}_{2}\left( {{P}_{1},\ldots ,{P}_{4}}\right)\) 的基 \({Q}_{1},{Q}_{2}\) 会得到两条圆锥曲线 \({C}_{1},{C}_{2}\) ，使得 \({C}_{1} \cap  {C}_{2} = \left\{  {{P}_{1},\ldots ,{P}_{4}}\right\}\) .非奇异圆锥曲线多重交点有多种可能:
+反过来，根据推论 1.11，给定 4 个“一般”位置的点 \(P_1, \dots, P_4 \in \mathbb{P}^2\)，所有经过这 4 个点的圆锥曲线构成的空间 \(S_2(P_1, \dots, P_4)\) 是一个二维向量空间.选取该空间的一组基 \(Q_1, Q_2\)，就得到了两条基曲线 \(C_1, C_2\)，它们的交集恰好是 \(\{P_1, \dots, P_4\}\).非奇异圆锥曲线之间可能存在多种相切或高阶相交的情况：
 
 \begin{center}
 \includegraphics[max width=0.4\textwidth]{images/bo_d3lj80c601uc738kffi0_26_578_1167_519_608_0.jpg}
+\captionof{figure}{(a) \(2P_1 + P_2 + P_3\)；(b) \(2P + 2Q\)；(c) \(3P + Q\)；(d) \(4P\)}
 \end{center}
 \hspace*{3em} 
 
-图1.6:(a) \(2{P}_{1} + {P}_{2} + {P}_{3}\) ；(b) \({2P} + {2Q}\) ；(c) \({3P} + Q\) ；(d) \({4P}\)
+参见练习 1.9 获取这些情况对应的方程.
 
-参见练习1.9获取合适的方程.
+\section{圆锥曲线束中的退化圆锥曲线}
 
-\section{1.13 圆锥曲线族中的退化圆锥曲线}
+\begin{definition}
+一个\textbf{圆锥曲线束} (pencil of conics) 是形如
+\(
+C_{(\lambda, \mu)}: \lambda Q_1 + \mu Q_2 = 0
+\)
+的曲线族，其中 \(Q_1, Q_2\) 是两个固定的二次型.族中的每个成员都线性依赖于参数 \((\lambda, \mu)\).我们可以将比值 \((\lambda:\mu)\) 视为 \(\mathbb{P}^1\) 上的一个点.
+\end{definition}
 
-定义 圆锥曲线族(pencil of conics)是形如
+通过观察示例，可以预期当 \((\lambda:\mu)\) 取某些特殊值时，圆锥曲线 \(C_{(\lambda, \mu)}\) 会退化.事实上，记二次型 \(Q\) 对应的 \(3 \times 3\) 对称矩阵为 \(M_Q\)，则圆锥曲线退化的条件是其矩阵行列式为零：
+\(
+C_{(\lambda, \mu)} \text{ 退化} \iff \det(\lambda M_{Q_1} + \mu M_{Q_2}) = 0
+\)
+将 \(Q_1\) 和 \(Q_2\) 写成对称矩阵形式，该条件可表达为：
+\(
+F(\lambda, \mu) = \det \left| \lambda \begin{pmatrix} a & b & d \\ b & c & e \\ d & e & f \end{pmatrix} + \mu \begin{pmatrix} a' & b' & d' \\ b' & c' & e' \\ d' & e' & f' \end{pmatrix} \right| = 0
+\)
 
-\[
-{C}_{\left( \lambda ,\mu \right) } : \left( {\lambda {Q}_{1} + \mu {Q}_{2} = 0}\right) ;
-\]
+注意 \(F(\lambda, \mu)\) 是关于 \(\lambda, \mu\) 的一个三次齐次多项式.因此，我们可以对 \(F\) 应用命题 1.8，推导出：
 
-的族，每个元素都是平面曲线，线性依赖于参数 \(\left( {\lambda ,\mu }\right)\) ；将比值 \(\left( {\lambda  : \mu }\right)\) 视为 \({\mathbb{P}}^{1}\) 上的一点.
+\begin{proposition}
+设 \(C_{(\lambda, \mu)}\) 是 \(\mathbb{P}_k^2\) 上的一个圆锥曲线束，且至少包含一条非退化圆锥曲线（即 \(F(\lambda, \mu)\) 不恒为零）.则该束中最多有 3 条退化圆锥曲线.如果 \(k = \mathbb{R}\)，则该束中至少有一条退化圆锥曲线.
+\end{proposition}
+\begin{proof}
+一个三次齐次多项式在 \(\mathbb{P}^1\) 上最多有 3 个零点.在实数域 \(\mathbb{R}\) 上，任何奇数次多项式至少有一个实根.
+\end{proof}
 
-观察示例，可以预期当 \(\left( {\lambda  : \mu }\right)\) 取特殊值时，圆锥曲线 \({C}_{\left( \lambda ,\mu \right) }\) 会退化.事实上，记对应二次型 \(Q\) 的对称矩阵 \(3 \times  3\) 的行列式为 \(\det \left( Q\right)\) ，则显然
+\section{例题解析}
 
-\[
-{C}_{\left( \lambda ,\mu \right) }\text{ is degenerate } \Leftrightarrow  \det \left( {\lambda {Q}_{1} + \mu {Q}_{2}}\right)  = 0\text{ . }
-\]
-
-将 \({Q}_{1}\) 和 \({Q}_{2}\) 写成对称矩阵形式，条件可表达为
-
-\[
-F\left( {\lambda ,\mu }\right)  = \det \left| {\lambda \left( \begin{array}{lll} a & b & d \\  b & c & e \\  d & e & f \end{array}\right)  + \mu \left( \begin{array}{lll} {a}^{\prime } & {b}^{\prime } & {d}^{\prime } \\  {b}^{\prime } & {c}^{\prime } & {e}^{\prime } \\  {d}^{\prime } & {e}^{\prime } & {f}^{\prime } \end{array}\right) }\right|  = 0.
-\]
-
-注意 \(F\left( {\lambda ,\mu }\right)\) 是关于 \(\lambda ,\mu\) 的齐次三次型.进而我可以对 \(F\) 应用(1.8)推导出:
-
-命题 设 \({C}_{\left( \lambda ,\mu \right) }\) 是 \({\mathbb{P}}_{k}^{2}\) 上的一个圆锥曲线族，且至少包含一个非退化圆锥曲线(即 \(F\left( {\lambda ,\mu }\right)\) 不恒为零).则该族最多有3个退化圆锥曲线.如果 \(k = \mathbb{R}\) ，则该族至少有一个退化圆锥曲线.
-
-证明 三次型有 \(\leq  3\) 个零点.在 \(\mathbb{R}\) 上，它至少有一个零点.
-
-\section{1.14 例题解析}
-
-设 \({P}_{1},\ldots ,{P}_{4}\) 是 \({\mathbb{P}}^{2}\mathbb{R}\) 中的4个点，且无3点共线；则通过 \({P}_{1},\ldots ,{P}_{4}\) 的圆锥曲线族 \({C}_{\left( \lambda ,\mu \right) }\) 有3个退化元素，即线对 \({L}_{12} + {L}_{34},{L}_{13} + {L}_{24},{L}_{14} + {L}_{23}\) ，其中 \({L}_{ij}\) 是通过 \({P}_{i},{P}_{j}\) 的直线:
+设 \(P_1, \dots, P_4\) 是 \(\mathbb{P}^2(\mathbb{R})\) 中 4 个点，且无三点共线.则经过这 4 个点的圆锥曲线束 \(C_{(\lambda, \mu)}\) 包含 3 个退化元素，它们分别是三对直线：\(L_{12} \cup L_{34}\)、\(L_{13} \cup L_{24}\) 和 \(L_{14} \cup L_{23}\) ，其中 \(L_{ij}\) 是通过点 \(P_i, P_j\) 的直线:
 
 \begin{center}
 \includegraphics[max width=0.2\textwidth]{images/bo_d3lj80c601uc738kffi0_27_770_1529_362_284_0.jpg}
 \end{center}
 \hspace*{3em} 
 
-接下来，假设我从由 \({Q}_{1} = {Y}^{2} + {rY} + {sX} + t\) 和 \({Q}_{2} = Y - {X}^{2}\) 生成的圆锥曲线族出发，尝试找到交点 \({P}_{1},\ldots ,{P}_{4}\) .
+接下来，假设我们从由 \(Q_1 = Y^2 + rY + sX + t\) 和 \(Q_2 = Y - X^2\) 生成的圆锥曲线束出发，尝试找出它们的 4 个交点 \(P_1, \dots, P_4\).
 
 \begin{center}
 \includegraphics[max width=0.6\textwidth]{images/bo_d3lj80c601uc738kffi0_28_418_286_869_574_0.jpg}
 \end{center}
 \hspace*{3em} 
 
-这可以按如下方式完成:(1) 找到使 \({C}_{\left( \lambda ,\mu \right) }\) 成为退化圆锥曲线的3个比率 \(\left( {\lambda  : \mu }\right)\) .根据上述内容，这仅意味着我必须找到该三次方程的3个根
+这个过程可以按如下步骤完成：
+(1) 找到使 \(C_{(\lambda, \mu)}\) 成为退化圆锥曲线的 3 个比值 \((\lambda:\mu)\).根据上一节的讨论，这等价于求解一个三次方程的 3 个根：
 
-\[
-F\left( {\lambda ,\mu }\right)  = \det \left| {\lambda \left( \begin{matrix} 0 & 0 & s/2 \\  0 & 1 & r/2 \\  s/2 & r/2 & t \end{matrix}\right)  + \mu \left( \begin{matrix}  - 1 & 0 & 0 \\  0 & 0 & 1/2 \\  0 & 1/2 & 0 \end{matrix}\right) }\right|
-\]
+\(
+F(\lambda, \mu) = \det \left| \lambda \begin{pmatrix} 0 & 0 & s/2 \\ 0 & 1 & r/2 \\ s/2 & r/2 & t \end{pmatrix} + \mu \begin{pmatrix} -1 & 0 & 0 \\ 0 & 0 & 1/2 \\ 0 & 1/2 & 0 \end{pmatrix} \right|
+\)
+\(
+= -\frac{1}{4} (s^2\lambda^3 + (4t - r^2)\lambda^2\mu - 2r\lambda\mu^2 - \mu^3) = 0
+\)
 
-\[
-=  - \frac{1}{4}\left( {{s}^{2}{\lambda }^{3} + \left( {{4t} - {r}^{2}}\right) {\lambda }^{2}\mu  - {2r\lambda }{\mu }^{2} - {\mu }^{3}}\right) .
-\]
+(2) 将其中两条退化圆锥曲线分解为直线对（这需要解两个二次方程）.
+(3) 4 个交点 \(P_i\) 就是这些直线的交点.
 
-(2) 将其中2个退化圆锥曲线分解为直线对(这涉及解2个二次方程).(3) 4个点 \({P}_{i}\) 是这些直线的交点.
+这个过程为伽罗瓦理论中一般四次方程的求解提供了几何解释.设 \(k\) 为一个域，\(f(X) = X^4 + rX^2 + sX + t \in k[X]\) 是一个四次多项式.考虑两条曲线 \(C_1: Y^2 + rY + sX + t = 0\) 和 \(C_2: Y=X^2\).它们的交点为 \(P_i = (a_i, a_i^2)\)，其中 \(a_i\) (\(i=1, \dots, 4\)) 是 \(f(X)=0\) 的 4 个根.
 
-该过程为伽罗瓦理论(Galois theory)中一般四次方程的约化提供了几何解释(参见例如[van der Waerden, Algebra, 第8章, \(§{64}\) ]):设 \(k\) 为一个域， \(f\left( X\right)  =\)  \({X}^{4} + r{X}^{2} + {sX} + t \in  k\left\lbrack  X\right\rbrack\) 为一个四次多项式.则两条抛物线 \({C}_{1}\) 和 \({C}_{2}\) 在4个点 \({P}_{i} = \left( {{a}_{i},{a}_{i}^{2}}\right)\) 相交，其中 \(i = 1,\ldots ,4\) ，而 \({a}_{i}\) 是 \(f\) 的4个根.
+则直线 \(L_{ij} = P_iP_j\) 由下式给出
 
-则直线 \({L}_{ij} = {P}_{i}{P}_{j}\) 由下式给出
+\(
+L_{ij}: Y = (a_i + a_j)X - a_i a_j
+\)
 
-\[
-{L}_{ij} : \left( {Y = \left( {{a}_{i} + {a}_{j}}\right) X - {a}_{i}{a}_{j}}\right) ,
-\]
+而可约圆锥曲线 \(L_{12} + L_{34}\) 由下式给出
 
-而可约圆锥曲线 \({L}_{12} + {L}_{34}\) 由下式给出
+\(
+(Y - (a_1+a_2)X + a_1a_2)(Y - (a_3+a_4)X + a_3a_4) = 0
+\)
 
-\[
-{Y}^{2} + \left( {{a}_{1}{a}_{2} + {a}_{3}{a}_{4}}\right) Y + \left( {{a}_{1} + {a}_{2}}\right) \left( {{a}_{3} + {a}_{4}}\right) {X}^{2} + {sX} + t = 0,
-\]
+展开后，可以发现它属于由 \(Q_1\) 和 \(Q_2\) 生成的圆锥曲线束.具体来说，它是 \(Q_1 - (a_1+a_2)(a_3+a_4)Q_2 = 0\).因此，使圆锥曲线 \(\lambda Q_1 + \mu Q_2\) 分解为直线对的三个 \(\mu/\lambda\) 值是
 
-即由 \({Q}_{1} - \left( {{a}_{1} + {a}_{2}}\right) \left( {{a}_{3} + {a}_{4}}\right) {Q}_{2} = 0\) 给出.因此，使圆锥曲线 \(\lambda {Q}_{1} + \mu {Q}_{2}\) 分解为直线对的3个 \(\mu /\lambda\) 值为
+\(
+- (a_1+a_2)(a_3+a_4), \quad - (a_1+a_3)(a_2+a_4), \quad - (a_1+a_4)(a_2+a_3)
+\)
 
-\[
-- \left( {{a}_{1} + {a}_{2}}\right) \left( {{a}_{3} + {a}_{4}}\right) ,\; - \left( {{a}_{1} + {a}_{3}}\right) \left( {{a}_{2} + {a}_{4}}\right) ,\; - \left( {{a}_{1} + {a}_{4}}\right) \left( {{a}_{2} + {a}_{3}}\right) .
-\]
-
-这些3个量作为根的三次方程称为与四次方程相关的辅助三次方程；它可以通过初等对称函数理论计算；这是一个相当繁琐的过程.另一方面，上述几何方法给出了辅助三次方程的优雅推导，仅涉及计算一个 \(3 \times  3\) 行列式.
-
-上述处理摘自[M.Berger, 16.4.10 和 16.4.11.1].
+以这三个值为根的三次方程称为四次方程的“辅助三次方程”.它通常通过初等对称多项式理论计算，过程相当繁琐.而上述几何方法仅通过计算一个 \(3 \times 3\) 行列式，就优雅地推导出了这个辅助三次方程.
 
 \section{第一章习题}
 
-1.1 通过考虑经过点(2,1)的变量直线对圆锥曲线 \(C : \left( {{x}^{2} + {y}^{2} = 5}\right)\) 进行参数化，从而求出 \({x}^{2} + {y}^{2} = 5\) 的所有有理解.
+1.1 通过考虑经过点 \((2,1)\) 的一族直线与圆锥曲线 \(C: x^2 + y^2 = 5\) 的交点，对该圆锥曲线进行参数化，并求出方程 \(x^2 + y^2 = 5\) 的所有有理数解.
 
-1.2 设 \(p\) 为素数；通过对不同的 \(p\) 进行实验，猜测 \({x}^{2} + {y}^{2} = p\) 存在有理解的充要条件；证明你的猜测(提示见下文习题1.9之后
+1.2 设 \(p\) 为素数.通过对不同的 \(p\) 进行实验，猜测方程 \(x^2 + y^2 = p\) 存在有理数解的充要条件，并尝试证明你的猜测.（提示：参见练习 1.9 后的提示.自己独立解决可能很有挑战性！）
 
-\begin{itemize}
-\item 打赌你自己做不到！).
-\end{itemize}
+1.3 证明 (1.3) 中的论断，即任何 \(\mathbb{R}^2\) 中的圆锥曲线都可以通过仿射变换化为标准形式之一 (a-l).【提示：首先使用线性变换 \(\mathbf{x} \mapsto A\mathbf{x}\) 将二次项 \(ax^2 + bxy + cy^2\) 对角化为 \(\pm x'^2 \pm y'^2\) 或 \(\pm x'^2\) 或 0；然后对变量完成配方，以尽可能消除一次项.】
 
-1.3 证明(1.3)中的陈述，即仿射变换可用于将任意 \({\mathbb{R}}^{2}\) 的圆锥曲线化为标准形式之一(a-l).【提示:使用线性变换 \(\mathbf{x} \mapsto  A\mathbf{x}\) 将首项 \(a{x}^{2} + {bxy} + c{y}^{2}\) 变换为 \(\pm  {x}^{2} \pm  {y}^{2}\) 或 \(\pm  {x}^{2}\) 或0；然后对 \(x\) 和 \(y\) 完成平方，尽可能消除线性部分.】
+1.4 详细比较 (1.3) 中的仿射圆锥曲线分类与 (1.6) 中的射影圆锥曲线分类.
 
-1.4 详细比较(1.3)中的仿射圆锥曲线与(1.6)中的射影圆锥曲线.
+1.5 设 \(k\) 为特征不为 2 的域，\(V\) 为三维 \(k\)-向量空间，\(Q: V \to k\) 为 \(V\) 上的非退化二次型.证明：若存在非零向量 \(e_1 \in V\) 满足 \(Q(e_1) = 0\)，则 \(V\) 存在一组基 \(e_1, e_2, e_3\)，使得 \(Q(x_1 e_1 + x_2 e_2 + x_3 e_3) = x_1 x_3 + ax_2^2\) 对某个 \(a \in k\) 成立.【提示：考虑与 \(Q\) 相关的对称双线性型 \(\varphi\).由于 \(\varphi\) 非退化，存在向量 \(e_3\) 使得 \(\varphi(e_1, e_3) = 1\).然后寻找合适的 \(e_2\).】
 
-1.5 设 \(k\) 为特征为 \(\neq  2\) 的任意域， \(V\) 为三维 \(k\) -向量空间；设 \(Q : V \rightarrow  k\) 为 \(V\) 上的非退化二次型.证明若 \(0 \neq  {e}_{1} \in  V\) 满足 \(Q\left( {e}_{1}\right)  = 0\) ，则 \(V\) 存在基 \({e}_{1},{e}_{2},{e}_{3}\) 使得 \(Q\left( {{x}_{1}{e}_{1} + {x}_{2}{e}_{2} + {x}_{3}{e}_{3}}\right)  = {x}_{1}{x}_{3} + a{x}_{2}^{2}\) .【提示:考虑与 \(Q\) 相关的对称双线性型 \(\varphi\) ；由于 \(\varphi\) 非退化，存在向量 \({e}_{3}\) 使得 \(\varphi \left( {{e}_{1},{e}_{3}}\right)  = 1\) .然后找到合适的 \({e}_{2}\) .】
+由此推断，任何非空、非退化的圆锥曲线 \(C \subset \mathbb{P}_k^2\) 在射影意义下都等价于 \(XZ = Y^2\).
 
-推断非空且非退化的圆锥曲线 \(C \subset  {\mathbb{P}}_{k}^{2}\) 在射影意义下等价于 \(({XZ} =\)  \(\left. {Y}^{2}\right)\) .
+1.6 设 \(k\) 是一个元素个数不少于 4 的域，且 \(C: XZ = Y^2 \subset \mathbb{P}_k^2\).证明：若 \(Q(X,Y,Z)\) 是在 \(C\) 上恒为零的二次型，则 \(Q = \lambda(XZ - Y^2)\) 对某个 \(\lambda \in k\) 成立.【提示：若无法自行完成，可参考引理 2.5 的证明思路.】
 
-1.6 设 \(k\) 为元素数不少于4的域，且 \(C : \left( {{XZ} = {Y}^{2}}\right)  \subset  {\mathbb{P}}_{k}^{2}\) ；证明若 \(Q\left( {X,Y,Z}\right)\) 为在 \(C\) 上消失的二次型，则 \(Q = \lambda \left( {{XZ} - {Y}^{2}}\right)\) .【提示:如果你确实无法自行完成，可参照引理2.5证明中的论证.】
+1.7 在 \(\mathbb{R}^3\) 中，考虑两个平面 \(A: Z=1\) 和 \(B: X=1\).一条过原点的直线与平面 \(A\) 交于点 \((x,y,1)\)，与平面 \(B\) 交于点 \((1, y/x, 1/x)\).考虑由 \((x,y) \mapsto (y' = y/x, z' = 1/x)\) 定义的映射 \(\varphi: A \to B\).求 \(\varphi\) 作用下以下图形的像：
+(i) 直线 \(ax = y+b\)；以及平行线束 \(ax = y+b\)（固定 \(a\)，变化 \(b\)）；
+(ii) 圆 \((x-1)^2 + y^2 = c\)，对于变化的 \(c\)（区分 \(c>1, c=1, c<1\) 三种情况）.
+试将上述过程想象为一位坐在原点 \(0 \in \mathbb{R}^3\) 的艺术家，在平面 \(X=1\) 上绘制平面 \(Z=1\) 上图形的透视图.解释当 \(\varphi\) 和 \(\varphi^{-1}\) 未定义时，两平面上的点发生了什么.
 
-1.7 在 \({\mathbb{R}}^{3}\) 中，考虑两个平面 \(A : \left( {Z = 1}\right)\) 和 \(B : \left( {X = 1}\right)\) ；一条通过0点的直线在 \(A\) 上交于(x, y,1)，在 \(B\) 上交于 \(\left( {1,y/x,1/x}\right)\) .考虑由 \(\left( {x,y}\right)  \mapsto  \left( {y}^{\prime }\right.  =\)  \(\left. {y/x,{z}^{\prime } = 1/x}\right)\) 定义的映射 \(\varphi  : A \rightarrow  B\) ；求 \(\varphi\) 下的像
+1.8 设 \(P_1, \dots, P_4\) 是 \(\mathbb{P}^2\) 中四个点，无三点共线.证明存在唯一的坐标系，使得这四个点为 \((1,0,0), (0,1,0), (0,0,1)\) 和 \((1,1,1)\).利用此坐标系，找出所有经过这四点以及第五个点 \(P_5 = (a,b,c)\) 的圆锥曲线，并以此给出推论 1.10 和命题 1.11 的另一种证明.
 
-(i) 直线 \({ax} = y + b\) ；平行线束 \({ax} = y + b\) (固定 \(a\) ，变化 \(b\) )；
+1.9 在 (1.12) 中列出了两条圆锥曲线相交的所有可能方式.请写出具体方程，证明每种可能性确实存在.并找出对应曲线束中的所有奇异圆锥曲线.【提示：利用对称性和恰当选择的坐标系可以大大简化计算.】
 
-(ii) 对于变化的 \(c\) ，圆 \({\left( x - 1\right) }^{2} + {y}^{2} = c\) (区分三种情况 \(c > 1,c = 1\) 和 \(c < 1\) ).
+1.2 的提示：根据初等数论，-1 是模 \(p\) 的二次剩余当且仅当 \(p=2\) 或 \(p \equiv 1 \pmod 4\).
 
-试想象上述内容为一位坐在 \(0 \in  {\mathbb{R}}^{3}\) 上的艺术家，在平面 \(\left( {X = 1}\right)\) 上对平面 \(\left( {Z = 1}\right)\) 上的图形所作的透视画.解释当 \(\varphi\) 和 \({\varphi }^{-1}\) 未定义时，两平面上的点会发生什么变化.
+1.10 (Sylvester 行列式) 设 \(k\) 为代数闭域，给定 \(U,V\) 的一个二次型和一个三次型：
 
-1.8 设 \({P}_{1},\ldots ,{P}_{4}\) 为 \({\mathbb{P}}^{2}\) 中不共线的不同点，且无三点共线.证明存在唯一的坐标系，使得这4点为 \(\left( {1,0,0}\right) ,\left( {0,1,0}\right) ,\left( {0,0,1}\right)\) 和(1,1,1).找出所有经过 \({P}_{1},\ldots ,{P}_{5}\) 的圆锥曲线，其中 \({P}_{5} = \left( {a,b,c}\right)\) 为另一点，并用此给出推论1.10和命题1.11的另一证明.
+\(
+q(U,V) = a_0 U^2 + a_1 UV + a_2 V^2
+\)
 
-1.9 在(1.12)中列出了两条圆锥曲线相交的所有可能方式.写出方程证明每种可能确实存在.找出对应线束中所有奇异圆锥曲线.[提示:利用对称性和恰当选择的坐标系可大大简化计算.]
+\(
+c(U,V) = b_0 U^3 + b_1 U^2 V + b_2 UV^2 + b_3 V^3
+\)
 
-1.2的提示:根据初等数论，-1是模 \(p\) 的二次剩余当且仅当 \(p = 2\) 或 \(p \equiv  1{\;\operatorname{mod}\;4}\) .
+证明 \(q\) 和 \(c\) 有公共零点 \((\eta:\tau) \in \mathbb{P}^1\) 的充要条件是它们的结式 (resultant) 为零：
 
-1.10(Sylvester行列式).设 \(k\) 为代数闭域，且在 \(U,V\) 中给定二次型和三次型，如(1.8)所示:
+\(
+\det \begin{vmatrix} a_0 & a_1 & a_2 & & \\ a_0 & a_1 & a_2 & a_2 & \\ a_0 & a_1 & a_2 & a_2 & \\ b_0 & b_1 & b_2 & b_3 & \\ b_0 & b_1 & b_2 & b_3 & b_3 \end{vmatrix} = 0
+\)
 
-\[
-q\left( {U,V}\right)  = {a}_{0}{U}^{2} + {a}_{1}{UV} + {a}_{2}{V}^{2},
-\]
+【提示：证明若 \(q\) 和 \(c\) 有公共根，则 \(U^2q, UVq, V^2q, Uc, Vc\) 这 5 个四次型线性相关.反之，利用多项式环 \(k[U,V]\) 的唯一分解性质，说明存在形如 \(Aq = Bc\) 的关系，其中 \(\deg A = 2, \deg B = 1\).】
 
-\[
-c\left( {U,V}\right)  = {b}_{0}{U}^{3} + {b}_{1}{U}^{2}V + {b}_{2}U{V}^{2} + {b}_{3}{V}^{3}.
-\]
-
-证明 \(q\) 和 \(c\) 有公共零点 \(\left( {\eta  : \tau }\right)  \in  {\mathbb{P}}^{1}\) 当且仅当
-
-\[
-\det \left| \begin{array}{lllll} {a}_{0} & {a}_{1} & {a}_{2} & & \\   & {a}_{0} & {a}_{1} & {a}_{2} & \\   & & {a}_{0} & {a}_{1} & {a}_{2} \\  {b}_{0} & {b}_{1} & {b}_{2} & {b}_{3} & \\   & {b}_{0} & {b}_{1} & {b}_{2} & {b}_{3} \end{array}\right|  = 0
-\]
-
-[提示:证明若 \(q\) 和 \(c\) 有公共根，则这5个元素
-
-\[
-{U}^{2}q,\;{UVq},\;{V}^{2}q,\;{Uc}\;\text{ and }\;{Vc}
-\]
-
-不生成4次型的5维向量空间，因此线性相关.反之，利用多项式环 \(k\left\lbrack  {U,V}\right\rbrack\) 中的唯一分解性质，说明形如 \({Aq} = {Bc}\) 的关系，其中 \(A\) 和 \(B\) 为 \(U,V,\deg A = 2,\deg B = 1\) 中的形式.
-
-1.11 将练习1.10的结果推广到 \(U,V\) 中任意次数为 \(n\) 和 \(m\) 的两个形式.
+1.11 将练习 1.10 的结果推广到 \(U,V\) 中任意次数为 \(n\) 和 \(m\) 的两个形式.
