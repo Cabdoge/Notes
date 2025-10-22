@@ -22,7 +22,7 @@
         \hline
         2 & 4 & 4 \\
         \hline
-        3 & 9 & 9 \\
+        3 & 8 & 8 \\
         \hline
         4 & 16 & 1 \\
         \hline
@@ -431,7 +431,7 @@ $\begin{aligned}
             且$(x_0-r,x_0+r)\cap B\xLongrightarrow{R_{k\alpha}}(x_0-r+\{k\alpha\},x_0+r+\{k\alpha\})\cap B$，其中$x_0-r+\{k\alpha\}=x_0+r,x_0+r+\{k\alpha\}=x_0+3r$.\par
             以此类推，得到区间$I_0=(x_0-r,x_0+r),I_1=(x_0+r,x_0+3r),\cdots$，
         \end{minipage}
-        \begin{minipage}[t]{0.25\textwidth}
+        \begin{minipage}[t]{0.28\textwidth}
             \vspace{-1em}
             \includegraphics[width=1\textwidth]{fig/2.6.png}
             \captionof{figure}{$R_{k\alpha}$作用在区间上}
@@ -596,14 +596,13 @@ $\begin{aligned}
     \begin{itemize}
         \item 设$k\in\{0,1,\cdots,9\}$，$x=0.x_1x_2x_3\cdots=\frac{x_1}{10}+\frac{x_2}{10^2}+\frac{x_3}{10^3}+\cdots$.\par
         则$\setjot\begin{aligned}[t]
-            k=x_i &\Leftrightarrow x=\frac{x_1}{10}+\frac{x_2}{10^2}+\cdots+\frac{x_i}{10^i}+\cdots = \frac{x_1}{10}+\frac{x_2}{10^2}+\cdots+\frac{x_i}{10^i}+\cdots \\
-            &\Leftrightarrow 10^{i-1}x\mod 1 = \frac{k}{10^{i-1}}+\frac{x_{i+1}}{10^i}+\cdots \\
+            k=x_i &\Leftrightarrow x=\frac{x_1}{10}+\frac{x_2}{10^2}+\cdots+\frac{x_i}{10^i}+\cdots = \frac{x_1}{10}+\frac{x_2}{10^2}+\cdots+\frac{k}{10^i}+\cdots \\
+            &\Leftrightarrow 10^{i-1}x\mod 1 = \frac{k}{10}+\frac{x_{i+1}}{10^1}+\cdots \\
             &\Leftrightarrow 10^{i-1}x\mod 1 \in I_k= \left[\frac{k}{10},\frac{k+1}{10}\right) \\
             &\Leftrightarrow \chi_{I_k}(10^{i-1}x\mod 1)=1
         \end{aligned}$\par
         \item $\setjot\begin{aligned}[t]
-            \mb{P}(x_i=k)&=\lim_{N\to\infty}{\frac{\left|\left\{1\leq n\leq N\left|x_n=k\right.\right\}\right|}{N}}\\
-            &= \lim_{N\to\infty}{\frac{1}{N}\sum_{n=1}^N{\chi_{I_k}(10^{n-1}x\mod 1)}} \\
+            \mb{P}(x_i=k)&=\lim_{N\to\infty}{\frac{\left|\left\{1\leq n\leq N\left|x_n=k\right.\right\}\right|}{N}}= \lim_{N\to\infty}{\frac{1}{N}\sum_{n=1}^N{\chi_{I_k}(10^{n-1}x\mod 1)}} \\
             &= \lim_{N\to\infty}{\frac{1}{N}\sum_{n=0}^{N-1}{\chi_{I_k}(T^n x)}} \\
             (\text{若}T\text{遍历}) &=\int_0^1{\chi_{I_k}(x)}\d m =\frac{1}{10}
         \end{aligned}$.\par
@@ -617,17 +616,28 @@ $\begin{aligned}
     故$f=c_0e_0=c_0$为常数.\par
 \end{instance}
 
-下面是更为有趣、更有意义的例子.\par
-\begin{instance}
-    对$x\in(0,1)$，考虑$x$的连分数展开，$x=a_0+\frac{1}{a_1+\tfrac{1}{a_2+\tfrac{1}{a_3+\raisebox{-.5\height}{$\ddots$}}}}(a_0-0,a_i\in\mb{N}^+)$.\par
+
+
+
+\section{连分数与Gauss映射}
+下面讨论Gauss映射的遍历性，我们的出发点是以下的问题：
+\begin{problem}
+    对于$x\in [0,1]$，考虑$x$的连分数展开，$x=a_0+\frac{1}{a_1+\tfrac{1}{a_2+\tfrac{1}{a_3+\raisebox{-.5\height}{$\ddots$}}}}(a_0-0,a_i\in\mb{N}^+)$.\par
     对$\forall\, k\in\mb{N}^+$，计算$\mb{P}(a_n=k)$.
     \begin{itemize}
-        \item $\mb{P}(a_n=k)=\lim_{N\to\infty}{\frac{\left|\left\{1\leq n\leq N\left|a_n=k\right.\right\}\right|}{N}}$.
-        \item $(x>0)$，设$a_0,a_1,\cdots,a_n,\cdots$是一个自然数序列$(a_0\geq 0,a_i\geq 1(i\geq 1))$，考虑$a_0,a_0+\frac{1}{a_1},a_0+\frac{1}{a_1+\frac{1}{a_2}},a_0+\frac{1}{a_1+\frac{1}{a_2+\frac{1}{a_3}}},\cdots$.\par
+        \item 上述所求的概率可以写成$\mb{P}(a_n=k)=\lim_{N\to\infty}{\frac{\left|\left\{1\leq n\leq N\left|a_n=k\right.\right\}\right|}{N}}$.
+    \end{itemize}
+    但在正式计算之前，我们需要先了解连分数的定义与性质.\par
+    \begin{definition}{连分数}
+        \wideline
+        设$x\in\mb{R}_{>0}$，设$a_0,a_1,\cdots,a_n,\cdots$是一个自然数序列$(a_0\geq 0,a_i\geq 1(i\geq 1))$，考虑$a_0,a_0+\frac{1}{a_1},a_0+\frac{1}{a_1+\frac{1}{a_2}},a_0+\frac{1}{a_1+\frac{1}{a_2+\frac{1}{a_3}}},\cdots$.\par
         其中第$n$个分式为$a_0+\frac{1}{a_1+\frac{1}{a_2+\raisebox{-.5\height}{$\ddots$}\raisebox{-1\height}{$+\tfrac{1}{a_n}$}}}=\frac{p_n}{q_n}=[a_0;a_1,a_2,\cdots,a_n]$.\par
-        如果$\left\{\frac{p_n}{q_n}\right\}$收敛到$x\in\mb{R}_{>0}$，那么称$x=a_0+\frac{1}{a_1+\frac{1}{a_2+\raisebox{-.5\height}{$\ddots$}}}=[a_0;a_1,a_2,\cdots]$为$x$的连分式.\par
-        下面寻找连分数逼近中分子分母的规律，$\frac{p_0}{q_0}=a_0=\frac{a_0}{1},p_0=a_0,q_0=1$.$\frac{p_1}{q_1}=a_0+\frac{1}{a_1}=\frac{a_0a_1+1}{a_1},p_1=a_0a_1+1,q_1=a_1$.\par
-        实际上，$p_i,q_i$满足以下关系$\begin{pmatrix}
+        如果$\left\{\frac{p_n}{q_n}\right\}$收敛到$x\in\mb{R}_{>0}$，那么称$x=a_0+\frac{1}{a_1+\frac{1}{a_2+\raisebox{-.5\height}{$\ddots$}}}=[a_0;a_1,a_2,\cdots]$为$x$的\textbf{连分式}.\par
+    \end{definition}
+    下面寻找连分数逼近中分子分母的规律，$\frac{p_0}{q_0}=a_0=\frac{a_0}{1},p_0=a_0,q_0=1$.$\frac{p_1}{q_1}=a_0+\frac{1}{a_1}=\frac{a_0a_1+1}{a_1},p_1=a_0a_1+1,q_1=a_1$.\par
+    实际上，$p_i,q_i$满足以下关系，我们将它写成一个引理.
+    \begin{lemma}{连分数分子分母的递推关系}
+        $\begin{pmatrix}
             0 & 1 \\
             1 & a_0 
         \end{pmatrix}\begin{pmatrix}
@@ -639,12 +649,287 @@ $\begin{aligned}
         \end{pmatrix}=\begin{pmatrix}
             p_{n-1} & p_n \\
             q_{n-1} & q_n
-        \end{pmatrix}$$\setjot[-10]\begin{aligned}
+        \end{pmatrix}$$\setjot[-3]\begin{aligned}
             &\forall\, n\in\mb{N} \\
             &q_{-1}=0,q_{-1}=1 \\
         \end{aligned}$
+    \end{lemma}
+    \begin{proof}
+        当$n=0$时，$\begin{pmatrix}
+            q_{n-1} & q_n \\
+            p_{n-1} & p_n
+        \end{pmatrix}=\begin{pmatrix}
+            0 & 1 \\
+            1 & a_0
+        \end{pmatrix}$成立.\par
+        假设当$n=k$时结论成立，考虑$n=k+1$时的情形.\par
+        $\setjot[-2]\begin{aligned}[t]
+            &\begin{pmatrix}
+                0 & 1 \\
+                1 & a_0
+            \end{pmatrix}\begin{pmatrix}
+                0 & 1 \\
+                1 & a_1
+            \end{pmatrix}\cdots\begin{pmatrix}
+                0 & 1 \\
+                1 & a_{k+1}
+            \end{pmatrix}=\left[\begin{pmatrix}
+                0 & 1 \\
+                1 & a_0
+            \end{pmatrix}\cdots\begin{pmatrix}
+                0 & 1 \\
+                1 & a_k
+            \end{pmatrix}\right]\begin{pmatrix}
+                0 & 1 \\
+                1 & a_{k+1}
+            \end{pmatrix} \\
+            &=\begin{pmatrix}
+                p_{k-1} & p_k \\
+                q_{k-1} & q_k
+            \end{pmatrix}\begin{pmatrix}    
+                0 & 1 \\
+                1 & a_{k+1}
+            \end{pmatrix} =\begin{pmatrix}
+                p_k & a_{k+1}p_k+p_{k-1} \\
+                q_k & a_{k+1}q_k+q_{k-1}
+            \end{pmatrix}
+        \end{aligned}$\par
+        因此$\begin{pmatrix}
+                0 & 1 \\
+                1 & a_0
+            \end{pmatrix}\cdots\begin{pmatrix}
+                0 & 1 \\
+                1 & a_{k+1}
+            \end{pmatrix}=\begin{pmatrix}
+                q_k & * \\
+                p_k & *
+            \end{pmatrix}$，对第一列成立.\par
+            下面证明上述的等式对第二列也成立即可.\par
+            考虑$\begin{pmatrix}
+                0 & 1 \\
+                1 & a_1
+            \end{pmatrix}\cdots\begin{pmatrix}
+                0 & 1 \\
+                1 & a_{k+1}
+            \end{pmatrix}=\begin{pmatrix}
+                x_{k-1} & x_k \\
+                y_{k-1} & y_k
+            \end{pmatrix}$，则$\frac{y_k}{x_k}=a_1+\frac{1}{a_2+\frac{1}{a_3+\raisebox{-.5\height}{$\ddots$}\raisebox{-1\height}{$+\tfrac{1}{a_{k+1}}$}}}$.\par
+            那么$\begin{pmatrix}
+                0 & 1 \\
+                1 & a_0
+            \end{pmatrix}\begin{pmatrix}
+                0 & 1 \\
+                1 & a_1
+            \end{pmatrix}\cdots\begin{pmatrix}
+                0 & 1 \\
+                1 & a_{k+1}
+            \end{pmatrix}=\begin{pmatrix}
+                0 & 1 \\
+                1 & a_0
+            \end{pmatrix}\begin{pmatrix}
+                x_{k-1} & x_k \\
+                y_{k-1} & y_k
+            \end{pmatrix}=\begin{pmatrix}
+                * & y_k \\
+                * & x_k+a_0y_k
+            \end{pmatrix}$.\par
+            又因为$\frac{p_{k+1}}{q_{k+1}}=a_0+\frac{1}{a_1+\frac{1}{a_2+\raisebox{-.5\height}{$\ddots$}\raisebox{-1\height}{$+\tfrac{1}{a_{k+1}}$}}}=a_0+\frac{1}{\dfrac{y_k}{x_k}}=\frac{x_k+a_0y_k}{y_k}$.\par
+            所以$\begin{pmatrix}
+                0 & 1 \\
+                1 & a_0
+            \end{pmatrix}\begin{pmatrix}
+                0 & 1 \\
+                1 & a_1
+            \end{pmatrix}\cdots\begin{pmatrix}
+                0 & 1 \\
+                1 & a_{k+1}
+            \end{pmatrix}=\begin{pmatrix}
+                * & q_{k+1} \\
+                * & p_{k+1}
+            \end{pmatrix}$
+    \end{proof}    
+\end{problem}
+从上面的引理中，就可以得到$p_n,q_n$满足的递推关系：
+$\begin{pmatrix}
+    q_{n-1} & q_n \\
+    p_{n-1} & p_n
+\end{pmatrix}\begin{pmatrix}
+    0 & 1 \\
+    1 & a_{n+1}
+\end{pmatrix}=\begin{pmatrix}
+    q_n & q_{n+1} \\
+    p_n & p_{n+1}
+\end{pmatrix}$\par
+$\Rightarrow \begin{pmatrix}
+    q_n & q_{n-1}+a_{n+1}q_n \\
+    p_n & p_{n-1}+a_{n+1}p_n
+\end{pmatrix}=\begin{pmatrix}
+    q_n & q_{n+1} \\
+    p_n & p_{n+1}
+\end{pmatrix} \Rightarrow \begin{cases}
+    p_{n+1}=a_{n+1}p_n+p_{n-1} \\
+    q_{n+1}=a_{n+1}q_n+q_{n-1}
+\end{cases}$\par
+从上述递推关系中，我们可以得出连分数有以下结论：
+\begin{itemize}
+    \item 如果$n\geq 0$，那么$q_{n+1}\geq q_n+q_{n-1},p_{n+1}\geq p_n+p_{n-1}\Rightarrow p_n,q_n\geq c^n(c\geq 1)$.
+    \item 对引理中的式子取行列式，则$q_{n-1}p_n-q_{n-1}p_{n-1}=(-1)^{n-1}(n\geq 0)$.\par
+    因此有$\frac{p_n}{q_n}-\frac{p_{n-1}}{q_{n-1}}=\frac{(-1)^{n-1}}{q_nq_{n-1}}$，进而$\frac{p_n}{q_n}=\left(\frac{p_n}{q_n}-\frac{p_{n-1}}{q_{n-1}}\right)+\left(\frac{p_{n-1}}{q_{n-1}}-\frac{p_{n-2}}{q_{n-2}}\right)+\cdots+\left(\frac{p_1}{q_1}-\frac{p_0}{q_0}\right)+\frac{p_0}{q_0}=\frac{(-1)^{n-1}}{q_nq_{n-1}}+\frac{(-1)^{n-2}}{q_{n-1}q_{n-2}}+\cdots+\frac{1}{q_1q_0}+a_0$.
+    \item 由于$q_n\geq c^n(c\geq 1,\forall\, n\in\mb{N})$，因此$\frac{p_n}{q_n}$收敛，$\lim_{n\to\infty}{\frac{p_n}{q_n}}=[a_0;a_1,\cdots,a_n,\cdots]$存在.
+\end{itemize}\par
+如果从$a_0$出发，则$x$的连分数展开可以写成一个交错项级数的形式$x=a_0+\frac{1}{q_0q_1}-\frac{1}{q_1q_2}+\frac{1}{q_2q_3}-\frac{1}{q_3q_4}+\cdots$.\par
+对于这样的级数，有$a_0+\frac{1}{q_0q_1}-\frac{1}{q_1q_2}+\cdots-\frac{1}{q_{2k-1}q_{2k}}\leq x\leq a_0+\frac{1}{q_0q_1}-\frac{1}{q_1q_2}+\cdots+\frac{1}{q_{2k}q_{2k+1}}$.\par
+$\Rightarrow \frac{p_{2k}}{q_{2k}}\leq x\leq \frac{p_{2k+1}}{q_{2k+1}}(\forall\, k\in\mb{N})$.\par
+下面，引入高斯映射$\setjot[-4]\begin{aligned}[t]
+    T:(0,1) &\to (0,1) \\
+    x &\mapsto \frac{1}{x} \mod 1
+\end{aligned}$简化上面所得到的部分结论.\par
+\begin{itemize}
+    \item 设$x\in(0,1)\setminus\mb{Q}$，则$a_0(x)=a,a_1(x)=\left[\frac{1}{x}\right],a_2(x)=\left[\frac{1}{\left\{\frac{1}{x}\right\}}\right]=\left[\frac{1}{Tx}\right],a_3(x)=\left[\frac{1}{\left\{\frac{1}{Tx}\right\}}\right]=\left[\frac{1}{T^2x}\right]$.类似地，可以定义$a_n(x)=\left[\frac{1}{T^{n-1}x}\right]$.
+    \item $x\mapsto a_0(x)=0,a_1(x)=\left[\frac{1}{x}\right],a_2(x)=\left[\frac{1}{Tx}\right],\cdots,a_k(x)=\left[\frac{1}{T^{k-1}x}\right](\forall\, k\in\mb{N})$.\par
+    $a_0(x),a_1(x),\cdots$定义了一个连分数$[a_0(x);a_1(x),a_2(x),\cdots],\frac{p_n(x)}{q_n(x)}=[a_0(x);a_1(x),\cdots a_n(x)]$.
+\end{itemize}
+下面的引理表示这样得到的连分数的极限就是$x$.
+\begin{lemma}
+    $\frac{p_n(x)}{q_n(x)}\to x(n\to\infty)$.
+\end{lemma}
+\begin{proof}
+    \begin{itemize}
+        \item $\forall\, x\in (0,1)\setminus\mb{Q}$，因为$a_0=0,a_1(x)\leq\frac{1}{x}\Rightarrow x\leq\frac{1}{a_1(x)}$，所以$a_0(x)\leq x\leq a_0(x)+\frac{1}{a_0(x)}$.
+        \item $\forall\, x\in(0,1)\setminus\mb{Q}$，$\setjot\begin{aligned}[t]
+            &a_0(Tx) \leq Tx\leq a_0(Tx)+\frac{1}{a_1(Tx)} \\
+            \Rightarrow& a_0(Tx)\geq\frac{1}{x}-\left[\frac{1}{x}\right]\leq a_0(Tx)+\frac{1}{a_1(Tx)} \\
+            \Rightarrow& a_0(Tx)+\left[\frac{1}{x}\right]\leq\frac{1}{x}\leq a_0(Tx)+\frac{1}{a_1(Tx)}+\left[\frac{1}{x}\right]
+        \end{aligned}$.\par
+        $\xLongrightarrow{a_0(Tx)=0,a_1(Tx)=a_2(x)}a_1(x)\leq\frac{1}{x}\leq\frac{1}{a_2(x)}+a_1(x)\Rightarrow \frac{1}{a_1(x)+\dfrac{1}{a_2(x)}}\leq x\leq \frac{1}{a_1(x)}$.\par
+        因此$\frac{p_2(x)}{q_2(x)}\leq x\leq \frac{p_1(x)}{q_1(x)}$.
+        \item $\forall\, x\in(0,1)\setminus\mb{Q}$， $\setjot\begin{aligned}[t]&\frac{1}{a_1(Tx)+\dfrac{1}{a_2(Tx)}}\leq Tx\leq\frac{1}{a_1(Tx)} \\
+        \Rightarrow& \frac{1}{a_1(Tx)+\dfrac{1}{a_2(Tx)}}\leq \frac{1}{x}-\left[\frac{1}{x}\right]\leq \frac{1}{a_1(Tx)} \\
+        \Rightarrow& \frac{1}{a_2(x)+\dfrac{1}{a_3(x)}}\leq\frac{1}{x}-a_1(x)\leq\frac{1}{a_2(x)} \\
+        \Rightarrow& \frac{1}{a_1(x)+\dfrac{1}{a_2(x)}}\leq x\leq \frac{1}{a_1(x)+\dfrac{1}{a_2(x)+\frac{1}{a_3(x)}}}
+        \end{aligned}$\par
+        因此$x$介于$\frac{p_2(x)}{q_2(x)}$与$\frac{p_3(x)}{q_3(x)}$之间.
+    \end{itemize}\par
+    归纳地可以证明$x$介于$\frac{p_n(x)}{q_n(x)}$与$\frac{p_{n+1}(x)}{q_{n+1}(x)}$之间$(\forall\, k\in\mb{N})$.\par
+    由于$\frac{p_k(x)}{q_k(x)}=[a_0(x);a_1(x),\cdots,a_n(x),\cdots]$收敛，因此$x=\lim_{n\to\infty}\frac{p_n(x)}{q_n(x)}$.
+\end{proof}
+
+从而，可以设$x=[a_0(x);a_1(x),\cdots,a_n(x),\cdots]$. \par
+那么$\begin{pmatrix}
+    0 & 1 \\
+    1 & a_0(x)
+\end{pmatrix}\begin{pmatrix}
+    0 & 1 \\
+    1 & a_1(x)
+\end{pmatrix}\cdots\begin{pmatrix}
+    0 & 1 \\
+    1 & a_{n+k}(x)
+\end{pmatrix}=\begin{pmatrix}
+    q_{n+k-1}(x) & q_{n+k}(x) \\
+    p_{n+k-1}(x) & p_{n+k}(x)
+\end{pmatrix}$\par
+$\Rightarrow \begin{pmatrix}
+    q_{n-1}(x) & q_{n}(x) \\
+    p_{n-1}(x) & p_{n}(x)
+\end{pmatrix}\begin{pmatrix}
+    0 & 1 \\
+    1 & a_{n+1}(x)
+\end{pmatrix}\cdots\begin{pmatrix}
+    0 & 1 \\
+    1 & a_{n+k}(x)
+\end{pmatrix}=\begin{pmatrix}
+    q_{n+k-1}(x) & q_{n+k}(x) \\
+    p_{n+k-1}(x) & p_{n+k}(x)
+\end{pmatrix}$\par
+$\Leftrightarrow\begin{pmatrix}
+    q_{n-1}(x) & q_{n}(x) \\
+    p_{n-1}(x) & p_{n}(x)
+\end{pmatrix}\begin{pmatrix}
+    0 & 1 \\
+    1 & a_1(T^nx)
+\end{pmatrix}\begin{pmatrix}
+    0 & 1 \\
+    1 & a_2(T^nx)
+\end{pmatrix}\cdots\begin{pmatrix}
+    0 & 1 \\
+    1 & a_k(T^nx)
+\end{pmatrix}=\begin{pmatrix}
+    q_{n+k-1}(x) & q_{n+k}(x) \\
+    p_{n+k-1}(x) & p_{n+k}(x)
+\end{pmatrix}$\par
+$\Rightarrow\begin{pmatrix}
+    q_{n-1}(x) & q_n(x) \\
+    p_{n-1}(x) & p_n(x)
+\end{pmatrix}\begin{pmatrix}
+    0 & 1 \\
+    1 & 0 
+\end{pmatrix}\begin{pmatrix}
+    q_{k-1}(T^nx) & q_k(T^nx) \\
+    p_{k-1}(T^nx) & p_k(T^nx)
+\end{pmatrix}=\begin{pmatrix}
+    q_{n+k-1}(x) & q_{n+k}(x) \\
+    p_{n+k-1}(x) & p_{n+k}(x)
+\end{pmatrix}$\par
+$\Rightarrow\begin{pmatrix}
+    q_{n}(x) & q_{n-1}(x) \\
+    p_{n}(x) & p_{n-1}(x)
+\end{pmatrix}\begin{pmatrix}
+    q_{k-1}(T^nx) & q_k(T^nx) \\
+    p_{k-1}(T^nx) & p_k(T^nx)
+\end{pmatrix}=\begin{pmatrix}
+    q_{n+k-1}(x) & q_{n+k}(x) \\
+    p_{n+k-1}(x) & p_{n+k}(x)
+\end{pmatrix}$\par
+$\Rightarrow\begin{pmatrix}
+    * & q_n(x)q_k(T^nx)+q_{n-1}(x)p_k(T^nx) \\
+    * & p_n(x)q_k(T^nx)+p_{n-1}(x)p_k(T^nx)
+\end{pmatrix}=\begin{pmatrix}
+    * & q_{n+k}(x) \\
+    * & p_{n+k}(x)
+\end{pmatrix}$\par
+$\Rightarrow\frac{p_{n+k}(x)}{q_{n+k}(x)}=\frac{p_n(x)+p_{n-1}(x)\cdot\dfrac{p_{k}(T^nx)}{q_{k}(T^nx)}}{q_n(x)+q_{n-1}(x)\cdot\dfrac{p_{k}(T^nx)}{q_{k}(T^nx)}}$.\par
+令$k\to\infty$，得$x=\frac{p_n(x)+p_{n-1}(x)T^nx}{q_n(x)+q_{n-1}(x)T^nx}\;(\forall\, x\in\mb{N})$.
+至此，关于连分数的准备工作已经完成，下面回到最初的目的，证明Gauss映射是遍历映射.\par
+\begin{theorem}{Gauss映射的遍历性}
+    设$\setjot\begin{aligned}[t]
+        T:(0,1) &\to (0,1) \\
+        x &\mapsto \frac{1}{x} \pmod 1
+    \end{aligned}$是高斯映射，$\mcal{B}=(0,1)$上的Borel$\sigmaalg$，$m(A)=\frac{1}{\ln 2}\int_A{\frac{1}{1+x}}\d x$\par
+    则$T$关于$m$是遍历的.
+\end{theorem}
+\begin{proof}
+    \begin{itemize}
+        \item 对于任意有限的自然数序列$b_1,\cdots,b_n\;(b_i\geq 1)$，定义$I(b_1,b_2,\cdots,b_n)=\{x\in(0,1)\setminus\mb{Q}|a_1(x)=b_1,a_2(x)=b_2,\cdots,a_n(x)=b_n\}$. \par
+        设$I=(c,d)\subset (0,1)$是$(0,1)$的一个子区间，现在计算$m_\mathrm{Leb}\left(T^{-n}I\cap I(b_1,b_2,\cdots b_n)\right)$.\par
+        \begin{itemize}
+            \item $\forall\, x\in T^{-n}I\cap T(b_1,\cdots,b_n)\Leftrightarrow T^nx\in I,x\in I(b_1,b_2,\cdots,b_n)$.\par
+            令$\frac{p_n}{q_n}=\frac{1}{b_1+\raisebox{-.5\height}{$\ddots$}\raisebox{-1\height}{$+\tfrac{1}{b_n}$}},\frac{p_{n-1}}{q_{n-1}}=\frac{1}{b_1+\raisebox{-.5\height}{$\ddots$}\raisebox{-1\height}{$+\tfrac{1}{b_{n-1}}$}}$.\par
+            因为$T^nx\in(c,d)$，所以$x=\frac{p_n+p_{n-1}\cdot T^nx}{q_n+q_{n-1}\cdot T^nx}$介于$\frac{p_n+p_{n-1}\cdot c}{q_n+q_{n-1}\cdot c}$与$\frac{p_n+p_{n-1}\cdot d}{q_n+q_{n-1}\cdot d}$之间.\par
+            \item 反之，若$x$介于$\frac{p_n+p_{n-1}\cdot c}{q_n+q_{n-1}\cdot c}$与$\frac{p_n+p_{n-1}\cdot d}{q_n+q_{n-1}\cdot d}$之间，则$x$介于$\frac{p_n}{q_1}$与$\frac{p_n+p_{n-1}}{q_n+q_{n-1}}$之间，从而$x\in T^{-n}I\cap I(b_1,b_2,\cdots b_n)$.
+        \end{itemize}
+        $\setjot\begin{aligned}[t]
+            m_\mathrm{Leb}\left(T^{-n}I\cap I(b_1,b_2,\cdots,b_n)\right)&=\left|\frac{p_n+p_{n-1}\cdot c}{q_n+q_{n-1}\cdot c}-\frac{p_n+p_{n-1}\cdot d}{q_n+q_{n-1}\cdot d}\right| \\
+            &= \left|\frac{(p_n+p_{n-1}\cdot c)(q_n+q_{n-1}\cdot d)-(p_n+p_{n-1}\cdot d)(q_n+q_{n-1}\cdot c)}{(q_n+q_{n-1}\cdot c)(q_n+q_{n-1}\cdot d)}\right| \\
+            &=\frac{|p_{n-1}q_n-p_nq_{n-1}||c-d|}{(q_n+q_{n-1}\cdot c)(q_n+q_{n-1}\cdot d)} \\
+            &= \frac{|c-d|}{(q_n+q_{n-1}\cdot c)(q_n+q_{n-1}\cdot d)}
+        \end{aligned}$
+        \item 因此，令$c=0,d=1$，则$m_\mathrm{Leb}\left(b_1,b_2,\cdots,b_n\right)=\frac{1}{q_n(q_n+q_{n-1})}$.\par
+        故$\frac{m_\mathrm{Leb}\left(T^{-n}I\cap I(b_1,b_2,\cdots,b_n)\right)}{m_\mathrm{Leb}(I)m_\mathrm{Leb}(I(b_1,b_2,\cdots,b_n))}=\frac{q_n(q_n+q_{n-1})}{(q_n+cq_{n-1})(q_n+dq_{n-1})}\in \left(\frac{1}{2},2\right)$.\par
+        \hspace{-1.5em}$\Rightarrow\frac{1}{2}m_{Leb}(I)m_{Leb}(I(b_1,\cdots,b_n))\leq m_\mathrm{Leb}\left(T^{-n}I\cap I(b_1,\cdots,b_n)\right)\leq 2m_\mathrm{Leb}(I)m_\mathrm{Leb}(I(b_1\cdots,b_n))$.\par
+        考虑$\forall\, A\subset (0,1)$，它的测度定义为$m(A)=\frac{1}{\ln 2}\int_A{\frac{1}{1+x}}\d x$.\par
+        得到它和Lebesgue测度之间的关系为$\frac{1}{2\ln 2}m_\mathrm{Leb}(A)\leq m(A)\leq \frac{1}{\ln 2}m_\mathrm{Leb}(A)$.\par
+
     \end{itemize}
-\end{instance}
+\end{proof}
+
+
+
+
+
+
+
+
 
 
 

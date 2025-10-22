@@ -8,3 +8,4 @@
 \contentsline {section}{\numberline {2.2}保测映射}{16}{section.2.2}%
 \contentsline {section}{\numberline {2.3}遍历映射}{19}{section.2.3}%
 \contentsline {section}{\numberline {2.4}Birkhoff遍历定理}{24}{section.2.4}%
+\contentsline {section}{\numberline {2.5}连分数与Gauss映射}{28}{section.2.5}%
