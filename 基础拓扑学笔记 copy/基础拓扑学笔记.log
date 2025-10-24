@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.6.27)  18 OCT 2025 01:06
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.6.27)  24 OCT 2025 22:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1661,56 +1661,154 @@ Missing character: There is no ： ("FF1A) in font cmr10!
 [18
 
 ]
-File: fig/2.12.png Graphic file (type bmp)
-<fig/2.12.png>
+File: fig/3.1.png Graphic file (type bmp)
+<fig/3.1.png>
 
 
 [19]
+File: fig/3.2.png Graphic file (type bmp)
+<fig/3.2.png>
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 171.
+See the caption package documentation for explanation.
+
+File: fig/3.3.png Graphic file (type bmp)
+<fig/3.3.png>
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 201.
+See the caption package documentation for explanation.
+
+
 
 [20]
-LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/n' will be
-(Font)              scaled to size 12.0pt on input line 211.
-
 
 [21]
-Chapter 4.
+File: fig/3.4.png Graphic file (type bmp)
+<fig/3.4.png>
 
 
-[22
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 244.
+See the caption package documentation for explanation.
 
-]) (./分离与可数.tex
+File: fig/3.5.png Graphic file (type bmp)
+<fig/3.5.png>
+File: fig/3.6.png Graphic file (type bmp)
+<fig/3.6.png>
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 276.
+See the caption package documentation for explanation.
+
+
+
+[22]
+File: fig/3.7.png Graphic file (type bmp)
+<fig/3.7.png>
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 283.
+See the caption package documentation for explanation.
+
+File: fig/3.8.png Graphic file (type bmp)
+<fig/3.8.png>
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 290.
+See the caption package documentation for explanation.
+
+File: fig/3.9.png Graphic file (type bmp)
+<fig/3.9.png>
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 313.
+See the caption package documentation for explanation.
+
+
 
 [23]
-Chapter 5.
+File: fig/3.10.png Graphic file (type bmp)
+<fig/3.10.png>
 
-Overfull \hbox (35.71562pt too wide) detected at line 65
-\OML/cmm/m/it/10.95 g\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 y\OT1/cmr/m/n/10.95 ) = \OML/cmm/m/it/10.95 d\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 y; A\OT1/cmr/m/n/10.95 ) = []\OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 d\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 y; a\OT1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95 j \OML/cmm/m/it/10.95 a \OMS/cmsy/m/n/10.95 2 \OML/cmm/m/it/10.95 A\OMS/cmsy/m/n/10.95 g ^^T []f\OML/cmm/m/it/10.95 d\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 y; x\OT1/cmr/m/n/10.95 ) + \OML/cmm/m/it/10.95 d\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x; a\OT1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95 j \OML/cmm/m/it/10.95 a \OMS/cmsy/m/n/10.95 2 \OML/cmm/m/it/10.95 A\OMS/cmsy/m/n/10.95 g \OT1/cmr/m/n/10.95 = \OML/cmm/m/it/10.95 d\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 y; x\OT1/cmr/m/n/10.95 ) + \OML/cmm/m/it/10.95 d\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x; A\OT1/cmr/m/n/10.95 ) \OML/cmm/m/it/10.95 < " \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 g\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x\OT1/cmr/m/n/10.95 ) \OML/cmm/m/it/10.95 < s
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 321.
+See the caption package documentation for explanation.
+
+
+
+[24]
+Chapter 4.
+File: fig/4.1.png Graphic file (type bmp)
+<fig/4.1.png>
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 369.
+See the caption package documentation for explanation.
+
+
+Underfull \hbox (badness 7362) in paragraph at lines 359--371
+[][] []
  []
 
 
 
-[24
+[25
 
-])
+]) (./分离与可数.tex
 
-[25] (./基础拓扑学笔记.aux)
+[26]
+Chapter 5.
+File: fig/5.1.png Graphic file (type bmp)
+<fig/5.1.png>
+File: fig/5.2.png Graphic file (type bmp)
+<fig/5.2.png>
+
+
+[27
+
+]
+File: fig/5.3.png Graphic file (type bmp)
+<fig/5.3.png>
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 64.
+See the caption package documentation for explanation.
+
+File: fig/5.4.png Graphic file (type bmp)
+<fig/5.4.png>
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 87.
+See the caption package documentation for explanation.
+
+
+
+[28])
+
+[29] (./基础拓扑学笔记.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2022/08/05>
  ***********
 Package rerunfilecheck Info: File `基础拓扑学笔记.out' has not changed.
-(rerunfilecheck)             Checksum: D89854A660C064D2C3DCEA763A02FDE3;2591.
+(rerunfilecheck)             Checksum: AE2D31306836414321DE7087311111CE;2416.
 Package logreq Info: Writing requests to '基础拓扑学笔记.run.xml'.
 \openout1 = `基础拓扑学笔记.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 49436 strings out of 476187
- 1056094 string characters out of 5786073
- 2054135 words of memory out of 5000000
- 71095 multiletter control sequences out of 15000+600000
- 570104 words of font info for 142 fonts, out of 8000000 for 9000
+ 49543 strings out of 476187
+ 1057110 string characters out of 5786073
+ 2053951 words of memory out of 5000000
+ 71190 multiletter control sequences out of 15000+600000
+ 570088 words of font info for 140 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  103i,14n,129p,692b,1401s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on 基础拓扑学笔记.pdf (28 pages).
+Output written on 基础拓扑学笔记.pdf (32 pages).
