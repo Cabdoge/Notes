@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.6.27)  24 OCT 2025 22:07
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.6.27)  26 OCT 2025 12:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1789,26 +1789,42 @@ See the caption package documentation for explanation.
 
 
 
-[28])
+[28]
 
-[29] (./基础拓扑学笔记.aux)
+[29]) (./紧致性.tex
+
+[30]
+Chapter 6.
+
+
+[31
+
+]
+
+[32]
+
+[33]
+
+[34])
+
+[35] (./基础拓扑学笔记.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2022/08/05>
  ***********
 Package rerunfilecheck Info: File `基础拓扑学笔记.out' has not changed.
-(rerunfilecheck)             Checksum: AE2D31306836414321DE7087311111CE;2416.
+(rerunfilecheck)             Checksum: DD0932435718E5176068C5357E563F05;2991.
 Package logreq Info: Writing requests to '基础拓扑学笔记.run.xml'.
 \openout1 = `基础拓扑学笔记.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 49543 strings out of 476187
- 1057110 string characters out of 5786073
- 2053951 words of memory out of 5000000
- 71190 multiletter control sequences out of 15000+600000
+ 49679 strings out of 476187
+ 1062191 string characters out of 5786073
+ 2057593 words of memory out of 5000000
+ 71323 multiletter control sequences out of 15000+600000
  570088 words of font info for 140 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 103i,14n,129p,692b,1401s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 103i,14n,129p,692b,1486s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on 基础拓扑学笔记.pdf (32 pages).
+Output written on 基础拓扑学笔记.pdf (38 pages).
