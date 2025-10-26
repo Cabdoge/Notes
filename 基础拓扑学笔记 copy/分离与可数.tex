@@ -87,14 +87,14 @@
         \captionof{figure}{}
     \end{minipage}\par
     如果 $d(x, A) + d(x, B) = 0$, 那么必有 $d(x, A) = 0$ 和 $d(x, B) = 0$. \par
-    这意味着 $x \in A$ 且 $x \in B$, 即 $x \in A \cap B$.但这与 $A \cap B = \emptyset$ 矛盾.\par
+    这意味着 $x \in A$ 且 $x \in B$, 即 $x \in A \cap B$.但这与 $A \cap B = \varnothing$ 矛盾.\par
     (ii)证明了$f$的分母恒不为零.\par    
     由 (i) 和 (ii), 函数 $f$ 是连续的 (因为它是连续函数的和、商, 且分母不为零).\par
     对$\forall\,a \in A$，$d(a,A)=0$，故$f(a) = \frac{d(a, A)}{d(a, A) + d(a, B)} = \frac{0}{0 + d(a, B)} = 0$.\par
     对任意 $b \in B$，$d(b,B)=0$，故$f(b) = \frac{d(b, A)}{d(b, A) + d(b, B)} = \frac{d(b, A)}{d(b, A) + 0} = 1$.\par
     令 $U = f^{-1}\left(\left(-\infty, \frac{1}{2}\right)\right)$ 和 $V = f^{-1}\left(\left(\frac{1}{2},+\infty\right)\right)$.
     因为 $f$ 是连续的, $U$ 和 $V$ 都是开集.
-    并且 $A \subset U$, $B \subset V$, 且 $U \cap V = \emptyset$.
+    并且 $A \subset U$, $B \subset V$, 且 $U \cap V = \varnothing$.
     这就证明了 $X$ 是正规空间.
 \end{proof}
 
@@ -107,14 +107,65 @@
     如果 $X$ 在其每一点都有可数邻域基, 则称 $X$ 是\textbf{第一可数的}, 或满足\textbf{第一可数性公理}.
 \end{definition}
 
-\begin{example}
+\begin{instance}
     每个度量空间都是第一可数的.对任意 $x \in (X, d)$, $\{U_n = B(x, 1/n)\}_{n \in \mathbb{Z}^+}$ 是一个可数邻域基.
-\end{example}
+\end{instance}
 
 \begin{definition}[第二可数]
     如果一个空间 $X$ 的拓扑有一个可数的基, 那么 $X$ 称为\textbf{第二可数的}, 或满足\textbf{第二可数性公理}.
 \end{definition}
 
-\begin{example}
+\begin{instance}
     $\mathbb{R}^n$ 是第二可数的.一个可数基是 $\mathcal{B} = \{B(x, 1/k) \mid x \in \mathbb{Q}^n, k \in \mathbb{Z}^+\}$.
-\end{example}
+\end{instance}
+
+\begin{proposition}
+    第一（第二）可数空间的子空间是第一（第二）可数的.两个第一（第二）可数空间的乘积是第一（第二）可数的.
+\end{proposition}
+\begin{proof}
+    对于第二可数的情况：
+    \begin{enumerate}
+        \item[(i)] 设 $X$ 是第二可数的，$\mathcal{B}$ 是 $X$ 的一个可数基.设 $A \subset X$ 是一个子空间，则 $\mathcal{B}_A = \{B \cap A \mid B \in \mathcal{B}\}$ 是 $A$ 的一个可数基.
+        \item[(ii)] 设 $X_1, X_2$ 是第二可数空间，$\mathcal{B}_i$ 是 $X_i$ 的可数基，$i=1,2$.则 $\mathcal{B} = \{B_1 \times B_2 \mid B_1 \in \mathcal{B}_1, B_2 \in \mathcal{B}_2\}$ 是 $X_1 \times X_2$ 的一个可数基.
+    \end{enumerate}
+\end{proof}
+
+\section{两个定理}
+\begin{theorem}[Urysohn 度量化定理]
+    如果一个拓扑空间 $X$ 是正则的且是第二可数的，那么 $X$ 是可度量化的.
+    \[
+        \left.
+        \begin{array}{r}
+            \text{正则} \\
+            \text{第二可数}
+        \end{array}
+        \right\} \implies \text{可度量化}
+    \]
+\end{theorem}
+
+\begin{theorem}[Tietze 扩张定理]
+    如果 $X$ 是一个正规空间，$A \subset X$ 是闭集，$f: A \to \mathbb{E}^1$ 是一个连续函数.那么存在一个连续函数 $F: X \to \mathbb{E}^1$ 使得对所有 $a \in A$ 都有 $F(a) = f(a)$.
+\end{theorem}
+
+\begin{instance}
+    在 $\mathbb{Z}$ 上，令 $\mathcal{B} := \{B_{a,b} = \{a+nb : n \in \mathbb{Z}\} \mid a,b \in \mathbb{Z}, b>0\}$ 作为基.这个基生成一个度量拓扑.
+    \begin{enumerate}
+        \item[(i)] $B_{0,b}, B_{1,b}, \dots, B_{b-1,b}$ 覆盖 $\mathbb{Z}$.
+        \item[(ii)] $x \in B_{a_1, b_1} \cap B_{a_2, b_2}$.
+    \end{enumerate}
+    它是第二可数的，因为基 $\mathcal{B}$ 是可数的.
+    \paragraph{它是正则的}
+    \begin{enumerate}
+        \item[(a)] 对任意 $z \in \mathbb{Z}$，$\{z\}$ 是闭集.
+        对任意 $a \in \mathbb{Z} - \{z\}$，选择整数 $b > |a-z|$.那么 $a \in B_{a,b} \subset \mathbb{Z} - \{z\}$.
+        \item[(b)] 对任意 $z \in \mathbb{Z}$，任意闭集 $C \subset \mathbb{Z}$ 且 $z \notin C$.存在 $B_{a,b}$ 使得 $z \in B_{a,b} \subset \mathbb{Z} - C$.
+        事实上，$B_{a,b}$ 既是开集也是闭集.
+        $\mathbb{Z} - B_{a,b} = \bigcup_{a' \not\equiv a \pmod b} B_{a',b}$ 是开集. \par
+        $\mb{Z}-B_{1,3}=B_{0,3}\cup B_{2,3}$.\par
+        令$U=B_{a,b},V=\mb{Z}-B_{a,b}$，则$U\cap V=\varnothing$，$U,V$都是开集，且$z\in U,C\subset V$.
+    \end{enumerate}
+\end{instance}
+
+
+
+
