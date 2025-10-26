@@ -919,7 +919,18 @@ $\Rightarrow\frac{p_{n+k}(x)}{q_{n+k}(x)}=\frac{p_n(x)+p_{n-1}(x)\cdot\dfrac{p_{
         \hspace{-1.5em}$\Rightarrow\frac{1}{2}m_{Leb}(I)m_{Leb}(I(b_1,\cdots,b_n))\leq m_\mathrm{Leb}\left(T^{-n}I\cap I(b_1,\cdots,b_n)\right)\leq 2m_\mathrm{Leb}(I)m_\mathrm{Leb}(I(b_1\cdots,b_n))$.\par
         考虑$\forall\, A\subset (0,1)$，它的测度定义为$m(A)=\frac{1}{\ln 2}\int_A{\frac{1}{1+x}}\d x$.\par
         得到它和Lebesgue测度之间的关系为$\frac{1}{2\ln 2}m_\mathrm{Leb}(A)\leq m(A)\leq \frac{1}{\ln 2}m_\mathrm{Leb}(A)$.\par
-
+        故$m$绝对连续于$m_\mathrm{Leb}$，且存在绝对常数$0<c_1<c_2$，$\st\forall\, I\subset (0,1)$，$\forall\, b_1,b_2,\cdots b_N\in \mb{N}^+$，都有$c_1m(I)m(I(b_1,b_2,\cdots,b_n))\leq m \left(T^{-n}I\cap I(b_1,b_2,\cdots,c_n)\right)\leq c_2m(I)m(I(b_1,b_2,\cdots,c_n))$.\par
+        \item 设$A\subset (0,1),T^{-1}A=A$，现证$m(A)=0$或$1$.\par
+        令$\mcal{F}=\left\{E\in\mcal{B}\left|c_1m(E)m(I(b_1,\cdots,b_n))\leq m \left(T^{-n}E\cap I(b_1,\cdots,c_n)\right)\leq c_2m(E)m(I(b_1,\cdots,c_n))\right.\right\}$.\par
+        则$\mcal{F}$构成了$X$的一个单调类，且包含所有的区间.\par
+        由于所有区间构成的集合是$X$的一个半代数，其生成了$X$的Borel$\sigmaalg$，因此$\mcal{F}=\mcal{B}$.\par
+        令$E=A$，$有c_1m(A)m(I(b_1,\cdots,b_n))\leq m \left(T^{-n}A\cap I(b_1,\cdots,c_n)\right)\leq c_2m(A)m(I(b_1,\cdots,c_n))$.\par
+        其中$I(b_1,b_2,\cdots,b_n)=\left\{x\in(0,1)\left|x\,\text{介于}\,\frac{p_n}{q_n}\,\text{与}\,\frac{p_n+p_{n-1}}{q_n+q_{n-1}}\,\text{之间}\,\right.\right\}$且$m(I(b_1,\cdots,b_n))=\frac{1}{q_n(q_n+q_{n+1})}$.\par
+        固定$n\in\mb{N}$，则$(b_1,b_2,\cdots,b_n)$取遍所有的$n$元正整数组，$\left\{I(b_1,\cdots,b_n),b_i\in\mb{N}^+\right\}$是$X=(0,1)$的分划.\par
+        因此$\left\{I(b_1,b_2,\cdots,b_n),b_i\in\mb{N}^+\right\}$可以生成$(0,1)$上所有的区间.\par
+        $\Rightarrow \forall\, B\in\mcal{B}$，$c_1m(A)m(B)\leq m(A\cap B)\leq c_2m(A)m(B)$.\par
+        令$B=X\setminus A$，有$c_1m(A)m(X\setminus A)\leq 0\leq c_2m(A)m(X\setminus A)\Rightarrow m(A)m(X\setminus A)=0$.\par
+        因此$m(A)=0$或$1$.
     \end{itemize}
 \end{proof}
 
