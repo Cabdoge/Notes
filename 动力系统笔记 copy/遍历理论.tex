@@ -622,7 +622,7 @@ $\begin{aligned}
 \section{连分数与Gauss映射}
 下面讨论Gauss映射的遍历性，我们的出发点是以下的问题：
 \begin{problem}
-    对于$x\in [0,1]$，考虑$x$的连分数展开，$x=a_0+\frac{1}{a_1+\tfrac{1}{a_2+\tfrac{1}{a_3+\raisebox{-.5\height}{$\ddots$}}}}(a_0-0,a_i\in\mb{N}^+)$.\par
+    对于$x\in [0,1]$，考虑$x$的连分数展开，$x=a_0+\frac{1}{a_1+\tfrac{1}{a_2+\tfrac{1}{a_3+\raisebox{-.5\height}{$\ddots$}}}}(a_0=0,a_i\in\mb{N}^+)$.\par
     对$\forall\, k\in\mb{N}^+$，计算$\mb{P}(a_n=k)$.
     \begin{itemize}
         \item 上述所求的概率可以写成$\mb{P}(a_n=k)=\lim_{N\to\infty}{\frac{\left|\left\{1\leq n\leq N\left|a_n=k\right.\right\}\right|}{N}}$.
@@ -892,7 +892,8 @@ $\Rightarrow\frac{p_{n+k}(x)}{q_{n+k}(x)}=\frac{p_n(x)+p_{n-1}(x)\cdot\dfrac{p_{
 令$k\to\infty$，得$x=\frac{p_n(x)+p_{n-1}(x)T^nx}{q_n(x)+q_{n-1}(x)T^nx}\;(\forall\, x\in\mb{N})$.
 至此，关于连分数的准备工作已经完成，下面回到最初的目的，证明Gauss映射是遍历映射.\par
 \begin{theorem}{Gauss映射的遍历性}
-    设$\setjot\begin{aligned}[t]
+    \wideline
+    设$\setjot[-4]\begin{aligned}[t]
         T:(0,1) &\to (0,1) \\
         x &\mapsto \frac{1}{x} \pmod 1
     \end{aligned}$是高斯映射，$\mcal{B}=(0,1)$上的Borel$\sigmaalg$，$m(A)=\frac{1}{\ln 2}\int_A{\frac{1}{1+x}}\d x$\par
@@ -934,10 +935,194 @@ $\Rightarrow\frac{p_{n+k}(x)}{q_{n+k}(x)}=\frac{p_n(x)+p_{n-1}(x)\cdot\dfrac{p_{
     \end{itemize}
 \end{proof}
 
+下面回到最初始的问题，计算连分数展开中每个正整数出现的概率，即$\forall\, x\in(0,1),\forall\, k\in\mb{Z}$，计算$\mb{P}(a_i(x)=k)$.\par
+$x\in(0,1)\setminus\mb{Q}$，则$\begin{aligned}[t]
+    a_n(x)&=\left[\frac{1}{T^{n-1}x}\right]=k(n\geq 1) \Leftrightarrow \left[\frac{1}{T^{n-1}}x\right]=k \\
+    &\Leftrightarrow k\leq \frac{1}{T^{n-1}x}\leq k+1 \Leftrightarrow T^{n-1}(x)\in \left(\frac{1}{k+1},\frac{1}{k}\right] \\
+    &\Leftrightarrow \chi_{\left(\frac{1}{k+1},\frac{1}{k}\right]}(T^{n-1}x)=1
+\end{aligned}$\par
+所以$\begin{aligned}[t]
+    \mb{P}(a_n(x)=k) &= \lim_{N\to\infty}{\frac{\left\{1\leq n\leq N\left|a_n(x)=k\right.\right\}}{N}} = \lim_{N\to\infty}{\frac{1}{N}\sum_{n=1}^N{\chi_{\left(\frac{1}{k+1},\frac{1}{k}\right]}(T^{n-1}x)}} \\
+    &=\int_{0}^1{\chi_{\left(\frac{1}{k+1},\frac{1}{k}\right]}(x)}\d m(x) =\int_{\frac{1}{k+1}}^{\frac{1}{k}}{\frac{1}{\ln{2}}\frac{1}{1+x}}\d x \\
+    &=\frac{1}{\ln{2}}\ln{\frac{(k+1)^2}{k(k+2)}}
+\end{aligned}$
+
+\section{强大数定律}
+在遍历映射的Birkhoff遍历定理中，我们知道可测映射在遍历映射下的平均值趋于它在空间上的积分，如果把作用一次遍历映射视作经过一个单位时间后映射的值的变化，这个定理实际上展现了遍历映射下空间平均等于时间平均，这一思想与强大数定律极为相似.而实际上，我们可以使用Birkhoff遍历定理证明强大数定律.\par
+但在正式证明之前，需要将初等概率论中的相关概念用概率测度空间的语言进行改写.\par
+\begin{definition}[随机变量]
+    设$(\Omega,\mcal{B},m)$是一个概率测度空间(样本空间)，\textbf{随机变量}是定义在$\Omega$上的可测函数$X:\Omega\to\mb{R}$.
+\end{definition}
+\begin{definition}[独立与同分布]
+    设$X_1,X_2,\cdots,X_n,\cdots$是$\Omega$上的一列随机变量，如果：
+    \begin{enumerate}[(1)]
+        \item  对于$\mb{R}$中的任意可测集$A_1,A_2,\cdots,A_n,\cdots$，$m(X_{i_1}\in A_{i_1},X_{i_2}\in A_{i_2},\cdots,X_{i_k}\in A_{i_k})=m(X_{i_1}\in A_{i_1})\cdot m(X_{i_2}\in A_{i_2})\cdots m(X_{i_k}\in A_{i_k})(\forall\, 1\leq i_1<i_2<\cdots<i_k\leq\infty)$，其中$m(X_i\in A_i)$为$X_i$属于$A_i$的概率，则称$X_1,X_2,\cdots,X_n$为\textbf{独立}随机变量.
+        \item $\forall\,\mb{R}$中的可测集$A$，$\forall\,1\leq i\leq j\leq \infty,m(X_i\in A_i)=m(X_j\in A_j)$，则称$X_1,\cdots, X_n,\cdots$同分布
+        \item 若同时满足以上两个条件，则称$X_1,X_2,\cdots,X_n,\cdots$独立同分布.
+    \end{enumerate}
+\end{definition}
+\begin{definition}[期望]
+    设$X:\Omega\to\mb{R}$是定义在概率测度空间$(\Omega,\mcal{B},m)$上的随机变量，若$X$可积，则$X$的\textbf{期望}定义为$\mb{E}(X)=\int_{\Omega}{X(\omega)}\d m$.
+\end{definition}
+在了解以上概念之后，就可以给出强大数定律的表述了.
+\begin{theorem}[强大数定律]
+    设$(\Omega,\mcal{B},m)$是一个概率测度空间，$X_1,X_2,\cdots,X_n,\cdots$是一列独立同分布的随机变量且$\forall\, i\in\mb{N},|\mb{E}(X_i)|<\infty$，则$\frac{X_1(\omega)+X_2(\omega)+\cdots+X_n(\omega)}{n}\to\mb{E}(X_1)\;(\aew \omega\in\Omega)$.
+\end{theorem}
+\begin{proof}
+    \vspace{-2 em}
+    \paragraph{定义概率测度空间}
+    定义映射$\setjot[-6]\begin{aligned}[t]
+        \Phi:\Omega &\to \prod_{i=1}^\infty{\mb{R}} \\
+        \omega&\mapsto (X_1(\omega),X_2(\omega),\cdots,X_n(\omega),\cdots)
+    \end{aligned}$.\par
+    $\prod_{i=1}^\infty{\mb{R}}$中的集合$A_1\times A_2\times\cdots\times A_k\times\mb{R}\times\mb{R}\times\cdots$构成了$\prod_{i=1}^\infty{\mb{R}}$的一个半代数.\par
+    定义$A_1\times A_2\times A_k\times\mb{R}\times\mb{R}\times\cdots$的测度为
+    {\setjot\begin{align*}
+        \mu(A_1\times A_2\times\cdots\times A_k\times\mb{R}\times\mb{R}\times\cdots) &= m\left(\Phi^{-1}(A_1\times A_2\times\cdots\times A_k\times\mb{R}\times\mb{R}\times\cdots)\right) \\
+        &= m\left(X_1^{-1}(A_1)\cap X_2^{-1}(A_2)\cap\cdots\cap X_k^{-1}(A_k)\right) \\
+        &= m(X_1\in A_1,X_2\in A_2,\cdots,X_k\in A_k) \\
+        &\xlongequal{\text{独立同分布}} m(X_1\in A_1)m(X_2\in A_2)\cdots m(X_k\in A_k)
+    \end{align*}}\par
+    如果定义$\mu_0$为$\mb{R}$上的测度，使得$\mu_0(A)=m(X_i\in A)$，那么
+    \[\mu(A_1\times A_2\times\cdots\times A_k\times\mb{R}\times\mb{R}\times\cdots) = m(X_1\in A_1)\cdots m(X_k\in A_k)=\mu_0(A_1)\cdots\mu_0(A_k)\]\par
+    这样就定义了一个概率测度空间$\left(\prod_{i=1}^\infty{\mb{R}},\mcal{B}_{\prod_{i=1}^\infty{\mb{R}}},\mu\right)$，其中$X_1,X_2,\cdots,X_n,\cdots$独立同分布.\par
+    \paragraph{定义遍历映射}左平移映射$\setjot[-6]\begin{aligned}[t]
+        T:\prod_{i=1}^\infty{\mb{R}} &\to \prod_{i=1}^\infty{\mb{R}} \\
+        (x_1,x_2,\cdots,x_n,\cdots) &\mapsto (x_2,x_3,\cdots,x_{n+1},\cdots)
+    \end{aligned}$，关于$\mu$是遍历映射.
+    \paragraph{考虑投射并证明其可积性}定义投射$\setjot[-6]\begin{aligned}[t]
+        f:\prod_{i=1}^\infty{\mb{R}} &\to \mb{R} \\
+        (x_1,x_2,\cdots,x_n,\cdots) &\mapsto x_1
+    \end{aligned}$.\par
+    \begin{itemize}
+        \item $f$是可测函数.\par
+        $f^{-1}(A)=A\times\mb{R}\times\mb{R}\times\cdots$可测.\par
+        \item $f\in L^1 \left(\prod_{i=1}^\infty{\mb{R}},\mu\right)$.\par
+        设$\chi_B$为集合$B\times\mb{R}\times\mb{R}\times\cdots$的特征函数，$\int{\chi_B}\d\mu=\mu_0(B)=m(X_i\in B)=\int_\Omega{\chi_{X^{-1}B}}\d m$.\par
+        简单函数$\varphi:\prod_{i=1}^\infty\mb{R}\to\mb{R},\varphi(x)=\sum_{i=1}^l{c_i\chi_{B_i}(x)}$，其中$\chi_{B_i}$是$B_i\times\mb{R}\times\mb{R}\times\cdots$的特征函数.\par
+        则$\int_{\prod_{i=1}^\infty{\mb{R}}}{\varphi(x)}\d \mu(m)=\int_\Omega{\sum_{i=1}^l{c_i\chi_{X^{-1}B_i}}}\d m$.\par
+        使用简单函数逼近，$\varphi_n(x)\to f(x)$，可得$\int_{\prod_{i=1}^\infty{\mb{R}}}{f(x)}\d \mu(m)=\lim_{n\to\infty}{\int_{\prod_{i=1}^\infty{\mb{R}}}{\varphi_n(x)}\d \mu(x)}=\lim_{n\to\infty}\int_\Omega{\sum_{i=1}^n{c_i\chi_{X^{-1}B_i}}}\d m<\infty$.\par
+    \end{itemize}\par
+    \paragraph{计算$f$的积分并应用Birkhoff遍历定理}\par
 
 
+    考虑$\varphi_n(x_1,x_2,\cdots,x_n,\cdots)\to x_1$，$\varphi_n=\sum_{i=1}^{l^{(n)}}{c_i^{(n)}\chi_{B_i^{(n)}}}$，$\psi_n=\sum_{i=1}^{l^{(n)}}{c_i^{(n)}\chi_{X_1^{-1}B_i^{(n)}}}$.\par
+    $\forall\,\omega\in\Omega,\psi_n(\omega)=\sum_{i=1}^{l^{(n)}}{c_i^{(n)}\chi_{X_1^{-1}B_i^{(n)}}(\omega)}=\sum_{i=1}^{l^{(n)}}{c_i^{(n)}\chi_{B_i^{(n)}}(X_1(\omega),0,0,\cdots)}=\varphi_n(X_1(\omega),0,\cdots)\to X_1(\omega)$.\par
+    因此$\int_{\prod_{i=1}^\infty}{f(x)}\d \mu(x)=\int_\Omega{X_1(\omega)}\d m(\omega)=\mb{E}(X_1)$.\par
+    由Birkhoff遍历定理可知，$\frac{1}{n}\sum_{k=0}^{n-1}{f\left(T^k{x}\right)}\to \int_{\prod_{i=1}^\infty{\mb{R}}}{f(x)}\d \mu(x)=\mb{E}(X_1)\;(\mu-\aew x).\quad\quad(*)$\par
+    \paragraph{证明强大数定律}
+    设$Y=\left\{x=(x_1,x_2,\cdots,x_n,\cdots)\in\prod_{i=1}^\infty{\mb{R}}\Bigl|x\,\text{满足}\,(*)\right\}$，那么$\mu(Y)=1$.\par
+    令$S=\Phi^{-1}(Y)$，现证$m(S)=m(\Omega)=1$.\par
+    $\setjot[-6]\begin{aligned}[t]
+        m \left(\Phi^{-1}(A_1\times A_2\times\cdots\times A_k\times\mb{R}\times\mb{R}\times\cdots)\right)&=m(X_1\in A_i,X_2\in A_2,\cdots,X_k\in A_k) \\
+        &=m(Xx_1\in A_1)m(X_2\in A_2)\cdots m(X_k\in A_k)\\
+        &=\mu_0(A_1)\mu_0(A_2)\cdots\mu_0(A_k) \\
+        &=\mu(A_1\times A_2\times\cdots\times A_k\times\mb{R}\times\mb{R}\times\cdots)
+    \end{aligned}$\par
+    $\Rightarrow$对任意半代数$E\in\prod_{i=1}^\infty{\mb{R}}$，$m \left(\Phi^{-1}(E)\right)=\mu(E)$，进一步可以证明上述等式对$\prod_{i=1}^\infty{\mb{R}}$中的可测集成立.\par
+    $\Rightarrow m(S)=m \left(\Phi^{-1}(Y)\right)=\mu(Y)=1$.\par
+    而$\forall\,\omega\in S,x=(X_1(\omega),X_2(\omega),\cdots,X_n(\omega),\cdots)\in Y$，\par
+    代入$(*)$式即得$\frac{1}{n}\sum_{k=0}^{n-1}{f\left(T^k{x}\right)}=\frac{1}{n}(X_1(\omega),X_2(\omega),\cdots,X_n(\omega),\cdots)\to\mb{E}(X_1)\; (\aew \omega\in\Omega)$
+\end{proof}
 
 
+\section{遍历理论在数论中的应用}
+
+在本节，我们的目标是利用遍历理论证明数论中的重要定理Von Staudt-Clausen定理.首先，需要介绍环面的概念.
+\begin{definition}[环面]
+    $\mb{R}^n=\left\{(x_1,x_2,\cdots,x_n)^T|x_i\in\mb{R},1\leq i\leq n\right\}$，$\mb{Z}^n=\left\{(x_1,x_2,\cdots,x_n)^T|x_i\in\mb{Z},1\leq i\leq n\right\}$是其格点子群，则把$\mb{Z}^n$的左陪集构成的空间$X_n=\mb{R}^n/\mb{Z}^n=\left\{x+\mb{Z}^n|x\in\mb{R}^n\right\}$称为\textbf{$\bm{n}$维环面}.
+\end{definition}
+\begin{wrapfigure}{r}{0.22\textwidth}
+    \vspace{-1.5 em}
+    \includegraphics[width=0.22\textwidth]{fig/2.7.png}
+    \captionof{figure}{二维环面}
+    \vspace{-1 em}
+\end{wrapfigure}
+如果取$n=2$，在二维欧式平面上，$X_2=\mb{R}^2/\mb{Z}^2=\left\{x+\mb{Z}^2|x\in\mb{R}^2\right\}$.\par
+$\forall\, x+\mb{Z}^2\in X_2$，可以找到1个代表元$x=(x_1,x_2)^T,\st 0\leq x_1<1,0\leq x_2<1$，那么$X_2\cong [0,1)\times[0,1)$.\par
+借助这一观察，我们可以解释这个集合和环面有何关系.在右图中，在上边界和下边界的两个对称的点只在纵坐标上相差1，因此可以把上下边界看成是同一条直线.同理其左右边界也可以看作是一条直线，于是就可以把它们依次两两粘合，形成一个环面，如下图所示.\par
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{fig/2.8.png}
+    \captionof{figure}{二维环面的构造}
+\end{figure}
+以此类推，对于$\forall\, n\in\mb{N},\forall\, x+\mb{Z}^n\in X_n=\mb{R}^n/\mb{Z}^n$，可以找到一个代表元$x=(x_1,x_2,\cdots,x_n)^T,\st 0 \leq x_i<1$，则$X_n\cong [0,1)\times [0,1)\times\cdots\times [0,1)$.\par
+下面需要定义环面上的度量$d_n:X_n\times X_n\to\mb{R}_{\geq 0}$，以此让环面成为一个度量空间.\par
+\begin{proposition}[环面上的度量]
+    \wideline
+    $\forall\, x+\mb{Z}^n,y+\mb{Z}^n\in X_n$，定义映射$d_n$为$d_n(x+\mb{Z}^n,y+\mb{Z}^n)=\inf_{r_1,r_2\in\mb{Z}^n}{d_{\mb{R}^n}(x+r_1,y+r_2)}=\inf_{r\in\mb{Z}^n}{d_{\mb{R}^n}(x,y+r)}=\inf_{r\in\mb{Z}^n}{d_{\mb{R}^n}(x+r,y)}$，其中$d_{\mb{R}^n}$为$\mb{R}^n$中的欧式度量，则$d_n$是$X_n$中的一个度量.
+\end{proposition}
+在定义中，三个下确界相等的原因是欧式度量的平移不变性.
+\begin{proof}
+    \begin{enumerate}[leftmargin=6em]
+        \item[(正定性)] $d_n(x+\mb{Z}^n,y+\mb{Z}^n)=\inf_{r\in\mb{Z}^n}(x,y+r)\geq 0$\par
+        $d_n(x+\mb{Z}^n,y+\mb{Z}^n)=0\Leftrightarrow \exists\, r_0\in\mb{Z}^n,x=y+r_0\Leftrightarrow x+\mb{Z}^n=y+\mb{Z}^n$.
+        \item[(对称性)] $d_n(x+\mb{Z}^n,y+\mb{Z}^n)=\inf_{r_1,r_2\in\mb{Z}^n}{d_{\mb{R}^n}(x+r_1,y+r_2)}=\inf_{r_1,r_2\in\mb{Z}^n}{d_{\mb{R}^n}(y+r_1,x+r_2)}=d_n(y+\mb{Z}^n,x+\mb{Z}^n)$.
+        \item[(三角不等式)] $\exists\, r_1\in\mb{Z}^n,\st d_n(x+\mb{Z}^n,y+\mb{Z}^n)=\inf_{r\in\mb{Z}^n}{d_{\mb{R}^n}(x+r,y)}=d_{\mb{R}^n}(x+r_1,y)$.\par
+        $\exists\, r_2\in\mb{Z}^n,\st d_n(y+\mb{Z}^n,z+\mb{Z}^n)=\inf_{r\in\mb{Z}^n}{d_{\mb{R}^n}(y+r,z)}=d_{\mb{R}^n}(y,z+r_2)$.\par
+        则$\setjot\begin{aligned}[t]
+            d_n(x+\mb{Z}^n,y+\mb{Z}^n)+d_n(y+\mb{Z}^n,z+\mb{Z}^n)&= d_{\mb{R}^n}(x+r_1,y)+d_{\mb{R}^n}(y,z+r_2) \\
+            &\geq d_{\mb{R}^n}(x+r_1,z+r_2) \\
+            &\geq \inf_{\delta_1,\delta_2\in\mb{Z}^n}{d_{\mb{R}^n}(x+\delta_1,z+\delta_2)}\\
+            &=d_n(x+\mb{Z}^n,z+\mb{Z}^n)
+        \end{aligned}$.
+    \end{enumerate}
+\end{proof}
+
+除此之外，还可以证明环面$X_n$在度量$d_n$下是紧致度量空间.\par
+\begin{proposition}[环面的紧致性]
+    $(X_n,d_n)$是一个紧致度量空间.
+\end{proposition}
+\begin{proof}
+    定义映射$\setjot[-6]\begin{aligned}[t]
+        \pi_n:\mb{R}^n &\to \mb{R}^n/\mb{Z}^n \\
+        x&\mapsto x+\mb{Z}^n
+    \end{aligned}$\par
+    $\forall\, x,y\in\mb{R}^n,d_n(\pi_n(x),\pi_n(y))=\inf_{r\in\mb{Z}^n}{d_{\mb{R}^n}(x,y+r)}\geq d_{\mb{R}^n}(x,y)$.\par
+    因此如果$x_k\to x_0$，那么$\pi_n(x_k)\to\pi_n(x_0)$，则$\pi_n$是连续映射.\par
+    由于$X_n=\pi_n \left([0,1]\times\cdots\times[0,1]\right)$，其中$\pi_n$为连续映射，$[0,1]\times\cdots\times[0,1]$是紧集，因此$X_n$是紧致度量空间.
+\end{proof}
+为了研究环面上的保测映射与遍历映射，还需要定义概率测度空间.我们定义$X_n$上的$\sigmaalg\,\mcal{B}_n=\mb{R}^n$上的$\sigmaalg$在$[0,1)\times[0,1)\times\cdots\times[0,1)$中的限制.或是从另一角度看，$\mcal{B}_n\cong\mb{R}\times\mb{R}\times\cdots\times\mb{R}$中所有矩体生成的$\sigmaalg$.\par
+同样的，定义$X_n$上概率测度为$\mb{R}^n$上的Lebesgue测度在$[0,1)\times[0,1)\times\cdots\times[0,1)$中的限制.由此就得到了概率测度空间$(X_n,\mcal{B}_n,m_\mathrm{Leb})$.\par
+下面考虑所有的可逆整系数$n$阶方阵组成的集合，记为$M'_n(\mb{Z})=\left\{A=(a_{ij})_{\substack{1\leq i\leq n\\1\leq j\leq n}}\Bigl|a_{ij}\in\mb{Z},|A|\neq 0\right\}$.\par
+$\forall\, A\in M'_n(\mb{Z})$，可以定义$X_n$上的映射$\setjot[-6]\begin{aligned}[t]
+    T_A:\quad X_n&\to X_n \\
+    x+\mb{Z}^n&\mapsto A(x+\mb{Z}^n)=Ax+A\mb{Z}^n=Ax+\mb{Z}^n
+\end{aligned}$\par
+由于这个映射定义在等价类上，还需要验证其是良定的.如果$x+\mb{Z}^n=y+\mb{Z}^n$，那么$x=y+r(r\in\mb{Z}^n)$，$Ax=Ay+Ar\Rightarrow Ax+\mb{Z}^n=Ax+\mb{Z}^n$.因此$T_A$把一个等价类中的元素映到同一个等价类，故而良定.\par
+在此基础上，$T_A$也是一个连续映射，为了证明其连续性，需要使用矩阵范数对矩阵的作用加以控制.\par
+
+\begin{lemma}[矩阵范数的存在性]
+    设$A:\mb{R}^n\to\mb{R}^n$线性变换，$A$为$n$阶实矩阵，那么存在常数$c>0,\st \|Ax\|\leq c\cdot\|x\|$，其中$\|\cdot\|$为$\mb{R}^n$中的欧式度量，把$c$称为$A$的\textbf{矩阵范数}.
+\end{lemma}
+利用该引理可知$\forall\, x+\mb{Z}^n,y+\mb{Z}^n\in X_n,\|A(x-y)\|\leq c_A\|x-y\|\Rightarrow d_{\mb{R}^n}(Ax,Ay)\leq c_Ad_{\mb{R}^n}(x,y)$.\par
+不失一般性，假设$d_n(x+\mb{Z}^n,y+\mb{Z}^n)=\inf_{r\in\mb{Z}^n}{d_{\mb{R}^n}(x+r,y)}$，则$d_n(Ax+\mb{Z}^n,Ay+\mb{Z}^n)\leq c_A d(x+\mb{Z}^n,y+\mb{Z}^n)\Rightarrow d_n \left(T_A(x+\mb{Z}^n),T_A(y+\mb{Z}^n)\right)\leq c_A d_n(x+\mb{Z}^n,y+\mb{Z}^n)$.\par
+因此若$x_k+\mb{Z}^n\to x_0+\mb{Z}^n$，则$T_A(x_k+\mb{Z}^n)\to T_A(x_0+\mb{Z}^n)$，所以$T_A$是连续映射.\par
+下面的问题是$T_A$是否是一个保测映射，如果是，那么$T_A$是否是一个遍历映射.\par
+首先引入另一个矩阵的集合$M^{\pm}_n(\mb{Z})=\left\{A\in M'_n(\mb{Z})||A|=\pm 1\right\}$.引入这个集合的意义在于这个集合有下面两个优美的性质：
+\begin{enumerate}
+    \item  $M^{\pm 1}_n(\mb{Z})$是一个群，其群运算为矩阵乘法.因此该集合中的任意一个矩阵在集合中有逆矩阵.
+    \item  集合内任意矩阵对应的线性变换保持可测集的测度，即$\forall\, S\subseteq \mb{R}^n$可测集，那么$S$的Lebesgue测度等于$A(S)$的Lebesgue测度.
+\end{enumerate}
+
+\begin{wrapfigure}{l}{0.45\textwidth}
+    \vspace{-1 em}
+    \includegraphics[width=0.45\textwidth]{fig/2.9.png}
+    \captionof{figure}{$A\in M_n^\pm(\mb{Z})$作用下测度不变}
+    \vspace{-1 em}
+\end{wrapfigure}
+基于这两个性质，可以证明$\forall\, A\in M^{\pm}_n(\mb{Z})$，$T_A:X_n\to X_n$是一个保测映射.为了证明这一点，只需要验证对$m_\mathrm{Leb} \left(T^{-1}_A(B)\right)=m_\mathrm{Leb}(B)$对$\forall\, \text{矩体}\, B$成立. \par
+根据$M^\pm_n(\mb{Z})$的性质，我们知道$T_A^{-1}=T_{A^{-1}}$，其中$A^{-1}\in M^\pm_n(\mb{Z})$.由$A^{-1}$保持测度知上述命题成立.\par
+如左图所示，当$n=2$时，$A^{-1}$实际上把矩形变换为一个与其面积相等的平行四边形.\par
+下面要证明对于一般的整系数可逆矩阵，它对应的映射也是保测的，为此我们需要引入下列引理，它说明了一个一般的整系数可逆矩阵可以分解为对角阵和刚才讨论的行列式为$\pm 1$的矩阵.\par
+\begin{lemma}
+    设$A\in M'_n(\mb{Z})$，那么存在$P,Q\in M^{\pm 1}_n(\mb{Z})$，使得$A=P\left(\begin{smallmatrix}
+    d_1 &        &        & \mathbf{0} \\
+        & d_2    &        &            \\
+        &        & \ddots &            \\
+    \mathbf{0} &  &        & d_n
+    \end{smallmatrix}\right)Q.\;(d_i\in\mb{N},d_i>0)$
+\end{lemma}
 
 
 

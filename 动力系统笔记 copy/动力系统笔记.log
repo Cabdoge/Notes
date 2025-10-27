@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.9)  25 OCT 2025 13:22
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.9)  27 OCT 2025 18:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1687,38 +1687,66 @@ Overfull \hbox (19.25758pt too wide) in paragraph at lines 845--860
 
 
 [30]
-Overfull \hbox (16.27403pt too wide) in paragraph at lines 911--917
+Overfull \hbox (16.27403pt too wide) in paragraph at lines 912--918
 $[][]$ 
  []
 
 
-Overfull \hbox (29.26328pt too wide) in paragraph at lines 924--924
+Overfull \hbox (29.26328pt too wide) in paragraph at lines 925--925
 []\TU/FangSong(0)/m/n/10.95 令 $\OMS/cmsy/m/n/10.95 F \OT1/cmr/m/n/10.95 = []$\TU/TeXGyreTermesX(0)/m/n/10.95 . 
  []
 
 Missing character: There is no 有 ("6709) in font cmr10!
 
 
-[31])
+[31]
 
-[32] (./动力系统笔记.aux)
+[32]
+
+[33]
+
+[34]
+File: fig/2.7.png Graphic file (type bmp)
+<fig/2.7.png>
+File: fig/2.8.png Graphic file (type bmp)
+<fig/2.8.png>
+
+Overfull \hbox (19.51573pt too wide) in paragraph at lines 1049--1049
+[]\TU/STSong(0)/m/n/10.95 以 此 类 推，|  对 于 $\OMS/cmsy/m/n/10.95 8 \OML/cmm/m/it/10.95 n \OMS/cmsy/m/n/10.95 2 \U/msb/m/n/10.95 N\OML/cmm/m/it/10.95 ; \OMS/cmsy/m/n/10.95 8 \OML/cmm/m/it/10.95 x \OT1/cmr/m/n/10.95 + \U/msb/m/n/10.95 Z[] \OMS/cmsy/m/n/10.95 2 \OML/cmm/m/it/10.95 X[] \OT1/cmr/m/n/10.95 = \U/msb/m/n/10.95 R[]\OML/cmm/m/it/10.95 =\U/msb/m/n/10.95 Z[]$\TU/STSong(0)/m/n/10.95 ，|  可 以 找 到 一 个 代 表 元 $\OML/cmm/m/it/10.95 x \OT1/cmr/m/n/10.95 = (\OML/cmm/m/it/10.95 x[]; x[]; []  ; x[]\OT1/cmr/m/n/10.95 )[]\OML/cmm/m/it/10.95 ; [] \OT1/cmr/m/n/10.95 0 \U/msa/m/n/10.95 6
+ []
+
+
+
+[35]
+Overfull \hbox (23.91379pt too wide) in paragraph at lines 1087--1087
+[]\TU/STSong(0)/m/n/10.95 下 面 考 虑 所 有 的 可 逆 整 系 数 $\OML/cmm/m/it/10.95 n$ \TU/STSong(0)/m/n/10.95 阶 方 阵 组 成 的 集 合，|  记 为 $\OML/cmm/m/it/10.95 M[]\OT1/cmr/m/n/10.95 (\U/msb/m/n/10.95 Z\OT1/cmr/m/n/10.95 ) = []$\TU/TeXGyreTermesX(0)/m/n/10.95 . 
+ []
+
+
+
+[36]
+File: fig/2.9.png Graphic file (type bmp)
+<fig/2.9.png>
+)
+
+[37] (./动力系统笔记.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2022/08/05>
  ***********
 Package rerunfilecheck Info: File `动力系统笔记.out' has not changed.
-(rerunfilecheck)             Checksum: 9C51D7B3833D8E130B4A25BE598CA666;1323.
+(rerunfilecheck)             Checksum: 64F991779CA0771A9E502E6F65C4CB8E;1605.
 Package logreq Info: Writing requests to '动力系统笔记.run.xml'.
 \openout1 = `动力系统笔记.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 48735 strings out of 473832
- 1039341 string characters out of 5729481
- 2048904 words of memory out of 5000000
- 70919 multiletter control sequences out of 15000+600000
+ 48791 strings out of 473832
+ 1040317 string characters out of 5729481
+ 2055208 words of memory out of 5000000
+ 70972 multiletter control sequences out of 15000+600000
  571445 words of font info for 141 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  103i,17n,132p,691b,1418s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on 动力系统笔记.pdf (35 pages).
+Output written on 动力系统笔记.pdf (40 pages).
