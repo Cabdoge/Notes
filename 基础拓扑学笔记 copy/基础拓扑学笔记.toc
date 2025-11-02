@@ -20,13 +20,15 @@
 \contentsline {section}{\numberline {5.1}正则空间和正规空间}{27}{section.5.1}%
 \contentsline {section}{\numberline {5.2}分离公理}{27}{section.5.2}%
 \contentsline {section}{\numberline {5.3}可数性}{29}{section.5.3}%
-\contentsline {section}{\numberline {5.4}两个定理}{29}{section.5.4}%
+\contentsline {section}{\numberline {5.4}两个定理}{30}{section.5.4}%
 \contentsline {paragraph}{它是正则的}{30}{instance.5.4.1}%
 \contentsline {chapter}{\numberline {第六章}紧性}{31}{chapter.6}%
 \contentsline {section}{\numberline {6.1}紧致空间}{31}{section.6.1}%
 \contentsline {section}{\numberline {6.2}紧致空间的性质}{32}{section.6.2}%
-\contentsline {paragraph}{断言 1：}{34}{tcb@cnt@lemma.6.3}%
-\contentsline {paragraph}{断言 2：}{34}{tcb@cnt@lemma.6.3}%
-\contentsline {paragraph}{断言 3：}{34}{tcb@cnt@lemma.6.3}%
-\contentsline {paragraph}{证明引理}{34}{tcb@cnt@lemma.6.3}%
-\contentsline {section}{\numberline {6.3}紧致空间的乘积}{34}{section.6.3}%
+\contentsline {paragraph}{断言 1：}{34}{figure.caption.23}%
+\contentsline {paragraph}{断言 2：}{34}{figure.caption.23}%
+\contentsline {paragraph}{断言 3：}{34}{figure.caption.24}%
+\contentsline {section}{\numberline {6.3}紧致空间的乘积}{35}{section.6.3}%
+\contentsline {section}{\numberline {6.4}单点紧化}{35}{section.6.4}%
+\contentsline {chapter}{\numberline {第七章}连通性}{38}{chapter.7}%
+\contentsline {section}{\numberline {7.1}连通空间}{38}{section.7.1}%

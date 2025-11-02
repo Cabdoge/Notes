@@ -1099,7 +1099,7 @@ $\forall\, A\in M'_n(\mb{Z})$，可以定义$X_n$上的映射$\setjot[-6]\begin{
 不失一般性，假设$d_n(x+\mb{Z}^n,y+\mb{Z}^n)=\inf_{r\in\mb{Z}^n}{d_{\mb{R}^n}(x+r,y)}$，则$d_n(Ax+\mb{Z}^n,Ay+\mb{Z}^n)\leq c_A d(x+\mb{Z}^n,y+\mb{Z}^n)\Rightarrow d_n \left(T_A(x+\mb{Z}^n),T_A(y+\mb{Z}^n)\right)\leq c_A d_n(x+\mb{Z}^n,y+\mb{Z}^n)$.\par
 因此若$x_k+\mb{Z}^n\to x_0+\mb{Z}^n$，则$T_A(x_k+\mb{Z}^n)\to T_A(x_0+\mb{Z}^n)$，所以$T_A$是连续映射.\par
 下面的问题是$T_A$是否是一个保测映射，如果是，那么$T_A$是否是一个遍历映射.\par
-首先引入另一个矩阵的集合$M^{\pm}_n(\mb{Z})=\left\{A\in M'_n(\mb{Z})||A|=\pm 1\right\}$.引入这个集合的意义在于这个集合有下面两个优美的性质：
+首先引入另一个矩阵的集合$M^{\pm 1}_n(\mb{Z})=\left\{A\in M'_n(\mb{Z})||A|=\pm 1\right\}$.引入这个集合的意义在于这个集合有下面两个优美的性质：
 \begin{enumerate}
     \item  $M^{\pm 1}_n(\mb{Z})$是一个群，其群运算为矩阵乘法.因此该集合中的任意一个矩阵在集合中有逆矩阵.
     \item  集合内任意矩阵对应的线性变换保持可测集的测度，即$\forall\, S\subseteq \mb{R}^n$可测集，那么$S$的Lebesgue测度等于$A(S)$的Lebesgue测度.
@@ -1108,14 +1108,14 @@ $\forall\, A\in M'_n(\mb{Z})$，可以定义$X_n$上的映射$\setjot[-6]\begin{
 \begin{wrapfigure}{l}{0.45\textwidth}
     \vspace{-1 em}
     \includegraphics[width=0.45\textwidth]{fig/2.9.png}
-    \captionof{figure}{$A\in M_n^\pm(\mb{Z})$作用下测度不变}
+    \captionof{figure}{$A\in M_n^{\pm 1}(\mb{Z})$作用下测度不变}
     \vspace{-1 em}
 \end{wrapfigure}
-基于这两个性质，可以证明$\forall\, A\in M^{\pm}_n(\mb{Z})$，$T_A:X_n\to X_n$是一个保测映射.为了证明这一点，只需要验证对$m_\mathrm{Leb} \left(T^{-1}_A(B)\right)=m_\mathrm{Leb}(B)$对$\forall\, \text{矩体}\, B$成立. \par
-根据$M^\pm_n(\mb{Z})$的性质，我们知道$T_A^{-1}=T_{A^{-1}}$，其中$A^{-1}\in M^\pm_n(\mb{Z})$.由$A^{-1}$保持测度知上述命题成立.\par
+基于这两个性质，可以证明$\forall\, A\in M^{\pm 1}_n(\mb{Z})$，$T_A:X_n\to X_n$是一个保测映射.为了证明这一点，只需要验证对$m_\mathrm{Leb} \left(T^{-1}_A(B)\right)=m_\mathrm{Leb}(B)$对$\forall\, \text{矩体}\, B$成立. \par
+根据$M^{\pm 1}_n(\mb{Z})$的性质，我们知道$T_A^{-1}=T_{A^{-1}}$，其中$A^{-1}\in M^{\pm 1}_n(\mb{Z})$.由$A^{-1}$保持测度知上述命题成立.\par
 如左图所示，当$n=2$时，$A^{-1}$实际上把矩形变换为一个与其面积相等的平行四边形.\par
 下面要证明对于一般的整系数可逆矩阵，它对应的映射也是保测的，为此我们需要引入下列引理，它说明了一个一般的整系数可逆矩阵可以分解为对角阵和刚才讨论的行列式为$\pm 1$的矩阵.\par
-\begin{lemma}
+\begin{lemma}\label{lem:2.5}
     设$A\in M'_n(\mb{Z})$，那么存在$P,Q\in M^{\pm 1}_n(\mb{Z})$，使得$A=P\left(\begin{smallmatrix}
     d_1 &        &        & \mathbf{0} \\
         & d_2    &        &            \\
@@ -1123,8 +1123,148 @@ $\forall\, A\in M'_n(\mb{Z})$，可以定义$X_n$上的映射$\setjot[-6]\begin{
     \mathbf{0} &  &        & d_n
     \end{smallmatrix}\right)Q.\;(d_i\in\mb{N},d_i>0)$
 \end{lemma}
+\begin{proof}
+    对$n$用数学归纳法.\par
+    $n=1$时，引理成立.\par
+    设$n=l$时引理成立，考虑$n=l+1$时的情形.\par
+    设$A=\begin{pmatrix}
+        a_{11} & a_{12} & \cdots & a_{1n} \\
+        a_{21} & a_{22} & \cdots & a_{2n} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        a_{n1} & a_{n2} & \cdots & a_{nn}
+    \end{pmatrix}$，记$a=\min \left\{|c_n|\left|\left(\begin{smallmatrix}
+        c_{11} & \cdots & c_{1n} \\
+        \vdots & \ddots & \vdots \\
+        c_{n1} & \cdots & c_{nn}
+    \end{smallmatrix}\right)=PAQ,P,Q\in M^{\pm 1}_n(\mb{Z}),c_{11}\neq 0\right.\right\}$.\par
+    设$P_0,Q_0\in M^{\pm 1}(\mb{Z})$，使得$P_0AQ_0=\begin{pmatrix}
+        c_{11} & c_{12} & \cdots & c_{1n} \\
+        c_{21} & c_{22} & \cdots & c_{2n} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        c_{n1} & c_{n2} & \cdots & c_{nn}
+    \end{pmatrix}$，且$|c_{11}|=a$.\par
+    不妨设$c_{11}=a$，如果$c_{21}$不被$c_{11}$整除，设$c_{21}=s\cdot c_{11}+r(0<r<c_n)$， \par
+    则$\begin{pmatrix}
+        1 & & & &\\ 
+        -s & 1 & & &\\
+        0 & & \ddots & &\\
+        \vdots & & &\ddots & \\
+        0 & & & & 1
+    \end{pmatrix}P_0AQ_0=\begin{pNiceArray}{cc}
+        c_{11} & \Block{2-1}<\Large>{*} \\
+        r & \\
+        * & \Block{3-1}<\Large>{*} \\ 
+        \vdots & \\
+        * & \\
+    \end{pNiceArray}$\par
+    $\begin{pNiceMatrix}
+        0 & 1 & 0 & \cdots & 0 \\
+        1 & 0 & 0 & \cdots & 0 \\
+        0 & 0 & 1 & \cdots & 0 \\
+        \vdots & \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & 0 & \cdots & 1
+    \end{pNiceMatrix}\begin{pNiceMatrix}
+        1 & & & &\\ 
+        -s & 1 & & &\\
+        0 & & \ddots & &\\
+        \vdots & & &\ddots & \\
+        0 & & & & 1
+    \end{pNiceMatrix}P_0AQ_0=\begin{pNiceArray}{cc}
+        r & \Block{2-1}<\Large>{*} \\
+        c_{11} & \\
+        * & * \\
+    \end{pNiceArray}$，但是$r<c_{11}$与$c_{11}$最小矛盾.\par
+    因此$c_{21},c_{31},\cdots,c_{n1}$被$c_{11}$整除.\par
+    类似地，$c_{12},c_{13},\cdots,c_{1n}$被$c_{11}$整除.\par
+    由此，通过初等行列变换，$\exists\, \tilde{P_0},\tilde{Q_0}\in M^{\pm 1}_n(\mb{Z})$，使得$\tilde{P_0}P_0AQ_0\tilde{Q_0}=\begin{pNiceArray}{cccc}
+        c_{11} & 0 & \cdots & 0 \\
+        0 & \Block{3-3}<\Large>{B} \\
+        \vdots &  &  &  \\
+        0 &  &  & 
+    \end{pNiceArray}$\par
+    利用数学归纳法的假设，$\exists\, P_1,Q_1\in M^{\pm 1}_n(\mb{Z})$，使得$P_1BQ_1=\begin{pNiceMatrix}
+        d_2 & & \\
+        & \ddots & \\
+        & & d_n
+    \end{pNiceMatrix}$.\par
+    $\Rightarrow \begin{pNiceMatrix}
+        1 & \\
+        & P_1
+    \end{pNiceMatrix}\tilde{P_0}P_0AQ_0\tilde{Q_0}\begin{pNiceMatrix}
+        1 & \\
+        & Q_1
+    \end{pNiceMatrix}=\begin{pNiceArray}{cccc}
+        c_{11} & & \Block{2-2}<\Large>{0} \\
+        & d_2 & & \\
+        \Block{2-2}<\Large>{0} & & \ddots & \\
+        & & & d_n
+    \end{pNiceArray}$.\par
+    记$P^{-1}= \begin{pNiceMatrix}
+        1 & \\
+        & P_1
+    \end{pNiceMatrix}\tilde{P_0},Q^{-1}=\tilde{Q_0}\begin{pNiceMatrix}
+        1 & \\
+        & Q_1
+    \end{pNiceMatrix}$\par
+    因此$\exists\, P,Q\in M^{\pm 1}_n(\mb{Z})$，且$A=P\begin{pNiceArray}{cccc}
+        c_{11} & & \Block{2-2}<\Large>{0} \\
+        & d_2 & & \\
+        \Block{2-2}<\Large>{0} & & \ddots & \\
+        & & & d_n
+    \end{pNiceArray}Q$
+\end{proof}
 
+由此，可以证明以下命题.
+\begin{proposition}
+    $\forall\,A\in M'_n(\mb{Z})$，则映射$T_A:X_n\to X_n$是保测映射.
+\end{proposition}
+\begin{proof}
+    $\forall\,A\in M^{\pm 1}_n(\mb{Z})$，由引理\ref{lem:2.5}，$A=P\left(\begin{smallmatrix}
+        d_1 & & \\
+        & \ddots & \\
+        & & d_n
+    \end{smallmatrix}\right)=PDQ$，则$T_A=T_PT_DT_Q$.\par
+    现证$T_D$是保测映射.\par
+    $\setjot[-6]\begin{aligned}[t]
+        T_D:X_n &\to X_n \\
+        \left(\begin{smallmatrix}
+            x_1 \\ x_2 \\\vdots \\x_n
+        \end{smallmatrix}\right)+\mb{Z}^n &\mapsto \left(\begin{smallmatrix}
+        d_1 x_1 \\ d_2 x_2 \\\vdots \\d_n x_n
+    \end{smallmatrix}\right)+\mb{Z}^n
+    \end{aligned}$，因此$T_D\cong S_{d_1}\times S_{d_2}\times\cdots\times S_{d_n}$，其中$\setjot[-6]\begin{aligned}[t]
+        S_{k}:[0,1) &\to [0,1) \\
+        x_i &\mapsto kx_i \mod 1
+    \end{aligned}$.\par
+    $S_k$是保测映射，故$\forall\, B=B_1\times B_2\times \cdots\times B_n\subseteq X_n$为矩体，则$m_\mathrm{Leb}\left(T^{-1}_D(B)\right)=m_0 \left(S^{-1}_{d_a}(B_1)\right)\cdots m_0 \left(S^{-1}_{d_n}(B_n)\right)=m_0(B_0)\times\cdots\times m_0(B_n)=m_\mathrm{Leb}(B)$，$m_0$为$[0,1)$上的Lebesgue测度. \par
+    因此$T_D$为保测映射.\par
+    $\forall\, B\subseteq X_n$为可测集，$m_\mathrm{Leb} \left(T^{-1}_A(B)\right)=m_\mathrm{Leb}(T^{-1}_Q T^{-1}_D T^{-1}_P(B))=m_\mathrm{Leb}(T^{-1}_Q T^{-1}_D (B))=m_\mathrm{Leb}(T^{-1}_Q(B))=m_\mathrm{Leb}(B)$.\par
+    $\Rightarrow T_A$是保测映射.
+\end{proof}
 
+现在考虑$T_A$是否是遍历映射，或者更进一步什么样的条件下$T_A$是遍历映射.首先看几个一定不是遍历映射的例子.
+\begin{instance}
+    若$A=I_n$，那么$T_A:X_n\to X_n$不是遍历映射，因为对于$\forall\, B\in \mcal{B}_n,T^{-1}_A(B)=B$.\par
+    \begin{wrapfigure}{r}{0.45\textwidth}
+        \vspace{-2 em}
+        \includegraphics[width=0.45\textwidth]{fig/2.10.png}
+        \captionof{figure}{$T_A$不是遍历映射的例子}
+        \vspace{-1 em}
+    \end{wrapfigure}
+    若$A=\begin{pmatrix}
+        1 & 1 \\
+        0 & 1  \\
+    \end{pmatrix}$，那么$\setjot[-6]\begin{aligned}
+        T_A:X_n&\to X_n \\
+        \left(\begin{smallmatrix}
+            x \\ y
+        \end{smallmatrix}\right)+\mb{Z}^n &\mapsto \left(\begin{smallmatrix}
+            x+y \\ y 
+        \end{smallmatrix}\right)+\mb{Z}^n
+    \end{aligned}$不是遍历映射.\par
+    因为此时$A\in M^{\pm 1}_n(\mb{Z})$，所以$T_A^{-1}=T_{A^{-1}}$且$T_{A^{-1}}$保持任意可测集的测度不变. \par
+    故$\forall\,B\in \mcal{B}_n T^{-1}_A(B)=T_{A^{-1}}(B)=B$.
+\end{instance}
 
 
 

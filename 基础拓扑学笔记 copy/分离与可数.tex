@@ -100,27 +100,56 @@
 
 \section{可数性}
 \begin{definition}[可数邻域基]
-    拓扑空间 $X$ 在点 $x \in X$ 处有\textbf{可数邻域基}, 如果存在 $x$ 的一个可数邻域族 $\{U_n\}_{n \in \mathbb{Z}^+}$ 使得 $x$ 的任何邻域 $W$ 都包含其中一个 $U_n$, 即 $x \in U_n \subset W$.
+    设$X$是一个拓扑空间，$x\in X$，如果存在$x$的一个可数邻域族$\{U_n\}_{n \in \mathbb{Z}^+}$，使得$x$的任何邻域 $W$都包含其中一个 $U_n$, 即 $x \in U_n \subset W$，则称在点$x$处一个\textbf{可数邻域基}.
 \end{definition}
+\vspace{-1.5 em}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.3\textwidth]{fig/5.5.png}
+    \caption{可数邻域基}
+\end{figure}
 
 \begin{definition}[第一可数]
-    如果 $X$ 在其每一点都有可数邻域基, 则称 $X$ 是\textbf{第一可数的}, 或满足\textbf{第一可数性公理}.
+    如果 $X$ 在其每一点都有可数邻域基, 则称 $X$ 是\textbf{第一可数的}，记为$C_1$空间.
 \end{definition}
 
 \begin{instance}
-    每个度量空间都是第一可数的.对任意 $x \in (X, d)$, $\{U_n = B(x, 1/n)\}_{n \in \mathbb{Z}^+}$ 是一个可数邻域基.
+    每个度量空间都是第一可数的.\par
+    对$\forall\,x \in (X, d)$, $\left\{U_n = B\left(x, \frac{1}{n}\right)\right\}_{n \in \mathbb{Z}^+}$ 是一个可数邻域基.
 \end{instance}
 
 \begin{definition}[第二可数]
-    如果一个空间 $X$ 的拓扑有一个可数的基, 那么 $X$ 称为\textbf{第二可数的}, 或满足\textbf{第二可数性公理}.
+    设$X$是一个拓扑空间，若$X$有一个可数基, 则称$X$是\textbf{第二可数的}, 记为$C_2$空间.
 \end{definition}
 
 \begin{instance}
-    $\mathbb{R}^n$ 是第二可数的.一个可数基是 $\mathcal{B} = \{B(x, 1/k) \mid x \in \mathbb{Q}^n, k \in \mathbb{Z}^+\}$.
+    $\mathbb{E}^n$ 是第二可数的.一个可数基是 $\mathcal{B} = \left\{B\left(x, \frac{1}{k}\right) \Big| x \in \mathbb{Q}^n, k \in \mathbb{Z}^+\right\}$.\par
+    \begin{enumerate}
+        \item $B \left(x,\frac{1}{k}\right)$是$\mb{E}^n$中的开集.
+        \item 对任意开集$U\subset \mb{E}^n$，$\forall\,x\in U$，$\exists\, \delta>0,\st x\in B(x,\delta)\subset U$，可以在$U$中找到一个距离$x$很近的$\tilde{x}$，且$d(x,\tilde{x})=\frac{1}{k_1},k_1\in\mb{Z}$，则$x\in B\left(x,\frac{1}{k_1}\right)\subset B(x,\delta)\subset U$.\par
+    \end{enumerate}
 \end{instance}
 
 \begin{proposition}
-    第一（第二）可数空间的子空间是第一（第二）可数的.两个第一（第二）可数空间的乘积是第一（第二）可数的.
+    每个第二可数空间都是第一可数的.
+\end{proposition}
+\begin{proof}
+    假设$X$是第二可数的，$\mathcal{B}$是$X$的一个可数基.\par
+    $\forall\, x\in X$，$\{B\in\mcal{B}|x\in B\}$是$x$的一个可数邻域基.可数性自然可得，下证其确实为邻域基.\par
+    对任意$x$的邻域$W$，$\exists\, B_1\in\mcal{B},\st x\in B_1\subset W$.
+\end{proof}
+
+\begin{instance}
+    考虑$\mb{R}$上的离散拓扑，则它不是第二可数的.这是因为其中的单点集都是开集，因此必须是基元素，故而基必然不可数.\par
+    但这个拓扑空间是可度量化的，其度量为离散度量.\par
+\end{instance}
+从上述例子中可以看出，度量空间虽然是正规的、第一可数的，但它不一定是第二可数的，因此第二可数空间是极强的条件.\par
+
+\begin{proposition}
+    \begin{enumerate}[(i)]
+        \item 第一（第二）可数空间的子空间是第一（第二）可数的.
+        \item 两个第一（第二）可数空间的乘积是第一（第二）可数的.
+    \end{enumerate}
 \end{proposition}
 \begin{proof}
     对于第二可数的情况：
@@ -142,6 +171,7 @@
         \right\} \implies \text{可度量化}
     \]
 \end{theorem}
+反过来，对于度量空间，我们只能得到正规和第一可数的条件.
 
 \begin{theorem}[Tietze 扩张定理]
     如果 $X$ 是一个正规空间，$A \subset X$ 是闭集，$f: A \to \mathbb{E}^1$ 是一个连续函数.那么存在一个连续函数 $F: X \to \mathbb{E}^1$ 使得对所有 $a \in A$ 都有 $F(a) = f(a)$.
@@ -157,7 +187,11 @@
     \paragraph{它是正则的}
     \begin{enumerate}
         \item[(a)] 对任意 $z \in \mathbb{Z}$，$\{z\}$ 是闭集.
-        对任意 $a \in \mathbb{Z} - \{z\}$，选择整数 $b > |a-z|$.那么 $a \in B_{a,b} \subset \mathbb{Z} - \{z\}$.
+        对任意 $a \in \mathbb{Z} - \{z\}$，选择整数 $b > |a-z|$.那么 $a \in B_{a,b} \subset \mathbb{Z} - \{z\}$.\par
+        \begin{center}
+            \includegraphics[width=0.35\textwidth]{fig/5.6.png}
+            \captionof{figure}{}
+        \end{center}
         \item[(b)] 对任意 $z \in \mathbb{Z}$，任意闭集 $C \subset \mathbb{Z}$ 且 $z \notin C$.存在 $B_{a,b}$ 使得 $z \in B_{a,b} \subset \mathbb{Z} - C$.
         事实上，$B_{a,b}$ 既是开集也是闭集.
         $\mathbb{Z} - B_{a,b} = \bigcup_{a' \not\equiv a \pmod b} B_{a',b}$ 是开集. \par
