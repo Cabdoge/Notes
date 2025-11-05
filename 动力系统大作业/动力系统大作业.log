@@ -1,10 +1,10 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.9)  3 NOV 2025 12:33
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.9)  4 NOV 2025 21:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**代数几何教材翻译
-(./代数几何教材翻译.tex
+**动力系统大作业
+(./动力系统大作业.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 (./elegantbook.cls
@@ -214,7 +214,7 @@ Package: fontspec-xetex 2024/05/11 v2.9e Font selection for XeLaTeX and LuaLaTeX
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/fontspec/fontspec.cfg))) (/usr/local/texlive/2025/texmf-dist/tex/latex/newtx/TeXGyreTermesX.fontspec)
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/n' will be
-(Font)              scaled to size 10.95pt on input line 183.
+(Font)              scaled to size 10.95pt on input line 185.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/ctex/ctex.sty
 Package: ctex 2022/07/14 v2.5.10 Chinese adapter in LaTeX (CTEX)
  (/usr/local/texlive/2025/texmf-dist/tex/latex/ctex/ctexhook.sty
@@ -1292,190 +1292,118 @@ File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfarrowlength=\dimen362
 \pgfarrowwidth=\dimen363
 \pgfarrowlinewidth=\dimen364
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/paratype/paratype.sty
-Package: paratype 2012/01/24 Style file for package paratype.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/paratype/PTSans.sty
-Package: PTSans 2011/02/09 Style file for PTSans.
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/paratype/PTSerif.sty
-Package: PTSerif 2011/02/10 Style file for PTSerif.
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/paratype/PTMono.sty
-Package: PTMono 2012/01/24 Style file for PTMono.
-)) (/usr/local/texlive/2025/texmf-dist/tex/latex/esint/esint.sty
-Package: esint 
-\symlargesymbolsA=\mathgroup7
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/adjustbox/adjustbox.sty
-Package: adjustbox 2025/02/26 v1.3c Adjusting TeX boxes (trim, clip, ...)
- (/usr/local/texlive/2025/texmf-dist/tex/latex/xkeyval/xkeyval.sty
-Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
- (/usr/local/texlive/2025/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/usr/local/texlive/2025/texmf-dist/tex/generic/xkeyval/xkvutils.tex
-\XKV@toks=\toks47
-\XKV@tempa@toks=\toks48
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen365
+\WF@size=\dimen366
+\c@WF@wrappedlines=\count567
+\WF@box=\box139
+\WF@everypar=\toks47
+Package: wrapfig 2003/01/31  v 3.6
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/extarrows/extarrows.sty
+Package: extarrows 2020/03/12 v1.2.0 Some extensible arrows
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/esvect/esvect.sty
+Package: esvect 
+\symesvector=\mathgroup7
+LaTeX Font Info:    Redeclaring math symbol \fldr on input line 38.
 )
-\XKV@depth=\count567
-File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
-)) (/usr/local/texlive/2025/texmf-dist/tex/latex/adjustbox/adjcalc.sty
-Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back-ends (calc, etex, pgfmath)
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/adjustbox/trimclip.sty
-Package: trimclip 2025/02/21 v1.2a Trim and clip general TeX material
- (/usr/local/texlive/2025/texmf-dist/tex/latex/collectbox/collectbox.sty
-Package: collectbox 2022/10/17 v0.4c Collect macro arguments as boxes
-\collectedbox=\box139
-)
-\tc@llx=\dimen365
-\tc@lly=\dimen366
-\tc@urx=\dimen367
-\tc@ury=\dimen368
-Package trimclip Info: Using driver 'tc-xetex.def'.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/adjustbox/tc-xetex.def
-File: tc-xetex.def 2019/01/04 v2.2 Clipping driver for xetex
-))
-\adjbox@Width=\dimen369
-\adjbox@Height=\dimen370
-\adjbox@Depth=\dimen371
-\adjbox@Totalheight=\dimen372
-\adjbox@pwidth=\dimen373
-\adjbox@pheight=\dimen374
-\adjbox@pdepth=\dimen375
-\adjbox@ptotalheight=\dimen376
- (/usr/local/texlive/2025/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
-Package: ifoddpage 2022/10/18 v1.2 Conditionals for odd/even page detection
-\c@checkoddpage=\count568
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/varwidth/varwidth.sty
-Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
-\@vwid@box=\box140
-\sift@deathcycles=\count569
-\@vwid@loff=\dimen377
-\@vwid@roff=\dimen378
-)) (/usr/local/texlive/2025/texmf-dist/tex/latex/mdframed/mdframed.sty
-Package: mdframed 2013/07/01 1.9b: mdframed
- (/usr/local/texlive/2025/texmf-dist/tex/latex/zref/zref-abspage.sty
-Package: zref-abspage 2023-09-14 v2.35 Module abspage for zref (HO)
- (/usr/local/texlive/2025/texmf-dist/tex/latex/zref/zref-base.sty
-Package: zref-base 2023-09-14 v2.35 Module base for zref (HO)
- (/usr/local/texlive/2025/texmf-dist/tex/generic/etexcmds/etexcmds.sty
-Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/auxhook/auxhook.sty
-Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
-)
-Package zref Info: New property list: main on input line 767.
-Package zref Info: New property: default on input line 768.
-Package zref Info: New property: page on input line 769.
-)
-\c@abspage=\count570
-Package zref Info: New property: abspage on input line 67.
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/needspace/needspace.sty
-Package: needspace 2010/09/12 v1.3d reserve vertical space
-)
-\mdf@templength=\skip147
-\c@mdf@globalstyle@cnt=\count571
-\mdf@skipabove@length=\skip148
-\mdf@skipbelow@length=\skip149
-\mdf@leftmargin@length=\skip150
-\mdf@rightmargin@length=\skip151
-\mdf@innerleftmargin@length=\skip152
-\mdf@innerrightmargin@length=\skip153
-\mdf@innertopmargin@length=\skip154
-\mdf@innerbottommargin@length=\skip155
-\mdf@splittopskip@length=\skip156
-\mdf@splitbottomskip@length=\skip157
-\mdf@outermargin@length=\skip158
-\mdf@innermargin@length=\skip159
-\mdf@linewidth@length=\skip160
-\mdf@innerlinewidth@length=\skip161
-\mdf@middlelinewidth@length=\skip162
-\mdf@outerlinewidth@length=\skip163
-\mdf@roundcorner@length=\skip164
-\mdf@footenotedistance@length=\skip165
-\mdf@userdefinedwidth@length=\skip166
-\mdf@needspace@length=\skip167
-\mdf@frametitleaboveskip@length=\skip168
-\mdf@frametitlebelowskip@length=\skip169
-\mdf@frametitlerulewidth@length=\skip170
-\mdf@frametitleleftmargin@length=\skip171
-\mdf@frametitlerightmargin@length=\skip172
-\mdf@shadowsize@length=\skip173
-\mdf@extratopheight@length=\skip174
-\mdf@subtitleabovelinewidth@length=\skip175
-\mdf@subtitlebelowlinewidth@length=\skip176
-\mdf@subtitleaboveskip@length=\skip177
-\mdf@subtitlebelowskip@length=\skip178
-\mdf@subtitleinneraboveskip@length=\skip179
-\mdf@subtitleinnerbelowskip@length=\skip180
-\mdf@subsubtitleabovelinewidth@length=\skip181
-\mdf@subsubtitlebelowlinewidth@length=\skip182
-\mdf@subsubtitleaboveskip@length=\skip183
-\mdf@subsubtitlebelowskip@length=\skip184
-\mdf@subsubtitleinneraboveskip@length=\skip185
-\mdf@subsubtitleinnerbelowskip@length=\skip186
- (/usr/local/texlive/2025/texmf-dist/tex/latex/mdframed/md-frame-0.mdf
-File: md-frame-0.mdf 2013/07/01\ 1.9b: md-frame-0
-)
-\mdf@frametitlebox=\box141
-\mdf@footnotebox=\box142
-\mdf@splitbox@one=\box143
-\mdf@splitbox@two=\box144
-\mdf@splitbox@save=\box145
-\mdfsplitboxwidth=\skip187
-\mdfsplitboxtotalwidth=\skip188
-\mdfsplitboxheight=\skip189
-\mdfsplitboxdepth=\skip190
-\mdfsplitboxtotalheight=\skip191
-\mdfframetitleboxwidth=\skip192
-\mdfframetitleboxtotalwidth=\skip193
-\mdfframetitleboxheight=\skip194
-\mdfframetitleboxdepth=\skip195
-\mdfframetitleboxtotalheight=\skip196
-\mdffootnoteboxwidth=\skip197
-\mdffootnoteboxtotalwidth=\skip198
-\mdffootnoteboxheight=\skip199
-\mdffootnoteboxdepth=\skip256
-\mdffootnoteboxtotalheight=\skip257
-\mdftotallinewidth=\skip258
-\mdfboundingboxwidth=\skip259
-\mdfboundingboxtotalwidth=\skip260
-\mdfboundingboxheight=\skip261
-\mdfboundingboxdepth=\skip262
-\mdfboundingboxtotalheight=\skip263
-\mdf@freevspace@length=\skip264
-\mdf@horizontalwidthofbox@length=\skip265
-\mdf@verticalmarginwhole@length=\skip266
-\mdf@horizontalspaceofbox=\skip267
-\mdfsubtitleheight=\skip268
-\mdfsubsubtitleheight=\skip269
-\c@mdfcountframes=\count572
-
-****** mdframed patching \endmdf@trivlist
-
-****** -- success******
-
-\mdf@envdepth=\count573
-\c@mdf@env@i=\count574
-\c@mdf@env@ii=\count575
-\c@mdf@zref@counter=\count576
-Package zref Info: New property: mdf@pagevalue on input line 895.
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/tools/tabularx.sty
-Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
-\TX@col@width=\dimen379
-\TX@old@table=\dimen380
-\TX@old@col=\dimen381
-\TX@target=\dimen382
-\TX@delta=\dimen383
-\TX@cols=\count577
-\TX@ftn=\toks49
-)
-Package hyperref Info: Option `colorlinks' set `true' on input line 56.
- (./myenvironment.sty
+\symugmL=\mathgroup8
+ (./nicematrix.sty
+Package: nicematrix 2025/10/23 v7.4 Enhanced arrays with the help of PGF/TikZ
+\l__nicematrix_tmpc_dim=\dimen367
+\l__nicematrix_tmpd_dim=\dimen368
+\l__nicematrix_tmpc_int=\count568
+\g__nicematrix_env_int=\count569
+\l__nicematrix_the_array_box=\box140
+\g__nicematrix_NiceMatrixBlock_int=\count570
+\g__nicematrix_notes_caption_int=\count571
+\l__nicematrix_columns_width_dim=\dimen369
+\l__nicematrix_col_width_dim=\dimen370
+\g__nicematrix_row_total_int=\count572
+\g__nicematrix_col_total_int=\count573
+\g__nicematrix_last_row_node_int=\count574
+\l__nicematrix_key_nb_rows_int=\count575
+\g__nicematrix_blocks_wd_dim=\dimen371
+\g__nicematrix_blocks_ht_dim=\dimen372
+\g__nicematrix_blocks_dp_dim=\dimen373
+\l__nicematrix_width_dim=\dimen374
+\l__nicematrix_tabular_width_dim=\dimen375
+\l__nicematrix_rule_width_dim=\dimen376
+\l__nicematrix_old_iRow_int=\count576
+\l__nicematrix_old_jCol_int=\count577
+\l__nicematrix_X_columns_dim=\dimen377
+\l__nicematrix_x_initial_dim=\dimen378
+\l__nicematrix_y_initial_dim=\dimen379
+\l__nicematrix_x_final_dim=\dimen380
+\l__nicematrix_y_final_dim=\dimen381
+\g__nicematrix_dp_row_zero_dim=\dimen382
+\g__nicematrix_ht_row_zero_dim=\dimen383
+\g__nicematrix_ht_row_one_dim=\dimen384
+\g__nicematrix_dp_ante_last_row_dim=\dimen385
+\g__nicematrix_ht_last_row_dim=\dimen386
+\g__nicematrix_dp_last_row_dim=\dimen387
+\g__nicematrix_width_last_col_dim=\dimen388
+\g__nicematrix_width_first_col_dim=\dimen389
+\g__nicematrix_ddots_int=\count578
+\g__nicematrix_iddots_int=\count579
+\g__nicematrix_delta_x_one_dim=\dimen390
+\g__nicematrix_delta_y_one_dim=\dimen391
+\g__nicematrix_delta_x_two_dim=\dimen392
+\g__nicematrix_delta_y_two_dim=\dimen393
+\l__nicematrix_row_min_int=\count580
+\l__nicematrix_row_max_int=\count581
+\l__nicematrix_col_min_int=\count582
+\l__nicematrix_col_max_int=\count583
+\l__nicematrix_initial_i_int=\count584
+\l__nicematrix_initial_j_int=\count585
+\l__nicematrix_final_i_int=\count586
+\l__nicematrix_final_j_int=\count587
+\l__nicematrix_start_int=\count588
+\l__nicematrix_end_int=\count589
+\l__nicematrix_local_start_int=\count590
+\l__nicematrix_local_end_int=\count591
+\g__nicematrix_static_num_of_col_int=\count592
+\l__nicematrix_rounded_corners_dim=\dimen394
+\l__nicematrix_tab_rounded_corners_dim=\dimen395
+\l__nicematrix_offset_dim=\dimen396
+\l__nicematrix_line_width_dim=\dimen397
+\g__nicematrix_block_box_int=\count593
+\l__nicematrix_submatrix_extra_height_dim=\dimen398
+\l__nicematrix_submatrix_left_xshift_dim=\dimen399
+\l__nicematrix_submatrix_right_xshift_dim=\dimen400
+\l__nicematrix_first_row_int=\count594
+\l__nicematrix_first_col_int=\count595
+\l__nicematrix_last_row_int=\count596
+\l__nicematrix_last_col_int=\count597
+\c@tabularnote=\count598
+\g__nicematrix_tabularnote_int=\count599
+\c@nicematrix_draft=\count600
+\l__nicematrix_cell_space_top_limit_dim=\dimen401
+\l__nicematrix_cell_space_bottom_limit_dim=\dimen402
+\l__nicematrix_xdots_inter_dim=\dimen403
+\l__nicematrix_xdots_shorten_start_dim=\dimen404
+\l__nicematrix_xdots_shorten_end_dim=\dimen405
+\l__nicematrix_xdots_radius_dim=\dimen406
+\l__nicematrix_left_margin_dim=\dimen407
+\l__nicematrix_right_margin_dim=\dimen408
+\l__nicematrix_extra_left_margin_dim=\dimen409
+\l__nicematrix_extra_right_margin_dim=\dimen410
+\c__nicematrix_max_l_dim=\dimen411
+\l__nicematrix_position_int=\count601
+\l__nicematrix_multiplicity_int=\count602
+\l__nicematrix_brace_yshift_dim=\dimen412
+) (./myenvironment.sty
 Package: myenvironment 2025/08/30 v1.1 tcolorbox + homework(list) + simple fillin
  (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshadings.code.tex
 File: tikzlibraryshadings.code.tex 2023-01-15 v3.1.10 (3.1.10)
  (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryshadings.code.tex
 File: pgflibraryshadings.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ))
-\c@mynotecounter=\count578
-\c@homework=\count579
-\homeworklabelleftpad=\skip270
-\homeworklabelsep=\skip271
-\homework@labelwidth=\skip272
+\c@mynotecounter=\count603
+\c@homework=\count604
+\homeworklabelleftpad=\skip147
+\homeworklabelsep=\skip148
+\homework@labelwidth=\skip149
+\c@instance=\count605
 ) (./elegantfix.sty
 Package: elegantfix 2025/08/23 v1.0 Patch lemma & corollary for ElegantBook
  (/usr/local/texlive/2025/texmf-dist/tex/latex/fontawesome5/fontawesome5.sty
@@ -1486,44 +1414,37 @@ LaTeX Font Info:    Trying to load font information for TU+fontawesomefree on in
  (/usr/local/texlive/2025/texmf-dist/tex/latex/fontawesome5/tufontawesomefree.fd)
 LaTeX Font Info:    Trying to load font information for TU+fontawesomebrands on input line 70.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/fontawesome5/tufontawesomebrands.fd)))
-\c@think=\count580
+\c@think=\count606
 )
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... none found.
-LaTeX Font Info:    Trying to load font information for TU+PTSerif-TLF on input line 92.
-LaTeX Font Info:    No file TUPTSerif-TLF.fd. on input line 92.
+ (./动力系统大作业.aux)
+\openout1 = `动力系统大作业.aux'.
 
-
-LaTeX Font Warning: Font shape `TU/PTSerif-TLF/m/n' undefined
-(Font)              using `TU/lmr/m/n' instead on input line 92.
-
-(./代数几何教材翻译.aux)
-\openout1 = `代数几何教材翻译.aux'.
-
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 92.
-LaTeX Font Info:    ... okay on input line 92.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 92.
-LaTeX Font Info:    ... okay on input line 92.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 92.
-LaTeX Font Info:    ... okay on input line 92.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 92.
-LaTeX Font Info:    ... okay on input line 92.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 92.
-LaTeX Font Info:    ... okay on input line 92.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 92.
-LaTeX Font Info:    ... okay on input line 92.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 92.
-LaTeX Font Info:    ... okay on input line 92.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 92.
-LaTeX Font Info:    ... okay on input line 92.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 92.
-LaTeX Font Info:    ... okay on input line 92.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 92.
-LaTeX Font Info:    ... okay on input line 92.
-Package hyperref Info: Link coloring ON on input line 92.
- (./代数几何教材翻译.out) (./代数几何教材翻译.out)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 166.
+LaTeX Font Info:    ... okay on input line 166.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 166.
+LaTeX Font Info:    ... okay on input line 166.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 166.
+LaTeX Font Info:    ... okay on input line 166.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 166.
+LaTeX Font Info:    ... okay on input line 166.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 166.
+LaTeX Font Info:    ... okay on input line 166.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 166.
+LaTeX Font Info:    ... okay on input line 166.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 166.
+LaTeX Font Info:    ... okay on input line 166.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 166.
+LaTeX Font Info:    ... okay on input line 166.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 166.
+LaTeX Font Info:    ... okay on input line 166.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 166.
+LaTeX Font Info:    ... okay on input line 166.
+Package hyperref Info: Link coloring ON on input line 166.
+ (./动力系统大作业.out) (./动力系统大作业.out)
 \@outlinefile=\write7
-\openout7 = `代数几何教材翻译.out'.
+\openout7 = `动力系统大作业.out'.
 
 
 *geometry* driver: auto-detecting
@@ -1533,21 +1454,21 @@ Package hyperref Info: Link coloring ON on input line 92.
 * paper: a4paper
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
-* modes: twoside 
+* modes: 
 * h-part:(L,W,R)=(71.13188pt, 469.47049pt, 56.9055pt)
-* v-part:(T,H,B)=(56.9055pt, 724.12265pt, 64.01869pt)
+* v-part:(T,H,B)=(56.9055pt, 731.23584pt, 56.9055pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
 * \textwidth=469.47049pt
-* \textheight=724.12265pt
+* \textheight=731.23584pt
 * \oddsidemargin=-1.1381pt
-* \evensidemargin=-15.36449pt
+* \evensidemargin=-1.1381pt
 * \topmargin=-88.48799pt
 * \headheight=61.74242pt
 * \headsep=11.38109pt
 * \topskip=11.0pt
-* \footskip=34.1433pt
-* \marginparwidth=106.0pt
+* \footskip=25.60747pt
+* \marginparwidth=53.0pt
 * \marginparsep=7.0pt
 * \columnsep=10.0pt
 * \skip\footins=10.0pt plus 4.0pt minus 2.0pt
@@ -1555,19 +1476,20 @@ Package hyperref Info: Link coloring ON on input line 92.
 * \voffset=0.0pt
 * \mag=1000
 * \@twocolumnfalse
-* \@twosidetrue
-* \@mparswitchtrue
+* \@twosidefalse
+* \@mparswitchfalse
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
+Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/footmisc/footmisc.sty
 Package: footmisc 2024/12/24 v6.0g a miscellany of footnote facilities
-\FN@temptoken=\toks50
-\footnotemargin=\dimen384
-\@outputbox@depth=\dimen385
+\FN@temptoken=\toks48
+\footnotemargin=\dimen413
+\@outputbox@depth=\dimen414
 Package footmisc Info: Declaring symbol style bringhurst on input line 699.
 Package footmisc Info: Declaring symbol style chicago on input line 707.
 Package footmisc Info: Declaring symbol style wiley on input line 716.
@@ -1584,22 +1506,28 @@ Package biblatex Info: XeTeX detected.
 (biblatex)             Assuming input encoding 'utf8'.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'utf8'.
-\openout5 = `代数几何教材翻译.bcf'.
+\openout5 = `动力系统大作业.bcf'.
 
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file '代数几何教材翻译.bbl' not found.
+Package biblatex Info: ... file '动力系统大作业.bbl' not found.
 
-No file 代数几何教材翻译.bbl.
-Package biblatex Info: Reference section=0 on input line 92.
-Package biblatex Info: Reference segment=0 on input line 92.
-\c@lstlisting=\count581
-Package hyperref Info: Option `pageanchor' set `false' on input line 95.
+No file 动力系统大作业.bbl.
+Package biblatex Info: Reference section=0 on input line 166.
+Package biblatex Info: Reference segment=0 on input line 166.
+\c@lstlisting=\count607
+\c__nicematrix_shift_Ldots_last_row_dim=\dimen415
+\c__nicematrix_innersep_middle_dim=\dimen416
+\c@tabularnotesi=\count608
+\enitdp@tabularnotes=\count609
+\c@tabularnotes*i=\count610
+\enitdp@tabularnotes*=\count611
+Package hyperref Info: Option `pageanchor' set `false' on input line 171.
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: xetex
 * paper: a4paper
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
-* modes: twoside 
+* modes: 
 * h-part:(L,W,R)=(0.0pt, 597.50787pt, 0.0pt)
 * v-part:(T,H,B)=(0.0pt, 845.04684pt, 0.0pt)
 * \paperwidth=597.50787pt
@@ -1612,8 +1540,8 @@ Package hyperref Info: Option `pageanchor' set `false' on input line 95.
 * \headheight=61.74242pt
 * \headsep=11.38109pt
 * \topskip=11.0pt
-* \footskip=34.1433pt
-* \marginparwidth=106.0pt
+* \footskip=25.60747pt
+* \marginparwidth=53.0pt
 * \marginparsep=7.0pt
 * \columnsep=10.0pt
 * \skip\footins=10.0pt plus 4.0pt minus 2.0pt
@@ -1621,65 +1549,53 @@ Package hyperref Info: Option `pageanchor' set `false' on input line 95.
 * \voffset=0.0pt
 * \mag=1000
 * \@twocolumnfalse
-* \@twosidetrue
-* \@mparswitchtrue
+* \@twosidefalse
+* \@mparswitchfalse
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 File: example-image.pdf Graphic file (type pdf)
 <use example-image.pdf>
-
-LaTeX Font Warning: Font shape `TU/PTSerif-TLF/b/n' undefined
-(Font)              using `TU/PTSerif-TLF/m/n' instead on input line 95.
-
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 95.
+LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/n' will be
+(Font)              scaled to size 10.95pt on input line 171.
+LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/n' will be
+(Font)              scaled to size 24.88pt on input line 171.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 171.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 95.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 171.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 95.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 171.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+esint on input line 95.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/esint/uesint.fd
-File: uesint.fd 
+LaTeX Font Info:    Trying to load font information for U+esvect on input line 171.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/esvect/uesvect.fd
+File: uesvect.fd 
 )
+LaTeX Font Info:    Trying to load font information for OMX+mdugm on input line 171.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/mathdesign/mdugm/omxmdugm.fd
+File: omxmdugm.fd 2013/08/29 Fontinst v1.933 font definitions for OMX/mdugm.
+)
+LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/n' will be
+(Font)              scaled to size 14.4pt on input line 171.
+
 
 [1
 
 
 
 ]
-
-[2
-
-
-] (./代数几何教材翻译.toc
-
-[1
-
-
-
-]
-
-[2]
-
-[3])
+LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/n' will be
+(Font)              scaled to size 17.28pt on input line 177.
+ (./动力系统大作业.toc)
 \tf@toc=\write8
-\openout8 = `代数几何教材翻译.toc'.
+\openout8 = `动力系统大作业.toc'.
 
 
-
-[4] (./旧目录.tex
-Overfull \hbox (3.03952pt too wide) in paragraph at lines 11--13
-\TU/PTSerif-TLF/b/n/10.95 2. \TU/STSong(0)/b/n/10.95 三 次 曲 线 与 群 律 \TU/STSong(0)/m/n/10.95 证 明 曲 线 $[]$ 不 存 在 有 理 参 数 化。|  线 性 系 统 $\OML/cmm/m/it/10.95 S[] []$
- []
-
-) (./第0章.tex
 
 [1
 
@@ -1687,619 +1603,64 @@ Overfull \hbox (3.03952pt too wide) in paragraph at lines 11--13
 
 
 ]
-Chapter 0.
-File: images/bo_d3lj80c601uc738kffi0_8_333_1201_1024_361_0.jpg Graphic file (type bmp)
-<images/bo_d3lj80c601uc738kffi0_8_333_1201_1024_361_0.jpg>
+Chapter A.
 
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 18.
-See the caption package documentation for explanation.
 
+[1
+
+
+
+]
+Chapter C.
 
 
 [2
 
 ]
-File: images/bo_d3lj80c601uc738kffi0_10_531_651_627_236_0.jpg Graphic file (type bmp)
-<images/bo_d3lj80c601uc738kffi0_10_531_651_627_236_0.jpg>
+LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/n' will be
+(Font)              scaled to size 8.0pt on input line 280.
+LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/n' will be
+(Font)              scaled to size 6.0pt on input line 280.
 
 
+LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/n' will be
+(Font)              scaled to size 10.0pt on input line 298.
 [3]
-Missing character: There is no § ("A7) in font cmr10!
-Missing character: There is no § ("A7) in font cmr10!
-
 
 [4]
-Missing character: There is no § ("A7) in font cmr10!
 
-
-[5])
+[5]
 
 [6]
 
-[7
+[7]
 
-] (./第1章.tex
-Chapter 1.
-File: images/bo_d3lj80c601uc738kffi0_16_718_1301_238_171_0.jpg Graphic file (type bmp)
-<images/bo_d3lj80c601uc738kffi0_16_718_1301_238_171_0.jpg>
-File: images/bo_d3lj80c601uc738kffi0_17_772_501_356_397_0.jpg Graphic file (type bmp)
-<images/bo_d3lj80c601uc738kffi0_17_772_501_356_397_0.jpg>
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 33.
-See the caption package documentation for explanation.
-
-
-
-[8
-
-]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\(' on input line 58.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 58.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\)' on input line 58.
-
-File: images/bo_d3lj80c601uc738kffi0_18_341_562_1004_212_0.jpg Graphic file (type bmp)
-<images/bo_d3lj80c601uc738kffi0_18_341_562_1004_212_0.jpg>
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 69.
-See the caption package documentation for explanation.
-
-
+[8]
 
 [9]
-File: images/bo_d3lj80c601uc738kffi0_19_646_280_616_328_0.jpg Graphic file (type bmp)
-<images/bo_d3lj80c601uc738kffi0_19_646_280_616_328_0.jpg>
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 102.
-See the caption package documentation for explanation.
-
-
 
 [10]
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\(' on input line 168.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 168.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\)' on input line 168.
-
-
-
 [11]
 
-[12]
-
-[13]
-File: images/bo_d3lj80c601uc738kffi0_24_454_273_737_428_0.jpg Graphic file (type bmp)
-<images/bo_d3lj80c601uc738kffi0_24_454_273_737_428_0.jpg>
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 305.
-See the caption package documentation for explanation.
-
-
-
-[14]
-Overfull \hbox (13.15431pt too wide) in paragraph at lines 375--382
-[][] [][] \TU/FangSong(0)/m/n/10.95 推 论 \TU/PTSerif-TLF/b/n/10.95 1.10 \TU/FangSong(0)/m/n/10.95 表 明，|  当 $\OML/cmm/m/it/10.95 n \OT1/cmr/m/n/10.95 = 5$ \TU/FangSong(0)/m/n/10.95 时，| $[] \OML/cmm/m/it/10.95 S[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 P[]; [] ; P[]\OT1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95 ^^T \OT1/cmr/m/n/10.95 1$\TU/PTSerif-TLF/b/n/10.95 . \TU/FangSong(0)/m/n/10.95 结 合 命 题 \TU/PTSerif-TLF/b/n/10.95 1.11\TU/FangSong(0)/m/n/10.95 ，|  我 们 得 到 $[] \OML/cmm/m/it/10.95 S[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 P[]; [] ; P[]\OT1/cmr/m/n/10.95 ) =
- []
-
-File: images/bo_d3lj80c601uc738kffi0_26_669_694_351_261_0.jpg Graphic file (type bmp)
-<images/bo_d3lj80c601uc738kffi0_26_669_694_351_261_0.jpg>
-File: images/bo_d3lj80c601uc738kffi0_26_578_1167_519_608_0.jpg Graphic file (type bmp)
-<images/bo_d3lj80c601uc738kffi0_26_578_1167_519_608_0.jpg>
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 399.
-See the caption package documentation for explanation.
-
-
-
-[15]
-Overfull \hbox (112.77592pt too wide) in paragraph at lines 415--423
-[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 ^^UM[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 ^^VM[]\OT1/cmr/m/n/10.95 ) = 0$ \TU/STSong(0)/m/n/10.95 将 $\OML/cmm/m/it/10.95 Q[]$ \TU/STSong(0)/m/n/10.95 和 $\OML/cmm/m/it/10.95 Q[]$ \TU/STSong(0)/m/n/10.95 写 成 对 称 矩 阵 形 式，|  该 条 件 可 表 达 为：| $\OML/cmm/m/it/10.95 F\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 ^^U; ^^V\OT1/cmr/m/n/10.95 ) = [] [] =
- []
-
-
-
-[16]
-File: images/bo_d3lj80c601uc738kffi0_27_770_1529_362_284_0.jpg Graphic file (type bmp)
-<images/bo_d3lj80c601uc738kffi0_27_770_1529_362_284_0.jpg>
-File: images/bo_d3lj80c601uc738kffi0_28_418_286_869_574_0.jpg Graphic file (type bmp)
-<images/bo_d3lj80c601uc738kffi0_28_418_286_869_574_0.jpg>
-
-
-[17]
-
-[18]) (./第2章.tex
-
-[19]
-Chapter 2.
-File: images/bo_d3lj80c601uc738kffi0_32_266_1160_1141_681_0.jpg Graphic file (type bmp)
-<images/bo_d3lj80c601uc738kffi0_32_266_1160_1141_681_0.jpg>
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 13.
-See the caption package documentation for explanation.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\(' on input line 19.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 19.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\lambda' on input line 19.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\)' on input line 19.
-
-
-
-[20
-
-]
-
-[21]
-
-[22]
-File: images/bo_d3lj80c601uc738kffi0_36_587_1142_501_255_0.jpg Graphic file (type bmp)
-<images/bo_d3lj80c601uc738kffi0_36_587_1142_501_255_0.jpg>
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 187.
-See the caption package documentation for explanation.
-
-
-
-[23]
-File: images/bo_d3lj80c601uc738kffi0_38_276_641_1131_1057_0.jpg Graphic file (type bmp)
-<images/bo_d3lj80c601uc738kffi0_38_276_641_1131_1057_0.jpg>
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 239.
-See the caption package documentation for explanation.
-
-
-
-[24]
-
-[25]
-
-[26]
-File: images/bo_d3lj80c601uc738kffi0_40_464_1080_769_535_0.jpg Graphic file (type bmp)
-<images/bo_d3lj80c601uc738kffi0_40_464_1080_769_535_0.jpg>
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 311.
-See the caption package documentation for explanation.
-
-
-
-[27]
-File: images/bo_d3lj80c601uc738kffi0_41_793_1592_303_140_0.jpg Graphic file (type bmp)
-<images/bo_d3lj80c601uc738kffi0_41_793_1592_303_140_0.jpg>
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 357.
-See the caption package documentation for explanation.
-
-File: images/bo_d3lj80c601uc738kffi0_42_528_1157_630_664_0.jpg Graphic file (type bmp)
-<images/bo_d3lj80c601uc738kffi0_42_528_1157_630_664_0.jpg>
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 375.
-See the caption package documentation for explanation.
-
-
-
-[28]
-LaTeX Font Info:    Trying to load font information for U+ding on input line 395.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/bbding/Uding.fd
-File: Uding.fd 1996/02/01 v1.0 BBding font definitions
-)
-
-[29]) (./第一部分附录.tex
-
-[30]
-File: images/bo_d3lj80c601uc738kffi0_46_521_964_630_253_0.jpg Graphic file (type bmp)
-<images/bo_d3lj80c601uc738kffi0_46_521_964_630_253_0.jpg>
-File: images/bo_d3lj80c601uc738kffi0_46_689_1557_303_168_0.jpg Graphic file (type bmp)
-<images/bo_d3lj80c601uc738kffi0_46_689_1557_303_168_0.jpg>
-File: images/bo_d3lj80c601uc738kffi0_47_801_471_300_289_0.jpg Graphic file (type bmp)
-<images/bo_d3lj80c601uc738kffi0_47_801_471_300_289_0.jpg>
-File: images/bo_d3lj80c601uc738kffi0_47_445_997_1006_185_0.jpg Graphic file (type bmp)
-<images/bo_d3lj80c601uc738kffi0_47_445_997_1006_185_0.jpg>
-File: images/bo_d3lj80c601uc738kffi0_47_566_1379_768_423_0.jpg Graphic file (type bmp)
-<images/bo_d3lj80c601uc738kffi0_47_566_1379_768_423_0.jpg>
-File: images/bo_d3lj80c601uc738kffi0_48_396_449_884_330_0.jpg Graphic file (type bmp)
-<images/bo_d3lj80c601uc738kffi0_48_396_449_884_330_0.jpg>
-
-
-[31
-
-]
-
-[32]
-File: images/bo_d3lj80c601uc738kffi0_49_641_372_623_379_0.jpg Graphic file (type bmp)
-<images/bo_d3lj80c601uc738kffi0_49_641_372_623_379_0.jpg>
-File: images/bo_d3lj80c601uc738kffi0_50_333_253_1060_1700_-1.jpg Graphic file (type bmp)
-<images/bo_d3lj80c601uc738kffi0_50_333_253_1060_1700_-1.jpg>
-
-
-[33])
-
-[34]
-
-[35
-
-] (./第3章.tex
-Chapter 3.
-
-
-[36
-
-]
-
-Package hyperref Warning: Ignoring empty anchor on input line 79.
-
-
-
-[37]
-
-[38]
-
-[39]
-
-[40]
-
-[41]
-
-[42]
-
-[43]
-
-[44]
-
-[45]
-Overfull \hbox (48.34196pt too wide) in paragraph at lines 437--438
-[]\TU/PTSerif-TLF/b/n/10.95 3.16 \TU/STSong(0)/m/n/10.95 设 $\OML/cmm/m/it/10.95 A \OT1/cmr/m/n/10.95 = \OML/cmm/m/it/10.95 k []$ \TU/STSong(0)/m/n/10.95 如 诺 特 正 规 化 \TU/PTSerif-TLF/b/n/10.95 (3.13) \TU/STSong(0)/m/n/10.95 中 所 述，|  写 作 $\OML/cmm/m/it/10.95 I \OT1/cmr/m/n/10.95 =$ $[] []$
- []
-
-) (./第4章.tex
-
-[46]
-Chapter 4.
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\(' on input line 21.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\)' on input line 21.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\(' on input line 21.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\)' on input line 21.
-
-
-
-[47
-
-]
-File: images/bo_d3lj80c601uc738kffi0_71_637_1756_272_151_0.jpg Graphic file (type bmp)
-<images/bo_d3lj80c601uc738kffi0_71_637_1756_272_151_0.jpg>
-
-
-[48]
-Overfull \hbox (8.48793pt too wide) in paragraph at lines 97--98
-[]\TU/STSong(0)/m/n/10.95 在 讨 论 诺 特 正 规 化 时，|  我 们 有 一 个 代 数 集 $\OML/cmm/m/it/10.95 V \OMS/cmsy/m/n/10.95 ^^Z \U/msb/m/n/10.95 A[]$\TU/STSong(0)/m/n/10.95 ，|  并 考 虑 了 由  |“相 当 一 般”|  的 线 性 形 式 $\OML/cmm/m/it/10.95 Y[]; [] ; Y[]$
- []
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\(' on input line 102.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\)' on input line 102.
-
-
-
-[49]
-
-[50]
-
-[51]
-
-[52]
-File: images/bo_d3lj80c601uc738kffi0_77_525_1233_873_322_0.jpg Graphic file (type bmp)
-<images/bo_d3lj80c601uc738kffi0_77_525_1233_873_322_0.jpg>
-
-
-[53]
-File: images/bo_d3lj80c601uc738kffi0_78_468_683_748_789_0.jpg Graphic file (type bmp)
-<images/bo_d3lj80c601uc738kffi0_78_468_683_748_789_0.jpg>
-
-
-[54]
-File: images/bo_d3lj80c601uc738kffi0_80_716_422_258_177_0.jpg Graphic file (type bmp)
-<images/bo_d3lj80c601uc738kffi0_80_716_422_258_177_0.jpg>
-
-
-[55])
-
-[56]
-
-[57
-
-] (./第5章.tex
-Chapter 5.
-File: images/bo_d3lj80c601uc738kffi0_85_762_364_373_374_0.jpg Graphic file (type bmp)
-<images/bo_d3lj80c601uc738kffi0_85_762_364_373_374_0.jpg>
-
-
-[58
-
-]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\(' on input line 91.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\)' on input line 91.
-
-
-Overfull \hbox (8.30432pt too wide) in paragraph at lines 93--94
-[]\TU/STSong(0)/m/n/10.95 设 $\U/msb/m/n/10.95 P[]$ \TU/STSong(0)/m/n/10.95 为 定 义 在 域 $\OML/cmm/m/it/10.95 k$ \TU/STSong(0)/m/n/10.95 上 的 $\OML/cmm/m/it/10.95 n$ \TU/STSong(0)/m/n/10.95 维 射 影 空 间，|  其 齐 次 坐 标 为 $\OML/cmm/m/it/10.95 X[]; [] ; X[]$\TU/PTSerif-TLF/b/n/10.95 . \TU/STSong(0)/m/n/10.95 一 个 多 项 式 $\OML/cmm/m/it/10.95 f \OMS/cmsy/m/n/10.95 2 \OML/cmm/m/it/10.95 k\OT1/cmr/m/n/10.95 [\OML/cmm/m/it/10.95 X[]; [] ; X[]\OT1/cmr/m/n/10.95 ]$
- []
-
-
-
-[59]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\(' on input line 172.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\)' on input line 172.
-
-
-
-[60]
-
-[61]
-
-[62]
-
-[63]) (./第6章.tex
-
-[64]
-Chapter 6.
-File: images/bo_d3lj80c601uc738kffi0_98_542_1463_602_263_0.jpg Graphic file (type bmp)
-<images/bo_d3lj80c601uc738kffi0_98_542_1463_602_263_0.jpg>
-
-
-[65
-
-]
-
-[66]
-Underfull \hbox (badness 2376) in paragraph at lines 103--108
-[]\TU/KaiTi(0)/m/n/10.95 存 在 一 个 整 数 $\OML/cmm/m/it/10.95 r$ \TU/KaiTi(0)/m/n/10.95 和 一 个 稠 密 开 子 集 $\OML/cmm/m/it/10.95 V[] \OMS/cmsy/m/n/10.95 ^^Z \OML/cmm/m/it/10.95 V$ \TU/KaiTi(0)/m/n/10.95 使 得 $[] \OML/cmm/m/it/10.95 T[]V \OT1/cmr/m/n/10.95 = \OML/cmm/m/it/10.95 r[]P \OMS/cmsy/m/n/10.95 2
- []
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\(' on input line 117.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\dim' on input line 117.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\new@ifnextchar' on input line 117.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 117.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\)' on input line 117.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\(' on input line 133.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 133.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\)' on input line 133.
-
-
-
-[67]
-
-[68]
-
-LaTeX Font Warning: Font shape `TU/PTSerif-TLF/m/it' undefined
-(Font)              using `TU/PTSerif-TLF/m/n' instead on input line 231.
-
-
-
-[69]
-Overfull \hbox (20.89636pt too wide) in paragraph at lines 233--234
-[]\TU/PTSerif-TLF/m/it/10.95 6.2 \TU/STSong(0)/m/n/10.95 证 明 定 理 \TU/PTSerif-TLF/m/it/10.95 6.8(b).[\TU/STSong(0)/m/it/10.95 提 示：| $\OML/cmm/m/it/10.95 I\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 V[]\OT1/cmr/m/n/10.95 ) = (\OML/cmm/m/it/10.95 I\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 V\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; Yf \OMS/cmsy/m/n/10.95 ^^@ \OT1/cmr/m/n/10.95 1) \OMS/cmsy/m/n/10.95 ^^Z \OML/cmm/m/it/10.95 k\OT1/cmr/m/n/10.95 [\OML/cmm/m/it/10.95 X[]; [] ; X[]; Y\OT1/cmr/m/n/10.95 ]$\TU/PTSerif-TLF/m/it/10.95 . \TU/STSong(0)/m/n/10.95 因 此，|  若 $\OML/cmm/m/it/10.95 Q \OT1/cmr/m/n/10.95 = (\OML/cmm/m/it/10.95 a[]; [] ; a[]; b\OT1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95 2
- []
-
-) (./第7章.tex
-
-[70]
-Chapter 7.
-File: images/bo_d3lj80c601uc738kffi0_106_512_1114_628_213_0.jpg Graphic file (type bmp)
-<images/bo_d3lj80c601uc738kffi0_106_512_1114_628_213_0.jpg>
-
-LaTeX Warning: Citation 'MilesReid_UndergraduateAlgebraicGeometry' on page 71 undefined on input line 41.
-
-
-
-[71
-
-]
-
-[72]
-
-[73]
-
-LaTeX Warning: Citation 'Beauville_ComplexAlgebraicSurfaces' on page 74 undefined on input line 171.
-
-File: images/bo_d3lj80c601uc738kffi0_110_493_393_708_200_0.jpg Graphic file (type bmp)
-<images/bo_d3lj80c601uc738kffi0_110_493_393_708_200_0.jpg>
-
-
-[74]
-
-[75]
-File: images/bo_d3lj80c601uc738kffi0_112_658_391_370_362_0.jpg Graphic file (type bmp)
-<images/bo_d3lj80c601uc738kffi0_112_658_391_370_362_0.jpg>
-File: images/bo_d3lj80c601uc738kffi0_112_603_1306_490_291_0.jpg Graphic file (type bmp)
-<images/bo_d3lj80c601uc738kffi0_112_603_1306_490_291_0.jpg>
-
-
-[76]
-
-LaTeX Warning: Citation 'SempleRoth_IntroductionToAlgebraicGeometry' on page 77 undefined on input line 321.
-
-
-Overfull \hbox (156.4859pt too wide) in paragraph at lines 321--322
-\TU/STSong(0)/m/n/10.95 该 组 合 构 型 有 多 种 不 同 的 表 示 形 式，|  其 中 一 些 比 此 处 给 出 的 更 具 对 称 性；|  例 如 参 见 \TU/PTSerif-TLF/m/it/10.95 [[]]. 
- []
-
-
-
-[77]
-
-LaTeX Warning: Citation 'Fulton_AlgebraicCurves' on page 78 undefined on input line 351.
-
-
-LaTeX Warning: Citation 'Fulton_AlgebraicCurves' on page 78 undefined on input line 353.
-
-
-
-[78]
-
-[79]) (./结语.tex
-
-[80]
-Chapter 8.
-
-
-[81
-
-]
-
-[82]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\(' on input line 56.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\)' on input line 56.
-
-Missing character: There is no § ("A7) in font cmr10!
-Missing character: There is no § ("A7) in font cmr10!
-
-
-[83]
-
-[84]
-
-[85]
-
-[86]
-
-[87]
-
-[88]
-
-[89]
-
-[90]
-
-[91]
-
-[92]
-
-[93])
-
-[94] (./代数几何教材翻译.aux)
+[12] (./动力系统大作业.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2022/08/05>
  ***********
-
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
-
-LaTeX Warning: There were undefined references.
-
-Package rerunfilecheck Info: File `代数几何教材翻译.out' has not changed.
-(rerunfilecheck)             Checksum: 658F7CB0ABCE51684AB26420AF4EA542;18221.
-
-Package biblatex Warning: Please (re)run Biber on the file:
-(biblatex)                代数几何教材翻译
-(biblatex)                and rerun LaTeX afterwards.
-
-Package logreq Info: Writing requests to '代数几何教材翻译.run.xml'.
-\openout1 = `代数几何教材翻译.run.xml'.
+Package rerunfilecheck Info: File `动力系统大作业.out' has not changed.
+(rerunfilecheck)             Checksum: CFA806FE00CA97EB4A3C3C05B688B8B0;632.
+Package logreq Info: Writing requests to '动力系统大作业.run.xml'.
+\openout1 = `动力系统大作业.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 52010 strings out of 473832
- 1149122 string characters out of 5729481
- 2105088 words of memory out of 5000000
- 74058 multiletter control sequences out of 15000+600000
- 577742 words of font info for 178 fonts, out of 8000000 for 9000
+ 50535 strings out of 473832
+ 1103970 string characters out of 5729481
+ 2112880 words of memory out of 5000000
+ 72742 multiletter control sequences out of 15000+600000
+ 571349 words of font info for 129 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 103i,15n,132p,1181b,1336s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 103i,12n,132p,856b,1340s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on 代数几何教材翻译.pdf (100 pages).
+Output written on 动力系统大作业.pdf (14 pages).

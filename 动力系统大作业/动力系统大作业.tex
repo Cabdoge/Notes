@@ -1,0 +1,678 @@
+\documentclass[lang=cn,a4paper,11pt,openany,scheme=chinese]{elegantbook}
+
+\let\arrowvert\relax
+%\usepackage{unicode-math}
+
+\let\arrowvert\relax
+
+\usepackage{ctex}
+\usepackage{xeCJK}
+
+\let\fangsong\relax
+\newCJKfontfamily\fangsong{FangSong}[AutoFakeBold=2]
+
+\let\kaishu\relax
+\newCJKfontfamily\kaishu{KaiTi}[AutoFakeBold=2]
+
+
+\usepackage{amsmath} % 建议
+\usepackage{amssymb} % 可选，提供更多符号
+
+\usepackage{ctex}
+\let\openbox\relax
+
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing,arrows.meta}
+
+%调整页边距
+\usepackage{geometry}
+\geometry{top=2cm, bottom=2cm, outer=2cm, inner=2.5cm,footskip=9mm}
+
+
+\usepackage{setspace}
+\setstretch{1.3}
+
+%设定行间距
+\usepackage{calc}
+\setlength{\lineskip}{\baselineskip-\ccwd}
+\setlength{\lineskiplimit}{2.5pt}
+
+
+
+%浮动图片
+\usepackage{wrapfig}
+%图标表格注记
+\usepackage{caption}
+%圆圈数字
+\usepackage{pifont}
+%表格换行
+\usepackage{makecell}
+%表格颜色
+\usepackage[table]{xcolor}
+\colorlet{rowcolcolor}{structurecolor!25!white}
+
+%额外长度自适应箭标
+\usepackage{extarrows}
+
+%行间距加大
+\newcommand{\wideline}{\setlength{\lineskip}{\baselineskip-\ccwd}\setlength{\lineskiplimit}{2.5pt}}
+%蓝色加粗
+\definecolor{titleblue}{HTML}{3498DB}
+\newcommand{\bluebf}[1]{\textcolor{structurecolor}{\textbf{#1}}}
+
+
+%向量
+\usepackage[f]{esvect}
+
+\renewcommand{\vector}[1]{\vv{#1}}
+%平面
+\newcommand{\plane}{\text{平面}\ }
+%平行且等于
+\newcommand{\paraleq}{%
+    \mathrel{\text{%
+        \tikz[baseline]
+        \draw (.1em,0ex) -- (.9em,0ex)
+        (.1em,-.425ex) -- (.9em,-.425ex)
+        (.350em,.1ex) -- (.650em,1.5ex)
+        (.550em,.1ex) -- (.850em,1.5ex);}}}
+
+\newcommand{\mb}{\mathbb}
+\newcommand{\z}{\text}
+\renewcommand{\a}{\alpha}
+\renewcommand{\b}{\beta}
+\let\d\relax
+\newcommand{\d}{\mathop{}\!\mathrm{d}}
+\newcommand{\D}{\Delta}
+\renewcommand{\l}{\lambda}
+\newcommand{\m}{\mu}
+\newcommand{\fl}{\fillin}
+\newcommand{\pr}{\paren}
+\newcommand{\eu}{\mathrm{e}}
+\newcommand{\iu}{\mathrm{i}}
+\renewcommand{\th}{\theta}
+\newcommand{\lam}{\lambda}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+
+\newcommand{\npar}{\par\noindent}
+\DeclareSymbolFont{ugmL}{OMX}{mdugm}{m}{n}
+\DeclareMathAccent{\wideparen}{\mathord}{ugmL}{"F3}
+\newcommand{\sigmaalg}{\sigma-\text{代数}}
+\newcommand{\setjot}[1][0]{\setlength{\jot}{#1 pt}}
+\DeclareMathOperator{\st}{\text{s.t.}}
+\DeclareMathOperator{\aew}{\text{a.e.}}
+\newcommand{\mcal}[1]{\mathcal{#1}}
+\newcommand{\mbb}[1]{\mathbb{#1}}
+
+
+
+% proof 末尾添加方块
+\usepackage[many]{tcolorbox}
+
+\usepackage{nicematrix}
+
+
+
+
+
+%填空题下划线
+\newcommand{\fillin}[1][3.5]{%
+  \nolinebreak % 不在此处断行
+  \hspace{0.2em}%
+  \rule[-0.5ex]{#1em}{0.5pt}% 轻微下沉模拟“下划线”效果
+  \hspace{0.05em}
+}
+
+%调整环境内图片环绕
+\usepackage{mwe}
+\newcommand{\wrapfix}[1][-1]{\begin{wrapfigure}{r}{0.001\textwidth}%
+    \vspace{#1 em}%
+    \includegraphics[width=0.001\textwidth]{example-image}%
+    \end{wrapfigure}}
+
+
+%分式使用行间版
+\everymath{\displaystyle}
+
+
+\usepackage{myenvironment}
+
+
+%elegantbook部分修改
+\usepackage{elegantfix}
+
+%强制右页开始
+\makeatletter
+\newcommand{\ForceRightPage}{%
+  \clearpage
+  \ifodd\value{page}\relax
+    % 已经是奇数页，什么也不做
+  \else
+    \hbox{}\thispagestyle{empty}\newpage
+  \fi
+}
+\makeatother
+
+\raggedbottom
+
+\newcommand\setboxcounter[2]{\setcounter{tcb@cnt@#1}{#2}}
+
+
+% 调整 section 编号样式为 字母.数字（如 A.1、B.2）
+\renewcommand{\thechapter}{\Alph{chapter}}
+\renewcommand\thesection{\Alph{chapter}.\arabic{section}}
+
+
+\begin{document}
+
+
+\title{动力系统大作业}
+\date{}
+\maketitle
+\setcounter{page}{1}
+
+\frontmatter
+\pagenumbering{roman}     % 目录等用罗马数字
+\clearpage
+\tableofcontents
+\clearpage
+
+
+\mainmatter
+
+
+\chapter{前置定理}
+\setcounter{chapter}{2}
+\setboxcounter{theorem}{8}
+\begin{theorem}[Tietza-Urysohn 扩张定理]{B.9}
+    设 $X$ 是正则空间，$A$ 是 $X$ 的闭子集，$f:A\to\mb{R}$是连续实值函数，则存在全空间$X$ 上的连续函数 $F:X\to \mb{R}$ 使得 $F|_A=f$.
+\end{theorem}
+
+\setcounter{chapter}{2}
+\chapter{拓扑群}
+
+数学中许多群上都可以定义一种拓扑，使得群运算和该拓扑下是连续的.对这一现象观察的抽象概括产生了本章要描述的重要理论.
+
+\section{一般定义}
+
+
+\begin{definition}[拓扑群]
+    如果一个群$G$带有一个拓扑，使得映射$\setjot[-4]\begin{aligned}[t]
+        G\times G &\to G \\
+        (g,h) &\mapsto gh
+    \end{aligned}$和$\setjot[-4]\begin{aligned}[t]
+        G &\to G \\
+        g &\mapsto g^{-1}
+    \end{aligned}$
+    都是连续的，则称$G$为\textbf{拓扑群}.
+\end{definition}
+\begin{remark}
+    按照定义，给任何群$G$ 赋予离散拓扑，它都可以平凡地变成一个拓扑群(离散拓扑中任意子集均是开集).
+\end{remark}
+
+任何拓扑群都可以通过两种方式视为一个一致空间:左一致性使得每个左乘映射 \(g \mapsto  {hg}\) 成为一致连续映射，而右一致性使得每个右乘映射 \(g \mapsto  {gh}\) 成为一致连续映射.需要注意，如果$G$是非交换的，这两个一致性是两个不同的一致性.\par
+作为一个一致空间，任何拓扑群都是完全正则的，因此如果它是 \({T}_{0}\) 的，那么它也是Hausdorff 的.\par
+由于我们需要的拓扑群通常具有诱导出拓扑的自然度量，因此实际上并不需要进一步研究这点(因为任意度量空间是正规的).\par
+拓扑群上的拓扑结构和代数结构以多种方式相互作用.例如，在任何拓扑群 \(G\) 中:
+
+\begin{itemize}
+\item 单位元的连通分支是一个闭合的正规子群；
+\item 逆映射 \(g \mapsto  {g}^{-1}\) 是一个同胚；
+\item 对于任何 \(h \in  G\) ，左乘映射 \(g \mapsto  {hg}\) 和右乘映射 \(g \mapsto  {gh}\) 都是同胚；
+\item 如果 \(H\) 是 \(G\) 的一个子群，那么 \(H\) 的闭包也是一个子群；
+\item 如果 \(H\) 是 \(G\) 的一个正规子群，那么 \(H\) 的闭包也是一个正规子群.
+\end{itemize}
+\begin{definition}[单一生成]
+    如果一个拓扑群是 Hausdorff 的且有一个稠密的循环子群，则称为\textbf{单一生成的}(monothetic).
+\end{definition}\par
+一个单一生成的群一定是一个阿贝尔群.稠密子群的任何生成元都被称为\bluebf{拓扑生成元}.单一生成群常在动力学的许多领域中出现.\par
+拓扑群的子群在子空间拓扑下也是一个拓扑群.如果\(H\)是拓扑群\(G\)的一个子群，那么左(或右)陪集集合 \(G/H\)(或 \(H\setminus  G\))在商拓扑(商拓扑是使自然投影 \(g \mapsto  {gH}\) 或 \({Hg}\) 连续的最小拓扑)下是一个拓扑空间.商映射总是开映射.\par
+特别地，如果 \(H\) 是 \(G\) 的一个正规子群，那么商群就是一个拓扑群.然而，如果\(H\)在\(G\)中不是闭的，那么即使 \(G\)是Hausdorff 的，商群也不会是 \({T}_{0}\) 的.因此，我们需要将注意力限制在Hausdorff拓扑群、连续同态和闭合子群的范畴内，以保证在许多自然的群论运算下该范畴是封闭的.\par
+如果拓扑群上的拓扑还是可度量的，那么存在一个与拓扑相容的度量(指这个度量生成了该拓扑)，该度量在每个映射 \(g \mapsto  {hg}\) 下是不变的(被称为\bluebf{左不变度量})，并且类似地存在一个\bluebf{右不变度量}.\par
+
+\setboxcounter{lemma}{1}
+\begin{lemma}
+    如果 \(G\) 是紧致且可度量的，则\(G\)存在一个与拓扑相容且与所有平移下不变的度量(即双不变度量).
+\end{lemma}
+\begin{proof}
+    由于$G$是可度量的Hausdorff空间，故单位元 $e$ 的邻域基可取为一族递减的开集 \({\left\{  {U}_{n}\right\}  }_{n \geq  1}\) ，满足 \(\bigcap_{n \geq  1}{U}_{n} = \{ e\}\).\par
+    又因为可度量空间是正规的，对每个 $n \geq  1$ ，$\{e\}$ 和 $G \setminus  {U}_{n}$ 是两个不交的闭集.\par
+    根据定理\ref{thm:B.9}，可选一个连续函数 \({f}_{n} : G \rightarrow  \left\lbrack  {0,1}\right\rbrack\) ，使得 ${f}_{n}\left( e\right)  = 1$ 且 ${f}_{n}|_{G \setminus  {U}_{n}} = 0$. \par
+    令
+    \[
+    f\left( g\right)  = \mathop{\sum }\limits_{{n = 1}}^{\infty }\frac{{f}_{n}\left( g\right)}{{2}^{n}}.
+    \]
+    \begin{itemize}
+        \item \textbf{$\bm{f}$是连续的}\par
+        因为每个$f_n$有界$\left(|f_n(g)|\leq 1\right)$，则$\sum_{n=1}^{\infty}{\left|\frac{f_n(g)}{2^n}\right|}\leq\sum_{n=1}^\infty{\frac{1}{2^n}}$.\par
+        级数 $\sum_{n=1}^{\infty}{\frac{1}{2^n}}$ 收敛，由Weierstrass M-判别法，级数 $\sum_{{n = 1}}^{\infty }\frac{{f}_{n}\left( g\right)}{{2}^{n}}$ 在$G$上一致收敛.\par
+        由于每一项$f_n$都连续，故其和函数$f$在$G$上连续.
+        \item \textbf{$\bm{f^{-1}(\{1\})=\{e\}}$}\par
+        显然$f(e)=\sum_{n=1}^\infty=1$.\par
+        若$g\neq e$，则存在某个$N$使得$g\notin U_N$，于是$f_N(g)=0$. 此时$f(g)=\sum_{n\neq N}{\frac{f_n(g)}{2^n}}\leq \sum_{n\neq N}{\frac{1}{2^n}}<1$.
+    \end{itemize}
+    
+    现定义函数
+    \[
+    \mathrm{d}\left( {x,y}\right)  = \mathop{\sup }\limits_{{a,b \in  G}}\{ \left| {f\left( {axb}\right)  - f\left( {ayb}\right) }\right| \} .
+    \]
+    下面验证$d$是一个与拓扑相容的双不变度量.
+    \begin{itemize}
+        \item \textbf{$d$是度量}：
+        \begin{itemize}
+            \item \textbf{正定性}：$d(x,y)\geq 0$是显然的. 若$d(x,y)=0$，则$\forall\, a,b$有$f(axb)=f(ayb)$. 取$a=x^{-1},b=e$，则$f(e)=f(x^{-1}y)$，即$1=f(x^{-1}y)$. 由前述性质知$x^{-1}y=e$，故$x=y$.
+            \item \textbf{对称性}：由绝对值的对称性$d(x,y)=d(y,x)$.
+            \item \textbf{三角不等式}：$\forall\, x,y,z\in G$，
+            \begin{align*}
+                d(x,z) &= \sup_{a,b\in G} |f(axb)-f(azb)| \\
+                &= \sup_{a,b\in G} |f(axb)-f(ayb) + f(ayb)-f(azb)| \\
+                &\leq \sup_{a,b\in G} |f(axb)-f(ayb)| + \sup_{a,b\in G} |f(ayb)-f(azb)| \\
+                &= d(x,y)+d(y,z).
+            \end{align*}
+        \end{itemize}
+        \item \textbf{$d$是双不变的}：$\forall\, h,k\in G$，$d(hxk,hyk) = \sup_{a,b\in G} |f(ahxkb)-f(ahykb)|$.\par
+        由于当$a,b$跑遍$G$时，$a':=ah$和$b':=kb$同样跑遍$G$，故
+        \[
+        d(hxk,hyk) = \sup_{a',b'\in G} |f(a'xb')-f(a'yb')| = d(x,y).
+        \]
+        \item \textbf{$d$与拓扑相容}：只需要证明度量生成的拓扑和原拓扑相互包含.
+        \begin{itemize}
+            \item \textbf{原拓扑细于度量拓扑}：设$U$是原拓扑中的一个开集，$x\in U$. 下证$\exists\,\varepsilon>0,\st B_d(x,\varepsilon)\subseteq U$.\par
+            反证法，若不然，则$\forall\, n\in\mathbb{N}$，$\exists\, y_n\in B_d\left(x,\frac{1}{n}\right)$但$y_n\notin U$.\par
+            由于$G$是紧空间，序列$\{y_n\}$存在收敛子列$\{y_{n_k}\}$，设$y_{n_k}\to y$.\par
+            因为$G\setminus U$是闭集，故$y\in G\setminus U$，所以$y\neq x$.\par
+            另一方面，$d(x,y_{n_k})<\frac{1}{n_k}\to 0$，且函数$z\mapsto d(x,z)$连续，故$d(x,y)=\lim_{k\to\infty} d(x,y_{n_k})=0$.\par
+            由度量的正定性，$x=y$，这与$y\neq x$矛盾. 故原拓扑比度量拓扑更细.
+            \item \textbf{度量拓扑细于原拓扑}：要证明任意$B_d(x,\varepsilon)$都是原拓扑中的开集.
+            只需证$\forall\, y\in B_d(x,\varepsilon)$，存在$y$的开邻域$V$使得$V\subseteq B_d(x,\varepsilon)$.\par
+            由于$d(x,y)<\varepsilon$，令$\delta=\varepsilon-d(x,y)>0$.\par
+            由拓扑群的定义可知群乘法$(g_1,g_2)\mapsto g_1g_2$和逆运算$g\mapsto g^{-1}$都是连续的.
+            因此，函数$\phi:G\times G\times G\to \mathbb{R}$定义为$\phi(a,b,z)=|f(axb)-f(azb)|$是连续的.\par
+            由于$G\times G$是紧的，函数$z\mapsto d(x,z)$是连续的.因此，存在$y$的开邻域$V$使得对所有$z\in V$都有$d(y,z)<\delta$.\par
+            于是$\forall\, z\in V$， $d(x,z)\leq d(x,y)+d(y,z) < d(x,y)+\delta = \varepsilon$.
+            这表明$V\subseteq B_d(x,\varepsilon)$.\par
+            故$B_d(x,\varepsilon)$是开集.
+        \end{itemize}
+    \end{itemize}
+    综上所述，$d$是一个与$G$的拓扑相容的双不变度量.
+\end{proof}
+
+\setcounter{instance}{2}
+\begin{instance}
+一般线性群 \({\mathrm{{GL}}}_{n}\left( \mathbb{C}\right)\) 具有一个自然的范数
+
+\[
+\parallel x\parallel  = \max \left\{  {{\left( \mathop{\sum }\limits_{{i = 1}}^{n}{\left| \mathop{\sum }\limits_{{j = 1}}^{n}{x}_{ij}{v}_{j}\right| }^{2}\right) }^{1/2}\left| \mathop{\sum }\limits_{{i = 1}}^{n}\right| {v}_{i}{\left| {}^{2} = 1\right| }^{2}}\right\}
+\]
+
+通过将矩阵 \(x = {\left( {x}_{ij}\right) }_{1 \leq  i,j \leq  n} \in  {\mathrm{{GL}}}_{n}\left( \mathbb{C}\right)\) 视为 \({\mathbb{C}}^{n}\) 上的线性算子.则函数
+
+\[
+\mathrm{d}\left( {x,y}\right)  = \log \left( {1 + \begin{Vmatrix}{{x}^{-1}y - {I}_{n}}\end{Vmatrix} + \begin{Vmatrix}{{y}^{-1}x - {I}_{n}}\end{Vmatrix}}\right)
+\]
+
+是一个左不变度量，与拓扑相容.对于 \(n \geq  2\) ，在 \({\mathrm{{GL}}}_{n}\left( \mathbb{C}\right)\) 上不存在双不变度量.要看到这一点，注意到对于这样的度量，共轭将是一个等距变换，而
+
+\[
+\left( \begin{matrix} m & 1 \\  0 & 1 \end{matrix}\right) \left( \begin{matrix} \frac{1}{m} & \frac{1}{{m}^{2}} \\  0 & 1 \end{matrix}\right)  = \left( \begin{matrix} 1 & 1 + \frac{1}{m} \\  0 & 1 \end{matrix}\right)  \rightarrow  \left( \begin{array}{ll} 1 & 1 \\  0 & 1 \end{array}\right)
+\]
+
+当 \(m \rightarrow  \infty\) 时，
+
+\[
+\left( \begin{matrix} \frac{1}{m} & \frac{1}{{m}^{2}} \\  0 & 1 \end{matrix}\right) \left( \begin{array}{ll} m & 1 \\  0 & 1 \end{array}\right)  = \left( \begin{matrix} 1 & \frac{1}{m} + \frac{1}{{m}^{2}} \\  0 & 1 \end{matrix}\right)  \rightarrow  \left( \begin{array}{ll} 1 & 0 \\  0 & 1 \end{array}\right)
+\]
+
+当 \(m \rightarrow  \infty\) 时.
+\end{instance}
+
+\section{局部紧致群上的 Haar 测度}
+
+进一步专门研究局部紧致拓扑群(即每个点都有一个包含紧致邻域的邻域的拓扑群)会产生一类在遍历论中具有特殊重要性的群，原因如下.
+
+定理 C.4 (Haar(118)). 令 \(G\) 为一个局部紧致群.
+
+(1) 在 \(G\) 的 Borel 子集上定义了一个测度 \({m}_{G}\) ，该测度在左平移下不变，在非空开集上为正，在紧致集上为有限.
+
+(2) 测度 \({m}_{G}\) 在以下意义上是唯一的:如果 \(\mu\) 是任何具有 (1) 中性质的测度，则存在一个常数 \(C\) 使得对于所有 Borel 集 A，都有 \(\mu \left( A\right)  = C{m}_{G}\left( A\right)\) .
+
+(3) 当且仅当 \(G\) 是紧致的时， \({m}_{G}\left( G\right)  < \infty\) .
+
+测度 \({m}_{G}\) 被称为 \(G\) 上的(a)左 Haar 测度；如果 \(G\) 是紧致的，它通常被归一化为具有 \({m}_{G}\left( G\right)  = 1\) .存在一个类似的右 Haar 测度.如果 \({m}_{G}\) 是 \(G\) 上的左 Haar 测度，则对于任何 \(g \in  G\) ，由 \(A \mapsto  {m}_{G}\left( {Ag}\right)\) 定义的测度也是一个左 Haar 测度.根据定理 C.4，因此必须存在一个唯一的函数 mod，称为模函数或模特征，具有以下性质:
+
+\[
+{m}_{G}\left( {Ag}\right)  = {\;\operatorname{mod}\;\left( g\right) }{m}_{G}\left( A\right)
+\]
+
+对于所有博雷尔集 \(A\) .模函数是连续同态mod: \(G \rightarrow  {\mathbb{R}}_{ > 0}\) .一个群，如果其左测度和右测度相等(等价地，其模函数恒等于1)，则称为单模群:例如所有阿贝尔群、所有紧群(因为 \({\mathbb{R}}_{ > 0}\) 没有非平凡的紧子群)以及半单李群.
+
+定理C.4有几种不同的证明方法.对于紧群，可以使用泛函分析中的不动点定理来证明.一种特别直观的构造，由冯·诺依曼提出，首先给某个具有非空内点的固定紧集 \(K\) 赋予测度1，然后使用某个小开集的平移来有效地覆盖 \(K\) 以及任何其他紧集 \(L\) .然后 \(L\) 的Haar测度近似等于覆盖 \(L\) 所需的平移次数除以覆盖 \(K\) 所需的次数(更多细节请参见第8.3节).值得注意的是，定理C.4有一个逆命题:在某些技术假设下，具有Haar测度的群必须是局部紧的 \({}^{\left( {119}\right) }\) .
+
+Haar测度为遍历理论提供了一类重要的例子:如果 \(\phi  : G \rightarrow  G\) 是满同态，并且 \(G\) 是紧的，那么 \(\phi\) 保持 \(G\) 上的Haar测度 \({}^{\left( {120}\right) }\) .Haar测度还将局部紧群的拓扑结构和代数结构联系起来 \({}^{\left( {121}\right) }\) .
+
+例C.5.在许多情况下，Haar测度很容易描述.
+
+(1) \({\mathbb{R}}^{n}\) 上的勒贝格测度 \(\lambda\) ，其特征是
+
+\[
+\lambda \left( {\left\lbrack  {{a}_{1},{b}_{1}}\right\rbrack   \times  \cdots  \times  \left\lbrack  {{a}_{n},{b}_{n}}\right\rbrack  }\right)  = \mathop{\prod }\limits_{{i = 1}}^{n}\left( {{b}_{i} - {a}_{i}}\right)
+\]
+
+对于 \({a}_{i} < {b}_{i}\) ，是平移不变的，因此是 \({\mathbb{R}}^{n}\) 的Haar测度(在乘以一个标量后是唯一的).
+
+(2) \({\mathbb{T}}^{n}\) 上的勒贝格测度 \(\lambda\) ，通过其赋予矩形的测度以相同的方式表征，是一个Haar测度(如果我们选择归一化使得整个群 \({\mathbb{T}}^{n}\) 的测度为1，则它是唯一的).
+
+正如我们所见，一个测度可以通过它如何积分可积函数来描述.对于其余的例子，我们将通过给出一个 \(\int f\mathrm{\;d}{m}_{G}\) 的“公式”来描述一个Haar测度 \({m}_{G}\) .因此，上面(1)中关于Haar测度 \({m}_{{\mathbb{R}}^{n}}\) 的陈述可以有些神秘地写成
+
+\[
+{\int }_{{\mathbb{R}}^{n}}f\left( \mathbf{x}\right) \mathrm{d}{m}_{{\mathbb{R}}^{n}}\left( \mathbf{x}\right)  = {\int }_{{\mathbb{R}}^{n}}f\left( \mathbf{x}\right) \mathrm{d}{x}_{1}\ldots \mathrm{d}{x}_{n}
+\]
+
+对于所有函数 \(f\) ，其中右侧有限.在具有显式坐标的群上评估Haar测度通常相当于计算雅可比行列式.
+
+(3) 令 \(G = \mathbb{R} \smallsetminus  \{ 0\}  = {\mathrm{{GL}}}_{1}\left( \mathbb{R}\right)\) 为实乘法群.变换 \(x \mapsto  {ax}\) 的雅可比行列式为 \(a\) :可以很容易地检查出
+
+\[
+\int f\left( {ax}\right) \frac{\mathrm{d}x}{\left| x\right| } = \int f\left( x\right) \frac{\mathrm{d}x}{\left| x\right| }
+\]
+
+对于任何可积的 \(f\) 和 \(a \neq  0\) .因此，一个Haar测度 \({m}_{G}\) 由下式定义
+
+\[
+{\int }_{G}f\left( x\right) \mathrm{d}{m}_{G}\left( x\right)  = {\int }_{G}\frac{f\left( x\right) }{\left| x\right| }\mathrm{d}x
+\]
+
+对于任何可积的 \(f\) .类似地，如果 \(G = \mathbb{C} \smallsetminus  \{ 0\}  = {\mathrm{{GL}}}_{1}\left( \mathbb{C}\right)\) ，那么
+
+\[
+{\int }_{\mathbb{C}\smallsetminus \{ 0\} }f\left( z\right) \mathrm{d}{m}_{G}\left( z\right)  = {\iint }_{{\mathbb{R}}^{2}\smallsetminus \{ \left( {0,0}\right) \} }\frac{f\left( {x + \mathrm{i}y}\right) }{{x}^{2} + {y}^{2}}\mathrm{\;d}x\mathrm{\;d}y.
+\]
+
+(4) 令 \(G = \left\{  {\left( \begin{array}{ll} a & b \\  0 & 1 \end{array}\right)  \mid  a \in  \mathbb{R}\smallsetminus \{ 0\} ,b \in  \mathbb{R}}\right\}\) ，并将 \(G\) 的元素与对 \(\left( {a,b}\right)\) 进行标识.那么
+
+\[
+{\int }_{G}f\left( {a,b}\right) \mathrm{d}{m}_{G}^{\left( \ell \right) } = {\int }_{\mathbb{R}}{\int }_{\mathbb{R}\smallsetminus \{ 0\} }\frac{f\left( {a,b}\right) }{{a}^{2}}\mathrm{\;d}a\mathrm{\;d}b
+\]
+
+定义了一个左Haar测度，而
+
+\[
+{\int }_{G}f\left( {a,b}\right) \mathrm{d}{m}_{G}^{\left( r\right) } = {\int }_{\mathbb{R}}{\int }_{\mathbb{R}\smallsetminus \{ 0\} }\frac{f\left( {a,b}\right) }{\left| a\right| }\mathrm{d}a\mathrm{\;d}b
+\]
+
+定义了一个右Haar测度.由于 \(G\) 在复合运算下同构于仿射变换群 \(x \mapsto  {ax} + b\) ，因此它被称为“ \({ax} + b\) ”群.它是一个非单模群(non-unimodular group)的例子，其中 \({\;\operatorname{mod}\;\left( {a,b}\right) } = \frac{1}{\left| a\right| }\) .(5)设 \(G = {\mathrm{{GL}}}_{2}\left( \mathbb{R}\right)\) ，并将元素 \({\left( {x}_{ij}\right) }_{1 \leq  i,j \leq  2}\) 识别为
+
+\[
+\left( {{x}_{11},{x}_{12},{x}_{21},{x}_{22}}\right)  \in  A = \left\{  {\mathbf{x} \in  {\mathbb{R}}^{4} \mid  {x}_{11}{x}_{22} - {x}_{12}{x}_{21} \neq  0}\right\}  .
+\]
+
+然后
+
+\[
+{\int }_{G}f\mathrm{\;d}{m}_{G} = {\iiiint }_{A}\frac{f\left( {{x}_{11},{x}_{12},{x}_{21},{x}_{22}}\right) }{{\left( {x}_{11}{x}_{22} - {x}_{12}{x}_{21}\right) }^{2}}\mathrm{\;d}{x}_{11}\mathrm{\;d}{x}_{12}\mathrm{\;d}{x}_{21}\mathrm{\;d}{x}_{22}
+\]
+
+在 \(G\) 上定义了一个左Haar测度和右Haar测度，因此它是单模的.
+
+\section{Pontryagin对偶}
+
+进一步特化，我们得到了局部紧致阿贝尔群(LCA群)的类别，它们拥有一个非常强大的理论(122)，推广了圆上的傅里叶分析.在本节中， \({L}^{p}\left( G\right)\) 表示 \({L}_{{m}_{G}}^{p}\left( G\right)\) ，对于某个在 \(G\) 上的Haar测度 \({m}_{G}\) .
+
+LCA群 \(G\) 上的一个特征是一个连续同态
+
+\[
+\chi  : G \rightarrow  {\mathbb{S}}^{1} = \{ z \in  \mathbb{C}\left| \right| z \mid   = 1\} .
+\]
+
+\(G\) 上所有连续特征的集合在逐点乘法下构成一个群，记为 \(\widehat{G}\) (这意味着 \(\widehat{G}\) 上的运算定义为
+
+\[
+\left( {{\chi }_{1} + {\chi }_{2}}\right) \left( g\right)  = {\chi }_{1}\left( g\right) {\chi }_{2}\left( g\right)
+\]
+
+对于所有 \(g \in  G\) ，以及平凡特征 \(\chi \left( g\right)  = 1\) 是单位元). \(g \in  G\) 在 \(\chi  \in  \widehat{G}\) 下的像也将被写为 \(\langle g,\chi \rangle\) ，以强调这是 \(G\) 和 \(\widehat{G}\) 之间的配对.对于紧致的 \(K \subseteq  G\) 和 \(\varepsilon  > 0\) ，集合
+
+\[
+N\left( {K,\varepsilon }\right)  = \{ \chi \left| \right| \chi \left( g\right)  - 1 \mid   < \varepsilon \text{ for }g \in  K\}
+\]
+
+及其平移在 \(\widehat{G}\) 上构成一个拓扑的基，即紧集上一致收敛的拓扑.
+
+定理C.6. 在上述拓扑下，LCA群的特征群本身也是一个LCA群.分离点的特征群的子群是稠密的.
+
+一个子集 \(E \subseteq  \widehat{G}\) 被称为分离点，如果对于 \(g \neq  h\) 在 \(G\) 中，存在某个 \(\chi  \in  E\) 使得 \(\chi \left( g\right)  \neq  \chi \left( h\right)\) .
+
+使用 \(G\) 上的Haar测度，可以定义通常的 \({L}^{p}\) 函数空间.对于 \(f \in  {L}^{1}\left( G\right)\) ， \(f\) 的傅里叶变换，记为 \(\widehat{f}\) ，是 \(\widehat{G}\) 上的函数，由下式给出
+
+\[
+\widehat{f}\left( \chi \right)  = {\int }_{G}f\left( g\right) \overline{\langle g,\chi \rangle }\mathrm{d}{m}_{G}.
+\]
+
+傅里叶变换的一些基本性质如下.
+
+\begin{itemize}
+\item 映射 \(f \mapsto  \widehat{f}\) 的像是在 \({C}_{0}\left( \widehat{G}\right)\) (在无穷远处消失的连续复值函数)中的一个分离的自伴代数，因此在一致度量下是 \({C}_{0}\left( \widehat{G}\right)\) 的稠密子集.
+\end{itemize}
+
+\begin{itemize}
+\item 卷积 \(f * g\) 的傅里叶变换是乘积 \(\widehat{f} \cdot  \widehat{g}\) .
+\end{itemize}
+
+\begin{itemize}
+\item 傅里叶变换满足 \(\parallel \widehat{f}{\parallel }_{\infty } \leq  \parallel f{\parallel }_{1}\) ，因此是从 \({L}^{1}\left( G\right)\) 到 \({L}^{\infty }\left( \widehat{G}\right)\) 的连续算子.
+\end{itemize}
+
+引理 C.7. 如果 \(G\) 是离散的，则 \(\widehat{G}\) 是紧的；如果 \(G\) 是紧的，则 \(\widehat{G}\) 是离散的.
+
+我们证明该引理的第二部分，以说明傅里叶分析如何用于研究这些群.假设 \(G\) 是紧的，因此常数函数 \({\chi }_{0} \equiv  1\) 属于 \({L}^{1}\left( G\right)\) .
+
+在 \(G\) 紧的假设下，我们还有以下正交关系.设 \(\chi  \neq  \eta\) 是 \(G\) 上的特征标.那么我们可以找到一个元素 \(h \in  G\) 使得 \(\left( {\chi {\eta }^{-1}}\right) \left( h\right)  \neq  1\) .另一方面，
+
+\[
+{\int }_{G}\left( {\chi {\eta }^{-1}}\right) \left( g\right) \mathrm{d}{m}_{G} = {\int }_{G}\left( {\chi {\eta }^{-1}}\right) \left( {g + h}\right) \mathrm{d}{m}_{G} = \left( {\chi {\eta }^{-1}}\right) \left( h\right) \int \left( {\chi {\eta }^{-1}}\right) \left( g\right) \mathrm{d}{m}_{G},
+\]
+
+因此，关于内积， \({\int }_{G}\left( {\chi {\eta }^{-1}}\right) \left( g\right) \mathrm{d}{m}_{G} = 0\) 和特征标 \(\chi\) 和 \(\eta\) 是正交的
+
+\[
+\left\langle  {{f}_{1},{f}_{2}}\right\rangle   = {\int }_{G}{f}_{1}\overline{{f}_{2}}\mathrm{\;d}{m}_{G}
+\]
+
+在 \(\widehat{G}\) 上.因此，不同的特征标作为 \({L}^{2}\left( G\right)\) 中的元素是正交的.
+
+最后，请注意，任何 \({L}^{1}\) 函数的傅里叶变换在对偶群上是连续的，并且正交关系意味着，如果 \(\chi\) 是平凡特征标 \({\chi }_{0}\) ，则 \(\widehat{{\chi }_{0}}\left( \chi \right)  = 1\) ；如果不是，则 \(\widehat{{\chi }_{0}}\left( \chi \right)  = 0\) .由此可知 \(\left\{  {\chi }_{0}\right\}\) 是 \(\widehat{G}\) 的一个开子集，因此 \(\widehat{G}\) 是离散的.
+
+傅里叶变换定义在 \({L}^{1}\left( G\right)  \cap  {L}^{2}\left( G\right)\) 上，并映射到 \({L}^{2}\left( \widehat{G}\right)\) 的一个稠密线性子空间，作为 \({L}^{2}\) 等距变换.因此，它唯一地扩展为一个等距变换 \({L}^{2}\left( G\right)  \rightarrow  {L}^{2}\left( \widehat{G}\right)\) ，称为傅里叶变换或普朗歇尔变换，也表示为 \(f \mapsto  \widehat{f}\) .我们注意到这个映射是满射的.
+
+回想一下，在 \({L}^{2}\left( G\right)\) 上存在一个自然的内积结构.
+
+定理 C.8 (帕塞瓦尔公式).设 \(f\) 和 \(g\) 是 \({L}^{2}\left( G\right)\) 中的函数.则
+
+\[
+\langle f,g{\rangle }_{G} = {\int }_{G}f\left( x\right) \overline{g\left( x\right) }\mathrm{d}{m}_{G} = {\int }_{\widehat{G}}\widehat{f}\left( \chi \right) \overline{\widehat{g}\left( \chi \right) }\mathrm{d}{m}_{\widehat{G}} = \langle \widehat{f},\widehat{g}{\rangle }_{\widehat{G}}.
+\]
+
+给定局部紧致阿贝尔群 \(G\) 的对偶群 \(\widehat{G}\) 上的一个有限 Borel 测度 \(\mu\) ， \(\mu\) 的逆傅里叶变换是函数 \(\check{\mu } : G \rightarrow  \mathbb{C}\) ，定义为
+
+\[
+\check{\mu }\left( x\right)  = {\int }_{\widehat{G}}\chi \left( x\right) \mathrm{d}\mu \left( \chi \right) .
+\]
+
+如果对于任意 \({a}_{1},\ldots ,{a}_{r} \in  \mathbb{C}\) 和 \({x}_{1},\ldots ,{x}_{r} \in  G\) ，函数 \(f : G \rightarrow  \mathbb{C}\) 满足
+
+\[
+\mathop{\sum }\limits_{{i = 1}}^{r}\mathop{\sum }\limits_{{j = 1}}^{r}{a}_{i}\overline{{a}_{j}}f\left( {{x}_{i}{x}_{j}^{-1}}\right)  \geq  0. \tag{C.1}
+\]
+
+定理 C.9 (赫尔格洛茨-博赫纳 \({}^{\left( {123}\right) }\) ).设 \(G\) 是一个阿贝尔局部紧致群.函数 \(f : G \rightarrow  \mathbb{C}\) 是正定函数当且仅当它是有限正 Borel 测度的傅里叶变换.
+
+用 \(B\left( G\right)\) 表示所有函数 \(f\) 的集合，这些函数在 \(G\) 上具有以下形式的表示:
+
+\[
+f\left( x\right)  = {\int }_{\widehat{G}}\langle x,\chi \rangle \mathrm{d}\mu \left( \chi \right)
+\]
+
+对于 \(x \in  G\) 和 \(\widehat{G}\) 上的有限正博雷尔测度 \(\mu\) .赫格罗兹-博赫纳定理(Herglotz-Bochner theorem)(定理C.9)的一个结果是， \(B\left( G\right)\) 与 \(G\) 上连续正定函数的有限线性组合的集合一致(参见(C.1)).
+
+定理 C.10(反演定理).设 \(G\) 为一个局部紧群.如果 \(f \in  {L}^{1}\left( G\right)  \cap  B\left( G\right)\) ，则 \(\widehat{f} \in  {L}^{1}\left( \widehat{G}\right)\) .在 \(G\) 上选择了一个哈尔测度(Haar measure)后， \(\widehat{G}\) 上的哈尔测度 \({m}_{\widehat{G}}\) 可以被归一化，使得
+
+\[
+f\left( g\right)  = {\int }_{\widehat{G}}\widehat{f}\left( \chi \right) \langle g,\chi \rangle \mathrm{d}{m}_{\widehat{G}} \tag{C.2}
+\]
+
+对于 \(g \in  G\) 和任何 \(f \in  {L}^{1}\left( G\right)  \cap  B\left( G\right)\) .
+
+我们通常会使用定理C.10来处理紧度量阿贝尔群 \(G\) .在这种情况下，哈尔测度(Haar measure)被归一化以使 \(m\left( G\right)  = 1\) ，并且离散可数群 \(\widehat{G}\) 上的测度就是简单的计数测度，因此(C.2)的右侧是一个级数.
+
+特别地，对于情况 \(G = \mathbb{T} = \mathbb{R}/\mathbb{Z}\) ，我们发现 \(\widehat{G} = \left\{  {{\chi }_{k} \mid  k \in  \mathbb{Z}}\right\}\) ，其中 \({\chi }_{k}\left( t\right)  = {\mathrm{e}}^{{2\pi }\mathrm{i}{kt}}\) .定理C.10表明，对于任何 \(f \in  {L}^{2}\left( \mathbb{T}\right)\) ，我们都有傅里叶展开式(Fourier expansion).
+
+\[
+f\left( t\right)  = \mathop{\sum }\limits_{{k \in  \mathbb{Z}}}\widehat{f}\left( {\chi }_{k}\right) {\mathrm{e}}^{{2\pi }\mathrm{i}{kt}}
+\]
+
+对于几乎每一个 \(t\) .
+
+类似地，对于任何紧群 \(G\) ， \(G\) 的特征标集构成了 \({L}^{2}\left( G\right)\) 的正交基.在引理C.7之后的讨论中，我们已经展示了正交性；在这里，我们简要地说明如何建立特征标集的完备性，包括具体群和一般群.
+
+令 \(\mathcal{A}\) 表示形如以下形式的有限线性组合的集合
+
+\[
+p\left( g\right)  = \mathop{\sum }\limits_{{i = 1}}^{n}{c}_{i}{\chi }_{i}
+\]
+
+与 \({c}_{i} \in  \mathbb{C}\) .那么 \(\mathcal{A}\) 是 \({C}_{\mathbb{C}}\left( X\right)\) 的子代数，在共轭下是封闭的.如果我们额外知道 \(\mathcal{A}\) 分离 \(G\) 中的点，那么根据斯通-魏尔斯特拉斯定理(Stone-Weierstrass Theorem，定理B.7)，我们有 \(\mathcal{A}\) 在 \({C}_{\mathbb{C}}\left( X\right)\) 中是稠密的.此外，在这种情况下， \(\mathcal{A}\) 在 \({L}^{2}\left( G\right)\) 中也是稠密的，因此字符集构成了 \({L}^{2}\left( G\right)\) 的正交基.对于许多紧阿贝尔群，可以显式地检查 \(\mathcal{A}\) 是否分离点；特别是对于 \(G = {\mathbb{R}}^{d}/{\mathbb{Z}}^{d}\) ，字符的形式是
+
+\[
+{\chi }_{\mathbf{n}}\left( \mathbf{x}\right)  = {\mathrm{e}}^{{2\pi }\mathrm{i}\left( {{n}_{1}{x}_{1} + \cdots  + {n}_{d}{x}_{d}}\right) } \tag{C.3}
+\]
+
+利用 \(\mathbf{n} \in  {\mathbb{Z}}^{d}\) ，这种显式表示可以用来证明字符集分离 \(d\) -环面上的点.一般来说，可以通过证明 \(B\left( G\right)\) 中的函数分离点，然后应用赫格罗兹-博赫纳定理(Herglotz-Bochner theorem)(定理C.9)来证明 \(\widehat{G}\) 分离点.
+
+定理 C.11.对于任何紧阿贝尔群 \(G\) ，特征标集分离点，因此构成 \({L}^{2}\left( G\right)\) 的完备正交基.
+
+该理论的亮点是庞特里亚金对偶性(Pontryagin duality)，它直接将LCA群(LCA group)的代数结构与其(傅里叶-)分析结构联系起来.如果 \(G\) 是一个LCA群，那么 \(\Gamma  = \widehat{G}\) 也是一个LCA群，因此它有一个特征群(character group) \(\widehat{\Gamma }\) ，该特征群也是LCA群.任何元素 \(g \in  G\) 在 \(\Gamma\) 上定义了一个特征 \(\chi  \mapsto  \chi \left( g\right)\) .
+
+定理C.12(庞特里亚金对偶性).映射 \(\alpha  : G \rightarrow  \widehat{\Gamma }\) 由下式定义
+
+\[
+\langle g,\chi \rangle  = \langle \chi ,\alpha \left( g\right) \rangle
+\]
+
+是LCA群的连续同构.
+
+庞特里亚金对偶定理与LCA群的子群结构的关系如下.
+
+定理C.13.如果 \(H \subseteq  G\) 是一个闭子群，那么 \(G/H\) 也是一个LCA群.集合
+
+\[
+{H}^{ \bot  } = \{ \chi  \in  \widehat{G} \mid  \chi \left( h\right)  = 1\text{ for all }h \in  H\} ,
+\]
+
+是 \(H\) 的零化子(annihilator)，是 \(\widehat{G}\) 的一个闭子群.此外，
+
+\begin{itemize}
+\item \(\widehat{G/H} \cong  {H}^{ \bot  }\) ;
+\end{itemize}
+
+\begin{itemize}
+\item \(\widehat{G}/{H}^{ \bot  } \cong  \widehat{H}\) ;
+\end{itemize}
+
+\begin{itemize}
+\item 如果 \({H}_{1},{H}_{2}\) 是 \(G\) 的闭子群，那么
+\end{itemize}
+
+\[
+{H}_{1}^{ \bot  } + {H}_{2}^{ \bot  } \cong  \widehat{X}
+\]
+
+其中 \(X = G/\left( {{H}_{1} \cap  {H}_{2}}\right)\) ；
+
+\begin{itemize}
+\item \({H}^{ \bot   \bot  } \cong  H\) .
+\end{itemize}
+
+连续同态 \(\theta  : G \rightarrow  H\) 的对偶是一个同态
+
+\[
+\widehat{\theta } : \widehat{H} \rightarrow  \widehat{G}
+\]
+
+由 \(\widehat{\theta }\left( \chi \right) \left( g\right)  = \chi \left( {\theta \left( g\right) }\right)\) 定义.同态存在简单的对偶关系，例如，当且仅当 \(\widehat{\theta }\) 是单射时， \(\theta\) 才有稠密的像.
+
+庞特里亚金对偶用代数术语表达拓扑性质.例如，如果 \(G\) 是紧致的，那么 \(\widehat{G}\) 是挠的当且仅当 \(G\) 是零维的(即，拓扑基由既闭又开的集合构成)，并且 \(\widehat{G}\) 是无挠的当且仅当 \(G\) 是连通的.对偶还描述了单生成群:如果 \(G\) 是一个具有可数拓扑基的紧致阿贝尔群，那么 \(G\) 是单生成的当且仅当对偶群 \(\widehat{G}\) 作为抽象群同构于 \({\mathbb{S}}^{1}\) 的一个可数子群.如果 \(G\) 是单生成的，那么任何这样的同构都是通过选择一个拓扑生成元 \(g \in  G\) 然后将 \(\chi  \in  \widehat{G}\) 映射到 \(\chi \left( g\right)  \in  {\mathbb{S}}^{1}\) 来实现的.
+
+例 C.14. 与例 C.5 中的哈尔测度一样，许多群的特征群可以用简单的方式写出.
+
+(1) 如果 \(G = \mathbb{Z}\) 具有离散拓扑，那么任何特征 \(\chi  \in  \widehat{\mathbb{Z}}\) 由值 \(\chi \left( 1\right)  \in  {\mathbb{S}}^{1}\) 确定，并且任何 \(\chi \left( 1\right)\) 的选择都定义了一个特征.因此，映射 \(z \mapsto  {\chi }_{z}\) 是一个同构 \({\mathbb{S}}^{1} \rightarrow  \widehat{\mathbb{Z}}\) ，其中 \(\chi\) 是 \(\mathbb{Z}\) 上具有 \({\chi }_{z}\left( 1\right)  = z\) 的唯一特征.
+
+(2) 考虑具有通常拓扑的群 \(\mathbb{R}\) .那么对于任何 \(s \in  \mathbb{R}\) ，映射 \({\chi }_{s} : t \mapsto  {\mathrm{e}}^{\mathrm{i}{st}}\) 是 \(\mathbb{R}\) 上的一个特征，并且任何特征都具有这种形式.换句话说，映射 \(s \mapsto  {\chi }_{s}\) 是一个同构 \(\mathbb{R} \rightarrow  \widehat{\mathbb{R}}\) .
+
+(3) 更一般地，设 \(\mathbb{K}\) 为任何局部紧致非离散域，并假设 \({\chi }_{0} : \mathbb{K} \rightarrow  {\mathbb{S}}^{1}\) 是 \(\mathbb{K}\) 加法群结构的非平凡特征.那么映射 \(a \mapsto  {\chi }_{a}\) 是一个同构 \(\mathbb{K} \rightarrow  \widehat{\mathbb{K}}\) ，其中 \({\chi }_{a}\left( x\right)  = {\chi }_{0}\left( {ax}\right)\) .
+
+(4) (3) 的一个重要例子涉及 \(p\) -adic数 \({\mathbb{Q}}_{p}\) 域.对于每个素数 \(p\) ，域 \({\mathbb{Q}}_{p}\) 是形式幂级数 \(\mathop{\sum }\limits_{{n \geq  k}}{a}_{n}{p}^{n}\) 的集合，其中 \({a}_{n} \in  \{ 0,1,\ldots ,p - 1\}\) 且 \(k \in  \mathbb{Z}\) ，我们总是选择 \({a}_{k} \neq  0\) ，具有通常的加法和乘法.度量 \(\mathrm{d}\left( {x,y}\right)  = {\left| x - y\right| }_{p}\) ，其中 \({\left| \mathop{\sum }\limits_{{n \geq  k}}{a}_{n}{p}^{n}\right| }_{p} = {p}^{-k}\) 且 \({\left| 0\right| }_{p} = 0\) ，使得 \({\mathbb{Q}}_{p}\) 成为一个非离散局部紧域.根据 (3)，同构 \(\widehat{{\mathbb{Q}}_{p}} \rightarrow  {\mathbb{Q}}_{p}\) 由 \({\mathbb{Q}}_{p}\) 上的任何非平凡特征决定，例如映射
+
+\[
+\mathop{\sum }\limits_{{n \geq  k}}{a}_{n}{p}^{n} \mapsto  \exp \left( {{2\pi }\mathrm{i}\mathop{\sum }\limits_{{n = k}}^{{-1}}{a}_{n}{p}^{-n}}\right) .
+\]
+
+(5) 考虑具有离散拓扑的加法群 \(\mathbb{Q}\) .那么特征群是紧的. \(\widehat{\mathbb{R}}\) 的任何元素都限制为 \(\mathbb{Q}\) 的一个特征，因此存在一个嵌入 \(\mathbb{R} \hookrightarrow  \widehat{\mathbb{Q}}\) (单射，因为 \(\mathbb{R}\) 上的连续特征由其在稠密集 \(\mathbb{Q}\) 上的值定义).群 \(\widehat{\mathbb{Q}}\) 是螺线管的一个例子，Weil [378] 的专著中详细描述了其阿代尔结构.
+
+引理 C.15 (黎曼-勒贝格(Riemmann-Lebesgue)(124)).设 \(G\) 是一个局部紧阿贝尔群，设 \(\mu\) 是 \(G\) 上的一个关于哈尔测度 \({m}_{G}\) 绝对连续的测度.那么
+
+\[
+\widehat{\mu }\left( \chi \right)  = {\int }_{G}\chi \left( g\right) \mathrm{d}\mu \left( t\right)  \rightarrow  0
+\]
+
+当 \(\chi  \rightarrow  {\infty }^{ * }\) 时.
+
+
+* 一个序列 \({\chi }_{n} \rightarrow  \infty\) 如果对于任何紧集 \(K \subseteq  \widehat{G}\) 存在 \(N = N\left( K\right)\) 使得
+
+\[
+n \geq  N \Rightarrow  {\chi }_{n} \notin  K
+\]
+
+
+
+黎曼-勒贝格引理推广到关于任何足够平滑的测度的绝对连续测度.
+
+引理 C.16.设 \(\nu\) 是 \({\mathbb{S}}^{1}\) 上的一个有限测度，并假设
+
+\[
+\int {\mathrm{e}}^{{2\pi }\mathrm{i}{nt}}\mathrm{\;d}\nu \left( t\right)  \rightarrow  0
+\]
+
+当 \(\left| n\right|  \rightarrow  \infty\) 时.那么对于任何关于 \(\nu\) 绝对连续的有限测度 \(\mu\) ，
+
+\[
+\int {\mathrm{e}}^{{2\pi }\mathrm{i}{nt}}\frac{\mathrm{d}\mu }{\mathrm{d}\nu }\mathrm{d}\nu \left( t\right)  \rightarrow  0
+\]
+
+当 \(\left| n\right|  \rightarrow  \infty\) 时.
+
+\section*{C 附录的注释}
+
+(115) (第 429 页) 给定一个拓扑空间 \(\left( {X,\mathcal{T}}\right)\) ，如果对于任何开集 \(U \in  \mathcal{T}\) ，当且仅当 \(y \in  U\) 时，点 \(x\) 和 \(y\) 被称为拓扑上不可区分(它们具有相同的邻域).如果不同的点总是拓扑上可区分的，则该空间被称为 \({T}_{0}\) 或 Kolmogorov 空间.这是拓扑分离公理层次结构中最弱的一个；对于拓扑群，这些公理中的许多都归结为以下自然属性:如果不同的点总是具有一些不同的邻域，则该空间是 \({T}_{2}\) 或 Hausdorff 空间.
+
+\({}^{\left( {116}\right) }\) (第430页) 拓扑群是可度量的当且仅当每个点都有可数邻域基(Kakutani [170] 和 Birkhoff [34] 已证明这一点)，并且当存在一个在所有平移下不变的度量时，如果存在一个在单位元处的可数基 \(\left\{  {V}_{n}\right\}\) 且对所有 \(x{V}_{n}{x}^{-1} = {V}_{n}\) 成立 \(n\) (参见 Hewitt 和 Ross [151,第79页]).
+
+(117) (第430页) 这种在 \({\mathrm{{GL}}}_{n}\left( \mathbb{C}\right)\) 上构造左不变度量的显式方法归功于 Kakutani [170] 和 von Dantzig [64].
+
+(118) (第431页) Haar 的原始证明出现在他的论文 [130] 中；在 Folland [94]、Weil [377] 或 Hewitt 和 Ross [151] 的书中可以找到更易懂的论述.von Neumann 从 1940-41 年的讲义笔记(当时他从新的视角发展了该理论的许多内容)现已由美国数学会 [269] 编辑并提供.
+
+(119) (第432页) 该结果部分公布在 Weil 的一篇笔记 [376] 中，随后 Kodaira [206] 给出了完整的证明；这些结果后来被 Mackey [239] 进一步完善.
+
+(120) (第432页) 这一观察归功于 Halmos [134]，他确定了 Haar 测度何时是遍历的，并解释了紧群自同构作为遍历理论中保持测度变换的特殊例子所扮演的角色.证明很简单:由 \(\mu \left( A\right)  = {m}_{G}\left( {{\phi }^{-1}A}\right)\) 定义的测度也是一个定义在 Borel 集上的平移不变概率测度，因此 \(\mu  = {m}_{G}\) .
+
+\({}^{\left( {121}\right) }\) (第432页) 例如，如果 \(G\) 和 \(H\) 是局部紧群，并且 \(G\) 的拓扑有一个可数基，那么任何可测同态 \(\phi  : H \rightarrow  G\) 都是连续的(Mackey [240])；在任何局部紧群中，对于任何具有正 Haar 测度的紧集 \(A\) ，集合 \(A{A}^{-1}\) 包含单位元的一个邻域；如果 \(H \subseteq  G\) 在乘法下是闭合的且是共零集，那么 \(H = G\) .
+
+(122) (第433页) 本节所述理论通常称为 Pontryagin 对偶性或 Pontryagin-von Kampen 对偶性；原始文献是 Pontryagin 的书 [293] 和 van Kampen 的论文 [181].在 Folland [94]、Weil [377]、Rudin [322] 或 Hewitt 和 Ross [151] 的书中可以找到更易懂的论述.
+
+(123) (第435页) 对于 \(\mathbb{Z}\) 上的函数，该结果归功于 Herglotz [148]；对于 \(\mathbb{R}\) ，归功于 Bochner [37]；对于局部紧阿贝尔群，归功于 Weil [377]；易懂的文献包括后来的译本 [38] 和 Folland [94].
+
+(124) (第 438 页) Riemann [310] 证明了黎曼可积周期函数的傅里叶系数收敛于零，Lebesgue [219] 将此进行了推广.具有 \(\widehat{\mu }\left( n\right)  \rightarrow  0\) 作为 \(\left| n\right|  \rightarrow  \infty\) 的有限 Borel 测度(finite Borel measures)是 Rajchman 测度；所有绝对连续测度都是 Rajchman 测度，但反之不然.Menshov 在构造一个具有重数(multiplicity)的 Lebesgue 零集时，于 1916 年通过修改康托尔三分集(Cantor middle-third set)上的自然测度，构造了一个奇异的 Rajchman 测度(尽管请注意，康托尔三分集上的康托尔-Lebesgue 测度 \(\nu\) 具有 \(\widehat{\nu }\left( n\right)  = \widehat{\nu }\left( {3n}\right)\) ，因此是一个连续测度但不是 Rajchman 测度).Riesz 提出了 Rajchman 测度是否必须是连续测度的问题，Neder 于 1920 年证明了这一点.Wiener 通过证明 \(\nu\) 是连续的当且仅当 \(\frac{1}{{2n} + 1}\mathop{\sum }\limits_{{k =  - n}}^{n}\left| {\widehat{\mu }\left( k\right) }\right|  \rightarrow  0\) 作为 \(n \rightarrow  \infty\) ，给出了连续测度的完整刻画.Lyons [238] 的综述提供了一个方便的参考.
+\end{document}
+
+
+\end{document}
