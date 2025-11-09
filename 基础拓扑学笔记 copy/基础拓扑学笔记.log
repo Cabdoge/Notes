@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.28)  2 NOV 2025 15:19
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.28)  6 NOV 2025 22:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1832,24 +1832,78 @@ File: fig/6.3.png Graphic file (type bmp)
 <fig/6.3.png>
 File: fig/6.4.png Graphic file (type bmp)
 <fig/6.4.png>
+File: fig/6.5.png Graphic file (type bmp)
+<fig/6.5.png>
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 226.
+See the caption package documentation for explanation.
+
 
 
 [34]
 File: fig/6.6.png Graphic file (type bmp)
 <fig/6.6.png>
 
-Underfull \hbox (badness 1400) in paragraph at lines 236--242
+Underfull \hbox (badness 1400) in paragraph at lines 242--248
 []\TU/FangSong(0)/m/n/10.95 固 定 一 点 $\OML/cmm/m/it/10.95 x \OMS/cmsy/m/n/10.95 2 \OML/cmm/m/it/10.95 X$\TU/FangSong(0)/m/n/10.95 ，|  子 空 间 $\OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 x\OMS/cmsy/m/n/10.95 g ^^B \OML/cmm/m/it/10.95 Y$ \TU/FangSong(0)/m/n/10.95 与 $\OML/cmm/m/it/10.95 Y$ \TU/FangSong(0)/m/n/10.95 同 胚，|  因 此 是 紧 的，|  所 以 $\OMS/cmsy/m/n/10.95 O$ \TU/FangSong(0)/m/n/10.95 有 一 个 包 含
  []
 
 
 
 [35]
+File: fig/6.7.png Graphic file (type bmp)
+<fig/6.7.png>
 
-[36]) (./连通性.tex
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 313.
+See the caption package documentation for explanation.
+
+File: fig/6.8.png Graphic file (type bmp)
+<fig/6.8.png>
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 325.
+See the caption package documentation for explanation.
+
+
+Underfull \hbox (badness 2644) in paragraph at lines 317--328
+[][] []
+ []
+
+
+
+[36]
+File: fig/6.9.png Graphic file (type bmp)
+<fig/6.9.png>
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 351.
+See the caption package documentation for explanation.
+
+File: fig/6.10.png Graphic file (type bmp)
+<fig/6.10.png>
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 359.
+See the caption package documentation for explanation.
+
+File: fig/6.11.png Graphic file (type bmp)
+<fig/6.11.png>
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 368.
+See the caption package documentation for explanation.
+
+) (./连通性.tex
 
 [37]
 Chapter 7.
+File: fig/7.1.png Graphic file (type bmp)
+<fig/7.1.png>
 
 
 [38
@@ -1868,10 +1922,10 @@ Package logreq Info: Writing requests to '基础拓扑学笔记.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 50043 strings out of 473832
- 1071344 string characters out of 5733157
+ 50069 strings out of 473832
+ 1069662 string characters out of 5733157
  2072327 words of memory out of 5000000
- 72180 multiletter control sequences out of 15000+600000
+ 72199 multiletter control sequences out of 15000+600000
  570672 words of font info for 139 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  103i,14n,129p,692b,1511s stack positions out of 10000i,1000n,20000p,200000b,200000s
