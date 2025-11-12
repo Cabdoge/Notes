@@ -220,7 +220,108 @@ $Q\subseteq \mb{R}^2$为全测集，由Fubini定理，存在$A\subseteq\mb{R}$�
 \begin{theorem}
     设$(X,d)$为紧致度量空间，$T:X\to X$是连续映射，那么存在$X$中的非空闭集$A$，使得$TA\subseteq A$，且$T:A\to A$是极小系统.
 \end{theorem}
+\begin{proof}
+    设$\mcal{F}=\left\{A\subseteq X|A\,\text{非空闭集}\, ,TA\subseteq A\right\}$.\par
+    定义偏序关系：$A<B\iff A\subseteq B(\forall\, A,B\in\mcal{F})$.\par
+    设$\mcal{A}$是$\mcal{F}$中的全序子集，$\mcal{A}=\{A_\alpha\}_{\alpha\in I}$.\par
+    定义$E=\bigcap_{\alpha\in I}{A_\alpha}$，下证$E\subseteq \mcal{F}$.\par
+    \begin{enumerate}[leftmargin=4em,label=(\arabic*)]
+        \item $E$是非空闭集.\par
+        由$A_\alpha$闭，$E=\bigcap_{\alpha\in I}{A_\alpha}$为闭集.\par
+        若$E=\varnothing$，取补得$X=\bigcup_{\alpha\in I}{A_\alpha}$为闭集.\par
+        由于$X$ 紧致，因此存在$\{A_\alpha^c\}_{\alpha\in I}$ 的有限子覆盖$\left\{A_1^c,A_2^c,\cdots,A_k^c\right\}$ ，不妨$A_1<A_2<\cdots A_k$.\par
+        则$X=A_1^c\cup A_2^c\cup \cdots\cup A_k^c$，取补得$\varnothing=A_1\cap A_2\cap \cdots A_k=A_1$，矛盾! \par
+        因此$E$ 非空.
+        \item $TE\subseteq E$.\par
+        $TA_\alpha\subseteq A_\alpha(\forall\,\alpha\in I)\Rightarrow T \left(\bigcap_{\alpha\in I}{A_\alpha}\right)\subseteq \bigcap_{\alpha\in I}{A_\alpha}\Rightarrow TE\subseteq E$.
+    \end{enumerate}\par
+    因此，$E\subseteq \mcal{F}$.\par
+    由Zorn引理，$\mcal{F}$中存在极小元，设为$A$.\par
+    定义$T|_A:A\to A$，下证其为极小系统，即$\forall\, x\in A$，$\left\{x,Tx,\cdots,T^nx,\cdots\right\}$在$A$中稠密.\par
+    设$S=\overline{\{x,Tx,T^2x,\cdots\}}$.\par
+    由于$\forall\, i\in\mb{N}_{>0},T(T^i(x))=T^{i+1}x\in S\Rightarrow T \left(\overline{\{x,Tx,\cdots\}}\right)\subseteq S$，因此$TS\subseteq S$.\par
+    所以$S\in\mcal{F}$，如果$S\neq A$，那么$S<A$，与$A$的极小性矛盾.\par
+    故$S=\overline{\{x,Tx,T^2x,\cdots\}}=A\Rightarrow \{x,Tx,T^2x,\cdots\}$ 在$A$中稠密.
+\end{proof}
 
+基于该定理，我们就可以证明Birkhoff回复定理.
+\begin{theorem*}{Birkhoff回复定理}
+    设$(X,d)$为紧致度量空间，$T:X\to X$是连续映射，存在$x\in X$，以及自然数子列$\{n_i\}_{i\in\mb{N}}$，使得$T^{n_i}x\to x(i\to\infty)\Leftrightarrow x\in \omega(x)$.
+\end{theorem*}
+\begin{proof}
+    不妨假设$T:X\to X$是极小系统(否则考虑$T|_A:A\to A$即可).\par
+    $\forall\, x\in X,x$的$\omega$--极限集$\omega(x)$是闭集，且$T \left(\omega(x)\right)=\omega(x)$.\par
+    由于$T$是极小系统，$\forall\, y\in X$，$\overline{\{y,Ty,T^2y,\cdots\}}=X$.\par
+    取$y\in\omega(x)$，由$T$--不变性$\{y,Ty,T^2y,\cdots\}\subseteq \omega(x)$.\par
+    又因$\omega(x)$是闭集，故$\overline{\{y,Ty,T^2y,\cdots\}}\subseteq\omega(x)$，即$X\subseteq\omega(x)$.\par
+    因此$\omega(x)=X$，这意味着$x\in\omega(x)$.
+\end{proof}
+
+下面介绍上述回复定理的推广，上面的定理对于多个映射的情形类似可成立.\par
+\begin{theorem}{多重Birkhoff回复定理}
+    设$(X,d)$ 是紧致度量空间，$T:X\to X$ 同胚，$l\in\mb{N}$，那么$\exists\, x\in X$，以及自然数子列$n_1<n_2<\cdots<n_k<\cdots$，使得$T^{n_i}x\to x,\left(T^2\right)^{n_i}x\to x,\cdots,\left(T^l\right)^{n_i}x\to x$.
+\end{theorem}
+
+为了证明这个定理，需要一系列概念和引理.\par
+\begin{definition}{回复集}
+    设$(X,d)$ 是紧致度量空间，$T:X\to X$ 连续映射，$A\subseteq X$ 非空闭集，如果$\forall\,\varepsilon>0,\forall\, x\in A$ ，存在$y\in A$ 和$n\in\mb{N}_{>0}$ ，使得$d \left(T^ny,x\right)<\varepsilon$，则称$A$为\textbf{回复集}.
+\end{definition}
+可以注意到如果$A$ 只包含一个元素，那么这个元素就满足Birkhoff回复定理的结论，是一个回复点，因此回复集是回复点的推广.\par
+
+下面一个引理指出回复集中存在点可以回到任意的“$\varepsilon$ 精度”，但这并不等同于回复集中存在回复点，因为其中的点和$\varepsilon$有关.\par 
+\begin{lemma}
+    设$(X,d)$为紧致度量空间，$T:X\to X$是连续映射，如果$A\subseteq X$是回复集，那么$\forall\, \varepsilon>0,\exists\, z\in A$和$n\in\mb{N}_{>0}$ ，使得$d \left(T^{n}z,z\right)<\varepsilon$.
+\end{lemma}
+\begin{proof}
+    设$z_0\in A$，$\forall\, \varepsilon>0$，由于$A$ 是回复集，存在$z_1\in A,n_1\in\mb{N}_{>0}$ ，使得$d \left(T^{n_1}z_1,z_0\right)<\varepsilon$.\par
+    由于$T$ 是连续映射，$\exists\, \varepsilon_1>0$，使得$T^{n_1}\left(B(z_1,\varepsilon_1)\right)\subseteq B(z_0,\varepsilon)$.\par
+    由于$A$ 是回复集，$\exists\, z_2\in A,n_2\in\mb{N}_{>0}$，使得$d \left(T^{n_2}z_2,z_1\right)<\varepsilon_1$.\par
+    $\Rightarrow \exists\, \varepsilon_2>0$ ，使得$T^{n_2}\left(B(z_2,\varepsilon_2)\right)\subseteq B(z_1,\varepsilon_1)$.\par
+    重复以上过程，可以构造点列$\{z_i\}_{i\in\mb{N}}$ 和序列$\{\varepsilon_i\}_{i\in\mb{N}}$ ，使得$T^{n_i}\left(B(z_i,\varepsilon_i)\right)\subseteq B(z_{i-1},\varepsilon_{i-1})(\forall\, i\in\mb{N}_{>0})$.\par
+    由于$\{z_i\}_{i\in\mb{N}}\subseteq X$紧空间，因此存在收敛子列$z_{k_i}\to\omega\in X(i\to\infty)$.\par
+    $\forall\,\varepsilon>0,\exists\, N>0,\st\forall\, i>N,d \left(z_{k_i},\omega\right)<\varepsilon$.\par
+    则$\exists\, M_i\in\mb{N}$ ，使得$T^{M_i}{z_{k_i}}\in B \left(z_{k_{N+1}},\varepsilon_{k_{N+1}}\right)\subseteq B \left(z_{k_i},2\varepsilon+\varepsilon_{k_{N+1}}\right)$.\par
+    $\Rightarrow d \left(T^{M_i}z_{k_i},z_{k_i}\right)\leq 2\varepsilon+\varepsilon_{k_{N+1}}\leq 3\varepsilon$(不妨设$\varepsilon_{k_{N+1}}<\varepsilon)$.\par
+\end{proof}
+
+\begin{definition}{齐性集}
+    设$(X,d)$是一个紧致度量空间，$T:X\to X$ 同胚，$A\subseteq X$ 非空闭集，如果存在$S:X\to X$ 同胚，使得：
+    \begin{enumerate}[(1)]
+        \item $S\circ T=T\circ S$
+        \item $S(A)=A$
+        \item $S:A\to A$是极小系统
+    \end{enumerate}
+    则称$A$为\textbf{齐性集}.
+\end{definition}
+
+下面的引理说明如果一个齐性集对任意的“$\varepsilon$ 精度”都存在可以回到该精度的点，那么这个齐性集实际上是一个回复集.\par
+\begin{lemma}
+    设$T:X\to X$ 是紧致度量空间$X$ 上的同胚，$A$ 为齐性集. 如果$\forall\, \varepsilon>0,\exists\, x,y\in A,n\in\mb{N}_{>0}$ ，使得$d \left(T^ny,x\right)<\varepsilon$，则$A$是回复集.
+\end{lemma}
+\begin{proof}
+    由于$A$ 是齐性集，存在同胚映射$S:X\to X$满足： \par
+    \begin{enumerate}[(1)]
+        \item $S\circ T=T\circ S$
+        \item $S(A)=A$
+        \item $S:A\to A$是极小系统
+    \end{enumerate}\par
+    齐性集$A$是紧致度量空间中的闭集，因此$A$也是紧集，那么$\forall\,\varepsilon>0$ ，存在$A$ 的一个有限开覆盖$\{V_1,V_2,\cdots,V_m\}$，使得$\mathrm{diam}\, V_i\leq\varepsilon(1\leq i\leq m)$.\par
+    由于$S:A\to A$是极小系统，则$\forall\, x\in A,\{\cdots,S^{-2}x,S^{-1}x,x,Sx,S^2x,\cdots\}$ 在$A$ 中稠密，因此$\{\cdots,S^{-2}x,S^{-1}x,x,Sx,S^2x,\cdots\}\cap V_i\neq\varnothing(\forall\, 1\leq i\leq m)$.\par
+    $\Rightarrow \exists\, l\in\mb{Z},S^lx\in V_i\Rightarrow x\in S^lV_i$.那么$\left\{S^lV_i,l\in\mb{Z}\right\}$是$A$ 的一个开覆盖.\par
+    由于$A$是紧集，存在有限子覆盖$S^{-l_i}V_i,S^{-(l_i-1)V_i,\cdots,V_i},\cdots,S^{l_i}V_i(\forall\, 1\leq i\leq m)$.\par
+    令$L=\max_{1\leq i\leq m}{l_i}$，则$\left\{S^{-L}V_i,S^{-(L-1)}V_i,\cdots,V_i,\cdots,S^{L}V_i\right\}$是$A$ 的一个开覆盖.\par
+    \begin{itemize}
+        \item $\forall\, x,y\in A,\exists\, l\in\{-L,-(L-1),\cdots,L\}$ ，使得$d\left(S^ly,x\right)<\varepsilon$.\par
+        $\left\{V_i\right\}_{1\leq i\leq m}$ 是$A$ 的开覆盖$\Rightarrow \exists\, 1\leq i\leq m,\st x\in V_i$.\par
+        又$\left\{S^{-L}V_i,S^{-(L-1)}V_i,\cdots,V_i,\cdots,S^{L}V_i\right\}$是$A$ 的开覆盖$\Rightarrow \exists\, k\in\{-L,\cdots,L\},\st y\in S^{k}V_i$.\par
+        $\Rightarrow S^{-k}y,x\in V_i\Rightarrow d \left(S^{-k}y,x\right)<\varepsilon$，令$l=-k$即可.
+    \end{itemize}\par
+    由引理条件得，$\forall\,\delta>0,\exists\, x_0,y_0\in A,n_0\in\mb{N}_{>0}$ ，使得$d \left(T^{n_0}y_0,x_0\right)<\delta$.\par
+    由上面的结论，$\forall\, x\in A,\exists\, l\in\{-L,\cdots,L\}$ ，使得$d \left(S^lx_0,x\right)<\varepsilon$.\par
+    $A$是紧集，因此同胚$S,T$ 一致连续，故$\forall\,\varepsilon>0,\exists\,\delta>0$ ，使得$d(x,y)<\delta\Rightarrow d \left(Tx,Ty\right)<\varepsilon,d \left(S^lx,S^ly\right)<\varepsilon(\forall\, -L\leq l\leq L)$.\par
+    $\Rightarrow d \left(S^lT^{n_0}y_0,S^lx_0\right)\leq\varepsilon\xLongrightarrow{\text{可交换}} d \left(T^{n_0}\big(S^ly_0\big),S^lx_0\right)\leq\varepsilon\xLongrightarrow{\text{三角不等式}} d\left(T^{n_0}\big(S^ly_0\big),x\right)\leq2\varepsilon$.\par
+    令$y=S^ly_0,n=n_0$即可.
+\end{proof}
 
 
 
