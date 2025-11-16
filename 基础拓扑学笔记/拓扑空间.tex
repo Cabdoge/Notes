@@ -84,13 +84,13 @@
 \begin{theorem}{}
     设$A\subset X$，则$A$是开集当且仅当$\forall\, x\in A,\exists\, x\,\text{的一个邻域}\,U,\st x\in U\subset A$.
 \end{theorem}\par
-\begin{wrapfigure}{r}{0.12\textwidth}
-    \vspace{-1.5 em}
-    \includegraphics[width=0.12\textwidth]{fig/2.1.1.png}
-    \vspace{-6 em}
-\end{wrapfigure}
 \begin{proof}
     “$\Rightarrow$” 显然成立.\par
+    \begin{wrapfigure}{r}{0.12\textwidth}
+    \vspace{-3 em}
+    \includegraphics[width=0.12\textwidth]{fig/2.1.1.png}
+    \vspace{0 em}
+    \end{wrapfigure}
     “$\Leftarrow$” $\forall\, x \in A,\exists\, x\text{的一个邻域}\,U_x,\st x\in U_x\subset A$，所以$A=\bigcup_{x\in A}{U_x}$.\par
     由于$U_x$是$X$的一个开集，所以$A$是一个开集.    
 \end{proof}
@@ -289,11 +289,10 @@
 \begin{instance}
     考虑欧氏平面上的圆周$\mathbb{S}^1\subset\mathbb{E}^1$，则这个圆周和平面内任意开圆盘作交得到的弧构成了一个圆周的一个拓扑基.\par
     同样的，考虑球面$\mbb{S}^2\subset\mbb{E}^3$，则球面和开球所交得的弯曲的开圆盘构成了拓扑基.
-    \begin{figure}[h]
-        \centering
+    \begin{center}
         \includegraphics[width=0.65\textwidth]{fig/2.5.png}
         \captionof{figure}{$S^1$上的拓扑基}
-    \end{figure}
+    \end{center}
 \end{instance}
 
 \begin{lemma}
@@ -386,7 +385,6 @@
         (x_1,x_2,\cdots,x_n) &\mapsto x_i
     \end{aligned}$为$X_1\times X_2\times\cdots\times X_n$到$X_i$的\textbf{投射}.
 \end{definition}
-
 
 \section{闭集}
 
@@ -589,8 +587,8 @@
 \end{proof}
 
 \begin{instance}
-    \hspace{0.1625\textwidth} 考虑$\mb{E}^2$和$A=\left\{(0,y)\in\mb{E}^2\left|0\leq y<1\right.\right\}$.\par
-    \begin{wrapfigure}{l}{0.15\textwidth}
+    考虑$\mb{E}^2$和$A=\left\{(0,y)\in\mb{E}^2\left|0\leq y<1\right.\right\}$.\par
+    \begin{wrapfigure}{r}{0.15\textwidth}
         \vspace{-2.5 em}
         \includegraphics[width=0.15\textwidth]{fig/2.11.png}
         \captionof{figure}{}
@@ -701,6 +699,7 @@
     由$x\in\overline{A}$且$y\in\overline{B}$，可知$U\cap A\neq\varnothing$且$V\cap B\neq\varnothing$. 于是$(U\times V)\cap(A\times B)=(U\cap A)\times(V\cap B)\neq\varnothing$.\par
     因此$W\cap(A\times B)\neq\varnothing$. 这表明$(x,y)\in\overline{A\times B}$.
 \end{proof}
+
 
 
 

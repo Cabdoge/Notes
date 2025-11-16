@@ -26,7 +26,7 @@
 
 %调整页边距
 \usepackage{geometry}
-\geometry{top=2cm, bottom=2.25cm, outer=2cm, inner=2.5cm}
+\geometry{top=2cm, bottom=2cm, outer=2cm, inner=2.5cm,footskip=9mm}
 
 
 \usepackage{setspace}
@@ -88,6 +88,7 @@
 \newcommand{\fl}{\fillin}
 \newcommand{\pr}{\paren}
 \newcommand{\eu}{\mathrm{e}}
+\newcommand{\iu}{\mathrm{i}}
 \renewcommand{\th}{\theta}
 \newcommand{\lam}{\lambda}
 \renewcommand{\leq}{\leqslant}
@@ -102,6 +103,16 @@
 \DeclareMathOperator{\aew}{\text{a.e.}}
 \newcommand{\mcal}[1]{\mathcal{#1}}
 \newcommand{\mbb}[1]{\mathbb{#1}}
+
+
+
+% proof 末尾添加方块
+\usepackage[many]{tcolorbox}
+
+\usepackage{nicematrix}
+
+
+
 
 
 %填空题下划线
@@ -166,5 +177,6 @@
 
 \input{遍历理论.tex}
 
+\input{遍历理论2.tex}
 
 \end{document}

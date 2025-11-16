@@ -378,13 +378,13 @@
         设$B_1\subseteq B_2 \subseteq\cdots\subseteq B_n \subseteq\cdots(B_i \subseteq \mathcal{F},i \in \mathbb{N})$.\par
         由$\mathcal{F}$的定义可知$\forall\varepsilon>0, \exists A_i \in \mathcal{A}$，使得$m(A_i \triangle B_i)< \frac{\varepsilon}{2^i}$.\par
         由于$m\left(\bigcup_{i=1}^\infty{B_i}\right)\leqslant 1$，所以$\forall \varepsilon>0,\exists l \in \mathbb{N}$，使得$m\left( \bigcup_{i=l+1}^\infty{A_i} \right) < \varepsilon$，那么
-        \begin{align*}
+        {\setjot\begin{align*}
             m\left(\bigcup_{i=1}^l{A_i} \,\triangle\, \bigcup_{i=1}^\infty{B_i} \right) &= m\left(\left( \bigcup_{i=1}^l{A_i} \setminus \bigcup_{i=1}^\infty{B_i} \right) \cup \left( \bigcup_{i=1}^\infty{B_i} \setminus \bigcup_{i=1}^l{A_i} \right)\right) \\
             &= m\left( \bigcup_{i=1}^l{A_i} \setminus \bigcup_{i=1}^\infty{B_i} \right) + m\left( \bigcup_{i=1}^l{B_i} \setminus \bigcup_{i=1}^l{A_i} \right) + m\left( \bigcup_{i=l+1}^\infty{B_i} \setminus \bigcup_{i=1}^l{A_i} \right) \\
             &\leqslant m\left( \bigcup_{i=1}^l{A_i} \setminus \bigcup_{i=1}^l{B_i} \right) + m\left( \bigcup_{i=1}^l{B_i} \setminus \bigcup_{i=1}^l{A_i} \right) + m\left( \bigcup_{i=l+1}^\infty{B_i} \right) \\
             &\leqslant\sum_{i=1}^l{m(A_i \,\triangle\, B_i)} + m\left( \bigcup_{i=l+1}^\infty{B_i} \right) \\
             &\leqslant \varepsilon + \varepsilon = 2\varepsilon
-        \end{align*}
+        \end{align*}}
         $\Rightarrow \bigcup_{i=1}^\infty{B_i} \in \mathcal{F}$.\par
         对于单调减的情形同理可证.
     \end{enumerate}\par
@@ -419,7 +419,7 @@
         \tau:\mathcal{S}&\to[0,1] \\
         \prod_{i=1}^{m-1}{X_i} \times A_m \times \cdots \times A_n \times \prod_{i=n+1}^{+\infty}{X_i} &\mapsto m_m(A_m) \times \cdots \times m_n(A_n)
     \end{align*}
-    将$\tau$唯一地延拓到$\mathcal{B}=\mathcal{B}(\mathcal{A}(\mathcal{S}))$，可以得到$\mathcal{B}$上的概率测度，记为$m$，叫\textbf{积测度}.
+    将$\tau$唯一地延拓到$\mathcal{B}=\mathcal{B}(\mathcal{A}(\mathcal{S}))$，可以得到$\mathcal{B}$上的概率测度，记为$m$，称为\textbf{积测度}.
 \end{definition}
 由此，我们就得到了$X$上的$\sigmaalg$和相应的测度，它们构成了一个概率测度空间.
 \begin{definition}{积概率空间}
@@ -427,7 +427,6 @@
 \end{definition}
 类似地，可以相应定义$\prod_{i=0}^\infty{X_i}$和$\prod_{i=-\infty}^0{X_i}$.\par
 在本课程中，通常遇到的积概率空间是由完全相同的概率测度空间构成的，其中每一个概率测度空间中的测度均为离散测度.\par
-\vspace{2 em}
 \begin{instance}
     $X_i={1,2,\cdots,n}\qquad \mathcal{B}_i=\{ X_i\text{的所有子集}\}$\par
     $\setjot\begin{aligned}
@@ -519,7 +518,7 @@
     使用反证法，若$\forall n \in \mathbb{N},\delta=\frac{1}{n},\exists B_n \subset X,\operatorname{diam}B_n < \delta_n$，$B_n$不包含在$\alpha$的任何一个开集中.\par
     任取$x_n \in B_n$，$\{x_n\}_{n\in\mathbb{N}}$，由$(X,d)$为紧致度量空间，存在收敛子列$\{x_{n_k}\}_{k \in \mathbb{N}},x_{n_k}\to x_0 \in X$.\par
     由于$\alpha$是$X$的一个开覆盖，所以$\exists U_o\in\alpha$，使得$x_0\in U_0$.\par
-    $\xLongrightarrow{U_0\textbf{为开集}} \exists\varepsilon>0,\,B(x_0,\varepsilon) \subseteq U_0$.\par
+    $\xLongrightarrow{U_0\text{为开集}} \exists\varepsilon>0,\,B(x_0,\varepsilon) \subseteq U_0$.\par
     当$k$充分大时，$B_{n_k}\subseteq B(x_0,\varepsilon) \subseteq U_0$.矛盾！
 \end{proof}
 

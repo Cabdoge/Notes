@@ -185,7 +185,51 @@
 
 \makeatother
 
+%================ 例题instance 命令 ================
 
+\definecolor{greentitle}{RGB}{61,170,61}
+\definecolor{greentitleback}{RGB}{216,233,213}
+
+\newcounter{instance}[section]
+\renewcommand\theinstance{\thesection.\arabic{instance}}
+
+\newtcolorbox{instance}{%
+  breakable,
+  enhanced,
+  colback=white,
+  colbacktitle=white,
+  arc=0pt,
+  leftrule=0pt,
+  rightrule=0pt,
+  toprule=0pt,
+  bottomrule=0pt,
+  titlerule=0pt,
+  colframe=greentitleback,
+  fonttitle=\normalcolor,
+  % 缩小环境与上下文文本的垂直距离
+  before skip=5pt,
+  after skip=5pt,
+  % 减小边框与正文之间的间距
+  boxsep=3pt,
+  left=-3pt,
+  right=-3pt,
+  top=-1pt,
+  bottom=-1pt,
+  % 标题：楷体；正文：仿宋
+  before upper={%
+    \refstepcounter{instance}%
+    {\color{greentitle}\bfseries \CJKfamily{FS} 例~\theinstance}\quad
+    \CJKfamily{FS}%
+    \setlength{\parindent}{2em}% 盒内默认首行缩进
+    \wideline
+  },
+  fontupper=\CJKfamily{FS},
+  overlay={
+    \fill[greentitleback]
+      ([yshift=-1pt, xshift=-6pt]interior.north west) rectangle
+      ([yshift=0pt, xshift=-4pt]interior.south west);
+  }
+}
 
 %================ 结束 ================
 \endinput

@@ -137,8 +137,10 @@
     left=20mm, right=20mm,
     headheight=2.17cm,
     headsep=4mm,
-    footskip=12mm
+    footskip=10.5mm
   }
+  % Ensure TeX \footskip matches geometry (keep page number baseline unchanged)
+  \setlength{\footskip}{10.5mm}
   \ifdefstring{\ELEGANT@marginpar}{margintrue}{
     \geometry{
       marginparwidth=5cm, marginparsep=5mm,
@@ -867,19 +869,50 @@
     \scriptsize\color{red!90}\textdbend\quad}
     \textbf{\color{second}\notename} \citshape}{\par}
 
-\newenvironment{proof}{
-  \par\noindent\textbf{\color{second}\proofname\;}
-  \color{black!90}\cfs}{
-  % \hfill$\Box$\quad
-  \par}
 
-\newenvironment{instance}{
-  \par\noindent\textbf{\color{second}例\ \;}
-  \color{black!90}\cfs}{
-  \par}
+
+\definecolor{proofback}{RGB}{255, 225, 197}
+\newtcolorbox{proof}{%
+  breakable,
+  enhanced,
+  colback=white,
+  colbacktitle=white,
+  arc=0pt,
+  leftrule=0pt,
+  rightrule=0pt,
+  toprule=0pt,
+  bottomrule=0pt,
+  titlerule=0pt,
+  colframe=greentitleback,
+  fonttitle=\normalcolor,
+  % 缩小环境与上下文文本的垂直距离
+  before skip=5pt,
+  after skip=5pt,
+  % 减小边框与正文之间的间距
+  boxsep=3pt,
+  left=-1pt,
+  right=-3pt,
+  top=-1pt,
+  bottom=-1pt,
+  overlay={
+    \fill[proofback]
+      ([yshift=-1pt, xshift=-6pt]interior.north west) rectangle
+      ([yshift=0pt, xshift=-4pt]interior.south west);
+  },
+  % 标题：楷体；正文：仿宋
+  before upper={%
+    \hspace{-0.3em}{\color{second}\bfseries \CJKfamily{FS}证明}\hspace{0.3em}%
+    \CJKfamily{FS}%
+    \setlength{\parindent}{2em}% 盒内默认首行缩进
+    \wideline
+  },
+  fontupper=\CJKfamily{FS},
+  after upper={\hfill$\Box$\quad\par}
+}
+
 
 \newenvironment{solution}{\par\noindent\textbf{\color{main}\solutionname} \citshape}{\par}
-\newenvironment{remark}{\noindent\textbf{\color{third}\remarkname}\ \ \;}{\par}
+\newenvironment{remark}{\noindent\textbf{\color{third}\remarkname}\hspace{8.15pt}}{\par}
 \newenvironment{notice}{\noindent\textbf{\color{second}\fontsize{9.5pt}{11.5pt}\selectfont\raisebox{0.15ex}\noticename}\hspace{0.02em}\citshape}{\par}
 \newenvironment{assumption}{\par\noindent\textbf{\color{third}\assumptionname} \citshape}{\par}
 \newenvironment{conclusion}{\par\noindent\textbf{\color{third}\fontsize{9.5pt}{11.5pt}\selectfont\raisebox{0.15ex}\conclusionname}\hspace{-0.23em} \citshape}{\par}

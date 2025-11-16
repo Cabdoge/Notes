@@ -22,7 +22,7 @@
         \hline
         2 & 4 & 4 \\
         \hline
-        3 & 9 & 9 \\
+        3 & 8 & 8 \\
         \hline
         4 & 16 & 1 \\
         \hline
@@ -71,7 +71,7 @@ $\begin{aligned}
         \end{alignat*}
         令$\varepsilon\to 0 \Rightarrow \frac{1}{N}\sum_{n=1}^N{f(x_n)}\to \int_{0}^{1}{f(x)}\d x$.\par
     \end{itemize}
-    \begin{minipage}[t]{0.8\textwidth}
+    \begin{minipage}[t]{0.77\textwidth}
     \begin{itemize}
         \item[“$\Leftarrow$"] $\forall\, I \subseteq [0,1]$，构造连续函数列$\{\varphi_n(x)\}_{n\in\mathbb{N}}$和$\{\psi_n(x)\}_{n\in\mathbb{N}}$，使
         \begin{enumerate}[(1)]
@@ -80,15 +80,15 @@ $\begin{aligned}
             $\int_0^1{\psi_n(x)}\d x \to \int_0^1{\chi_{I}(x)}\d x.$\par
         \end{enumerate}
         $\Rightarrow \frac{1}{N}\sum_{n=1}^N{\varphi_n(x_n)} \leq \frac{1}{N}\sum_{n=1}^N{\chi_{I}(x_n)} \leq \frac{1}{N}\sum_{n=1}^N{\psi_n(x_n)}$.\par
-        $\xLongrightarrow{n\to\infty}\int_0^1{\varphi_n(x)}\d x \leq \varliminf_{n\to\infty}{\sum_{n=1}^N{\chi_{I}(x_n)}} \leq \varlimsup_{n\to\infty}{\sum_{n=1}^N{\chi_{I}(x_n)}} \leq \int_0^1{\psi_n(x)}\d x$.\par
-        $\Rightarrow \lim_{n\to\infty}{\sum_{k=1}^N{\chi_{I}(x_k)}} = \int_0^1{\chi_{I}(x)}\d x$.\par
     \end{itemize}
     \end{minipage}
     \begin{minipage}[t]{0.225\textwidth}
-        \vspace{0 em}
+        \vspace{-2 em}
         \includegraphics[width=1\textwidth]{fig/2.1.png}
         \captionof{figure}{连续函数逼近特征函数}
     \end{minipage}\par
+     $\xLongrightarrow{n\to\infty}\int_0^1{\varphi_n(x)}\d x \leq \varliminf_{n\to\infty}{\sum_{n=1}^N{\chi_{I}(x_n)}} \leq \varlimsup_{n\to\infty}{\sum_{n=1}^N{\chi_{I}(x_n)}} \leq \int_0^1{\psi_n(x)}\d x$.\par
+        $\Rightarrow \lim_{n\to\infty}{\sum_{k=1}^N{\chi_{I}(x_k)}} = \int_0^1{\chi_{I}(x)}\d x$.\par
 \end{proof}\par
 
 \begin{itemize}
@@ -146,6 +146,7 @@ $\begin{aligned}
 
 \section{保测映射}
 
+\vspace{-0.5 em}
 \begin{definition}{保测映射}
     设$(X,\mathcal{B},m)$是一个概率测度空间，$T:(X,\mathcal{B}) \to (X,\mathcal{B})$是一个\textbf{可测映射}(可测集的原像是可测集).
     \begin{itemize}
@@ -186,7 +187,7 @@ $\begin{aligned}
     \begin{itemize}[leftmargin = 3.5em]
         \item[“$\Rightarrow$”] 由定义可得.
         \item[“$\Leftarrow$”] 令$\mathcal{F} = \{A\in\mathcal{B}|m(T^{-1}A)=m(A)\}$，下证$\mathcal{F}=\mathcal{B}(\mathcal{A}(\mathcal{S}))=\mathcal{B}$.\par
-        \begin{enumerate}[(i)]
+        \begin{enumerate}[leftmargin=0em,label=(\roman*)]
             \item $\mathcal{S}\subseteq\mathcal{F}$
             \item $\mathcal{A}(\mathcal{S})\subseteq\mathcal{F}$.\par
             $\forall E\in\mathcal{A}(\mathcal{S}),E=E_1\cup E_2\cup\cdots\cup E_n \;(E_1\in\mathcal{S},\,\text{两两不交})$.\par
@@ -215,15 +216,13 @@ $\begin{aligned}
             x &\mapsto x+\alpha \mod 1 
         \end{aligned}$，即将元素平移$\alpha$个单位后取其小数部分.\par
         取$\mcal{S}=\left\{[0,1)\text{中的所有区间}\right\}$是$\mathcal{S}$的一个半代数.对$\forall\, I\in\mathcal{S}$，定义其概率测度为Lebesgue测度，即$m(I)=m_\mathrm{Leb}(I)$，则$R_\alpha$是$[0,1)$上的一个保测映射，下图直观地展示了其原因.\par
-        \begin{figure}[h]
-            \centering
-            \includegraphics[width = 0.35\textwidth]{fig/2.2.png}
+        \begin{center}
+            \includegraphics[width=0.35\textwidth]{fig/2.2.png}
             \captionof{figure}{$R_\alpha$保持测度}
-        \end{figure}
-        \vspace{-0.5 em}
+        \end{center}
         如果$I$左端点的值小于$\alpha$，那么$R^{-1}_\alpha(I)$会被分为两个部分，但其测度不会发生变化.\par
         \item 
-        \begin{minipage}[t]{0.70\textwidth}
+        \begin{minipage}[t]{0.68\textwidth}
             \wideline
             定义$\setjot[-6]\begin{aligned}[t]
             T_2:\;[0,1) &\to [0,1) \\
@@ -240,7 +239,7 @@ $\begin{aligned}
             \captionof{figure}{$T_2$保持测度}
         \end{minipage}
         \item 
-        \begin{minipage}[t]{0.65\textwidth}
+        \begin{minipage}[t]{0.63\textwidth}
             \wideline
             下一个例子是高斯映射，定义为：
             {\setjot[-6]\begin{align*}
@@ -280,7 +279,7 @@ $\begin{aligned}
         {\setjot[-3]\begin{align*}
             T: X&\to X \\
             (\cdots,-x_2,-x_1,x_0,x_1,x_2,\cdots) &\mapsto (\cdots,x_{-1},x_0,x_1,x_2,x_3,\cdots) 
-        \end{align*}}
+        \end{align*}}\par
         \begin{itemize}
             \item $T$是保测映射，称为\bluebf{Bernouli转移}.\par
             $T$是可测映射，这是因为$T^{-1}\mcal{S}=\mcal{S} \Rightarrow T^{-1}\mcal{B}_x\subseteq \mcal{B}_x$.
@@ -432,7 +431,7 @@ $\begin{aligned}
             且$(x_0-r,x_0+r)\cap B\xLongrightarrow{R_{k\alpha}}(x_0-r+\{k\alpha\},x_0+r+\{k\alpha\})\cap B$，其中$x_0-r+\{k\alpha\}=x_0+r,x_0+r+\{k\alpha\}=x_0+3r$.\par
             以此类推，得到区间$I_0=(x_0-r,x_0+r),I_1=(x_0+r,x_0+3r),\cdots$，
         \end{minipage}
-        \begin{minipage}[t]{0.32\textwidth}
+        \begin{minipage}[t]{0.28\textwidth}
             \vspace{-1em}
             \includegraphics[width=1\textwidth]{fig/2.6.png}
             \captionof{figure}{$R_{k\alpha}$作用在区间上}
@@ -461,9 +460,10 @@ $\begin{aligned}
 \end{instance}
 
 \begin{instance}
-    设$(X,\mcal{B},m)$是一个概率测度空间，$\prod_{n=1}^\infty X_n=Y$是对应的乘积测度空间，$T:Y\to Y$为Bernoulli转移，$Y\xlongrightarrow{T} Y\quad (\cdots,x_{-2},x_{-1},x_0,x_1,x_2,\cdots)\to (\cdots,x_{-1},x_0,x_1,x_2,x_3,\cdots)$是遍历映射.\par
-    \begin{proof}
-        设$B\in\mathbb{Y}$满足$T^{-1}B=B$.\par
+    设$(X,\mcal{B},m)$是一个概率测度空间，$\prod_{n=1}^\infty X_n=Y$是对应的乘积空间，$T:Y\to Y$为Bernoulli转移，$Y\xlongrightarrow{T} Y\quad (\cdots,x_{-2},x_{-1},x_0,x_1,x_2,\cdots)\to (\cdots,x_{-1},x_0,x_1,x_2,x_3,\cdots)$是遍历映射.\par
+\end{instance}
+\begin{proof}
+        设$B\in Y$满足$T^{-1}B=B$.\par
         $\mcal{S}=\{\cdots\times X\times A_m\times\cdots\times A_n\times X\times\cdots|A_i\in\mcal{B}\}$是一个半代数，由它生成的$\sigmaalg\, \mcal{B}(\mcal{A}(\mcal{S}))$是乘积$Y$上的$\sigmaalg$.\par
         $\forall\,\varepsilon>0,\exists\, A\in\mcal{A}(\mcal{S}),\st m(A\triangle B)<\varepsilon$，由半代数生成代数上元素的结构可知$A=E_1\cup E_2\cup\cdots\cup E_n(E_i\in\mcal{S}\,\text{两两不交})$，再设$E_i=\cdots\times X\times A_{l_1}^i\times\cdots\times A_{i_2}^i\times X\times\cdots$.\par
         则$A=\cdots\times X\times E\times X\times X\times\cdots,E\subseteq X_{l_1}\times\cdots\times X_{l_2}$.\par
@@ -474,7 +474,7 @@ $\begin{aligned}
         &=\sum_{1\leq i,j\leq k}{m\left(\cdots\times X\times A_{l_1}^j\times\cdots\times A_{l_2}^j\times X\times\cdots\times A_{l_1}^i\times\cdots\times A_{l_2}^i\times X\times\cdots\right)} \\
         &=\sum_{1\leq i,j\leq k}{m(E_i)m(E_j)}=m(A)\cdot m(A)=m(A)^2
         \end{align*}}\par
-        又因为$m(A\triangle B)<\varepsilon$，$\setjot[-3]\begin{aligned}[t]
+        又因为$m(A\triangle B)<\varepsilon$，$\setjot[-4]\begin{aligned}[t]
         m\left(T^{-L}B\cap B\right)&\leq m\left(T^{-L}B\cap A\right)+\varepsilon \\
         &\leq m\left(\left(T^{-L}A\cup T^{-L}(B\setminus A)\right)\cap A\right)+\varepsilon \\
         &\leq m \left(T^{-L}A\cap A\right)+m\left(T^{-L}(B\setminus A)\right)+\varepsilon \\
@@ -484,8 +484,8 @@ $\begin{aligned}
         \end{aligned}$\par
         由假设$m(B)=m \left(T^{-L}B\cap B\right)\leq \left(m(B)+\varepsilon\right)^2+2\varepsilon$.\par
         令$\varepsilon\to 0$得$m(B)\leq m(B)^2 \Rightarrow m(B)=0\text{或}1$.
-    \end{proof}
-\end{instance}
+\end{proof}
+    
 
 \vspace{-0.5 em}
 \section{Birkhoff遍历定理}
@@ -511,7 +511,7 @@ $\begin{aligned}
     则$F_N\circ T=\max_{0\leq n\leq N}\{f_n\circ T\}=\max_{0\leq n\leq N}\{f_{n+1}-f\}=\max_{0\leq n\leq N}{f_{n+1}}-f$.\par
     因此$f=\max_{0\leq n\leq N}{f_{n+1}}-F_N\circ T\geq \max_{1\leq n\leq N}{f_n}-F_N\circ T$.\par
     在$\{F_N>0\}$上，由于$f_0=0$，所以$\max_{1\leq n\leq N}{f_n}=\max_{0\leq n\leq N}{f_n}=F_N \Rightarrow f\geq F_N-F_N\circ T$.\par
-    积分得$\setjot[0]\begin{aligned}[t]
+    积分得$\setjot[-2]\begin{aligned}[t]
     \int_{\{F_N>0\}}{f}\d m &\geq \int_{\{F_N>0\}}{F_N}\d m-\int_{\{F_N>0\}}{F_N\circ T}\d m \\
     &\xlongequal{F_N,F_N\circ T\geq 0}\int_X{F_N}\d m-\int_X{F_N\circ T}\d m \\
     &\xlongequal{T\text{保测}}0
@@ -596,14 +596,13 @@ $\begin{aligned}
     \begin{itemize}
         \item 设$k\in\{0,1,\cdots,9\}$，$x=0.x_1x_2x_3\cdots=\frac{x_1}{10}+\frac{x_2}{10^2}+\frac{x_3}{10^3}+\cdots$.\par
         则$\setjot\begin{aligned}[t]
-            k=x_i &\Leftrightarrow x=\frac{x_1}{10}+\frac{x_2}{10^2}+\cdots+\frac{x_i}{10^i}+\cdots = \frac{x_1}{10}+\frac{x_2}{10^2}+\cdots+\frac{x_i}{10^i}+\cdots \\
-            &\Leftrightarrow 10^{i-1}x\mod 1 = \frac{k}{10^{i-1}}+\frac{x_{i+1}}{10^i}+\cdots \\
+            k=x_i &\Leftrightarrow x=\frac{x_1}{10}+\frac{x_2}{10^2}+\cdots+\frac{x_i}{10^i}+\cdots = \frac{x_1}{10}+\frac{x_2}{10^2}+\cdots+\frac{k}{10^i}+\cdots \\
+            &\Leftrightarrow 10^{i-1}x\mod 1 = \frac{k}{10}+\frac{x_{i+1}}{10^1}+\cdots \\
             &\Leftrightarrow 10^{i-1}x\mod 1 \in I_k= \left[\frac{k}{10},\frac{k+1}{10}\right) \\
             &\Leftrightarrow \chi_{I_k}(10^{i-1}x\mod 1)=1
         \end{aligned}$\par
         \item $\setjot\begin{aligned}[t]
-            \mb{P}(x_i=k)&=\lim_{N\to\infty}{\frac{\left|\left\{1\leq n\leq N\left|x_n=k\right.\right\}\right|}{N}}\\
-            &= \lim_{N\to\infty}{\frac{1}{N}\sum_{n=1}^N{\chi_{I_k}(10^{n-1}x\mod 1)}} \\
+            \mb{P}(x_i=k)&=\lim_{N\to\infty}{\frac{\left|\left\{1\leq n\leq N\left|x_n=k\right.\right\}\right|}{N}}= \lim_{N\to\infty}{\frac{1}{N}\sum_{n=1}^N{\chi_{I_k}(10^{n-1}x\mod 1)}} \\
             &= \lim_{N\to\infty}{\frac{1}{N}\sum_{n=0}^{N-1}{\chi_{I_k}(T^n x)}} \\
             (\text{若}T\text{遍历}) &=\int_0^1{\chi_{I_k}(x)}\d m =\frac{1}{10}
         \end{aligned}$.\par
@@ -617,17 +616,28 @@ $\begin{aligned}
     故$f=c_0e_0=c_0$为常数.\par
 \end{instance}
 
-下面是更为有趣、更有意义的例子.\par
-\begin{instance}
-    对$x\in(0,1)$，考虑$x$的连分数展开，$x=a_0+\frac{1}{a_1+\tfrac{1}{a_2+\tfrac{1}{a_3+\raisebox{-.5\height}{$\ddots$}}}}(a_0-0,a_i\in\mb{N}^+)$.\par
+
+
+
+\section{连分数与Gauss映射}
+下面讨论Gauss映射的遍历性，我们的出发点是以下的问题：
+\begin{problem}
+    对于$x\in [0,1]$，考虑$x$的连分数展开，$x=a_0+\frac{1}{a_1+\tfrac{1}{a_2+\tfrac{1}{a_3+\raisebox{-.5\height}{$\ddots$}}}}(a_0=0,a_i\in\mb{N}^+)$.\par
     对$\forall\, k\in\mb{N}^+$，计算$\mb{P}(a_n=k)$.
     \begin{itemize}
-        \item $\mb{P}(a_n=k)=\lim_{N\to\infty}{\frac{\left|\left\{1\leq n\leq N\left|a_n=k\right.\right\}\right|}{N}}$.
-        \item $(x>0)$，设$a_0,a_1,\cdots,a_n,\cdots$是一个自然数序列$(a_0\geq 0,a_i\geq 1(i\geq 1))$，考虑$a_0,a_0+\frac{1}{a_1},a_0+\frac{1}{a_1+\frac{1}{a_2}},a_0+\frac{1}{a_1+\frac{1}{a_2+\frac{1}{a_3}}},\cdots$.\par
+        \item 上述所求的概率可以写成$\mb{P}(a_n=k)=\lim_{N\to\infty}{\frac{\left|\left\{1\leq n\leq N\left|a_n=k\right.\right\}\right|}{N}}$.
+    \end{itemize}
+    但在正式计算之前，我们需要先了解连分数的定义与性质.\par
+    \begin{definition}{连分数}
+        \wideline
+        设$x\in\mb{R}_{>0}$，设$a_0,a_1,\cdots,a_n,\cdots$是一个自然数序列$(a_0\geq 0,a_i\geq 1(i\geq 1))$，考虑$a_0,a_0+\frac{1}{a_1},a_0+\frac{1}{a_1+\frac{1}{a_2}},a_0+\frac{1}{a_1+\frac{1}{a_2+\frac{1}{a_3}}},\cdots$.\par
         其中第$n$个分式为$a_0+\frac{1}{a_1+\frac{1}{a_2+\raisebox{-.5\height}{$\ddots$}\raisebox{-1\height}{$+\tfrac{1}{a_n}$}}}=\frac{p_n}{q_n}=[a_0;a_1,a_2,\cdots,a_n]$.\par
-        如果$\left\{\frac{p_n}{q_n}\right\}$收敛到$x\in\mb{R}_{>0}$，那么称$x=a_0+\frac{1}{a_1+\frac{1}{a_2+\raisebox{-.5\height}{$\ddots$}}}=[a_0;a_1,a_2,\cdots]$为$x$的连分式.\par
-        下面寻找连分数逼近中分子分母的规律，$\frac{p_0}{q_0}=a_0=\frac{a_0}{1},p_0=a_0,q_0=1$.$\frac{p_1}{q_1}=a_0+\frac{1}{a_1}=\frac{a_0a_1+1}{a_1},p_1=a_0a_1+1,q_1=a_1$.\par
-        实际上，$p_i,q_i$满足以下关系$\begin{pmatrix}
+        如果$\left\{\frac{p_n}{q_n}\right\}$收敛到$x\in\mb{R}_{>0}$，那么称$x=a_0+\frac{1}{a_1+\frac{1}{a_2+\raisebox{-.5\height}{$\ddots$}}}=[a_0;a_1,a_2,\cdots]$为$x$的\textbf{连分式}.\par
+    \end{definition}
+    下面寻找连分数逼近中分子分母的规律，$\frac{p_0}{q_0}=a_0=\frac{a_0}{1},p_0=a_0,q_0=1$.$\frac{p_1}{q_1}=a_0+\frac{1}{a_1}=\frac{a_0a_1+1}{a_1},p_1=a_0a_1+1,q_1=a_1$.\par
+    实际上，$p_i,q_i$满足以下关系，我们将它写成一个引理.
+    \begin{lemma}{连分数分子分母的递推关系}
+        $\begin{pmatrix}
             0 & 1 \\
             1 & a_0 
         \end{pmatrix}\begin{pmatrix}
@@ -639,12 +649,670 @@ $\begin{aligned}
         \end{pmatrix}=\begin{pmatrix}
             p_{n-1} & p_n \\
             q_{n-1} & q_n
-        \end{pmatrix}$$\setjot[-10]\begin{aligned}
+        \end{pmatrix}$$\setjot[-3]\begin{aligned}
             &\forall\, n\in\mb{N} \\
             &q_{-1}=0,q_{-1}=1 \\
         \end{aligned}$
+    \end{lemma}
+    \begin{proof}
+        当$n=0$时，$\begin{pmatrix}
+            q_{n-1} & q_n \\
+            p_{n-1} & p_n
+        \end{pmatrix}=\begin{pmatrix}
+            0 & 1 \\
+            1 & a_0
+        \end{pmatrix}$成立.\par
+        假设当$n=k$时结论成立，考虑$n=k+1$时的情形.\par
+        $\setjot[-2]\begin{aligned}[t]
+            &\begin{pmatrix}
+                0 & 1 \\
+                1 & a_0
+            \end{pmatrix}\begin{pmatrix}
+                0 & 1 \\
+                1 & a_1
+            \end{pmatrix}\cdots\begin{pmatrix}
+                0 & 1 \\
+                1 & a_{k+1}
+            \end{pmatrix}=\left[\begin{pmatrix}
+                0 & 1 \\
+                1 & a_0
+            \end{pmatrix}\cdots\begin{pmatrix}
+                0 & 1 \\
+                1 & a_k
+            \end{pmatrix}\right]\begin{pmatrix}
+                0 & 1 \\
+                1 & a_{k+1}
+            \end{pmatrix} \\
+            &=\begin{pmatrix}
+                p_{k-1} & p_k \\
+                q_{k-1} & q_k
+            \end{pmatrix}\begin{pmatrix}    
+                0 & 1 \\
+                1 & a_{k+1}
+            \end{pmatrix} =\begin{pmatrix}
+                p_k & a_{k+1}p_k+p_{k-1} \\
+                q_k & a_{k+1}q_k+q_{k-1}
+            \end{pmatrix}
+        \end{aligned}$\par
+        因此$\begin{pmatrix}
+                0 & 1 \\
+                1 & a_0
+            \end{pmatrix}\cdots\begin{pmatrix}
+                0 & 1 \\
+                1 & a_{k+1}
+            \end{pmatrix}=\begin{pmatrix}
+                q_k & * \\
+                p_k & *
+            \end{pmatrix}$，对第一列成立.\par
+            下面证明上述的等式对第二列也成立即可.\par
+            考虑$\begin{pmatrix}
+                0 & 1 \\
+                1 & a_1
+            \end{pmatrix}\cdots\begin{pmatrix}
+                0 & 1 \\
+                1 & a_{k+1}
+            \end{pmatrix}=\begin{pmatrix}
+                x_{k-1} & x_k \\
+                y_{k-1} & y_k
+            \end{pmatrix}$，则$\frac{y_k}{x_k}=a_1+\frac{1}{a_2+\frac{1}{a_3+\raisebox{-.5\height}{$\ddots$}\raisebox{-1\height}{$+\tfrac{1}{a_{k+1}}$}}}$.\par
+            那么$\begin{pmatrix}
+                0 & 1 \\
+                1 & a_0
+            \end{pmatrix}\begin{pmatrix}
+                0 & 1 \\
+                1 & a_1
+            \end{pmatrix}\cdots\begin{pmatrix}
+                0 & 1 \\
+                1 & a_{k+1}
+            \end{pmatrix}=\begin{pmatrix}
+                0 & 1 \\
+                1 & a_0
+            \end{pmatrix}\begin{pmatrix}
+                x_{k-1} & x_k \\
+                y_{k-1} & y_k
+            \end{pmatrix}=\begin{pmatrix}
+                * & y_k \\
+                * & x_k+a_0y_k
+            \end{pmatrix}$.\par
+            又因为$\frac{p_{k+1}}{q_{k+1}}=a_0+\frac{1}{a_1+\frac{1}{a_2+\raisebox{-.5\height}{$\ddots$}\raisebox{-1\height}{$+\tfrac{1}{a_{k+1}}$}}}=a_0+\frac{1}{\dfrac{y_k}{x_k}}=\frac{x_k+a_0y_k}{y_k}$.\par
+            所以$\begin{pmatrix}
+                0 & 1 \\
+                1 & a_0
+            \end{pmatrix}\begin{pmatrix}
+                0 & 1 \\
+                1 & a_1
+            \end{pmatrix}\cdots\begin{pmatrix}
+                0 & 1 \\
+                1 & a_{k+1}
+            \end{pmatrix}=\begin{pmatrix}
+                * & q_{k+1} \\
+                * & p_{k+1}
+            \end{pmatrix}$
+    \end{proof}    
+\end{problem}
+从上面的引理中，就可以得到$p_n,q_n$满足的递推关系：
+$\begin{pmatrix}
+    q_{n-1} & q_n \\
+    p_{n-1} & p_n
+\end{pmatrix}\begin{pmatrix}
+    0 & 1 \\
+    1 & a_{n+1}
+\end{pmatrix}=\begin{pmatrix}
+    q_n & q_{n+1} \\
+    p_n & p_{n+1}
+\end{pmatrix}$\par
+$\Rightarrow \begin{pmatrix}
+    q_n & q_{n-1}+a_{n+1}q_n \\
+    p_n & p_{n-1}+a_{n+1}p_n
+\end{pmatrix}=\begin{pmatrix}
+    q_n & q_{n+1} \\
+    p_n & p_{n+1}
+\end{pmatrix} \Rightarrow \begin{cases}
+    p_{n+1}=a_{n+1}p_n+p_{n-1} \\
+    q_{n+1}=a_{n+1}q_n+q_{n-1}
+\end{cases}$\par
+从上述递推关系中，我们可以得出连分数有以下结论：
+\begin{itemize}
+    \item 如果$n\geq 0$，那么$q_{n+1}\geq q_n+q_{n-1},p_{n+1}\geq p_n+p_{n-1}\Rightarrow p_n,q_n\geq c^n(c\geq 1)$.
+    \item 对引理中的式子取行列式，则$q_{n-1}p_n-q_{n-1}p_{n-1}=(-1)^{n-1}(n\geq 0)$.\par
+    因此有$\frac{p_n}{q_n}-\frac{p_{n-1}}{q_{n-1}}=\frac{(-1)^{n-1}}{q_nq_{n-1}}$，进而$\frac{p_n}{q_n}=\left(\frac{p_n}{q_n}-\frac{p_{n-1}}{q_{n-1}}\right)+\left(\frac{p_{n-1}}{q_{n-1}}-\frac{p_{n-2}}{q_{n-2}}\right)+\cdots+\left(\frac{p_1}{q_1}-\frac{p_0}{q_0}\right)+\frac{p_0}{q_0}=\frac{(-1)^{n-1}}{q_nq_{n-1}}+\frac{(-1)^{n-2}}{q_{n-1}q_{n-2}}+\cdots+\frac{1}{q_1q_0}+a_0$.
+    \item 由于$q_n\geq c^n(c\geq 1,\forall\, n\in\mb{N})$，因此$\frac{p_n}{q_n}$收敛，$\lim_{n\to\infty}{\frac{p_n}{q_n}}=[a_0;a_1,\cdots,a_n,\cdots]$存在.
+\end{itemize}\par
+如果从$a_0$出发，则$x$的连分数展开可以写成一个交错项级数的形式$x=a_0+\frac{1}{q_0q_1}-\frac{1}{q_1q_2}+\frac{1}{q_2q_3}-\frac{1}{q_3q_4}+\cdots$.\par
+对于这样的级数，有$a_0+\frac{1}{q_0q_1}-\frac{1}{q_1q_2}+\cdots-\frac{1}{q_{2k-1}q_{2k}}\leq x\leq a_0+\frac{1}{q_0q_1}-\frac{1}{q_1q_2}+\cdots+\frac{1}{q_{2k}q_{2k+1}}$.\par
+$\Rightarrow \frac{p_{2k}}{q_{2k}}\leq x\leq \frac{p_{2k+1}}{q_{2k+1}}(\forall\, k\in\mb{N})$.\par
+下面，引入高斯映射$\setjot[-4]\begin{aligned}[t]
+    T:(0,1) &\to (0,1) \\
+    x &\mapsto \frac{1}{x} \mod 1
+\end{aligned}$简化上面所得到的部分结论.\par
+\begin{itemize}
+    \item 设$x\in(0,1)\setminus\mb{Q}$，则$a_0(x)=a,a_1(x)=\left[\frac{1}{x}\right],a_2(x)=\left[\frac{1}{\left\{\frac{1}{x}\right\}}\right]=\left[\frac{1}{Tx}\right],a_3(x)=\left[\frac{1}{\left\{\frac{1}{Tx}\right\}}\right]=\left[\frac{1}{T^2x}\right]$.类似地，可以定义$a_n(x)=\left[\frac{1}{T^{n-1}x}\right]$.
+    \item $x\mapsto a_0(x)=0,a_1(x)=\left[\frac{1}{x}\right],a_2(x)=\left[\frac{1}{Tx}\right],\cdots,a_k(x)=\left[\frac{1}{T^{k-1}x}\right](\forall\, k\in\mb{N})$.\par
+    $a_0(x),a_1(x),\cdots$定义了一个连分数$[a_0(x);a_1(x),a_2(x),\cdots],\frac{p_n(x)}{q_n(x)}=[a_0(x);a_1(x),\cdots a_n(x)]$.
+\end{itemize}
+下面的引理表示这样得到的连分数的极限就是$x$.
+\begin{lemma}
+    $\frac{p_n(x)}{q_n(x)}\to x(n\to\infty)$.
+\end{lemma}
+\begin{proof}
+    \begin{itemize}
+        \item $\forall\, x\in (0,1)\setminus\mb{Q}$，因为$a_0=0,a_1(x)\leq\frac{1}{x}\Rightarrow x\leq\frac{1}{a_1(x)}$，所以$a_0(x)\leq x\leq a_0(x)+\frac{1}{a_0(x)}$.
+        \item $\forall\, x\in(0,1)\setminus\mb{Q}$，$\setjot\begin{aligned}[t]
+            &a_0(Tx) \leq Tx\leq a_0(Tx)+\frac{1}{a_1(Tx)} \\
+            \Rightarrow& a_0(Tx)\geq\frac{1}{x}-\left[\frac{1}{x}\right]\leq a_0(Tx)+\frac{1}{a_1(Tx)} \\
+            \Rightarrow& a_0(Tx)+\left[\frac{1}{x}\right]\leq\frac{1}{x}\leq a_0(Tx)+\frac{1}{a_1(Tx)}+\left[\frac{1}{x}\right]
+        \end{aligned}$.\par
+        $\xLongrightarrow{a_0(Tx)=0,a_1(Tx)=a_2(x)}a_1(x)\leq\frac{1}{x}\leq\frac{1}{a_2(x)}+a_1(x)\Rightarrow \frac{1}{a_1(x)+\dfrac{1}{a_2(x)}}\leq x\leq \frac{1}{a_1(x)}$.\par
+        因此$\frac{p_2(x)}{q_2(x)}\leq x\leq \frac{p_1(x)}{q_1(x)}$.
+        \item $\forall\, x\in(0,1)\setminus\mb{Q}$， $\setjot\begin{aligned}[t]&\frac{1}{a_1(Tx)+\dfrac{1}{a_2(Tx)}}\leq Tx\leq\frac{1}{a_1(Tx)} \\
+        \Rightarrow& \frac{1}{a_1(Tx)+\dfrac{1}{a_2(Tx)}}\leq \frac{1}{x}-\left[\frac{1}{x}\right]\leq \frac{1}{a_1(Tx)} \\
+        \Rightarrow& \frac{1}{a_2(x)+\dfrac{1}{a_3(x)}}\leq\frac{1}{x}-a_1(x)\leq\frac{1}{a_2(x)} \\
+        \Rightarrow& \frac{1}{a_1(x)+\dfrac{1}{a_2(x)}}\leq x\leq \frac{1}{a_1(x)+\dfrac{1}{a_2(x)+\frac{1}{a_3(x)}}}
+        \end{aligned}$\par
+        因此$x$介于$\frac{p_2(x)}{q_2(x)}$与$\frac{p_3(x)}{q_3(x)}$之间.
+    \end{itemize}\par
+    归纳地可以证明$x$介于$\frac{p_n(x)}{q_n(x)}$与$\frac{p_{n+1}(x)}{q_{n+1}(x)}$之间$(\forall\, k\in\mb{N})$.\par
+    由于$\frac{p_k(x)}{q_k(x)}=[a_0(x);a_1(x),\cdots,a_n(x),\cdots]$收敛，因此$x=\lim_{n\to\infty}\frac{p_n(x)}{q_n(x)}$.
+\end{proof}
+
+从而，可以设$x=[a_0(x);a_1(x),\cdots,a_n(x),\cdots]$. \par
+那么$\begin{pmatrix}
+    0 & 1 \\
+    1 & a_0(x)
+\end{pmatrix}\begin{pmatrix}
+    0 & 1 \\
+    1 & a_1(x)
+\end{pmatrix}\cdots\begin{pmatrix}
+    0 & 1 \\
+    1 & a_{n+k}(x)
+\end{pmatrix}=\begin{pmatrix}
+    q_{n+k-1}(x) & q_{n+k}(x) \\
+    p_{n+k-1}(x) & p_{n+k}(x)
+\end{pmatrix}$\par
+$\Rightarrow \begin{pmatrix}
+    q_{n-1}(x) & q_{n}(x) \\
+    p_{n-1}(x) & p_{n}(x)
+\end{pmatrix}\begin{pmatrix}
+    0 & 1 \\
+    1 & a_{n+1}(x)
+\end{pmatrix}\cdots\begin{pmatrix}
+    0 & 1 \\
+    1 & a_{n+k}(x)
+\end{pmatrix}=\begin{pmatrix}
+    q_{n+k-1}(x) & q_{n+k}(x) \\
+    p_{n+k-1}(x) & p_{n+k}(x)
+\end{pmatrix}$\par
+$\Leftrightarrow\begin{pmatrix}
+    q_{n-1}(x) & q_{n}(x) \\
+    p_{n-1}(x) & p_{n}(x)
+\end{pmatrix}\begin{pmatrix}
+    0 & 1 \\
+    1 & a_1(T^nx)
+\end{pmatrix}\begin{pmatrix}
+    0 & 1 \\
+    1 & a_2(T^nx)
+\end{pmatrix}\cdots\begin{pmatrix}
+    0 & 1 \\
+    1 & a_k(T^nx)
+\end{pmatrix}=\begin{pmatrix}
+    q_{n+k-1}(x) & q_{n+k}(x) \\
+    p_{n+k-1}(x) & p_{n+k}(x)
+\end{pmatrix}$\par
+$\Rightarrow\begin{pmatrix}
+    q_{n-1}(x) & q_n(x) \\
+    p_{n-1}(x) & p_n(x)
+\end{pmatrix}\begin{pmatrix}
+    0 & 1 \\
+    1 & 0 
+\end{pmatrix}\begin{pmatrix}
+    q_{k-1}(T^nx) & q_k(T^nx) \\
+    p_{k-1}(T^nx) & p_k(T^nx)
+\end{pmatrix}=\begin{pmatrix}
+    q_{n+k-1}(x) & q_{n+k}(x) \\
+    p_{n+k-1}(x) & p_{n+k}(x)
+\end{pmatrix}$\par
+$\Rightarrow\begin{pmatrix}
+    q_{n}(x) & q_{n-1}(x) \\
+    p_{n}(x) & p_{n-1}(x)
+\end{pmatrix}\begin{pmatrix}
+    q_{k-1}(T^nx) & q_k(T^nx) \\
+    p_{k-1}(T^nx) & p_k(T^nx)
+\end{pmatrix}=\begin{pmatrix}
+    q_{n+k-1}(x) & q_{n+k}(x) \\
+    p_{n+k-1}(x) & p_{n+k}(x)
+\end{pmatrix}$\par
+$\Rightarrow\begin{pmatrix}
+    * & q_n(x)q_k(T^nx)+q_{n-1}(x)p_k(T^nx) \\
+    * & p_n(x)q_k(T^nx)+p_{n-1}(x)p_k(T^nx)
+\end{pmatrix}=\begin{pmatrix}
+    * & q_{n+k}(x) \\
+    * & p_{n+k}(x)
+\end{pmatrix}$\par
+$\Rightarrow\frac{p_{n+k}(x)}{q_{n+k}(x)}=\frac{p_n(x)+p_{n-1}(x)\cdot\dfrac{p_{k}(T^nx)}{q_{k}(T^nx)}}{q_n(x)+q_{n-1}(x)\cdot\dfrac{p_{k}(T^nx)}{q_{k}(T^nx)}}$.\par
+令$k\to\infty$，得$x=\frac{p_n(x)+p_{n-1}(x)T^nx}{q_n(x)+q_{n-1}(x)T^nx}\;(\forall\, x\in\mb{N})$.
+至此，关于连分数的准备工作已经完成，下面回到最初的目的，证明Gauss映射是遍历映射.\par
+\begin{theorem}{Gauss映射的遍历性}
+    \wideline
+    设$\setjot[-4]\begin{aligned}[t]
+        T:(0,1) &\to (0,1) \\
+        x &\mapsto \frac{1}{x} \pmod 1
+    \end{aligned}$是高斯映射，$\mcal{B}=(0,1)$上的Borel$\sigmaalg$，$m(A)=\frac{1}{\ln 2}\int_A{\frac{1}{1+x}}\d x$\par
+    则$T$关于$m$是遍历的.
+\end{theorem}
+\begin{proof}
+    \begin{itemize}
+        \item 对于任意有限的自然数序列$b_1,\cdots,b_n\;(b_i\geq 1)$，定义$I(b_1,b_2,\cdots,b_n)=\{x\in(0,1)\setminus\mb{Q}|a_1(x)=b_1,a_2(x)=b_2,\cdots,a_n(x)=b_n\}$. \par
+        设$I=(c,d)\subset (0,1)$是$(0,1)$的一个子区间，现在计算$m_\mathrm{Leb}\left(T^{-n}I\cap I(b_1,b_2,\cdots b_n)\right)$.\par
+        \begin{itemize}
+            \item $\forall\, x\in T^{-n}I\cap T(b_1,\cdots,b_n)\Leftrightarrow T^nx\in I,x\in I(b_1,b_2,\cdots,b_n)$.\par
+            令$\frac{p_n}{q_n}=\frac{1}{b_1+\raisebox{-.5\height}{$\ddots$}\raisebox{-1\height}{$+\tfrac{1}{b_n}$}},\frac{p_{n-1}}{q_{n-1}}=\frac{1}{b_1+\raisebox{-.5\height}{$\ddots$}\raisebox{-1\height}{$+\tfrac{1}{b_{n-1}}$}}$.\par
+            因为$T^nx\in(c,d)$，所以$x=\frac{p_n+p_{n-1}\cdot T^nx}{q_n+q_{n-1}\cdot T^nx}$介于$\frac{p_n+p_{n-1}\cdot c}{q_n+q_{n-1}\cdot c}$与$\frac{p_n+p_{n-1}\cdot d}{q_n+q_{n-1}\cdot d}$之间.\par
+            \item 反之，若$x$介于$\frac{p_n+p_{n-1}\cdot c}{q_n+q_{n-1}\cdot c}$与$\frac{p_n+p_{n-1}\cdot d}{q_n+q_{n-1}\cdot d}$之间，则$x$介于$\frac{p_n}{q_1}$与$\frac{p_n+p_{n-1}}{q_n+q_{n-1}}$之间，从而$x\in T^{-n}I\cap I(b_1,b_2,\cdots b_n)$.
+        \end{itemize}
+        $\setjot\begin{aligned}[t]
+            m_\mathrm{Leb}\left(T^{-n}I\cap I(b_1,b_2,\cdots,b_n)\right)&=\left|\frac{p_n+p_{n-1}\cdot c}{q_n+q_{n-1}\cdot c}-\frac{p_n+p_{n-1}\cdot d}{q_n+q_{n-1}\cdot d}\right| \\
+            &= \left|\frac{(p_n+p_{n-1}\cdot c)(q_n+q_{n-1}\cdot d)-(p_n+p_{n-1}\cdot d)(q_n+q_{n-1}\cdot c)}{(q_n+q_{n-1}\cdot c)(q_n+q_{n-1}\cdot d)}\right| \\
+            &=\frac{|p_{n-1}q_n-p_nq_{n-1}||c-d|}{(q_n+q_{n-1}\cdot c)(q_n+q_{n-1}\cdot d)} \\
+            &= \frac{|c-d|}{(q_n+q_{n-1}\cdot c)(q_n+q_{n-1}\cdot d)}
+        \end{aligned}$
+        \item 因此，令$c=0,d=1$，则$m_\mathrm{Leb}\left(b_1,b_2,\cdots,b_n\right)=\frac{1}{q_n(q_n+q_{n-1})}$.\par
+        故$\frac{m_\mathrm{Leb}\left(T^{-n}I\cap I(b_1,b_2,\cdots,b_n)\right)}{m_\mathrm{Leb}(I)m_\mathrm{Leb}(I(b_1,b_2,\cdots,b_n))}=\frac{q_n(q_n+q_{n-1})}{(q_n+cq_{n-1})(q_n+dq_{n-1})}\in \left(\frac{1}{2},2\right)$.\par
+        \hspace{-1.5em}$\Rightarrow\frac{1}{2}m_{Leb}(I)m_{Leb}(I(b_1,\cdots,b_n))\leq m_\mathrm{Leb}\left(T^{-n}I\cap I(b_1,\cdots,b_n)\right)\leq 2m_\mathrm{Leb}(I)m_\mathrm{Leb}(I(b_1\cdots,b_n))$.\par
+        考虑$\forall\, A\subset (0,1)$，它的测度定义为$m(A)=\frac{1}{\ln 2}\int_A{\frac{1}{1+x}}\d x$.\par
+        得到它和Lebesgue测度之间的关系为$\frac{1}{2\ln 2}m_\mathrm{Leb}(A)\leq m(A)\leq \frac{1}{\ln 2}m_\mathrm{Leb}(A)$.\par
+        故$m$绝对连续于$m_\mathrm{Leb}$，且存在绝对常数$0<c_1<c_2$，$\st\forall\, I\subset (0,1)$，$\forall\, b_1,b_2,\cdots b_N\in \mb{N}^+$，都有$c_1m(I)m(I(b_1,b_2,\cdots,b_n))\leq m \left(T^{-n}I\cap I(b_1,b_2,\cdots,c_n)\right)\leq c_2m(I)m(I(b_1,b_2,\cdots,c_n))$.\par
+        \item 设$A\subset (0,1),T^{-1}A=A$，现证$m(A)=0$或$1$.\par
+        令$\mcal{F}=\left\{E\in\mcal{B}\left|c_1m(E)m(I(b_1,\cdots,b_n))\leq m \left(T^{-n}E\cap I(b_1,\cdots,c_n)\right)\leq c_2m(E)m(I(b_1,\cdots,c_n))\right.\right\}$.\par
+        则$\mcal{F}$构成了$X$的一个单调类，且包含所有的区间.\par
+        由于所有区间构成的集合是$X$的一个半代数，其生成了$X$的Borel$\sigmaalg$，因此$\mcal{F}=\mcal{B}$.\par
+        令$E=A$，$有c_1m(A)m(I(b_1,\cdots,b_n))\leq m \left(T^{-n}A\cap I(b_1,\cdots,c_n)\right)\leq c_2m(A)m(I(b_1,\cdots,c_n))$.\par
+        其中$I(b_1,b_2,\cdots,b_n)=\left\{x\in(0,1)\left|x\,\text{介于}\,\frac{p_n}{q_n}\,\text{与}\,\frac{p_n+p_{n-1}}{q_n+q_{n-1}}\,\text{之间}\,\right.\right\}$且$m(I(b_1,\cdots,b_n))=\frac{1}{q_n(q_n+q_{n+1})}$.\par
+        固定$n\in\mb{N}$，则$(b_1,b_2,\cdots,b_n)$取遍所有的$n$元正整数组，$\left\{I(b_1,\cdots,b_n),b_i\in\mb{N}^+\right\}$是$X=(0,1)$的分划.\par
+        因此$\left\{I(b_1,b_2,\cdots,b_n),b_i\in\mb{N}^+\right\}$可以生成$(0,1)$上所有的区间.\par
+        $\Rightarrow \forall\, B\in\mcal{B}$，$c_1m(A)m(B)\leq m(A\cap B)\leq c_2m(A)m(B)$.\par
+        令$B=X\setminus A$，有$c_1m(A)m(X\setminus A)\leq 0\leq c_2m(A)m(X\setminus A)\Rightarrow m(A)m(X\setminus A)=0$.\par
+        因此$m(A)=0$或$1$.
     \end{itemize}
+\end{proof}
+
+下面回到最初始的问题，计算连分数展开中每个正整数出现的概率，即$\forall\, x\in(0,1),\forall\, k\in\mb{Z}$，计算$\mb{P}(a_i(x)=k)$.\par
+$x\in(0,1)\setminus\mb{Q}$，则$\begin{aligned}[t]
+    a_n(x)&=\left[\frac{1}{T^{n-1}x}\right]=k(n\geq 1) \Leftrightarrow \left[\frac{1}{T^{n-1}}x\right]=k \\
+    &\Leftrightarrow k\leq \frac{1}{T^{n-1}x}\leq k+1 \Leftrightarrow T^{n-1}(x)\in \left(\frac{1}{k+1},\frac{1}{k}\right] \\
+    &\Leftrightarrow \chi_{\left(\frac{1}{k+1},\frac{1}{k}\right]}(T^{n-1}x)=1
+\end{aligned}$\par
+所以$\begin{aligned}[t]
+    \mb{P}(a_n(x)=k) &= \lim_{N\to\infty}{\frac{\left\{1\leq n\leq N\left|a_n(x)=k\right.\right\}}{N}} = \lim_{N\to\infty}{\frac{1}{N}\sum_{n=1}^N{\chi_{\left(\frac{1}{k+1},\frac{1}{k}\right]}(T^{n-1}x)}} \\
+    &=\int_{0}^1{\chi_{\left(\frac{1}{k+1},\frac{1}{k}\right]}(x)}\d m(x) =\int_{\frac{1}{k+1}}^{\frac{1}{k}}{\frac{1}{\ln{2}}\frac{1}{1+x}}\d x \\
+    &=\frac{1}{\ln{2}}\ln{\frac{(k+1)^2}{k(k+2)}}
+\end{aligned}$
+
+\section{强大数定律}
+在遍历映射的Birkhoff遍历定理中，我们知道可测映射在遍历映射下的平均值趋于它在空间上的积分，如果把作用一次遍历映射视作经过一个单位时间后映射的值的变化，这个定理实际上展现了遍历映射下空间平均等于时间平均，这一思想与强大数定律极为相似.而实际上，我们可以使用Birkhoff遍历定理证明强大数定律.\par
+但在正式证明之前，需要将初等概率论中的相关概念用概率测度空间的语言进行改写.\par
+\begin{definition}[随机变量]
+    设$(\Omega,\mcal{B},m)$是一个概率测度空间(样本空间)，\textbf{随机变量}是定义在$\Omega$上的可测函数$X:\Omega\to\mb{R}$.
+\end{definition}
+\begin{definition}[独立与同分布]
+    设$X_1,X_2,\cdots,X_n,\cdots$是$\Omega$上的一列随机变量，如果：
+    \begin{enumerate}[(1)]
+        \item  对于$\mb{R}$中的任意可测集$A_1,A_2,\cdots,A_n,\cdots$，$m(X_{i_1}\in A_{i_1},X_{i_2}\in A_{i_2},\cdots,X_{i_k}\in A_{i_k})=m(X_{i_1}\in A_{i_1})\cdot m(X_{i_2}\in A_{i_2})\cdots m(X_{i_k}\in A_{i_k})(\forall\, 1\leq i_1<i_2<\cdots<i_k\leq\infty)$，其中$m(X_i\in A_i)$为$X_i$属于$A_i$的概率，则称$X_1,X_2,\cdots,X_n$为\textbf{独立}随机变量.
+        \item $\forall\,\mb{R}$中的可测集$A$，$\forall\,1\leq i\leq j\leq \infty,m(X_i\in A_i)=m(X_j\in A_j)$，则称$X_1,\cdots, X_n,\cdots$同分布
+        \item 若同时满足以上两个条件，则称$X_1,X_2,\cdots,X_n,\cdots$独立同分布.
+    \end{enumerate}
+\end{definition}
+\begin{definition}[期望]
+    设$X:\Omega\to\mb{R}$是定义在概率测度空间$(\Omega,\mcal{B},m)$上的随机变量，若$X$可积，则$X$的\textbf{期望}定义为$\mb{E}(X)=\int_{\Omega}{X(\omega)}\d m$.
+\end{definition}
+在了解以上概念之后，就可以给出强大数定律的表述了.
+\begin{theorem}[强大数定律]
+    设$(\Omega,\mcal{B},m)$是一个概率测度空间，$X_1,X_2,\cdots,X_n,\cdots$是一列独立同分布的随机变量且$\forall\, i\in\mb{N},|\mb{E}(X_i)|<\infty$，则$\frac{X_1(\omega)+X_2(\omega)+\cdots+X_n(\omega)}{n}\to\mb{E}(X_1)\;(\aew \omega\in\Omega)$.
+\end{theorem}
+\begin{proof}
+    \vspace{-2 em}
+    \paragraph{定义概率测度空间}
+    定义映射$\setjot[-6]\begin{aligned}[t]
+        \Phi:\Omega &\to \prod_{i=1}^\infty{\mb{R}} \\
+        \omega&\mapsto (X_1(\omega),X_2(\omega),\cdots,X_n(\omega),\cdots)
+    \end{aligned}$.\par
+    $\prod_{i=1}^\infty{\mb{R}}$中的集合$A_1\times A_2\times\cdots\times A_k\times\mb{R}\times\mb{R}\times\cdots$构成了$\prod_{i=1}^\infty{\mb{R}}$的一个半代数.\par
+    定义$A_1\times A_2\times A_k\times\mb{R}\times\mb{R}\times\cdots$的测度为
+    {\setjot\begin{align*}
+        \mu(A_1\times A_2\times\cdots\times A_k\times\mb{R}\times\mb{R}\times\cdots) &= m\left(\Phi^{-1}(A_1\times A_2\times\cdots\times A_k\times\mb{R}\times\mb{R}\times\cdots)\right) \\
+        &= m\left(X_1^{-1}(A_1)\cap X_2^{-1}(A_2)\cap\cdots\cap X_k^{-1}(A_k)\right) \\
+        &= m(X_1\in A_1,X_2\in A_2,\cdots,X_k\in A_k) \\
+        &\xlongequal{\text{独立同分布}} m(X_1\in A_1)m(X_2\in A_2)\cdots m(X_k\in A_k)
+    \end{align*}}\par
+    如果定义$\mu_0$为$\mb{R}$上的测度，使得$\mu_0(A)=m(X_i\in A)$，那么
+    \[\mu(A_1\times A_2\times\cdots\times A_k\times\mb{R}\times\mb{R}\times\cdots) = m(X_1\in A_1)\cdots m(X_k\in A_k)=\mu_0(A_1)\cdots\mu_0(A_k)\]\par
+    这样就定义了一个概率测度空间$\left(\prod_{i=1}^\infty{\mb{R}},\mcal{B}_{\prod_{i=1}^\infty{\mb{R}}},\mu\right)$，其中$X_1,X_2,\cdots,X_n,\cdots$独立同分布.\par
+    \paragraph{定义遍历映射}左平移映射$\setjot[-6]\begin{aligned}[t]
+        T:\prod_{i=1}^\infty{\mb{R}} &\to \prod_{i=1}^\infty{\mb{R}} \\
+        (x_1,x_2,\cdots,x_n,\cdots) &\mapsto (x_2,x_3,\cdots,x_{n+1},\cdots)
+    \end{aligned}$，关于$\mu$是遍历映射.
+    \paragraph{考虑投射并证明其可积性}定义投射$\setjot[-6]\begin{aligned}[t]
+        f:\prod_{i=1}^\infty{\mb{R}} &\to \mb{R} \\
+        (x_1,x_2,\cdots,x_n,\cdots) &\mapsto x_1
+    \end{aligned}$.\par
+    \begin{itemize}
+        \item $f$是可测函数.\par
+        $f^{-1}(A)=A\times\mb{R}\times\mb{R}\times\cdots$可测.\par
+        \item $f\in L^1 \left(\prod_{i=1}^\infty{\mb{R}},\mu\right)$.\par
+        设$\chi_B$为集合$B\times\mb{R}\times\mb{R}\times\cdots$的特征函数，$\int{\chi_B}\d\mu=\mu_0(B)=m(X_i\in B)=\int_\Omega{\chi_{X^{-1}B}}\d m$.\par
+        简单函数$\varphi:\prod_{i=1}^\infty\mb{R}\to\mb{R},\varphi(x)=\sum_{i=1}^l{c_i\chi_{B_i}(x)}$，其中$\chi_{B_i}$是$B_i\times\mb{R}\times\mb{R}\times\cdots$的特征函数.\par
+        则$\int_{\prod_{i=1}^\infty{\mb{R}}}{\varphi(x)}\d \mu(m)=\int_\Omega{\sum_{i=1}^l{c_i\chi_{X^{-1}B_i}}}\d m$.\par
+        使用简单函数逼近，$\varphi_n(x)\to f(x)$，可得$\int_{\prod_{i=1}^\infty{\mb{R}}}{f(x)}\d \mu(m)=\lim_{n\to\infty}{\int_{\prod_{i=1}^\infty{\mb{R}}}{\varphi_n(x)}\d \mu(x)}=\lim_{n\to\infty}\int_\Omega{\sum_{i=1}^n{c_i\chi_{X^{-1}B_i}}}\d m<\infty$.\par
+    \end{itemize}\par
+    \paragraph{计算$f$的积分并应用Birkhoff遍历定理}\par
+
+
+    考虑$\varphi_n(x_1,x_2,\cdots,x_n,\cdots)\to x_1$，$\varphi_n=\sum_{i=1}^{l^{(n)}}{c_i^{(n)}\chi_{B_i^{(n)}}}$，$\psi_n=\sum_{i=1}^{l^{(n)}}{c_i^{(n)}\chi_{X_1^{-1}B_i^{(n)}}}$.\par
+    $\forall\,\omega\in\Omega,\psi_n(\omega)=\sum_{i=1}^{l^{(n)}}{c_i^{(n)}\chi_{X_1^{-1}B_i^{(n)}}(\omega)}=\sum_{i=1}^{l^{(n)}}{c_i^{(n)}\chi_{B_i^{(n)}}(X_1(\omega),0,0,\cdots)}=\varphi_n(X_1(\omega),0,\cdots)\to X_1(\omega)$.\par
+    因此$\int_{\prod_{i=1}^\infty}{f(x)}\d \mu(x)=\int_\Omega{X_1(\omega)}\d m(\omega)=\mb{E}(X_1)$.\par
+    由Birkhoff遍历定理可知，$\frac{1}{n}\sum_{k=0}^{n-1}{f\left(T^k{x}\right)}\to \int_{\prod_{i=1}^\infty{\mb{R}}}{f(x)}\d \mu(x)=\mb{E}(X_1)\;(\mu-\aew x).\quad\quad(*)$\par
+    \paragraph{证明强大数定律}
+    设$Y=\left\{x=(x_1,x_2,\cdots,x_n,\cdots)\in\prod_{i=1}^\infty{\mb{R}}\Bigl|x\,\text{满足}\,(*)\right\}$，那么$\mu(Y)=1$.\par
+    令$S=\Phi^{-1}(Y)$，现证$m(S)=m(\Omega)=1$.\par
+    $\setjot[-6]\begin{aligned}[t]
+        m \left(\Phi^{-1}(A_1\times A_2\times\cdots\times A_k\times\mb{R}\times\mb{R}\times\cdots)\right)&=m(X_1\in A_i,X_2\in A_2,\cdots,X_k\in A_k) \\
+        &=m(Xx_1\in A_1)m(X_2\in A_2)\cdots m(X_k\in A_k)\\
+        &=\mu_0(A_1)\mu_0(A_2)\cdots\mu_0(A_k) \\
+        &=\mu(A_1\times A_2\times\cdots\times A_k\times\mb{R}\times\mb{R}\times\cdots)
+    \end{aligned}$\par
+    $\Rightarrow$对任意半代数$E\in\prod_{i=1}^\infty{\mb{R}}$，$m \left(\Phi^{-1}(E)\right)=\mu(E)$，进一步可以证明上述等式对$\prod_{i=1}^\infty{\mb{R}}$中的可测集成立.\par
+    $\Rightarrow m(S)=m \left(\Phi^{-1}(Y)\right)=\mu(Y)=1$.\par
+    而$\forall\,\omega\in S,x=(X_1(\omega),X_2(\omega),\cdots,X_n(\omega),\cdots)\in Y$，\par
+    代入$(*)$式即得$\frac{1}{n}\sum_{k=0}^{n-1}{f\left(T^k{x}\right)}=\frac{1}{n}(X_1(\omega),X_2(\omega),\cdots,X_n(\omega),\cdots)\to\mb{E}(X_1)\; (\aew \omega\in\Omega)$
+\end{proof}
+
+
+\section{环面上的遍历映射}
+
+在本节，我们的目标是利用遍历理论证明数论中的重要定理Von Staudt-Clausen定理.首先，需要介绍环面的概念.
+\begin{definition}[环面]
+    $\mb{R}^n=\left\{(x_1,x_2,\cdots,x_n)^T|x_i\in\mb{R},1\leq i\leq n\right\}$，$\mb{Z}^n=\left\{(x_1,x_2,\cdots,x_n)^T|x_i\in\mb{Z},1\leq i\leq n\right\}$是其格点子群，则把$\mb{Z}^n$的左陪集构成的空间$X_n=\mb{R}^n/\mb{Z}^n=\left\{x+\mb{Z}^n|x\in\mb{R}^n\right\}$称为\textbf{$\bm{n}$维环面}.
+\end{definition}
+\begin{wrapfigure}{r}{0.22\textwidth}
+    \vspace{-1.5 em}
+    \includegraphics[width=0.22\textwidth]{fig/2.7.png}
+    \captionof{figure}{二维环面}
+    \vspace{-1 em}
+\end{wrapfigure}
+如果取$n=2$，在二维欧式平面上，$X_2=\mb{R}^2/\mb{Z}^2=\left\{x+\mb{Z}^2|x\in\mb{R}^2\right\}$.\par
+$\forall\, x+\mb{Z}^2\in X_2$，可以找到1个代表元$x=(x_1,x_2)^T,\st 0\leq x_1<1,0\leq x_2<1$，那么$X_2\cong [0,1)\times[0,1)$.\par
+借助这一观察，我们可以解释这个集合和环面有何关系.在右图中，在上边界和下边界的两个对称的点只在纵坐标上相差1，因此可以把上下边界看成是同一条直线.同理其左右边界也可以看作是一条直线，于是就可以把它们依次两两粘合，形成一个环面，如下图所示.\par
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{fig/2.8.png}
+    \captionof{figure}{二维环面的构造}
+\end{figure}
+以此类推，对于$\forall\, n\in\mb{N},\forall\, x+\mb{Z}^n\in X_n=\mb{R}^n/\mb{Z}^n$，可以找到一个代表元$x=(x_1,x_2,\cdots,x_n)^T,\st 0 \leq x_i<1$，则$X_n\cong [0,1)\times [0,1)\times\cdots\times [0,1)$.\par
+下面需要定义环面上的度量$d_n:X_n\times X_n\to\mb{R}_{\geq 0}$，以此让环面成为一个度量空间.\par
+\begin{proposition}[环面上的度量]
+    \wideline
+    $\forall\, x+\mb{Z}^n,y+\mb{Z}^n\in X_n$，定义映射$d_n$为$d_n(x+\mb{Z}^n,y+\mb{Z}^n)=\inf_{r_1,r_2\in\mb{Z}^n}{d_{\mb{R}^n}(x+r_1,y+r_2)}=\inf_{r\in\mb{Z}^n}{d_{\mb{R}^n}(x,y+r)}=\inf_{r\in\mb{Z}^n}{d_{\mb{R}^n}(x+r,y)}$，其中$d_{\mb{R}^n}$为$\mb{R}^n$中的欧式度量，则$d_n$是$X_n$中的一个度量.
+\end{proposition}
+在定义中，三个下确界相等的原因是欧式度量的平移不变性.
+\begin{proof}
+    \begin{enumerate}[leftmargin=6em]
+        \item[(正定性)] $d_n(x+\mb{Z}^n,y+\mb{Z}^n)=\inf_{r\in\mb{Z}^n}(x,y+r)\geq 0$\par
+        $d_n(x+\mb{Z}^n,y+\mb{Z}^n)=0\Leftrightarrow \exists\, r_0\in\mb{Z}^n,x=y+r_0\Leftrightarrow x+\mb{Z}^n=y+\mb{Z}^n$.
+        \item[(对称性)] $d_n(x+\mb{Z}^n,y+\mb{Z}^n)=\inf_{r_1,r_2\in\mb{Z}^n}{d_{\mb{R}^n}(x+r_1,y+r_2)}=\inf_{r_1,r_2\in\mb{Z}^n}{d_{\mb{R}^n}(y+r_1,x+r_2)}=d_n(y+\mb{Z}^n,x+\mb{Z}^n)$.
+        \item[(三角不等式)] $\exists\, r_1\in\mb{Z}^n,\st d_n(x+\mb{Z}^n,y+\mb{Z}^n)=\inf_{r\in\mb{Z}^n}{d_{\mb{R}^n}(x+r,y)}=d_{\mb{R}^n}(x+r_1,y)$.\par
+        $\exists\, r_2\in\mb{Z}^n,\st d_n(y+\mb{Z}^n,z+\mb{Z}^n)=\inf_{r\in\mb{Z}^n}{d_{\mb{R}^n}(y+r,z)}=d_{\mb{R}^n}(y,z+r_2)$.\par
+        则$\setjot\begin{aligned}[t]
+            d_n(x+\mb{Z}^n,y+\mb{Z}^n)+d_n(y+\mb{Z}^n,z+\mb{Z}^n)&= d_{\mb{R}^n}(x+r_1,y)+d_{\mb{R}^n}(y,z+r_2) \\
+            &\geq d_{\mb{R}^n}(x+r_1,z+r_2) \\
+            &\geq \inf_{\delta_1,\delta_2\in\mb{Z}^n}{d_{\mb{R}^n}(x+\delta_1,z+\delta_2)}\\
+            &=d_n(x+\mb{Z}^n,z+\mb{Z}^n)
+        \end{aligned}$.
+    \end{enumerate}
+\end{proof}
+
+除此之外，还可以证明环面$X_n$在度量$d_n$下是紧致度量空间.\par
+\begin{proposition}[环面的紧致性]
+    $(X_n,d_n)$是一个紧致度量空间.
+\end{proposition}
+\begin{proof}
+    定义映射$\setjot[-6]\begin{aligned}[t]
+        \pi_n:\mb{R}^n &\to \mb{R}^n/\mb{Z}^n \\
+        x&\mapsto x+\mb{Z}^n
+    \end{aligned}$\par
+    $\forall\, x,y\in\mb{R}^n,d_n(\pi_n(x),\pi_n(y))=\inf_{r\in\mb{Z}^n}{d_{\mb{R}^n}(x,y+r)}\geq d_{\mb{R}^n}(x,y)$.\par
+    因此如果$x_k\to x_0$，那么$\pi_n(x_k)\to\pi_n(x_0)$，则$\pi_n$是连续映射.\par
+    由于$X_n=\pi_n \left([0,1]\times\cdots\times[0,1]\right)$，其中$\pi_n$为连续映射，$[0,1]\times\cdots\times[0,1]$是紧集，因此$X_n$是紧致度量空间.
+\end{proof}
+为了研究环面上的保测映射与遍历映射，还需要定义概率测度空间.我们定义$X_n$上的$\sigmaalg\,\mcal{B}_n=\mb{R}^n$上的$\sigmaalg$在$[0,1)\times[0,1)\times\cdots\times[0,1)$中的限制.或是从另一角度看，$\mcal{B}_n\cong\mb{R}\times\mb{R}\times\cdots\times\mb{R}$中所有矩体生成的$\sigmaalg$.\par
+同样的，定义$X_n$上概率测度为$\mb{R}^n$上的Lebesgue测度在$[0,1)\times[0,1)\times\cdots\times[0,1)$中的限制.由此就得到了概率测度空间$(X_n,\mcal{B}_n,m_\mathrm{Leb})$.\par
+下面考虑所有的可逆整系数$n$阶方阵组成的集合，记为$M'_n(\mb{Z})=\left\{A=(a_{ij})_{\substack{1\leq i\leq n\\1\leq j\leq n}}\Bigl|a_{ij}\in\mb{Z},|A|\neq 0\right\}$.\par
+$\forall\, A\in M'_n(\mb{Z})$，可以定义$X_n$上的映射$\setjot[-6]\begin{aligned}[t]
+    T_A:\quad X_n&\to X_n \\
+    x+\mb{Z}^n&\mapsto A(x+\mb{Z}^n)=Ax+A\mb{Z}^n=Ax+\mb{Z}^n
+\end{aligned}$\par
+由于这个映射定义在等价类上，还需要验证其是良定的.如果$x+\mb{Z}^n=y+\mb{Z}^n$，那么$x=y+r(r\in\mb{Z}^n)$，$Ax=Ay+Ar\Rightarrow Ax+\mb{Z}^n=Ax+\mb{Z}^n$.因此$T_A$把一个等价类中的元素映到同一个等价类，故而良定.\par
+在此基础上，$T_A$也是一个连续映射，为了证明其连续性，需要使用矩阵范数对矩阵的作用加以控制.\par
+
+\begin{lemma}[矩阵范数的存在性]
+    设$A:\mb{R}^n\to\mb{R}^n$线性变换，$A$为$n$阶实矩阵，那么存在常数$c>0,\st \|Ax\|\leq c\cdot\|x\|$，其中$\|\cdot\|$为$\mb{R}^n$中的欧式度量，把$c$称为$A$的\textbf{矩阵范数}.
+\end{lemma}
+利用该引理可知$\forall\, x+\mb{Z}^n,y+\mb{Z}^n\in X_n,\|A(x-y)\|\leq c_A\|x-y\|\Rightarrow d_{\mb{R}^n}(Ax,Ay)\leq c_Ad_{\mb{R}^n}(x,y)$.\par
+不失一般性，假设$d_n(x+\mb{Z}^n,y+\mb{Z}^n)=\inf_{r\in\mb{Z}^n}{d_{\mb{R}^n}(x+r,y)}$，则$d_n(Ax+\mb{Z}^n,Ay+\mb{Z}^n)\leq c_A d(x+\mb{Z}^n,y+\mb{Z}^n)\Rightarrow d_n \left(T_A(x+\mb{Z}^n),T_A(y+\mb{Z}^n)\right)\leq c_A d_n(x+\mb{Z}^n,y+\mb{Z}^n)$.\par
+因此若$x_k+\mb{Z}^n\to x_0+\mb{Z}^n$，则$T_A(x_k+\mb{Z}^n)\to T_A(x_0+\mb{Z}^n)$，所以$T_A$是连续映射.\par
+下面的问题是$T_A$是否是一个保测映射，如果是，那么$T_A$是否是一个遍历映射.\par
+首先引入另一个矩阵的集合$M^{\pm 1}_n(\mb{Z})=\left\{A\in M'_n(\mb{Z})||A|=\pm 1\right\}$.引入这个集合的意义在于这个集合有下面两个优美的性质：
+\begin{enumerate}
+    \item  $M^{\pm 1}_n(\mb{Z})$是一个群，其群运算为矩阵乘法.因此该集合中的任意一个矩阵在集合中有逆矩阵.
+    \item  集合内任意矩阵对应的线性变换保持可测集的测度，即$\forall\, S\subseteq \mb{R}^n$可测集，那么$S$的Lebesgue测度等于$A(S)$的Lebesgue测度.
+\end{enumerate}
+
+\begin{wrapfigure}{l}{0.45\textwidth}
+    \vspace{-1 em}
+    \includegraphics[width=0.45\textwidth]{fig/2.9.png}
+    \captionof{figure}{$A\in M_n^{\pm 1}(\mb{Z})$作用下测度不变}
+    \vspace{-1 em}
+\end{wrapfigure}
+基于这两个性质，可以证明$\forall\, A\in M^{\pm 1}_n(\mb{Z})$，$T_A:X_n\to X_n$是一个保测映射.为了证明这一点，只需要验证对$m_\mathrm{Leb} \left(T^{-1}_A(B)\right)=m_\mathrm{Leb}(B)$对$\forall\, \text{矩体}\, B$成立. \par
+根据$M^{\pm 1}_n(\mb{Z})$的性质，我们知道$T_A^{-1}=T_{A^{-1}}$，其中$A^{-1}\in M^{\pm 1}_n(\mb{Z})$.由$A^{-1}$保持测度知上述命题成立.\par
+如左图所示，当$n=2$时，$A^{-1}$实际上把矩形变换为一个与其面积相等的平行四边形.\par
+下面要证明对于一般的整系数可逆矩阵，它对应的映射也是保测的，为此我们需要引入下列引理，它说明了一个一般的整系数可逆矩阵可以分解为对角阵和刚才讨论的行列式为$\pm 1$的矩阵.\par
+\begin{lemma}\label{lem:2.5}
+    设$A\in M'_n(\mb{Z})$，那么存在$P,Q\in M^{\pm 1}_n(\mb{Z})$，使得$A=P\left(\begin{smallmatrix}
+    d_1 &        &        & \mathbf{0} \\
+        & d_2    &        &            \\
+        &        & \ddots &            \\
+    \mathbf{0} &  &        & d_n
+    \end{smallmatrix}\right)Q.\;(d_i\in\mb{N},d_i>0)$
+\end{lemma}
+\begin{proof}
+    对$n$用数学归纳法.\par
+    $n=1$时，引理成立.\par
+    设$n=l$时引理成立，考虑$n=l+1$时的情形.\par
+    设$A=\begin{pmatrix}
+        a_{11} & a_{12} & \cdots & a_{1n} \\
+        a_{21} & a_{22} & \cdots & a_{2n} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        a_{n1} & a_{n2} & \cdots & a_{nn}
+    \end{pmatrix}$，记$a=\min \left\{|c_n|\left|\left(\begin{smallmatrix}
+        c_{11} & \cdots & c_{1n} \\
+        \vdots & \ddots & \vdots \\
+        c_{n1} & \cdots & c_{nn}
+    \end{smallmatrix}\right)=PAQ,P,Q\in M^{\pm 1}_n(\mb{Z}),c_{11}\neq 0\right.\right\}$.\par
+    设$P_0,Q_0\in M^{\pm 1}(\mb{Z})$，使得$P_0AQ_0=\begin{pmatrix}
+        c_{11} & c_{12} & \cdots & c_{1n} \\
+        c_{21} & c_{22} & \cdots & c_{2n} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        c_{n1} & c_{n2} & \cdots & c_{nn}
+    \end{pmatrix}$，且$|c_{11}|=a$.\par
+    不妨设$c_{11}=a$，如果$c_{21}$不被$c_{11}$整除，设$c_{21}=s\cdot c_{11}+r(0<r<c_n)$， \par
+    则$\begin{pmatrix}
+        1 & & & &\\ 
+        -s & 1 & & &\\
+        0 & & \ddots & &\\
+        \vdots & & &\ddots & \\
+        0 & & & & 1
+    \end{pmatrix}P_0AQ_0=\begin{pNiceArray}{cc}
+        c_{11} & \Block{2-1}<\Large>{*} \\
+        r & \\
+        * & \Block{3-1}<\Large>{*} \\ 
+        \vdots & \\
+        * & \\
+    \end{pNiceArray}$\par
+    $\begin{pNiceMatrix}
+        0 & 1 & 0 & \cdots & 0 \\
+        1 & 0 & 0 & \cdots & 0 \\
+        0 & 0 & 1 & \cdots & 0 \\
+        \vdots & \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & 0 & \cdots & 1
+    \end{pNiceMatrix}\begin{pNiceMatrix}
+        1 & & & &\\ 
+        -s & 1 & & &\\
+        0 & & \ddots & &\\
+        \vdots & & &\ddots & \\
+        0 & & & & 1
+    \end{pNiceMatrix}P_0AQ_0=\begin{pNiceArray}{cc}
+        r & \Block{2-1}<\Large>{*} \\
+        c_{11} & \\
+        * & * \\
+    \end{pNiceArray}$，但是$r<c_{11}$与$c_{11}$最小矛盾.\par
+    因此$c_{21},c_{31},\cdots,c_{n1}$被$c_{11}$整除.类似地，$c_{12},c_{13},\cdots,c_{1n}$被$c_{11}$整除.\par
+    由此，通过初等行列变换，$\exists\, \tilde{P_0},\tilde{Q_0}\in M^{\pm 1}_n(\mb{Z})$，使得$\tilde{P_0}P_0AQ_0\tilde{Q_0}=\begin{pNiceArray}{cccc}
+        c_{11} & 0 & \cdots & 0 \\
+        0 & \Block{3-3}<\Large>{B} \\
+        \vdots &  &  &  \\
+        0 &  &  & 
+    \end{pNiceArray}$\par
+    利用数学归纳法的假设，$\exists\, P_1,Q_1\in M^{\pm 1}_n(\mb{Z})$，使得$P_1BQ_1=\begin{pNiceMatrix}
+        d_2 & & \\
+        & \ddots & \\
+        & & d_n
+    \end{pNiceMatrix}$.\par
+    $\Rightarrow \begin{pNiceMatrix}
+        1 & \\
+        & P_1
+    \end{pNiceMatrix}\tilde{P_0}P_0AQ_0\tilde{Q_0}\begin{pNiceMatrix}
+        1 & \\
+        & Q_1
+    \end{pNiceMatrix}=\begin{pNiceArray}{cccc}
+        c_{11} & & \Block{2-2}<\Large>{0} \\
+        & d_2 & & \\
+        \Block{2-2}<\Large>{0} & & \ddots & \\
+        & & & d_n
+    \end{pNiceArray}$.\par
+    记$P^{-1}= \begin{pNiceMatrix}
+        1 & \\
+        & P_1
+    \end{pNiceMatrix}\tilde{P_0},Q^{-1}=\tilde{Q_0}\begin{pNiceMatrix}
+        1 & \\
+        & Q_1
+    \end{pNiceMatrix}$\par
+    因此$\exists\, P,Q\in M^{\pm 1}_n(\mb{Z})$，且$A=P\begin{pNiceArray}{cccc}
+        c_{11} & & \Block{2-2}<\Large>{0} \\
+        & d_2 & & \\
+        \Block{2-2}<\Large>{0} & & \ddots & \\
+        & & & d_n
+    \end{pNiceArray}Q$
+\end{proof}
+
+由此，可以证明以下命题.
+\begin{proposition}
+    $\forall\,A\in M'_n(\mb{Z})$，则映射$T_A:X_n\to X_n$是保测映射.
+\end{proposition}
+\begin{proof}
+    $\forall\,A\in M^{\pm 1}_n(\mb{Z})$，由引理\ref{lem:2.5}，$A=P\left(\begin{smallmatrix}
+        d_1 & & \\
+        & \ddots & \\
+        & & d_n
+    \end{smallmatrix}\right)=PDQ$，则$T_A=T_PT_DT_Q$.\par
+    现证$T_D$是保测映射.\par
+    $\setjot[-6]\begin{aligned}[t]
+        T_D:X_n &\to X_n \\
+        \left(\begin{smallmatrix}
+            x_1 \\ x_2 \\\vdots \\x_n
+        \end{smallmatrix}\right)+\mb{Z}^n &\mapsto \left(\begin{smallmatrix}
+        d_1 x_1 \\ d_2 x_2 \\\vdots \\d_n x_n
+    \end{smallmatrix}\right)+\mb{Z}^n
+    \end{aligned}$，因此$T_D\cong S_{d_1}\times S_{d_2}\times\cdots\times S_{d_n}$，其中$\setjot[-6]\begin{aligned}[t]
+        S_{k}:[0,1) &\to [0,1) \\
+        x_i &\mapsto kx_i \mod 1
+    \end{aligned}$.\par
+    $S_k$是保测映射，故$\forall\, B=B_1\times B_2\times \cdots\times B_n\subseteq X_n$为矩体，则$m_\mathrm{Leb}\left(T^{-1}_D(B)\right)=m_0 \left(S^{-1}_{d_a}(B_1)\right)\cdots m_0 \left(S^{-1}_{d_n}(B_n)\right)=m_0(B_0)\times\cdots\times m_0(B_n)=m_\mathrm{Leb}(B)$，$m_0$为$[0,1)$上的Lebesgue测度. \par
+    因此$T_D$为保测映射.\par
+    $\forall\, B\subseteq X_n$为可测集，$m_\mathrm{Leb} \left(T^{-1}_A(B)\right)=m_\mathrm{Leb}(T^{-1}_Q T^{-1}_D T^{-1}_P(B))=m_\mathrm{Leb}(T^{-1}_Q T^{-1}_D (B))=m_\mathrm{Leb}(T^{-1}_Q(B))=m_\mathrm{Leb}(B)$.\par
+    $\Rightarrow T_A$是保测映射.
+\end{proof}
+
+现在考虑$T_A$是否是遍历映射，或者更进一步什么样的条件下$T_A$是遍历映射.首先看几个一定不是遍历映射的例子.
+\begin{instance}
+    若$A=I_n$，那么$T_A:X_n\to X_n$不是遍历映射，因为对于$\forall\, B\in \mcal{B}_n,T^{-1}_A(B)=B$.\par
+    \begin{wrapfigure}{r}{0.45\textwidth}
+        \vspace{-2 em}
+        \includegraphics[width=0.45\textwidth]{fig/2.10.png}
+        \captionof{figure}{$T_A$不是遍历映射的例子}
+        \vspace{-1 em}
+    \end{wrapfigure}
+    若$A=\begin{pmatrix}
+        1 & 1 \\
+        0 & 1  \\
+    \end{pmatrix}$，那么$\setjot[-6]\begin{aligned}
+        T_A:X_n&\to X_n \\
+        \left(\begin{smallmatrix}
+            x \\ y
+        \end{smallmatrix}\right)+\mb{Z}^n &\mapsto \left(\begin{smallmatrix}
+            x+y \\ y 
+        \end{smallmatrix}\right)+\mb{Z}^n
+    \end{aligned}$不是遍历映射.\par
+    因为此时$A\in M^{\pm 1}_n(\mb{Z})$，所以$T_A^{-1}=T_{A^{-1}}$且$T_{A^{-1}}$保持任意可测集的测度不变. \par
+    故$\forall\,B\in \mcal{B}_n T^{-1}_A(B)=T_{A^{-1}}(B)=B$.
 \end{instance}
+
+下面正式研究环面上的遍历映射，我们将会使用函数来衡量一个保测映射是否是遍历映射.\par
+设$X_n=\mb{R}^n / \mb{Z}^n$，$m_\mathrm{Leb}$是$X_n$上的Lebesgue测度，考虑$L^2(X_n,m_\mathrm{Leb})$，它在$X_n$中有一组标准正交基$e_{\vv{m}}(\vv{x})=e^{2\pi\iu(\vv{m}\cdot\vv{x})}$，其中$\vv{m}=(m_1,m_2,\cdots,m_n)^T,m_i\in\mb{Z}$，$\vv{x}=(x_1,x_2,\cdots,x_n)^T,x_i\in [0,1)$.\par
+则$\forall\, f\in L^2(X_n,m_\mathrm{Leb}),f(x)=\sum_{\vv{m}\in\mb{Z}^n}{c_{\vv{m}}e_{\vv{m}}(\vv{x})}$，且有$\sum_{\vv{m}\in\mb{Z}^n}{|c_{\vv{m}}|^2}=|f|^2<\infty$.\par
+设$A\in M'_n(\mb{Z})=\big\{A\in M'_n(\mb{Z})||A|\neq 0\big\}$，$\setjot[-6]\begin{aligned}[t]
+    T_A:X_n&\to X_n \\
+    x+\mb{Z}^n &\mapsto Ax+\mb{Z}^n
+\end{aligned}$，我们要讨论$T_A$的遍历性.\par
+设$f\in L^2(X_n,m_\mathrm{Leb})$,$f\circ T_A=f \aew$，令$f(x)=\sum_{\vv{m}\in\mb{Z}^n}{c_{\vv{m}}e_{\vv{m}}(\vv{x})}$.\par
+则$\setjot[-2]\begin{aligned}[t]
+    f\circ T_A(\vv{x})&=f\left(T_A(\vv{x})\right)=\sum_{\vv{m}\in\mb{Z}^n}{c_{\vv{m}}e^{2\pi \iu\vv{m}\cdot T_A(\vv{x})}}=\sum_{\vv{m}\in\mb{Z}^n}{c_{\vv{m}}e^{2\pi\iu\vv{m}\cdot Ax}}\\
+    &= \sum_{\vv{m}\in\mb{Z}^n}{c_{\vv{m}}e^{2\pi\iu\left(\vv{m}^T\cdot A\vv{x}\right)}} = \sum_{\vv{m}\in\mb{Z}^n}{c_{\vv{m}}e^{2\pi\iu\left(A^T\cdot\vv{m}\right)^T\vv{x}}} \\
+    &=\sum_{\vv{m}\in\mb{Z}^n}{c_{\vv{m}}e^{2\pi\iu\left(A^T\cdot\vv{m}\right)\vv{x}}}
+\end{aligned}$\par
+$f \left(\vv{x}\right)=\sum_{\vv{m}\in\mb{Z}^n}{c_{\vv{m}}\eu^{2\pi\iu\vv{m}\cdot\vv{x}}}$，因此$\sum_{\vv{m}\in\mb{Z}^n}{c_{\vv{m}}\eu^{2\pi\iu\vv{m}\cdot\vv{x}}}=\sum_{\vv{m}\in\mb{Z}^n}{c_{\vv{m}}e^{2\pi\iu\left(A^T\cdot\vv{m}\right)\vv{x}}}$.\par
+$\Rightarrow \forall\, \vv{m}\in\mb{Z}^n,c_{A^T\vv{m}}=c_{\vv{m}}$.\par
+\begin{enumerate}[(1)]
+    \item 如果对于任意的非零整向量$\vv{m}\in\mb{Z}^n\setminus \{0\},(A^T)^k\vv{m}\to\infty(k\to\infty)$.\par
+    则$\exists\, k_1<k_2<\cdots<k_n<\cdots$，$\left(A^T\right)^{k_i}\vv{m}$两两不同.又$c_{\left(A^T\right)^{k_i}\vv{m}}=c_{\vv{m}}$，且$\sum_{\vv{m}\in\mb{Z}^n}{|c_{\vv{m}}|^2}<\infty$，可得$c_{\vv{m}}=0\Rightarrow f=c_{\vv{0}}$.\par
+    故$f\equiv const$.\par
+    \item 如果存在$\vv{m}\in\mb{Z}^n\setminus\{0\}$，使得$\left(A^T\right)^k\vv{m}\not\to\infty(k\to\infty)$.\par
+    那么存在子列$k_1<k_2<\cdots<k_n<\cdots$，使得$\left(A^T\right)^{k_i}\vv{m}$在一个有界集中，其中$i\in\mb{N},\left(A^T\right)^{k_i}\vv{m}\in\mb{Z}^n\setminus\{0\}$.\par
+    有界集中的整向量有限，而上述子列中有无限个元素，因此上述子列中一定存在相等的元素，不妨设$\left(A^T\right)^{k_i}\vv{m}=\vv{v}\in\mb{Z}^n$且$\left(A^T\right)^{k_i}\vv{m}=\left(A^T\right)^{k_1}\vv{m}\Rightarrow \left(A^T\right)^{k_i-k_1}\vv{m}=\vv{m}$.\par
+    因此，令$l=k_i-k_1$，$\left(A^T\right)^l,A^l$有特征值为$1$的特征向量.\par
+    下面构造$f(\vv{x})=\eu^{2\pi\iu\vv{m}\cdot\vv{x}}+\eu^{2\pi\iu\vv{m}\cdot A\vv{x}}+\cdots+\eu^{2\pi\iu\vv{m}\cdot A^{l-1}\vv{x}}$.\par
+    则$f\circ T_A(\vv{x})=f(A\vv{x})=\eu^{2\pi\iu\vv{m}\cdot A\vv{x}}+eu^{2\pi\iu\vv{m}\cdot A^2\vv{x}}+\cdots+\eu^{2\pi\iu\vv{m}\cdot A^{l}\vv{x}}=\eu^{2\pi\iu\vv{m}\cdot A\vv{x}}+eu^{2\pi\iu\vv{m}\cdot A^2\vv{x}}+\cdots+\eu^{2\pi\iu\vv{m}\cdot \vv{x}}=f(\vv{x})$.\par
+    显然$f$不是常函数，因此$T_A$不是遍历映射.
+    \item 利用(2)的角度重新审视(1)，如果对于任意$\vv{m}\in\mb{Z}^n\setminus \{0\},\left(A^T\right)^{k}\vv{m}\to\infty(k\to\infty)$.\par
+    那么$\forall\, l,1$不是$\left(A^T\right)^l$的特征值.\par
+    否则存在$l\in\mb{N},\vv{m}\in\mb{Z}^n\setminus\{0\}$，使得$\left(A^T\right)^l\vv{m}=\vv{m}$，则$\left\{\left(A^T\right)^k\vv{m}\right\}_{k\in\mb{N}}$有界，与假设矛盾.
+\end{enumerate}
+综合以上两点，如果我们只看$A$的特征值而非$A^l$的特征值，可以得到最终结论.
+\begin{theorem}{$\bm{T_A}$是遍历映射的充要条件}
+    \begin{enumerate}
+        \item 如果某个单位根是$A$的特征值，那么$T_A:X_n\to X_n$不是遍历的.
+        \item 如果任何一个单位根都不是$A$的特征值，那么$T_A:X_n\to X_n$是遍历映射.
+    \end{enumerate}
+\end{theorem}
+现在可以将这个结论应用到之前所举的例子之上： \par
+$A=\begin{pmatrix}
+    1 & 1 \\
+    0 & 1
+\end{pmatrix}$的特征值为$1$，因此$T_A$不是遍历映射；\par
+$A=\begin{pmatrix}
+    2 & 1 \\
+    1 & 1
+\end{pmatrix}$的特征值均不是单位根，因此$T_A$是遍历映射.
+
+
 
 
 
