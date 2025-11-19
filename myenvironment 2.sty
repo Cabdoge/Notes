@@ -269,22 +269,21 @@
 % 二者共享同一计数器，并且都会显示编号。
 % claim：带证明体的断言盒子（左侧细竖线）。编号显示为 Claim n. <内容>
 % 盒子左边框与上一行“C”字对齐。
-% 可自定义参数：左内边距、竖线颜色与宽度；用户可在导言区重定义
-\providecommand{\claimBoxLeft}{25pt}
 \NewDocumentEnvironment{claim}{m +b}{%
   \refstepcounter{claim}% 允许 \label 引用
-  \par{\textbf{断言~\theclaim.}\;\CJKfamily{KT}\uline{#1}}\par
-  \begin{adjustwidth}{\claimBoxLeft}{0pt}%
-    \par\noindent\hspace{-0.3em}{\color{second}\bfseries \CJKfamily{FS}证明}\hspace{0.3em}%
-    \CJKfamily{FS}%
-    \setlength{\parindent}{2em}%
-    \wideline
-    #2
-    \hfill$\Box$\quad\par
-  \end{adjustwidth}%
+  \par\noindent{\textbf{断言~\theclaim.}\;\CJKfamily{KT}\uline{#1}}\par
+  % 将后续 proof 盒子整体左移，便于其左边框与上方 “C” 对齐
+  \begingroup
+    % 可调左移量（用户可在导言区重设），默认 6pt
+    \providecommand{\claimProofLeftShift}{-6pt}% 若用户已定义则使用用户值
+    \begin{adjustwidth}{-\claimProofLeftShift}{0pt}
+      \begin{proof}
+        #2
+      \end{proof}
+    \end{adjustwidth}
+  \endgroup
 }{% end claim
 }
-
 
 % claim*：仅声明断言，不含证明体；有编号、无参数（内容写在环境体内）
 \NewDocumentEnvironment{claim*}{+b}{%

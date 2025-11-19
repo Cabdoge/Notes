@@ -1,10 +1,10 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.9)  18 NOV 2025 21:33
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.9)  17 NOV 2025 16:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**动力系统大作业
-(./动力系统大作业.tex
+**示例
+(./示例.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 (./elegantbook.cls
@@ -1292,12 +1292,23 @@ File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfarrowlength=\dimen362
 \pgfarrowwidth=\dimen363
 \pgfarrowlinewidth=\dimen364
+) (/usr/local/texlive/2025/texmf-dist/tex/generic/ulem/ulem.sty
+\UL@box=\box139
+\UL@hyphenbox=\box140
+\UL@skip=\skip147
+\UL@hook=\toks47
+\UL@height=\dimen365
+\UL@pe=\count567
+\UL@pixel=\dimen366
+\ULC@box=\box141
+Package: ulem 2019/11/18
+\ULdepth=\dimen367
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/wrapfig/wrapfig.sty
-\wrapoverhang=\dimen365
-\WF@size=\dimen366
-\c@WF@wrappedlines=\count567
-\WF@box=\box139
-\WF@everypar=\toks47
+\wrapoverhang=\dimen368
+\WF@size=\dimen369
+\c@WF@wrappedlines=\count568
+\WF@box=\box142
+\WF@everypar=\toks48
 Package: wrapfig 2003/01/31  v 3.6
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/extarrows/extarrows.sty
 Package: extarrows 2020/03/12 v1.2.0 Some extensible arrows
@@ -1309,101 +1320,107 @@ LaTeX Font Info:    Redeclaring math symbol \fldr on input line 38.
 \symugmL=\mathgroup8
  (./nicematrix.sty
 Package: nicematrix 2025/10/23 v7.4 Enhanced arrays with the help of PGF/TikZ
-\l__nicematrix_tmpc_dim=\dimen367
-\l__nicematrix_tmpd_dim=\dimen368
-\l__nicematrix_tmpc_int=\count568
-\g__nicematrix_env_int=\count569
-\l__nicematrix_the_array_box=\box140
-\g__nicematrix_NiceMatrixBlock_int=\count570
-\g__nicematrix_notes_caption_int=\count571
-\l__nicematrix_columns_width_dim=\dimen369
-\l__nicematrix_col_width_dim=\dimen370
-\g__nicematrix_row_total_int=\count572
-\g__nicematrix_col_total_int=\count573
-\g__nicematrix_last_row_node_int=\count574
-\l__nicematrix_key_nb_rows_int=\count575
-\g__nicematrix_blocks_wd_dim=\dimen371
-\g__nicematrix_blocks_ht_dim=\dimen372
-\g__nicematrix_blocks_dp_dim=\dimen373
-\l__nicematrix_width_dim=\dimen374
-\l__nicematrix_tabular_width_dim=\dimen375
-\l__nicematrix_rule_width_dim=\dimen376
-\l__nicematrix_old_iRow_int=\count576
-\l__nicematrix_old_jCol_int=\count577
-\l__nicematrix_X_columns_dim=\dimen377
-\l__nicematrix_x_initial_dim=\dimen378
-\l__nicematrix_y_initial_dim=\dimen379
-\l__nicematrix_x_final_dim=\dimen380
-\l__nicematrix_y_final_dim=\dimen381
-\g__nicematrix_dp_row_zero_dim=\dimen382
-\g__nicematrix_ht_row_zero_dim=\dimen383
-\g__nicematrix_ht_row_one_dim=\dimen384
-\g__nicematrix_dp_ante_last_row_dim=\dimen385
-\g__nicematrix_ht_last_row_dim=\dimen386
-\g__nicematrix_dp_last_row_dim=\dimen387
-\g__nicematrix_width_last_col_dim=\dimen388
-\g__nicematrix_width_first_col_dim=\dimen389
-\g__nicematrix_ddots_int=\count578
-\g__nicematrix_iddots_int=\count579
-\g__nicematrix_delta_x_one_dim=\dimen390
-\g__nicematrix_delta_y_one_dim=\dimen391
-\g__nicematrix_delta_x_two_dim=\dimen392
-\g__nicematrix_delta_y_two_dim=\dimen393
-\l__nicematrix_row_min_int=\count580
-\l__nicematrix_row_max_int=\count581
-\l__nicematrix_col_min_int=\count582
-\l__nicematrix_col_max_int=\count583
-\l__nicematrix_initial_i_int=\count584
-\l__nicematrix_initial_j_int=\count585
-\l__nicematrix_final_i_int=\count586
-\l__nicematrix_final_j_int=\count587
-\l__nicematrix_start_int=\count588
-\l__nicematrix_end_int=\count589
-\l__nicematrix_local_start_int=\count590
-\l__nicematrix_local_end_int=\count591
-\g__nicematrix_static_num_of_col_int=\count592
-\l__nicematrix_rounded_corners_dim=\dimen394
-\l__nicematrix_tab_rounded_corners_dim=\dimen395
-\l__nicematrix_offset_dim=\dimen396
-\l__nicematrix_line_width_dim=\dimen397
-\g__nicematrix_block_box_int=\count593
-\l__nicematrix_submatrix_extra_height_dim=\dimen398
-\l__nicematrix_submatrix_left_xshift_dim=\dimen399
-\l__nicematrix_submatrix_right_xshift_dim=\dimen400
-\l__nicematrix_first_row_int=\count594
-\l__nicematrix_first_col_int=\count595
-\l__nicematrix_last_row_int=\count596
-\l__nicematrix_last_col_int=\count597
-\c@tabularnote=\count598
-\g__nicematrix_tabularnote_int=\count599
-\c@nicematrix_draft=\count600
-\l__nicematrix_cell_space_top_limit_dim=\dimen401
-\l__nicematrix_cell_space_bottom_limit_dim=\dimen402
-\l__nicematrix_xdots_inter_dim=\dimen403
-\l__nicematrix_xdots_shorten_start_dim=\dimen404
-\l__nicematrix_xdots_shorten_end_dim=\dimen405
-\l__nicematrix_xdots_radius_dim=\dimen406
-\l__nicematrix_left_margin_dim=\dimen407
-\l__nicematrix_right_margin_dim=\dimen408
-\l__nicematrix_extra_left_margin_dim=\dimen409
-\l__nicematrix_extra_right_margin_dim=\dimen410
-\c__nicematrix_max_l_dim=\dimen411
-\l__nicematrix_position_int=\count601
-\l__nicematrix_multiplicity_int=\count602
-\l__nicematrix_brace_yshift_dim=\dimen412
+\l__nicematrix_tmpc_dim=\dimen370
+\l__nicematrix_tmpd_dim=\dimen371
+\l__nicematrix_tmpc_int=\count569
+\g__nicematrix_env_int=\count570
+\l__nicematrix_the_array_box=\box143
+\g__nicematrix_NiceMatrixBlock_int=\count571
+\g__nicematrix_notes_caption_int=\count572
+\l__nicematrix_columns_width_dim=\dimen372
+\l__nicematrix_col_width_dim=\dimen373
+\g__nicematrix_row_total_int=\count573
+\g__nicematrix_col_total_int=\count574
+\g__nicematrix_last_row_node_int=\count575
+\l__nicematrix_key_nb_rows_int=\count576
+\g__nicematrix_blocks_wd_dim=\dimen374
+\g__nicematrix_blocks_ht_dim=\dimen375
+\g__nicematrix_blocks_dp_dim=\dimen376
+\l__nicematrix_width_dim=\dimen377
+\l__nicematrix_tabular_width_dim=\dimen378
+\l__nicematrix_rule_width_dim=\dimen379
+\l__nicematrix_old_iRow_int=\count577
+\l__nicematrix_old_jCol_int=\count578
+\l__nicematrix_X_columns_dim=\dimen380
+\l__nicematrix_x_initial_dim=\dimen381
+\l__nicematrix_y_initial_dim=\dimen382
+\l__nicematrix_x_final_dim=\dimen383
+\l__nicematrix_y_final_dim=\dimen384
+\g__nicematrix_dp_row_zero_dim=\dimen385
+\g__nicematrix_ht_row_zero_dim=\dimen386
+\g__nicematrix_ht_row_one_dim=\dimen387
+\g__nicematrix_dp_ante_last_row_dim=\dimen388
+\g__nicematrix_ht_last_row_dim=\dimen389
+\g__nicematrix_dp_last_row_dim=\dimen390
+\g__nicematrix_width_last_col_dim=\dimen391
+\g__nicematrix_width_first_col_dim=\dimen392
+\g__nicematrix_ddots_int=\count579
+\g__nicematrix_iddots_int=\count580
+\g__nicematrix_delta_x_one_dim=\dimen393
+\g__nicematrix_delta_y_one_dim=\dimen394
+\g__nicematrix_delta_x_two_dim=\dimen395
+\g__nicematrix_delta_y_two_dim=\dimen396
+\l__nicematrix_row_min_int=\count581
+\l__nicematrix_row_max_int=\count582
+\l__nicematrix_col_min_int=\count583
+\l__nicematrix_col_max_int=\count584
+\l__nicematrix_initial_i_int=\count585
+\l__nicematrix_initial_j_int=\count586
+\l__nicematrix_final_i_int=\count587
+\l__nicematrix_final_j_int=\count588
+\l__nicematrix_start_int=\count589
+\l__nicematrix_end_int=\count590
+\l__nicematrix_local_start_int=\count591
+\l__nicematrix_local_end_int=\count592
+\g__nicematrix_static_num_of_col_int=\count593
+\l__nicematrix_rounded_corners_dim=\dimen397
+\l__nicematrix_tab_rounded_corners_dim=\dimen398
+\l__nicematrix_offset_dim=\dimen399
+\l__nicematrix_line_width_dim=\dimen400
+\g__nicematrix_block_box_int=\count594
+\l__nicematrix_submatrix_extra_height_dim=\dimen401
+\l__nicematrix_submatrix_left_xshift_dim=\dimen402
+\l__nicematrix_submatrix_right_xshift_dim=\dimen403
+\l__nicematrix_first_row_int=\count595
+\l__nicematrix_first_col_int=\count596
+\l__nicematrix_last_row_int=\count597
+\l__nicematrix_last_col_int=\count598
+\c@tabularnote=\count599
+\g__nicematrix_tabularnote_int=\count600
+\c@nicematrix_draft=\count601
+\l__nicematrix_cell_space_top_limit_dim=\dimen404
+\l__nicematrix_cell_space_bottom_limit_dim=\dimen405
+\l__nicematrix_xdots_inter_dim=\dimen406
+\l__nicematrix_xdots_shorten_start_dim=\dimen407
+\l__nicematrix_xdots_shorten_end_dim=\dimen408
+\l__nicematrix_xdots_radius_dim=\dimen409
+\l__nicematrix_left_margin_dim=\dimen410
+\l__nicematrix_right_margin_dim=\dimen411
+\l__nicematrix_extra_left_margin_dim=\dimen412
+\l__nicematrix_extra_right_margin_dim=\dimen413
+\c__nicematrix_max_l_dim=\dimen414
+\l__nicematrix_position_int=\count602
+\l__nicematrix_multiplicity_int=\count603
+\l__nicematrix_brace_yshift_dim=\dimen415
 ) (./myenvironment.sty
 Package: myenvironment 2025/08/30 v1.1 tcolorbox + homework(list) + simple fillin
  (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshadings.code.tex
 File: tikzlibraryshadings.code.tex 2023-01-15 v3.1.10 (3.1.10)
  (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryshadings.code.tex
 File: pgflibraryshadings.code.tex 2023-01-15 v3.1.10 (3.1.10)
-))
-\c@mynotecounter=\count603
-\c@homework=\count604
-\homeworklabelleftpad=\skip147
-\homeworklabelsep=\skip148
-\homework@labelwidth=\skip149
-\c@instance=\count605
+)) (/usr/local/texlive/2025/texmf-dist/tex/latex/changepage/changepage.sty
+Package: changepage 2009/10/20 v1.0c check page and change page layout
+\c@cp@cntr=\count604
+\cp@tempcnt=\count605
+)
+\c@mynotecounter=\count606
+\c@homework=\count607
+\homeworklabelleftpad=\skip148
+\homeworklabelsep=\skip149
+\homework@labelwidth=\skip150
+\c@instance=\count608
+\c@claim=\count609
+\c@claim@proofdepth=\count610
 ) (./elegantfix.sty
 Package: elegantfix 2025/08/23 v1.0 Patch lemma & corollary for ElegantBook
  (/usr/local/texlive/2025/texmf-dist/tex/latex/fontawesome5/fontawesome5.sty
@@ -1414,37 +1431,37 @@ LaTeX Font Info:    Trying to load font information for TU+fontawesomefree on in
  (/usr/local/texlive/2025/texmf-dist/tex/latex/fontawesome5/tufontawesomefree.fd)
 LaTeX Font Info:    Trying to load font information for TU+fontawesomebrands on input line 70.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/fontawesome5/tufontawesomebrands.fd)))
-\c@think=\count606
+\c@think=\count611
 )
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... none found.
- (./动力系统大作业.aux)
-\openout1 = `动力系统大作业.aux'.
+ (./示例.aux)
+\openout1 = `示例.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 166.
-LaTeX Font Info:    ... okay on input line 166.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 166.
-LaTeX Font Info:    ... okay on input line 166.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 166.
-LaTeX Font Info:    ... okay on input line 166.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 166.
-LaTeX Font Info:    ... okay on input line 166.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 166.
-LaTeX Font Info:    ... okay on input line 166.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 166.
-LaTeX Font Info:    ... okay on input line 166.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 166.
-LaTeX Font Info:    ... okay on input line 166.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 166.
-LaTeX Font Info:    ... okay on input line 166.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 166.
-LaTeX Font Info:    ... okay on input line 166.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 166.
-LaTeX Font Info:    ... okay on input line 166.
-Package hyperref Info: Link coloring ON on input line 166.
- (./动力系统大作业.out) (./动力系统大作业.out)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 161.
+LaTeX Font Info:    ... okay on input line 161.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 161.
+LaTeX Font Info:    ... okay on input line 161.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 161.
+LaTeX Font Info:    ... okay on input line 161.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 161.
+LaTeX Font Info:    ... okay on input line 161.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 161.
+LaTeX Font Info:    ... okay on input line 161.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 161.
+LaTeX Font Info:    ... okay on input line 161.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 161.
+LaTeX Font Info:    ... okay on input line 161.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 161.
+LaTeX Font Info:    ... okay on input line 161.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 161.
+LaTeX Font Info:    ... okay on input line 161.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 161.
+LaTeX Font Info:    ... okay on input line 161.
+Package hyperref Info: Link coloring ON on input line 161.
+ (./示例.out) (./示例.out)
 \@outlinefile=\write7
-\openout7 = `动力系统大作业.out'.
+\openout7 = `示例.out'.
 
 
 *geometry* driver: auto-detecting
@@ -1454,7 +1471,7 @@ Package hyperref Info: Link coloring ON on input line 166.
 * paper: a4paper
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
-* modes: 
+* modes: twoside 
 * h-part:(L,W,R)=(71.13188pt, 469.47049pt, 56.9055pt)
 * v-part:(T,H,B)=(56.9055pt, 731.23584pt, 56.9055pt)
 * \paperwidth=597.50787pt
@@ -1462,13 +1479,13 @@ Package hyperref Info: Link coloring ON on input line 166.
 * \textwidth=469.47049pt
 * \textheight=731.23584pt
 * \oddsidemargin=-1.1381pt
-* \evensidemargin=-1.1381pt
+* \evensidemargin=-15.36449pt
 * \topmargin=-88.48799pt
 * \headheight=61.74242pt
 * \headsep=11.38109pt
 * \topskip=11.0pt
 * \footskip=25.60747pt
-* \marginparwidth=53.0pt
+* \marginparwidth=106.0pt
 * \marginparsep=7.0pt
 * \columnsep=10.0pt
 * \skip\footins=10.0pt plus 4.0pt minus 2.0pt
@@ -1476,20 +1493,23 @@ Package hyperref Info: Link coloring ON on input line 166.
 * \voffset=0.0pt
 * \mag=1000
 * \@twocolumnfalse
-* \@twosidefalse
-* \@mparswitchfalse
+* \@twosidetrue
+* \@mparswitchtrue
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: changepage package is loaded.
+\caption@adjustwidth@hsize=\dimen416
+\caption@adjustwidth@linewidth=\dimen417
 Package caption Info: listings package is loaded.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/footmisc/footmisc.sty
 Package: footmisc 2024/12/24 v6.0g a miscellany of footnote facilities
-\FN@temptoken=\toks48
-\footnotemargin=\dimen413
-\@outputbox@depth=\dimen414
+\FN@temptoken=\toks49
+\footnotemargin=\dimen418
+\@outputbox@depth=\dimen419
 Package footmisc Info: Declaring symbol style bringhurst on input line 699.
 Package footmisc Info: Declaring symbol style chicago on input line 707.
 Package footmisc Info: Declaring symbol style wiley on input line 716.
@@ -1506,28 +1526,28 @@ Package biblatex Info: XeTeX detected.
 (biblatex)             Assuming input encoding 'utf8'.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'utf8'.
-\openout5 = `动力系统大作业.bcf'.
+\openout5 = `示例.bcf'.
 
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file '动力系统大作业.bbl' not found.
+Package biblatex Info: ... file '示例.bbl' not found.
 
-No file 动力系统大作业.bbl.
-Package biblatex Info: Reference section=0 on input line 166.
-Package biblatex Info: Reference segment=0 on input line 166.
-\c@lstlisting=\count607
-\c__nicematrix_shift_Ldots_last_row_dim=\dimen415
-\c__nicematrix_innersep_middle_dim=\dimen416
-\c@tabularnotesi=\count608
-\enitdp@tabularnotes=\count609
-\c@tabularnotes*i=\count610
-\enitdp@tabularnotes*=\count611
-Package hyperref Info: Option `pageanchor' set `false' on input line 171.
+No file 示例.bbl.
+Package biblatex Info: Reference section=0 on input line 161.
+Package biblatex Info: Reference segment=0 on input line 161.
+\c@lstlisting=\count612
+\c__nicematrix_shift_Ldots_last_row_dim=\dimen420
+\c__nicematrix_innersep_middle_dim=\dimen421
+\c@tabularnotesi=\count613
+\enitdp@tabularnotes=\count614
+\c@tabularnotes*i=\count615
+\enitdp@tabularnotes*=\count616
+Package hyperref Info: Option `pageanchor' set `false' on input line 166.
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: xetex
 * paper: a4paper
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
-* modes: 
+* modes: twoside 
 * h-part:(L,W,R)=(0.0pt, 597.50787pt, 0.0pt)
 * v-part:(T,H,B)=(0.0pt, 845.04684pt, 0.0pt)
 * \paperwidth=597.50787pt
@@ -1541,7 +1561,7 @@ Package hyperref Info: Option `pageanchor' set `false' on input line 171.
 * \headsep=11.38109pt
 * \topskip=11.0pt
 * \footskip=25.60747pt
-* \marginparwidth=53.0pt
+* \marginparwidth=106.0pt
 * \marginparsep=7.0pt
 * \columnsep=10.0pt
 * \skip\footins=10.0pt plus 4.0pt minus 2.0pt
@@ -1549,39 +1569,39 @@ Package hyperref Info: Option `pageanchor' set `false' on input line 171.
 * \voffset=0.0pt
 * \mag=1000
 * \@twocolumnfalse
-* \@twosidefalse
-* \@mparswitchfalse
+* \@twosidetrue
+* \@mparswitchtrue
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 File: example-image.pdf Graphic file (type pdf)
 <use example-image.pdf>
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/n' will be
-(Font)              scaled to size 10.95pt on input line 171.
+(Font)              scaled to size 10.95pt on input line 166.
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/n' will be
-(Font)              scaled to size 24.88pt on input line 171.
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 171.
+(Font)              scaled to size 24.88pt on input line 166.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 166.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 171.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 166.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 171.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 166.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+esvect on input line 171.
+LaTeX Font Info:    Trying to load font information for U+esvect on input line 166.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/esvect/uesvect.fd
 File: uesvect.fd 
 )
-LaTeX Font Info:    Trying to load font information for OMX+mdugm on input line 171.
+LaTeX Font Info:    Trying to load font information for OMX+mdugm on input line 166.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/mathdesign/mdugm/omxmdugm.fd
 File: omxmdugm.fd 2013/08/29 Fontinst v1.933 font definitions for OMX/mdugm.
 )
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/n' will be
-(Font)              scaled to size 14.4pt on input line 171.
+(Font)              scaled to size 14.4pt on input line 166.
 
 
 [1
@@ -1589,76 +1609,31 @@ LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/n' will be
 
 
 ]
-LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/n' will be
-(Font)              scaled to size 17.28pt on input line 177.
- (./动力系统大作业.toc)
-\tf@toc=\write8
-\openout8 = `动力系统大作业.toc'.
-
-
-
-[1
-
-
-
-
-]
-Chapter A.
-
-
-[1
-
-
-
-]
-Chapter C.
-
 
 [2
 
 ]
-LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 280.
-LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 280.
-
 
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 298.
-[3]
-
-[4]
-
-[5]
-
-[6]
-
-[7]
-
-[8]
-
-[9]
-
-[10]
-
-[11] (./动力系统大作业.aux)
+(Font)              scaled to size 10.0pt on input line 215.
+[3] (./示例.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2022/08/05>
  ***********
-Package rerunfilecheck Info: File `动力系统大作业.out' has not changed.
-(rerunfilecheck)             Checksum: CFA806FE00CA97EB4A3C3C05B688B8B0;632.
-Package logreq Info: Writing requests to '动力系统大作业.run.xml'.
-\openout1 = `动力系统大作业.run.xml'.
+Package rerunfilecheck Info: File `示例.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+Package logreq Info: Writing requests to '示例.run.xml'.
+\openout1 = `示例.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 50562 strings out of 473832
- 1105100 string characters out of 5729481
- 2112930 words of memory out of 5000000
- 72769 multiletter control sequences out of 15000+600000
- 571349 words of font info for 129 fonts, out of 8000000 for 9000
+ 50493 strings out of 473832
+ 1098117 string characters out of 5729481
+ 2120800 words of memory out of 5000000
+ 72710 multiletter control sequences out of 15000+600000
+ 568626 words of font info for 113 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 103i,12n,132p,692b,1340s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 103i,11n,132p,687b,1026s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on 动力系统大作业.pdf (13 pages).
+Output written on 示例.pdf (3 pages).

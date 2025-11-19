@@ -1,4 +1,4 @@
-\section{遍历理论在数论中的应用}
+\section{多项式函数的均匀分布}
 
 本节的目的在于证明以下的命题：
 设$\{F_n\}_{n\in\mb{N}}$是斐波那契数列，$F_{n+2}=F_{n+1}+F_n,F_0=0,F_1=1$，则对于几乎所有的实数$\alpha$，$\{F_n\cdot\alpha\mod 1\}_{n\in\mb{N}}$在$[0,1)$中均匀分布，这等价于$\forall\, f\in C(S^1)(S^1\cong [0,1),S^1=\,\text{圆周}\,)$，$\frac{1}{N}\sum_{n=0}^{N-1}{f\left(F_n\cdot\alpha\right)}\to\int_{S^1}{f}\d x$.\par
@@ -269,7 +269,7 @@ $Q\subseteq \mb{R}^2$为全测集，由Fubini定理，存在$A\subseteq\mb{R}$�
 可以注意到如果$A$ 只包含一个元素，那么这个元素就满足Birkhoff回复定理的结论，是一个回复点，因此回复集是回复点的推广.\par
 
 下面一个引理指出回复集中存在点可以回到任意的“$\varepsilon$ 精度”，但这并不等同于回复集中存在回复点，因为其中的点和$\varepsilon$有关.\par 
-\begin{lemma}
+\begin{lemma}{}{2.8}
     设$(X,d)$为紧致度量空间，$T:X\to X$是连续映射，如果$A\subseteq X$是回复集，那么$\forall\, \varepsilon>0,\exists\, z\in A$和$n\in\mb{N}_{>0}$ ，使得$d \left(T^{n}z,z\right)<\varepsilon$.
 \end{lemma}
 \begin{proof}
@@ -295,7 +295,7 @@ $Q\subseteq \mb{R}^2$为全测集，由Fubini定理，存在$A\subseteq\mb{R}$�
 \end{definition}
 
 下面的引理说明如果一个齐性集对任意的“$\varepsilon$ 精度”都存在可以回到该精度的点，那么这个齐性集实际上是一个回复集.\par
-\begin{lemma}
+\begin{lemma}{}{2.9}
     设$T:X\to X$ 是紧致度量空间$X$ 上的同胚，$A$ 为齐性集. 如果$\forall\, \varepsilon>0,\exists\, x,y\in A,n\in\mb{N}_{>0}$ ，使得$d \left(T^ny,x\right)<\varepsilon$，则$A$是回复集.
 \end{lemma}
 \begin{proof}
@@ -310,25 +310,133 @@ $Q\subseteq \mb{R}^2$为全测集，由Fubini定理，存在$A\subseteq\mb{R}$�
     $\Rightarrow \exists\, l\in\mb{Z},S^lx\in V_i\Rightarrow x\in S^lV_i$.那么$\left\{S^lV_i,l\in\mb{Z}\right\}$是$A$ 的一个开覆盖.\par
     由于$A$是紧集，存在有限子覆盖$S^{-l_i}V_i,S^{-(l_i-1)V_i,\cdots,V_i},\cdots,S^{l_i}V_i(\forall\, 1\leq i\leq m)$.\par
     令$L=\max_{1\leq i\leq m}{l_i}$，则$\left\{S^{-L}V_i,S^{-(L-1)}V_i,\cdots,V_i,\cdots,S^{L}V_i\right\}$是$A$ 的一个开覆盖.\par
-    \begin{itemize}
-        \item $\forall\, x,y\in A,\exists\, l\in\{-L,-(L-1),\cdots,L\}$ ，使得$d\left(S^ly,x\right)<\varepsilon$.\par
+    \begin{claim}{$\forall\, x,y\in A,\exists\, l\in\{-L,-(L-1),\cdots,L\}$ ，使得$d\left(S^ly,x\right)<\varepsilon$.}
         $\left\{V_i\right\}_{1\leq i\leq m}$ 是$A$ 的开覆盖$\Rightarrow \exists\, 1\leq i\leq m,\st x\in V_i$.\par
         又$\left\{S^{-L}V_i,S^{-(L-1)}V_i,\cdots,V_i,\cdots,S^{L}V_i\right\}$是$A$ 的开覆盖$\Rightarrow \exists\, k\in\{-L,\cdots,L\},\st y\in S^{k}V_i$.\par
         $\Rightarrow S^{-k}y,x\in V_i\Rightarrow d \left(S^{-k}y,x\right)<\varepsilon$，令$l=-k$即可.
-    \end{itemize}\par
+    \end{claim}\par
     由引理条件得，$\forall\,\delta>0,\exists\, x_0,y_0\in A,n_0\in\mb{N}_{>0}$ ，使得$d \left(T^{n_0}y_0,x_0\right)<\delta$.\par
-    由上面的结论，$\forall\, x\in A,\exists\, l\in\{-L,\cdots,L\}$ ，使得$d \left(S^lx_0,x\right)<\varepsilon$.\par
+    由断言1，$\forall\, x\in A,\exists\, l\in\{-L,\cdots,L\}$ ，使得$d \left(S^lx_0,x\right)<\varepsilon$.\par
     $A$是紧集，因此同胚$S,T$ 一致连续，故$\forall\,\varepsilon>0,\exists\,\delta>0$ ，使得$d(x,y)<\delta\Rightarrow d \left(Tx,Ty\right)<\varepsilon,d \left(S^lx,S^ly\right)<\varepsilon(\forall\, -L\leq l\leq L)$.\par
     $\Rightarrow d \left(S^lT^{n_0}y_0,S^lx_0\right)\leq\varepsilon\xLongrightarrow{\text{可交换}} d \left(T^{n_0}\big(S^ly_0\big),S^lx_0\right)\leq\varepsilon\xLongrightarrow{\text{三角不等式}} d\left(T^{n_0}\big(S^ly_0\big),x\right)\leq2\varepsilon$.\par
     令$y=S^ly_0,n=n_0$即可.
 \end{proof}
 
+\begin{lemma}{}{2.10}
+    设$(X,d)$是紧致度量空间，$F_i$是$X$ 中的闭集$(i\in\mb{N})$ ，如果$X=\bigcup_{i\in\mb{N}}{F_i}$ ，那么$\exists\, i_0\in\mb{N}$ ，使得$F_{i_0}$ 有内点.
+\end{lemma}
+\begin{proof}
+    反证法.假设$\forall\, i\in\mb{N}$ ，$F_i$ 没有内点.\par
+    对于$i=1$ ，存在$x_1\in X,\st x_1\notin F_1\Rightarrow \delta_1>0$ ，使得$\overline{B(x_1,\delta_1)}\cap F_1=\varnothing$.\par
+    对于$i=2$ ，$B(x_1,\delta_1)\not\subset F_2$，否则$F_2$有内点，则$\exists\, x_2\in B(x_1,\delta_1),x_2\notin F_2$\par
+    $\Rightarrow \exists\,\delta_2>0$，使得$B(x_2,\delta_2)\subset B(x_1,\delta_2)$且$\overline{B(x_2,\delta_2)}\cap F_2=\varnothing$.\par
+    对于$\forall\, i\in\mb{N}$，存在$x_i\in B(x_{i-1},\delta_{i-1}),x_i\notin F_i\Rightarrow \exists\,\delta_i>0$，使得$B(x_i,\delta_i)\subset B(x_{i-1},\delta_{i-1})$，$\overline{B(x_i,\delta_i)}\cap F_i=\varnothing$ .\par
+    设$B_0=\bigcap_{i\in\mb{N}}{\overline{B(x_i,\delta_i)}}$，那么$B_0\neq\varnothing$，设$x_0\in B_0$且$x_0\in F_j(j\in\mb{N})$.\par
+    另一方面，$x_0\in\overline{B(x_j,\delta_j)}$，而$\overline{B(x_j,\delta_j)}\cap F_j=\varnothing$，矛盾.\par
+    因此$\exists\, i_0\in\mb{N}$，$F_{i_0}$有内点.
+\end{proof}
+\begin{remark}
+    上述引理的一个等价形式是Baire纲定理，即完备度量空间是第二纲集.
+\end{remark}
+
+\begin{lemma}
+    设$(X,d)$是紧致度量空间，$T:X\to X$ 同胚，$A\subseteq X$ 闭集，如果$A$ 是齐性集，又是回复集，那么$A$一定有回复点，即$\exists\, x\in X,x\in\omega(x)$.
+\end{lemma}
+\begin{proof}
+    定义$\setjot[-6]\begin{aligned}[t]
+        F:A&\to \mb{R}_{>0} \\
+        x&\mapsto\inf_{n\leq 1}{d \left(x,T^nx\right)}
+    \end{aligned}$，则$A$中存在回复点$\iff\exists\, x\in A,F(x)=0$.\par
+    反证法，假设$\forall\, x\in A,F(x)\neq 0$.\par
+    令$S_n=\left\{x\in A\left|F(x)\geq\frac{1}{n}\right.\right\}(\forall\, n\in\mb{N})$，则$A=\bigcup_{n\in\mb{N}}{S_n}$.\par
+    现证$S_n$是闭集.\par
+    $S_n^c=\left\{x\in A\left|F(x)<\frac{1}{n}\right.\right\}$.则$\forall\, x\in S_n^c,\exists\, N\in\mb{N}$ ，使得$d \left(x,T^Nx\right)<\frac{1}{n}$.\par
+    由$T$的连续性，故存在$x$的邻域$U_x$，使得$\forall\, y\in U_x,d \left(x,T^Nx\right)<\frac{1}{x}$.\par
+    $\Rightarrow U_x\subseteq S_n^c\Rightarrow S_n^c$为开集，$S_n$为闭集.\par
+    由引理\ref{lem:2.10}，$\exists\, n_0\in\mb{N}$，$S_{n_0}$包含内点.\par
+    不妨设$B(x_0,r_0)\subset S_{n_0}$.\par
+    由于$A$是齐性集，存在同胚映射$S:X\to X$满足： \par
+    \begin{enumerate}[leftmargin=4em,label=(\arabic*)]
+        \item $S\circ T=T\circ S$
+        \item $S(A)=A$
+        \item $S:A\to A$是极小系统
+    \end{enumerate}\par
+    $B(x_0,r_0)\subseteq S_{n_0}\subseteq A$，$S:A\to A$是极小系统$\Rightarrow \left\{S^l \left(B(x_0,r_0)\right)\Big| l\in\mb{Z}\right\}$是$A$的一个开覆盖.\par
+    由$A$是闭集可知$A$是紧集，因此$\exists\, L\in\mb{N}$，使得$S^{-L}\left(B(x_0,r_0)\right)\cup S^{-(L-1)}\left(B(x_0,r_0)\right)\cup\cdots\cup S^{L}\left(B(x_0,r_0)\right)=A$.\par
+    由于$S^{-L},\cdots,S^L$是紧集$X$上的连续函数，故一致连续$\Rightarrow\forall\,\varepsilon>0,\exists\,\delta>0$，使得$d(x,y)<\delta$，有$d \left(S^ix,S^iy\right)<\varepsilon(\forall\, i\in\{-L,\cdots,L\})$.\par
+    令$\varepsilon=\frac{1}{n_0}$，$\exists\,\delta_0>0$，使得$d(x,y)<\delta_0\Rightarrow d \left(S^ix,S^iy\right)<\varepsilon=\frac{1}{n_0}\;(\forall\, i\in\{-L,\cdots,L\})$.\par
+    \begin{claim}{$\forall\,y\in A,F(y)\geq \delta_0$}
+        反证法，假设$\exists\, y_0\in A$，使得$F(y_0)<\delta_0\Rightarrow \exists\, N\in\mb{N},d \left(y_0,T^Ny_0\right)<\delta_0$.\par
+        由于$y_0\in A=S^{-L}\left(B(x_0,r_0)\right)\cup S^{-(L-1)}\left(B(x_0,r_0)\right)\cup\cdots\cup S^{L}\left(B(x_0,r_0)\right)$，$\exists\, j_0\in\{-L,\cdots,L\}$，使得$y_0\in S^{j_0}\left(B(x_0,r_0)\right)$.\par
+        $\Rightarrow S^{-j_0}(y_0)\in B(x_0,r_0)$，其中$-j_0\in \{-L,\cdots,L\}$.\par
+        由于$d \left(y_0,T^Ny_0\right)<\delta_0\Rightarrow d \left(S^{-j_0}(y_0),S^{-j_0}\left(T^Ny_0\right)\right)<\varepsilon=\frac{1}{n_0}$.\par
+        $\Rightarrow F \left(S^{-j_0}(y_0)\right)<\frac{1}{n_0}$，与$S^{-j_0}(y_0)\in B(x_0,r_0)\subseteq S_{n_0}$矛盾.
+    \end{claim}\par
+    因为$A$是回复集，由引理\ref{lem:2.8}知$\forall\, \varepsilon>0,\exists\, z\in A,n\in\mb{N}$ ，使得$d \left(z,T^nz\right)<\varepsilon$.\par
+    取$\varepsilon=\frac{\delta_0}{2}\Rightarrow \exists\, z\in A,\st F(z)<\frac{\delta_0}{2}$，与断言1矛盾.
+\end{proof}
+
+最后，我们可以证明多重Birkhoff回复定理.
+\begin{theorem*}{多重Birkhoff回复定理}
+    设$(X,d)$ 是紧致度量空间，$T:X\to X$ 同胚，$l\in\mb{N}$，那么$\exists\, x\in X$，以及自然数子列$n_1<n_2<\cdots<n_k<\cdots$，使得$T^{n_i}x\to x,T^{2n_i}x\to x,\cdots,T^{ln_i}x\to x$.
+\end{theorem*}
+\begin{proof}
+    对$l$应用数学归纳法.\par
+    当$l=1$时，由Birkhoff回复定理知成立.\par
+    考虑$\forall\, l\in\mb{N}$，假设$T:X\to X$是极小系统.\par
+    则$Y=\underbrace{X\times\cdots\times X}_{l\,\text{个}\,X}$为紧致度量空间，$A=\left\{(x,x,\cdots,x)|x\in X\right\}$是闭集.\par
+    定义映射$\setjot[-4]\begin{aligned}[t]
+        \Phi:Y &\to Y \\
+        (x_1,x_2,\cdots,x_l) &\mapsto \left(Tx_1,T^2x_2,\cdots,T^lx_l\right)
+    \end{aligned}$，$\setjot[-4]\begin{aligned}[t]
+        \Psi:Y &\to Y \\
+        (x_1,x_2,\cdots,x_l) &\mapsto \left(Tx_1,Tx_3,\cdots,Tx_l\right)
+    \end{aligned}$\par
+    则$\Phi,\Psi$都是$Y$上的同胚，且$\Phi\circ\Psi=\Psi\circ\Phi,\Psi(A)=A$，由$T:X\to X$是极小系统可知$\Psi:A\to A$是极小系统.\par
+    因此$A$是$X$的齐性集.\par
+    由归纳假设，$\exists\, y\in Y$，以及一个自然数序列$n_1<n_2<\cdots<n_k<\cdots$，使得$T^{n_i}y\to y,\cdots,T^{(l-1)n_i}y\to y\;(i\to\infty)$.\par
+    $\setjot[-2]\begin{aligned}[t]
+        \Rightarrow &\left(T^{n_i}\left(T^{-n_i}y\right),T^{2n_i}\left(T^{-n_i}y\right),\cdots,T^{ln_i}\left(T^{-n_i}y\right)\right)\\
+        &=\left(y,T^{n_i}y,\cdots,T^{(l-1)n_i}y\right)\to(y,y,\cdots,y)\in A
+    \end{aligned}$\par
+    则$\forall\,\varepsilon>0,\exists\,(y,y,\cdots,y)\in A,\left(T^{-n_i}y,\cdots,T^{-n_i}y\right)\in A$，以及$n_i\in\mb{N}$，使得$$d \left((y,\cdots,y),\Phi^{n_i}\left(T^{-n_i}y,\cdots,T^{-n_i}y\right)\right)<\varepsilon$$ \par
+    由引理\ref{lem:2.9}，$A$是回复集.\par
+    又$A$是齐性集，因此$A$中存在回复点$x\in \omega(x)$.\par
+    即存在一个自然数序列$m_1<m_2<\cdots<m_k<\cdots$，使得$\Phi^{m_i}(\underbrace{(x,x,\cdots,x)}_{l\,\text{个}})\to\underbrace{(x,x,\cdots,x)}_{l\,\text{个}}$ \par
+    $\Leftrightarrow T^{m_i}x\to x,T^{2m_i}x\to x,\cdots,T^{lm_i}\to x$
+\end{proof}
 
 
+\section{Van de Waerden定理}
 
-
-
-
+下面使用Birkhoff多重回复定理证明数论中著名的Van de Waerden定理.\par
+\begin{theorem}{Van de Waerden定理}
+    设$\mb{N}=C_1\cup C_2\cup\cdots\cup C_l$是$\mb{N}$的一个有限分划$(l\in\mb{N})$，$\forall\, s\in\mb{N}$，存在$i\in\{1,\cdots,l\}$，使得$C_i$中有长度为$s$的等差数列.
+\end{theorem}
+\begin{proof}
+    设$X=\{1,2,\cdots,l\}$，$Y=\prod_{i=-\infty}^\infty{X}$，$\setjot[-4]\begin{aligned}[t]
+        T:Y&\to Y \\
+        (\cdots,x_{-1},x_0,x_1,\cdots)&\mapsto (\cdots,x_0,x_1,x_2,\cdots)
+    \end{aligned}$为左平移映射.\par
+    $\forall\, x=(\cdots,x_{-1},x_0,x_1,\cdots),y=(\cdots,y_{-1},y_0,y_1,\cdots)\in Y$，定义$Y$上的度量为$d(x,y)=\sum_{i=-\infty}^\infty{\frac{|x_i-y_i|}{l^{|i|}}}$.\par
+    \begin{claim}{$(Y,d)$是紧致度量空间，$T:Y\to Y$是连续映射.}
+        只需证明$(Y,d)$是列紧的，即任何点列有收敛子列.\par
+        $\forall\,\{y_n\}\subset Y,y_n=(\cdots,y_{-1}^n,y_0^n,y_1^n,\cdots)$.\par
+        由于$X$有限，一定存在无穷子列$\{\prescript{0}{}y_n\}$，使得$\forall\, n,\prescript{0}{}y_0^n=y_0$.\par
+        同理，存在无穷子列$\{\prescript{1}{}y_n\}\subseteq \{\prescript{0}{}y_n\}$，使得$\forall\, n,\prescript{1}{}y_{1}^n=y_{1}$.\par
+        重复以上过程，依次可得子列$\{\prescript{1}{}y_n\}\supseteq\{\prescript{-1}{}y_n\}\supseteq\{\prescript{2}{}y_n\}\supseteq\{\prescript{-2}{}y_n\}\supseteq\cdots$，则$\exists\, y=(\cdots,y_{-1},y_0,y_1,\cdots)$，且可从上述点列中依次选取一个元素按序构成子列$\{\tilde{y}_n\}$，满足$\tilde{y}_i^n\to y_i$.\par
+        现证$d(\tilde{y}_n,y)\to 0$.\par
+        $d(\tilde{y}_n,y)=\sum_{i=-\infty}^{\infty}\frac{\left|\tilde{y}_i^n-y_i\right|}{l^{|l_i|}}=\sum_{i=-L}^L{\frac{\left|\tilde{y}_i^n-y_i\right|}{l^{|l_i|}}}+\sum_{|i|\geq L+1}{\frac{\left|\tilde{y}_i^n-y_i\right|}{l^{|l_i|}}}$.\par
+        $\forall\,\varepsilon>0$,由于$\left|\tilde{y}_i^n-y_i\right|\leq l$，故$\exists\, L\in\mb{N}$，使得$\sum_{|i|\geq L+1}{\frac{\left|\tilde{y}_i^n-y_i\right|}{l^{|l_i|}}}<\varepsilon$.\par
+        固定$L$，取$N=2L+1$，则当$n>N$时，$\forall\, -L\leq i\leq L,\tilde{y}_i^n=y_i\Rightarrow \sum_{i=-L}^L{\frac{\left|\tilde{y}_i^n-y_i\right|}{l^{|l_i|}}}=0$.\par
+        故$\forall\, n>N$，有$d(\tilde{y}_n,y)<\varepsilon$，因此$d(\tilde{y}_n,y)\to 0$.
+    \end{claim}\par
+    \begin{claim}{$T:Y\to Y$是同胚}
+        $\forall\, x=(\cdots,x_{-1},x_0,x_1,\cdots),y=(\cdots,y_{-1},y_0,y_1,\cdots),d \left(Tx,Ty\right)=\sum_{i=-\infty}^\infty{\frac{|x_{i+1}-y_{i+1}|}{l^{|i|}}}\leq \left(\sum_{i=-\infty}^\infty{\frac{|x_{i}-y_{i}|}{l^{|i|}}}\right)l=ld(x,y)$.\par
+        类似地，$d \left(T^{-1}x,T^{-1}y\right)\leq ld(x,y)$.\par
+        因此$T$是同胚.
+    \end{claim}
+\end{proof}
 
 
 
