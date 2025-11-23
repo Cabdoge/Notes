@@ -34,9 +34,11 @@
 \contentsline {section}{\numberline {7.1}连通空间}{38}{section.7.1}%
 \contentsline {section}{\numberline {7.2}连通分支}{41}{section.7.2}%
 \contentsline {section}{\numberline {7.3}道路连通}{42}{section.7.3}%
-\contentsline {section}{\numberline {7.4}连通与道路连通}{44}{section.7.4}%
-\contentsline {section}{\numberline {7.5}局部道路连通}{45}{section.7.5}%
-\contentsline {chapter}{\numberline {第八章}商空间}{47}{chapter.8}%
-\contentsline {section}{\numberline {8.1}商拓扑与商空间}{47}{section.8.1}%
-\contentsline {section}{\numberline {8.2}例子}{49}{section.8.2}%
-\contentsline {section}{\numberline {8.3}射影空间与轨道空间}{54}{section.8.3}%
+\contentsline {section}{\numberline {7.4}道路连通分支}{43}{section.7.4}%
+\contentsline {section}{\numberline {7.5}连通与道路连通}{44}{section.7.5}%
+\contentsline {section}{\numberline {7.6}局部道路连通}{45}{section.7.6}%
+\contentsline {section}{\numberline {7.7}区分拓扑空间}{46}{section.7.7}%
+\contentsline {chapter}{\numberline {第八章}商空间}{48}{chapter.8}%
+\contentsline {section}{\numberline {8.1}商拓扑与商空间}{48}{section.8.1}%
+\contentsline {section}{\numberline {8.2}例子}{50}{section.8.2}%
+\contentsline {section}{\numberline {8.3}射影空间与轨道空间}{55}{section.8.3}%

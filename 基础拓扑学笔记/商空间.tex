@@ -13,7 +13,8 @@
     \end{itemize}
     令 $\tilde{\mathcal{T}} := \{ U \subset X/\!\sim \mid q^{-1}(U) \in \mathcal{T} \}$.则$\tilde{\mathcal{T}}$ 是 $X/\!\sim$ 上的一个拓扑，称为\textbf{商拓扑}. $(X/\!\sim, \tilde{\mathcal{T}})$ 称为\textbf{商空间}，$q:X\to X/\!\sim$ 称为\textbf{商映射}.
 \end{definition}
-\begin{proof}[证明“$\tilde{\mathcal{T}}$是一个拓扑”]
+\begin{proof}
+    下面证明“$\tilde{\mathcal{T}}$是一个拓扑”： \par
     (i) $\varnothing, X/\!\sim \in \tilde{\mathcal{T}}$，因为 $q^{-1}(\varnothing)=\varnothing \in \mathcal{T}$，$q^{-1}(X/\!\sim)=X \in \mathcal{T}$.
 
     (ii) 设 $U_\lambda \in \tilde{\mathcal{T}}, \lambda \in \Lambda$.则 $q^{-1}(\bigcup_{\lambda \in \Lambda} U_\lambda) = \bigcup_{\lambda \in \Lambda} q^{-1}(U_\lambda)$.由于每个 $q^{-1}(U_\lambda)$ 都是开集，它们的并集也是开集，因此 $\bigcup_{\lambda \in \Lambda} U_\lambda \in \tilde{\mathcal{T}}$.
@@ -23,7 +24,7 @@
 
 \begin{remark}
     (1) 商映射 $q: X \to X/\!\sim$ 是满射.\par
-    (2) $U \subset X/\!\sim$ 是开集 $\iff q^{-1}(U) \subset X$ 是开集.
+    (2) $U \subset X/\!\sim$ 是开集 $\iff q^{-1}(U) \subset X$ 是开集.特别地，$q$是连续的.
 \end{remark}
 
 \begin{instance}
@@ -40,7 +41,7 @@
     商拓扑是使得 $q: X \to X/\!\sim$ 连续的最精细的拓扑.
 \end{proposition}
 \begin{proof}
-    假设 $\tilde{\mathcal{T}}'$ 是 $X/\!\sim$ 上的一个拓扑，且 $q: (X, \mathcal{T}) \to (X/\!\sim, \tilde{\mathcal{T}}')$ 连续.
+    假设 $\tilde{\mathcal{T}}'$ 是 $X/\!\sim$ 上的一个拓扑，且 $q: (X, \mathcal{T}) \to (X/\!\sim, \tilde{\mathcal{T}}')$ 连续.\par
     那么对于任意 $U \in \tilde{\mathcal{T}}'$，$q^{-1}(U) \in \mathcal{T}$.由商拓扑的定义，这意味着 $U \in \tilde{\mathcal{T}}$.
     因此 $\tilde{\mathcal{T}}' \subset \tilde{\mathcal{T}}$.
 \end{proof}
@@ -52,15 +53,12 @@
 \begin{proof}
     “$\Rightarrow$” 两个连续映射的复合是连续的，显然成立.
 
-    “$\Leftarrow$” 设 $V$ 是 $Z$ 中的任意开集.我们需要证明 $f^{-1}(V)$ 在 $X/\!\sim$ 中是开集.
-    根据商拓扑的定义，这等价于证明 $q^{-1}(f^{-1}(V))$ 在 $X$ 中是开集.
-    注意到 $q^{-1}(f^{-1}(V)) = (f \circ q)^{-1}(V)$.
-    因为 $f \circ q$ 是连续的，所以 $(f \circ q)^{-1}(V)$ 在 $X$ 中是开集.
-    因此 $f^{-1}(V)$ 在 $X/\!\sim$ 中是开集，故 $f$ 连续.
+    “$\Leftarrow$” 对任意开集$V\subset Z$，$(f \circ q)^{-1}(V)=q^{-1}(f^{-1}(V))$是$X$中的开集.\par
+    根据商拓扑的定义，$f^{-1}(V)$在$X/\!\sim$ 中是开集，故 $f$ 连续.
     \[
     \begin{tikzcd}
         X \arrow[rd, "f \circ q"] \arrow[d, "q"'] & \\
-        X/\!\sim \arrow[r, "f"] & Z
+        X/\!\sim \arrow[r, "f"'] & Z
     \end{tikzcd}
     \]
 \end{proof}
@@ -87,47 +85,64 @@
     则 $X/\!\sim_f \cong Y$.
 \end{theorem}
 \begin{proof}
-    定义 $h: X/\!\sim_f \to Y, [x] \mapsto f(x)$.容易验证 $h$ 是良定义且是双射.
+    定义 $\setjot[-5]\begin{aligned}[t]
+        h: X/\!\sim_f&\to Y \\
+        [x]&\mapsto f(x)
+    \end{aligned} $.容易验证 $h$ 是良定义且是双射.\par
     我们需要证明 $h$ 和 $h^{-1}$ 都是连续的.
     \begin{itemize}
         \item 证明 $h$ 连续：
-        考虑交换图表：
+        考虑交换图：
         \[
         \begin{tikzcd}
             X \arrow[rd, "f"] \arrow[d, "q"'] & \\
-            X/\!\sim_f \arrow[r, "h"] & Y
+            X/\!\sim_f \arrow[r, "h"'] & Y
         \end{tikzcd}
         \]
         我们有 $h \circ q = f$.因为 $f$ 是连续的，根据引理 \ref{lem:quotient_map_char}，$h$ 是连续的.
 
         \item 证明 $h^{-1}$ 连续：
-        考虑交换图表：
+        考虑交换图：
         \[
         \begin{tikzcd}
             X \arrow[d, "f"'] \arrow[r, "q"] & X/\!\sim_f \\
             Y \arrow[ru, "h^{-1}"'] &
         \end{tikzcd}
         \]
-        我们有 $h^{-1} \circ f = q$.因为 $q$ 是连续的，而 $f$ 是商映射（根据抽象定义），再次使用引理 \ref{lem:quotient_map_char} 的变体（将 $q$ 换成 $f$），可知 $h^{-1}$ 是连续的.
+        我们有 $h^{-1} \circ f = q$.因为 $q$ 是连续的，而 $f$ 是商映射（根据抽象定义），再次使用引理 \ref{lem:quotient_map_char}，可知 $h^{-1}$ 是连续的.
     \end{itemize}
     因此，$h$ 是一个同胚.
 \end{proof}
+这个定理实际说明了通过等价类定义出来的商映射和抽象定义的商映射是相互兼容的，二者并不矛盾.
 
 \begin{proposition}
-    若映射 $f:X\to Y$ 是满射、连续、开（或闭）映射，则 $f$ 是一个商映射.
+    若映射 $f:X\to Y$ 是满射、连续、开(闭)映射，则 $f$ 是一个商映射.
 \end{proposition}
 \begin{proof}
-    假设 $U\subset Y$ 且 $f^{-1}(U)\subset X$ 是开集.由于 $f$ 是开映射，所以 $f(f^{-1}(U))$ 在 $Y$ 中是开集.又因为 $f$ 是满射，所以 $f(f^{-1}(U))=U$.因此 $U$ 在 $Y$ 中是开集.根据商映射的定义，$f$ 是一个商映射.
+    假设 $U\subset Y$ 且 $f^{-1}(U)\subset X$ 是开集.由于 $f$ 是开映射，所以 $f(f^{-1}(U))$是$Y$中的开集.\par
+    又因为$f$是满射，所以 $f(f^{-1}(U))=U$.因此 $U$ 在 $Y$ 中是开集.\par
+    因此满足商映射的定义，故$f$ 是一个商映射.
     \par
     若 $f$ 是闭映射，证明是类似的.
 \end{proof}
+\begin{remark}
+    至此，我们有三个类似的命题.如果映射$f:X\to Y$是连续开(闭)映射，那么：
+    \begin{enumerate}
+        \item $f$是双射$\Rightarrow f$是同胚.
+        \item $f$是单射$\Rightarrow f$是嵌入.
+        \item $f$是满射$\Rightarrow f$是商映射.
+    \end{enumerate}
+\end{remark}
 
 \begin{instance}
-    投影映射 $\pi_X:X\times Y\to X, (x,y)\mapsto x$ 是一个商映射，因为 $\pi_X$ 是满射、连续且开的.
+    投影映射 $\setjot[-2]\begin{aligned}[t]
+        \pi_X:X&\times Y\to X \\
+        (x,y)&\mapsto x
+    \end{aligned} $ 是一个商映射，因为 $\pi_X$ 是满射、连续且开的.
 \end{instance}
 
 \begin{proposition}
-    设 $f:X\to Y$ 是一个满射、连续的映射.若 $X$ 是紧空间，$Y$ 是Hausdorff空间，则 $f$ 是一个商映射.
+    设 $f:X\to Y$ 是一个连续满射.若 $X$ 是紧致空间，$Y$ 是Hausdorff空间，则 $f$ 是一个商映射.
 \end{proposition}
 \begin{proof}
     只需证明 $f$ 是一个闭映射即可.
@@ -143,13 +158,12 @@
     设 $f:X\to Y$ 和 $g:Y\to Z$ 都是商映射，则复合映射 $g\circ f:X\to Z$ 也是一个商映射.
 \end{lemma}
 \begin{proof}
-    $g\circ f$ 是满射和连续的.假设 $U\subset Z$ 且 $(g\circ f)^{-1}(U)$ 在 $X$ 中是开集.
-    \par
-    $(g\circ f)^{-1}(U)=f^{-1}(g^{-1}(U))$.
-    \par
+    由于$f,g$都是连续满射，因此$g\circ f$ 是连续满射.\par
+    假设$U\subset Z$，且$(g\circ f)^{-1}(U)$是$X$中的开集，有$(g\circ f)^{-1}(U)=f^{-1}\left(g^{-1}(U)\right)$\par
     由于 $f$ 是商映射，因此 $g^{-1}(U)$ 在 $Y$ 中是开集.
     \par
-    由于 $g$ 是商映射，因此 $U$ 在 $Z$ 中是开集.
+    由于 $g$ 是商映射，因此 $U$ 在 $Z$ 中是开集.\par
+    故$g\circ f$是开映射，从而是商映射.
 \end{proof}
 
 \begin{remark}

@@ -1,0 +1,140 @@
+\chapter{测度熵}
+
+
+\section{测度熵的概念}
+
+
+本章介绍的对象主要为保测映射的熵，它可以帮助我们判断两个保测映射是否是同构的，因此，先介绍同构的概念.
+
+\begin{definition}{可逆保测映射}
+    如果一个映射$\Phi$满足：
+    \begin{enumerate}[(1)]
+        \item $\Phi$是保测映射，即$\forall\, E\subseteq Y_2,m_2(E)=m_1\left(\Phi^{-1}(E)\right)$
+        \item $\Phi$可逆，且$\Phi^{-1}$也是保测映射
+    \end{enumerate}
+    则称$\Phi$是一个\textbf{可逆保测映射}
+\end{definition}
+
+\begin{definition}{同构}
+    设$(X_1,\mcal{B}_1,m_1)$和$(X_2,\mcal{B}_2,m_2)$是概率测度空间，$T_1:X_1\to X_1$和$T_2:X_2\to X_2$是保测映射.如果存在$Y_1\subseteq X_1,Y_2\subseteq X_2$，且$m_i(Y_i)=1,T(Y_i)\subseteq Y_i(i=1,2)$，以及一个可逆保测映射$\Phi:Y_1\to Y_2$，使得交换图成立： \par
+    \begin{tikzcd}
+Y_1 \arrow[dd, "\Phi"'] \arrow[rr, "T_1"] &  & Y_1 \arrow[dd, "\Phi"] \\
+                                          &  &                        \\
+Y_2 \arrow[rr, "T_2"']                    &  & Y_2                   
+\end{tikzcd}
+\quad 即$\Phi\circ T_1=T_2\circ \Phi$\par
+那么称$T_1$与$T_2$\textbf{同构}.
+\end{definition}
+
+\begin{problem}
+    我们要解决的问题是：如何判断两个保测映射是否同构？\par
+\end{problem}
+
+\begin{instance}
+    $T_2:\prod_{i=-\infty}^\infty\{1,2\}\to\prod_{i=-\infty}^\infty\{1,2\},T_3:\prod_{i=-\infty}^\infty\{1,2,3\}\to\prod_{i=-\infty}^\infty\{1,2,3\}$是否同构?
+\end{instance}
+
+\begin{definition}{有限可测分解}
+    设$(X,\mcal{B},m)$是一个概率测度空间，$\eta=\{A_1,A_2,\cdots,A_n\}(A_i\in\mcal{B},i=1,2,\cdots,n)$，如果$\eta$满足：
+    \begin{enumerate}[(1)]
+        \item $\forall\, i,j\in\{1,2,\cdots,n\},i\neq j,m\left(A_i\cap A_j\right)=0$
+        \item $m\left(\bigcup_{i=1}^n A_i\right)=1$
+    \end{enumerate}
+    则称$\eta$是一个\textbf{有限可测分解}.
+\end{definition}
+
+对于任意一个有限可测分解，可以类似于信息熵的定义方式，定义其测度熵：
+\begin{definition}{有限可测分解的测度熵}
+    设$\eta=\{A_1,A_2,\cdots,A_n\}$是$X$的一个有限可测分解，定义$H(\eta)=-\sum_{i=1}^n m(A_i)\log m(A_i)$，称为$\eta$的\textbf{测度熵}.
+\end{definition}
+
+上述都是对一个有限可测分解的研究，如果在$X$有多个有限可测分解，就可以定义它们之间的运算.
+\begin{definition}{有限可测分解的交}
+    设$\xi=\{A_1,A_2,\cdots,A_n\},\eta=\{B_1,B_2,\cdots,B_m\}$，定义
+    $$\xi\vee\eta=\left\{A_i\cap B_j\left|1\leq i\leq n,1\leq j\leq m\right.\right\}$$
+    则$\xi\vee\eta$是$X$的有限可测分解，称为$\xi$和$\eta$的\textbf{交}.
+\end{definition}
+
+特别地，如果$T:(X,\mcal{B},m)\to(X,\mcal{B},m)$是一个保测映射，$\eta=\{A_1,A_2,\cdots,A_n\}$是$X$的有限可测分解，那么$T^{-1}\eta=\{T^{-1}A_1,T^{-1}A_2,\cdots,T^{-1}A_n\}$也有有限可测分解.进而$\forall\, k\in\mb{N}$，$T^{-k}\eta=\{T^{-k}A_1,T^{-k}A_2,\cdots,T^{-k}A_n\}$都是$X$的有限可测分解.\par
+那么就可以定义$\bigvee_{i=0}^1T^{-i}\eta=T^{-1}\eta\vee\eta,\bigvee_{i=0}^2T^{i}\eta=\eta\vee T^{-1}\eta\vee T^{-2}\eta,\cdots,\bigvee_{i=0}^{n-1}T^{-i}\eta=\eta\vee T^{-1}\eta\vee\cdots\vee T^{-(n-1)}\eta$.\par
+利用上述一列有限可测分解的交会将$X$分解得到更细的程度，因此，就把上述交的测度熵的极限定义为$T$和$\eta$共同的测度熵(因为结果依赖于$\eta$的最初选取)：
+\begin{definition}{保测映射关于有限可测分解的测度熵}
+    定义$h(T,\eta)=\lim_{n\to\infty}\frac{1}{n}H\left(\bigvee_{i=0}^{n-1}T^{-i}\eta\right)$，如果极限存在，那么称$h(T,\eta)$为\textbf{$\bm{T}$关于$\bm{\eta}$的测度熵}.
+\end{definition}
+按照上述的想法，如果想要单独定义$T$的测度熵，而不依赖于$\eta$的选取，一个最简单的方式就是取遍所有的有限可测分解，并将$T$关于其中每个有限可测分解的测度熵的上确界定义为$T$的测度熵，这一思想在定义函数的全变差时亦有所体现.\par
+\begin{definition}{保测映射的测度熵}
+    $h(T)=\sup_{\eta\,\text{有限可测分解}} h(T,\eta)$称为保测映射$T$的\textbf{测度熵}.
+\end{definition}
+
+现在的遗留问题是在定义保测映射关于有限可测分解的测度熵时，所使用的极限是否存在、是否有限.回答问题的核心是$\phi(x)=x\ln x$在$[0,1]$上是一个凸函数，并且需要证明下面的两个引理：
+\begin{lemma}{}{3.1}
+    设$\xi=\{A_1,A_2,\cdots,A_n\},\eta=\{B_1,B_2,\cdots,B_m\}$是$X$的2个有限可测分解，那么$H(\xi\vee\eta)\leq H(\xi)+H(\eta)$.
+\end{lemma}
+\begin{proof}
+    $\setjot[-2]\begin{aligned}[t]
+        H(\xi\vee\eta) &=-\sum_{\substack{1\leq i\leq n\\ 1\leq j\leq m}}{m(A_i\cap B_j)\ln m(A_i\cap B_j)} \\
+        &=-\sum_{i=1}^n\sum_{j=1}^m{\left(m(A_i\cap B_j)\ln{m(A_i)}+m(A_i\cap B_j)\ln{\frac{m(A_i\cap B_j)}{m(A_i)}}\right)} \\
+        &=-\sum_{i=1}^n m(A_i) \ln m(A_i) - \sum_{i=1}^n \sum_{j=1}^m m(A_i)\frac{m(A_i \cap B_j)}{m(A_i)}\ln \frac{m(A_i \cap B_j)}{m(A_i)} \\
+        &=H(\xi) - \sum_{i=1}^n \sum_{j=1}^m m(A_i)\frac{m(A_i \cap B_j)}{m(A_i)}\ln \frac{m(A_i \cap B_j)}{m(A_i)} \\
+    \end{aligned}$\par
+    $\setjot[-2]\begin{aligned}[t]
+        \hspace{63.8pt}&\leq H(\xi)-\sum_{j=1}^m\phi \left(\sum_{i=1}^n m(A_i)\frac{m(A_i\cap B_j)}{m(A_i)}\right) &\left(\sum_{i=1}^n m(A_i)=1\,\text{应用琴生不等式}\,\right) \\
+        &=H(\xi)-\sum_{j=1}^m\phi \left(m(B_j)\right)  \\
+        &=H(\xi)-\sum_{j=1}^m m(B_j)\ln m(B_j)=H(\xi)+H(\eta) \\
+    \end{aligned}$\par
+\end{proof}
+
+\begin{lemma}{}{3.2}
+    设$\forall\,n\geq 0,a_n\geq 0$，且满足$a_{m+n}\leq a_m+a_n\;(\forall\, m,n\geq 0)$，那么$\lim_{n\to\infty}{\frac{1}{n}a_n}$存在.
+\end{lemma}
+\begin{proof}
+    $\forall\,m,n\in\mb{N}$，设$n=qm+r\;(0\leq r<m,q\in\mb{N})$.\par
+    则$a_n=a_{qm+r}\geq a_{qm}+a_r\leq a_{(q-1)m}+a_m+a_r\leq\cdots\leq qa_m+a_r$.\par
+    对不等式两边同除$n$，则有$\frac{a_n}{n}\leq\frac{q a_m+a_r}{qm+r}\leq\frac{a_m}{m}+\frac{a_r}{qm}$.\par
+    固定$m$，令$q\to\infty$，则$n\to\infty$，因而$\varlimsup_{n\to\infty}\frac{a_n}{n}\leq\frac{a_m}{m}\;(\forall\, m\in\mb{N})$.\par
+    再令$m\to\infty$，则$\varlimsup_{n\to\infty}{\frac{a_n}{n}}\leq\varliminf_{n\to\infty}\frac{a_m}{m}\Rightarrow$极限存在.\par
+    又$0\leq\frac{a_n}{n}\leq a_1$，故极限有界.
+\end{proof}
+
+借助这两个引理就可以证明定义测度熵时的极限存在.\par
+\begin{corollary}
+    $\lim_{n\to\infty}\frac{1}{n}H\left(\bigvee_{i=0}^{n-1}T^{-i}\eta\right)$存在.
+\end{corollary}
+\begin{proof}
+    令$a_n=H\left(\bigvee_{i=0}^{n-1}T^{-i}\eta\right),a_0=0$，那么$\forall\,n\geq 0,a_n\geq 0$.\par
+    $\setjot[-2]\begin{aligned}[t]
+        a_{m_n}&=H\left(\bigvee_{i=0}^{m+n-1}{T^{-i}\eta}\right)=H\left(\bigvee_{i=0}^{n-1}{T^{-i}\eta}+\bigvee_{i=m}^{n+m-1}{T^{-i}\eta}\right) \\
+        &\leq H\left(\bigvee_{i=0}^{n-1}{T^{-i}\eta}\right)+H\left(\bigvee_{i=m}^{n+m-1}{T^{-i}\eta}\right) \\
+        &=a_m+ H\left(T^{-m}\left(\bigvee_{i=0}^{n-1}{T^{-i}\eta}\right)\right) \\
+        &\xlongequal{T\,\text{保测}}a_m+H\left(\bigvee_{i=0}^{n-1}{T^{-i}\eta}\right)=a_m+a_n \\
+    \end{aligned} $\par
+    应用引理\ref{lem:3.2}即知极限存在.
+\end{proof}
+
+\section{条件熵}
+在证明引理\ref{lem:3.1}时，过程中出现了一串奇怪的乘积式，这一串式子被我们称为条件熵.
+\begin{definition}{条件熵}
+    设$\xi=\{A_1,A_2,\cdots,A_n\},\eta=\{B_1,B_2,\cdots,B_m\}$是$X$的两个有限可测分解，定义
+    $$H(\eta|\xi)=\sum_{i=1}^n{m(A_i)\left(-\sum_{j=1}^m{\frac{m(A_i\cap B_j)}{m(A_i)}\ln{\frac{m(A_i\cap B_j)}{m(A_i)}}}\right)}$$
+    称为$\eta$关于$\xi$的\textbf{条件熵}.
+\end{definition}
+将条件熵的定义引入引理\ref{lem:3.1}中，就可以得知条件熵的两个重要性质：
+\begin{lemma}{}
+    $H(\xi\vee\eta)=H(\xi)+H(\eta|\xi)\quad H(\eta|\xi)\leq H(\eta)$
+\end{lemma}
+
+\begin{instance}
+    设$\eta=\{A_1,A_2,\cdots,A_n\}$是$X$的一个有限可测分解，$T:X\to X$是保测映射，那么就有$H(\eta)\leq\ln{n},h(T,\eta)\leq\ln{n}$
+    \begin{solution}
+        $\setjot[-2]\begin{aligned}[t]
+            H(\eta) &=-\sum_{i=1}{m(A_i)\ln{m(A_i)}}=-n\sum_{i=1}^n{\frac{1}{n}\phi(m(A_i))} \\
+            &\leq (-n)\phi \left(\sum_{i=1}^n\frac{1}{n}m(A_i)\right) \\
+            &=(-n)\phi\left(\frac{1}{n}\right)=\ln{n}
+        \end{aligned}$\par
+        $h(T,\eta)=\lim_{k\to\infty}{\frac{1}{k}H\left(\bigvee_{i=0}^{k-1}T^{-i}\eta\right)}\leq\varlimsup_{k\to\infty}{\frac{1}{k}\ln{n^k}}=\ln n$.
+    \end{solution}
+\end{instance}
+上面的例子说明一个有限可测分解的测度熵具有上界.
+
+
+

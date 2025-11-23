@@ -435,7 +435,17 @@ $Q\subseteq \mb{R}^2$为全测集，由Fubini定理，存在$A\subseteq\mb{R}$�
         $\forall\, x=(\cdots,x_{-1},x_0,x_1,\cdots),y=(\cdots,y_{-1},y_0,y_1,\cdots),d \left(Tx,Ty\right)=\sum_{i=-\infty}^\infty{\frac{|x_{i+1}-y_{i+1}|}{l^{|i|}}}\leq \left(\sum_{i=-\infty}^\infty{\frac{|x_{i}-y_{i}|}{l^{|i|}}}\right)l=ld(x,y)$.\par
         类似地，$d \left(T^{-1}x,T^{-1}y\right)\leq ld(x,y)$.\par
         因此$T$是同胚.
-    \end{claim}
+    \end{claim}\par
+    定义$p=(\cdots,p_{-1},p_0,p_1,\cdots)$.$\forall\,i\in\mb{Z}$，如果$|i|\in C_j(j\in\{1,2,\cdots,l\})$，那么$p_i=j$.\par
+    有$p\in Y$，令$X_0=\overline{\left\{T^kp:k\in\mb{Z}\right\}}$，则$T:X_0\to X_0$是同胚，$(X_0,d)$是紧致度量空间.\par
+    由Birkhoff多重回复定理，$\forall\, s\in\mb{N},\exists\,y\in X_0$以及一个自然数序列$n_1<n_2<\cdots<n_k<\cdots$，使得$T^{n_k}y\to y,T^{2n_k}y\to y,\cdots,T^{sn_k}y\to y(k\to\infty)$.\par
+    由度量$d$的定义，如果$d(a,b)<1$，那么$a_0=b_0$，否则$d(a,b)\geq\frac{|a_0-b_0|}{l^0}\geq 1$.\par
+    所以存在整数序列$\{m_k\}$，使得$T^{m_k}p\to y(k\to\infty)$.\par
+    故$\exists\,m\in\mb{Z}$，使得$d \left(T^nT^mp,T^mp\right)<1,d(T^{2n}(T^mp),T^mp)\leq 1\cdots,T^{T^{sn}\left(T^mp\right),T^mp}\leq 1$.\par
+    $\Rightarrow T^{m+n}p,T^{m+2n}p,\cdots,T^{m+sn}p$与$T^mp$在第0个位置相同.\par
+    $T^kp=\left(\cdots,p_{k-1},p_k,p_{k+1},\cdots\right)$\par
+    $\Rightarrow p_{m+n}=p_{m+2n}=\cdots=p_{m+sn}=p_m\Rightarrow \exists\,j\in\{1,2,\cdots,l\},|m+in|\in C_j\,(0\leq i\leq s)$.\par
+    讨论$m+in$的符号，得$C_j$中有长度至少$\geq\frac{s}{2}$的等差数列
 \end{proof}
 
 

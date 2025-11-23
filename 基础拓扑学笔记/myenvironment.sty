@@ -15,6 +15,11 @@
 \RequirePackage{xparse}        % NewDocumentEnvironment
 \RequirePackage{keyval}        % 解析 [index=...]
 \RequirePackage{enumitem}      % 让内嵌列表继承左边界与键值选项
+% 钩子：用于在 proof 环境开始时复位 claim 编号
+\RequirePackage{etoolbox}
+% 可控左移：用于在 claim 内部的 proof 盒子整体左移
+\RequirePackage{changepage}
+\RequirePackage{ulem}          % 下划线
 
 %================ 颜色（可在文档中重定义） ================
 \providecolor{noteBlue}{RGB}{60,113,183}
@@ -229,6 +234,63 @@
       ([yshift=-1pt, xshift=-6pt]interior.north west) rectangle
       ([yshift=0pt, xshift=-4pt]interior.south west);
   }
+}
+
+%================ claim / claim* 环境（在每个 proof 内从 1 开始编号） ================
+% 用法：
+%   \begin{proof}
+%     ...
+%     %需要证明的断言，使用 claim 环境
+%     \begin{claim}{这里是断言内容}
+%       这里是断言的证明
+%     \end{claim}
+%     %不需要证明的断言，使用 claim* 环境
+%     \begin{claim*}
+%      这里是断言内容（无需证明）
+%     \end{claim*}
+%   \end{proof}
+%
+% 说明：
+% - claim 的编号在每个 proof 环境开始时被重置，从 1 递增。
+% - 环境带一个必选参数作为断言的具体内容；如无需证明则不用再跟一个 proof。
+
+% 计数器：在每个“最外层” proof 开始时复位（嵌套 proof 不复位）
+\newcounter{claim}
+\renewcommand{\theclaim}{\arabic{claim}}
+\newcounter{claim@proofdepth}
+\AtBeginEnvironment{proof}{%
+  \stepcounter{claim@proofdepth}%
+  \ifnum\value{claim@proofdepth}=1 \setcounter{claim}{0}\fi
+}
+\AtEndEnvironment{proof}{\addtocounter{claim@proofdepth}{-1}}
+\let\claimproof\proof
+% 版式：粗体“Claim n.” 后接断言内容，允许 \label/\ref 使用（通过 \refstepcounter）
+% 两个独立环境：claim（期望随后有 proof），claim*（不期望 proof）
+% 二者共享同一计数器，并且都会显示编号。
+% claim：带证明体的断言盒子（左侧细竖线）。编号显示为 Claim n. <内容>
+% 盒子左边框与上一行“C”字对齐。
+% 可自定义参数：左内边距、竖线颜色与宽度；用户可在导言区重定义
+\providecommand{\claimBoxLeft}{25pt}
+\NewDocumentEnvironment{claim}{m +b}{%
+  \refstepcounter{claim}% 允许 \label 引用
+  \par{\textbf{断言~\theclaim.}\;\CJKfamily{KT}#1}\par
+  \begin{adjustwidth}{\claimBoxLeft}{0pt}%
+    \par\noindent\hspace{-0.3em}{\color{second}\bfseries \CJKfamily{FS}证明}\hspace{0.3em}%
+    \CJKfamily{FS}%
+    \setlength{\parindent}{2em}%
+    \wideline
+    #2
+    \hfill$\Box$\quad\par
+  \end{adjustwidth}%
+}{% end claim
+}
+
+
+% claim*：仅声明断言，不含证明体；有编号、无参数（内容写在环境体内）
+\NewDocumentEnvironment{claim*}{+b}{%
+  \refstepcounter{claim}% 与 claim 共用计数器，保持连续
+  \par\noindent{\bfseries{断言~\theclaim.}\;\CJKfamily{KT}#1}\par
+}{% end claim*
 }
 
 %================ 结束 ================

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.28)  16 NOV 2025 13:17
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.28)  19 NOV 2025 15:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1337,13 +1337,19 @@ Package: myenvironment 2025/08/30 v1.1 tcolorbox + homework(list) + simple filli
 File: tikzlibraryshadings.code.tex 2023-01-15 v3.1.10 (3.1.10)
  (f:/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryshadings.code.tex
 File: pgflibraryshadings.code.tex 2023-01-15 v3.1.10 (3.1.10)
-))
-\c@mynotecounter=\count569
-\c@homework=\count570
+)) (f:/texlive/2025/texmf-dist/tex/latex/changepage/changepage.sty
+Package: changepage 2009/10/20 v1.0c check page and change page layout
+\c@cp@cntr=\count569
+\cp@tempcnt=\count570
+)
+\c@mynotecounter=\count571
+\c@homework=\count572
 \homeworklabelleftpad=\skip150
 \homeworklabelsep=\skip151
 \homework@labelwidth=\skip152
-\c@instance=\count571
+\c@instance=\count573
+\c@claim=\count574
+\c@claim@proofdepth=\count575
 ) (./elegantfix.sty
 Package: elegantfix 2025/08/23 v1.0 Patch lemma & corollary for ElegantBook
  (f:/texlive/2025/texmf-dist/tex/latex/fontawesome5/fontawesome5.sty
@@ -1354,7 +1360,7 @@ LaTeX Font Info:    Trying to load font information for TU+fontawesomefree on in
  (f:/texlive/2025/texmf-dist/tex/latex/fontawesome5/tufontawesomefree.fd)
 LaTeX Font Info:    Trying to load font information for TU+fontawesomebrands on input line 70.
  (f:/texlive/2025/texmf-dist/tex/latex/fontawesome5/tufontawesomebrands.fd)))
-\c@think=\count572
+\c@think=\count576
 )
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... none found.
@@ -1422,14 +1428,17 @@ Package hyperref Info: Link coloring ON on input line 168.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: changepage package is loaded.
+\caption@adjustwidth@hsize=\dimen370
+\caption@adjustwidth@linewidth=\dimen371
 Package caption Info: listings package is loaded.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
 (f:/texlive/2025/texmf-dist/tex/latex/footmisc/footmisc.sty
 Package: footmisc 2024/12/24 v6.0g a miscellany of footnote facilities
 \FN@temptoken=\toks49
-\footnotemargin=\dimen370
-\@outputbox@depth=\dimen371
+\footnotemargin=\dimen372
+\@outputbox@depth=\dimen373
 Package footmisc Info: Declaring symbol style bringhurst on input line 699.
 Package footmisc Info: Declaring symbol style chicago on input line 707.
 Package footmisc Info: Declaring symbol style wiley on input line 716.
@@ -1454,7 +1463,7 @@ Package biblatex Info: ... file '基础拓扑学笔记.bbl' not found.
 No file 基础拓扑学笔记.bbl.
 Package biblatex Info: Reference section=0 on input line 168.
 Package biblatex Info: Reference segment=0 on input line 168.
-\c@lstlisting=\count573
+\c@lstlisting=\count577
 Package hyperref Info: Option `pageanchor' set `false' on input line 173.
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: xetex
@@ -1926,8 +1935,6 @@ File: fig/7.5.png Graphic file (type bmp)
 
 
 [42]
-LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/n' will be
-(Font)              scaled to size 12.0pt on input line 296.
 File: fig/7.6.png Graphic file (type bmp)
 <fig/7.6.png>
 File: fig/7.7.png Graphic file (type bmp)
@@ -1935,34 +1942,54 @@ File: fig/7.7.png Graphic file (type bmp)
 
 
 [43]
+File: fig/7.8.png Graphic file (type bmp)
+<fig/7.8.png>
+
 
 [44]
+File: fig/7.9.png Graphic file (type bmp)
+<fig/7.9.png>
 
-[45]) (./商空间.tex
 
-[46]
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 429.
+See the caption package documentation for explanation.
+
+File: fig/7.10.png Graphic file (type bmp)
+<fig/7.10.png>
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 437.
+See the caption package documentation for explanation.
+
+
+
+[45]
+
+[46]) (./商空间.tex
+
+[47]
 Chapter 8.
 
 
-[47
+[48
 
 ]
 
-[48]
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
-
-
 [49]
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
-
 
 [50]
 File: example-image.pdf Graphic file (type pdf)
 <use example-image.pdf>
 File: example-image.pdf Graphic file (type pdf)
 <use example-image.pdf>
+
+
+[51]
+File: example-image.pdf Graphic file (type pdf)
+<use example-image.pdf>
+File: example-image.pdf Graphic file (type pdf)
+<use example-image.pdf>
 File: example-image.pdf Graphic file (type pdf)
 <use example-image.pdf>
 File: example-image.pdf Graphic file (type pdf)
@@ -1970,36 +1997,36 @@ File: example-image.pdf Graphic file (type pdf)
 File: example-image.pdf Graphic file (type pdf)
 <use example-image.pdf>
 
-Overfull \hbox (27.37498pt too wide) in paragraph at lines 227--228
+Overfull \hbox (27.37498pt too wide) in paragraph at lines 241--242
  [] 
  []
 
 
 
-[51]
-
 [52]
 
-[53])
+[53]
 
-[54] (./基础拓扑学笔记.aux)
+[54])
+
+[55] (./基础拓扑学笔记.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2022/08/05>
  ***********
 Package rerunfilecheck Info: File `基础拓扑学笔记.out' has not changed.
-(rerunfilecheck)             Checksum: 264701FE942A75F8651AC845B6025C27;4258.
+(rerunfilecheck)             Checksum: 78E3453DE8B8C0E1F00FCA5A7E8E5E48;4508.
 Package logreq Info: Writing requests to '基础拓扑学笔记.run.xml'.
 \openout1 = `基础拓扑学笔记.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 50463 strings out of 473832
- 1080985 string characters out of 5733157
- 2074500 words of memory out of 5000000
- 72582 multiletter control sequences out of 15000+600000
- 570688 words of font info for 141 fonts, out of 8000000 for 9000
+ 50583 strings out of 473832
+ 1082710 string characters out of 5733157
+ 2075291 words of memory out of 5000000
+ 72697 multiletter control sequences out of 15000+600000
+ 570672 words of font info for 139 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 103i,17n,129p,692b,1511s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 103i,17n,129p,692b,1512s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on 基础拓扑学笔记.pdf (57 pages).
+Output written on 基础拓扑学笔记.pdf (58 pages).
