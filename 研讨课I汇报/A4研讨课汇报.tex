@@ -116,7 +116,7 @@
 \setbeamertemplate{caption}[numbered]
 \numberwithin{figure}{section}
 \numberwithin{table}{section}
-\numberwithin{equation}{section}
+%\numberwithin{equation}{section}
 
 %\addtokomafont{labelinglabel}{\normalfont}%\bfseries
 %\usepackage{xunicode-addon}
@@ -203,8 +203,8 @@ Name of University \\ % 机构全称
 \titlepage
 \end{frame}
 
-\begin{frame}
-\frametitle{目录}
+\begin{frame}{目录}
+  \setbeamertemplate{section in toc}[sections numbered]
 \tableofcontents
 \end{frame}
 
@@ -216,17 +216,119 @@ Name of University \\ % 机构全称
 \section{问题背景}
 %------------------------------------------------
 
-\begin{frame}{文本测试}
-这是一段测试文字。这是一段测试文字。这是一段测试文字。这是一段测试文字。这是一段测试文字。这是一段测试文字。
-这是一段测试文字。这是一段测试文字。这是一段测试文字。这是一段测试文字。这是一段测试文字。这是一段测试文字。
-
-\vspace{1ex}
-这是一段测试文字。这是一段测试文字。这是一段测试文字。这是一段测试文字。这是一段测试文字。这是一段测试文字。
-这是一段测试文字。这是一段测试文字。这是一段测试文字。这是一段测试文字。这是一段测试文字。这是一段测试文字。
+\begin{frame}{混合整数规划}
+\begin{block}{混合整数规划}
+混合整数规划(Mixed Integer Programming, MIP)是一类数学规划问题，其目标是优化一个线性函数，其中部分决策变量为整数.
+\end{block}
+\begin{enumerate}[<+-| alert@+>]
+  \item 涉及整数的离散问题 \par
+  \begin{itemize}[<+-| alert@+>]
+    \item 背包问题
+  \end{itemize}
+  \item 涉及逻辑条件的问题
+  \begin{itemize}[<+-| alert@+>]
+    \item 复杂运输过程中的碰撞避免
+  \end{itemize}
+  \item 排序和分配问题
+  \begin{itemize}[<+-| alert@+>]
+  \item 任务分配
+  \item 旅行商问题
+\end{itemize}
+\end{enumerate}
 
 \end{frame}
 
+\begin{frame}{MIP的特点与优势}
+\begin{itemize}[<+-| alert@+>]
+  \item 可以非线性建模
+  \item 允许非凸约束
+  \item 可以包含逻辑决策
+  \item 已广泛应用于控制工程问题
+\end{itemize}
+\end{frame}
+
+\begin{frame}{符号与记号}
+  \begin{enumerate}
+    \item 逻辑运算符：$\wedge$(与), $\vee$(或), $\neg$(非)
+    \item 集合的Minkowski和：$A\oplus B=\{x:x=a+b,a\in A,b\in B\}$
+    \item $\|x\|^2_Q=x^TQx$
+    \item 补集$C_X(S)$,闭包$\operatorname{cl}(S)$
+    \item $\mathcal{V}(P)$ 表示多面体$P\subset \mathbb{R}^n$ 的(有限)顶点集
+    \item $\#\mathcal{I}$表示离散集$\mathcal{I}$的基数
+  \end{enumerate}
+  \vspace{1 em}
+  另外，任何有界多面体$P$都有使用半空间的交集或极限点的凸包的对偶表示$P=\{x:s_i^Tx\leqslant r_i,\forall\, i\}=\{x:x=\sum{a_jv_j,\sum{a_j}=1,a_j\geqslant 0,\forall\, j}\}$
+\end{frame}
+
 %-----------------------------------------------
+\section{MIP公式化}
+%-----------------------------------------------
+\begin{frame}{广义析取规划(GDP)}
+  \begin{exampleblock}{GDP的例子(1)}
+    \begin{subequations}
+    \begin{align}
+      &\min_x{f(x)+\sum_k}{c_k} \\
+      \text{s.t. } &r(x)\leqslant 0,x\in\mathbb{R}^n,c_k\in\mathbb{R} \\
+      &\bigvee_{j\in J_k}\left[\begin{gathered}
+        Y_{jk} \\
+        g_{jk}(x)\leqslant 0 \\
+        c_k=\gamma_{jk}
+      \end{gathered}\right],k\in K \label{1c}\\
+      &\Omega(Y)=\text{true},Y_{jk}\in\{\text{true,false}\} \label{1d}
+    \end{align}
+    \end{subequations}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{问题1的MIP改写}
+使用二元变量$y_{jk}=\{0,1\}$代替布尔变量$Y_{jk}$，并将约束\ref{1c}替换为：
+\begin{subequations}
+\begin{align}
+  &g_{jk}(x)\leqslant M_{jk}(1-y_{jk}) \\
+  &\sum_{j\in J_k}{y_{jk}}=1,k\in K
+\end{align}
+\end{subequations}
+其中$M_{jk}$ 是“大M”参数，为足够大的常数.\par
+成本变量$c_k$看可以被重写为乘积$\gamma_{jk}y_{jk}$ ，同样地，\ref{1d}可以重写为线性约束
+$$Ay\leqslant a$$
+\end{frame}
+
+
+
+
+%-----------------------------------------------
+\section{MIP在运动规划中的应用}
+%-----------------------------------------------
+
+
+
+%------------------------------------------------
+\section{多智能体系统中的MIP\\连接性维护和编队控制}
+%------------------------------------------------
+
+
+
+
+
+%------------------------------------------------
+\section{控制架构}
+%------------------------------------------------
+
+
+
+
+%------------------------------------------------
+\section{使用MIP的控制软件}
+%------------------------------------------------
+
+
+
+
+
+%------------------------------------------------
+\section{MIP的替代方案}
+%------------------------------------------------
+
 
 \begin{frame}
 \frametitle{Blocks of Highlighted Text}
@@ -244,7 +346,6 @@ This is the alertblock environment. The quick brown fox jumps over the lazy dog.
 \end{frame}
 
 %------------------------------------------------
-\section{列表环境与分栏}
 
 \begin{frame}
 \frametitle{列表环境}
@@ -285,9 +386,6 @@ The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the 
 \end{columns}
 \end{frame}
 
-%------------------------------------------------
-\section{定理与表格}
-%------------------------------------------------
 
 \begin{frame}
 \frametitle{定理环境}
@@ -422,15 +520,6 @@ N  & A       & B    & C  & D   \\
 
 \end{frame}
 
-%------------------------------------------------
-
-\section{插图环境}
-
-
-
-%------------------------------------------------
-\section{参考文献}
-%------------------------------------------------
 
 \begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
 \frametitle{Citation}

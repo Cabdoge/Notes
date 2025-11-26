@@ -48,7 +48,7 @@ Y_2 \arrow[rr, "T_2"']                    &  & Y_2
     设$\eta=\{A_1,A_2,\cdots,A_n\}$是$X$的一个有限可测分解，定义$H(\eta)=-\sum_{i=1}^n m(A_i)\log m(A_i)$，称为$\eta$的\textbf{测度熵}.
 \end{definition}
 
-上述都是对一个有限可测分解的研究，如果在$X$有多个有限可测分解，就可以定义它们之间的运算.
+上述是对一个有限可测分解的研究，如果$X$有多个有限可测分解，可以定义它们之间的运算.
 \begin{definition}{有限可测分解的交}
     设$\xi=\{A_1,A_2,\cdots,A_n\},\eta=\{B_1,B_2,\cdots,B_m\}$，定义
     $$\xi\vee\eta=\left\{A_i\cap B_j\left|1\leq i\leq n,1\leq j\leq m\right.\right\}$$
@@ -111,7 +111,7 @@ Y_2 \arrow[rr, "T_2"']                    &  & Y_2
     应用引理\ref{lem:3.2}即知极限存在.
 \end{proof}
 
-\section{条件熵}
+\section{条件熵与测度熵}
 在证明引理\ref{lem:3.1}时，过程中出现了一串奇怪的乘积式，这一串式子被我们称为条件熵.
 \begin{definition}{条件熵}
     设$\xi=\{A_1,A_2,\cdots,A_n\},\eta=\{B_1,B_2,\cdots,B_m\}$是$X$的两个有限可测分解，定义
@@ -135,6 +135,137 @@ Y_2 \arrow[rr, "T_2"']                    &  & Y_2
     \end{solution}
 \end{instance}
 上面的例子说明一个有限可测分解的测度熵具有上界.
+
+关于条件熵，还有以下等式成立
+\begin{lemma}{}
+    设$(X,\mcal{B},m)$ 是概率测度空间，$\xi_1,\xi_2,\eta$ 是$X$ 的有限可测分解，则$H \left(\xi_1\vee\xi_2|\eta\right)=H(\xi_1|\eta)+H(\xi_2|\xi_1\vee\eta)$
+\end{lemma}
+\begin{proof}
+    对于$X$的任意有限可测分解$\a$，有$H(\alpha\vee\eta)=H(\eta)+H(\alpha|\eta)$.\par
+    $\Rightarrow \setjot[-2]\begin{aligned}[t]
+        &H\left(\xi_1\vee\xi_2|\eta\right)=H\left(\xi_1\vee\xi_2\vee\eta\right)-H(\eta)\\
+        &H(\xi_1|\eta)=H\left(\xi_1\vee\eta\right) - H(\eta) \\
+        &H\left(\xi_2|\xi_1\vee\eta\right)=H\left(\xi_1\vee\xi_2\vee\eta\right)-H\left(\xi_1\vee\eta\right) \\
+    \end{aligned}$
+\end{proof}
+
+\begin{definition}{加细}
+    设$\xi$ 和$\eta$ 是$X$ 的有限可测分解，如果$\xi$ 中的任何一个元素都是$\eta$ 中若干个元素的并，那么称$\eta$ 是$\xi$ 的\textbf{加细}，记为$\xi\leq\eta$
+\end{definition}
+
+\begin{lemma}{}
+    设$\xi_1\leq\xi_2$，那么$H(\eta|\xi_1)\geq H(\eta|\xi_2)$
+\end{lemma}
+\begin{proof}
+    设$\xi_1=\{A_1,A_2,\cdots,A_n\},\xi_2=\{B_1,B_2,\cdots,B_m\},\eta=\{C_1,C_2,\cdots,C_{\ell}\}$.\par
+    $\setjot[-2]\begin{aligned}[t]
+        H(\eta|\xi_2)&=-\sum_{i=1}^n{m(B_j)\sum_{j=1}^\ell{\frac{m\left(C_i\cap B_j\right)}{m(B_j)}\ln{\frac{m\left(C_i\cap B_j\right)}{m(B_j)}}}} =-\sum_{j=1}^\ell{\sum_{i=1}^n{m\left(C_i\cap B_j\right)\ln{\frac{m\left(C_i\cap B_j\right)}{m(B_j)}}}} \\
+        &=-\sum_{j=1}^\ell\left(\sum_{k=1}^m\sum_{B_i\in A_k}{m\left(C_i\cap B_j\right)\ln{\frac{m\left(C_i\cap B_j\right)}{m(B_j)}}}\right) \\
+        &=-\sum_{j=1}^\ell\left(\sum_{k=1}^m m(A_k) \sum_{B_i\in A_k}{\frac{m(B_i)}{m(A_k)}\frac{m\left(C_i\cap B_j\right)}{m(B_i)}\ln{\frac{m\left(C_i\cap B_j\right)}{m(B_j)}}}\right) \\
+        &=-\sum_{j=1}^\ell\left(\sum_{k=1}^m m(A_k) \sum_{B_i\in A_k}{\frac{m(B_i)}{m(A_k)}\phi \left(\frac{m\left(C_i\cap B_j\right)}{m(B_i)}\right)}\right) \\
+        &\xlongequal{\text{琴生不等式}} -\sum_{j=1}^\ell\left(\sum_{k=1}^m m(A_k) \phi \left(\sum_{B_i\in A_k}{\frac{m(B_i)}{m(A_k)}\frac{m\left(C_i\cap B_j\right)}{m(B_i)}}\right)\right) \\
+        &=-\sum_{j=1}^\ell\left(\sum_{k=1}^m m(A_k) \phi \left(\frac{m\left(C_i\cap A_k\right)}{m(A_k)}\right)\right)\\
+        &=-\sum_{j=1}^\ell\sum_{k=1}^m{m(A_k)\frac{m(C_j\cap A_k)}{m(A_k)}}\ln\frac{m(C_j\cap A_k)}{m(A_k)}=H(\eta|\xi_1) \\
+    \end{aligned}$\par
+\end{proof}
+从信息论的角度来看，上述不等式意味着拥有的信息越多，同一个事件的混乱程度就越低.\par
+基于以上，还有下述推论：
+\begin{corollary}{}
+    $H(\xi_1\vee\xi_2|\eta)\leq H(\xi_1|\eta)+H(\xi_2|\eta)$.\par
+    如果$\eta=\{X\}$，则$H(\alpha|\eta)=H(\alpha)$.
+\end{corollary}
+
+
+\section{测度熵是同构不变量}
+下面我们要说明的是，同构的保测映射具有相同的测度熵.首先介绍一个定理：
+\begin{theorem}{}
+    如果$(X,\mcal{B},m)$ 是概率测度空间，$T:X\to X$ 是保测映射，那么$\forall\, n\in\mb{N},h(T^\ell)=\ell h(T)$.\par
+    如果$T$ 是可逆保测映射，那么$h(T^{-1})=h(T)$
+\end{theorem}
+\begin{proof}
+    设$\eta$ 是$X$ 的一个有限可测分解，令$\xi=\eta\vee T^{-1}\eta\vee \cdots\vee T^{-(\ell-1)}\eta$.\par
+    那么$\bigvee_{i=0}^{n-1}\left(T^\ell\right)^{-i}\xi=\eta\vee T^{-1}\eta\vee\cdots T^{-(\ell-1)}\eta\vee\cdots\vee T^{-(n\ell-1)}\eta=\bigvee_{i=0}^{n\ell-1}{T^{-i}\eta}$.\par
+    $\Rightarrow \setjot[-2]\begin{aligned}[t]
+        h \left(T^{\ell},\eta\right)&=\lim_{n\to\infty}{\frac{1}{n}H \left(\bigvee_{i=0}^{n-1}\left(T^\ell\right)^{-i}\xi\right)} =\lim_{n\to\infty}{\frac{1}{n}H \left(\bigvee_{i=0}^{n\ell-1}T^{-i}\eta\right)}\\
+        &=\ell\cdot\lim_{n\to\infty}{\frac{1}{nl}H \left(\bigvee_{i=0}^{n\ell-1}{T^{-i}\eta}\right)} \\
+        &=\ell h(T,\eta)
+    \end{aligned} $\par
+    因此$h \left(T^\ell\right)\geq\sup_{\xi}{h \left(T^\ell,\xi\right)}=\ell \sup_{\eta}{h(T,\eta)}=\ell h(T)$.\par
+    
+    如果$\alpha\geq\beta$，$H(\alpha)=H(\alpha\vee\beta)=H(\beta)+H(\alpha|\beta)\geq H(\beta)$.\par
+    因此由$\xi\geq\eta$ ，可得$h \left(T^\ell,\xi\right)\geq h(T,\eta)$.\par
+    $\Rightarrow h \left(T^\ell,\eta\right)\leq \ell h \left(T,\eta\right)$.\par
+    取上确界，可得$\sup_{\eta}{h \left(T^\ell,\eta\right)}\leq \ell\sup_{\eta}{h(T,\eta)}$ ，即$h \left(T^\ell\right)\leq \ell h(T)$.\par
+    $\Rightarrow h \left(T^\ell\right)=\ell h(T)$.\par
+    若$T$ 是可逆保测映射，$\eta$ 是$X$ 是有限可测分解，\par
+    则$\setjot[-2]\begin{aligned}[t]
+        h(T,\eta) &=\lim_{n\to\infty}{\frac{1}{n}H \left(\eta\vee T^{-1}\eta\vee\cdots\vee T^{-(n-1)}\eta\right)} \\
+        &\xlongequal{T\,\text{可逆保测}}\lim_{n\to\infty}{\frac{1}{n}H\left(T^{n-1}\left(\eta\vee T^{-1}\eta\vee\cdots\vee T^{-(n-1)}\eta\right)\right)} \\
+        &=\lim_{n\to\infty}{\frac{1}{n}H \left(\eta\vee T \eta\vee\cdots\vee T^{n-1}\eta\right)}\\
+        &=h(T^{-1},\eta) \\
+    \end{aligned}$\par
+    取上确界可得，$h(T)=h\left(T^{-1}\right)$.
+\end{proof}
+
+\begin{theorem}{同构保持测度熵}
+    设$(X_1,\mcal{B}_1,m_1)$和$(X_2,\mcal{B}_2,m_2)$ 是概率测度空间，$T_1:X_1\to X_1$和$T_2:X_2\to X_2$是保测映射.如果$T_1$和$T_2$ 同构，那么$h_{m_1}\left(T_1\right)=h_{m_2}\left(T_2\right)$.
+\end{theorem}
+\begin{proof}
+    由于$T_1$与$T_2$同构，存在 $M_1\subseteq X_1,M_2\subseteq X_2,m_1(M_1)=m_2(M_2)=1$，$T_1(M_1)\subseteq M_1,T_2(M_2)\subseteq T_2(M_2)$以及$\Phi:M_1\to M_2$是可逆保测变换，使得$\Phi\circ T_1=T_2\circ\Phi$.\par
+    可以推得$\Phi\circ T_1^i=T_2^i\circ\Phi,T^{-1}\circ\Phi^{-1}=\Phi^{-1}\circ T_2^{-1}$.\par
+    设$\eta$ 是$M_2$ 的有限可测分解(可视作$X_2$的有限可测分解).\par
+    那么$\Phi^{-1}(\eta)$ 是$M$ 的有限可测分解(视作$X_1$ 的有限可测分解).\par
+    $\setjot[-2]\begin{aligned}[t]
+        h_{m_1}\left(T_1,\Phi^{-1}(\eta)\right) &=\lim_{n\to\infty}{\frac{1}{n}H \left(\bigvee_{i=0}^{n-1}T_1^{-i}\left(\Phi^{-1}(\eta)\right)\right)} \\
+        &=\lim_{n\to\infty}{\frac{1}{n}H \left(\bigvee_{i=0}^{n-1}\Phi^{-1}\left(T_2^{-i}(\eta)\right)\right)} \\
+        &\xlongequal{\Phi\,\text{保测}} \lim_{n\to\infty}{\frac{1}{n}H \left(\bigvee_{i=0}^{n-1}T_2^{-i}(\eta)\right)} \\
+        &=h_{m_2}\left(T_2,\eta\right) 
+    \end{aligned}$\par
+    设$\xi$ 是$M_1$的有限可测分解，同理可得$h_{m_2}\left(T_2,\Phi(\xi)\right)=h_{m_1}\left(T_1,\xi\right)$.\par
+    对上述两式取上确界，得$h_{m_1}(T_1)=h_{m_2}(T_2)$.\par
+\end{proof}
+
+
+
+\section{测度熵的计算}
+上一节的结论告诉我们两个同构的保测映射必须有相同的测度熵，因此测度熵可以作为保测映射同构与否的一个判据.接下来我们介绍如何计算测度熵.\par
+为了计算测度熵，我们引入一个特殊的有限可测分解：
+\begin{definition}{$\sigmaalg$上的等价关系}
+    设$(X,\mcal{B},m)$是一个概率测度空间，$\mcal{B}_1,\mcal{B}_2\subseteq \mcal{B}$是2个子$\sigmaalg$，如果：
+    \begin{enumerate}[(1)]
+        \item $\forall\, E\in\mcal{B}_1,\exists\, F\in\mcal{B}_2$，使得$m \left(E\triangle F\right)=0$
+        \item $\forall\, F\in\mcal{B}_2,\exists\, E\in\mcal{B}_1$，使得$m \left(F\triangle E\right)=0$
+    \end{enumerate}
+    那么记$\mcal{B}_1\circeq \mcal{B}_2$.
+\end{definition}
+\begin{definition}{生成子}
+    设$T:X\to X$是可逆保测变换，$\eta$是$X$的一个有限可测分解，$\bigvee_{i=-n}^n{T^{-i}\eta}$生成的代数记为$\mcal{A}_n$.\par
+    令$\mcal{A}=\bigcup_{n=1}^\infty{\mcal{A}_n}$，$\mcal{A}$是包含有限可测分解$T^{-i}\eta\,(i\in\mb{N})$的最小代数$(\mcal{A}_1\subseteq\mcal{A}_2\subseteq\cdots\subseteq\mcal{A}_n\subseteq\cdots)$.\par
+    记$\bigvee_{i=-\infty}^{\infty}{T^{-i}\eta}=\mcal{B}(\mcal{A})$\par
+    如果$\bigvee_{i=-\infty}^{\infty}{T^{-i}\eta}=\mcal{B}(\mcal{A})\circeq \mcal{B}$，那么称$\eta$为$T$的一个\textbf{生成子}.
+\end{definition}
+下面的定理指出保测映射的测度熵等于其关于生成子的测度熵，因此计算测度熵时，只需计算其关于生成子的测度熵即可.
+\begin{theorem}{Kolmogorov-Sinai 定理}
+    设$(X,\mcal{B},m)$是概率测度空间，$T:X\to X$是可逆保测映射，如果$\eta$是$T$的一个生成子，那么$h_m(T)=h_m(T,\eta)$.
+\end{theorem}
+\begin{proof}
+    设$\xi$ 是$X$ 的一个有限可测分解，需证$h(T,\xi)\leq h(T,\eta)$.\par
+    设$m,n\in\mb{N}$，$\setjot[-2]\begin{aligned}[t]
+        H \left(\bigvee_{i=0}^{n-1}T^{-i}\xi\right) &\leq H \left(\bigvee_{i=0}^{n-1}T^{-i}\xi\vee\bigvee_{j=-m}^{m+n}T^{-j}\eta\right)\\
+        &=H \left(\bigvee_{j=-m}^{m+n}T^{-j}\eta\right)+H \left(\bigvee_{i=0}^{n-1}T^{-i}\xi\,\Bigg|\bigvee_{j=-m}^{m+n}T^{-j}\eta\right) \\
+        &\leq H \left(\bigvee_{j=-m}^{m+n}T^{-j}\eta\right)+\sum_{i=0}^{n-1}H \left(T^{-i}\xi\,\Bigg|\bigvee_{j=-m}^{m+n}T^{-j}\eta\right)\\
+        &\xlongequal{T\,\text{保测}} H \left(\bigvee_{j=-m}^{m+n}T^{-j}\eta\right)+\sum_{i=0}^{n-1}H \left(\xi\,\Bigg|\bigvee_{j=-m}^{m+n}T^{i-j}\eta\right) \\
+        &\leq H \left(\bigvee_{j=-m}^{m+n}T^{-j}\eta\right)+\sum_{i=0}^{n-1}H \left(\xi\,\Bigg|\bigvee_{j=-m}^{m}T^{-j}\eta\right)
+    \end{aligned} $\par
+    $\Rightarrow \setjot[-2]\begin{aligned}[t]
+        \frac{1}{n}H \left(\bigvee_{i=0}^{n-1}T^{-i}\eta\right) &\leq \frac{1}{n}H\left(\bigvee_{j=-m}^{m+n}T^{-j}\eta\right)+H \left(\xi\,\Bigg|\bigvee_{j=-m}^{m}T^{-j}\eta\right)\\
+        &=\frac{1}{n}H \left(\bigvee_{j=0}^{n+2m}T^{-j}\eta\right)+H \left(\xi\,\Bigg|\bigvee_{j=-m}^{m}T^{j}\eta\right)
+    \end{aligned} $ \par
+    $\Rightarrow H(T,\xi)\leq H(T,\eta)+H \left(\xi\,\Bigg|\bigvee_{j=-m}^{m}T^{-j}\eta\right)$.\par
+    因此，只需证明$\forall\,\varepsilon>0,\exists\, m\in\mb{N}$，使得$H \left(\xi\,\Bigg|\bigvee_{j=-m}^{m}T^{j}\eta\right)<\varepsilon$
+\end{proof}
+
+
 
 
 
