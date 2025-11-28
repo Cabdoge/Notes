@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.28)  19 NOV 2025 15:19
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.28)  26 NOV 2025 14:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1977,56 +1977,241 @@ Chapter 8.
 ]
 
 [49]
+File: fig/8.1.png Graphic file (type bmp)
+<fig/8.1.png>
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 193.
+See the caption package documentation for explanation.
+
+
 
 [50]
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
+File: fig/8.2.png Graphic file (type bmp)
+<fig/8.2.png>
+File: fig/8.3.png Graphic file (type bmp)
+<fig/8.3.png>
+File: fig/8.3-2.png Graphic file (type bmp)
+<fig/8.3-2.png>
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 221.
+See the caption package documentation for explanation.
+
+File: fig/8.4.png Graphic file (type bmp)
+<fig/8.4.png>
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 225.
+See the caption package documentation for explanation.
+
 
 
 [51]
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
+File: fig/8.5.png Graphic file (type bmp)
+<fig/8.5.png>
 
-Overfull \hbox (27.37498pt too wide) in paragraph at lines 241--242
- [] 
- []
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 234.
+See the caption package documentation for explanation.
+
+File: fig/8.6.png Graphic file (type bmp)
+<fig/8.6.png>
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 241.
+See the caption package documentation for explanation.
+
+File: fig/8.7.png Graphic file (type bmp)
+<fig/8.7.png>
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 247.
+See the caption package documentation for explanation.
+
+File: fig/8.8.png Graphic file (type bmp)
+<fig/8.8.png>
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 252.
+See the caption package documentation for explanation.
 
 
 
 [52]
 
-[53]
+[53]) (./曲面.tex
 
-[54])
+[54]
+Chapter 9.
+File: fig/9.1.png Graphic file (type bmp)
+<fig/9.1.png>
+File: fig/9.2.png Graphic file (type bmp)
+<fig/9.2.png>
 
-[55] (./基础拓扑学笔记.aux)
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 28.
+See the caption package documentation for explanation.
+
+File: fig/9.3.png Graphic file (type bmp)
+<fig/9.3.png>
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 39.
+See the caption package documentation for explanation.
+
+File: fig/9.4.png Graphic file (type bmp)
+<fig/9.4.png>
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 45.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (14.34073pt too wide) in paragraph at lines 36--48
+[][] [] 
+ []
+
+
+
+[55
+
+]
+File: fig/9.5.png Graphic file (type bmp)
+<fig/9.5.png>
+File: fig/9.6.png Graphic file (type bmp)
+<fig/9.6.png>
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 83.
+See the caption package documentation for explanation.
+
+File: fig/9.8.png Graphic file (type bmp)
+<fig/9.8.png>
+File: fig/9.7.png Graphic file (type bmp)
+<fig/9.7.png>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+File: fig/9.9.png Graphic file (type bmp)
+<fig/9.9.png>
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 109.
+See the caption package documentation for explanation.
+
+
+
+[56]
+File: fig/9.10.png Graphic file (type bmp)
+<fig/9.10.png>
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 120.
+See the caption package documentation for explanation.
+
+
+
+[57]
+File: example-image.pdf Graphic file (type pdf)
+<use example-image.pdf>
+File: example-image.pdf Graphic file (type pdf)
+<use example-image.pdf>
+
+
+[58]
+File: example-image.pdf Graphic file (type pdf)
+<use example-image.pdf>
+
+
+[59]
+File: example-image.pdf Graphic file (type pdf)
+<use example-image.pdf>
+
+
+[60]
+File: example-image.pdf Graphic file (type pdf)
+<use example-image.pdf>
+File: example-image.pdf Graphic file (type pdf)
+<use example-image.pdf>
+
+
+[61]
+File: example-image.pdf Graphic file (type pdf)
+<use example-image.pdf>
+File: example-image.pdf Graphic file (type pdf)
+<use example-image.pdf>
+
+
+[62]
+LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/n' will be
+(Font)              scaled to size 12.0pt on input line 273.
+File: example-image.pdf Graphic file (type pdf)
+<use example-image.pdf>
+File: example-image.pdf Graphic file (type pdf)
+<use example-image.pdf>
+
+
+[63]
+File: example-image.pdf Graphic file (type pdf)
+<use example-image.pdf>
+File: example-image.pdf Graphic file (type pdf)
+<use example-image.pdf>
+
+
+[64]
+File: example-image.pdf Graphic file (type pdf)
+<use example-image.pdf>
+File: example-image.pdf Graphic file (type pdf)
+<use example-image.pdf>
+
+
+[65]
+File: example-image.pdf Graphic file (type pdf)
+<use example-image.pdf>
+
+
+[66]
+File: example-image.pdf Graphic file (type pdf)
+<use example-image.pdf>
+File: example-image.pdf Graphic file (type pdf)
+<use example-image.pdf>
+
+
+[67]
+File: example-image.pdf Graphic file (type pdf)
+<use example-image.pdf>
+File: example-image.pdf Graphic file (type pdf)
+<use example-image.pdf>
+
+
+[68]
+
+[69])
+
+[70] (./基础拓扑学笔记.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2022/08/05>
  ***********
 Package rerunfilecheck Info: File `基础拓扑学笔记.out' has not changed.
-(rerunfilecheck)             Checksum: 78E3453DE8B8C0E1F00FCA5A7E8E5E48;4508.
+(rerunfilecheck)             Checksum: 37DFF7BF9B58B5336CAA440E83EFC01D;5570.
 Package logreq Info: Writing requests to '基础拓扑学笔记.run.xml'.
 \openout1 = `基础拓扑学笔记.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 50583 strings out of 473832
- 1082710 string characters out of 5733157
- 2075291 words of memory out of 5000000
- 72697 multiletter control sequences out of 15000+600000
- 570672 words of font info for 139 fonts, out of 8000000 for 9000
+ 50844 strings out of 473832
+ 1087638 string characters out of 5733157
+ 2076508 words of memory out of 5000000
+ 72934 multiletter control sequences out of 15000+600000
+ 570688 words of font info for 141 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  103i,17n,129p,692b,1512s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on 基础拓扑学笔记.pdf (58 pages).
+Output written on 基础拓扑学笔记.pdf (73 pages).

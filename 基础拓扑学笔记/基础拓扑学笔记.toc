@@ -41,4 +41,15 @@
 \contentsline {chapter}{\numberline {第八章}商空间}{48}{chapter.8}%
 \contentsline {section}{\numberline {8.1}商拓扑与商空间}{48}{section.8.1}%
 \contentsline {section}{\numberline {8.2}例子}{50}{section.8.2}%
-\contentsline {section}{\numberline {8.3}射影空间与轨道空间}{55}{section.8.3}%
+\contentsline {section}{\numberline {8.3}射影空间}{54}{section.8.3}%
+\contentsline {chapter}{\numberline {第九章}曲面}{55}{chapter.9}%
+\contentsline {section}{\numberline {9.1}曲面}{55}{section.9.1}%
+\contentsline {section}{\numberline {9.2}闭曲面的分类}{58}{section.9.2}%
+\contentsline {section}{\numberline {9.3}欧拉示性数}{60}{section.9.3}%
+\contentsline {section}{\numberline {9.4}曲面的多边形表示}{60}{section.9.4}%
+\contentsline {subsection}{\numberline {9.4.1}标准多边形表示}{63}{subsection.9.4.1}%
+\contentsline {subsection}{\numberline {9.4.2}曲面多边形表示的标准化}{64}{subsection.9.4.2}%
+\contentsline {subsubsection}{1. 减少多边形的边数（即减少顶点类数）}{65}{subsection.9.4.2}%
+\contentsline {subsubsection}{2. 改变粘合方式}{67}{subsection.9.4.2}%
+\contentsline {subsection}{\numberline {9.4.3}总结}{69}{subsection.9.4.3}%
+\contentsline {section}{\numberline {9.5}流形}{69}{section.9.5}%

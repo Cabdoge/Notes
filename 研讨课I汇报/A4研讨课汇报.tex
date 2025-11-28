@@ -46,7 +46,8 @@
 \setbeamercolor{frametitle}{bg=iron}
 %\setbeamercolor{progress bar}{fg=iron,bg=iron}
 
-
+%分式使用行间版
+\everymath{\displaystyle}
 
 \setbeamertemplate{footline}
 {%
@@ -257,11 +258,13 @@ Name of University \\ % 机构全称
     \item $\#\mathcal{I}$表示离散集$\mathcal{I}$的基数
   \end{enumerate}
   \vspace{1 em}
-  另外，任何有界多面体$P$都有使用半空间的交集或极限点的凸包的对偶表示$P=\{x:s_i^Tx\leqslant r_i,\forall\, i\}=\{x:x=\sum{a_jv_j,\sum{a_j}=1,a_j\geqslant 0,\forall\, j}\}$
+  
 \end{frame}
 
 %-----------------------------------------------
 \section{MIP公式化}
+
+\subsection{广义析取规划}
 %-----------------------------------------------
 \begin{frame}{广义析取规划(GDP)}
   \begin{exampleblock}{GDP的例子(1)}
@@ -281,7 +284,7 @@ Name of University \\ % 机构全称
 \end{frame}
 
 \begin{frame}{问题1的MIP改写}
-使用二元变量$y_{jk}=\{0,1\}$代替布尔变量$Y_{jk}$，并将约束\ref{1c}替换为：
+使用二元变量$y_{jk}=\{0,1\}$代替布尔变量$Y_{jk}$，并将约束(\ref{1c})替换为：
 \begin{subequations}
 \begin{align}
   &g_{jk}(x)\leqslant M_{jk}(1-y_{jk}) \\
@@ -289,12 +292,66 @@ Name of University \\ % 机构全称
 \end{align}
 \end{subequations}
 其中$M_{jk}$ 是“大M”参数，为足够大的常数.\par
-成本变量$c_k$看可以被重写为乘积$\gamma_{jk}y_{jk}$ ，同样地，\ref{1d}可以重写为线性约束
+成本变量$c_k$看可以被重写为乘积$\gamma_{jk}y_{jk}$ ，同样地，(\ref{1d})可以重写为线性约束
 $$Ay\leqslant a$$
 \end{frame}
 
+\begin{frame}{“大M”参数的选取}
+  \begin{example}
+    原逻辑命题为$x>0\Longrightarrow \alpha=1$，其中$x\in\mathbb{X}=\{x:|x|\leqslant \overline{x}\}$.\par
+    引入大M参数后，可将命题转化为不等式$x-M\alpha\leqslant 0$.\par
+    为了使不等式满足命题的逻辑含义，需选取$M\geqslant \overline{x}$.\par
+    因此最后取$M=\max_{x\in\mathbb{X}}{x}$，即$M=\overline{x}$.
+  \end{example}
+
+\end{frame}
 
 
+\section{几何视角下的MIP}
+
+\begin{frame}{多面体的半空间表示}
+  \begin{proposition}{}
+    有界多面体$P$都有使用半空间的交集或极限点的凸包的对偶表示$P=\{x:s_i^Tx\leqslant r_i,\forall\, i\}=\{x:x=\sum{a_jv_j,\sum{a_j}=1,a_j\geqslant 0,\forall\, j}\}$
+  \end{proposition}
+\end{frame}
+
+\begin{frame}{多面体的半空间表示}
+    基于以上命题，如果考虑来自$\mathbb{R}^d$中的有限个超平面
+  \begin{equation}
+    \mathcal{H}_i=\{x\in\mathbb{R}^d:h_ix=k_i\},i\in\mathcal{I}
+  \end{equation}
+  其中，$\mathcal{I}\triangleq \{1,\cdots,N\},(h_i,k_i)\in\mathbb{R}^{1\times d}\times\mathbb{R}$\par
+  每一个超平面都会把空间分成两个不相交的区域，分别记作：
+  \begin{subequations}
+    \begin{gather}
+    \mathcal{R}^+_i=\{x\in\mathbb{R}^d:h_ix\leqslant k_i\} \\
+    \mathcal{R}^-_i=\{x\in\mathbb{R}^d:-h_ix\leqslant -k_i\}
+  \end{gather}
+  \end{subequations}\par
+  则多面体$P$可写成这些半空间的的有界交集，另可得到其补集
+  \begin{equation}
+      P=\bigcap_{i\in\mathcal{I}}{\mathcal{R}^{-}_i}
+  \end{equation}
+  \begin{equation}
+        \mathcal{C}(P)=\bigcup_{i\in\mathcal{I}}{\mathcal{R}^{+}_i} \label{6}
+  \end{equation}
+\end{frame}
+
+\begin{frame}{使用二元变量表示区域}
+  为了便于描述上述区域，可以引入二元变量$(\alpha_1,\alpha_N)\in\{0,1\}^N$，使用混合整数技术进行表示.\par
+  \begin{subequations}
+    \begin{gather}
+      h_ix\leqslant k_i+M\alpha_i,i\in\mathcal{I} \label{7.a}\\
+      \sum_{i\in\mathcal{I}}{\alpha_i}\leqslant N-1
+    \end{gather}
+  \end{subequations}
+  \begin{example}
+    半空间$R_x^+$可以由(\ref{7.a})和以下二元变量表示：
+    \begin{equation}
+      (\alpha_1,\cdots,\alpha_N)=\left(1\cdots 1\;\underbrace{0}_{i}\; 1\cdots 1\right)
+    \end{equation}
+  \end{example}
+\end{frame}
 
 %-----------------------------------------------
 \section{MIP在运动规划中的应用}
