@@ -69,7 +69,15 @@
 \usepackage{graphicx,fancybox,mathrsfs,multirow}
 \usepackage{booktabs}
 \usepackage{epsfig,epstopdf}
-\usepackage{url,hyperref}
+\usepackage{url}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=iron,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    citecolor=blue,
+}
 \usepackage{tabularx,array,makecell}
 \usepackage{color,xcolor}
 \usepackage{cases}
@@ -95,13 +103,13 @@
 \numberwithin{theorem}{section}
 %\newtheorem{definition}{Definition}
 \newtheorem{definition}{定义}
-\numberwithin{definition}{section}
+%\numberwithin{definition}{section}
 %\newtheorem{lemma}{Lemma}
 \newtheorem{lemma}{引理}
 \numberwithin{lemma}{section}
 %\newtheorem{proposition}{Proposition}
 \newtheorem{proposition}{命题}
-\numberwithin{proposition}{section}
+%\numberwithin{proposition}{section}
 %\newtheorem{corollary}{Corollary}
 \newtheorem{corollary}{{推论}}
 \numberwithin{corollary}{section}
@@ -115,8 +123,8 @@
 
 \setbeamerfont{caption name}{family=\rmfamily,series=\normalfont}
 \setbeamertemplate{caption}[numbered]
-\numberwithin{figure}{section}
-\numberwithin{table}{section}
+%\numberwithin{figure}{section}
+%\numberwithin{table}{section}
 %\numberwithin{equation}{section}
 
 %\addtokomafont{labelinglabel}{\normalfont}%\bfseries
@@ -183,14 +191,14 @@
 
 \title[Short 题目]{运动规划中的混合整数规划} % The short title appears at the bottom of every slide, the full title is only on the title page
 
-\author{姓名}  % 名字
-\institute[NU] % 机构缩写
+\author{汇报人：庞逸天}  % 名字
+\institute[SJTU] % 机构缩写
 {
-Name of University \\ % 机构全称
+上海交通大学 \\ % 机构全称
 \medskip
-\textit{name@email.com} % 邮件
+\textit{yitianpang@sjtu.edu.cn} % 邮件
 }
-\date[2020.6.23]{2020~年~6~月~23~日} % 日期
+\date[2025.12.9]{2025~年~12~月~9~日} % 日期
 
 
 \graphicspath{{./figures/}}
@@ -340,6 +348,7 @@ $$Ay\leqslant a$$
 \begin{frame}{使用二元变量表示区域}
   为了便于描述上述区域，可以引入二元变量$(\alpha_1,\alpha_N)\in\{0,1\}^N$，使用混合整数技术进行表示.\par
   \begin{subequations}
+    \label{7}
     \begin{gather}
       h_ix\leqslant k_i+M\alpha_i,i\in\mathcal{I} \label{7.a}\\
       \sum_{i\in\mathcal{I}}{\alpha_i}\leqslant N-1
@@ -353,10 +362,313 @@ $$Ay\leqslant a$$
   \end{example}
 \end{frame}
 
+\begin{frame}{多个多面体并集的超平面表示}
+    \begin{subequations}
+    \begin{gather}
+      -h_{i_l}x\leqslant -k_{i_l}+M\alpha_{i_l},i\in\mathcal{I} \label{9.a}\\
+      \sum_{i\in\mathcal{I}_l}{\alpha_{i_l}}\leqslant \#\mathcal{I}_l-1
+    \end{gather}
+  \end{subequations}
+  并定义$\mathcal{I}\triangleq\bigcup_l{\mathcal{I}_l}$
+\end{frame}
+
+\begin{frame}{多面体大“M”参数的选取}
+\begin{columns}[t] 
+  \column{.7\textwidth} 
+  \begin{figure}[h]
+    \centering
+    \includegraphics[width=0.95\textwidth]{fig1.jpg}
+    \caption{大“M”参数选取}
+    \label{fig:BigM}
+  \end{figure}
+  \column{.3\textwidth}
+  \vspace{4.5em}
+  \begin{gather*}
+    M=\max_{i}M_i \\
+    M_i=\max_{x\in\mathbb{X}}{(k_i-h_ix)} \\
+  \end{gather*}
+\end{columns}
+\end{frame}
+
+\begin{frame}{超平面排列}
+  \begin{definition}[超平面排列]
+    集合$\mathbb{H}$将空间划分为一系列不相交的单元$\mathcal{A}(\sigma)$，并用符号元组$\sigma\in\{-,+\}^N$表征：
+    \begin{equation}
+      \mathcal{A}(\sigma)=\bigcap_{i=1}^{N}{\mathcal{R}_i^{\sigma(i)}}
+    \end{equation}
+    覆盖全空间的单元的超平面排列由所有可行的符号元组的集合描述：
+    \begin{equation}
+      \mathcal{\mathbb{H}}=\bigcup_{l=1\cdots\gamma(N)}{\mathcal{A}(\sigma_l)}
+    \end{equation}
+    其中，$\mathbb{H}=\{\mathcal{H}_i\}_{i\in\mathcal{I}}$是半空间的非空交集产生的符号元组，$\gamma(N)$是可行单元的数量.
+  \end{definition}
+\end{frame}
+
+\begin{frame}{可行域的混合整数特征}
+  考虑一组障碍物
+  $$\mathbb{P}=\bigcup_{j=1}^N{P_j}$$
+  则可以把可行单元标记为禁止区域$\textstyle\sum_{\mathbb{P}}=\{\sigma:A(\sigma)\cap\mathbb{P}\neq\varnothing\}$和允许区域$\textstyle\sum_{X\setminus\mathbb{P}}=\{\sigma:A(\sigma)\cap\mathbb{P}=\varnothing\}$，由此得到可行域的混合整数特征：
+  \begin{subequations}
+    \begin{gather}
+      h_ix\leqslant k_i+M(1-\alpha_i) \\
+      -h_ix\leqslant -k_i+M\alpha_i \\
+      \sum_{\sigma_l(i)='+'}(1-\alpha_i)+\sum_{\sigma_l(i)='-'}{\alpha_i}\geq 0\\
+      \forall\,\sigma_l\in\textstyle\sum_{\mathbb{P}}
+    \end{gather}
+  \end{subequations}
+\end{frame}
+
+\begin{frame}{多面体障碍物}
+  \begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{fig2.jpg}
+    \caption{多面体障碍物和超平面排列}
+    \label{fig:PolyObstacle}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{圆形障碍物}
+  \begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{fig3.jpg}
+    \caption{圆形障碍物及其多面体近似}
+    \label{fig:CircleObstacle}
+  \end{figure}
+  \begin{equation}
+    \mathcal{O}=\left\{(x,y):(x-x_0)^2+(y-y_0)^2\leqslant R_0^2\right\} \label{13}
+  \end{equation}
+\end{frame}
+
+\begin{frame}{圆形障碍物的混合整数表示}
+  将(\ref{13})中的障碍物近似为多边形，因此每个禁止区域可以由一组$K_p$多项式描述：
+    \begin{equation}
+    \begin{gathered}
+    \widetilde{\mathcal{O}}=\left\{(x,y):(x-x_0)\sin\frac{2\pi m}{K_p}+(y-y_0)\cos\frac{2\pi m}{K_p}\right. \\
+    \left.\leqslant R_0,\forall\, m=1,\cdots,K_p\right\}
+    \end{gathered}
+    \end{equation}
+  类似于(\ref{7})，应用混合整数技术，上述约束可以表述为：
+  \begin{subequations}
+    \begin{gather}
+      (x-x_0)\sin\frac{2\pi m}{K_p}+(y-y_0)\cos\frac{2\pi m}{K_p}\leqslant R_0-M\beta_m,\forall\, m \\
+      \sum_{m=1}^{K_p}{\beta_m}\leqslant K_p-1
+    \end{gather}
+  \end{subequations}
+\end{frame}
+
+\begin{frame}{使用GDP描述区域}
+  考虑使用四个支撑超平面表示禁止区域，并写成GDP公式：
+  对应于每个超平面$i\in\{1,2,3,4\}$，有以下析取式：
+  \begin{gather*}
+    \left[\begin{gathered}
+      Y_{i1} \\\
+      g_i(x)\leqslant 0
+    \end{gathered}\right]\vee \left[\begin{gathered}
+      Y_{i2} \\
+      g_i(x)\geqslant 0
+    \end{gathered}\right] \\
+    Y_{i1}\vee Y_{i2} \leftrightarrow Y_{i2}=\lnot Y_{i1}
+  \end{gather*}
+  其中，$g_i(x)=x_1\pm x_2\pm 6$，并且以$Y_{i1}=\text{true}$表示$\mathcal{R}_i^-$，以$Y_{i2}=\text{true}$表示$\mathcal{R}_i^+$.
+\end{frame}
+
+\begin{frame}{GDP表示区域示例}
+  \begin{figure}[h]
+    \centering
+    \includegraphics[width=0.4\textwidth]{fig4.jpg}
+    \caption{GDP公式化示例}
+    \label{fig:GDPRegion}
+  \end{figure}
+  \begin{gather*}
+    \text{凸区域：}\Omega(Y)=\lnot Y_{11}\wedge Y_{21}\wedge \lnot Y_{31}\wedge Y_{41} \\
+    \text{非凸区域：}\Omega(Y)=Y_{11}\vee \lnot Y_{21}\vee Y_{31}\vee \lnot Y_{41}
+  \end{gather*}
+\end{frame}
+
+
 %-----------------------------------------------
 \section{MIP在运动规划中的应用}
 %-----------------------------------------------
+\begin{frame}{先决条件}
+  一个由ODE描述的受控动力学系统的通用模型为：
+  \begin{equation}
+    \dot{x}(t)=f(x(t),u(t),w(t))
+  \end{equation}
+  其中，$x(t)\in\mathbb{R}^{n_x}$是状态向量，$u(t)\in\mathbb{R}^{n_u}$是控制输入向量，$w(t)\in\mathbb{R}^{n_w}$是外部扰动.映射$f(\cdot,\cdot,\cdot):\mathbb{R}^{n_x}\times\mathbb{R}^{n_u}\times\mathbb{R}^{n_w}\to\mathbb{R}^{n_x}$是一个连续函数且存在一个平衡点(即$f(\bar{x},\bar{u},0)=0$，不失一般性，假设$f(0,0,0)=0$).\par
+  对应的离散动力学系统的模型为：
+  \begin{equation}
+    x(k+1)=f(x(k),u(k),w(k)) \label{16}
+  \end{equation}
+\end{frame}
 
+\begin{frame}{变量的选择}
+  \begin{columns}[t]
+  \column{.5\textwidth}
+  线性模型
+  \begin{itemize}[<+-| alert@+>]
+    \item 状态向量：智能体位置、速度
+    \item 输入向量：智能体加速度
+  \end{itemize}
+  \column{.5\textwidth}
+  非线性模型
+  \begin{itemize}[<+-| alert@+>]
+    \item 状态向量：智能体位置、航向角
+    \item 输入向量：智能体速度、转向角
+  \end{itemize}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{最优控制问题}
+  \begin{block}{最优控制问题}
+    寻找一个控制输入$u^\bigstar\in\mathbb{R}^{n_u}$，使得系统(\ref{16})遵循轨迹$x^\bigstar(t)$$\in\mathbb{R}^{n_x}$，并最小化特定准则：
+    \begin{subequations}
+      \begin{align}
+        &\min_{x(t),u(t)}J=\min_{x(t),u(t)}H \left(x(t_f)\right)+\int_{t_0}^{t_f}{L(x(t),u(t))dt}\label{18a}\\
+        &\mathrm{s.t.}\; \dot{x}(t)-f(x(t),u(t),w(t))=0 \\
+        &x(t_0)-x_0=0 \\
+        &g \left(x(t),u(t)\right) \leqslant 0
+      \end{align}
+    \end{subequations}
+    其中$t\in[t_0,t_f]$，$t_f-t_0$表示时间范围长度，$x_0$为初始状态，$g(\cdot,\cdot)$是一个包含物理约束的函数.
+  \end{block}
+\end{frame}
+
+\begin{frame}{可由MIP有效解决的运动规划子领域}
+  \begin{itemize}[<+-| alert@+>]
+    \item 任务分配(TA)：将一个目标分配给特定子系统的离散决策过程，其中目标可以互换且由特定准则衡量其适用性.特点是，(资源-目标)对内的方案数量可数.
+    \item (无碰撞)路径规划：不显示参数化时间、不显示考虑动力学地在位置空间中构建一条路线.
+    \item (无碰撞)轨迹规划：将时间与路径关联，考虑智能体动力学的特殊性，且生成的函数以开环方式产生
+    \item (在线)障碍物和碰撞避免：最小化(\ref{18a})中的性能指标同时，避免碰撞且使用闭环策略寻找输入控制信号
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{运动规划子领域}
+  \begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{fig5.jpg}
+    \caption{运动规划子领域及其相互关系}
+    \label{fig:MotionPlanning}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{任务分配}
+  考虑$N$个智能体和$M$个目标，需要将智能体最优地分配给目标以最小化到达所有目标的时间.定义二元变量$x_{ij}$，如果智能体$i$访问目标$j$，则$x_{ij}=1$，否则为零.另外，考虑每个智能体-目标组合成本$c_{ij}$.由此可以得到任务分配问题的标准MIP公式：
+  \begin{subequations}
+    \begin{align}
+      &\min_{x_{ij}}\sum_{i=1}^N\sum_{j=1}^M{c_{ij}x_{ij}} \\
+      &\text{s.t. } \sum_{i=1}^N{x_{ij}}\geqslant 1,\forall\, j \\
+      &\sum_{j=1}^M{x_{ij}}\leqslant 1,\forall\, i \\
+      &x_{ij}\in\{0,1\},\forall\, i,j \label{19d}
+    \end{align}
+  \end{subequations}
+\end{frame}
+
+\begin{frame}{任务分配的松弛}
+  使用松弛变量$X_{ij}\in [0,1]$替换(\ref{19d})并求解其LP松弛可以得到原始问题的解.\par
+  但如果问题改变，例如额外定义$t_{ij}$为智能体$i$到达目标$j$的时间，并要求总时间不超过某个值(\ref{20})，则上述特性不再生效
+  \begin{equation}
+    \sum_{i=1}^N\sum_{j=1}^M{t_{ij}x_{ij}}\leqslant T \label{20}
+  \end{equation}
+\end{frame}
+
+\begin{frame}{任务分配的变体及可以转化为MIP的问题}
+  \begin{itemize}[<+-| alert@+>]
+    \item 一个智能体必须完成多个目标
+    \item 无人机队列分配问题：智能体必须访问特定的航点序列
+    \item 协作安全控制器：智能体分组
+  \end{itemize}
+
+  \begin{itemize}[<+-| alert@+>]
+    \item 飞机维护问题
+    \item 机场调度问题
+    \item 碰撞和避障问题
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{路径}
+  \begin{definition}[路径]
+    导航空间中两点$x_0,x_f$之间的路径由映射$\gamma:[0,1]\to \mathcal{X}$给出，其中
+    \begin{equation}
+      \gamma(0)=x_0,\quad \gamma(1)=x_f
+    \end{equation}
+  \end{definition}
+  一般有两种方式描述函数$\gamma$，其一为显示方法，包括为整个区间$[0,1]$提供$\gamma$的值.其二是更常用的方法，函数必须从被称为“航点”的值中取值.\par
+  定义描述规划路径的所有航点集：$\mathcal{W}=\{x_{w_0},\cdots,x_{w_{N_w}}\}$，并考虑对定义2附加条件：$\forall\, x_{w_k},\exists\, !\theta_k\in[0,1]$，使得$\gamma(\theta_k)=x_{w_k}$.
+\end{frame}
+
+\begin{frame}{路径规划}
+  处理路径规划问题的常用方法是将其转化为旅行商问题(TSP).
+  \begin{example}[Richards,How(2002)、Schouwenaars(2006)]
+    考虑一个需要访问$N_w$个航点的机器人，同时最小化操作成本，因此，强制访问所考虑航点的MI约束如下：
+    \begin{subequations}
+      \begin{gather}
+        \forall\, i\in\{1,\cdots,T\},\forall\, k\in\{1,\cdots,N_w\}, \\
+        \|x_i-x_{w_k}\|\leqslant M(1-b_{ik}) \\
+        \sum_{i=1}^T{b_{ik}}=1,\forall\, k\,\text{且}\, b_{ik}\in\{0,1\} \label{22c}
+      \end{gather}
+    \end{subequations}
+    其中$T$是时间步的数量，$b_{ik}$是二元变量，表示在时间步$i$时是否访问了航点$k$.约束(\ref{22c})确保机器人访问每个航点一次
+  \end{example}
+\end{frame}
+
+\begin{frame}{路径规划的其他方法}
+  \begin{itemize}[<+-| alert@+>]
+    \item Tunnel-MILP方法
+    \begin{enumerate}
+      \item 忽略车的动力学约束，找到一条路径
+      \item 该路径与空间的凸分解形成从起点到目标的一系列$N_R$个凸多面体$F_i=\{x\in\mathbb{R}^2:A_ix\leqslant b_i\}$
+      \item 使用多面体隧道将智能体$p(t)$的位置约束在隧道内从起点到目标的最佳动态可行道路上
+    \end{enumerate}
+
+    \begin{equation}
+      \bigvee_{i\in\{1,\cdots,N_R\}}{A_ip(t)\leqslant b_i},\forall\, t
+    \end{equation}
+      \end{itemize}
+
+\end{frame}
+
+\begin{frame}{路径规划的其他方法}
+  \begin{itemize}[<+-| alert@+>]
+    \item 广义Voronoi图
+    \begin{enumerate}
+      \item 通过障碍物的面和导航环境的边界构建广义Voronoi图
+      \item 移除禁止区域内的节点与连接这些节点的边
+      \item 使用Delaunary三角剖分将空间划分为三角形，并计算被规划路径穿过的三角形，将其合并形成多图面体，试图隧道中的凸区域数量最少
+    \end{enumerate}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{轨迹}
+  \begin{definition}[轨迹]
+    导航空间中两个店$x_0,x_f$之间的轨迹由连续函数$\gamma:[t_0,t_f]\to \mathcal{X}$给出，其中
+    \begin{equation}
+      \gamma(t_0)=x_0,\quad \gamma(t_f)=x_f
+    \end{equation}
+  \end{definition}
+  类似于路径，轨迹也通常有连续函数和航点集表示两种方式指定.对于第二种方式，描述轨迹的所有航点集修改如下：$\widetilde{\mathcal{W}}=\left\{\left(x_{w_0},t_{w_0}\right),\cdots,\left(x_{w_{N_w}},t_{w_{N_w}}\right)\right\}$.
+\end{frame}
+
+\begin{frame}{各种任务中的轨迹规划}
+  \begin{itemize}[<+-| alert@+>]
+    \item Earl和D'Andrea(2005a)：提出一种迭代MILP算法，可以保证车辆在轨迹上保证避开圆形障碍物，且有效分配避障时间.
+    \item Earl和D'Andrea(2002)：利用混合系统对机器人的简化比赛进行建模，将其转化为一个MLD系统，并可以使用最先进的MILP求解器求解
+    \item Cetin、Bikdash和Hadaegh(2007)：解决了航天器编队重构生成无碰撞轨迹，且实现最佳燃油消耗.使用三次样条将轨迹在时间上离散化，并使用大“M”方法将参数化优化写成MILP，并使用求解器求解
+    \item Richards和How(2003)：使用MILP进行开环车辆轨迹设计，从而可以包含非凸约束，例如避免羽流撞击
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{自动驾驶任务中的轨迹规划}
+  \begin{itemize}[<+-| alert@+>]
+    \item Molinari(2017)：为自主超车问题引入了一种高效的MIP公式.考虑的车辆具有简单动力学模型，并用超平面排列表示非凸可行区域.针对被多个智能体围绕的情况，提出了生成避免碰撞的轨迹的未完整模型，在IPG CarMaker中得到验证
+    \item Ballesteros-Tolosana(2017)：针对确保乘客舒适度的变道和超车操作的轨迹生成问题这一OCP问题，使用多重shooting方法求解枚举所有超车配置及其产生的紧凑型MIP公式，计算负担有所改进.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{自动驾驶任务中的轨迹规划}
+  \begin{itemize}[<+-| alert@+>]
+    \item Fayazi(2017)：
+  \end{itemize}
+\end{frame}
 
 
 %------------------------------------------------
@@ -403,45 +715,6 @@ This is the alertblock environment. The quick brown fox jumps over the lazy dog.
 \end{frame}
 
 %------------------------------------------------
-
-\begin{frame}
-\frametitle{列表环境}
-
-计数列表环境
-\begin{enumerate}
-\item 这是一个计数列表环境.
-\item 这是一个计数列表环境.
-\item 这是一个计数列表环境.
-\end{enumerate}
-
-\vspace{2ex}
-不计数列表环境
-\begin{itemize}[<+-| alert@+>]
-\item 这是一个不计数列表环境.
-\item 这是一个不计数列表环境.
-\item 这是一个不计数列表环境.
-\end{itemize}
-
-\end{frame}
-
-%------------------------------------------------
-
-\begin{frame}
-\frametitle{左右分栏}  % Multiple Columns
-\begin{columns}[t] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
-
-\column{.45\textwidth} % Left column and width
-\textbf{Heading}
-\begin{enumerate}
-\item Statement
-\item Explanation
-\item Example
-\end{enumerate}
-
-\column{.5\textwidth} % Right column and width
-The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
-\end{columns}
-\end{frame}
 
 
 \begin{frame}

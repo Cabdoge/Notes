@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.9)  24 NOV 2025 13:56
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.9)  1 DEC 2025 14:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1940,9 +1940,15 @@ Overfull \hbox (1.39769pt too wide) in paragraph at lines 161--169
 
 [58]
 
-[59])
+[59]
 
-[60] (./动力系统笔记.aux)
+[60]
+
+[61]
+
+[62])
+
+[63] (./动力系统笔记.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2022/08/05>
@@ -1954,12 +1960,12 @@ Package logreq Info: Writing requests to '动力系统笔记.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 55480 strings out of 473832
- 1218796 string characters out of 5729481
+ 55563 strings out of 473832
+ 1220754 string characters out of 5729481
  2231374 words of memory out of 5000000
- 77618 multiletter control sequences out of 15000+600000
+ 77701 multiletter control sequences out of 15000+600000
  577076 words of font info for 166 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  103i,23n,132p,691b,1499s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on 动力系统笔记.pdf (63 pages).
+Output written on 动力系统笔记.pdf (66 pages).

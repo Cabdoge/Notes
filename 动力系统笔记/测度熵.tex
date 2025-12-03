@@ -262,9 +262,124 @@ Y_2 \arrow[rr, "T_2"']                    &  & Y_2
         &=\frac{1}{n}H \left(\bigvee_{j=0}^{n+2m}T^{-j}\eta\right)+H \left(\xi\,\Bigg|\bigvee_{j=-m}^{m}T^{j}\eta\right)
     \end{aligned} $ \par
     $\Rightarrow H(T,\xi)\leq H(T,\eta)+H \left(\xi\,\Bigg|\bigvee_{j=-m}^{m}T^{-j}\eta\right)$.\par
-    因此，只需证明$\forall\,\varepsilon>0,\exists\, m\in\mb{N}$，使得$H \left(\xi\,\Bigg|\bigvee_{j=-m}^{m}T^{j}\eta\right)<\varepsilon$
+    因此，只需证明$\forall\,\varepsilon>0,\exists\, m\in\mb{N}$，使得$H \left(\xi\,\Bigg|\bigvee_{j=-m}^{m}T^{j}\eta\right)<\varepsilon$.\par
+    由$\eta$ 为生成子可知$\bigvee_{i=-\infty}^\infty{T^{-i}\eta}\circeq \mcal{B}$\par
+    $\bigvee_{i=-\infty}^\infty{T^{-i}\eta}$是由代数$\mcal{A}=\bigcup_{n=1}^\infty{\mcal{A}_n},\mcal{A}_n=\bigvee_{i=-n}^n{T^{-i}\eta}$生成的($\mcal{A}_1\subseteq \mcal{A}_2\subseteq\cdots\subseteq \mcal{A}_n\subseteq\cdots$).\par
+    则$\mcal{B}\circeq\mcal{B}(\mcal{A})$，故$\forall\, B\in\mcal{B},\forall\,\varepsilon>0,\exists\, A\in\mcal{A}$，使得$m \left(B\triangle A\right)<\varepsilon$.\par
+    设$\xi=\{\mcal{B}_1,\mcal{B}_2,\cdots,\mcal{B}_k\}$，则$\exists\, n\in\mb{N},A_1,A_2,\cdots,A_k\in\bigvee_{i=-m}^m{T^{-i}\eta}$生成的代数$\mcal{A}_m$，使得$m \left(B_i\triangleq A_i\right)<\delta\;(1\leq i\leq k)$.\par
+    $H \left(\xi\,\Bigg|\bigvee_{\ell=-m}^m{T^{-\ell}\eta}\right)=-\sum_{\ell}{m(C_i)\sum_{j=1}^k\frac{m(B_j\cap C_i)}{m(C_i)}\ln{\frac{m(B_j\cap C_i)}{m(C_i)}}}\; \left(\bigvee_{\ell=-m}^{m}T^{-\ell}\eta=\{C_i\}_i\right)$\par
+    $\forall\, j\in\{1,2,\cdots,k\}$，$A_j=\bigcup_{i}{C_{i,j}}\in\mcal{A}_m,C_{i,j}\in\{C_i\}_i$.\par
+    调整$A_j'$，令$S_j=\left\{C_{i,j}\Bigl|m(B_j|C_{i,j})\geq 1-\sqrt{\delta},\mathrm{i.e.}\, \frac{m(B_j\cap C_{i,j})}{m(C_{i,j})}\geq 1-\sqrt{\delta}\right\}$\par
+    定义$A_j'=\bigcup_{C_{i,j}\in S_j}{C_{i,j}},A_j'\subseteq A_j\;(\forall\, j\in\{1,2,\cdots,k\})$
+    \begin{claim}{$m \left(A_j\setminus A_j'\right)\leq \sqrt{\delta}$}
+        $A_j\setminus A_j'=bigcup_{C_{i,j}\notin S_j}{C_{i,j}}$\par
+        $C_{i,j}\notin S_j\Rightarrow m(B_j|C_{i,j})<1-\sqrt{\delta}\Rightarrow m \left(B_j^c|C_{i,j}\right)\geq \sqrt{\delta}$.\par
+        则$m(A_i\setminus A_i')=\sum_{C_{i,j}\notin S_j}{m(C_{i,j})}\setjot[-2]\begin{aligned}[t]
+            &\leq \frac{1}{\sqrt{\delta}}\sum_{C_{i,j}\notin S_j}m(C_{i,j})m(B_j^c|C_{i,j}) \\
+            &=\frac{1}{\sqrt{\delta}}\sum_{C_{i,j}\notin S_j}{m(B_j^c\cap C_{i,j})} \\
+            &\leq\frac{1}{\sqrt{\delta}}m(B_j^c\cap A_j) \\
+            &\leq \frac{1}{\sqrt{\delta}}m(A_j\triangle B_j)<\sqrt{\delta} \\
+        \end{aligned}$\par
+    \end{claim}\par
+    对$H \left(\xi\,\Bigg|\bigvee_{\ell=-m}^m{T^{-\ell}\eta}\right)$分组求和，则 \par
+    $\setjot[-2]\begin{aligned}[t]
+        H \left(\xi\,\Bigg|\bigvee_{\ell=-m}^m{T^{-\ell}\eta}\right)&=-\sum_{i}{m(C_i)\sum_{j=1}^k\frac{m(B_j\cap C_i)}{m(C_i)}\ln{\frac{m(B_j\cap C_i)}{m(C_i)}}}\\
+        &=-\sum_{C_i\subseteq A_j'}+\left(-\sum_{C_i\cap\bigcup_{j=1}^{k}A_j'=\varnothing}\right)
+    \end{aligned} $\par
+    \begin{itemize}
+        \item $-\sum_{C_{i}\subseteq A_j'}{{m(C_i)\sum_{j=1}^k\frac{m(B_j\cap C_i)}{m(C_i)}\ln{\frac{m(B_j\cap C_i)}{m(C_i)}}}}$.\par
+        如果$C_i\subseteq A_s'$，那么$\frac{m(B_s\cap C_i)}{m(C_i)}\geq 1-\sqrt{\delta},\frac{m(B_j\cap C_i)}{m(C_i)}\leq \sqrt{\delta}\;(\forall\, j\neq s)$\par
+        因此$-\sum_{C_{i}\subseteq A_j'}{{m(C_i)\sum_{j=1}^k\frac{m(B_j\cap C_i)}{m(C_i)}\ln{\frac{m(B_j\cap C_i)}{m(C_i)}}}}\leq k \left((1-\sqrt{\delta})\ln(1-\sqrt{\delta})+\sqrt{\delta}\ln\sqrt{\delta}\right)$
+        \item $-\sum_{C_i\cap\bigcup_{j=1}^{k}A_j'=\varnothing}{{m(C_i)\sum_{j=1}^k\frac{m(B_j\cap C_i)}{m(C_i)}\ln{\frac{m(B_j\cap C_i)}{m(C_i)}}}}$\par
+        \begin{claim}{$m \left(X\setminus \displaystyle\bigcup_{j=1}^k{A_j'}\right)\leq 2k\sqrt{\delta}$}
+            $\setjot[-2]\begin{aligned}[t]
+                m \left(X\setminus \displaystyle\bigcup_{j=1}^k{A_j'}\right) &= m \left(\bigcup_{j=1}^k{B_j}\setminus \bigcup_{j=1}^kA_j'\right)\\
+                &\leq m \left(\bigcup_{j=1}^k{B_j}\setminus \bigcup_{j=1}^k{A_j}\right)+m \left(\bigcup_{j=1}^k{A_j}\setminus \bigcup_{j=1}^{k}{A_j'}\right)\\
+                &\leq \sum_{j=1}^k{m(B_j\setminus A_j)}+\sum_{j=1}^k{m(A_j\setminus A_j')} \\
+                &\leq k\delta+k\sqrt{\delta}\leq 2k\sqrt{\delta}
+            \end{aligned}$
+        \end{claim}
+        $-\sum_{C_i\cap\bigcup_{j=1}^{k}A_j'=\varnothing}{{m(C_i)\sum_{j=1}^k\frac{m(B_j\cap C_i)}{m(C_i)}\ln{\frac{m(B_j\cap C_i)}{m(C_i)}}}}\leq \sum_{C_i\cap\bigcup_{j=1}^{k}A_j'=\varnothing}{m(C_i)\ln k}\leq 2k\ln{k}\sqrt{\delta}$
+    \end{itemize}\par
+    适当选取$\delta>0$，使得$-k\left((1-\sqrt{\delta})\ln(1-\sqrt{\delta})+\sqrt{\delta}\ln\sqrt{\delta}\right)+2k\ln{k}\sqrt{\delta}<\varepsilon$.\par
+    那么$H \left(\xi\,\Bigg|\bigvee_{\ell=-m}^m{T^{-\ell}\eta}\right)<\varepsilon$.
 \end{proof}
+对于不可逆的保测变换，也有类似的结论：
+\begin{theorem}{}
+    设$(X,\mcal{B},m)$为概率测度空间，$T:X\to X$是保测变换，如果有限可测分解$\eta$满足$\bigvee_{i=0}^\infty{T^{-i}\eta}\circeq \mcal{B}$，那么$h_m(T)=h(T,\eta)$
+\end{theorem}
 
+\begin{instance}
+    $\setjot[-6]\begin{aligned}[t]
+        R_\alpha :S^1& \to S^1 \\
+        x&\mapsto x+\alpha\pmod{1} 
+    \end{aligned}$，其中$m$为Lebesgue测度，计算$h_m(R_\alpha)$.\par
+    \begin{solution}
+    \begin{enumerate}[(1)]
+        \item 设$\alpha\in\mb{Q},\exists\, k\in\mb{N}$，使得$R_\alpha^k=\mathrm{Id}$.\par
+        $h_m(R_\alpha^k)=h_m(\mathrm{Id})=\sup_\eta{\lim_{n\to\infty}{\frac{1}{n}H \left(\bigvee_{i=0}^{n-1}\left(\mathrm{Id}\right)^{-i}\eta\right)}}=0$\par
+        $\Rightarrow kh_m(R_\alpha)=0\Rightarrow h_m(R_\alpha)=0$
+        \item 设$\alpha\in\mb{R}\setminus\mb{Q}$，设$A_1=\left[0,\frac{1}{2}\right),A_2=\left[\frac{1}{2},1\right)$，则$\eta=\{A_1,A_2,\}$是$R_\alpha$的生成子.\par
+        考虑$R_\alpha^{-i}\eta(-\infty<i<+\infty)$.\par
+        $\left|\bigvee_{i=-m}^m{R_\alpha}^{-i}\eta\right|=(2m+1)\times 2$，故$\alpha\in\mb{R}\setminus\mb{Q}$，$\{n\alpha\}_{n\in\mb{N}}$在$S^1$中稠密.\par
+        则$\bigvee_{i=-\infty}^{\infty}{R_\alpha^{-i}}\eta=\mcal{B}\left(\bigcup_{n\in\mb{N}}{\mcal{A}\left(\bigvee_{i=-m}^m R_\alpha^{-i}\eta\right)}\right)\circeq S^1$上的$\sigmaalg$.\par
+        $h_m(R_\alpha)=h(R_\alpha,\eta)\setjot[-2]\begin{aligned}[t]
+            &=\lim_{n\to\infty}{\frac{1}{n}H \left(\bigvee_{i=0}^{n-1}R_\alpha^{-i}\eta\right)} \\
+            &\leq \limsup_{n\to\infty}{\frac{1}{n}\ln \left|\bigvee_{i=0}^{n-1}{R_\alpha^{-i}\eta}\right|}=\limsup_{n\to\infty}{\frac{1}{n}\ln{2n}}=0
+        \end{aligned}$
+    \end{enumerate}
+    \end{solution}
+\end{instance}
+
+\begin{instance}
+    设$X=\{1,2,\cdots,k\},Y=\prod_{i=-\infty}^{\infty}{X},\setjot[-6]\begin{aligned}[t]
+        T:Y&\to Y \\
+        (\cdots,x_{-1},x_0,x_1,\cdots) &\mapsto (\cdots,x_0,x_1,x_2,\cdots)
+    \end{aligned}$\par
+    $T$是$Y$上的左平移映射，设$m_X$是$X$上的概率测度$m_X(\{i\})=\frac{1}{k}\;(\forall\, i\in X)$，由此可得$Y$上的概率测度$m_Y$，计算$h_{m_Y}(T)$.\par
+    \begin{solution}
+        设$A_i=\{(\cdots,x_{-1},x_0,x_1,\cdots)\in Y|x_0=i\}\;(\forall\, i\in X)$.\par
+        则$\eta=\{A_1,A_2,\cdots,A_k\}$是$Y$的有限可测分解，且$\eta$是$T$的生成子.\par
+        $\bigvee_{i=-m}^m{T^{-i}\eta}$中的每一个元素$S=\bigcap_{i=-m}^m{T^{-i}A_{k_i}}=\{(\cdots,x_{-1},x_0,x_1,\cdots)|x_i=k_i,-m\leq i\leq m\}\; (\forall\, k_i\in X)$.\par
+        $\Rightarrow \bigvee_{i=-\infty}^\infty{T^{-i}\eta}$包含$Y$中的所有矩体，故$\bigvee_{i=-\infty}^\infty{T^{-i\eta}}\circeq\mcal{B}$.\par
+        $\setjot[-2]\begin{aligned}[t]
+            h_{m_Y}(T) &= h(T,\eta) =\lim_{n\to\infty}{\frac{1}{n}H \left(\bigvee_{i=0}^{n-1}T^{-i}\eta\right)} \\
+            &=\lim_{n\to\infty}{\frac{1}{n}\sum_{A_j\in\bigvee_{i=0}^{n-1}T^{-i}\eta}{-m(A_j)\ln{m(A_j)}}} \\
+            &=\lim_{n\to\infty}{\frac{1}{n}\sum_{A_j\in\bigvee_{i=0}^{n-1}T^{-i}\eta}{-\frac{1}{k^n}\ln{\frac{1}{k^n}}}}\; \left(m(A_j)=\frac{1}{k^n}\right) \\
+            &=\lim_{n\to\infty}{\frac{1}{n}\left(k^n\cdot \left(-\frac{1}{k^n}\ln\frac{1}{k^n}\right)\right)}=\ln{k}
+        \end{aligned}$
+    \end{solution}
+    因此$\setjot[-2]\begin{aligned}[t]
+        & T_2:\prod_{i=-\infty}^\infty\{1,2\}\to \prod_{i=-\infty}^\infty\{1,2\} \\
+        &T_3:\prod_{i=-\infty}^\infty\{1,2,3\}\to\prod_{i=-\infty}^\infty\{1,2,3\}
+    \end{aligned}$不同构.\par
+
+    对于单边的情形$\setjot[-2]\begin{aligned}[t]
+        T:\prod_{i=0}^\infty{X}&\to \prod_{i=0}^\infty{X} \\
+        (x_0,x_1,x_2,\cdots) &\mapsto (x_1,x_2,\cdots)
+    \end{aligned}$\par
+    $\eta={A_1,A_2,\cdots,A_k}$同样为$T$的生成子.\par
+
+\end{instance}
+
+
+
+\begin{instance}
+    设$\setjot[-2]\begin{aligned}[t]
+        T:S^1&\to S^1 \\
+        x&\mapsto 10x\pmod{1}
+    \end{aligned}$，计算$h_m(T)$.\par
+    $\forall\, x\in [0,1),x=0.x_1x_2x_3\cdots$.
+    则有以下交换图 \par
+    \begin{tikzcd}
+S^1 \arrow[rrr, "\Phi"]                 &  &  & \displaystyle\prod_{i=1}^\infty{X} \\
+x \arrow[rrr, maps to] \arrow[ddd, "T"'] &  &  & {(x_1,x_2,\cdots)} \arrow[ddd, "S"] \\
+                                        &  &  &                                    \\
+                                        &  &  &                                    \\
+10x\pmod{1} \arrow[rrr, "\Phi"']        &  &  & {(x_2,x_3,\cdots)}                
+\end{tikzcd}\par
+    即$\Phi\circ T=S\circ\Phi$，故$h_m(T)=k_m(S)=\ln{10}$
+\end{instance}
 
 
 
