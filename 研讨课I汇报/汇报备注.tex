@@ -317,6 +317,12 @@ MIP在组合问题中较为流行，例如任务分配问题和旅行商问题�
 其中$M_{jk}$ 是“大M”参数，为足够大的常数.\par
 成本变量$c_k$看可以被重写为乘积$\gamma_{jk}y_{jk}$ ，同样地，(\ref{1d})可以重写为线性约束
 $$Ay\leqslant a$$
+  \note{
+    上述GDP公式可以被改写为MIP形式，用二元变量代替布尔变量.\par
+    (2a)代表了是之前的约束条件，当$y_{jk}=0$时，不施加约束.(2b)相当于要求了只有一个$y_{jk}$可以为真(翻页).\par \vspace{1 em}
+    公式中比较重要的是大$M$参数的选取，过大的M会增加搜索域的范围，因此会增加计算量.因此我们的大M应当选取为最小的保证其不影响其他约束条件的整数，相当于一个minmax问题 \par
+    GDP相对于MIP优势更小，因此现有的GDP求解器都是基于MIP重构的.但是在建模时仍然可以利用GDP建模，然后将其转化为MIP的形式即可.
+  }
 \end{frame}
 
 \begin{frame}{“大M”参数的选取}
@@ -326,12 +332,7 @@ $$Ay\leqslant a$$
     为了使不等式满足命题的逻辑含义，需选取$M\geqslant \overline{x}$.\par
     因此最后取$M=\max_{x\in\mathbb{X}}{x}$，即$M=\overline{x}$.
   \end{example}
-  \note{
-    上述GDP公式可以被改写为MIP形式，用二元变量代替布尔变量.\par
-    (2a)代表了是之前的约束条件，当$y_{jk}=0$时，不施加约束.(2b)相当于要求了只有一个$y_{jk}$可以为真(翻页).\par \vspace{1 em}
-    公式中比较重要的是大$M$参数的选取，过大的M会增加搜索域的范围，因此会增加计算量.因此我们的大M应当选取为最小的保证其不影响其他约束条件的整数，相当于一个minmax问题 \par
-    GDP相对于MIP优势更小，因此现有的GDP求解器都是基于MIP重构的.但是在建模时仍然可以利用GDP建模，然后将其转化为MIP的形式即可.
-  }
+
 \end{frame}
 
 
@@ -341,6 +342,10 @@ $$Ay\leqslant a$$
   \begin{proposition}{}
     有界多面体$P$都有使用半空间的交集或极限点的凸包的对偶表示$P=\{x:s_i^Tx\leqslant r_i,\forall\, i\}=\{x:x=\sum{a_jv_j,\sum{a_j}=1,a_j\geqslant 0,\forall\, j}\}$
   \end{proposition}
+    \note{
+    之前提到利用MIP处理的问题中可行域可能是非凸的，因此需要使用超平面排列来刻画这些非凸区域，这里介绍多面体的情形，因为大多数MIP模型的集合都是多面体，多面体有以下两种表示方式(我们在线性规划时学过的内容)(翻页) \par \vspace{1 em}
+    因此超平面会把空间分成若干个不相交的区域，我们可以利用这些区域的交和并来表示所需要的区域.\par
+  }
 \end{frame}
 
 \begin{frame}{多面体的半空间表示}
@@ -363,10 +368,7 @@ $$Ay\leqslant a$$
   \begin{equation}
         \mathcal{C}(P)=\bigcup_{i\in\mathcal{I}}{\mathcal{R}^{+}_i} \label{6}
   \end{equation}
-  \note{
-    之前提到利用MIP处理的问题中可行域可能是非凸的，因此需要使用超平面排列来刻画这些非凸区域，这里介绍多面体的情形，因为大多数MIP模型的集合都是多面体，多面体有以下两种表示方式(我们在线性规划时学过的内容)(翻页) \par \vspace{1 em}
-    因此超平面会把空间分成若干个不相交的区域，我们可以利用这些区域的交和并来表示所需要的区域.\par
-  }
+
 \end{frame}
 
 \begin{frame}{使用二元变量表示区域}
@@ -384,6 +386,12 @@ $$Ay\leqslant a$$
       (\alpha_1,\cdots,\alpha_N)=\left(1\cdots 1\;\underbrace{0}_{i}\; 1\cdots 1\right)
     \end{equation}
   \end{example}
+  \note{
+    如果有$N$个超平面，理论上把空间分为$2^N$个单元，可以使用二元变量组来表示这些区域.当$\alpha_i=1$时表示没有约束，反之则有约束.要求$\alpha_i$的和小于$N$的原因是当$M\to\infty$时，这种情况代表了整个$\mathbb{R}^n$.\par
+    一个例子是对于一个超平面的上半空间，可以用这样的二元变量表示，也就是让$\alpha_i=0$即可.(翻页)\par \vspace{1 em}
+    这种想法也可以推广到多个多面体的情形，只需要对公式稍加改写(翻页)\par \vspace{1 em}
+    这一张图展示了如何选取合适的大M参数.我们的思路就是充分松弛，让它不影响其他约束，因此可以按照右式选取大M，变成了一个线性规划问题.\par
+}
 \end{frame}
 
 \begin{frame}{多个多面体并集的超平面表示}
@@ -412,12 +420,7 @@ $$Ay\leqslant a$$
     M_i=\max_{x\in\mathbb{X}}{(k_i-h_ix)} \\
   \end{gather*}
 \end{columns}
-\note{
-    如果有$N$个超平面，理论上把空间分为$2^N$个单元，可以使用二元变量组来表示这些区域.当$\alpha_i=1$时表示没有约束，反之则有约束.要求$\alpha_i$的和小于$N$的原因是当$M\to\infty$时，这种情况代表了整个$\mathbb{R}^n$.\par
-    一个例子是对于一个超平面的上半空间，可以用这样的二元变量表示，也就是让$\alpha_i=0$即可.(翻页)\par \vspace{1 em}
-    这种想法也可以推广到多个多面体的情形，只需要对公式稍加改写(翻页)\par \vspace{1 em}
-    这一张图展示了如何选取合适的大M参数.我们的思路就是充分松弛，让它不影响其他约束，因此可以按照右式选取大M，变成了一个线性规划问题.\par
-}
+
 \end{frame}
 
 
@@ -542,6 +545,12 @@ $$Ay\leqslant a$$
   \begin{equation}
     x(k+1)=f(x(k),u(k),w(k)) \label{16}
   \end{equation}
+    \note{
+    大部分MIP在运动规划中的应用都有一个2D或3D空间中由动力学数学模型控制的指点的动力学系统，一个通用的系统如下： \par
+    同时，也有部分模型是基于离散时间动态的，因此保持相似的符号可以写出对应于离散动力学系统的模型\par 
+    可以通过相应的离散化技术可以把上述两个公式联系起来(翻页)\par\vspace{1 em}
+    对于线性模型和非线性模型，我们会如此选取状态向量和输入向量.\par
+  }
 \end{frame}
 
 \begin{frame}{变量的选择}
@@ -559,9 +568,7 @@ $$Ay\leqslant a$$
     \item 输入向量：智能体速度、转向角
   \end{itemize}
   \end{columns}
-  \note{
-    
-  }
+
 \end{frame}
 
 \begin{frame}{最优控制问题}
@@ -577,6 +584,10 @@ $$Ay\leqslant a$$
     \end{subequations}
     其中$t\in[t_0,t_f]$，$t_f-t_0$表示时间范围长度，$x_0$为初始状态，$g(\cdot,\cdot)$是一个包含物理约束的函数.
   \end{block}
+  \note{
+    虽然本文的重点是MIP及其实现方法，但最终获得的公式是优化控制策略的结果，因此介绍最优控制问题的概念.\par
+    一个最优控制问题会根据函数$H,L$的不同选择以及时间范围的选择呈现不同的形式.\par
+  }
 \end{frame}
 
 \begin{frame}{可由MIP有效解决的运动规划子领域}
@@ -595,6 +606,9 @@ $$Ay\leqslant a$$
     \caption{运动规划子领域及其相互关系}
     \label{fig:MotionPlanning}
   \end{figure}
+  \note{
+    需要注意的时，大多数情况下，任务分配和路径规划通常不作为独立的主题处理，而是和其他子领域一起或作为其中一部分.例如路径规划通常英汉在轨迹规划中，而任务分配通常是避障或路径规划的一部分.\par
+  }
 \end{frame}
 
 \begin{frame}{任务分配}
@@ -607,6 +621,11 @@ $$Ay\leqslant a$$
       &x_{ij}\in\{0,1\},\forall\, i,j \label{19d}
     \end{align}
   \end{subequations}
+      \note{
+    任务分配算法必须提供一个优化特定标准的分配方案，例如一场地震会影响10座建筑物，需要为每座建筑物分配一个救援队以最小化干预时间，其中需要考虑救援队的数量及它们所需的时间.\par
+    更一般的，(读ppt).(19b)和(19c)限制了每个智能体必须到达一个目标以及每个目标至少要被一个智能体访问.(翻页) \par \vspace{1 em}
+    上述问题属于整数线性规划的范畴，其特殊性是求解其LP松弛可以得到原来的解.但并非所有这类问题都有这一特性，例如考虑下述问题.
+  }
 \end{frame}
 
 \begin{frame}{任务分配的松弛}
@@ -615,6 +634,7 @@ $$Ay\leqslant a$$
   \begin{equation}
     \sum_{i=1}^N\sum_{j=1}^M{t_{ij}x_{ij}}\leqslant T \label{20}
   \end{equation}
+
 \end{frame}
 
 \begin{frame}{任务分配的变体及可以转化为MIP的问题}
@@ -629,6 +649,11 @@ $$Ay\leqslant a$$
     \item 机场调度问题
     \item 碰撞和避障问题
   \end{itemize}
+  \note{
+    任务分配问题还有一些变体，例如在成本中引入非线性项，对应于一个智能体必须完成多的目标.无人机队列必须访问特定的航点序列以及将智能体分组并建立相应的避障机制以防智能体之间相互威胁.\par
+    另外，资源分配问题也可已被表示为MIP，由此可以处理飞机维护问题以及机场调度问题.\par
+    同时，碰撞避免问题可以被视为互斥的资源分配问题，因此也可以使用MIP描述.
+  }
 \end{frame}
 
 \begin{frame}{路径}
@@ -640,6 +665,10 @@ $$Ay\leqslant a$$
   \end{definition}
   一般有两种方式描述函数$\gamma$，其一为显示方法，包括为整个区间$[0,1]$提供$\gamma$的值.其二是更常用的方法，函数必须从被称为“航点”的值中取值.\par
   定义描述规划路径的所有航点集：$\mathcal{W}=\{x_{w_0},\cdots,x_{w_{N_w}}\}$，并考虑对定义2附加条件：$\forall\, x_{w_k},\exists\, !\theta_k\in[0,1]$，使得$\gamma(\theta_k)=x_{w_k}$.
+      \note{
+    下面介绍路径规划和轨迹规划.这两者的差异是路径不要求显式包含时间，而轨迹必须包含时间因素，有点类似于道路和曲线的不同(翻页) \par \vspace{1 em}
+    (22C)保证每个航点都被智能体访问一次，但访问航点的具体顺序取决于所选择的标准.有时候我们不要求精确抵达航点，只需要到达航点附近，则可以对(22b)进行松弛.
+  }
 \end{frame}
 
 \begin{frame}{路径规划}
@@ -655,6 +684,7 @@ $$Ay\leqslant a$$
     \end{subequations}
     其中$T$是时间步的数量，$b_{ik}$是二元变量，表示在时间步$i$时是否访问了航点$k$.约束(\ref{22c})确保机器人访问每个航点一次
   \end{example}
+
 \end{frame}
 
 \begin{frame}{路径规划的其他方法}
@@ -668,6 +698,11 @@ $$Ay\leqslant a$$
       \bigvee_{i\in\{1,\cdots,N_R\}}{A_ip(t)\leqslant b_i},\forall\, t
     \end{equation}
     \end{enumerate}
+      \note{
+    除了上述方法，路径规划还有一些其他方式.(读ppt)\par
+    它使用了一个MILP问题，迫使智能体始终保持在隧道的某个区域，从而可以使用MI技术表示如下：(翻页)\par \vspace{1 em}
+    另外可以使用详细的思想，使用广义Voronoi图来寻找路径
+  }
   \end{itemize}
 
 \end{frame}
@@ -681,6 +716,7 @@ $$Ay\leqslant a$$
       \item 使用Delaunary三角剖分将空间划分为三角形，并计算被规划路径穿过的三角形，将其合并形成多图面体，试图隧道中的凸区域数量最少
     \end{enumerate}
   \end{itemize}
+
 \end{frame}
 
 \begin{frame}{轨迹}
