@@ -736,6 +736,12 @@ $$Ay\leqslant a$$
     \item Cetin、Bikdash和Hadaegh(2007)：解决了航天器编队重构生成无碰撞轨迹，且实现最佳燃油消耗.使用三次样条将轨迹在时间上离散化，并使用大“M”方法将参数化优化写成MILP，并使用求解器求解
     \item Richards和How(2003)：使用MILP进行开环车辆轨迹设计，从而可以包含非凸约束，例如避免羽流撞击
   \end{itemize}
+  \note{
+     \begin{itemize}
+      \item 所提出的算法需要对连续非完整模型进行时间离散化，，利用非均匀离散化来绕过与求解大型MILPs相对应的大量计算工作
+      \item 
+     \end{itemize}
+  }
 \end{frame}
 
 \begin{frame}{自动驾驶任务中的轨迹规划}
