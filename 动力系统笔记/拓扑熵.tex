@@ -1,0 +1,143 @@
+\chapter{拓扑熵}
+
+\section{拓扑熵的定义}
+
+在紧致度量空间上，可以类似于测度熵定义连续映射的拓扑熵，首先，需要介绍一些概念.\par
+
+\begin{definition}{开覆盖的交}
+    设$\alpha,\beta$是$X$的开覆盖，记$\alpha\vee\beta=\{A\cap B|A\in\alpha,B\in\beta\}$，称为$\alpha$和$\beta$的\textbf{交}.
+\end{definition}
+
+\begin{definition}{加细}
+    设$\alpha,\beta$是$X$的开覆盖，如果$\forall\,B\in\beta$，$\exists\,A\in\alpha$使得$A\supseteq B$，则称$\beta$是$\alpha$的\textbf{加细}，记作$\alpha<\beta$.
+\end{definition}
+
+\begin{definition}{}
+    设$\alpha$是开覆盖，定义$N(\alpha)=\min \left\{\#\gamma|\gamma\subset \alpha,\gamma\,\text{是}\,X\,\text{的开覆盖}\right\}$.
+\end{definition}
+由于$X$是紧致度量空间，因此$N(\alpha)$总是存在的且有限的.
+
+\begin{definition}{拓扑熵}
+    设$\alpha$是$X$的开覆盖，定义$H(\alpha)=\ln{N(\alpha)}$，称为$\alpha$的\textbf{熵}.\par
+    设$T:X\to X$是连续映射，$\alpha$是$X$的开覆盖，定义$h(T,\alpha)=\lim_{n\to\infty}{\frac{1}{n}H\left(\bigvee_{i=0}^{n-1}T^{-i}\alpha\right)}$，称为\textbf{$\bm{T}$关于$\bm{\alpha}$的拓扑熵}.\par
+    定义$T$的\textbf{拓扑熵}为$h(T)=\sup_{\alpha}h(T,\alpha)$.
+\end{definition}
+
+\begin{lemma}{}
+    设$\alpha,\beta$是$X$的开覆盖，$T:X\to X$连续映射，则
+    \begin{enumerate}[(1)]
+        \item $H(\alpha\vee \beta)\leq H(\alpha)+H(\beta)$
+        \item $N(T^{-1}\alpha)\leq N(\alpha)$，如果$T$是满射，则等号成立
+        \item $\alpha\leq \beta\Rightarrow H(\alpha)\leq H(\beta)$
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    \begin{enumerate}[(1)]
+        \item 设$\alpha',\beta'$分别是$\alpha,\beta$的开覆盖，使得$\#\alpha'=N(\alpha),\#\beta'=N(\beta)$.\par
+        $\alpha'\vee\beta'=\{A\cap B|A\in\alpha',B\in\beta'\}$\par
+        则$\#\alpha'\vee\beta'\geq N(\alpha)\cdot N(\beta)$
+        $\Rightarrow N(\alpha\vee\beta)\leq\#\alpha'\vee\beta'\leq N(\alpha)\cdot N(\beta)$\par
+        $\Rightarrow H(\alpha\vee\beta)\leq H(\alpha)+H(\beta)$
+        \item 设$\alpha'$是$\alpha$的开覆盖，使得$\#\alpha'=N(\alpha)$.\par
+        则$T^{-1}\alpha$是$X$的开覆盖，且$\# T^{-1}\alpha\geq N(T^{-1}\alpha)$.\par
+        又$\#\alpha'=\# T^{-1}\alpha$，因此$N(\alpha)\geq N(T^{-1}\alpha)$\par
+        如果$T$是满射，那么考虑$T^{-1}\alpha$的子覆盖$\beta$，使得$\#\beta=N(T^{-1}\alpha)$\par
+        由$\beta$是$X$的开覆盖$\beta\subseteq T^{-1}\alpha$，$T$是满射，则$T(\beta)$是$X$的开覆盖且$T(\beta)\subseteq\alpha$\par
+        $\Rightarrow \#T(\beta)\geq N(\alpha)\Rightarrow N(T^{-1}\alpha)\geq N(\alpha)\Rightarrow N(\alpha)=N(T^{-1}\alpha)$
+    \end{enumerate}
+\end{proof}
+
+和测度熵类似，我们同样需要证明定义拓扑熵时使用的极限的存在性.\par
+\begin{corollary}{}
+    $\lim_{n\to\infty}{\frac{1}{n}H\left(\bigvee_{i=0}^{n-1}T^{-i}\alpha\right)}$ 存在.
+\end{corollary}
+\begin{proof}
+    令$a_n=H \left(\bigvee_{i=0}^{n-1}{T^{-i}\alpha}\right)$，那么$\setjot[-2]\begin{aligned}[t]
+        a_{n+m} &= H \left(\bigvee_{i=0}^{n+m-1}{T^{-i}\alpha}\right) \\
+        &= H \left(\left(\bigvee_{i=0}^{m-1}{T^{-i}\alpha}\right)\vee\left(\bigvee_{i=m}^{n+m-1}{T^{-j}\alpha}\right)\right) \\
+        &\leq H \left(\bigvee_{i=0}^{m-1}{T^{-i}\alpha}\right) + H \left(\bigvee_{i=m}^{n+m-1}{T^{-i}\alpha}\right) \\
+        &=a_m+H \left(T^{-m}\left(\bigvee_{i=0}^{n-1}T^{-i}\alpha\right)\right) \\
+        &\leq a_m+H \left(\bigvee_{i=0}^{n-1}T^{-i}\alpha\right) \\
+        &=a_m+a_n
+    \end{aligned}$\par
+    由引理\ref{lem:3.2}可知，上述极限存在
+\end{proof}
+
+为了说明拓扑熵在同构的连续映射下不变，需要介绍紧致拓扑空间中连续映射的同构概念.
+\begin{definition}{拓扑共轭}
+    设$T_1:X_1\to X_1$和$T_2:X_2\to X_2$是紧致空间上的连续映射，如果存在$\pi:X_1\to X_2$连续满映射，使得交换图成立 \par
+    \begin{tikzcd}
+X_1 \arrow[dd, "\pi"'] \arrow[rr, "T_1"] &  & X_1 \arrow[dd, "\pi"] \\
+                                          &  &                        \\
+X_2 \arrow[rr, "T_2"']                    &  & X_2                   
+\end{tikzcd}
+\quad 即$\pi\circ T_1=T_2\circ \pi$\par
+    那么称$(T_1,X_1)$与$(T_2,X_2)$\textbf{拓扑半共轭}.$(T_2,X_2)$称为$(T_1,X_1)$的\textbf{因子系统}，$(T_1,X_1)$称为$(T_2,X_2)$的\textbf{扩展系统}.\par
+    如果$\pi:X_1\to X_2$同胚，则称$(T_1,X_1)$与$(T_2,X_2)$\textbf{拓扑共轭}.
+\end{definition}
+
+\begin{theorem}{}
+    设$T_1:X_1\to X_1$和$T_2:X_2\to X_2$是紧致空间上的连续映射，$(T_1,X_1)$与$(T_2,X_2)$拓扑共轭，那么$h(T_1)=h(T_2)$
+\end{theorem}
+\begin{proof}
+    设$\alpha$是$X_2$的开覆盖，那么$\pi^{-1}(\alpha)$是$X$的开覆盖.\par
+    由于$\pi$是同胚可知$T_1^{-i}\circ\pi^{-1}=\pi^{-1}\circ T_2^{-i}$\par
+    则$\setjot[-2]\begin{aligned}[t]
+        h \left(T_1,\pi^{-1}(\alpha)\right) &=\lim_{n\to\infty}{\frac{1}{n}H\left(\bigvee_{i=0}^{n-1}T_1^{-i}\left(\pi^{-1}(\alpha)\right)\right)}=\lim_{n\to\infty}{\frac{1}{n}H\left(\bigvee_{i=0}^{n-1}\pi^{-1}\left(T_2^{-i}(\alpha)\right)\right)} \\
+        &= \lim_{n\to\infty}{\frac{1}{n}H\left(\bigvee_{i=0}^{n-1}T_2^{-i}(\alpha)\right)}=h(T_2,\alpha)
+    \end{aligned}$\par
+    因此$\sup_{\alpha}{h(T_2,\alpha)}=\sup_{\alpha}{h \left(T_1,\pi^{-1}(\alpha)\right)}$
+    $\Rightarrow h(T_2)\leq h(T_1)$\par
+    同理$h(T_1)\leq h(T_2)$，则$h(T_1)=h(T_2)$.
+\end{proof}
+
+\begin{corollary}{}
+    如果$T_2:X_2\to X_2$是$T_1:X_1\to X_1$的因子系统，那么$h(T_2)\leq h(T_1)$.
+\end{corollary}
+
+\section{拓扑熵的计算}
+
+\begin{definition}{$\bm{(n,\varepsilon)-}$生成集}
+    设$(X,d)$是紧致度量空间，$T:X\to X$连续映射，设$\varepsilon>0,n\in\mb{N}$，如果$\forall\, y\in X,\exists\, x\in F$，使得$d(x,y)<\varepsilon,d(Tx,Ty)<\varepsilon,\cdots,d \left(T^{n-1}x,T^{n-1}y\right)<\varepsilon$，则称$F$是\textbf{$\bm{(n,\varepsilon)-}$生成集}.\par
+    记$r_n(\varepsilon)=\min\left\{\#F|F\subset X,F\,\text{为}\,(n,\varepsilon)-\text{生成集}\right\}$
+\end{definition}
+
+\begin{definition}{$\bm{(n,\varepsilon)-}$分离集}
+    设$\varepsilon>0,n\in\mb{N},E\subset X$，如果$\forall\, x,y\in E(x\neq y)$，$\exists\, i\in\{0,1,\cdots,n-1\}$，使得$d \left(T^ix,T^iy\right)>\varepsilon$，那么称$E$为$X$的\textbf{$\bm{(n,\varepsilon)-}$分离集}.\par
+    记$s_n(\varepsilon)=\max\left\{\#E|E\subset X,E\,\text{为}\,(n,\varepsilon)-\text{分离集}\right\}$
+\end{definition}
+
+关于$(n,\varepsilon)-$生成集和分离集，有以下性质：
+\begin{proposition}{}
+    \begin{enumerate}[(1)]
+        \item $r_n(\varepsilon),s_n(\varepsilon)$至于$\varepsilon$单调.
+        \item $r_n(\varepsilon),s_n(\varepsilon)$有限
+    \end{enumerate}
+\end{proposition}
+\begin{proof}
+    \begin{enumerate}[(1)]
+        \item $\forall\,\varepsilon_1<\varepsilon_2$，$(n,\varepsilon_1)-$生成集一定是$(n,\varepsilon_2)-$生成集，故$r_n(\varepsilon_1)\geq r_n(\varepsilon_2)$.\par
+        同理可证$s_n(\varepsilon_1)\geq s_n(\varepsilon_2)$.
+        \item 先证明$r_n(\varepsilon)$有限，$\forall\, x\in X,\forall\, \varepsilon>0$，可定义$B_n(X,\varepsilon)=\{y\in X|d(x,y)<\varepsilon,d(Tx,Ty)<\varepsilon,\cdots,d(T^{n-1}x,T^{n-1}y)M<\varepsilon\}$\par
+        那么$B_n(x,\varepsilon)$为开集且$X=\bigcup_{x\in X}B_n(x,\varepsilon)$.\par
+        由$X$是紧致度量空间可知$\exists\, x_1,x_2,\cdots,x_k\in X$使得$X=B_n(x_1,\varepsilon)\cup\cdots\cup B_n(x_k,\varepsilon)$，则$F=\{x_1,x_2,\cdots,x_k\}$为$(n,\varepsilon)-$生成集.\par
+        对于$s_n(\varepsilon)$，如果$E$是$(n,\varepsilon)-$分离集，那么$\forall\,x,y\in E$，$B_n \left(x,\frac{\varepsilon}{2}\right)\cap B_n \left(y,\frac{\varepsilon}{2}\right)=\varnothing$.\par
+        否则，一定存在$w\in B_n \left(x,\frac{\varepsilon}{2}\right)\cap B_n \left(y,\frac{\varepsilon}{2}\right)$，那么$d(x,w)<\frac{\varepsilon}{2},d(y,w)<\frac{\varepsilon}{2},d(Tx,Tw)<\frac{\varepsilon}{2},d(Ty,Tw)<\frac{\varepsilon}{2},\cdots$，由此可得$d(x,y)<\varepsilon,d(Tx,T)<\varepsilon,\cdots$，与$E$为$(n,\varepsilon)-$分离集矛盾.\par
+        因此$E$是有限集.(否则令$\{x_k\}\subseteq E,x_k\to x$，那么$B_n \left(x_k,\frac{\varepsilon}{2}\right)\cap B_n(x_l,\frac{\varepsilon}{2})\neq\varnothing$)
+    \end{enumerate}
+\end{proof}
+这说明上面的定义是合理的.
+
+\begin{definition}{}
+    $h_1(T)=\lim_{\varepsilon\to 0}\left(\limsup_{n\to\infty}\frac{1}{n}\ln{r_n(\varepsilon)}\right)$\par
+    $h_2(T)=\lim_{\varepsilon\to 0}\left(\limsup_{n\to\infty}\frac{1}{n}\ln{s_n(\varepsilon)}\right)$
+\end{definition}
+
+\begin{theorem}{}
+    $h(T)=h_1(T)=h_2(T)$
+\end{theorem}
+
+
+
+
+

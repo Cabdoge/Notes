@@ -44,6 +44,14 @@
 
 \DeclareVoidOption{en}{\ekv{lang=en}}
 \DeclareVoidOption{cn}{\ekv{lang=cn}}
+\DeclareVoidOption{it}{\ekv{lang=it}}
+\DeclareVoidOption{fr}{\ekv{lang=fr}}
+\DeclareVoidOption{nl}{\ekv{lang=nl}}
+\DeclareVoidOption{hu}{\ekv{lang=hu}}
+\DeclareVoidOption{de}{\ekv{lang=de}}
+\DeclareVoidOption{mn}{\ekv{lang=mn}}
+\DeclareVoidOption{pt}{\ekv{lang=pt}}
+\DeclareVoidOption{jp}{\ekv{lang=jp}}
 
 \DeclareVoidOption{fancy}{\ekv{mode=fancy}}
 \DeclareVoidOption{simple}{\ekv{mode=simple}}
@@ -534,16 +542,16 @@
   {\newcommand{\xchaptertitle}{\chaptername~\thechapter~}}
 
 \setcounter{secnumdepth}{5}
-\titleformat{\chapter}[\style]{\bfseries\heiti}{
+\titleformat{\chapter}[\style]{\heiti\bfseries\boldmath}{
   \filcenter\LARGE\enspace\bfseries{\color{structurecolor} \IfAppendix{\appendixname\;\thechapter\;}{\xchaptertitle\;}}}{1pt}{
   \LARGE\bfseries\color{structurecolor}\filcenter}[]
-\titleformat{\section}[hang]{\bfseries\heiti}{
+\titleformat{\section}[hang]{\heiti\bfseries\boldmath}{
   \Large\bfseries{\color{structurecolor}\thesection}\enspace}{1pt}{%
   \color{structurecolor}\Large\bfseries\filright}
-\titleformat{\subsection}[hang]{\bfseries\heiti}{
+\titleformat{\subsection}[hang]{\heiti\bfseries\boldmath}{
   \large\bfseries\color{structurecolor}\thesubsection\enspace}{1pt}{%
   \color{structurecolor}\large\bfseries\filright}
-\titleformat{\subsubsection}[hang]{\bfseries\heiti}{
+\titleformat{\subsubsection}[hang]{\heiti\bfseries\boldmath}{
   \large\bfseries\color{structurecolor}\thesubsubsection\enspace}{1pt}{%
   \color{structurecolor}\large\bfseries\filright}
 
@@ -581,7 +589,7 @@
       coltitle=white,
       colback=gray!5,
       boxrule=0.5pt,
-      fonttitle=\bfseries\heiti,
+      fonttitle=\heiti\bfseries\boldmath,
       enhanced,
       breakable,
       top=8pt,
@@ -717,11 +725,11 @@
   \let\endproof\relax
 
   % declare new theorem styles: defstyle, thmstyle, prostyle
-  \newtheoremstyle{defstyle}{3pt}{3pt}{\normalfont}{-3pt}{
+  \newtheoremstyle{defstyle}{3pt}{3pt}{\citshape}{-3pt}{
     \bfseries\color{main}}{}{0.5em}{\thmname{#1} \thmnumber{#2} \thmnote{(#3)}}
-  \newtheoremstyle{thmstyle}{3pt}{3pt}{\normalfont}{-3pt}{
+  \newtheoremstyle{thmstyle}{3pt}{3pt}{\citshape}{-3pt}{
     \bfseries\color{second}}{}{0.5em}{\thmname{#1} \thmnumber{#2} \thmnote{(#3)}}
-  \newtheoremstyle{prostyle}{3pt}{3pt}{\normalfont}{-3pt}{
+  \newtheoremstyle{prostyle}{3pt}{3pt}{\citshape}{-3pt}{
     \bfseries\color{third}}{}{0.5em}{\thmname{#1} \thmnumber{#2} \thmnote{(#3)}}
 
   % define an internal control sequence \ELEGANT@newtheorem for simple mode's newtheorem
@@ -893,7 +901,7 @@
   },
   % 标题：楷体；正文：仿宋
   before upper={%
-    \hspace{-0.3em}{\color{second}\bfseries \fangsong 证明}\hspace{0.3em}%
+    \hspace{-0.3em}{\color{second}\bfseries \CJKfamily{FS}证明}\hspace{0.3em}%
     \fangsong%
     \setlength{\parindent}{2em}% 盒内默认首行缩进
     \wideline
@@ -901,9 +909,45 @@
   fontupper=\fangsong,
   after upper={\hfill$\Box$\quad\par}
 }
+\definecolor{solutionback}{RGB}{196, 234, 180}
+\newtcolorbox{solution}{%
+  breakable,
+  enhanced,
+  colback=white,
+  colbacktitle=white,
+  arc=0pt,
+  leftrule=0pt,
+  rightrule=0pt,
+  toprule=0pt,
+  bottomrule=0pt,
+  titlerule=0pt,
+  colframe=greentitleback,
+  fonttitle=\normalcolor,
+  % 缩小环境与上下文文本的垂直距离
+  before skip=5pt,
+  after skip=5pt,
+  % 减小边框与正文之间的间距
+  boxsep=3pt,
+  left=-1pt,
+  right=-3pt,
+  top=-1pt,
+  bottom=-1pt,
+  overlay={
+    \fill[solutionback]
+      ([yshift=-1pt, xshift=-4pt]interior.north west) rectangle
+      ([yshift=0pt, xshift=-2pt]interior.south west);
+  },
+  % 标题：楷体；正文：仿宋
+  before upper={%
+    {\color{main}\bfseries \CJKfamily{FS}解}\hspace{0.75em}%
+    \fangsong%
+    \setlength{\parindent}{2em}% 盒内默认首行缩进
+    \wideline
+  },
+  fontupper=\fangsong,
+}
 
 
-\newenvironment{solution}{\par\noindent\textbf{\color{main}\solutionname} \citshape}{\par}
 \newenvironment{remark}{\noindent\textbf{\color{third}\remarkname}\hspace{8.15pt}}{\par}
 \newenvironment{notice}{\noindent\textbf{\color{second}\fontsize{9.5pt}{11.5pt}\selectfont\raisebox{0.15ex}\noticename}\hspace{0.02em}\citshape}{\par}
 \newenvironment{assumption}{\par\noindent\textbf{\color{third}\assumptionname} \citshape}{\par}

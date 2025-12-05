@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.28)  26 NOV 2025 14:42
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.28)  3 DEC 2025 20:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1325,6 +1325,13 @@ LaTeX Font Info:    Redeclaring math symbol \fldr on input line 38.
 \ULC@box=\box142
 Package: ulem 2019/11/18
 \ULdepth=\dimen369
+) (f:/texlive/2025/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count569
+\float@exts=\toks49
+\float@box=\box143
+\@float@everytoks=\toks50
+\@floatcapt=\box144
 ) (f:/texlive/2025/texmf-dist/tex/generic/tikz-cd/tikzlibrarycd.code.tex (f:/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarymatrix.code.tex
 File: tikzlibrarymatrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (f:/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryquotes.code.tex
@@ -1339,17 +1346,17 @@ File: tikzlibraryshadings.code.tex 2023-01-15 v3.1.10 (3.1.10)
 File: pgflibraryshadings.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )) (f:/texlive/2025/texmf-dist/tex/latex/changepage/changepage.sty
 Package: changepage 2009/10/20 v1.0c check page and change page layout
-\c@cp@cntr=\count569
-\cp@tempcnt=\count570
+\c@cp@cntr=\count570
+\cp@tempcnt=\count571
 )
-\c@mynotecounter=\count571
-\c@homework=\count572
+\c@mynotecounter=\count572
+\c@homework=\count573
 \homeworklabelleftpad=\skip150
 \homeworklabelsep=\skip151
 \homework@labelwidth=\skip152
-\c@instance=\count573
-\c@claim=\count574
-\c@claim@proofdepth=\count575
+\c@instance=\count574
+\c@claim=\count575
+\c@claim@proofdepth=\count576
 ) (./elegantfix.sty
 Package: elegantfix 2025/08/23 v1.0 Patch lemma & corollary for ElegantBook
  (f:/texlive/2025/texmf-dist/tex/latex/fontawesome5/fontawesome5.sty
@@ -1360,34 +1367,34 @@ LaTeX Font Info:    Trying to load font information for TU+fontawesomefree on in
  (f:/texlive/2025/texmf-dist/tex/latex/fontawesome5/tufontawesomefree.fd)
 LaTeX Font Info:    Trying to load font information for TU+fontawesomebrands on input line 70.
  (f:/texlive/2025/texmf-dist/tex/latex/fontawesome5/tufontawesomebrands.fd)))
-\c@think=\count576
+\c@think=\count577
 )
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... none found.
  (./基础拓扑学笔记.aux)
 \openout1 = `基础拓扑学笔记.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 168.
-LaTeX Font Info:    ... okay on input line 168.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 168.
-LaTeX Font Info:    ... okay on input line 168.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 168.
-LaTeX Font Info:    ... okay on input line 168.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 168.
-LaTeX Font Info:    ... okay on input line 168.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 168.
-LaTeX Font Info:    ... okay on input line 168.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 168.
-LaTeX Font Info:    ... okay on input line 168.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 168.
-LaTeX Font Info:    ... okay on input line 168.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 168.
-LaTeX Font Info:    ... okay on input line 168.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 168.
-LaTeX Font Info:    ... okay on input line 168.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 168.
-LaTeX Font Info:    ... okay on input line 168.
-Package hyperref Info: Link coloring ON on input line 168.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 170.
+LaTeX Font Info:    ... okay on input line 170.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 170.
+LaTeX Font Info:    ... okay on input line 170.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 170.
+LaTeX Font Info:    ... okay on input line 170.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 170.
+LaTeX Font Info:    ... okay on input line 170.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 170.
+LaTeX Font Info:    ... okay on input line 170.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 170.
+LaTeX Font Info:    ... okay on input line 170.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 170.
+LaTeX Font Info:    ... okay on input line 170.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 170.
+LaTeX Font Info:    ... okay on input line 170.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 170.
+LaTeX Font Info:    ... okay on input line 170.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 170.
+LaTeX Font Info:    ... okay on input line 170.
+Package hyperref Info: Link coloring ON on input line 170.
  (./基础拓扑学笔记.out) (./基础拓扑学笔记.out)
 \@outlinefile=\write7
 \openout7 = `基础拓扑学笔记.out'.
@@ -1431,12 +1438,13 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: changepage package is loaded.
 \caption@adjustwidth@hsize=\dimen370
 \caption@adjustwidth@linewidth=\dimen371
+Package caption Info: float package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
 (f:/texlive/2025/texmf-dist/tex/latex/footmisc/footmisc.sty
 Package: footmisc 2024/12/24 v6.0g a miscellany of footnote facilities
-\FN@temptoken=\toks49
+\FN@temptoken=\toks51
 \footnotemargin=\dimen372
 \@outputbox@depth=\dimen373
 Package footmisc Info: Declaring symbol style bringhurst on input line 699.
@@ -1461,10 +1469,10 @@ Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file '基础拓扑学笔记.bbl' not found.
 
 No file 基础拓扑学笔记.bbl.
-Package biblatex Info: Reference section=0 on input line 168.
-Package biblatex Info: Reference segment=0 on input line 168.
-\c@lstlisting=\count577
-Package hyperref Info: Option `pageanchor' set `false' on input line 173.
+Package biblatex Info: Reference section=0 on input line 170.
+Package biblatex Info: Reference segment=0 on input line 170.
+\c@lstlisting=\count578
+Package hyperref Info: Option `pageanchor' set `false' on input line 175.
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: xetex
 * paper: a4paper
@@ -1500,31 +1508,31 @@ Package hyperref Info: Option `pageanchor' set `false' on input line 173.
 File: example-image.pdf Graphic file (type pdf)
 <use example-image.pdf>
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/n' will be
-(Font)              scaled to size 10.95pt on input line 173.
+(Font)              scaled to size 10.95pt on input line 175.
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/n' will be
-(Font)              scaled to size 24.88pt on input line 173.
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 173.
+(Font)              scaled to size 24.88pt on input line 175.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 175.
 (f:/texlive/2025/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 173.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 175.
  (f:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 173.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 175.
  (f:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+esvect on input line 173.
+LaTeX Font Info:    Trying to load font information for U+esvect on input line 175.
  (f:/texlive/2025/texmf-dist/tex/latex/esvect/uesvect.fd
 File: uesvect.fd 
 )
-LaTeX Font Info:    Trying to load font information for OMX+mdugm on input line 173.
+LaTeX Font Info:    Trying to load font information for OMX+mdugm on input line 175.
  (f:/texlive/2025/texmf-dist/tex/latex/mathdesign/mdugm/omxmdugm.fd
 File: omxmdugm.fd 2013/08/29 Fontinst v1.933 font definitions for OMX/mdugm.
 )
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/n' will be
-(Font)              scaled to size 14.4pt on input line 173.
+(Font)              scaled to size 14.4pt on input line 175.
 
 
 [1
@@ -1533,7 +1541,7 @@ LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/n' will be
 
 ]
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/n' will be
-(Font)              scaled to size 17.28pt on input line 179.
+(Font)              scaled to size 17.28pt on input line 181.
  (./基础拓扑学笔记.toc
 
 [1
@@ -1548,7 +1556,7 @@ LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/n' will be
 
 
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 180.
+(Font)              scaled to size 10.0pt on input line 182.
 [2] (./集合论复习.tex
 Chapter 1.
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/n' will be
@@ -2115,103 +2123,198 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 120.
 See the caption package documentation for explanation.
 
+File: fig/9.11.png Graphic file (type bmp)
+<fig/9.11.png>
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 128.
+See the caption package documentation for explanation.
+
+File: fig/9.12.png Graphic file (type bmp)
+<fig/9.12.png>
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 135.
+See the caption package documentation for explanation.
+
 
 
 [57]
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
+File: fig/9.13.png Graphic file (type bmp)
+<fig/9.13.png>
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 146.
+See the caption package documentation for explanation.
+
+File: fig/9.14.png Graphic file (type bmp)
+<fig/9.14.png>
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 175.
+See the caption package documentation for explanation.
+
+File: fig/9.15.png Graphic file (type bmp)
+<fig/9.15.png>
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 185.
+See the caption package documentation for explanation.
+
+File: fig/9.16.png Graphic file (type bmp)
+<fig/9.16.png>
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 191.
+See the caption package documentation for explanation.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 172--194
+[][] []
+ []
+
 
 
 [58]
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
+File: fig/9.17.png Graphic file (type bmp)
+<fig/9.17.png>
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 201.
+See the caption package documentation for explanation.
+
 
 
 [59]
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
+File: fig/9.18.png Graphic file (type bmp)
+<fig/9.18.png>
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 266.
+See the caption package documentation for explanation.
+
+File: fig/9.19.png Graphic file (type bmp)
+<fig/9.19.png>
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 271.
+See the caption package documentation for explanation.
+
+File: fig/9.20.png Graphic file (type bmp)
+<fig/9.20.png>
+File: fig/9.20-2.png Graphic file (type bmp)
+<fig/9.20-2.png>
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 287.
+See the caption package documentation for explanation.
+
 
 
 [60]
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
+LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/n' will be
+(Font)              scaled to size 12.0pt on input line 292.
+File: fig/9.21.png Graphic file (type bmp)
+<fig/9.21.png>
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 308.
+See the caption package documentation for explanation.
+
+File: fig/9.a-1.png Graphic file (type bmp)
+<fig/9.a-1.png>
+File: fig/9.a-2.png Graphic file (type bmp)
+<fig/9.a-2.png>
 
 
 [61]
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
+File: fig/9.22.png Graphic file (type bmp)
+<fig/9.22.png>
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 324.
+See the caption package documentation for explanation.
+
+File: fig/9.23.png Graphic file (type bmp)
+<fig/9.23.png>
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 331.
+See the caption package documentation for explanation.
+
+File: fig/9.a.png Graphic file (type bmp)
+<fig/9.a.png>
+File: fig/9.b.png Graphic file (type bmp)
+<fig/9.b.png>
+File: fig/9.24.png Graphic file (type bmp)
+<fig/9.24.png>
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 349.
+See the caption package documentation for explanation.
+
 
 
 [62]
-LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/n' will be
-(Font)              scaled to size 12.0pt on input line 273.
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
+File: fig/9.c.png Graphic file (type bmp)
+<fig/9.c.png>
+File: fig/9.d.png Graphic file (type bmp)
+<fig/9.d.png>
+File: fig/9.25.png Graphic file (type bmp)
+<fig/9.25.png>
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 379.
+See the caption package documentation for explanation.
+
+File: fig/9.26.png Graphic file (type bmp)
+<fig/9.26.png>
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 387.
+See the caption package documentation for explanation.
+
 
 
 [63]
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
+File: fig/9.27.png Graphic file (type bmp)
+<fig/9.27.png>
 
 
-[64]
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
-
+[64]) (./同伦.tex
 
 [65]
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
+Chapter 10.
+File: fig/10.1.png Graphic file (type bmp)
+<fig/10.1.png>
+)
 
+[66
 
-[66]
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
-
-
-[67]
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
-
-
-[68]
-
-[69])
-
-[70] (./基础拓扑学笔记.aux)
+] (./基础拓扑学笔记.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2022/08/05>
  ***********
 Package rerunfilecheck Info: File `基础拓扑学笔记.out' has not changed.
-(rerunfilecheck)             Checksum: 37DFF7BF9B58B5336CAA440E83EFC01D;5570.
+(rerunfilecheck)             Checksum: AA2CE674C75E41DAA93EE2CAB0AB69FB;5762.
 Package logreq Info: Writing requests to '基础拓扑学笔记.run.xml'.
 \openout1 = `基础拓扑学笔记.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 50844 strings out of 473832
- 1087638 string characters out of 5733157
- 2076508 words of memory out of 5000000
- 72934 multiletter control sequences out of 15000+600000
- 570688 words of font info for 141 fonts, out of 8000000 for 9000
+ 51143 strings out of 473832
+ 1092511 string characters out of 5733157
+ 2078352 words of memory out of 5000000
+ 73194 multiletter control sequences out of 15000+600000
+ 573453 words of font info for 150 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  103i,17n,129p,692b,1512s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on 基础拓扑学笔记.pdf (73 pages).
+Output written on 基础拓扑学笔记.pdf (69 pages).

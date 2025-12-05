@@ -83,6 +83,7 @@
 \usepackage{cases}
 \usepackage{mathtools}
 \usepackage{tikz}
+\usepackage{makecell}
 
 \usepackage{scrextend}
 
@@ -227,7 +228,7 @@
 
 \begin{frame}{混合整数规划}
 \begin{block}{混合整数规划}
-混合整数规划(Mixed Integer Programming, MIP)是一类数学规划问题，其目标是优化一个线性函数，其中部分决策变量为整数.
+混合整数规划(Mixed Integer Programming, MIP)代表一种数学优化问题，其中目标是最小化或最大化一个线性、二次函数或有时更一般的准则，约束是线性的(或非线性的)等式(或不等式)，并且存在一些(非空)整数和实数变量子集作为参数
 \end{block}
 \begin{enumerate}[<+-| alert@+>]
   \item 涉及整数的离散问题 \par
@@ -272,7 +273,7 @@
 %-----------------------------------------------
 \section{MIP公式化}
 
-\subsection{广义析取规划}
+
 %-----------------------------------------------
 \begin{frame}{广义析取规划(GDP)}
   \begin{exampleblock}{GDP的例子(1)}
@@ -346,7 +347,7 @@ $$Ay\leqslant a$$
 \end{frame}
 
 \begin{frame}{使用二元变量表示区域}
-  为了便于描述上述区域，可以引入二元变量$(\alpha_1,\alpha_N)\in\{0,1\}^N$，使用混合整数技术进行表示.\par
+  为了便于描述上述区域，可以引入二元变量$(\alpha_1,\cdots,\alpha_N)\in\{0,1\}^N$，使用混合整数技术进行表示.\par
   \begin{subequations}
     \label{7}
     \begin{gather}
@@ -355,7 +356,7 @@ $$Ay\leqslant a$$
     \end{gather}
   \end{subequations}
   \begin{example}
-    半空间$R_x^+$可以由(\ref{7.a})和以下二元变量表示：
+    半空间$R_i^+$可以由(\ref{7.a})和以下二元变量表示：
     \begin{equation}
       (\alpha_1,\cdots,\alpha_N)=\left(1\cdots 1\;\underbrace{0}_{i}\; 1\cdots 1\right)
     \end{equation}
@@ -618,12 +619,11 @@ $$Ay\leqslant a$$
       \item 忽略车的动力学约束，找到一条路径
       \item 该路径与空间的凸分解形成从起点到目标的一系列$N_R$个凸多面体$F_i=\{x\in\mathbb{R}^2:A_ix\leqslant b_i\}$
       \item 使用多面体隧道将智能体$p(t)$的位置约束在隧道内从起点到目标的最佳动态可行道路上
-    \end{enumerate}
-
-    \begin{equation}
+      \begin{equation}
       \bigvee_{i\in\{1,\cdots,N_R\}}{A_ip(t)\leqslant b_i},\forall\, t
     \end{equation}
-      \end{itemize}
+    \end{enumerate}
+  \end{itemize}
 
 \end{frame}
 
@@ -666,22 +666,252 @@ $$Ay\leqslant a$$
 
 \begin{frame}{自动驾驶任务中的轨迹规划}
   \begin{itemize}[<+-| alert@+>]
-    \item Fayazi(2017)：
+    \item Fayazi(2017)：目标是找到车辆穿过交叉路口最优序列及其访问时间，最小化当前时间和最后通过交叉口的到达时间差异与每辆车分配访问时间和期望访问时间之间的差距.通过MIP建模，将总优化成本由一个min-max问题和含有绝对值的非线性成本组成.
+    \item 黄和彭(2017)：优化交叉口的车辆速度轨迹，最小化燃油消耗和行驶时间.假设已知交通信号且忽略前车影响，考虑交叉口的转弯情况，提出一个MIP公式，用整数变量模拟了激活的绿灯时段.
+    \item 张、苏、孙、张(2017b)：提出了判断一个交叉路口是否需要信号控制的方法
+    \item 张、苏、高、张(2017a)：提出了考虑车辆和行人后的交通信号调度策略，被称述为MIQP问题.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{障碍物和碰撞避免}
+  \begin{block}{障碍物和碰撞避免}
+    障碍物和碰撞避免问题是指在最小化(\ref{18a})中性能指标的同时，通过闭环策略避免碰撞，找到输入控制信号的问题.
+  \end{block}
+  \begin{enumerate}
+    \item 选择一种不依赖于环境特定细节的划分方法，将碰撞避免问题转化为资源分配问题
+    \item 使用集合论和混合整数技术有效编码非凸集
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{静态障碍物}
+  \begin{itemize}[<+-| alert@+>]
+    \item Culligan(2006)：使用MILP解决了无人机的递推预测控制优化问题，包括障碍物和多车辆规避的硬约束和车辆动力学近似，并全面考虑3D情况.
+    \item Schouwenaars(2006)：采用MPC框架提出了一种用于无人驾驶车辆在部分未知环境中完全在线轨迹规划的框架.其可以同时通过标准速度控制系统或允许从一组可能的动作中选一个实现控制.
+    \item Maia、Galvao(2009)，Richards、Turnball(2013)：考虑额外约束确保两个连续位置之间不会穿过障碍物
+    \item Stoican，Prodan和Grotli(2018)：在超平面排列设置中对多障碍物情况进行处理，使用了精确以及近似的表示
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{移动障碍物}
+  在二维环境中两个移动障碍物的MIP公式中的禁止区域约束如下：
+  \begin{subequations}
+    \begin{gather}
+      x_1-x_2\geqslant d-M\alpha_{d1} \\
+      x_2-x_1\geqslant d-M\alpha_{d2} \\
+      y_1-y_2\geqslant d-M\alpha_{d3} \\
+      y_2-y_1\geqslant d-M\alpha_{d4} \\
+      \sum_{i=1}^4{\alpha_{di}}\leqslant 3
+    \end{gather}
+  \end{subequations}
+  其中，$d$是安全距离，$\alpha_{di}$是二元变量.
+\end{frame}
+
+\begin{frame}{避障问题在自动驾驶车辆中的应用}
+\begin{itemize}[<+-| alert@+>]
+  \item Mukai,Natori,Fujita(2017)：使用MIP和滚动时域策略解决高速公路车辆的并道问题
+  \item Molinari(2017)：使用滚动时域策略处理自动超车问题，其中车辆具有简单的动力学模型
+  \item Bali和Richards(2018)：基于滚动时域策略，采用MIQP优化，提出了一种用于交叉路口车辆并道场景的方法，在保证安全性和递归可行性的同时，提供了最优控制特性.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{混合动力学系统}
+  混合动力学系统(MLD)为建模和控制包含线性动力学方程、逻辑规则和操作约束的系统提供了通用框架，系统由线性动力学方程描述，并受涉及实数和整数变量的线性不等式约束：
+  \begin{subequations}
+    \begin{gather}
+      x_{k+1}=Ax_k+Bu_k+B_2\delta_k+B_3z_k \label{26a}\\
+      y_k=Cx_k+Du_k+D_2\delta_k+D_3z_k \\
+      E_2z_k+E_3\delta_k\leqslant E_1u_k+E_4x_k+E_5
+    \end{gather}
+  \end{subequations}
+  其中，$x_k,y_k,u_k$分别表示系统的状态、输出和输入变量，$\delta_k\in\{0,1\}^{n_\delta}$和$z_k\in\mathbb{R}^{n_a}$是辅助逻辑变量和连续变量.
+\end{frame}
+
+\begin{frame}{避障的MLD等效公式}
+  考虑单个智能体表述的系统，并需要在非凸域内移动，智能体的动力学方程为
+  \begin{subequations}
+    \begin{gather}
+      x_{k+1}=Ax_k+Bu_k \label{27a}\\
+      y_k=Cx_k+Du_k \label{27b}
+    \end{gather}
+  \end{subequations}
+  要求智能体必须停留在多面体外部$\begin{aligned}
+    &P=\{x:Sx<R\} \\
+    &x_{k+1}\notin P
+  \end{aligned}$
+\end{frame}
+
+\begin{frame}{避障的MLD等效公式}
+  将$B_2,B_3$视作零矩阵，则(\ref{27a})与(\ref{26a})等价，接下来，根据动力学替换$x_{k+1}$，有
+  \begin{equation}
+    \left[\begin{gathered}
+      -MI_N \\
+      \mathbf{1}^T
+    \end{gathered}\right]\alpha_k\leqslant \left[\begin{gathered}
+      SA \\
+      \mathbf{0}
+    \end{gathered}\right]x_k+\left[\begin{gathered}
+      SB \\
+      \mathbf{0}
+    \end{gathered}\right]u_k+\left[\begin{gathered}
+      -R \\
+      N-1
+    \end{gathered}\right] 
+  \end{equation}
+  其中$N$是描述多面体$P$的线性约束的数量，再通过对输入$(S_uu_k\leqslant R_u)$添加约束，最终的MLD公式为
+  \begin{subequations}
+  \begin{gather}
+    x_{k+1}=Ax_k+Bu_k \label{29a}\\
+    \left[\begin{gathered}
+      -MI_N \\
+      \mathbf{1}^T \\
+      \mathbf{0}
+    \end{gathered}\right]\alpha_k\leqslant \left[\begin{gathered}
+      SA \\
+      \mathbf{0} \\
+      \mathbf{0}
+    \end{gathered}\right]x_k+\left[\begin{gathered}
+      SB \\
+      \mathbf{0} \\
+      -S_u
+    \end{gathered}\right]u_k+\left[\begin{gathered}
+      -R \\
+      N-1 \\
+      R_u
+    \end{gathered}\right]
+  \end{gather}
+  \end{subequations}
+\end{frame}
+
+\begin{frame}{漂移抵消最优控制的MIP重构}
+  \begin{block}{漂移抵消最优控制}
+    漂移抵消最优控制(DCOC)是一种特殊的最优控制问题，旨在确定一系列控制输入，以最大化从给定集合的首次退出时间
+  \end{block}
+  \begin{itemize}
+    \item Zidek(2017)：在航天器姿态控制中讨论了DCOC的MILP形式，并引入了一种基于LP的迭代过程求解
+    \item Maia、Galvao(2009)：提出一种用于MPC控制器的移位预测视界实现
+    \item Richards、How(2003)：使用MILP优化实现可变视界长度
   \end{itemize}
 \end{frame}
 
 
 %------------------------------------------------
-\section{多智能体系统中的MIP\\连接性维护和编队控制}
+\section{多智能体系统中的MIP\\连通性维护和编队控制}
 %------------------------------------------------
 
+\begin{frame}{连通性维护和编队控制}
+  \begin{block}{连通性维护}
+    连通性维护通常指反馈律、路径/轨迹规划、避障和任务分配的集合，以保证智能体之间可以相互通信.
+  \end{block}
+  \begin{block}{编队控制}
+    编队控制旨在提供约束，以保证一组智能体之间期望的相对距离和速度.
+  \end{block}
+  \begin{enumerate}
+    \item 领导者-跟随者方法：指定一个智能体作为领导者以特地你给凡是移动，其余智能体跟踪领导者在其周围保持编队
+    \item 无领导者方法：通过全局共识协调智能体以实现全局目标
+  \end{enumerate}
+\end{frame}
 
+\begin{frame}{拐角切割避让条件}
+  \begin{block}{拐角切割}
+    当且仅当智能体的下一个位置位于其可见区域内时，智能体才避免拐角切割.\par
+    可见区域是从当前位置出发的所有不与任何障碍物相交的射线的并集
+  \end{block}
+  由于难以精确描述此类区域，因此使用混合整数公式描述，具体使用三个符号三元组：智能体的当前和未来的位置$\sigma,\sigma^+\in \textstyle\sum_{X\setminus\mathbb{P}}$，以及障碍物的坐标$\sigma^*\in\textstyle\sum_{\mathbb{P}}$.
+\end{frame}
 
+\begin{frame}{Maia,Galvao(2009)}
+  为了避免切割单个障碍物，必须存在至少一个包含该障碍物的半空间，且该半空间不包含智能体的当前和后继位置：
+  \begin{equation}
+    \exists\, i,\mathrm{s.t.}\; \sigma(i)=\sigma^+(i)=0 \label{30}
+  \end{equation}
+  此类问题常出现在MPC问题，其中符号元组都是决策变量，因此可以被重写以避免非线性：
+  \begin{equation}
+    \sum_{i}[1-\sigma^\circ(i)]\sigma^+(i)<N+\sum_{i}[1-2\sigma^\circ(i)]\sigma(i) \label{31}
+  \end{equation}
+  对于所有可能的$\sigma^\circ\in\{0,1\}^N$，至少有一个约束(\ref{31})会被简化为(\ref{30})，即当$\sigma^\circ=\sigma^+$
+\end{frame}
+
+\begin{frame}{Richards,Turnball(2015)}
+  改进了上述约束，将约束(\ref{31})的$2^N$个约束减少为$N$个.强制两个连续位置$x,x^T$遵守相同的约束：
+  \begin{gather*}
+    -h_i^Tx\leqslant -k_i+M\sigma^+(i) \\
+    -h_i^Tx^+\leqslant -k_i+M\sigma^+(i) \\
+  \end{gather*}
+  则对所有$i=1,2\cdots,N$，至少一个$i$使得$x,x^+$在超平面的同一侧.\par
+  更进一步，Afonso等人(2016)提出了对数方案，减少了选择活动超平面时涉及的二进制变量的数量.
+\end{frame}
+
+\begin{frame}{Stoican(2018)}
+  \begin{equation}
+    \sum_{i=1}{|\sigma^{\bullet,j}(i)-\sigma(i)|\cdot|\sigma^{\bullet,j}(i)-\sigma^+(i)|}>0,\forall\,\sigma^{\bullet,j}\in\textstyle_{\mathbb{P}} \label{32}
+  \end{equation}
+  当$\sigma,\sigma^+$都是变量时，同样可以使用(\ref{31})中的松弛方法
+  \begin{equation}
+    \sum_{i=1}{|\sigma^{\bullet,j}(i)-\sigma^\circ(i)|\cdot|\sigma^{\bullet,j}(i)-\sigma^+(i)|}>-|\sigma^\circ-\sigma|,\forall\,\sigma^{\bullet,j}\in\textstyle_{\mathbb{P}} \label{33}
+  \end{equation}
+  当$\sigma^\circ=\sigma^+$时，(\ref{33})简化为(\ref{32}).
+\end{frame}
+
+\begin{frame}{连通性维护条件}
+  混合整数约束要求每个智能体至少与另一个智能体在通信范围内，同时避免配对孤立(即一个智能体被强制留在另一个智能体的通信范围内时，后者不能被约束在前者的通信范围内).考虑二元变量$\xi_{i,j,k}\in\{0,1\}$，当$i$号智能体在时间步$k$时位于$j$号智能体的通信范围内时，变量为1,否则为0，则连通性维护条件为：
+  \begin{subequations}
+    \begin{gather}
+      \sum_{i=1}^{N-1}\sum_{j=1}^N\xi_{i,j,k}=N-1,0\leqslant k\leqslant T \\
+      \sum_{v_i,v_j}\xi_{i,j,k}\leqslant \# S-1,0\leqslant k\leqslant T,\forall\, S\subset V \\
+      \xi_{i,j,k}=0,1\leqslant i\leqslant N,1\leqslant j\leqslant i,0\leqslant k\leqslant T 
+    \end{gather}
+  \end{subequations}
+\end{frame}
+
+\begin{frame}{由外部约束引起的连通性}
+  最为典型的示例是移动传感器对特定区域进行有效覆盖的问题.\par
+  \vspace{1 em}
+  Ritter等人(2014)通过由一组配备传感器的自主车辆组成的移动传感器平台解决了该问题魔提出了一种自适应观测策略.\par
+  该策略基于过程模拟和多带沥血做系统，使用MLD系统建模，并用PDE估计代理的目标位置.
+\end{frame}
 
 
 %------------------------------------------------
 \section{控制架构}
 %------------------------------------------------
+\begin{frame}{控制架构的分类}
+  \centering
+  \begin{tabular}{|c|c|c|}
+    \hline
+    控制架构 & 特点 & 优点与缺点  \\
+    \hline
+    集中式 & \makecell[c]{多智能体系统视为整体\\物理系统被完全忽略\\可以使用单个全局控制器} & \makecell{理论简单、常用\\扩展系统复杂引发数值困难}\\ 
+    \hline
+    分布式 & \makecell[c]{全局问题划分为子问题\\子问题涉及局部控制器\\智能体无法访问全局信息} & \makecell{复杂性与可扩展性降低\\稳定性和鲁棒性降低}\\
+    \hline
+    去中心化 & \makecell[c]{全局问题划分为子问题\\智能体有一个控制器\\不考虑其他智能体行为\\信息交换受限} & \makecell{潜在的高效策略\\无法保证最优性}\\
+    \hline
+  \end{tabular}
+\end{frame}
+
+\begin{frame}{集中式控制架构的应用}
+  \begin{itemize}[<+-| alert@+>]
+    \item Chen等人(2016a)：考虑$N$个具相似动态特性的智能体，每个智能体由保证其完成目标的活性控制器和远离其他智能体的危险区域的安全控制器.后者使用了集中式架构，保证了$N=3$时的情况.MIP用于提供高级逻辑.
+    \item 对于全局场景，所有智能体掌握彼此动态，因此可以使用非凸约束实现碰撞避障
+    \item Wang(2015)：研究了多智能体系统中的碰撞避免，将碰撞避免问题转化为了资源分配问题，使用MIP解决相关优化问题.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{分布式控制架构的应用}
+  \begin{itemize}[<+-| alert@+>]
+    \item Schouwenaars(2006)：采用分布式MPC策略导航车队穿越部分位置和杂乱的环境
+    \item Testa,Rucco,Notarstefano(2017)：提出了用于求解MILP的算法，约束分布在各个智能体之间
+    \item Mariéthoz, and Morari (2016)：基于拉格朗日对偶，提出了对大规模MILP特别有效的分解办法
+    \item Van Parys and Pipeleers (2016)：使用交替方向乘子法构建问题
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{去中心化控制架构的应用}
+  \begin{itemize}
+    \item BaliandRichards(2018)：提出了合并交叉路口问题，根据定义的标准对多个到达交叉路口的智能体进行有限级排序
+  \end{itemize}
+\end{frame}
+
 
 
 
@@ -690,211 +920,175 @@ $$Ay\leqslant a$$
 \section{使用MIP的控制软件}
 %------------------------------------------------
 
+\begin{frame}{MIP实现的软件示例}
+\begin{table}[htbp]
+    \centering
+    % \resizebox{宽度}{高度}{内容}
+    % \textwidth 表示适应页面宽度，"!" 表示高度自动按比例缩放
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{|c|c|c|}
+        \hline
+        \multicolumn{2}{|c|}{\textbf{软件}} & \textbf{参考文献 (例如)} \\ \hline
+        \multirow{3}{*}{编程语言} & MATLAB & Bemporad and Mignone (2000); Culligan (2006); Janeček et al. (2017a) \\ \cline{2-3} 
+         & Python & Welder et al. (2018) \\ \cline{2-3} 
+         & Julia & Lubin, Yamangil, Bent, and Vielma (2018) \\ \hline
+        \multirow{7}{*}{建模语言} & Yalmip & Mukai et al. (2017); Zhang et al. (2017b) \\ \cline{2-3} 
+         & GAMS & Lee and Grossmann (2000) \\ \cline{2-3} 
+         & CVX/ & Dueri et al. (2017) \\ \cline{2-3} 
+         & CVXPY &  \\ \cline{2-3} 
+         & Pyomo & Legg et al. (2012) \\ \cline{2-3} 
+         & JuMP & Welder et al. (2018) \\ \cline{2-3} 
+         & AMPL & Richards and How (2005, 2002) \\ \hline
+        \multirow{3}{*}{求解器} & CPLEX & Janeček et al. (2017a); Stoican et al. (2013) \\ \cline{2-3} 
+         & GUROBI & Janeček et al. (2017a) \\ \cline{2-3} 
+         & SCIP & Berthold et al. (2012) \\ \hline
+        \end{tabular}
+    }
+    \end{table}
+\end{frame}
 
+\begin{frame}{MIP求解方法和启发式技术}
 
+    \begin{table}[htbp]
+    \centering
+    % 使用 resizebox 自动缩放表格宽度以适应页面
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{|c|c|}
+        \hline
+        \textbf{求解方法} & \textbf{参考文献} \\ \hline
+        分支定界法 & Bemporad (2015); Bemporad and Mignone (2000); \\ \hline
+        变体 & \makecell{Bemporad et al. (1999); Feng et al. (2017);\\ Hespanhol et al. (2019); Naik and Bemporad (2017)} \\ \hline
+        ADMM & \makecell{Abboud et al. (2015); Kanno and Kitayama (2018);\\ Scott and Thiébaux (2014); Takapoui et al. (2020);\\ Timotheou et al. (2014)} \\ \hline
+       FP & \makecell{Fischetti et al. (2005); Fischetti and Salvagnin (2009); \\ Miertoiu and Dumitrescu (2019)} \\ \hline
+        \end{tabular}
+    }
+    \end{table}
+
+\end{frame}
+
+\begin{frame}{启发式算法简介}
+  \begin{itemize}
+    \item ADMN:常用于最优功率流问题.Stellato，Naik,Bemporad，Goulart和Boyd(2018) 开发了一种新颖的分支定界算法，专门为基于ADMM的求解器量身定制
+    \item FP：用于寻找给定MIP可行解的启发式算法，旨在最小化LP松弛解与原始MIP解之间的差异.Miertoiu和Dumi-trescu(2019)改变该算法用于稀疏表示
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{硬件平台}
+
+    \begin{table}[htbp]
+    \centering
+    % 这里的 0.2\textwidth 和 0.75\textwidth 分别代表列宽占页面宽度的比例
+    % 可以根据需要调整，总和最好不要超过 1.0
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{p{0.2\textwidth} p{0.75\textwidth}}
+        \toprule[1.5pt] % 顶部粗线
+        \textbf{实验平台} & \textbf{参考文献} \\
+        \midrule % 中间细线
+        
+        \textbf{无人机} & Bellingham 等人 (2002a, 2002b); Chen 等人 (2016a); \newline
+                        Culligan (2006); Papen 等人 (2017); Ragi 和 Mittelmann \newline
+                        (2017); Rey 和 Hijazi (2017); Richards 和 How (2002); \newline
+                        Schouwenaars (2006) \\ 
+                        
+        \vspace{1ex} % 增加一点行间距，让两个条目分得更开
+        
+        \textbf{无人地面车辆} & Bali 和 Richards (2018); Ballesteros-Tolosana 等人 \newline
+                        (2017); Fayazi 等人 (2017); Molinari 等人 (2017) \\ 
+                        
+        \bottomrule[1.5pt] % 底部粗线
+        \end{tabular}
+    }
+    \end{table}
+\end{frame}
 
 
 %------------------------------------------------
 \section{MIP的替代方案}
 %------------------------------------------------
 
-
-\begin{frame}
-\frametitle{Blocks of Highlighted Text}
-\begin{block}{Block Title}
-This is the block environment. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
-\end{block}
-
-\begin{exampleblock}{Block Title}
-This is the exampleblock environment. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
-\end{exampleblock}
-
-\begin{alertblock}{Block Title}
-This is the alertblock environment. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
-\end{alertblock}
+\begin{frame}{MIP的替代方案}
+  \begin{table}[htbp]
+    \centering
+    % \resizebox{宽度}{高度}{内容}
+    % \textwidth 表示适应页面宽度，"!" 表示高度自动按比例缩放
+    \resizebox{\textwidth}{!}{
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{方法/技术} & {\textbf{参考文献}} \\ \hline
+        
+        基于图的算法 & 
+        \makecell{Hsu 等人 (2007); Karaman 和 Frazzoli (2011);\\ Ladd 和 Kavraki (2004); LaValle (2006);\\ Lozano-Pérez 和 Wesley;Weiss 等人 (2017)} \\ \hline
+        
+         势场公式 & 
+        \makecell{ Chen 和 Wang (2005); Filotheou 等人 (2018); \\ Rimon 和 Koditschek (1992); Vlantis, Vrohidis, Bechlioulis 和 Kyriakopoulos (2018);\\ Vrohidis, Vlantis, Bechlioulis 和 Kyriakopoulos (2018)} \\ \hline
+        
+        凸松弛 & 
+        \makecell{Liu 和 Lu (2014); Mao 等人 (2017, 2016) \\Harris 和 Açıkmese (2014), Rey 和 Hijazi (2017) \\Frasch 等人 (2013); Janeček 等人 (2017a);\\ Yu 等人 (2014)} \\ \hline
+    \end{tabular}}
+    \end{table}
 \end{frame}
 
-%------------------------------------------------
-
-
-\begin{frame}
-\frametitle{定理环境}
-\begin{definition} \upshape\rmfamily
-This is a definition environment. 这是一个定义环境.
-\end{definition}
-
-
-\begin{lemma} \upshape\rmfamily
-This is a lemma environment. 这是一个引理环境.
-\end{lemma}
-
-\begin{proposition} \upshape\rmfamily
-This is a proposition environment. 这是一个命题环境.
-\end{proposition}
-
-\begin{theorem}[Mass--energy] \upshape\rmfamily
-This is a theorem environment. 这是一个定理环境.
-\end{theorem}
-
-\begin{proof}
-  This is a proof environment. 这是一个证明环境.
-\end{proof}
-
+\begin{frame}{基于图的算法}
+  该算法将离散决策简化为搜索图中节点的最短路径，可应用于任何基于MIP的运动规划问题.
+  \begin{enumerate}[<+-| alert@+>]
+    \item 考虑环境的显示表示，基于单元分解构建图.无碰撞路径是智能体在初始位置和最终位置之间通过该图的最短路径.
+    \item 基于采样，避免显示表达环境以缓解计算负担，重点被放在碰撞检测上
+    \begin{itemize}
+      \item PRM：一种多查询方法，构建线路图后通过计算图中的最优路径回答查询
+      \item RRT：更适用于环境未知的场景，图的构建和路径搜索同时进行，得到的图是树状的
+    \end{itemize}
+  \end{enumerate}
 \end{frame}
 
-%------------------------------------------------
-
-
-\begin{frame}
-\frametitle{定理示例}
-
-\begin{theorem}[Lax-Milgram Lemma] \upshape
-Let $X$ be a Hilbert space, let $a(\cdot, \cdot)$ : $X \times X \rightarrow \mathbb{R}$ be a continuous and coercive bilinear form, and let $F : X \rightarrow \mathbb{R}$ be a linear functional in $X^{\prime}$. Then the variational problem:
-\begin{equation}
-  \alert{
-  \left\{\begin{aligned}
-  &\text {Find } u \in X \text { such that } \\
-  &a(u, v)=F(v), \forall v \in X
-  \end{aligned} \right. }
-\end{equation}
-has a unique solution. Moreover, we have
-\begin{equation}
-  \alert{ \|u\| \leq \frac{1}{\alpha}\|F\|_{X^{\prime}}  }
-\end{equation}
-\end{theorem}
-
+\begin{frame}{基于图的算法与其他控制策略结合}
+  \begin{itemize}[<+-| alert@+>]
+    \item Berntorp, Danielson, Weiss, 和 Di Cairano (2018)：使用反馈控制、正不变集和闭环系统的平衡轨迹提出了一种实时集成运动规划方法
+    \item Altché和Fortelle(2017)：通过一种将可行区域分区的方法来解决轨迹规划问题，转化为二次凸目标函数优化问题
+    \item Franzè和Lucia(2015)：处理了未知环境中避障问题
+  \end{itemize}
 \end{frame}
 
-%------------------------------------------------
-
-\begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
-\frametitle{Verbatim}
-\begin{example}[Theorem Slide Code]
-\begin{verbatim}
-\begin{frame}
-\frametitle{Theorem}
-\begin{theorem}[Mass--energy equivalence]
-$E = mc^2$
-\end{theorem}
-\end{frame}\end{verbatim}
-\end{example}
-
-\begin{table}
-\caption{这是一个三线表.}
-\begin{tabular}{l l l}
-\toprule
-\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
-\midrule
-Treatment 1 & 0.0003262 & 0.562 \\
-Treatment 2 & 0.0015681 & 0.910 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
+\begin{frame}{势场公式}
+  势场公式通过给成本中添加罚函数来添加约束.它依赖于构造一个标量函数，使得当智能体停留在禁止区域时，函数取告知，以此使函数沿势的负梯度方向移动到最终点.
 \end{frame}
 
-
-%------------------------------------------------
-
-\begin{frame}
-\frametitle{表格环境}
-本文定义了新的可变长度左中右 (LCR) 格式, LCR 三个格式会根据表格宽度的设定自行控制宽度, 且其宽度相等, 方便设置和页面相同宽度的表格. 本文还定义了 P\{\} 格式可以设定某一列宽度 (如 P\{1cm\} 控制某一列的宽度为 1cm) 并居中.
-\begin{table}[!htp]
-\centering
-% PLCR已经定义
-\caption{某校学生身高体重样本.}
-\label{tab2:heightweight}
-\begin{tabularx}{0.9\textwidth}{lCCC}
-   \toprule
-	序号&年龄&身高&体重\\
-	\midrule
-	1&14&156&42\\
-	2&16&158&45\\
-	3&14&162&48\\
-	4&15&163&50\\
-    \cmidrule{2-4}
-	平均&15&159.75&46.25\\
-	\bottomrule
-\end{tabularx}
-\end{table}
-
+\begin{frame}{凸松弛}
+  \begin{block}{凸松弛}
+    将非凸公式转化为凸公式，且不会产生任何重大差距，被称为凸松弛或非凸优化问题的凸化.常见的凸化方法例如：凸松弛、连续凸化或时变约束.
+  \end{block}
 \end{frame}
 
-
-%------------------------------------------------
-
-\begin{frame}
-\frametitle{表格示例}
-\begin{table}[htp!]
-\centering
-\renewcommand\arraystretch{1.0} %定义表格高度
-% PLCR前面已经定义
-\caption{表格的描述.}
-\label{tab3:NumError}
-\begin{tabularx}{0.9\textwidth}{|P{1cm}|C|C|C|C|}
-\Xhline{2\arrayrulewidth}
-N  & A       & B    & C  & D   \\
-\Xhline{2\arrayrulewidth}
-1  & 9.20E-05 & 9.90E-05 & 1.00E-06 & 8.00E-06  \\
-2  & 9.80E-05 & 8.00E-05 & 7.00E-06 & 1.40E-05  \\
-3  & 4.00E-06 & 8.10E-05 & 8.80E-05 & 2.00E-05 \\
-4  & 8.50E-05 & 8.70E-05 & 1.90E-05 & 2.10E-05 \\
-5 & 8.60E-05 & 9.30E-05 & 2.50E-05 & 2.00E-06  \\
-6 & 1.70E-05 & 2.40E-05 & 7.60E-05 & 8.30E-05  \\
-7 & 2.30E-05 & 5.00E-06 & 8.20E-05 & 8.90E-05 \\
-8 & 7.90E-05 & 6.00E-06 & 1.30E-05 & 9.50E-05  \\
-9 & 1.00E-05 & 1.20E-05 & 9.40E-05 & 9.60E-05 \\
-\Xhline{2\arrayrulewidth}
-\end{tabularx}
-\end{table}
-
+\begin{frame}{连续凸化}
+  连续凸化的基本思想是通过一系列凸子问题解决非凸最优控制问题.\par
+  针对于来自非线性动力学或非凸约束的非凸性，都是用线性化来处理，通常使用一阶泰勒展开近似.
+  \begin{itemize}
+    \item Dueri、Mao、Mian、Ding和Açikmeşe(2017)：使用连续凸化技术处理了在包含圆柱形和椭圆形障碍物的环境中自动驾驶汽车的非凸轨迹优化问题.再过程中，为了缓解近似误差和人为不可行性，作者又分别引入了信任域和惩罚函数
+  \end{itemize}
 \end{frame}
 
-
-\begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
-\frametitle{Citation}
-An example of the \verb|\cite| command to cite within the presentation:\\~
-
-This statement requires citation \cite{Smith2012}. \\~
-
-文献引用示例 \cite{LiLiu1997}, 可以修改引用文献样式.
+\begin{frame}{时变约束}
+  将非凸域分解为一系列凸区域，并引入切换时刻.在每个时刻，智能体都应停留在某个凸区域内.\par
+  时变约束可以视作连续凸化的特例，区别在于获得凸子问题/子域序列的方式。时变约束方法考虑了先验已知的子域数量，而连续凸化是一种迭代方法，序列会不断增长直到获得可行解.
 \end{frame}
 
-%------------------------------------------------
-
-\begin{frame}
-\frametitle{References}
-\footnotesize{
-\begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below
-\bibitem[Smith, 2012]{Smith2012} John Smith, Title of the publication, \emph{Journal Name}, 12(3):45--678, 2012.
-\bibitem[李荣华, 1997]{LiLiu1997} 李荣华, 刘播. 微分方程数值解法. 东南大学出版社, 1997.
-\end{thebibliography}
-}
+\begin{frame}{其他的凸松弛}
+  \begin{itemize}
+    \item Rey和Hijazi(2017):，提出了一种不同的凸松弛方法，公式基于复数表示，并为本质上非凸的优化问题提供了紧密的凸松弛.这种方法在Coffrin、Hijazi和Hentenryck(2017)中得到了广泛处理，其中通过导出相应的凸包来处理非凸约束，问题被转化为MIQCP(混合整数二次约束规划)
+    \item Huang和Peng(2017)：使用顺序凸优化方法(即通过形成凸子问题来搜索局部最优解)来解决MI 优化问题
+    \item Papen等人(2017)：使用约束松弛和调整复杂度来限制计算时间，从而解决了MILP问题
+  \end{itemize}
 \end{frame}
 
+\section{总结与未来挑战}
 
-%------------------------------------------------
-%\setbeamertemplate{background canvas}[vertical shading][bottom=white,top=structure.fg!25]
-%\setbeamertemplate{headline}{}
-%\begin{frame}
-%\sffamily
-%\Huge{\centerline{The End}}
-%\end{frame}
-
-%----------------------------------------------------------------------------------------
-%\setbeamertemplate{background canvas}[vertical shading][bottom=white,top=structure.fg!25]
-%\setbeamertemplate{headline}{}
-%\begin{frame}
-%\sffamily
-%\begin{center}
-%\HUGE{\textcolor[RGB]{165,3,3}{Thank~you!}}
-%\end{center}
-%\end{frame}
-
-
-\begin{frame}[standout]
-  Questions?
+\begin{frame}{未来挑战}
+  \begin{enumerate}
+    \item 碰撞避免问题的大规模问题仍具有较大的复杂性，无法实时求解
+    \item 求解算法有待调整改进，适应问题的不同特性以降低混合整数方法的固有复杂性
+    \item 基于MIP的运动规划中的工作很少能在实验平台上验证理论结果
+  \end{enumerate}
 \end{frame}
+
 
 
 \end{document}

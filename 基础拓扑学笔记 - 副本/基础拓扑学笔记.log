@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.28)  29 NOV 2025 01:46
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.28)  4 DEC 2025 10:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -154,13 +154,13 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 )
 \Hy@SectionHShift=\skip51
 )
-Package hyperref Info: Option `breaklinks' set `true' on input line 117.
-Package hyperref Info: Option `unicode' set `true' on input line 117.
-Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 117.
-Package hyperref Info: Option `bookmarksopen' set `true' on input line 117.
-Package hyperref Info: Option `colorlinks' set `true' on input line 117.
-Package hyperref Info: Option `plainpages' set `false' on input line 117.
-Package hyperref Info: Option `linktocpage' set `true' on input line 117.
+Package hyperref Info: Option `breaklinks' set `true' on input line 125.
+Package hyperref Info: Option `unicode' set `true' on input line 125.
+Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 125.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 125.
+Package hyperref Info: Option `colorlinks' set `true' on input line 125.
+Package hyperref Info: Option `plainpages' set `false' on input line 125.
+Package hyperref Info: Option `linktocpage' set `true' on input line 125.
  (f:/texlive/2025/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
  (f:/texlive/2025/texmf-dist/tex/generic/iftex/ifvtex.sty
@@ -214,7 +214,7 @@ Package: fontspec-xetex 2024/05/11 v2.9e Font selection for XeLaTeX and LuaLaTeX
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 ) (f:/texlive/2025/texmf-dist/tex/latex/fontspec/fontspec.cfg))) (f:/texlive/2025/texmf-dist/tex/latex/newtx/TeXGyreTermesX.fontspec)
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/n' will be
-(Font)              scaled to size 10.95pt on input line 177.
+(Font)              scaled to size 10.95pt on input line 185.
  (f:/texlive/2025/texmf-dist/tex/latex/ctex/ctex.sty
 Package: ctex 2022/07/14 v2.5.10 Chinese adapter in LaTeX (CTEX)
  (f:/texlive/2025/texmf-dist/tex/latex/ctex/ctexhook.sty
@@ -1362,8 +1362,7 @@ LaTeX Font Info:    Trying to load font information for TU+fontawesomebrands on 
 )
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... none found.
-
-No file 基础拓扑学笔记.aux.
+ (./基础拓扑学笔记.aux)
 \openout1 = `基础拓扑学笔记.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 176.
@@ -1387,11 +1386,10 @@ LaTeX Font Info:    ... okay on input line 176.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 176.
 LaTeX Font Info:    ... okay on input line 176.
 Package hyperref Info: Link coloring ON on input line 176.
+ (./基础拓扑学笔记.out) (./基础拓扑学笔记.out)
 \@outlinefile=\write7
 \openout7 = `基础拓扑学笔记.out'.
 
-
-Package hyperref Warning: Rerun to get /PageLabels entry.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -1536,8 +1534,7 @@ LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/it' will be
 ]
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/n' will be
 (Font)              scaled to size 17.28pt on input line 187.
-
-No file 基础拓扑学笔记.toc.
+ (./基础拓扑学笔记.toc)
 \tf@toc=\write8
 \openout8 = `基础拓扑学笔记.toc'.
 
@@ -1592,36 +1589,18 @@ Overfull \hbox (11.20895pt too wide) in paragraph at lines 143--145
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2022/08/05>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `基础拓扑学笔记.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `基础拓扑学笔记.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  CF7ABF62517425BA7ED37A8C4ABEC809;406.
-
-Package biblatex Warning: Please (re)run Biber on the file:
-(biblatex)                基础拓扑学笔记
-(biblatex)                and rerun LaTeX afterwards.
-
+Package rerunfilecheck Info: File `基础拓扑学笔记.out' has not changed.
+(rerunfilecheck)             Checksum: CF7ABF62517425BA7ED37A8C4ABEC809;406.
 Package logreq Info: Writing requests to '基础拓扑学笔记.run.xml'.
 \openout1 = `基础拓扑学笔记.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 49137 strings out of 473832
- 1047705 string characters out of 5733157
- 2065101 words of memory out of 5000000
- 71316 multiletter control sequences out of 15000+600000
- 570501 words of font info for 148 fonts, out of 8000000 for 9000
+ 49210 strings out of 473832
+ 1048882 string characters out of 5733157
+ 2066797 words of memory out of 5000000
+ 71366 multiletter control sequences out of 15000+600000
+ 573298 words of font info for 161 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  103i,14n,118p,692b,1418s stack positions out of 10000i,1000n,20000p,200000b,200000s
 

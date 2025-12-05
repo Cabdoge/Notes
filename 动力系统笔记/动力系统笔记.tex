@@ -61,8 +61,7 @@
 %行间距加大
 \newcommand{\wideline}{\setlength{\lineskip}{\baselineskip-\ccwd}\setlength{\lineskiplimit}{2.5pt}}
 %蓝色加粗
-\definecolor{titleblue}{HTML}{3498DB}
-\newcommand{\bluebf}[1]{\textcolor{structurecolor}{\textbf{#1}}}
+\newcommand{\bluebf}[1]{\textcolor{structurecolor}{\bfseries\boldmath #1}}
 
 
 %向量
@@ -187,5 +186,7 @@
 \input{遍历理论2.tex}
 
 \input{测度熵.tex}
+
+\input{拓扑熵.tex}
 
 \end{document}

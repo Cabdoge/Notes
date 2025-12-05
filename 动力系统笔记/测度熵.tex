@@ -371,14 +371,26 @@ Y_2 \arrow[rr, "T_2"']                    &  & Y_2
     \end{aligned}$，计算$h_m(T)$.\par
     $\forall\, x\in [0,1),x=0.x_1x_2x_3\cdots$.
     则有以下交换图 \par
-    \begin{tikzcd}
-S^1 \arrow[rrr, "\Phi"]                 &  &  & \displaystyle\prod_{i=1}^\infty{X} \\
-x \arrow[rrr, maps to] \arrow[ddd, "T"'] &  &  & {(x_1,x_2,\cdots)} \arrow[ddd, "S"] \\
+    \hspace{-2.2em}
+    \begin{minipage}[t]{0.48\textwidth}
+        \begin{tikzcd}
+    S^1 \arrow[rrr, "\Phi"]                 &  &  & \displaystyle\prod_{i=1}^\infty{X} \\
+    x \arrow[rrr, maps to] \arrow[ddd, "T"'] &  &  & {(x_1,x_2,\cdots)} \arrow[ddd, "S"] \\
                                         &  &  &                                    \\
                                         &  &  &                                    \\
-10x\pmod{1} \arrow[rrr, "\Phi"']        &  &  & {(x_2,x_3,\cdots)}                
-\end{tikzcd}\par
-    即$\Phi\circ T=S\circ\Phi$，故$h_m(T)=k_m(S)=\ln{10}$
+    10x\pmod{1} \arrow[rrr, "\Phi"']        &  &  & {(x_2,x_3,\cdots)}                
+    \end{tikzcd}
+    \end{minipage}
+    \begin{minipage}[t]{0.5\textwidth}
+        \vspace{-7 em}
+        即$\Phi\circ T=S\circ\Phi$.\par
+        设$E=\{(x_1,x_2,\cdots)|(0,x_1x_2\cdots)_{10}\in\mb{Q}\}$.\par
+        令$M_1=S^1\setminus\mb{Q},M_2=\prod_{i=1}^{\infty}{X\setminus E}$.\par
+        则$\Phi:M_1\to M_2$为双射.\par
+        设$m_X(\{i\})=\frac{1}{10}\,(\forall\, i=0,1,\cdots,9)$.\par
+        那么$\Phi(M_1,m_\mathrm{Leb})\to(M_2,m_Y)$是可逆保测映射$(Y=\prod_{i=1}^\infty{X})$\par
+        因此$m_Y(S)=\ln{10}\Rightarrow h_{m_\mathrm{Leb}}(T)=\ln{10}$
+    \end{minipage}\par
 \end{instance}
 
 

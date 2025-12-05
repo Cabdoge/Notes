@@ -1,0 +1,41 @@
+\chapter{同伦}
+
+\section{同伦}
+
+
+\begin{definition}{同伦}
+    设$X,Y$是拓扑空间，$f,g:X\to Y$是两个连续映射，如果存在一个连续映射$H:X\times[0,1]\to Y$，使得$H(x,0)=f(x),H(x,1)=g(x)$，则称$f$和$g$是\textbf{同伦的}，记作$f\simeq g$，映射$H$称为从$f$到$g$的\textbf{同伦}，记作$H:f\simeq g$.
+\end{definition}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{fig/10.1.png}
+    \caption{同伦示意图}
+\end{figure}
+如果固定$t$，可以定义函数$\setjot[-6]\begin{aligned}[t]
+    h_t:X&\to Y \\
+    x&\mapsto H(x,t)
+\end{aligned} $，如果固定$x$，则$\setjot[-6]\begin{aligned}[t]
+    a_x:[0,1]&\to Y \\
+    t&\mapsto H(x,t)
+\end{aligned}$是一条道路.
+
+\begin{instance}
+    设$X$是一个拓扑空间，$Y$是$\mb{E}^n$的凸子空间，任取$f,g:X\to Y$，则$f\simeq g$.\par
+    可以构造$\setjot[-6]\begin{aligned}[t]
+        H:X\times [0,1]&\to Y \\
+        (x,t) &\mapsto (1-t)f(x)+tg(x)
+     \end{aligned}$.则$H(x,-0)=f(x),H(x,1)=g(x)$.\par
+     这种同伦称为\bluebf{直线同伦}.
+\end{instance}
+
+\begin{instance}
+    设$f,g:X\to S^n$，且$\forall\, x\in X$，$f(x)+g(x)\neq 0$，则$f\simeq g$.\par
+    构造$\setjot[-6]\begin{aligned}[t]
+        H:X\times [0,1]&\to S^n \\
+        (x,t) &\mapsto \frac{(1-t)f(x)+tg(x)}{\|(1-t)f(x)+tg(x)\|}
+     \end{aligned}$.则$H(x,-0)=f(x),H(x,1)=g(x)$.\par
+    上述同伦实际上是$\mb{E}^{n+1}\setminus \{0\}$中的直线同伦投影到$S^n$上\par
+\end{instance}
+
+

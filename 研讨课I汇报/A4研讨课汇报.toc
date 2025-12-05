@@ -1,10 +1,10 @@
 \babel@toc {english}{}\relax 
 \beamer@sectionintoc {1}{问题背景}{3}{0}{1}
 \beamer@sectionintoc {2}{MIP公式化}{16}{0}{2}
-\beamer@subsectionintoc {2}{1}{广义析取规划}{17}{0}{2}
 \beamer@sectionintoc {3}{几何视角下的MIP}{20}{0}{3}
 \beamer@sectionintoc {4}{MIP在运动规划中的应用}{33}{0}{4}
-\beamer@sectionintoc {5}{多智能体系统中的MIP\\连接性维护和编队控制}{71}{0}{5}
-\beamer@sectionintoc {6}{控制架构}{72}{0}{6}
-\beamer@sectionintoc {7}{使用MIP的控制软件}{73}{0}{7}
-\beamer@sectionintoc {8}{MIP的替代方案}{74}{0}{8}
+\beamer@sectionintoc {5}{多智能体系统中的MIP\\连通性维护和编队控制}{87}{0}{5}
+\beamer@sectionintoc {6}{控制架构}{95}{0}{6}
+\beamer@sectionintoc {7}{使用MIP的控制软件}{105}{0}{7}
+\beamer@sectionintoc {8}{MIP的替代方案}{110}{0}{8}
+\beamer@sectionintoc {9}{总结与未来挑战}{124}{0}{9}
