@@ -60,6 +60,8 @@
 }
 
 
+
+
 %----------- 宏包 -------------
 %\usepackage[latin1]{inputenc}
 %\usepackage{times}
@@ -739,6 +741,8 @@ $$Ay\leqslant a$$
   \note{
      \begin{itemize}
       \item 所提出的算法需要对连续非完整模型进行时间离散化，，利用非均匀离散化来绕过与求解大型MILPs相对应的大量计算工作
+      \item 获得的模型是一个由连续和离散状态组成的混合系统（混合逻辑动态系统），具有线性动力学，受不等式约束和逻辑规则的约束
+      \item 为了对航天器表示及其对应的安全区域进行建模，使用了未旋转的立方体（一种特殊的凸多面体表示）
       \item 
      \end{itemize}
   }
@@ -749,6 +753,17 @@ $$Ay\leqslant a$$
     \item Molinari(2017)：为自主超车问题引入了一种高效的MIP公式.考虑的车辆具有简单动力学模型，并用超平面排列表示非凸可行区域.针对被多个智能体围绕的情况，提出了生成避免碰撞的轨迹的未完整模型，在IPG CarMaker中得到验证
     \item Ballesteros-Tolosana(2017)：针对确保乘客舒适度的变道和超车操作的轨迹生成问题这一OCP问题，使用多重shooting方法求解枚举所有超车配置及其产生的紧凑型MIP公式，计算负担有所改进.
   \end{itemize}
+  \note{
+    \begin{itemize}
+      \item 研究了两种减少二元变量数量的方法：对数形式化和单元合并
+      \item 
+    \end{itemize}(翻页) \par \vspace{1 em}
+    \begin{itemize}
+      \item 该想法是设计一个能够协调车辆通过交叉口的流量、在安全条件下调度交叉口访问并从所有订阅车辆接收信息的交叉口控制器。此外，每辆车都会向控制器报告其运动和期望的调度
+      \item 详细描述了燃油消耗模型、转弯影响和加速能力模型
+      \item 
+    \end{itemize}
+  }
 \end{frame}
 
 \begin{frame}{自动驾驶任务中的轨迹规划}
@@ -768,6 +783,15 @@ $$Ay\leqslant a$$
     \item 选择一种不依赖于环境特定细节的划分方法，将碰撞避免问题转化为资源分配问题
     \item 使用集合论和混合整数技术有效编码非凸集
   \end{enumerate}
+  \note{
+    这两种方法的共同特征为：工作空间被分解成某种类型的单元格，并且在某种程度上MIP被用于建模析取约束.(翻页)\par \vspace{1 em}
+    \begin{itemize}
+      \item 此外，还讨论了MILP框架的一些增强功能，以提供更短的求解时间和增加路径规划器的能力。这些改进包括各种技术，如可变时间步长、线性插值点和视界最小化
+      \item 为了说明所考虑策略的优势，该算法在一个涉及一群小型直升机以在拥挤环境中保持无线连接的任务场景中运行
+      \item 
+    \end{itemize}
+
+  }
 \end{frame}
 
 \begin{frame}{静态障碍物}
@@ -867,6 +891,13 @@ $$Ay\leqslant a$$
     \end{gathered}\right]
   \end{gather}
   \end{subequations}
+  \note{
+    现在需要通过MLD形式化描述所考虑的系统，因为就是把上述条件重写为26c的形式.(读ppt)(翻页) \par \vspace{1 em}
+    DCOC的问题的主要目标是在尽可能长的时间内满足规定的约束条件.\par
+    \begin{itemize}
+      \item 读ppt即可
+    \end{itemize}
+  }
 \end{frame}
 
 \begin{frame}{漂移抵消最优控制的MIP重构}
@@ -878,6 +909,12 @@ $$Ay\leqslant a$$
     \item Maia、Galvao(2009)：提出一种用于MPC控制器的移位预测视界实现
     \item Richards、How(2003)：使用MILP优化实现可变视界长度
   \end{itemize}
+  \note{
+    (下一张的ppt)\par
+    考虑这个问题的背景是，对于目前复杂的环境，为了追求更高的精度和更短的响应时间，需要智能体协同工作，因此我们必须确保连通性维护和编队控制.\par
+    (读ppt)\par
+    实现编队控制主要有一下两个方法(读ppt)，选择这两种方法中的哪一种取决于智能体团队/组的特性，即它们的通信和感知能力.
+  }
 \end{frame}
 
 
@@ -895,7 +932,7 @@ $$Ay\leqslant a$$
   \begin{enumerate}
     \item 领导者-跟随者方法：指定一个智能体作为领导者以特地你给凡是移动，其余智能体跟踪领导者在其周围保持编队
     \item 无领导者方法：通过全局共识协调智能体以实现全局目标
-  \end{enumerate}
+  \end{enumerate}\par
 \end{frame}
 
 \begin{frame}{拐角切割避让条件}
@@ -904,6 +941,13 @@ $$Ay\leqslant a$$
     可见区域是从当前位置出发的所有不与任何障碍物相交的射线的并集
   \end{block}
   由于难以精确描述此类区域，因此使用混合整数公式描述，具体使用三个符号三元组：智能体的当前和未来的位置$\sigma,\sigma^+\in \textstyle\sum_{X\setminus\mathbb{P}}$，以及障碍物的坐标$\sigma^*\in\textstyle\sum_{\mathbb{P}}$.
+\end{frame}
+\begin{frame}
+  拐角切割避让问题的起因是一个智能体可能在某两个采样点在可行域内，但是在这两个采样点之间的路径穿过了障碍物.\par
+  最简单的想法是只有智能题的下一个位置位于其可见区域时才让智能体移动，保证直线路径一定在可行域内，这种想法类似于让这个点有凸域上靠近.(读ppt)(翻页) \par \vspace{1 em}
+  (30)表明这两个位置都在可行域内.(读ppt)(翻页) \par \vspace{1 em}
+  (读ppt)(翻页) \par \vspace{1 em}
+  Stoican将上述公式推广到多障碍物的情形.公式(32)比较了当前位置和未来位置和障碍物的符号差异，如果和大于零，表明路径是安全的.\par
 \end{frame}
 
 \begin{frame}{Maia,Galvao(2009)}
@@ -916,6 +960,7 @@ $$Ay\leqslant a$$
     \sum_{i}[1-\sigma^\circ(i)]\sigma^+(i)<N+\sum_{i}[1-2\sigma^\circ(i)]\sigma(i) \label{31}
   \end{equation}
   对于所有可能的$\sigma^\circ\in\{0,1\}^N$，至少有一个约束(\ref{31})会被简化为(\ref{30})，即当$\sigma^\circ=\sigma^+$
+  
 \end{frame}
 
 \begin{frame}{Richards,Turnball(2015)}
@@ -950,6 +995,11 @@ $$Ay\leqslant a$$
   \end{subequations}
 \end{frame}
 
+\begin{frame}
+  下面是连通性维护条件.34b阻止了配对隔离，和34a保证了图的连通性(翻页) \par \vspace{1 em}
+  除了系统内部强制要求的连通性，有时候外部约束也会带来连通性要求.(读ppt)因此，MLD系统代表了对多车辆系统建模的一个很好的替代方案，因为所有现有约束(动力学、碰撞避免、测量等)都嵌入在一个完整的配置中，这允许使用标准方法来解决控制问题
+\end{frame}
+
 \begin{frame}{由外部约束引起的连通性}
   最为典型的示例是移动传感器对特定区域进行有效覆盖的问题.\par
   \vspace{1 em}
@@ -974,6 +1024,13 @@ $$Ay\leqslant a$$
     去中心化 & \makecell[c]{全局问题划分为子问题\\智能体有一个控制器\\不考虑其他智能体行为\\信息交换受限} & \makecell{潜在的高效策略\\无法保证最优性}\\
     \hline
   \end{tabular}
+\end{frame}
+
+\begin{frame}
+  后两种方法要求局部控制器仅针对具有相似计算负担的局部输入进行优化。这两种方法之间的区别在于通信的影响，去中心化控制不需要智能体之间的通信。(翻页) \par \vspace{1 em}
+  (读ppt) \par \vspace{1 em}
+  (读ppt) \par \vspace{1 em}
+  多智能体系统的去中心化控制因其在多机器人系统、交通运输、多点监控和生物系统的广泛的应用而受到极大的关注，一个例子是
 \end{frame}
 
 \begin{frame}{集中式控制架构的应用}
@@ -1032,6 +1089,14 @@ $$Ay\leqslant a$$
         \end{tabular}
     }
     \end{table}
+\end{frame}
+
+\begin{frame}
+  一些常见的软件工具如上图所示(翻页) \par \vspace{1 em}
+  下表是一些常见的求解方法，但近年来，控制领域的一部分研究人员已将注意力集中在(如表5所示)适应标准MIP求解算法的技术上并提出了一些标准求解算法外的启发式算法.(翻页)\par \vspace{1 em}
+  其中两个比较常见的是交替方向乘子法.。尽管ADMM是一种用于求解凸优化问题的算法，但它也被证明是一种有效的近似求解某些非凸问题的方法，在大多数情况下，这能以较小的计算成本提供可接受的解.\par
+  第二个是可行性泵，(读ppt).(翻页)\par \vspace{1 em}
+  这张表列举了某些常见的MIP所使用的智能体和硬件平台.\par
 \end{frame}
 
 \begin{frame}{MIP求解方法和启发式技术}
@@ -1115,6 +1180,13 @@ $$Ay\leqslant a$$
     \end{table}
 \end{frame}
 
+\begin{frame}
+  最后介绍了一些在运动规划领域广泛使用的替代MIP的方案.(翻页) \par \vspace{1 em}
+  常用的求解最短路径的算法是Dijkstra算法、A*算法以及贪婪算法.除此之外，有两类构建图的方式，第一类表现良好但是计算负担较大.第二类基于采样，因此计算负担减小，旗下又分两种思路.\par
+  除此之外，基于采样的算法已经被证明是概率完备的，因此可靠性可以保证. \par \vspace{1 em}
+  (读ppt) \par \vspace{1 em}
+\end{frame}
+
 \begin{frame}{基于图的算法}
   该算法将离散决策简化为搜索图中节点的最短路径，可应用于任何基于MIP的运动规划问题.
   \begin{enumerate}
@@ -1137,6 +1209,12 @@ $$Ay\leqslant a$$
 
 \begin{frame}{势场公式}
   势场公式通过给成本中添加罚函数来添加约束.它依赖于构造一个标量函数，使得当智能体停留在禁止区域时，函数取告知，以此使函数沿势的负梯度方向移动到最终点.
+\end{frame}
+
+\begin{frame}
+  势场公式类似于罚函数法.(读ppt)(翻页) \par \vspace{1 em}
+  凸松弛的想法比较自然，即将非凸问题转化为凸问题.(读ppt)(翻页) \par \vspace{1 em}
+
 \end{frame}
 
 \begin{frame}{凸松弛}
