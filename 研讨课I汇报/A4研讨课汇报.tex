@@ -230,17 +230,17 @@
 \begin{block}{混合整数规划}
 混合整数规划(Mixed Integer Programming, MIP)代表一种数学优化问题，其中目标是最小化或最大化一个线性、二次函数或有时更一般的准则，约束是线性的(或非线性的)等式(或不等式)，并且存在一些(非空)整数和实数变量子集作为参数
 \end{block}
-\begin{enumerate}[<+-| alert@+>]
+\begin{enumerate}
   \item 涉及整数的离散问题 \par
-  \begin{itemize}[<+-| alert@+>]
+  \begin{itemize}
     \item 背包问题
   \end{itemize}
   \item 涉及逻辑条件的问题
-  \begin{itemize}[<+-| alert@+>]
+  \begin{itemize}
     \item 复杂运输过程中的碰撞避免
   \end{itemize}
   \item 排序和分配问题
-  \begin{itemize}[<+-| alert@+>]
+  \begin{itemize}
   \item 任务分配
   \item 旅行商问题
 \end{itemize}
@@ -249,7 +249,7 @@
 \end{frame}
 
 \begin{frame}{MIP的特点与优势}
-\begin{itemize}[<+-| alert@+>]
+\begin{itemize}
   \item 可以非线性建模
   \item 允许非凸约束
   \item 可以包含逻辑决策
@@ -506,13 +506,13 @@ $$Ay\leqslant a$$
   \begin{columns}[t]
   \column{.5\textwidth}
   线性模型
-  \begin{itemize}[<+-| alert@+>]
+  \begin{itemize}
     \item 状态向量：智能体位置、速度
     \item 输入向量：智能体加速度
   \end{itemize}
   \column{.5\textwidth}
   非线性模型
-  \begin{itemize}[<+-| alert@+>]
+  \begin{itemize}
     \item 状态向量：智能体位置、航向角
     \item 输入向量：智能体速度、转向角
   \end{itemize}
@@ -558,7 +558,7 @@ $$Ay\leqslant a$$
     \begin{align}
       &\min_{x_{ij}}\sum_{i=1}^N\sum_{j=1}^M{c_{ij}x_{ij}} \\
       &\text{s.t. } \sum_{i=1}^N{x_{ij}}\geqslant 1,\forall\, j \\
-      &\sum_{j=1}^M{x_{ij}}\leqslant 1,\forall\, i \\
+      &\sum_{j=1}^M{x_{ij}}\geqslant 1,\forall\, i \\
       &x_{ij}\in\{0,1\},\forall\, i,j \label{19d}
     \end{align}
   \end{subequations}
@@ -593,7 +593,7 @@ $$Ay\leqslant a$$
       \gamma(0)=x_0,\quad \gamma(1)=x_f
     \end{equation}
   \end{definition}
-  一般有两种方式描述函数$\gamma$，其一为显示方法，包括为整个区间$[0,1]$提供$\gamma$的值.其二是更常用的方法，函数必须从被称为“航点”的值中取值.\par
+  一般有两种方式描述函数$\gamma$，其一为显式方法，包括为整个区间$[0,1]$提供$\gamma$的值.其二是更常用的方法，函数必须从被称为“航点”的值中取值.\par
   定义描述规划路径的所有航点集：$\mathcal{W}=\{x_{w_0},\cdots,x_{w_{N_w}}\}$，并考虑对定义2附加条件：$\forall\, x_{w_k},\exists\, !\theta_k\in[0,1]$，使得$\gamma(\theta_k)=x_{w_k}$.
 \end{frame}
 
@@ -613,7 +613,7 @@ $$Ay\leqslant a$$
 \end{frame}
 
 \begin{frame}{路径规划的其他方法}
-  \begin{itemize}[<+-| alert@+>]
+  \begin{itemize}
     \item Tunnel-MILP方法
     \begin{enumerate}
       \item 忽略车的动力学约束，找到一条路径
@@ -628,19 +628,19 @@ $$Ay\leqslant a$$
 \end{frame}
 
 \begin{frame}{路径规划的其他方法}
-  \begin{itemize}[<+-| alert@+>]
+  \begin{itemize}
     \item 广义Voronoi图
     \begin{enumerate}
       \item 通过障碍物的面和导航环境的边界构建广义Voronoi图
       \item 移除禁止区域内的节点与连接这些节点的边
-      \item 使用Delaunary三角剖分将空间划分为三角形，并计算被规划路径穿过的三角形，将其合并形成多图面体，试图隧道中的凸区域数量最少
+      \item 使用Delaunary三角剖分将空间划分为三角形，并计算被规划路径穿过的三角形，将其合并形成多图面体，寻找隧道中的途径凸区域数量最少的路径
     \end{enumerate}
   \end{itemize}
 \end{frame}
 
 \begin{frame}{轨迹}
   \begin{definition}[轨迹]
-    导航空间中两个店$x_0,x_f$之间的轨迹由连续函数$\gamma:[t_0,t_f]\to \mathcal{X}$给出，其中
+    导航空间中两个点$x_0,x_f$之间的轨迹由连续函数$\gamma:[t_0,t_f]\to \mathcal{X}$给出，其中
     \begin{equation}
       \gamma(t_0)=x_0,\quad \gamma(t_f)=x_f
     \end{equation}
@@ -806,7 +806,7 @@ $$Ay\leqslant a$$
     编队控制旨在提供约束，以保证一组智能体之间期望的相对距离和速度.
   \end{block}
   \begin{enumerate}
-    \item 领导者-跟随者方法：指定一个智能体作为领导者以特地你给凡是移动，其余智能体跟踪领导者在其周围保持编队
+    \item 领导者-跟随者方法：指定一个智能体作为领导者以特定方式移动，其余智能体跟踪领导者在其周围保持编队
     \item 无领导者方法：通过全局共识协调智能体以实现全局目标
   \end{enumerate}
 \end{frame}
@@ -908,7 +908,7 @@ $$Ay\leqslant a$$
 
 \begin{frame}{去中心化控制架构的应用}
   \begin{itemize}
-    \item BaliandRichards(2018)：提出了合并交叉路口问题，根据定义的标准对多个到达交叉路口的智能体进行有限级排序
+    \item Bali and Richards(2018)：提出了合并交叉路口问题，根据定义的标准对多个到达交叉路口的智能体进行有限级排序
   \end{itemize}
 \end{frame}
 
@@ -1062,7 +1062,7 @@ $$Ay\leqslant a$$
   连续凸化的基本思想是通过一系列凸子问题解决非凸最优控制问题.\par
   针对于来自非线性动力学或非凸约束的非凸性，都是用线性化来处理，通常使用一阶泰勒展开近似.
   \begin{itemize}
-    \item Dueri、Mao、Mian、Ding和Açikmeşe(2017)：使用连续凸化技术处理了在包含圆柱形和椭圆形障碍物的环境中自动驾驶汽车的非凸轨迹优化问题.再过程中，为了缓解近似误差和人为不可行性，作者又分别引入了信任域和惩罚函数
+    \item Dueri、Mao、Mian、Ding和Açikmeşe(2017)：使用连续凸化技术处理了在包含圆柱形和椭圆形障碍物的环境中自动驾驶汽车的非凸轨迹优化问题.在过程中，为了缓解近似误差和人为不可行性，作者又分别引入了信任域和惩罚函数
   \end{itemize}
 \end{frame}
 

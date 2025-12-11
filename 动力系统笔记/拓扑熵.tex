@@ -95,7 +95,7 @@ X_2 \arrow[rr, "T_2"']                    &  & X_2
     如果$T_2:X_2\to X_2$是$T_1:X_1\to X_1$的因子系统，那么$h(T_2)\leq h(T_1)$.
 \end{corollary}
 
-\section{拓扑熵的计算}
+\section{拓扑熵的性质}
 
 \begin{definition}{$\bm{(n,\varepsilon)-}$生成集}
     设$(X,d)$是紧致度量空间，$T:X\to X$连续映射，设$\varepsilon>0,n\in\mb{N}$，如果$\forall\, y\in X,\exists\, x\in F$，使得$d(x,y)<\varepsilon,d(Tx,Ty)<\varepsilon,\cdots,d \left(T^{n-1}x,T^{n-1}y\right)<\varepsilon$，则称$F$是\textbf{$\bm{(n,\varepsilon)-}$生成集}.\par
@@ -129,13 +129,152 @@ X_2 \arrow[rr, "T_2"']                    &  & X_2
 这说明上面的定义是合理的.
 
 \begin{definition}{}
-    $h_1(T)=\lim_{\varepsilon\to 0}\left(\limsup_{n\to\infty}\frac{1}{n}\ln{r_n(\varepsilon)}\right)$\par
-    $h_2(T)=\lim_{\varepsilon\to 0}\left(\limsup_{n\to\infty}\frac{1}{n}\ln{s_n(\varepsilon)}\right)$
+    $h_1(T)=\lim_{\varepsilon\to 0}\left(\limsup_{n\to\infty}\frac{1}{n}\ln{r_n(\varepsilon)}\right),h_2(T)=\lim_{\varepsilon\to 0}\left(\limsup_{n\to\infty}\frac{1}{n}\ln{s_n(\varepsilon)}\right)$
 \end{definition}
 
-\begin{theorem}{}
+\begin{theorem}{}{4.2}
     $h(T)=h_1(T)=h_2(T)$
 \end{theorem}
+
+在证明该定理之前，首先需要证明若干引理.
+
+\begin{lemma}{}
+    设$\varepsilon>0,n\in\mb{N}$，那么$r_n(1.1\varepsilon)\leq s_n(\varepsilon)\leq r_n \left(\frac{\varepsilon}{2}\right)$.
+\end{lemma}
+\begin{proof}
+    设$E$是$(n,\varepsilon)-$分离集，使得$|E|=s_n(\varepsilon)$.\par
+    由于$E$是最大的$(n,\varepsilon)-$分离集，因此$\forall\, x\in X(x\notin E)$，$E\cup\{x\}$不是$(n,\varepsilon)-$分离集.\par
+    则$\exists\, y\in X$，使得$d(x,y)\leq\varepsilon <1.1\varepsilon,d(Tx,Ty)\leq\varepsilon<1.1\varepsilon,\cdots,d \left(T^{n-1}x,T^{n-1}y\right)\leq\varepsilon<1.1\varepsilon$.\par
+    因此$E$为$(n,1.1\varepsilon)-$生成集，故$r_n(1.1\varepsilon)\leq s_n(\varepsilon)=|E|$.\par
+    设$F$是$\left(n,\frac{\varepsilon}{2}\right)-$生成集，考虑$B_n \left(x,\frac{\varepsilon}{2}\right)(x\in F)$.\par
+    $B_n \left(x,\frac{\varepsilon}{2}\right)=\left\{y\in X\left|d(x,y)<\frac{\varepsilon}{2},d(Tx,Ty)<\frac{\varepsilon}{2},\cdots,d \left(T^{n-1}x,T^{n-1}y\right)<\frac{\varepsilon}{2}\right.\right\}$\par
+    \begin{claim}{$\forall\, x\in F,\left|B_n \left(x,\dfrac{\varepsilon}{2}\right)\cap E\right|\leq 1$}
+        如果$y_1,y_2\in B_n \left(x,\frac{\varepsilon}{2}\right)\cap E$，那么$d(y_1,y_2)\leq d(y_1,x)+d(x,y_2)<\varepsilon,d(Ty_1,Ty_2)\leq d(Ty_1,Tx)+d(Tx,Ty_2)<\varepsilon,\cdots$.\par
+        与$E$是$(n,\varepsilon)-$分离集矛盾.
+    \end{claim}\par
+    又$F$是$(n,\varepsilon)-$生成集，$X=\bigcup_{x\in F}{B_n \left(x,\frac{\varepsilon}{2}\right)}$，因此$|F|\geq |E|,r_n \left(\frac{\varepsilon}{2}\right)\geq s_n(\varepsilon)$.
+\end{proof}
+可以引理可以帮助我们证明$h_1(T)=h_2(T)$.\par
+
+\begin{lemma}{}
+    设$\alpha$是$X$的开覆盖，$\delta$是$\alpha$的Lebesgue数，那么$N \left(\bigvee_{i=0}^{n-1}T^{-i}\alpha\right)\leq r_n \left(\frac{\varepsilon}{2}\right)$
+\end{lemma}
+\begin{proof}
+    设$F$是$\left(n,\frac{\delta}{2}\right)-$生成集，使得$|F|=r_n \left(\frac{\delta}{2}\right),X=\bigcup_{x\in F}B_n\left(x,\frac{\delta}{2}\right)$.\par
+    $\setjot[-2]\begin{aligned}[t]
+        B_n \left(x,\frac{\delta}{2}\right)&=\left\{y\in X\left|d(x,y)<\frac{\delta}{2},d(Tx,Ty)<\frac{\delta}{2},\cdots,d \left(T^{n-1}x,T^{n-1}y\right)<\frac{\delta}{2}\right.\right\} \\
+        &=B\left(x,\frac{\delta}{2}\right)\cap T^{-1}B\left(Tx,\frac{\delta}{2}\right)\cap\cdots\cap T^{-(n-1)}B\left(T^{n-1}x,\frac{\delta}{2}\right)
+    \end{aligned}$\par
+    则$\exists\, A_0,A_1,\cdots,A_n\in\alpha$，使得$B\left(x,\frac{\delta}{2}\right)\in A_0,B\left(Tx,\frac{\delta}{2}\right)\in A_1,\cdots,B\left(T^{n-1}x,\frac{\delta}{2}\right)\in A_{n-1}$.\par
+    故$B_n\left(x,\frac{\delta}{2}\right)\subseteq A_0\cap T^{-1}A_1\cap\cdots\cap T^{-(n-1)}A_{n-1}\in\bigvee_{i=0}^{n-1}T^{-i}\alpha$.\par
+    因此$\bigcup_{x\in F}B_n\left(x,\frac{\delta}{2}\right)$是$\bigvee_{i=0}^{n-1}T^{-i}\alpha$的一个子覆盖，故$N\left(\bigvee_{i=0}^{n-1}T^{-i}\alpha\right)\leq r_n \left(\frac{\delta}{2}\right)$.
+\end{proof}
+
+\begin{lemma}{}
+    设$\alpha$是$X$的开覆盖，满足$\mathrm{diam}\,\alpha<\varepsilon$，那么$s_n(\varepsilon)\leq N\left(\bigvee_{i=0}^{n-1}T^{-i}\alpha\right)$
+\end{lemma}
+\begin{proof}
+    设$\gamma\subseteq \bigvee_{i=0}^{n-1}T^{-i}\alpha$，使得$|\gamma|=N\left(\bigvee_{i=0}^{n-1}T^{-i}\alpha\right)$.\par
+    设$A_i\in\alpha,0\leq i\leq n-1$且$A_0\cap T^{-1}A_1\cap \cdots\cap T^{-(n-1)}A_{n-1}\in\gamma$.\par
+    那么对于任意$(n,\varepsilon)-$分离集$E$，$|A_0\cap T^{-1}A\cap\cdots\cap T^{-(n-1)A_{n-1}}|\leq 1$.\par
+    否则$\exists\, x,y\in A_0\cap T^{-1}A_1\cap\cdots\cap T^{-(n-1)}A_{n-1}\cap E$，由$\mathrm{diam}\, \alpha<\varepsilon$可知$d(x,y)<\varepsilon,\cdots,d(T^{-(n-1)}x,T^{-(n-1)}y)<\varepsilon$，矛盾.\par
+    因此$s_n(\varepsilon)\leq |E|\leq |\gamma|=N\left(\bigvee_{i=0}^{n-1}T^{-i}\alpha\right)$.
+\end{proof}
+
+最后，我们就可以证明定理\ref{thm:4.2}了.
+\begin{theorem*}
+    $h(T)=h_1(T)=h_2(T)$
+\end{theorem*}
+\begin{proof}
+    \begin{itemize}
+        \item $h_1(T)=h_2(T)$\par
+        $r_n(\varepsilon)\leq s_n(\varepsilon)\leq r_n\left(\frac{\varepsilon}{2}\right)$\par
+        令$n\to\infty,\varepsilon\to 0$可得$h_1(T)\leq h_2(T)\leq h_1(T)$，故$h_1(T)=h_2(T)$.\par
+        \item $h_1(T)\geq h(T)$\par
+        设$\alpha$是$X$的开覆盖，$\delta$为$\alpha$的Lebesgue数，则$N\left(\bigvee_{i=0}^{n-1}T^{-i}\alpha\right)\leq r_n\left(\frac{\delta}{2}\right)$\par
+        $\frac{1}{n}\ln{N\left(\bigvee_{i=0}^{n-1}T^{-i}\alpha\right)}\leq \frac{1}{n}\ln{r_n\left(\frac{\delta}{2}\right)}$\par
+        取上极限，$h(T,\alpha)=\limsup_{n\to\infty}\frac{1}{n}\ln{N\left(\bigvee_{i=0}^{n-1}T^{-i}\alpha\right)}\leq \limsup_{n\to\infty}\frac{1}{n}\ln{r_n\left(\frac{\delta}{2}\right)}$\par
+        再令$\delta\to 0$，则$h(T,\alpha)\leq h_1(T)$.对$\alpha$取上极限，则$h(T)\leq h_1(T)$.
+        \item $h(T)\geq h_2(T)$.\par
+        设$\alpha$是$X$的开覆盖，$\mathrm{diam}\,\alpha<\varepsilon$，那么$s_n(\varepsilon)\leq N\left(\bigvee_{i=0}^{n-1}T^{-i}\alpha\right)$.\par
+        取上极限可得$\limsup_{n\to\infty}{\frac{1}{n}\ln{s_n(\varepsilon)}}\leq \limsup_{n\to\infty}{\frac{1}{n}\ln{N\left(\bigvee_{i=0}^{n-1}T^{-i}\alpha\right)}}=h(T,\alpha)\leq h(T)$.\par
+        再令$\varepsilon\to 0$，则$h_2(T)\leq h(T)$.
+    \end{itemize}\par
+    综合以上三点可知$h(T)=h_1(T)=h_2(T)$.\par
+\end{proof}
+
+下面介绍拓扑熵的一些性质.\par
+
+\begin{theorem}{}
+    设$X$是紧致度量空间，$T:X\to X$连续映射，那么$\forall\, \ell\in\mb{N}$，$h(T^\ell)=\ell h(T)$
+\end{theorem}
+\begin{proof}
+    设$\alpha$是$X$的开覆盖，$h(T,\alpha)=\lim_{n\to\infty}{\frac{1}{n\ell}H\left(\bigvee_{i=0}^{\ell n-1}T^{-i}\alpha\right)}$.\par
+    令$\beta=\alpha\vee T^{-1}\alpha\vee\cdots\vee T^{-(\ell-1)}\alpha$，则$h(T,\alpha)=\lim_{n\to\infty}{\frac{1}{n\ell}H\left(\bigvee_{i=0}^{n-1}\left(T^{-\ell}\right)^i\beta\right)}=\frac{1}{\ell}h(T^\ell,\beta)$.\par
+    因此$h(T,\alpha)=\frac{1}{\ell}h(T^\ell,\beta)\leq\frac{1}{\ell}h(T^\ell)$.\par
+    对$\alpha$取上极限，$h(T)\leq \frac{1}{\ell}h(T^\ell)$.\par
+    另一方面，由于$\beta$是$\alpha$的加细，故$h(T)\geq h(T,\alpha)=\frac{1}{\ell}h(T^\ell,\beta)\geq\frac{1}{\ell}h(T^\ell,\alpha)$.\par
+    $\Rightarrow h(T)\geq\frac{1}{\ell}h(T^\ell)$.\par
+    因此$h(T^\ell)=\ell h(T)$.
+\end{proof}
+
+\begin{theorem}{}
+    设$(X_1,d_1),(X_2,d_2)$是紧致度量空间，$T_1:X_1\to X_1$，$T_2:X_2\to X_2$为连续映射，那么$h(T_1\times T_2)=h(T_1)+h(T_2)$.
+\end{theorem}
+\begin{proof}
+    设$X=X_1\times X_2,T=T_1\times T_2$，定义$X$上的度量$d:\forall\, p=(x_1,x_2),q=(y_1,y_2)\in X,d(p,q)=\max\{d_1(x_1,y_1),d_2(x_2,y_2)\}$，则$(X,d)$是紧致度量空间.\par
+    \begin{itemize}
+        \item $h(T)\leq h(T_1)+h(T_2)$\par
+        设$\varepsilon>0,n\in\mb{N}$，$F_1,F_2$分别是$X_1$和$X_2$的$(n,\varepsilon)-$生成集，设$F=F_1\times F_2$.
+        \begin{claim}{$F$是$X$的$(n,\varepsilon)-$生成集}
+            $\forall\, p\in X$，$p=(x_1,x_2)\in X_1\times X_2$.\par
+            则$\exists\, y_1\in F_1$，使得$d_1(x_1,y_1)<\varepsilon,d(T_1x_1,T_1y_1)<\varepsilon,\cdots$\par
+            $\exists\, y_2\in F_2$，使得$d_2(x_2,y_2)<\varepsilon,d(T_2x_2,T_2y_2)<\varepsilon,\cdots$\par
+            记$q=(y_1,y_2)\in F_1\times F_2$，则$d(p,q)<\varepsilon,d(Tp,Tq)<\varepsilon,\cdots,d(T^{n-1}p,T^{n-1}q)<\varepsilon$
+        \end{claim}\par
+        因此，取$F_1$和$F_2$使得$|F_1|=r_n(\varepsilon,T_1),|F_2|=r_n(\varepsilon,T_2)$，则$F_1\times F_2$是$(n,\varepsilon)-$生成集.\par
+        则$r_n(\varepsilon,T_1)\cdot r_n(\varepsilon,T_2)=|F_1|\times|F_2|=|F_1\times F_2|\geq r_n(\varepsilon,T_1\times T_2)$，即$h(T)\leq h(T_1)+h(T_2)$.
+        \item $h(T)\geq h(T_1)+h(T_2)$\par
+        设$E_1,E_2$是$X_1,X_2$的$(n,\varepsilon)-$分离集.\par
+        \begin{claim}{$E=E_1\times E_2$是$X_1\times X_2$的$(n,\varepsilon)-$分离集}
+            $\forall\, x,y\in E,x=(x_1,x_2),y=(y_1,y_2),x\neq y$.\par
+            不妨设$x_1\neq y_2$，则$\exists\, i\in\{0,1,2,\cdots,n-1\}$，使得$d_1(T^ix,T^iy)>\varepsilon$\par
+            $\Rightarrow d(T^ix,T^iy)>\varepsilon$.
+        \end{claim}\par
+        因此，取$E_1$和$E_2$使得$|E_1|=s_n(\varepsilon,T_1),|E_2|=s_n(\varepsilon,T_2)$，则$E_1\times E_2$是$(n,\varepsilon)-$分离集.\par
+        则$s_n(\varepsilon,T_1)\cdot s_n(\varepsilon,T_2)=|E_1|\times|E_2|=|E_1\times E_2|\leq s_n(\varepsilon,T_1\times T_2)$，即$h(T)\geq h(T_1)+h(T_2)$.
+    \end{itemize}  
+\end{proof}
+
+\section{拓扑熵的计算}
+
+下面我们的目标是寻找类似于测度熵中Kolmogorov-Sinai定理的工具来计算拓扑熵.\par
+\begin{definition}{可扩映射}
+    设$X$是一个紧致度量空间，$T:X\to X$同胚，如果存在$e>0$，使得$\forall\, x,y\in X(x\neq y)$，$\exists\, n\in\mb{Z}$，$d(T^nx,T^ny)>e$，那么称$T:X\to X$是一个\textbf{可扩映射}，$e$称为\textbf{可扩常数}.
+\end{definition}
+\begin{theorem}{}
+    设$X$是一个紧致度量空间，$T:X\to X$同胚，那么以下结论等价：
+    \begin{enumerate}[(1)]
+        \item $T$是可扩映射
+        \item 存在$e>0$，使得$\forall\, x,y\in X,d\left(T^nx,T^ny\right)<\varepsilon(\forall\, n\in\mb{Z})\Rightarrow x=y$
+        \item $T$有一个生成子覆盖，即$\alpha$是一个有限开覆盖，满足$\forall\, A_i\in\alpha(-\infty<i<+\infty)$，有$\left|\bigcap_{i=-\infty}^\infty{T^{-i}\overline{A_i}}\right|\leq 1$
+        \item $T$有一个弱生成子覆盖，即$\alpha$是一个有限开覆盖，满足$\forall\, A_i\in\alpha(-\infty<i<+\infty)$，有$\left|\bigcap_{i=-\infty}^\infty{T^{-i}{A_i}}\right|\leq 1$
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    $(1)\Leftrightarrow (2)$：定义可得 \par
+    $(3)\Rightarrow (4)$：定义可得 \par
+    $(4)\Rightarrow (3)$：如果$T$有一个弱生成子覆盖$\alpha$，设$\delta$是$\alpha$的Lebesgue数，取$X$的一个有限子覆盖$\beta$，使得$\mathrm{diam}\,\beta<\frac{\delta}{2}$.\par
+    \begin{claim}{$\beta$是$X$的一个生成子覆盖}
+        设$B_i\in\beta(-\infty<i<+\infty)$，考虑$\bigcap_{i=-\infty}^{+\infty}{T^{-i}\overline{B_i}}$.\par
+        如果$x,y\in\bigcap_{i=-\infty}^{+\infty}T^{-i}\overline{B_i}$，那么$T^ix,T^iy\in\overline{B_i}$.\par
+        由于$\mathrm{diam}\,\overline{B_i}\leq\frac{\delta}{2}<\delta\Rightarrow \exists\, A_i\in\alpha,\overline{B_i}\subseteq A_i$.\par
+        则$x,y\in\bigcap_{i=-\infty}^{+\infty}{T^{-i}A_i}$，则$x=y$，从而$\left|\bigcap_{i=-\infty}^{+\infty}{T^{-i}\overline{B_i}}\right|\leq 1$.
+    \end{claim}\par
+    $(1)\Rightarrow (3)$：假设$T$是可扩映射，$e$是$T$的可扩常数，设$\alpha$是$X$的一个有限开覆盖，$\mathrm{diam}\,\alpha<\frac{e}{2}$.\par
+    则$\forall\, A_i\in\alpha$，$x,y\in\bigcap_{i=-\infty}^{+\infty}{T^{-i}\overline{A_i}}\Rightarrow T^ix,T^iy\in\overline{A_i}\Rightarrow d\left(T^ix,T^iy\right)\leq\frac{e}{2}(\forall\, i\in\mb{Z})$\par
+    $\Rightarrow x=y$，从而$\left|\bigcap_{i=-\infty}^\infty{T^{-i}\overline{A_i}}\right|\leq 1$.
+\end{proof}
 
 
 
