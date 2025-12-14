@@ -624,8 +624,368 @@ $\forall \alpha \in \pi_1(X,x_0)$，则$w^{-1}\alpha w \in \pi_1(X,x_1)$.
 \end{remark}
 
 \begin{definition}{单连通}
-    设$X$是道路连通的. 如果$\pi_1(X,x_0)=\{1\}$，则称$X$是\textbf{单连通的}(simply connected).
+    设$X$是道路连通的. 如果$\pi_1(X,x_0)=\{1\}$，则称$X$是\textbf{单连通的}.
 \end{definition}
+
+\section{覆盖空间}
+
+\begin{definition}{覆盖空间}
+    设$E,B$是道路连通、局部道路连通的空间. $p:E\to B$称为\textbf{覆盖映射}(或\textbf{覆盖空间})，如果$\forall b\in B$，存在一个道路连通邻域$U$，使得$p^{-1}(U)$是$E$中一族不相交开集$\widetilde{U}_i$的并，且$p|_{\widetilde{U}_i}:\widetilde{U}_i\to U$是同胚.
+\end{definition}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{example-image}
+    \caption{覆盖空间示意图}
+\end{figure}
+
+这样的$U$称为\textbf{均匀覆盖的}(evenly covered).
+
+\begin{instance}
+    $p:\mathbb{E}^1\to S^1, t\mapsto e^{i2\pi t}$.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{example-image}
+        \caption{$\mathbb{E}^1\to S^1$}
+    \end{figure}
+\end{instance}
+
+\begin{instance}
+    $p_n:S^1\to S^1, z\mapsto z^n (n\neq 0)$.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{example-image}
+        \caption{$S^1\to S^1$}
+    \end{figure}
+\end{instance}
+
+\begin{instance}
+    $p:\mathbb{E}^2\to T^2, (x,y)\mapsto (e^{i2\pi x}, e^{i2\pi y})$.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{example-image}
+        \caption{$\mathbb{E}^2\to T^2$}
+    \end{figure}
+\end{instance}
+
+\begin{instance}
+    $p_n:T^2\to T^2, (z,w)\mapsto (z^n, w) (n\neq 0)$.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{example-image}
+        \caption{$T^2\to T^2$}
+    \end{figure}
+\end{instance}
+
+\begin{instance}
+    图的覆盖.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{example-image}
+        \caption{图的覆盖}
+    \end{figure}
+\end{instance}
+
+\begin{instance}
+    曲面的覆盖.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{example-image}
+        \caption{曲面的覆盖}
+    \end{figure}
+\end{instance}
+
+\section{提升}
+
+\begin{definition}{提升}
+    给定覆盖映射$p:E\to B$，以及映射$f:X\to B$. 映射$\widetilde{f}:X\to E$称为$f$的\textbf{提升}，如果$p\circ \widetilde{f}=f$.
+\end{definition}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{example-image}
+    \caption{提升示意图}
+\end{figure}
+
+\begin{instance}
+    设$p:E\to B$是覆盖空间，$X$是道路连通的. $f:X\to B$是\textbf{常值映射} $x\mapsto b_0$.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{example-image}
+        \caption{常值映射的提升}
+    \end{figure}
+    提升$\widetilde{f}:X\to E, x\mapsto e_0\in p^{-1}(b_0)$是常值的.
+\end{instance}
+
+\begin{remark}
+    $p^{-1}(b_0)=\{e_1, e_2, e_3, \dots\}$是孤立点集.
+\end{remark}
+
+\begin{instance}
+    $p:\mathbb{E}^1\to S^1, t\mapsto e^{i2\pi t}$.
+    $f:[0,1]\to S^1, s\mapsto e^{i2\pi s}$.
+    $\widetilde{f}_z:[0,1]\to \mathbb{E}^1, s\mapsto z+s, z\in \mathbb{Z}$是$f$的提升.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{example-image}
+        \caption{圆周路径的提升1}
+    \end{figure}
+    $g:[0,1]\to S^1, s\mapsto e^{i4\pi s}$.
+    $\widetilde{g}_z:[0,1]\to \mathbb{E}^1, s\mapsto z+2s, z\in \mathbb{Z}$是$g$的提升.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{example-image}
+        \caption{圆周路径的提升2}
+    \end{figure}
+\end{instance}
+
+\begin{theorem}[唯一提升定理]
+    设$p:E\to B$是覆盖空间，$X$是连通的，$f:X\to B$是映射.
+    $\widetilde{f}_1, \widetilde{f}_2:X\to E$是$f$的提升，且$\widetilde{f}_1(x_0)=\widetilde{f}_2(x_0)$，对于$x_0\in X$.
+    则$\forall x\in X, \widetilde{f}_1(x)=\widetilde{f}_2(x)$.
+\end{theorem}
+
+\begin{proof}
+    令$A_1=\{x\in X\mid \widetilde{f}_1(x)=\widetilde{f}_2(x)\}, A_2=\{x\in X\mid \widetilde{f}_1(x)\neq \widetilde{f}_2(x)\}$.
+    $A_1\cap A_2=\varnothing, A_1\cup A_2=X$. 因为$x_0\in A_1$，所以$A_1\neq \varnothing$.
+    只需证明$A_1$和$A_2$都是开集.
+    
+    (i) $A_1$是开集. $\forall x\in A_1, \widetilde{f}_1(x)=\widetilde{f}_2(x)$.
+    $p\circ \widetilde{f}_1(x)=p\circ \widetilde{f}_2(x)=f(x)$. 设$U$是$f(x)$在$B$中的均匀覆盖邻域，$\widetilde{U}$是$p^{-1}(U)$中包含$\widetilde{f}_1(x)=\widetilde{f}_2(x)$的分支.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{example-image}
+        \caption{唯一提升定理证明示意图1}
+    \end{figure}
+    令$W=\widetilde{f}_1^{-1}(\widetilde{U})\cap \widetilde{f}_2^{-1}(\widetilde{U})$，则$x\in W$，且$W$是$x$的邻域.
+    $\forall x_1\in W, \widetilde{f}_1(x_1)\in \widetilde{U}, \widetilde{f}_2(x_1)\in \widetilde{U}$.
+    $p(\widetilde{f}_1(x_1))=p(\widetilde{f}_2(x_1))=f(x_1)$.
+    因为$p|_{\widetilde{U}}:\widetilde{U}\to U$是同胚，所以$\widetilde{f}_1(x_1)=\widetilde{f}_2(x_1)$.
+    所以$W\subset A_1$. 故$A_1$是开集.
+    
+    (ii) $A_2$是开集.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{example-image}
+        \caption{唯一提升定理证明示意图2}
+    \end{figure}
+    $W=\widetilde{f}_1^{-1}(\widetilde{U}_1)\cap \widetilde{f}_2^{-1}(\widetilde{U}_2), x\in W\subset A_2$.
+    所以$A_2$是开集.
+    因为$X$是连通的，所以$A_1=X, A_2=\varnothing$.
+\end{proof}
+
+\begin{theorem}[道路提升定理]
+    设$p:E\to B$是覆盖空间，$a:[0,1]\to B$是$B$中的道路.
+    $a(0)=b_0, e_0\in p^{-1}(b_0)$. 则存在提升$\widetilde{a}:[0,1]\to E$使得$\widetilde{a}(0)=e_0$.
+\end{theorem}
+
+\begin{proof}
+    $\forall b\in B$，存在$b$的均匀覆盖邻域$U_b$. 这里$U_b$是道路连通的.
+    $\{U_b\mid b\in B\}$是$B$的一个开覆盖.
+    由Lebesgue引理，存在$n\in \mathbb{Z}^+$，使得$a([\frac{i}{n}, \frac{i+1}{n}])$包含在某个$U_b$中，对于每个$i=0,1,\dots,n-1$.
+    假设$a([0,\frac{1}{n}])\subset U_{b_1}$.
+    令 $\widetilde{U}_{b_1}$ 为 $p^{-1}(U_{b_1})$ 中包含 $e_0$ 的分支，则 $p|_{\widetilde{U}_{b_1}}: \widetilde{U}_{b_1} \to U_{b_1}$ 是同胚.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{example-image}
+        \caption{道路提升定理证明示意图1}
+    \end{figure}
+    令 $\widetilde{a}_1: [0, \frac{1}{n}] \to E$ 为 $\widetilde{a}_1 = (p|_{\widetilde{U}_{b_1}})^{-1} \circ a|_{[0, \frac{1}{n}]}$.
+    则 $\widetilde{a}_1(0) = e_0$，且 $p \circ \widetilde{a}_1 = a|_{[0, \frac{1}{n}]}$.
+    假设 $a([\frac{1}{n}, \frac{2}{n}]) \subset U_{b_2}$.令 $\widetilde{U}_{b_2}$ 为 $p^{-1}(U_{b_2})$ 中包含 $\widetilde{a}_1(\frac{1}{n})$ 的分支.
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{example-image}
+        \caption{道路提升定理证明示意图2}
+    \end{figure}
+    令 $\widetilde{a}_2 = (p|_{\widetilde{U}_{b_2}})^{-1} \circ a|_{[\frac{1}{n}, \frac{2}{n}]}$，则 $\widetilde{a}_2(\frac{1}{n}) = \widetilde{a}_1(\frac{1}{n})$，$p \circ \widetilde{a}_2 = a|_{[\frac{1}{n}, \frac{2}{n}]}$.
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{example-image}
+        \caption{道路提升定理证明示意图3}
+    \end{figure}
+    ……
+    存在 $\widetilde{a}_n: [\frac{n-1}{n}, 1] \to E$，使得 $\widetilde{a}_n(\frac{n-1}{n}) = \widetilde{a}_{n-1}(\frac{n-1}{n})$ 且 $p \circ \widetilde{a}_n = a|_{[\frac{n-1}{n}, 1]}$.
+    由粘合引理，$\widetilde{a}_1, \widetilde{a}_2, \dots, \widetilde{a}_n$ 构成一个连续映射 $\widetilde{a}: [0, 1] \to E$，使得 $\widetilde{a}(0) = \widetilde{a}_1(0) = e_0$ 且 $p \circ \widetilde{a} = a$.
+\end{proof}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{example-image}
+    \caption{道路提升定理示意图}
+\end{figure}
+
+\begin{theorem}[同伦提升定理]
+    设 $p: E \to B$ 是覆盖空间，$H: [0, 1] \times [0, 1] \to B$.
+    $a = H|_{[0, 1] \times \{0\}}$ 有提升 $\widetilde{a} = \widetilde{H}_0: [0, 1] \to E$.
+    则 $H$ 有提升 $\widetilde{H}: [0, 1] \times [0, 1] \to E$，使得 $\widetilde{H}|_{[0, 1] \times \{0\}} = \widetilde{H}_0 = \widetilde{a}$.
+\end{theorem}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{example-image}
+    \caption{同伦提升定理示意图}
+\end{figure}
+即 $H = p \circ \widetilde{H}$，$\widetilde{a} = \widetilde{H} \circ j$.
+
+\begin{proof}
+    $\forall b \in B$，存在 $b$ 的均匀覆盖邻域 $U_b$.这里 $U_b$ 是道路连通的.
+    $\{U_b \mid b \in B\}$ 是 $B$ 的一个开覆盖.
+    由 Lebesgue 引理，存在 $n \in \mathbb{Z}^+$，使得 $H([\frac{i-1}{n}, \frac{i}{n}] \times [\frac{j-1}{n}, \frac{j}{n}])$ 包含在某个 $U_b$ 中.
+    假设 $H([0, \frac{1}{n}] \times [0, \frac{1}{n}]) \subset U_{b_1}$.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{example-image}
+        \caption{同伦提升定理证明示意图1}
+    \end{figure}
+    选择 $\widetilde{U}_{b_1}$ 为 $p^{-1}(U_{b_1})$ 中包含 $\widetilde{H}_0(0) = \widetilde{a}(0)$ 的分支.
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{example-image}
+        \caption{同伦提升定理证明示意图2}
+    \end{figure}
+    令 $\widetilde{H}_{1,1} = (p|_{\widetilde{U}_{b_1}})^{-1} \circ H|_{[0, \frac{1}{n}]^2}$，则 $p \circ \widetilde{H}_{1,1} = H|_{[0, \frac{1}{n}]^2}$ 且 $\widetilde{H}_{1,1}(0,0) = \widetilde{H}_0(0) = \widetilde{a}(0)$.
+    由唯一提升定理，$\forall s \in [0, \frac{1}{n}]$，$\widetilde{H}_{1,1}(s, 0) = \widetilde{a}(s)$.
+    假设 $H([\frac{1}{n}, \frac{2}{n}] \times [0, \frac{1}{n}]) \subset U_{b_2} \dots \dots$
+\end{proof}
+
+\begin{corollary}
+    设 $H: [0, 1] \times [0, 1] \to B$ 实现了 $a \simeq_p b$.
+    $\widetilde{a}, \widetilde{b}$ 是 $a, b$ 的提升，$\widetilde{a}(0) = \widetilde{b}(0)$.
+    则存在 $\widetilde{H}: [0, 1] \times [0, 1] \to E$ 实现了 $\widetilde{a} \simeq_p \widetilde{b}$.
+\end{corollary}
+
+\begin{proof}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{example-image}
+        \caption{推论证明示意图}
+    \end{figure}
+    由同伦提升定理，存在同伦 $\widetilde{H}: [0, 1] \times [0, 1] \to E$ 使得 $\widetilde{H}|_{[0, 1] \times \{0\}} = \widetilde{a}$ 且 $p \circ \widetilde{H} = H$.
+    
+    $\widetilde{H}|_{\{0\} \times [0, 1]}$ 是 $H|_{\{0\} \times [0, 1]}$ 的提升，后者是常值映射.常值映射的提升是常值映射.所以 $\widetilde{H}|_{\{0\} \times [0, 1]}$ 是常值映射.
+    $\widetilde{H}|_{[0, 1] \times \{1\}}$ 是 $b$ 的提升.因为 $\widetilde{H}(0, 1) = \widetilde{b}(0)$，由唯一提升定理，$\widetilde{H}|_{[0, 1] \times \{1\}} = \widetilde{b}$.
+    $\widetilde{H}|_{\{1\} \times [0, 1]}$ 是 $H|_{\{1\} \times [0, 1]}$ 的提升，后者是常值映射.所以 $\widetilde{H}|_{\{1\} \times [0, 1]}$ 是常值映射.特别地 $\widetilde{a}(1) = \widetilde{b}(1)$.
+    因此 $\widetilde{H}$ 实现了 $\widetilde{a} \simeq_p \widetilde{b}$.
+\end{proof}
+
+\begin{proposition}
+    设 $p: E \to B$ 是覆盖映射.
+    $\forall b_0, b_1 \in B$，存在 $p^{-1}(b_0)$ 和 $p^{-1}(b_1)$ 之间的一一对应.
+\end{proposition}
+
+\begin{proof}
+    因为 $B$ 是道路连通的，存在道路 $a: [0, 1] \to B$，使得 $a(0) = b_0, a(1) = b_1$.
+    $\forall e \in p^{-1}(b_0)$.由道路提升定理，存在提升 $\widetilde{a}_e: [0, 1] \to E$，使得 $\widetilde{a}_e(0) = e$.则 $\widetilde{a}_e(1) \in p^{-1}(b_1)$.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{example-image}
+        \caption{命题证明示意图}
+    \end{figure}
+    定义 $\Phi: p^{-1}(b_0) \to p^{-1}(b_1)$，为 $e \mapsto \widetilde{a}_e(1)$.
+    
+    (i) $\Phi$ 是单射.
+    假设 $\Phi(e_1) = \Phi(e_2) \in p^{-1}(b_1)$.
+    则 $\widetilde{a}_{e_1}(1) = \widetilde{a}_{e_2}(1)$，其中 $\widetilde{a}_{e_1}$ 和 $\widetilde{a}_{e_2}$ 是 $a$ 的提升.
+    由唯一提升定理，$\forall t \in [0, 1]$，$\widetilde{a}_{e_1}(t) = \widetilde{a}_{e_2}(t)$，且 $e_1 = \widetilde{a}_{e_1}(0) = \widetilde{a}_{e_2}(0) = e_2$.
+    
+    (ii) $\Phi$ 是满射.
+    $\forall e' \in p^{-1}(b_1)$，存在提升 $\widetilde{\gamma}: [0, 1] \to E$ 使得 $\widetilde{\gamma}(0) = e'$ 且 $p \circ \widetilde{\gamma} = \bar{a}$.
+    则 $\widetilde{\gamma}$ 是 $\bar{a}$ 的提升，且 $\Phi(\widetilde{\gamma}(1)) = \widetilde{\gamma}(0) = e'$.
+\end{proof}
+
+\begin{definition}
+    如果 $\# p^{-1}(b_0) = n, b_0 \in B, n \in \mathbb{Z}^+ \cup \{\infty\}$，则称 $p: E \to B$ 为 \textbf{$n$-叶覆盖映射} ($n$-sheeted covering map).
+\end{definition}
+
+\begin{instance}
+    $p: S^k \to \mathbb{R}P^k$ 是一个 $2$-叶覆盖.
+\end{instance}
+
+\begin{proposition}
+    设 $p: E \to B$ 是覆盖映射. 则 $p_*: \pi_1(E, e_0) \to \pi_1(B, b_0)$ 是单射，其中 $e_0 \in p^{-1}(b_0)$.
+\end{proposition}
+
+\begin{proof}
+    假设 $[a] \in \pi_1(E, e_0)$ 且 $[p \circ a] = p_*([a]) = 1 \in \pi_1(B, b_0)$. 则 $p \circ a \simeq c_{b_0}$.
+    记此道路同伦为 $H$.
+    $H|_{[0, 1] \times \{0\}} = p \circ a, H|_{[0, 1] \times \{1\}} = c_{b_0}$.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{example-image}
+        \caption{单射证明示意图1}
+    \end{figure}
+    $H|_{[0, 1] \times \{0\}}$ 有一个提升 $a: [0, 1] \to E$. 由同伦提升定理，$H$ 有一个提升 $\widetilde{H}: [0, 1] \times [0, 1] \to E$，使得 $\widetilde{H}|_{[0, 1] \times \{0\}} = a$.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{example-image}
+        \caption{单射证明示意图2}
+    \end{figure}
+    所以 $\widetilde{H}: a \simeq c_{e_0}$，即 $[a] = 1 \in \pi_1(E, e_0)$.
+\end{proof}
+
+\begin{proposition}
+    在 $p_* \pi_1(E, e_0)$ 在 $\pi_1(B, b_0)$ 中的右陪集与纤维 $p^{-1}(b_0)$ 之间存在一一对应，其中 $p(e_0) = b_0$.
+    特别地，$[\pi_1(B, b_0) : p_* \pi_1(E, e_0)] = \# p^{-1}(b_0)$.
+\end{proposition}
+
+\begin{note}
+    $H < G, g_1, g_2 \in G, g_1 \sim g_2 \iff g_1 g_2^{-1} \in H \iff g_1$ 和 $g_2$ 属于 $H$ 的同一个右陪集.
+    $Hg_1 = Hg_2 \iff g_1 g_2^{-1} \in H$.
+\end{note}
+
+\begin{proof}
+    $\forall [a] \in \pi_1(B, b_0)$. 由道路提升定理，存在提升 $\widetilde{a}: [0, 1] \to E$，使得 $\widetilde{a}(0) = e_0 \in p^{-1}(b_0)$ 且 $\widetilde{a}(1) \in p^{-1}(b_0)$.
+    定义 $\Phi: \pi_1(B, b_0) \to p^{-1}(b_0)$，$[a] \mapsto \widetilde{a}(1)$.
+    
+    (1) $[a] = [a'] \implies \widetilde{a}(1) = \widetilde{a}'(1)$，即 $\Phi$ 是良定义的.
+    由同伦提升定理.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{example-image}
+        \caption{良定义证明示意图}
+    \end{figure}
+    
+    (2) $\Phi$ 是满射.
+    $\forall e' \in p^{-1}(b_0)$. 选择一条道路 $\gamma: [0, 1] \to E$，从 $e_0$ 到 $e'$.
+    $p \circ \gamma: [0, 1] \to B$ 是 $B$ 中以 $b_0$ 为基点的回路.
+    因此 $\Phi([p \circ \gamma]) = e'$.
+    
+    (3) $\Phi([a]) = \Phi([b]) \iff [a] \cdot [b]^{-1} \in p_* \pi_1(E, e_0)$.
+    $\iff p_* \pi_1(E, e_0) \cdot [a] = p_* \pi_1(E, e_0) \cdot [b]$.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{example-image}
+        \caption{一一对应证明示意图1}
+    \end{figure}
+    ``$\implies$'': $\widetilde{a} \cdot \overline{\widetilde{b}}$ 是 $E$ 中以 $e_0$ 为基点的回路.
+    所以 $p \circ (\widetilde{a} \cdot \overline{\widetilde{b}}) = a \cdot \bar{b}$. 所以 $[a] \cdot [b]^{-1} = p_*([\widetilde{a} \cdot \overline{\widetilde{b}}]) \in p_* \pi_1(E, e_0)$.
+    
+    ``$\Longleftarrow$'': $[a] \cdot [b]^{-1} = [c] \in p_* \pi_1(E, e_0)$.
+    存在 $E$ 中以 $e_0$ 为基点的回路 $\widetilde{c}$，
+    $[a] = [c] \cdot [b] \implies a \simeq c \cdot b$.
+    由同伦提升定理，
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{example-image}
+        \caption{一一对应证明示意图2}
+    \end{figure}
+    $\widetilde{a} \simeq \widetilde{c \cdot b}$.
+    $\widetilde{a}(1) = (\widetilde{c \cdot b})(1) = \widetilde{b}(1)$.
+    即 $\Phi([a]) = \Phi([b])$.
+\end{proof}
+
+\begin{definition}
+    如果 $p_* \pi_1(E, e_0)$ 是 $\pi_1(B, b_0)$ 的正规子群，则称 $p: E \to B$ 为 \textbf{正则覆盖映射} (regular covering map) (或 normal, Galois).
+\end{definition}
+
+\begin{definition}
+    如果 $\pi_1(E, e_0)$ 是平凡的，即 $E$ 是单连通的，则称 $p: E \to B$ 为 \textbf{万有覆盖映射} (universal covering map).
+\end{definition}
+
 
 
 

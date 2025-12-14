@@ -60,3 +60,5 @@
 \contentsline {section}{\numberline {10.4}基本群}{70}{section.10.4}%
 \contentsline {section}{\numberline {10.5}诱导同态}{72}{section.10.5}%
 \contentsline {section}{\numberline {10.6}基点的移动}{73}{section.10.6}%
+\contentsline {section}{\numberline {10.7}覆盖空间}{76}{section.10.7}%
+\contentsline {section}{\numberline {10.8}提升}{79}{section.10.8}%
