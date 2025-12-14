@@ -67,7 +67,8 @@
 \newcommand{\wideline}{\setlength{\lineskip}{\baselineskip-\ccwd}\setlength{\lineskiplimit}{2.5pt}}
 %蓝色加粗
 \definecolor{titleblue}{HTML}{3498DB}
-\newcommand{\bluebf}[1]{\textcolor{structurecolor}{\textbf{#1}}}
+\newcommand{\allbf}[1]{\bfseries\boldmath{#1}}
+\newcommand{\bluebf}[1]{\textcolor{structurecolor}{\allbf{#1}}}
 
 
 %向量
@@ -117,6 +118,9 @@
 \newcommand{\setjot}[1][0]{\setlength{\jot}{#1 pt}}
 \newcommand{\mcal}[1]{\mathcal{#1}}
 \newcommand{\mbb}[1]{\mathbb{#1}}
+%定端同伦符号
+\usepackage{accents}
+\newcommand{\simeqdot}{\mathrel{\mathrm{\underaccent{\dot}{\mathord{\simeq}}}}}
 
 \DeclareMathOperator{\st}{\,\text{s.t.}}
 \DeclareMathOperator{\aew}{\,\text{a.e.}}
@@ -172,6 +176,7 @@
 
 \title{基础拓扑学笔记}
 \date{}
+\cover{frontpage.png}
 \maketitle
 \setcounter{page}{1}
 
