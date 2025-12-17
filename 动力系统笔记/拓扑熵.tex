@@ -273,8 +273,86 @@ X_2 \arrow[rr, "T_2"']                    &  & X_2
     \end{claim}\par
     $(1)\Rightarrow (3)$：假设$T$是可扩映射，$e$是$T$的可扩常数，设$\alpha$是$X$的一个有限开覆盖，$\mathrm{diam}\,\alpha<\frac{e}{2}$.\par
     则$\forall\, A_i\in\alpha$，$x,y\in\bigcap_{i=-\infty}^{+\infty}{T^{-i}\overline{A_i}}\Rightarrow T^ix,T^iy\in\overline{A_i}\Rightarrow d\left(T^ix,T^iy\right)\leq\frac{e}{2}(\forall\, i\in\mb{Z})$\par
-    $\Rightarrow x=y$，从而$\left|\bigcap_{i=-\infty}^\infty{T^{-i}\overline{A_i}}\right|\leq 1$.
+    $\Rightarrow x=y$，从而$\left|\bigcap_{i=-\infty}^\infty{T^{-i}\overline{A_i}}\right|\leq 1$.\par
+    $(3)\Rightarrow (1)$：设$\alpha$是$T$的生成子覆盖，即有限开覆盖满足$\forall\,\{A_i\}_{i\in\mb{Z}}(A_i\in\alpha),\left|\bigcap_{i=-\infty}^{+\infty}{T^{-i}}\overline{A}\right|\leq 1$.\par
+    记$\delta$为$\alpha$的Lebesgue数，现证$\frac{\delta}{3}$是$T$的可扩常数.\par
+    $\forall\,x,y\in X(x\neq y)$，如果$\forall\, n\in\mb{Z}$，$d\left(T^nx,T^ny\right)\leq\frac{\delta}{3}$，那么$\exists\, B_n\in\alpha(n\in\mb{Z})$，使得$T^nx,T^ny\in B_n$.\par
+    $\Rightarrow x,y\in\bigcap_{n=-\infty}^{+\infty}{T^{-n}B_n}$.由$\alpha$是生成子覆盖可知$\left|\bigcap_{n=-\infty}^{+\infty}B_n\right|\leq 1$.\par
+    因此$x=y$，矛盾!故$T$是可扩映射，$\frac{\delta}{3}$为可扩常数.
 \end{proof}
+
+\begin{lemma}{}
+    设$(X,d)$是紧致度量空间，$T:X\to X$同胚，设$\alpha$是$T$的一个生成子覆盖，那么$\forall\,\varepsilon>0$，$\exists\, N\in\mb{N}$，使得$\mathrm{diam}\left(\bigvee_{i=-N}^NT^{-i}\alpha\right)<\varepsilon$.
+\end{lemma}
+\begin{proof}
+    设$\varepsilon_0>0$，使得$\forall\, N\in\mb{N}$，$\mathrm{diam}\left(\bigvee_{i=-N}^N{T^{-1}\alpha}\right)\geq\varepsilon_0$.\par
+    那么$\forall\, j\in\mb{N}$，$\exists\,A^j_i\in\alpha(-j\leq i\leq j)$，使得$\mathrm{diam}\left(\bigcap_{i=-j}^{j}T^{-i}A_i^j\right)\geq\varepsilon_0$
+    任取其中两点$x_j,y_j$使得$d(x_j,y_j)\geq\frac{\varepsilon_0}{2}$\par
+    则可得到$\{x_j\}_{j\in\mb{N}}$和$\{y_j\}_{j\in\mb{N}}$两个序列，由$X$的紧致性可知其有收敛子列，不妨仍记作$\{x_j\},\{y_j\}$\par
+    记$x_0=\lim_{j\to\infty}{x_j},y_0=\lim_{j\to\infty}{y_j}$，有$d(x_0,y_0)\geq\frac{\varepsilon_0}{2}$.\par
+    $x_j,y_j\in\bigcap_{i=-j}^jT^{-i}A^j_i$，取$i=0$，则$x_j,y_j\in A_0^j$.\par
+    由于$\alpha$是有限开覆盖，$A_0^j$的选择只有有限多种.\par
+    因此$\exists\, A_0\in\alpha$和$\{x_j\},\{y_j\}$的子列$\left\{x_{n_j}\right\},\left\{y_{n_j}\right\}$使得$x_{n_j},y_{n_j}\in A_0\Rightarrow x_0,y_0\in\overline{A}$.\par
+    对于其他位置，固定$i$，则$x_j,y_j\in T^{-i}A_i^j$，同理可得$x_0,y_0\in T^{-i}\overline{A}$.\par
+    故$x_0,y_0\in\bigcap_{j=-\infty}^{+\infty}T^{-i}\overline{A}$，由于$\alpha$是生成子覆盖，因此$x_0=y_0$，与$d(x_0,y_0)\geq\frac{\varepsilon_0}{2}$矛盾.
+\end{proof}
+
+下面就可以正式证明使用生成子覆盖计算拓扑熵的定理了.
+\begin{theorem}{}
+    设$(X,d)$是紧致度量空间，$T:X\to X$同胚，如果$\alpha$是$T$的一个生成子覆盖，那么$h(T)=h(T,\alpha)$.
+\end{theorem}
+\begin{proof}
+    对于$X$的任意开覆盖$\beta$，需证$h(T,\beta)\leq h(T,\alpha)$.\par
+    设$\delta$为$\beta$的Lebesgue数，则$\exists\, N\in\mb{N}$，使得$\mathrm{diam}\left(\bigvee_{i=-N}^NT^{-i}\alpha\right)<\delta$.\par
+    由Lebesgue数定义可知$\bigvee_{i=-N}^NT^{-i}\alpha\geq\beta$.\par
+    $\setjot[-2]\begin{aligned}[t]
+        h(T,\beta) &\leq h\left(T,\bigvee_{i=-N}^NT^{-i}\alpha\right)=\lim_{n\to\infty}{\frac{1}{n}H\left(\bigvee_{j=0}^{n-1}T^{-j}\left(\bigvee_{i=-N}^NT^{-i}\alpha\right)\right)} \\
+        &=\lim_{n\to\infty}{\frac{1}{n}H\left(\bigvee_{i=-N}^{N+n-1}T^{-i}\alpha\right)}=\lim_{n\to\infty}{\frac{1}{n}H\left(\bigvee_{i=0}^{2N+n-1}T^{-i}\alpha\right)}\\
+        &=\lim_{m\to\infty}{\frac{1}{m-2N}H\left(\bigvee_{i=0}^{m-1}T^{-i}\alpha\right)} \\
+        & =\lim_{m\to\infty}{\frac{1}{m}H\left(\bigvee_{i=0}^{m-1}T^{-i}\alpha\right)}=h(T,\alpha)   
+    \end{aligned}$
+\end{proof}
+
+\begin{instance}
+    设$X=\prod_{i=-\infty}^\infty{X_i},X_i=\{1,2,\cdots,k\}(\forall\,i\in\mb{Z})$.\par
+    $T:X\to X$是左平移映射，其为紧致度量空间上的同胚，求其拓扑熵.\par
+    \begin{itemize}
+        \item $T$是可扩映射.\par
+        $\forall\, x=(\cdots,x_{-1},x_0,x_1,\cdots),y=(\cdots,y_{-1},y_0,y_1,\cdots)$，$d(x,y)=\sum_{i=-\infty}^\infty{\frac{|x_i-y_i|}{k^{|i|}}}$.\par
+        如果$x\neq y$，那么$\exists\, i_0\in\mb{Z}$使得$x_{i_0}\neq y{i_0}$.\par
+        则$T^{-i_0}x$和$T^{-i_0}y$在第$0$个位置相同，因此$d\left(T^{i_0}x,T^{i_0}y\right)\geq 1>\frac{1}{2}$，因此$\frac{1}{2}$是一个可扩常数.
+        \item 设$A_i=\left\{(\cdots,x_{-1},x_0,x_1,\cdots)\right|x_0=i\}(1\leq i\leq k)$，则$\alpha=\left\{A_1,A_2,\cdots,A_k\right\}$是$X$的一个开覆盖.\par
+        \begin{enumerate}[(1)]
+            \item $\forall\, i\in\{1,2,\cdots,k\}$，$A_i$为闭集(如果$\{y_j\}\subseteq A_i$，$y_j$收敛于$y_0$，那么$y_0\in A_i$)
+            \item $A_1\cup A_2\cup\cdots\cup A_k=X,A_i\cap A_j=\varnothing(i\neq j)$
+            \item 由$(1)(2)$可知$A_i$是开集
+        \end{enumerate}
+        现证$\alpha$是$T$的一个生成子覆盖.\par
+        取$A_i\in\alpha(\forall\, i\in\mb{Z})$，$\bigcap_{i=-\infty}^\infty T^{-i}\overline{A_{n_i}}\xlongequal{\text{闭集}}\bigcap_{i=-\infty}^\infty T^{-i}A_{n_i}=\left\{(\cdots,n_{-1},n_0,n_1,\cdots,n_i,\cdots)\right\}$\par
+    \end{itemize}
+    $h(T,\alpha)=\lim_{n\to\infty}\frac{1}{n}H\left(\bigvee_{i=0}^{n-1}T^{-i}\alpha\right)=\lim_{n\to\infty}{\frac{1}{n}\ln{N\left(\bigvee_{i=0}^{n-1}T^{-i}\alpha\right)}}$\par
+        其中$\bigvee_{i=0}^{n-1}T^{-i}\alpha=\left\{A_{i_0}\cap T^{-1}A_{i_1}\cap\cdots\cap T^{-(n-1)}A_{i_{n-1}}\Big|1\leq i_0,i_1,\cdots,1_{n-1}\geq k\right\}$为两两不相交的集族.\par
+        故$N\left(\bigvee_{i=0}^{n-1}T^{-i}\alpha\right)=k^n\Rightarrow h(T,\alpha)=\lim_{n\to\infty}\frac{1}{n}\ln{k^n}=\ln{k}=h(T)$.
+\end{instance}
+
+\begin{instance}
+    设$S^1$是周长为1的圆周，$T:S^1\to S^1$同胚，证明：$h(T)=0$.
+\end{instance}
+\begin{proof}
+    $\forall\,\varepsilon>0,n\in\mb{N}$，构造$S^1$中的$(n,\varepsilon)-$生成集(不妨设$\varepsilon>0$充分小).\par
+    $(0,\varepsilon)-$生成集$F_0$，即为将圆周等分并使得每一段弧长小于$\varepsilon$的点集.\par
+    设已经构造了$(n-1,\varepsilon)-$生成集，现构造$(n,\varepsilon)-$生成集$F_n=F_{n-1}\cup T^{-(n-1)}F_0$.\par
+    由于$T$同胚，$T$保顺序，不妨设$T$保持顺时针方向.\par
+    $\forall\, x\in S^1,\exists\, w\in F_{n-1}$，使得$d(x,w)<\varepsilon,d(Tx,Tw)<\varepsilon,\cdots,d(T^{n-2}x,T^{n-2}2)<\varepsilon$(不妨设$w$是$F_{n-1}$中离$x$最近的点).\par
+    则$T^{n-1}x$在$T^{n-1}w$相邻的两个区间中.\par
+    $\Rightarrow \exists\, T^{n-1}F_n=T^{n-1}F_{n-1}\cup F_0$中相邻的两个点$\{p_1,p_2\}$，使得$T^{n-1}x\in [p_1,p_2],\left|[p_1,p_2]\right|<\varepsilon$.\par
+    令$y=T^{-(n-2)}y\Rightarrow d\left(T^{n-2}x,T^{n-2}y\right)<\varepsilon$.\par
+    $d\left(T^{n-2}p,T^{n-3}x\right)<\varepsilon\Rightarrow d\left(T^{n-3}x,T^{n-3}y\right)<\varepsilon$，以此类推 \par
+    $\Rightarrow F_n$是$(n,\varepsilon)-$生成集.\par
+    $|F_N|\geq(n+1)\left(\left[\frac{1}{\varepsilon}\right]+1\right)\Rightarrow r_n(\varepsilon)\geq (n+1)\left(\left[\frac{1}{\varepsilon}\right]+1\right)$\par
+    $h(T)=\lim_{\varepsilon\to 0}\limsup_{n\to\infty}\frac{1}{n}\ln{r_n(\varepsilon)}=0$
+\end{proof}
+
 
 
 

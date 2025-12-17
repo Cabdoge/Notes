@@ -1,0 +1,114 @@
+\chapter{变分原理}
+
+前两章中我们分别学习了测度熵和拓扑熵，这两种熵的定义方式截然不同，但它们之间有着密切的联系。变分原理正是用来揭示测度熵和拓扑熵之间关系的重要工具.
+
+\begin{theorem}{变分原理}
+    设$(X,d)$是紧致度量空间，$T:X\to X$是连续映射，那么$h(T)=\sup\left\{h_\mu(T)|\mu\,\text{是}\,T\,\text{-不变测度}\right\}$
+\end{theorem}
+上述定理需要应用多种工具，下面依次介绍.
+我们记$M(X)=\left\{\mu|\mu\,\text{是}\, X\,\text{上的Borel概率测度}\right\}$，则有以下引理.
+\begin{lemma}{}
+    设$\mu,m\in M(X)$，那么$\mu=m\iff \forall\, f\in C(X),\int_X{f}\d \mu=\int_X{f}\d m$.
+\end{lemma}
+\begin{proof}
+    “$\Rightarrow$”$\forall\, $可测集$A$，$\mu(A)=m(A)\Rightarrow \int\chi_A\d\mu=\int\chi_A\d m$.\par
+    利用简单函数逼近定理可知$\forall\, f\in C(X),\int f\d \mu=\int f\d m$.\par
+    “$\Leftarrow$”需证$\forall\,$可测集$A$，$\mu(A)=m(A)$.\par
+    可以找到$A$中的一列闭集$F_n$，使得$F_1\subseteq F_2\subseteq\cdots\subseteq A$，$\mu(F_i)\to \mu(A),m(F_i)\to m(A)$.\par
+    因此只需证明$\forall\,$闭集$F$，$\mu(F)=m(F)$.\par
+    任取一个闭集$F$，$\forall\,\varepsilon>0$，$\exists\,$一个开集$U\supseteq F$，使得$m(U\setminus F).<\varepsilon$.\par
+    有$F\subseteq U\subseteq X$，故可以构造连续函数$f(x)=\frac{\mathrm{dist}\left(x,X\setminus U\right)}{\mathrm{dist}\left(x,X\setminus U\right)+\mathrm{dist}\left(x,F\right)}$.\par
+    则$0\leq f(x)\leq 1$，$\forall\, x\in F,f(x)-1$，$\forall\, x\in X\setminus U,f(x)=0$.\par
+    因此$m(F)=\int\chi_F\d m\leq\int f(x)\d m\leq\int\chi_U\d m\leq m(U)\leq m(F)+\varepsilon$.\par
+    类似地，如果$U$满足$\mu(U\setminus F)<\varepsilon$，那么$\mu(F)\leq \int f(x)\d\mu\leq\mu(F)+\varepsilon$.\par
+    由于$\int f(x)\d m=\int f(x)\d\mu$，因此$m(F)\leq\mu(F)+\varepsilon$，$\mu(F)\leq m(F)+\varepsilon\;(\forall\,\varepsilon>0)$.\par
+    $\Rightarrow m(F)=\mu(F)$.
+\end{proof}
+
+记$C(X)=\left\{X\,\text{上的所有连续函数}\right\}$，可以定义$C(X)$上的范数$\forall\, f\in C(X),\|f\|=\sup_{x\in X}|f(x)|=\max_{x\in X}|f(x)|$.\par
+可以验证，$\|\cdot\|$满足：
+\begin{itemize}
+    \item $\|f\|\geq 0$，且$\|f\|=0\iff f=0$\par
+    $\|k\cdot f\|=|k|\|f\|,\|f+g\|\leq \|f\|+\|g\|$\par
+    $\|\cdot\|$定义了$C(X)$上的距离，$\forall\,f,g\in C(X),d(f,g)=\|f-g\|$
+    \item $(C(X),\|\cdot\|)$是完备赋范空间(Banach空间)
+    \item $C(X)$是可分空间，即$\exists\,\{f_n\}_{n\in\mb{N}}$，$\{f_n\}_{n\in\mb{N}}$在$C(X)$中稠密.
+\end{itemize}\par
+基于以上，可以定义$M(X)$上的度量$D:\forall\, \mu,m\in M(X),D(\mu,m):=\sum_{i=1}^\infty\frac{\left|\int f_i\d\mu-\int f_i\d m\right|}{2^i\|f_i\|}$.\par
+关于上述度量，由以下引理
+\begin{lemma}{}
+    设$\{\mu_n\}_{n\in\mb{N}}\subseteq M(X)$，$\mu\in M(X)$，那么$\mu_n\to \mu$，即$D(\mu_n,\mu)\to 0\iff\forall\, f\in C(X)$，有$\int_X f(x)\d\mu_n\to\int f(x)\d\mu$.
+\end{lemma}
+\begin{proof}
+    “$\Rightarrow$”$D(\mu_n,\mu)\to 0$.由定义可知$\forall\, i\in\mb{N},\int f_i\d\mu_n\to\int f_i\d\mu$.\par
+    $\forall\,f\in C(X)$，$\forall\,\varepsilon>0$，$\exists\,k\in\mb{N}$，使得$\|f-f_k\|<\varepsilon$.\par
+    则$\exists\, N>0$，使得$\forall\, n>N,\left|\int f_k\d\mu_n-\int f_k\d\mu\right|<\varepsilon$.\par
+    因此$\setjot[-2]\begin{aligned}[t]
+        \left|\int f\d\mu_n-\int f\d\mu\right|&=\left|\int(f-f_k)\d\mu_n+\left(\int{f_k}\d\mu_n-\int{f_k}\d\mu\right)+\int\left(f_k-f\right)\d\mu\right| \\
+        &\leq \|f-f_k\|+\left|\int{f_k}\d\mu_n-\int{f_k}\d\mu\right|+\|f_k-f\| \\
+        &<3\varepsilon
+    \end{aligned}$\par
+    故$\int{f}\d\mu_n\to\int{f}\d\mu$.\par
+    “$\Leftarrow$”$\forall\, k\in\mb{N}$，$\int{f_k}\d\mu_n\to\int{f_k}\d\mu\,(n\to\infty)$.\par
+    $\forall\,\varepsilon>0$，取$m\in\mb{N}$使得$\frac{1}{2^m}<\varepsilon$.\par
+    对于$f_1,f_2,\cdots,f_m$，$\exists\,N\in\mb{N}$使得$\forall\,n>N$，$\left|\int{f_k}\d\mu_n-\int{f_k}\d\mu\right|<\varepsilon\|f_k\|\;(1\leq k\leq m)$.\par
+    则$\forall\, n>N$，有$\setjot[-2]\begin{aligned}[t]
+        D(\mu_n,\mu)&=\sum_{i=1}^\infty\frac{\left|\int f_i\d\mu_n-\int f_i\d m\right|}{2^i\|f_i\|}\\
+        &=\sum_{i=1}^m\frac{\left|\int f_i\d\mu_n-\int f_i\d m\right|}{2^i\|f_i\|}+\sum_{i=m+1}^\infty\frac{\left|\int f_i\d\mu_n-\int f_i\d m\right|}{2^i\|f_i\|} \\
+        &\leq\sum_{i=1}^m\frac{\varepsilon\|f_i\|}{2^i\|f_i\|}+\sum_{i=m+1}^\infty\frac{2}{2^i} \\
+        &<\varepsilon+\frac{1}{2^{m-1}}\leq 3\varepsilon
+    \end{aligned}$.\par
+    $\Rightarrow \mu_n\to\mu$.
+\end{proof}
+
+基于上述度量，考虑$\tau$是$D$诱导的拓扑，那么$\tau$是使得$\setjot[-4]\begin{aligned}[t]
+    M(x)&\to \mb{R} \\
+    \mu&\mapsto\int{f}\d\mu
+\end{aligned}(\forall\,f\in C(X))$连续的最小拓扑，称其为$M(X)$的\bluebf{弱*拓扑}.\par
+\begin{lemma}{}
+    $\setjot[-2]\begin{aligned}[t]
+        \psi:X&\to M(X) \\
+        x&\mapsto\delta_x
+    \end{aligned}$是连续映射.
+\end{lemma}
+\begin{proof}
+    只需证如果$x_n\to x$，那么$\psi(x_n)\to\psi(x)$，即$\delta_{x_n}\to \delta_x$.\par
+    $\delta_x(A)=\int\chi_A\d\delta_x=\begin{cases}
+        1,&x\in A\\
+        0,&x\notin A
+    \end{cases}=\chi_A(x)$，再由简单函数逼近定理可知$\int{f}\d\delta_x=f(x)$.\par
+    则$\setjot[-2]\begin{aligned}[t]
+        \delta_{x_n}\to\delta_x &\iff \forall\, f\in C(X),\int{f}\d\delta_{x_n}\to\int{f}\d\delta_x \\
+        &\iff \forall\, f\in C(X),f(x_n)\to f(x)\\
+        &\iff x_n\to x
+    \end{aligned}$.\par
+\end{proof}
+
+在上述拓扑下，我们不加证明地给出：
+\begin{proposition}{}
+    $(M(X),D)$是一个紧致度量空间.
+\end{proposition}
+
+\begin{lemma}{}
+    设$\{\mu_n\}_{n\in\mb{N}}\subseteq M(X)$，$\mu\in M(X)$，$\mu_n\to\mu$.\par
+    \begin{enumerate}[(1)]
+        \item 对于任意闭集$F\subseteq X$，$\limsup_{n\to\infty}{\mu_n(F)}\leq \mu(F)$
+        \item 对于任意开集$U\subseteq X$，$\liminf_{n\to\infty}{\mu_n(U)}\geq \mu(U)$
+        \item 设$A\subseteq X$可测集，$\mu(\partial A)=0$，那么$\mu_n(A)\to\mu(A)$
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    (1)设$F\subseteq X$闭集，$\forall\,\varepsilon>0$，$\exists\,$开集$U\supset F$，使得$\mu\left(U\setminus F\right)<\varepsilon$.\par
+    构造连续函数$f(x)=\frac{\mathrm{dist}\left(x,X\setminus U\right)}{\mathrm{dist}\left(x,X\setminus U\right)+\mathrm{dist}\left(x,F\right)}$\par
+    则$0\leq f(x)\leq 1$，$\forall\, x\in F,f(x)-1$，$\forall\, x\in X\setminus U,f(x)=0$.\par
+    $\mu_n(F)=\int\chi_F\d\mu_n\leq\int{f(x)}\d\mu_n$.\par
+    $\limsup_{n\to\infty}{\mu_n(F)}\leq\lim_{n\to\infty}\int{f(x)}\d\mu_n=\int{f(x)}\d\mu\leq\int{\chi_U(x)\d\mu}\leq \mu(F)+\varepsilon$\par
+    (2)设$U\subseteq X$开集，那么$X\setminus U$闭集.\par
+    $\limsup_{n\to\infty}{X\setminus U}\leq \mu\left(X\setminus U\right)$\par
+    $\Rightarrow \liminf_{n\to\infty}{\mu_n(U)}\geq \mu(U)$.\par
+    (3)设$A\subseteq X$可测集，记$\mathring{A}$为$A$的内点集.\par
+    那么$\mathring{A}\subseteq A\subseteq\overline{A}$，$\limsup_{n\to\infty}\mu_n(\overline{A})\leq\mu(\overline{A}),\liminf_{n\to\infty}\mu\left(\mathring{A}\right)\geq\mu\left(\mathring{A}\right)$\par
+    $\Rightarrow \mu\left(\mathring{A}\right)\leq\liminf_{n\to\infty}\mu_n(A)\leq\limsup_{n\to\infty}\mu_n(A)\leq\mu(\overline{A})$.\par
+    由于$\mu(\partial A)=0$，$\mu\left(\mathring{A}\right)=\mu(\overline{A})=\mu(A)\Rightarrow \mu_n(A)\to\mu(A)$.
+\end{proof}
+
