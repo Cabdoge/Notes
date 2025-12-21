@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.28)  14 DEC 2025 18:33
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.28)  18 DEC 2025 14:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2356,142 +2356,93 @@ File: fig/10.17.png Graphic file (type bmp)
 
 
 [72]
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
+File: fig/10.21.png Graphic file (type bmp)
+<fig/10.21.png>
 
 
 [73]
-
-Package amsmath Warning: Bracket group [c_{x_0}] at formula start!
-(amsmath)                It could be a misspelled positional argument.
-(amsmath)                If it belongs to the formula add a \relax in
-(amsmath)                front to hide it on input line 544.
-
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
+File: fig/10.19.png Graphic file (type bmp)
+<fig/10.19.png>
+File: fig/10.20.png Graphic file (type bmp)
+<fig/10.20.png>
+File: fig/10.21.png Graphic file (type bmp)
+<fig/10.21.png>
 
 
 [74]
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
+File: fig/10.22.png Graphic file (type bmp)
+<fig/10.22.png>
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 623.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\pi' on input line 623.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 623.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 623.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 623.
+
+File: fig/10.23.png Graphic file (type bmp)
+<fig/10.23.png>
+File: fig/10.24.png Graphic file (type bmp)
+<fig/10.24.png>
 
 
 [75]
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
+File: fig/10.25.png Graphic file (type bmp)
+<fig/10.25.png>
 
 
 [76]
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
+File: fig/10.26.png Graphic file (type bmp)
+<fig/10.26.png>
 
 
 [77]
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
+File: fig/10.27.png Graphic file (type bmp)
+<fig/10.27.png>
+File: fig/10.28.png Graphic file (type bmp)
+<fig/10.28.png>
 
 
 [78]
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
+File: fig/10.29.png Graphic file (type bmp)
+<fig/10.29.png>
+File: fig/10.30.png Graphic file (type bmp)
+<fig/10.30.png>
 
 
-[79]
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
+[79])
 
-
-[80]
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
-
-
-[81]
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
-
-
-[82]
-
-[83]
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
-
-
-[84]
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
-
-
-[85]
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
-
-
-[86]
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
-
-
-[87]
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
-
-
-[88]
-
-[89])
-
-[90] (./基础拓扑学笔记.aux)
+[80] (./基础拓扑学笔记.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2022/08/05>
  ***********
 Package rerunfilecheck Info: File `基础拓扑学笔记.out' has not changed.
-(rerunfilecheck)             Checksum: 195DD3AA90F1B13676DD7DF28B1F907B;6558.
+(rerunfilecheck)             Checksum: 91F25D1E85FA370E3DD4B20AB1FED1D2;6769.
 Package logreq Info: Writing requests to '基础拓扑学笔记.run.xml'.
 \openout1 = `基础拓扑学笔记.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 51518 strings out of 473832
- 1099954 string characters out of 5733157
- 2080060 words of memory out of 5000000
- 73547 multiletter control sequences out of 15000+600000
- 573453 words of font info for 150 fonts, out of 8000000 for 9000
+ 51696 strings out of 473832
+ 1103564 string characters out of 5733157
+ 2080281 words of memory out of 5000000
+ 73711 multiletter control sequences out of 15000+600000
+ 578045 words of font info for 170 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  103i,17n,129p,692b,1512s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on 基础拓扑学笔记.pdf (93 pages).
+Output written on 基础拓扑学笔记.pdf (83 pages).
