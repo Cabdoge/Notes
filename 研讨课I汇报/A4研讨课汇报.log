@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.9)  16 DEC 2025 15:26
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.9)  23 DEC 2025 11:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1240,30 +1240,30 @@ Overfull \vbox (1.0pt too high) detected at line 215
 [8
 
 ]
-
-[9
-
-]
-Overfull \vbox (1.00179pt too high) detected at line 332
+Overfull \vbox (1.00179pt too high) detected at line 314
  []
 
 
 
-[10
+[9
 
 ]
 
-[11
+[10
 
 ]
 File: fig1.jpg Graphic file (type bmp)
 <fig1.jpg>
 
-Overfull \hbox (4.48798pt too wide) detected at line 370
+Overfull \hbox (4.48798pt too wide) detected at line 352
 []
  []
 
 
+
+[11
+
+]
 
 [12
 
@@ -1272,20 +1272,20 @@ Overfull \hbox (4.48798pt too wide) detected at line 370
 [13
 
 ]
-
-[14
-
-]
 File: fig2.jpg Graphic file (type bmp)
 <fig2.jpg>
 
 
-[15
+[14
 
 ]
 File: fig3.jpg Graphic file (type bmp)
 <fig3.jpg>
 
+
+[15
+
+]
 
 [16
 
@@ -1294,13 +1294,13 @@ File: fig3.jpg Graphic file (type bmp)
 [17
 
 ]
+File: fig4.jpg Graphic file (type bmp)
+<fig4.jpg>
+
 
 [18
 
 ]
-File: fig4.jpg Graphic file (type bmp)
-<fig4.jpg>
-
 
 [19
 
@@ -1313,6 +1313,9 @@ File: fig4.jpg Graphic file (type bmp)
 [21
 
 ]
+File: fig5.jpg Graphic file (type bmp)
+<fig5.jpg>
+
 
 [22
 
@@ -1321,9 +1324,6 @@ File: fig4.jpg Graphic file (type bmp)
 [23
 
 ]
-File: fig5.jpg Graphic file (type bmp)
-<fig5.jpg>
-
 
 [24
 
@@ -1376,6 +1376,10 @@ File: fig5.jpg Graphic file (type bmp)
 [36
 
 ]
+Overfull \vbox (1.13507pt too high) detected at line 685
+ []
+
+
 
 [37
 
@@ -1412,6 +1416,11 @@ File: fig5.jpg Graphic file (type bmp)
 [45
 
 ]
+Overfull \hbox (25.9601pt too wide) in paragraph at lines 774--774
+ [][] 
+ []
+
+
 
 [46
 
@@ -1428,11 +1437,6 @@ File: fig5.jpg Graphic file (type bmp)
 [49
 
 ]
-Overfull \hbox (25.9601pt too wide) in paragraph at lines 827--827
- [][] 
- []
-
-
 
 [50
 
@@ -1441,6 +1445,11 @@ Overfull \hbox (25.9601pt too wide) in paragraph at lines 827--827
 [51
 
 ]
+Underfull \hbox (badness 5245) in paragraph at lines 881--881
+[]|\TU/STSong(0)/b/n/10.95 无 人 地 面 车
+ []
+
+
 
 [52
 
@@ -1457,11 +1466,6 @@ Overfull \hbox (25.9601pt too wide) in paragraph at lines 827--827
 [55
 
 ]
-Underfull \hbox (badness 5245) in paragraph at lines 934--934
-[]|\TU/STSong(0)/b/n/10.95 无 人 地 面 车
- []
-
-
 
 [56
 
@@ -1476,22 +1480,6 @@ Underfull \hbox (badness 5245) in paragraph at lines 934--934
 ]
 
 [59
-
-]
-
-[60
-
-]
-
-[61
-
-]
-
-[62
-
-]
-
-[63
 
 ]
 \tf@nav=\write7
@@ -1512,12 +1500,12 @@ Package rerunfilecheck Info: File `A4研讨课汇报.out' has not changed.
 (rerunfilecheck)             Checksum: 55FA57CB52D3E6C5566A617DAF3ACEB9;989.
  ) 
 Here is how much of TeX's memory you used:
- 44313 strings out of 473832
- 1098752 string characters out of 5729481
- 1591213 words of memory out of 5000000
- 66498 multiletter control sequences out of 15000+600000
+ 44300 strings out of 473832
+ 1098563 string characters out of 5729481
+ 1592213 words of memory out of 5000000
+ 66485 multiletter control sequences out of 15000+600000
  568511 words of font info for 113 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  128i,17n,123p,728b,776s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on A4研讨课汇报.pdf (63 pages).
+Output written on A4研讨课汇报.pdf (59 pages).

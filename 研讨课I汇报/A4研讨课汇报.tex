@@ -228,34 +228,16 @@
 %------------------------------------------------
 
 \begin{frame}{混合整数规划}
-\begin{block}{混合整数规划}
+\begin{block}{混合整数规划及其优势}
 混合整数规划(Mixed Integer Programming, MIP)代表一种数学优化问题，其中目标是最小化或最大化一个线性、二次函数或有时更一般的准则，约束是线性的(或非线性的)等式(或不等式)，并且存在一些(非空)整数和实数变量子集作为参数
 \end{block}
-\begin{enumerate}
-  \item 涉及整数的离散问题 \par
-  \begin{itemize}
-    \item 背包问题
-  \end{itemize}
-  \item 涉及逻辑条件的问题
-  \begin{itemize}
-    \item 复杂运输过程中的碰撞避免
-  \end{itemize}
-  \item 排序和分配问题
-  \begin{itemize}
-  \item 任务分配
-  \item 旅行商问题
-\end{itemize}
-\end{enumerate}
-
-\end{frame}
-
-\begin{frame}{MIP的特点与优势}
 \begin{itemize}
   \item 可以非线性建模
   \item 允许非凸约束
   \item 可以包含逻辑决策
   \item 已广泛应用于控制工程问题
 \end{itemize}
+
 \end{frame}
 
 %-----------------------------------------------
@@ -497,15 +479,6 @@ $$Ay\leqslant a.$$
 \end{frame}
 
 \begin{frame}{可由MIP有效解决的运动规划子领域}
-  \begin{itemize}
-    \item 任务分配(TA)：将一个目标分配给特定子系统的离散决策过程，其中目标可以互换且由特定准则衡量其适用性.特点是，(资源-目标)对内的方案数量可数.
-    \item (无碰撞)路径规划：不显示参数化时间、不显示考虑动力学地在位置空间中构建一条路线.
-    \item (无碰撞)轨迹规划：将时间与路径关联，考虑智能体动力学的特殊性，且生成的函数以开环方式产生
-    \item (在线)障碍物和碰撞避免：最小化(\ref{18a})中的性能指标同时，避免碰撞且使用闭环策略寻找输入控制信号
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{运动规划子领域}
   \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{fig5.jpg}
@@ -606,7 +579,6 @@ $$Ay\leqslant a.$$
   \begin{itemize}
     \item Earl和D'Andrea(2005a)：提出一种迭代MILP算法，保证车辆在轨迹上保证避开\hl{圆形障碍物}.
     \item Cetin、Bikdash和Hadaegh(2007)：解决了航天器编队重构生成无碰撞轨迹.使用三次样条将轨迹\hl{时间离散化}.
-    \item Richards和How(2003)：使用MILP进行开环车辆轨迹设计，从而可以\hl{包含非凸约束}，例如避免羽流撞击
     \item Molinari(2017)：为自主超车问题引入了一种高效的MIP公式，在IPG CarMaker中\hl{得到验证}.
     \item Ballesteros-Tolosana(2017)：针对确保乘客舒适度的变道和超车操作的轨迹生成问题，使用\hl{多重shooting方法}求解枚举所有超车配置及其产生的紧凑型MIP公式，\hl{计算负担有所改进}.
   \end{itemize}
@@ -676,7 +648,7 @@ $$Ay\leqslant a.$$
 \end{frame}
 
 \begin{frame}{避障的MLD等效公式}
-  考虑单个智能体表述的系统，并需要在非凸域内移动，智能体的动力学方程为
+  考虑单个智能体表述的系统，其动力学方程为
   \begin{subequations}
     \begin{gather}
       x_{k+1}=Ax_k+Bu_k ,\label{27a}\\
@@ -686,27 +658,8 @@ $$Ay\leqslant a.$$
   要求智能体必须停留在多面体外部$\begin{aligned}
     &P=\{x:Sx<R\} ,\\
     &x_{k+1}\notin P.
-  \end{aligned}$
-\end{frame}
-
-\begin{frame}{避障的MLD等效公式}
-  将$B_2,B_3$视作零矩阵，则(\ref{27a})与(\ref{26a})等价，接下来，根据动力学替换$x_{k+1}$，有
-  \begin{equation}
-    \left[\begin{gathered}
-      -MI_N \\
-      \mathbf{1}^T
-    \end{gathered}\right]\alpha_k\leqslant \left[\begin{gathered}
-      SA \\
-      \mathbf{0}
-    \end{gathered}\right]x_k+\left[\begin{gathered}
-      SB \\
-      \mathbf{0}
-    \end{gathered}\right]u_k+\left[\begin{gathered}
-      -R \\
-      N-1
-    \end{gathered}\right],
-  \end{equation}
-  其中$N$是描述多面体$P$的线性约束的数量，再通过对输入$(S_uu_k\leqslant R_u)$添加约束，最终的MLD公式为
+  \end{aligned}$\par
+  将$B_2,B_3$视作零矩阵，则(\ref{27a})与(\ref{26a})等价，接下来，根据动力学替换$x_{k+1}$，再通过对输入$(S_uu_k\leqslant R_u)$添加约束，最终的MLD公式为
   \begin{subequations}
   \begin{gather}
     x_{k+1}=Ax_k+Bu_k ,\label{29a}\\
@@ -779,6 +732,7 @@ $$Ay\leqslant a.$$
 \end{frame}
 
 \begin{frame}{Stoican(2018)}
+  上述问题可以推广到多个障碍物的情形：
   \begin{equation}
     \sum_{i=1}{|\sigma^{\bullet,j}(i)-\sigma(i)|\cdot|\sigma^{\bullet,j}(i)-\sigma^+(i)|}>0,\forall\,\sigma^{\bullet,j}\in\textstyle_{\mathbb{P}}. \label{32}
   \end{equation}
@@ -798,13 +752,6 @@ $$Ay\leqslant a.$$
       \xi_{i,j,k}=0,1\leqslant i\leqslant N,1\leqslant j\leqslant i,0\leqslant k\leqslant T .
     \end{gather}
   \end{subequations}
-\end{frame}
-
-\begin{frame}{由外部约束引起的连通性}
-  最为典型的示例是移动传感器对特定区域进行有效覆盖的问题.\par
-  \vspace{1 em}
-  Ritter等人(2014)通过由一组配备传感器的自主车辆组成的移动传感器平台解决了该问题，提出了一种自适应观测策略.\par
-  该策略基于过程模拟和多智能体写作系统，使用MLD系统建模，并用PDE估计代理的目标位置.
 \end{frame}
 
 

@@ -36,7 +36,7 @@
 \end{itemize}\par
 基于以上，可以定义$M(X)$上的度量$D:\forall\, \mu,m\in M(X),D(\mu,m):=\sum_{i=1}^\infty\frac{\left|\int f_i\d\mu-\int f_i\d m\right|}{2^i\|f_i\|}$.\par
 关于上述度量，由以下引理
-\begin{lemma}{}
+\begin{lemma}{}{5.2}
     设$\{\mu_n\}_{n\in\mb{N}}\subseteq M(X)$，$\mu\in M(X)$，那么$\mu_n\to \mu$，即$D(\mu_n,\mu)\to 0\iff\forall\, f\in C(X)$，有$\int_X f(x)\d\mu_n\to\int f(x)\d\mu$.
 \end{lemma}
 \begin{proof}
@@ -111,4 +111,137 @@
     $\Rightarrow \mu\left(\mathring{A}\right)\leq\liminf_{n\to\infty}\mu_n(A)\leq\limsup_{n\to\infty}\mu_n(A)\leq\mu(\overline{A})$.\par
     由于$\mu(\partial A)=0$，$\mu\left(\mathring{A}\right)=\mu(\overline{A})=\mu(A)\Rightarrow \mu_n(A)\to\mu(A)$.
 \end{proof}
+
+定义$ \setjot[-4]\begin{aligned}[t]
+    \widetilde{T}:M(X)&\to M(X) \\
+    \mu&\mapsto \widetilde{T}(\mu)
+\end{aligned}$，$\widetilde{T}(\mu)(A)=\mu\left(T^{-1}A\right)$，其中$\widetilde{T}(\mu)$是$X$上的一个概率测度，我们有以下性质：
+\begin{proposition}{}
+    $T$是连续映射.
+\end{proposition}
+\begin{proof}
+    需证$\forall\,\{\mu_n\}_{n\in\mb{N}}\in M(X)$，$\mu_n\to\mu\in M(X)\Rightarrow \widetilde{T}(\mu_n)\to \widetilde{T}(\mu)$.\par
+    \begin{claim}{$\forall\, f\in C(X),\forall\,\mu\in M(X)$，$\int f\d\tilde{T}(\mu)=\int f\circ T\d\mu$}
+        设$A\subseteq X$可测集，则$\setjot[-4]\begin{aligned}[t]
+            \int\chi_A\d\widetilde{T}(\mu)&=\widetilde{T}(\mu)(A)=\mu\left(T^{-1}A\right) \\
+            &=\int\chi_{T^{-1}A}\d\mu=\int\chi_A\circ T\d\mu
+        \end{aligned}$\par
+        利用简单函数逼近连续函数，得$\int f\d\widetilde{T}(\mu)=\int{f\circ T}\d\mu$.
+    \end{claim}\par
+    设$\mu_n\to\mu\in M(X)$，由引理\ref{lem:5.2}，即证$\forall\, f\in C(X),\int f\d\widetilde{T}(\mu_n)\to \int{f}\d\widetilde{T}(\mu)$.\par
+    $\int{f}\d\widetilde{T}(\mu_n)=\int{f\circ T}\d\mu_n\to \int{f\circ T}\d\mu=\int{f}\d\widetilde{T}(\mu)$.\par
+\end{proof}
+
+现在我们考虑$M(X,T)=\left\{x\,\text{上的}\,T-\,\text{不变概率测度}\right\}$.则$\forall\, \mu\in M(X,T)$，$\mu=\widetilde{T}(\mu)$.\par
+关于上述集合，由于$\widetilde{T}:M(X)\to M(X)$连续，因此$\left\{\mu\in M(X):\mu=\widetilde{T}(\mu)\right\}$是$M(X)$的一个闭子集，故为紧集.\par
+除此之外，$M(X,T)$是一个凸集，即$\mu,m\in M(X,T)\Rightarrow p\cdot\mu+(1-p)\m\in M(X,T)$.\par
+
+下面这个引理指出上述的$M(X,T)$不是一个空集.
+\begin{lemma}{}
+    设$X$紧致度量空间，$T:X\to X$连续，设$\{\mu_n\}_{n\in\mb{N}}\subseteq M(X)$，定义$\sigma_n=\frac{1}{n}\sum_{k=0}^{n-1}\widetilde{T}^k(\mu_n)\in M(X)$，那么$\{\sigma_n\}_{n\in\mb{N}}$的任意极限点$\mu$都是$T-$不变概率测度.
+\end{lemma}
+\begin{proof}
+    由于$M(X)$是紧集，故$\{\sigma_n\}_{n\in\mb{N}}$有极限点，设子列$\{n_k\}_{n\in\mb{N}}$满足$\sigma_{n_k}\to \mu$.\par
+    只需证$\forall\, f\in C(X)$，$\int f\d\mu=\int{f\circ T}\d\mu$.\par
+    $\setjot[-2]\begin{aligned}[t]
+        \left|\int{f}\d\mu-\int{f\circ T}\d\mu\right| &=\lim_{k\to\infty}\left|\int{f}\d\sigma_{n_k}-\int{f\circ T}\d\sigma_{n_k}\right| \\
+        &=\lim_{k\to\infty}\left|\frac{1}{n}\sum_{i=0}^{n_k-1}\int{f}\d\widetilde{T}^i(\mu_{n_k})-\frac{1}{n}\sum_{i=0}^{n_k-1}\int{f\circ T}\d\widetilde{T}^i(\mu_{n_k})\right| \\
+        &=\lim_{k\to\infty}\left|\frac{1}{n_k}\sum_{i=0}^{n_k-1}\int{f\circ T^i}\d(\mu_{n_k})-\frac{1}{n_k}\sum_{i=0}^{n_k-1}\int{f\circ T^{i+1}}\d\mu_{n_k}\right| \\
+        &=\lim_{k\to\infty}\left|\frac{1}{n_k}\left(\int{f}\d\mu_{n_k}-\int{f}\d\widetilde{T}^{n_k}\mu_{n_k}\right)\right| \\
+        &\leq \lim_{k\to\infty}\frac{2\|f\|}{n_k}=0
+    \end{aligned}$
+\end{proof}
+
+\begin{theorem}{}
+    设$(X,d)$是紧致度量空间，$\mu\in M(X)$，那么
+    \begin{enumerate}[(1)]
+        \item $\forall\, x\in X,\forall\,\delta>0$，$\exists\, 0<r<\delta$，使得$\mu\left(\partial B(x,r)\right)=0$
+        \item $\forall\,\varepsilon>0,\exists\,X$的有限开覆盖$\alpha$，使得$\mathrm{diam}\,\alpha<\varepsilon$，且$\forall\, A\in\alpha$，$\mu(\partial A)=0$.
+        \item $\forall\,\varepsilon>0$，$\exists\,X$的有限可测分解$\eta$，使得$\mathrm{diam}\,\eta<\varepsilon$，且$\forall\, A\in\eta$，$\mu(\partial A)=0$.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    (1)设$x\in X,\delta>0$，那么$B(x,\delta)\setminus\{x\}=\bigcup_{0<r<\delta}\partial B(x,r)$\par
+    记$S_n=\left\{r\in(0,\delta)\left|\mu\left(\partial B(x,r)\right)\geq\frac{1}{n}\right.\right\}\;(\forall\, n\in\mb{N})$\par
+    那么$S_n$只有有限多个元素，否则$\mu\left(B(x,\delta)\setminus\{x\}\right)=\infty$，矛盾! \par
+    $\Rightarrow \bigcup_{n=1}^\infty S_n$是可数集$\Rightarrow\exists\, r\in(0,\delta)\setminus\bigcup_{n=1}^\infty{S_n}$，使得$\mu\left(\partial B(x,r)\right)=0$.\par
+    (2)$\forall\, x$，设$r_x>0$满足$r_x\in (0,\varepsilon),\mu\left(\partial B(x,r_x)\right)=0$.\par
+    则$\left\{B(x,r_x)|x\in X\right\}$是$X$的一个开覆盖，由紧致性，取其有限子覆盖$\alpha$即可.\par
+    (3)设$\alpha=\{A_1,A_2,\cdots,A_k\}$是满足(2)的有限开覆盖.\par
+    令$B_1=A_1,B_2=A_2\setminus A_1,B_3=A_3\setminus(A_1\cup A_2),\cdots,B_k=A_k\setminus(A_1\cup A_2\cup\cdots\cup A_{k-1})$\par
+    $\Rightarrow\,\mathrm{diam}\,B_i<\varepsilon,B_1\cup B_2\cup\cdots\cup B_k=X$为有限可测分解.\par
+    且$\partial B_i\subseteq\bigcup_{j=1}^k{\partial A_j}\,(\forall\,i=1,2,\cdots,k)$，因此$\mu\left(\partial B_i\right)=0\;(\forall\,i\in 1,2,\cdots,k)$
+\end{proof}
+
+下面需要引入熵映射的概念.\par
+如果$X$是一个紧致度量空间，$T:X\to X$是连续映射，则定义熵映射为$\setjot[-6]\begin{aligned}[t]
+    h:M(X,T) &\to \mb{R}_{\geq 0} \\
+    \mu &\mapsto h_\mu(T)
+\end{aligned}$
+
+\begin{theorem}{}
+    熵映射$h$是仿射映射，即$\forall\,p\in(0,1),\forall\,\mu,m\in M(X,T),h_{p\mu+(1-p)m}(T)=ph_\mu(T)+(1-p)h_m(T)$.
+\end{theorem}
+\begin{proof}
+    设$\phi(x)=x\ln{x}$，$\forall\,\mu,m\in M(X,T),\forall\,B\in X$.
+    {\setjot[-2]\begin{align*}
+        0&\geq \phi(p\mu(B)+(1-p)m(B))-p\phi(\mu(B))-(1-p)\left(\phi(m(B))\right) \\
+        &=\left(p\mu(B)+(1-p)m(B)\right)\ln\left(p\mu(B)+(1-p)m(B)\right)-p\mu(B)\ln\left(\mu(B)\right)-(1-p)m(B)\ln m(B) \\
+        &=p\mu(B)\left(\ln\left(p\mu(B)+(1-p)m(B)\right)-\ln\mu(B)\right)+(1-pm(B))\left(\ln\left(p\mu(B)+(1-p)m(B)\right)-\ln m(B)\right) \\
+        &\geq p\mu(B)\left(\ln(p\mu(B))-\ln\mu(B)\right)+(1-p)m(B)\left(\ln(1-p)m(B)-\ln m(B)\right) \\
+        &=p\ln{p}\mu(B)+(1-p)\ln{(1-p)}m(B)
+    \end{align*}}\par
+    \vspace{-1 em}
+    设$\eta=\{A_1,A_2,\cdots,A_k\}$是有限可测分解，则$H_{p\mu+(1-p)\m}(\eta)=-\sum_{i=1}^{k}\phi\left(p\mu(A_i)+(1-p)m(A_i)\right)$\par
+    $p\cdot H_\mu(\eta)+(1-p)H_m(\eta)\leq H_{p\mu+(1-p)m}(\eta)\leq pH_\mu(\eta)+(1-p)H_m(\eta)-\left(p\ln{p}+(1-p)\ln{(1-p)}\right)$\par
+    设$\mu,m\in M(X,T)$，$\eta$是$X$的有限可测分解.\par
+    $\setjot[-2]\begin{aligned}[t]
+        pH_mu\left(\bigvee_{i=0}^{n-1}T^{-i}\eta\right)+(1-p)H_m\left(\bigvee_{i=0}^{n-1T^{-i}\eta}\right)&\leq H_{p\mu+(1-p)m}\left(\bigvee_{i=0}^{n-1}T^{-i}\eta\right) \\
+        &\leq pH_\mu\left(\bigvee_{i=0}^{n-1}T^{-i}\eta\right)+(1-p)H_m\left(\bigvee_{i=0}^{n-1}T^{-i}\eta\right)+\ln{2}
+    \end{aligned}$
+    两边同时除以$n$并取极限$n\to\infty$，得$p\ln_\mu(T,\eta)+(1-p)h_m(T,\eta)=h_{p\mu+(1-p)m}(T,\eta)$\par
+    $h_{p\mu+(1-p)m}(T,\eta)=ph_\mu(T,\eta)+(1-p)h_m(T,\eta)\leq ph_\mu(T)+(1-p)h_m(T)$\par
+    取上确界得$h_{p\mu+(1-p)m}(T)\leq ph_\mu(T)+(1-p)h_m(T)$\par
+    设$\xi_1,\xi_2$为$X$的两个有限可测分解，$\eta=\xi_1\vee\xi_2$.\par
+    $\setjot[-2]\begin{aligned}[t]
+        h_{p\mu+(1-p)m}(T)&\geq h_{p\mu+(1-p)m}(T,\eta)=p\mu(T,\eta)+(1-p)h_m(T,\eta) \\
+        &\geq ph_\mu(T,\xi_1)+(1-p)h_\mu(T,\xi_2)
+    \end{aligned}$\par
+    取上确界得$h_{p\mu+(1-p)m}(T)\geq ph_\mu(T)+(1-p)h_m(T)$.
+\end{proof}
+
+
+最后我们就可以证明变分原理.
+\begin{theorem*}{变分原理}
+    设$(X,d)$是紧致度量空间，$T:X\to X$是连续映射，那么$h(T)=\sup\left\{h_\mu(T)|\mu\,\text{是}\,T\,\text{-不变测度}\right\}$
+\end{theorem*}
+\begin{proof}
+    首先证明$\forall\,\mu\in M(X,T),h_\mu(T)\leq h_{\mathrm{Top}}(T)$.\par
+    设$\eta$是$X$的有限可测分解，$\eta=\{A_1,A_2,\cdots,A_k\}$.\par
+    取$\varepsilon>0$充分小，那么$\forall\, i\in\{1,2,\cdots,k\},\exists\,$闭集$B_i\subset A_i$，使得$\mu(A_i\setminus B_i)<\varepsilon$.\par
+    设$B_0=X\setminus\left(B_1\cup\cdots\cup B_k\right)$.\par
+    令$D_1=B_1\cup B_0,D_2=B_2\cup B_0,\cdots,D_k=B_k\cup C_0$\par
+    则$D_i\cup B_1\cup\cdots\cup B_{i-1}\cup B_{i+1}\cup\cdots\cup B_k=X$，因此$\forall\,i\in\{1,2,\cdots,k\},D_i$为开集.\par
+    $\alpha=\{D_1,D_2,\cdots,D_k\}$是$X$的一个开覆盖.\par
+    $h(T,\alpha)=\lim_{n\to\infty}\frac{1}{n}H\left(\bigvee_{i=0}^{n-1}T^{-i}\alpha\right)=\lim_{n\to\infty}\frac{1}{n}\ln{N\left(\bigvee_{i=0}^{n-1}T^{-i}\alpha\right)}$\par
+    设$\gamma_n\subseteq \bigvee_{i=0}^{n-1}T^{-i}\alpha$子覆盖，使得$|\gamma_n|=N\left(\bigvee_{i=0}^{n-1}T^{-i}\alpha\right)$\par
+    $\forall\, C\in\gamma_n,C=C_0\cap T^{-1}C_1\cap\cdots\cap T^{-(n-1)}C_{n-1}$\par
+    设$\xi=\{B_0,B_1,B_2,\cdots,B_k\}$，$C$可以表示为$\bigvee_{i=0}^{n-1}T^{-i}\xi$中至多$2^n$个元素的并.\par
+    $\Rightarrow |\gamma_n|\cdot 2^n\geq|\bigvee_{i=0}^{n-1}T^{-i}\xi|\Rightarrow\frac{1}{n}\ln{N\left(\bigvee_{i=0}^{n-1}T^{-i}\alpha\right)+\ln{2}}\geq\frac{1}{n}\ln{\left|\bigvee_{i=0}^{n-1}T^{-i}\xi\right|}\geq\frac{1}{n}H_\mu\left(\bigvee_{i=0}^{n-1}T^{-i}\xi\right)$.\par
+    取上极限可得$h(T,\alpha)+\ln{2}\geq h_\mu(T,\xi)$.\par
+    又$\setjot[-2]\begin{aligned}[t]
+        h_\mu(T,\eta) &=\lim_{n\to\infty}\frac{1}{n}H_\mu\left(\bigvee_{i=0}^{n-1}T^{-i}\eta\right)\leq\lim_{n\to\infty}\frac{1}{n}H_\mu\left(\bigvee_{i=0}^{n-1}T^{-i}\eta\vee\bigvee_{i=0}^{n-1}T^{-i}\xi\right) \\
+        &=\varlimsup_{n\to\infty}\frac{1}{n}\left(H_\mu\left(\bigvee_{i=0}^{n-1}T^{-i}\xi\right)+H_\mu\left(\bigvee_{i=0}^{n-1}T^{-i}\eta\left|\bigvee_{i=0}^{n-1}T^{-i}\xi\right.\right)\right) \\
+        &\leq \lim_{n\to\infty}\left(\frac{1}{n}H_\mu\left(\bigvee_{i=0}^{n-1}T^{-i}\xi\right)+\frac{1}{n}\sum_{i=0}^{n-1}H_\mu\left(T^{-i}\eta\left|\bigvee_{i=0}^{n-1}T^{-i}\xi\right.\right)\right) \\
+        &\leq \lim_{n\to\infty}\left(\frac{1}{n}H_\mu\left(\bigvee_{i=0}^{n-1}T^{-i}\xi\right)+\frac{1}{n}\sum_{i=0}^{n-1}H_\mu\left(T^{-i}\eta\left|T^{-i}\xi\right.\right)\right) \\
+        &\leq \lim_{n\to\infty}\left(\frac{1}{n}H_\mu\left(\bigvee_{i=0}^{n-1}T^{-i}\xi\right)+H_\mu(\eta|\xi)\right) \\
+        &=h_\mu(T,\xi)+H_\mu(\eta|\xi)
+    \end{aligned}$\par
+    因此$h_\mu(T,\eta)\leq h(T,\xi)+H_\mu(\eta|\xi)\leq h(T,\alpha)+\ln{2}+H_\mu(\eta|\xi)$
+\end{proof}
+
+
+
+
+
 
