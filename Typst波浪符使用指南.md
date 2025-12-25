@@ -56,9 +56,9 @@ $tilde(f)(x)$ 表示函数 f 的近似或变形
 
 ### 等价关系
 ```typst
-$x tilde y$ 表示 x 与 y 等价
+$x sim y$ 表示 x 与 y 等价/相似
 $a approx b$ 表示 a 约等于 b
-$x sim y$ 表示 x 与 y 相似
+$x equiv y$ 表示 x 与 y 全等
 ```
 
 ### 多个波浪符

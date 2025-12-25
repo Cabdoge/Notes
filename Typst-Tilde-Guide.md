@@ -56,9 +56,9 @@ $tilde(f)(x)$ represents an approximation or variant of function f
 
 ### Equivalence Relations
 ```typst
-$x tilde y$ means x is equivalent to y
+$x sim y$ means x is equivalent to or similar to y
 $a approx b$ means a is approximately equal to b
-$x sim y$ means x is similar to y
+$x equiv y$ means x is congruent to y
 ```
 
 ### Multiple Tildes
