@@ -624,8 +624,9 @@ $\forall\,\alpha \in \pi_1(X,x_0)$，则$w^{-1}\alpha w \in \pi_1(X,x_1)$.
 这里的圆周定义为复平面上的单位圆周$S^1 := \{z \in \mathbb{C} \mid |z|=1\}$.\par
 其中的元素可以写成$z = e^{i2\pi t} = \cos 2\pi t + i \sin 2\pi t,0 \leq t \leq 1$.\par
 \begin{wrapfigure}{r}{0.25\textwidth}
-    \vspace{-5 em}
+    \vspace{-6 em}
     \includegraphics[width=0.25\textwidth]{fig/10.23.png}
+    \captionof{figure}{}
     \vspace{-4 em}
 \end{wrapfigure}
 它可以被视作是一维欧式空间的商空间，其商映射为：
@@ -795,6 +796,7 @@ $(\mathbb{Z}, +)$：单位元 $(0,0) \in \mathbb{Z} \times \mathbb{Z}$.
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.5\textwidth]{fig/10.29.png}
+        \captionof{figure}{}
     \end{figure}
     令 $\setjot[-6]\begin{aligned}[t]
         H: [0,1] \times [0,1] &\to X \times Y \\
@@ -820,6 +822,443 @@ $(\mathbb{Z}, +)$：单位元 $(0,0) \in \mathbb{Z} \times \mathbb{Z}$.
 \begin{instance}
     $\pi_1(S^1 \times D^n, (x_0, y_0)) \cong \pi_1(S^1, x_0) \times \pi_1(D^n, y_0) \cong \mathbb{Z} \times \{1\} = \mathbb{Z}$.
 \end{instance}
+
+\section{同伦等价}
+
+\begin{definition}{同伦等价}
+    设$X, Y$是两个拓扑空间，$f: X \to Y, g: Y \to X$是连续映射，如果$g \circ f \simeq \mathrm{id}_X: X \to X$且$f \circ g \simeq \mathrm{id}_Y: Y \to Y$，则称$X$和$Y$是\textbf{同伦等价的}，记作$X \simeq Y$.
+\end{definition}
+
+\begin{remark}
+    $X \cong Y \Rightarrow X \simeq Y$.\par
+    若$f: X \cong Y$，则存在$f^{-1}: Y \to X$使得$f^{-1} \circ f = \mathrm{id}_X, f \circ f^{-1} = \mathrm{id}_Y$.
+\end{remark}
+
+\begin{instance}
+    $X \times [0,1] \simeq X$\par
+    定义$\setjot[-4]\begin{aligned}[t]
+        f: X \times [0,1] &\to X \\
+        (x, s) &\mapsto x
+    \end{aligned}$，$\setjot[-4]\begin{aligned}[t]
+         g: X &\to X \times [0,1]\\
+         x &\mapsto (x, 0)
+    \end{aligned}$\par
+    则$\setjot[-4]\begin{aligned}[t]
+        f: X \times [0,1] &\to X \\
+        (x, s) &\mapsto x
+    \end{aligned}$，即$f \circ g = \mathrm{id}_X$，而$\setjot[-4]\begin{aligned}[t]
+        g \circ f: X \times [0,1] &\to X \times [0,1] \\
+        (x, s) &\mapsto (x, 0)
+    \end{aligned}$.\par
+    构造同伦$\setjot[-2]\begin{aligned}[t]
+        H: X \times [0,1] \times [0,1] &\to X \times [0,1] \\
+        (x, s, t) &\mapsto (x, ts)
+    \end{aligned} $.\par
+    则$H(x, s, 0) = (x, 0) = g \circ f(x, s)$，$H(x, s, 1) = (x, s) = \mathrm{id}_{X \times [0,1]}(x, s)$.
+    所以$g \circ f \simeq id_{X \times [0,1]}$.\par
+    类似地，进一步可以证明：$X \times \mathbb{E}^1 \simeq X$.
+\end{instance}
+
+\begin{proposition}
+    同伦等价是拓扑空间之间的等价关系.
+\end{proposition}
+
+\begin{proof}
+    需要验证以下三条性质：
+    (1) $X \simeq X$.
+    (2) $X \simeq Y \Rightarrow Y \simeq X$.
+    (3) $X \simeq Y, Y \simeq Z \Rightarrow X \simeq Z$.\par
+    前两条显然，下面证明第三条性质.设$X\simeq Y,Y\simeq Z$，则 \par
+    \hspace{-2em}
+    \begin{minipage}[t]{0.49\textwidth}
+        \begin{center}
+            \begin{tikzcd}[labels={font=\normalsize}]
+            X \arrow[rr, "f_1", bend left] &  & Y \arrow[ll, "g_1", bend left]
+            \end{tikzcd}
+        \end{center}
+        \vspace{-1 em}
+        \begin{gather*}
+            g_1 \circ f_1 \simeq \mathrm{id}_X \\[-5pt]
+            f_1 \circ g_1 \simeq \mathrm{id}_Y
+        \end{gather*}
+    \end{minipage}
+    \vspace{-1 em}
+    \begin{minipage}[t]{0.49\textwidth}
+        \begin{center}
+            \begin{tikzcd}[labels={font=\normalsize}]
+            Y \arrow[rr, "f_2", bend left] &  & Z \arrow[ll, "g_2", bend left]
+            \end{tikzcd}
+        \end{center}
+        \vspace{-1 em}
+        \begin{gather*}
+            g_2\circ f_2 \simeq \mathrm{id}_Y \\[-5pt]
+            f_2 \circ g_2 \simeq \mathrm{id}_Z
+        \end{gather*}
+    \end{minipage}\par
+    \begin{center}
+        $\begin{aligned}
+        f_2 \circ f_2:X\to Z\\[-5pt]
+        g_1 \circ g_2:Z\to X 
+    \end{aligned}$
+    \hspace{10em}
+    \begin{tikzcd}[labels={font=\normalsize}]
+        X \arrow[rr, "f_2\circ f_1", bend left] &  & Z \arrow[ll, "g_1\circ g_2", bend left]
+    \end{tikzcd}
+    \end{center}\par
+    \vspace{-1 em}
+    那么就有：$\setjot[-4]\begin{aligned}[t]
+        &(g_1 \circ g_2) \circ (f_2 \circ f_1)= g_1 \circ (g_2 \circ f_2) \circ f_1 \simeq g_1 \circ id_Y \circ f_1 = g_1 \circ f_1 \simeq \mathrm{id}_X \\
+        &(f_2 \circ f_1) \circ (g_1 \circ g_2)= f_2 \circ (f_1 \circ g_1) \circ g_2 \simeq f_2 \circ id_Y \circ g_2 = f_2 \circ g_2 \simeq \mathrm{id}_Z
+    \end{aligned}$\par
+    所以$X \simeq Z$.
+\end{proof}
+
+\begin{instance}
+    $\mathbb{E}^n \simeq \{pt\}, n \geq 1$.\par
+    设$\setjot[-6]\begin{aligned}[t]
+        f: \mathbb{E}^n &\to \{pt\} \\
+        x &\mapsto pt
+    \end{aligned} $，$\setjot[-6]\begin{aligned}[t]
+        g: \{pt\} &\to \mathbb{E}^n\\
+        pt &\mapsto 0
+    \end{aligned}$.
+    则$\setjot[-6]\begin{aligned}[t]
+         g \circ f: \mathbb{E}^n &\to \mathbb{E}^n\\
+         x &\mapsto 0
+    \end{aligned}$，$\setjot[-6]\begin{aligned}[t]
+            f \circ g: \{pt\} &\to \{pt\} \\
+            pt &\mapsto pt
+    \end{aligned}$.\par
+    显然$g \circ f \simeq \mathrm{id}_{\mathbb{E}^n}$ (通过直线同伦)，$f \circ g = \mathrm{id}_{\{pt\}}$.
+\end{instance}
+
+\begin{definition}{可缩}
+    如果一个空间$X \simeq \{pt\}$，则称$X$是\textbf{可缩的}.
+\end{definition}
+
+\section{同伦等价空间的基本群}
+
+设$X_0, X_1$是两个空间，$h \simeq k: X_0 \to X_1$.
+取$x_0 \in X_0$.
+考虑诱导同态$h_*: \pi_1(X_0, x_0) \to \pi_1(X_1, h(x_0))$和$k_*: \pi_1(X_0, x_0) \to \pi_1(X_1, k(x_0))$.
+$h_*$和$k_*$有什么关系？
+
+假设$H: X_0 \times [0,1] \to X_1$实现了$h \simeq k$.
+存在一条从$h(x_0)$到$k(x_0)$道路$\setjot[-6]\begin{aligned}[t]
+    b: [0,1] &\to X_1 \\
+    t &\mapsto H(x_0, t)
+\end{aligned}$.\par
+令$\omega = [b]$.
+
+\begin{proposition}{}\label{prop:10.5}
+    $k_* = \omega_\# \circ h_*$.
+    即\begin{tikzcd}[labels={font=\normalsize}]
+                                                              &  & {\pi_1(X_1,h(x_0))} \arrow[dd, "\omega_\#"] \\
+{[a]\in\pi_1(X_0,x_0)} \arrow[rru, "h_*"] \arrow[rrd, "k_*"'] &  &                                             \\
+                                                              &  & {\pi_1(X_1,k(x_0))}                         
+        \end{tikzcd}
+\end{proposition}
+
+\begin{proof}
+    对于任意$[a] \in \pi_1(X_0, x_0)$，我们要证明
+    $$ k_*[a] = \omega_\# \circ h_*[a] = \omega^{-1} \cdot h_*[a] \cdot \omega $$
+    即 $\omega \cdot k_*[a] = h_*[a] \cdot \omega$.
+    这只需证明 $b \cdot (k \circ a) \simeq (h \circ a) \cdot b$.
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{fig/10.31.png}
+        \captionof{figure}{}
+    \end{figure}
+    
+    考虑$X_0 \times [0,1]$上的正方形区域$[0,1] \times [0,1]$.
+    令$\beta_0(s) = (s, 0), \beta_1(s) = (s, 1)$，$\gamma_0(t) = (0, t), \gamma_1(t) = (1, t)$.\par
+    定义$F(s, t) = (a(s), t) \in X_0 \times [0,1]$.\par
+    则$F \circ \beta_0(s) = (a(s), 0), F \circ \beta_1(s) = (a(s), 1)$.$F \circ \gamma_0(t)=F \circ \gamma_1(t) = (a(0), t) = (x_0, t)$.\par
+    考虑映射$H \circ F: [0,1] \times [0,1] \to X_1$.\par
+    则$H \circ F \circ \gamma_0(t) = H(x_0, t) = b(t)$.
+    $H \circ F \circ \gamma_1(t) = H(x_0, t) = b(t)$.
+    $H \circ F \circ \beta_0(s) = H(a(s), 0) = h(a(s))$.
+    $H \circ F \circ \beta_1(s) = H(a(s), 1) = k(a(s))$.\par
+    显然，在正方形中我们有$G: \gamma_0 \cdot \beta_1 \simeq \beta_0 \cdot \gamma_1$.\par
+    于是$H\circ F\circ G=(H \circ F \circ \gamma_0) \cdot (H \circ F \circ \beta_1) \simeq (H \circ F \circ \beta_0) \cdot (H \circ F \circ \gamma_1)$,即$ b \cdot (k \circ a) \simeq (h \circ a) \cdot b$.
+\end{proof}
+
+\begin{corollary}
+    假设$h \simeq k: X_0 \to X_1$.
+    如果$h_*$是单射，或满射，或同构，那么$k_*$也是.
+\end{corollary}
+
+\begin{theorem}
+    设 $X \simeq Y$，且 $f: X \to Y, g: Y \to X$ 满足 $\mathrm{id}_X \simeq g \circ f: X \to X$，$\mathrm{id}_Y \simeq f \circ g: Y \to Y$.
+    取 $x_0 \in X$. 则 $f_*: \pi_1(X, x_0) \to \pi_1(Y, f(x_0))$ 是一个同构.
+\end{theorem}
+
+\begin{proof}
+    \vspace{-2 em}
+    \begin{center}
+        \begin{tikzcd}[labels={font=\normalsize}]
+{\pi_1(X,x_0)} \arrow[dd, "(\omega_1)_\#"] \arrow[dd, "\cong"'] \arrow[rr, "f_*"] &  & {\pi_1\big(Y,f(x_0)\big)} \arrow[dd, "\cong"'] \arrow[dd, "(\omega_2)_\#"] \arrow[lldd, "g_*"'] \\
+                                                                                  &  &                                                                                                 \\
+{\pi_1\big(X,g\circ f(x_0)\big)} \arrow[rr, "f_*"']                               &  & {\pi_1\big(Y,f\circ g\circ f(x_0)\big)}                                                        
+\end{tikzcd}
+    \end{center}\par
+    (i) $\mathrm{id}_X \simeq g \circ f: X \to X$.\par
+    由命题\ref{prop:10.5}，$g_*\circ f_* = (g \circ f)_* = (\omega_1)_\# \circ \mathrm{id}: \pi_1(X, x_0) \to \pi_1(X, g \circ f(x_0)) $\par
+    即 $g_* \circ f_*$ 是一个同构，所以 $f_*$ 是单射，$g_*$ 是满射.\par
+    (ii) $\mathrm{id}_Y \simeq f \circ g: Y \to Y$.\par
+    则$f_*\circ g_*=(f \circ g)_* = (\omega_2)_\# \circ \mathrm{id}: \pi_1(Y, f(x_0)) \to \pi_1(Y, f \circ g \circ f(x_0)) $.\par
+    即 $f_* \circ g_*$ 是一个同构，所以 $g_*$ 是单射，$f_*$ 是满射.\par
+    因此 $g_*: \pi_1(Y, f(x_0)) \to \pi_1(X, g \circ f(x_0))$ 是一个同构.\par
+    因为 $g_* \circ f_*: \pi_1(X, x_0) \to \pi_1(X, g \circ f(x_0))$ 是一个同构，
+    所以 $f_*: \pi_1(X, x_0) \to \pi_1(Y, f(x_0))$ 是一个同构.
+\end{proof}
+
+\begin{corollary}
+    设 $X, Y$ 是道路连通空间，则$X \simeq Y \implies \pi_1(X) \cong \pi_1(Y)$.
+\end{corollary}
+
+\begin{instance}
+    设 $X$ 是道路连通空间. $X \times [0,1] \simeq X$.
+    所以 $\pi_1(X \times [0,1]) \cong \pi_1(X)$.
+\end{instance}
+
+\begin{remark}
+    $X \cong Y \implies X \simeq Y \implies \pi_1(X) \cong \pi_1(Y)$.
+    $\pi_1(X) \not\cong \pi_1(Y) \implies X \not\simeq Y \implies X \not\cong Y$.
+\end{remark}
+
+\begin{note}
+    \textbf{庞加莱猜想 (Poincaré Conjecture)}
+    
+    设 $M$ 是一个闭的 3 维流形.
+    如果 $\pi_1(M) \cong \pi_1(S^3)$，那么 $M \cong S^3$.
+    
+    为了计算 $\pi_1(X)$，我们寻找一个更简单的空间 $Y$ 使得 $Y \simeq X$，并计算 $\pi_1(Y)$.
+\end{note}
+
+\section{形变收缩}
+
+\begin{definition}{收缩映射}
+    设 $X$是一个拓扑空间，$A \subset X$，$i: A \to X$为嵌入映射，$r: X \to A$.
+    如果 $r|_A = \mathrm{id}_A: A \to A$，即 $r \circ i = \mathrm{id}_A: A \to A$，
+    则称 $r$ 是一个\textbf{收缩映射}，且称 $A$ 是 $X$ 的一个\textbf{收缩核}.
+\end{definition}
+
+\begin{instance}
+    \vspace{-2 em}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.4\textwidth]{fig/10.32.png}
+        \caption{收缩示例}
+    \end{figure}
+    $r: x \mapsto \begin{cases} x, & x \in A \\ x_0, & x \in B \end{cases}$ 是一个收缩映射.
+\end{instance}
+
+\begin{instance}
+    $x_0 \in X$，$r: X \to \{x_0\}$，$x \mapsto x_0$ 是一个收缩映射.
+\end{instance}
+
+\begin{instance}
+    $X, Y$ 是拓扑空间，$y_0 \in Y$，则$\setjot[-5]\begin{aligned}[t]
+         r: X \times Y &\to X \times \{y_0\}
+         \\(x, y) &\mapsto (x, y_0)
+    \end{aligned}$ 是一个收缩.
+\end{instance}
+
+\begin{remark}
+    $i_*: \pi_1(A, a_0) \to \pi_1(X, a_0)$ 是单射.
+    $r_*: \pi_1(X, a_0) \to \pi_1(A, a_0)$ 是满射.
+\end{remark}
+
+\begin{definition}{形变收缩映射}
+    设 $X$ 是拓扑空间，$A \subset X$，$i: A \to X$是嵌入映射，$r: X \to A$.
+    如果 $r \circ i = \mathrm{id}_A$，且 $i \circ r \simeq \mathrm{id}_X \text{ rel } A$.
+    则称 $r$ 是一个\textbf{形变收缩映射}，
+    且称 $A$ 是 $X$ 的一个\textbf{形变收缩核}.
+\end{definition}
+
+\begin{remark}
+    如果 $A$ 是 $X$ 的形变收缩核，那么 $X \simeq A$.
+\end{remark}
+
+假设 $H: X \times [0,1] \to X$ 实现了 $\mathrm{id}_X \simeq i \circ r \text{ rel } A$.
+\begin{enumerate}
+    \item $H(x, 0) = x, \forall x \in X$.
+    \item $H(x, 1) = i \circ r(x) = r(x) \in A, \forall x \in X$.
+    \item $H(a, t) = a, \forall a \in A, t \in [0,1]$.
+\end{enumerate}
+
+\begin{remark}
+    $r \circ i(a) = r(a) \stackrel{(2)}{=} H(a, 1) \stackrel{(3)}{=} a$.
+    所以 $\mathrm{id}_X \simeq i \circ r \text{ rel } A \implies r \circ i = \mathrm{id}_A$.\par
+    因此，上述 $H$ 的存在性 $\iff r$ 是从 $X$ 到 $A$ 的形变收缩.
+\end{remark}
+
+\begin{instance}
+    $X \times [0,1]$ 形变收缩到 $X \times \{0\}$.\par
+    $\setjot[-6]\begin{aligned}[t]
+        r: X \times [0,1] &\to X \times \{0\} \\
+        (x, s) &\mapsto (x, 0)
+    \end{aligned} $ 是一个收缩映射.\par
+    定义$\setjot[-5]\begin{aligned}[t]
+        H: X \times [0,1] \times [0,1] &\to X \times [0,1] \\
+        (x, s, t) &\mapsto (x, (1-t)s)
+    \end{aligned}$，则$H$实现了从$X \times [0,1]$到$X \times \{0\}$的形变收缩.\par
+    (1) $H(x, s, 0) = (x, s)$.
+    (2) $H(x, s, 1) = (x, 0) \in X \times \{0\}$.
+    (3) $H(x, 0, t) = (x, 0)$.
+\end{instance}
+
+\begin{instance}
+    $\mathbb{E}^n \setminus \{0\}$ 形变收缩到 $S^{n-1}$，$n \geq 1$.\par
+    \begin{wrapfigure}{r}{0.3\textwidth}
+        \vspace{-3 em}
+        \includegraphics[width=0.3\textwidth]{fig/10.33.png}
+        \captionof{figure}{到圆周上的形变收缩}
+        \vspace{-1 em}
+    \end{wrapfigure}
+    $\setjot[-4]\begin{aligned}[t]
+        r: \mathbb{E}^n \setminus \{0\} &\to S^{n-1} \\
+        x &\mapsto \frac{x}{\|x\|}
+    \end{aligned} $ 是一个收缩映射.\par
+    定义$\setjot[-6]\begin{aligned}[t]
+        H: (\mathbb{E}^n \setminus \{0\}) \times [0,1] &\to \mathbb{E}^n \setminus \{0\} \\
+        (x, t) &\mapsto (1-t)x + t \frac{x}{\|x\|}
+    \end{aligned}$.\par
+    \begin{enumerate}[(1)]
+        \item $H(x, 0) = x$.
+        \item $H(x, 1) = \frac{x}{\|x\|} \in S^{n-1}$.
+        \item $\forall\, x\in S^{n-1},\|x\|=1$，$H(x, t) = (1-t)x + tx = x$.
+    \end{enumerate}
+\end{instance}
+
+\begin{instance}
+    $\mathbb{E}^2 \setminus \{p_1, p_2, p_3\}$.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{fig/10.34.png}
+        \captionof{figure}{}
+    \end{figure}
+    $r: \mathbb{E}^2 \setminus \{p_1, p_2, p_3\} \to A$.
+    $$ x \mapsto r(x) $$
+    $r(x)$ 是包含 $x$ 的直线的终点.
+    $H: X \times [0,1] \to X$.
+    $$ (x, t) \mapsto (1-t)x + t \cdot r(x) $$
+    (1) $H(x, 0) = x$.
+    (2) $H(x, 1) = r(x) \in A$.
+    (3) $H(a, t) = (1-t)a + t \cdot a = a, \forall a \in A$.
+\end{instance}
+
+\section{商空间的形变收缩}
+
+\begin{theorem}\label{thm:10.6}
+    $f: X \to Y$ 是一个商映射. $A \subset X$ 是一个形变收缩核. $B = f(A) \subset Y$.
+    $H: X \times [0,1] \to X$ 实现了从 $X$ 到 $A$ 的形变收缩.
+    如果 $f(x) = f(x') \implies f \circ H(x, t) = f \circ H(x', t)$，
+    那么 $B$ 是 $Y$ 的一个形变收缩核.
+\end{theorem}
+
+\begin{proof}
+    \vspace{-2 em}
+    \begin{center}
+        \begin{tikzcd}[labels={font=\normalsize}]
+{\makebox[0pt][r]{${(x,t)\in\,}$}X\times[0,1]} \arrow[rr, "H"] \arrow[dd, "f\times\mathrm{id}"'] \arrow[rrdd, "f\circ H"] &  & X \arrow[dd, "f"]    \\
+                                                                                                   &  &                      \\
+{\makebox[0pt][r]{${(y,t)\in\,}$}Y\times[0,1]} \arrow[rr, "H_1"']                                                         &  & {Y \makebox[0pt][l]{${} \ni f \circ H(x,t)$}}
+\end{tikzcd}
+    \end{center}\par
+    定义$\setjot[-2]\begin{aligned}[t]
+        H_1: Y \times [0,1] &\to Y \\
+        (y, t) &\mapsto f \circ H(x, t), x \in f^{-1}(y)
+    \end{aligned} $.\par
+    如果 $x' \in f^{-1}(y)$，那么 $f(x) = f(x') \implies f \circ H(x, t) = f \circ H(x', t)$.\par
+    所以 $H_1(y, t)$ 独立于 $x \in f^{-1}(y)$ 的选取，即 $H_1$ 是良定义的.
+    \begin{lemma}
+        $f: X \to Y$ 是一个商映射，那么 $f \times \mathrm{id}: X \times [0,1] \to Y \times [0,1]$ 是一个商映射.
+    \end{lemma}
+    因为 $f \times \mathrm{id}$ 是一个商映射且 $f \circ H$ 是连续的，所以 $H_1$ 是连续的.并且：
+    \begin{enumerate}[(1)]
+        \item $H_1(y, 0) = f \circ H(x, 0) = f(x) = y, \forall\, y \in Y$.
+        \item $H_1(y, 1) = f \circ H(x, 1) \in f(A) = B, \forall\, y \in Y$.
+        \item $H_1(b, t) = f \circ H(a, t) = f(a) = b, \forall\, b \in B, t \in [0,1]$.
+    \end{enumerate}
+    
+    所以 $H_1$ 实现了从 $Y$ 到 $B$ 的形变收缩. \par
+    \vspace{-1 em}
+    \begin{center}
+        \begin{tikzcd}[labels={font=\normalsize}]
+X \arrow[dd, "f"'] \arrow[rr, "def\;\;retr"'] &  & A \arrow[dd, "f"] \\
+                                              &  &                   \\
+Y \arrow[rr, "def\;\;retr"]                   &  & B\makebox[0pt][l]{${} =f(A) $}          
+\end{tikzcd}
+    \end{center}
+\end{proof}
+
+
+\begin{instance}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{fig/10.35.png}
+        \caption{莫比乌斯带的收缩}
+    \end{figure}
+    $\setjot[-3]\begin{aligned}[t]
+         H: [0,1] \times [0,1] \times [0,1] &\to [0,1] \times [0,1] \\
+            (r, s, t) &\mapsto \left(r, (1-t)s + t \cdot \frac{1}{2}\right)
+    \end{aligned}$，$H$ 实现了从 $X$ 到 $A$ 的形变收缩.\par
+    由于$f(0, s) = f(1, 1-s)$，故有
+    \[\begin{array}{c c c}
+    f \circ H(0, s, t) & = & f\left(0, (1-t)s + t \cdot \frac{1}{2}\right) \\
+    \parallel & & \parallel \\
+    f \circ H(1, 1-s, t) & = & f\left(1, (1-t)(1-s) + t \cdot \frac{1}{2}\right)
+    \end{array}\]\par
+    由定理\ref{thm:10.6}，$B$ 是 $Y$ 的一个形变收缩核.
+    $\pi_1(Y) \cong \mathbb{Z}$.
+\end{instance}
+
+\begin{instance}
+    $X$ 是拓扑空间. $CX = X \times [0,1] / X \times \{1\}$是一个锥.\par
+    $f: X \times [0,1] \to CX$ 是一个商映射.\par
+    $A = X \times \{1\} \subset X \times [0,1]$.$B = f(A) = [X \times \{1\}]$ 是 $CX$ 中的一个点.\par
+    $X \times [0,1]$ 形变收缩到 $X \times \{1\} = A$.\par
+    定义$\setjot[-2]\begin{aligned}[t]
+        H: X \times [0,1] \times [0,1] &\to X \times [0,1] \\
+        (x, s, t) &\mapsto (x, (1-t)s + t \cdot 1)
+    \end{aligned}$.\par
+    若$f(x, 1) = f(x', 1)$，则$ f \circ H(x, 1, t) = f(x, 1)=f(x', 1)=f \circ H(x', 1, t) $.\par
+    由定理\ref{thm:10.6}，$CX$ 形变收缩到 $B$，即一个点.\par
+    所以任何锥都是可缩的.
+\end{instance}
+
+\begin{instance}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{example-image}
+        \caption{环面扣除一点}
+    \end{figure}
+    $Y = T^2 \setminus \{pt\}$.
+    $H: X \times [0,1] \to X, X$ 形变收缩到 $A$.
+    $$ (x, t) \mapsto (1-t)x + t \cdot r(x) $$
+    $f(x) = f(x'), x = r(x), x' = r(x')$.
+    $$ f \circ H(x, t) = f((1-t)x + t \cdot x) = f(x) $$
+    $$ f \circ H(x', t) = f((1-t)x' + t \cdot x') = f(x') $$
+    $B = f(A)$. $Y$ 形变收缩到 $B = \text{Figure 8}$.
+\end{instance}
+
+\begin{corollary}
+    $f: X \to Y$ 是一个商映射. $A$ 是 $X$ 的一个形变收缩核.
+    如果粘合只发生在 $A$ 中，那么 $Y$ 形变收缩到 $B = f(A)$.
+\end{corollary}
+
+\begin{proof}
+    $H: X \times [0,1] \to X$，满足：
+    \begin{enumerate}[(1)]
+        \item $H(x, 0) = x$.
+        \item $H(x, 1) = i \circ r(x) = r(x) \in A$.
+        \item $H(a, t) = a, \forall a \in A, t \in [0,1]$.
+    \end{enumerate}\par
+    对于 $a, a' \in A$，若 $f(a) = f(a')$，则$f \circ H(a, t) = f(a)=f(a')= f \circ H(a', t)$
+\end{proof}
 
 
 

@@ -63,3 +63,7 @@
 \contentsline {section}{\numberline {10.7}圆周的基本群 $\pi _1(S^1)$}{75}{section.10.7}%
 \contentsline {section}{\numberline {10.8}群论复习}{79}{section.10.8}%
 \contentsline {section}{\numberline {10.9}积空间的基本群}{79}{section.10.9}%
+\contentsline {section}{\numberline {10.10}同伦等价}{80}{section.10.10}%
+\contentsline {section}{\numberline {10.11}同伦等价空间的基本群}{81}{section.10.11}%
+\contentsline {section}{\numberline {10.12}形变收缩}{83}{section.10.12}%
+\contentsline {section}{\numberline {10.13}商空间的形变收缩}{85}{section.10.13}%
