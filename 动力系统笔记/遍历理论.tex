@@ -112,8 +112,8 @@ $\begin{aligned}
         \item[“$\Leftarrow$”] $\forall\, f \in C^3([0,1]),f(0)=f(1),\frac{a_0}{2}+\sum_{n=1}^N(a_n\cos{2\pi nx}+b_n\sin{2\pi nx})\rightrightarrows f(x)$\par
         $\Rightarrow \forall\, \varepsilon>0,\exists N,\text{s.t.}\left\lvert f(x) - \left(\frac{a_0}{2}+\sum_{n=1}^N(a_n\cos{2\pi nx}+b_n\sin{2\pi nx})\right)\right\rvert < \varepsilon,\,\forall\, x\in [0,1]$.\par
         记$\varphi_N(x) = \frac{a_0}{2}+\sum_{n=1}^N(a_n\cos{2\pi nx}+b_n\sin{2\pi nx})$\par
-        则$\frac{1}{L}\sum_{i=1}^L{\varphi_N(x_n)} - \varepsilon \leq \frac{1}{L}\sum_{i=1}^L{f(x_n)} \leq \frac{1}{L}\sum_{i=1}^L{\varphi_N(x_n)} + \varepsilon$.\par
-        令$L\to\infty$，则$\lim_{L\to\infty}\frac{1}{L}\sum_{i=1}^L{\varphi_N(x_n)}=\lim_{L\to\infty}{\frac{1}{L}\sum_{i=1}^L{\left(\frac{a_0}{2}+\sum_{n=1}^N(a_n\cos{2\pi nx}+b_n\sin{2\pi nx})\right)}}=\frac{a_0}{2}=\int_0^1{f(x)}\d x$.\par
+        则$\frac{1}{L}\sum_{i=1}^L{\varphi_N(x_i)} - \varepsilon \leq \frac{1}{L}\sum_{i=1}^L{f(x_i)} \leq \frac{1}{L}\sum_{i=1}^L{\varphi_N(x_i)} + \varepsilon$.\par
+        令$L\to\infty$，则$\lim_{L\to\infty}\frac{1}{L}\sum_{i=1}^L{\varphi_N(x_i)}=\lim_{L\to\infty}{\frac{1}{L}\sum_{i=1}^L{\left(\frac{a_0}{2}+\sum_{n=1}^N(a_n\cos{2\pi nx_i}+b_n\sin{2\pi nx_i})\right)}}=\frac{a_0}{2}=\int_0^1{f(x)}\d x$.\par
         故上述不等式变为$\int_0^1{f(x)}\d x-\varepsilon \leq \varliminf_{n\to\infty}{\frac{1}{N}\sum_{n=1}^N{f(x_n)}} \leq \varlimsup_{n\to\infty}{\frac{1}{N}\sum_{n=1}^N{f(x_n)}} \leq \int_0^1{f(x)}\d x+\varepsilon$.\par
         再令$\varepsilon\to 0 \Rightarrow \frac{1}{N}\sum_{n=1}^N{f(x_n)}\to \int_{0}^{1}{f(x)}\d x$
     \end{itemize}

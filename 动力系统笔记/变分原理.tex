@@ -122,14 +122,14 @@
 \begin{proof}
     需证$\forall\,\{\mu_n\}_{n\in\mb{N}}\in M(X)$，$\mu_n\to\mu\in M(X)\Rightarrow \widetilde{T}(\mu_n)\to \widetilde{T}(\mu)$.\par
     \begin{claim}{$\forall\, f\in C(X),\forall\,\mu\in M(X)$，$\int f\d\tilde{T}(\mu)=\int f\circ T\d\mu$}
-        设$A\subseteq X$可测集，则$\setjot[-4]\begin{aligned}[t]
+        设$A\subseteq X$可测集，则$\setjot[-5]\begin{aligned}[t]
             \int\chi_A\d\widetilde{T}(\mu)&=\widetilde{T}(\mu)(A)=\mu\left(T^{-1}A\right) \\
             &=\int\chi_{T^{-1}A}\d\mu=\int\chi_A\circ T\d\mu
         \end{aligned}$\par
         利用简单函数逼近连续函数，得$\int f\d\widetilde{T}(\mu)=\int{f\circ T}\d\mu$.
     \end{claim}\par
     设$\mu_n\to\mu\in M(X)$，由引理\ref{lem:5.2}，即证$\forall\, f\in C(X),\int f\d\widetilde{T}(\mu_n)\to \int{f}\d\widetilde{T}(\mu)$.\par
-    $\int{f}\d\widetilde{T}(\mu_n)=\int{f\circ T}\d\mu_n\to \int{f\circ T}\d\mu=\int{f}\d\widetilde{T}(\mu)$.\par
+    $\int{f}\d\widetilde{T}(\mu_n)=\int{f\circ T}\d\mu_n\to \int{f\circ T}\d\mu=\int{f}\d\widetilde{T}(\mu)$.
 \end{proof}
 
 现在我们考虑$M(X,T)=\left\{x\,\text{上的}\,T-\,\text{不变概率测度}\right\}$.则$\forall\, \mu\in M(X,T)$，$\mu=\widetilde{T}(\mu)$.\par
@@ -237,9 +237,117 @@
         &\leq \lim_{n\to\infty}\left(\frac{1}{n}H_\mu\left(\bigvee_{i=0}^{n-1}T^{-i}\xi\right)+H_\mu(\eta|\xi)\right) \\
         &=h_\mu(T,\xi)+H_\mu(\eta|\xi)
     \end{aligned}$\par
-    因此$h_\mu(T,\eta)\leq h(T,\xi)+H_\mu(\eta|\xi)\leq h(T,\alpha)+\ln{2}+H_\mu(\eta|\xi)$
+    因此$h_\mu(T,\eta)\leq h(T,\xi)+H_\mu(\eta|\xi)\leq h(T,\alpha)+\ln{2}+H_\mu(\eta|\xi)\leq h_{\mathrm{top}}(T)+\ln{2}+H_\mu(\eta|\xi)$.\par
+    由于$B_i\subseteq A_i$，且$m(A_i\setminus B_i)<\varepsilon$，故$\forall\,1\leq i,j\leq k,\frac{\mu(A_j\cap B_i)}{\mu(B_i)}=0$或$1$，且$\mu(B_0)\leq k\varepsilon$.\par
+    因此$\setjot[-2]\begin{aligned}[t]
+        H(\eta|\xi) &= -\sum_{i=0}^{k}\mu(B_i)\left(\sum_{j=1}^{k}\frac{\mu(A_j\cap B_i)}{\mu(B_i)}\ln{\frac{\mu(A_j\cap B_i)}{\mu(B_i)}}\right) \\
+        &=-\mu(B_0)\left(\sum_{j=1}^{k}\frac{\mu(A_j\cap B_0)}{\mu(B_0)}\ln{\frac{\mu(A_j\cap B_0)}{\mu(B_0)}}\right) \\
+        &\leq -\mu(B_0)k\left(\frac{1}{k}\sum_{j=1}^{k}\frac{\mu(A_j\cap B_i)}{\mu(B_i)}\right)\ln{\frac{1}{k}\sum_{j=1}^{k}\frac{\mu(A_j\cap B_i)}{\mu(B_i)}} \\
+        &\leq -k\mu(B_0)\frac{1}{k}\ln{\frac{1}{k}} \\
+        &\leq k\varepsilon\ln{k}
+    \end{aligned}$.\par
+    取$\varepsilon=\frac{1}{k\ln{k}}$，则$h_\mu(T,\eta)\leq h_{\mathrm{top}}(T)+\ln{2}+1$.取上极限得$h_\mu(T)\leq h_{\mathrm{top}}(T)+\ln{2}+1$.\par
+    故$\forall\, n\in\mb{N}$，$h_\mu(T^n)\leq h_{\top}(T^n)+(\ln{2}+1)\Rightarrow n\cdot h_\mu(T)\leq n\cdot h_{\mathrm{top}}(T)+(\ln{2}+1)$\par
+    $\Rightarrow h_{\mu}(T)\leq h_{\mathrm{top}}(T)+\frac{\ln{2}+1}{n}$\par
+    令$n\to\infty$，得$h_\mu(T)\leq h_{\mathrm{top}}(T)$.\par
+    下面证明以下断言成立.
+    \begin{claim}{设$s(n,\varepsilon)=\min\left\{\# E|E\,\text{是}\,(n,\varepsilon)-\,\text{分离集}\right\}$.则$\forall\,\varepsilon>0$，$\exists\,\mu\in M(X,T)$，使得$h_\mu(T)\geq \varlimsup_{n\to\infty}\frac{1}{n}\ln{s(n,\varepsilon)}$.}
+        设$E_n$是$(n,\varepsilon)-$分离集，使得$|E_n|=s(n,\varepsilon)$.\par
+        考虑概率测度$\mu_n=\frac{1}{s(n,\varepsilon)}\sum_{x\in E_n}\delta_x$.\par
+        定义$\sigma_n=\frac{1}{n}\sum_{k=0}^{n-1}\widetilde{T}^k(\mu_n)\;(n\in\mb{N})$.\par
+        $\Rightarrow\exists\,$自然数子列$\{n_k\}$使得
+        \begin{enumerate}[leftmargin=3.5em,label=(\arabic*)]
+            \item $\frac{1}{n_k}\ln{s(n_k,\varepsilon)}\to\varlimsup_{n\to\infty}\frac{1}{n}\ln{s(n,\varepsilon)}$
+            \item $\sigma_{n_k}\to\mu\in M(X,T)$
+        \end{enumerate}\par
+        现证$h_\mu(T)\geq\varlimsup_{n\to\infty}\frac{1}{n}\ln{s(n,\varepsilon)}$.\par
+        设$\eta$是$X$的有限可测分解，$\eta=\{A_1,A_2,\cdots,A_n\}$，$\mathrm{diam}\,\eta<\varepsilon,\mu(\partial A_i)=0\;(1\leq i\leq n)$.\par
+        则$\bigvee_{i=0}^{n-1}T^{-i}\eta$中的任何一个元素至多包含$E_n$中的一个点.\par
+        若$A=A_{i_0}\cap T^{-1}A_{i_1}\cap\cdots\cap T^{-(n-1)}A_{i_{n-1}}$至少包含2个$E_n$中的点$x,y$.\par
+        则$x,y\in A_{i_0},Tx,Ty\in A_{i_1},\cdots,T^{n-1}x,T^{n-1}y\in A_{i_{n-1}}$，与$E_n$是$(n,\varepsilon)-$分离集矛盾.\par
+        因此$\mu_n(A)=\frac{1}{s(n,\varepsilon)}$或$0$.\par
+        $\Rightarrow \setjot[-2]\begin{aligned}[t]
+            H_{\mu_n}\left(\bigvee_{i=0}^{n-1}T^{-i}\eta\right)&=-\sum\frac{1}{s(n,\varepsilon)}\ln{\frac{1}{s(n,\varepsilon)}}\;(s(n,\varepsilon)\,\text{项})\\
+            &=\ln{s(n,\varepsilon)}
+        \end{aligned} $\par
+        $\forall\, 1\leq q\leq n$，$n=k\cdot q+r(0\leq r\leq q)$，则 \par
+        (1)$\setjot[-2]\begin{aligned}[t]
+            &\quad\; H_{\mu_n}\left(\bigvee_{i=0}^{n-1}T^{-i}\eta\right)\\
+            &= H_{\mu_n}\left(\bigvee_{i=0}^{q-1}T^{-i}\eta\vee\bigvee_{i=q}^{2q-1}T^{-i}\eta\vee\cdots\vee\bigvee_{i=(k-1)q}^{kq-1}T^{-i}\eta\vee\bigvee_{i=kq}^{kq+r}T^{-i}\eta\right)\\
+            &\leq H_{\mu_n}\left(\bigvee_{i=0}^{q-1}T^{-i}\eta\right)+\cdots+H_{\mu_n}\left(\bigvee_{i=(k-1)q}^{kq-1}T^{-i}\eta\right)+H_{\mu_n}\left(\bigvee_{i=kq}^{kq+r}T^{-i}\eta\right) \\
+            &\leq H_{\mu_n}\left(\bigvee_{i=0}^{q-1}T^{-i}\eta\right)+\cdots+H_{\widetilde{T}^{(k-1)q}(\mu_n)}\left(\bigvee_{i=0}^{q-1}T^{-i}\eta\right)+\sum_{i=kq}^{kq+r}H_{\mu_n}(T^{-i}\eta) \\
+        \end{aligned}$\par
+        (2)$\setjot[-2]\begin{aligned}[t]
+            &\quad\; H_{\mu_n}\left(\bigvee_{i=0}^{n-1}T^{-i}\eta\right)\\ &=H_{\mu_n}\left(\eta\vee\bigvee_{i=1}^{q}T^{-i}\eta\vee\bigvee_{i=q+1}^{2q}T^{-i}\eta\vee\cdots\vee\bigvee_{i=(k-1)q+1}^{kq}T^{-i}\eta\vee\bigvee_{i=kq}^{kq+r}T^{-i}\eta\right) \\
+            &\leq H_{\mu_n}(\eta)+H_{\mu_n}\left(\bigvee_{i=1}^q T^{-i}\eta\right)+\cdots+H_{\mu_n}\left(\bigvee_{i=(k-1)q+1}^{kq}T^{-i}\eta\right)+H_{\mu_n}\left(\bigvee_{i=kq}^{kq+r}T^{-i}\eta\right) \\
+            &\leq H_{\mu_n}(\eta)+H_{\widetilde{T}(\mu_n)}\left(\bigvee_{i=0}^{q-1}T^{-i}\eta\right)+H_{\widetilde{T}^{q+1}(\mu_n)}\left(\bigvee_{i=0}^{q-1}T^{-i}\eta\right)+\cdots
+        \end{aligned}$\par
+        $\cdots\cdots$\par
+        $(q)$$\setjot[-2]\begin{aligned}[t]
+            &\quad\; H_{\mu_n}\left(\bigvee_{i=0}^{n-1}T^{-i}\eta\right)\\
+            &=H_{\mu_n}\left(\eta\vee\cdots\ T^{-(q-2)}\eta\vee\bigvee_{i=q-1}^{2(q-1)}T^{-i}\eta\vee\cdots\right) \\
+            &\leq H_{\mu_n}\left(\eta\vee\cdots\vee T^{-(q-2)\eta}\right)+H_(\mu_n)\left(\bigvee_{i=q-1}^{2(q-1)}T^{-i}\eta\right) \\
+            &\leq \sum_{i=0}^{q-2}H_{\mu_n}(T^{-i}\eta)+H_{\widetilde{T}^{(q-1)}(\mu_n)}\left(\bigvee_{i=0}^{q-1}T^{-i}\eta\right)+H_{\widetilde{T}^{2(q-1)}(\mu_n)}\left(\bigvee_{i=0}^{q-1}T^{-i}\eta\right)\cdots
+        \end{aligned}$\par
+        $(1)+(2)+\cdots+(q)$得\par
+        $\setjot[-2]\begin{aligned}[t]
+            qH_{\mu_n}\left(\bigvee_{i=0}^{n-1}T^{-i}\eta\right) &\leq H_{\mu_n}(\xi)+H_{\widetilde{T}^q(\mu_n)}(\xi)+H_{\widetilde{T}^{2q}(\mu_n)}(\xi)+\cdots \\
+            &\quad+H_{\widetilde{T}(\mu_n)}(\xi)+H_{\widetilde{T}^{q+1}(\mu_n)}(\xi)++H_{\widetilde{T}^{2q+1}(\mu_n)}(\xi)+\cdots \\
+            &\quad\cdots \\
+            &\quad+H_{\widetilde{T}^{q-1}(\mu_n)}(\xi)+H_{\widetilde{T}^{2q-1}(\mu_n)}(\xi)+\cdots
+        \end{aligned}$\par
+        $\Rightarrow qH_{\mu_n}\left(\bigvee_{i=0}^{n-1}T^{-i}\eta\right)=\sum H_{\widetilde{T}^j(\mu_n)}(\xi)+\,\text{尾项}$.\par
+        共有$qr$项尾项，每一项的测度熵都小于$\ln|\eta|$.\par
+        因此$qH_{\mu_n}\left(\bigvee_{i=0}^{n-1}T^{-i}\eta\right)=\sum_{j=0}^{n-1}H_{\widetilde{T}^j(\mu_n)}(\xi)+q\cdot r\cdot\ln{|\eta|}$\par
+        由于熵映射是仿射映射，故$\setjot[-2]\begin{aligned}[t]
+            H_{\mu_n}\left(\bigvee_{i=0}^{n-1}T^{-i}\eta\right) &\leq n H_{\frac{1}{n}\sum_{j=0}^{n-1}\widetilde{T}^j(\mu_n)}(\xi)+q\cdot r\ln{|\eta|} \\
+            &=nH_{\sigma_n}(\xi)+q\cdot r\ln{|\eta|}
+        \end{aligned}$\par
+        取$n=n_k$，令$k\to\infty$，又$\forall\, A\in\eta,\mu(\partial A)=0\Rightarrow \forall\, A\in\xi,\mu(\partial A)=0$，得， \par
+        $\setjot[-2]\begin{aligned}[t]
+            q\cdot\varlimsup_{n\to\infty}\frac{1}{n}\ln{s(n,\varepsilon)} &= q\lim_{k\to\infty}\frac{1}{n_k}\ln{s(n_k,\varepsilon)} \leq \lim_{k\to\infty}H_{\sigma_{n_k}}(\xi)\; \\
+            &=H_\mu(\xi) =H_\mu\left(\bigvee_{i=0}^{q-1}T^{-i}\eta\right)
+        \end{aligned}$\par
+        两边同除$q$并取极限，得$\varlimsup_{n\to\infty}\frac{1}{n}\ln{s(n,\varepsilon)}\leq\lim_{q\to\infty} \frac{1}{q} H_\mu\left(\bigvee_{i=0}^{q-1}T^{-i}\eta\right)=h_\mu(T,\eta)\leq h_\mu(T)$.
+    \end{claim}\par
+    由以上断言，$\sup\left\{h_\mu(T)|\mu\in M(X,T)\right\}\geq\lim_{\varepsilon\to 0}\varlimsup_{n\to\infty}\frac{1}{n}\ln{s(n,\varepsilon)}=h_\mathrm{top}(T)$.
 \end{proof}
 
+\begin{definition}{最大熵测度}
+    设$X$是紧致度量空间，$T:X\to X$连续，如果$\mu\in M(X,T)$满足$h_\mu(T)=h_\mathrm{top}(T)$，那么称$\mu$是$T$的\textbf{最大熵测度}.
+\end{definition}
+这一问题是遍历论中的前沿问题，对于部分动力系统，不存在最大熵测度.\par
+\begin{instance}
+    (1)\;$T:S^1\to S^1$同胚，那么$h_\mathrm{top}(T)=0$，因此$\forall\, \mu\in M(X,T),h_\mu(T)=0$，为最大熵测度.\par
+    (2)\;设$Y=\prod_{i=-\infty}^\infty{X},X=\{1,2,\cdots,k\},T:Y\to Y$左平移.\par
+    $h_\mathrm{top}(T)=\ln{k}$，最大熵测度为$\mu(p)=\frac{1}{k}\;1\leq p\leq k$.
+\end{instance}
+
+\begin{example}
+设$X$是紧致度量空间，$T:X\to X$是连续映射，$x\in X$，证明：$\frac{1}{n}\sum_{i=0}^{n-1}\delta_{T^i x}\,(n\in\mb{N})$在$M(X,T)$中的所有极限点形成一个紧致连通子集.
+\end{example}
+\begin{proof}
+    由于极限点集是闭集，故紧致.\par
+    现证此极限点集连通.\par
+    反证法.如果此极限点集不连通，则存在2个闭集$F_1,F_2$，使得$F_1\cup F_2=S$(极限点集),$F_1\cap F_2=\varnothing$.\par
+    由于$F_1\cap F_2=\varnothing$，$d=d(F_1,F_2)>0$.\par
+    设$\mu_n=\frac{1}{n}\sum_{i=0}^{n-1}\delta_{T^i x}$，$D(\mu_n,\mu_{n+1})=\sum_{k=1}^{\infty}\frac{\left|\int{f_k}\d\mu_n-\int{f_k}\d\mu_{n+1}\right|}{2^k\|f_k\|}$.\par
+    $\setjot[-2]\begin{aligned}[t]
+        \left|\int{f_k}\d\mu_n-\int{f_k}\d\mu_{n+1}\right| &= \left|\frac{1}{n}\sum_{i=0}^{n-1}\int{f_k}\d\delta_{T^i x}-\frac{1}{n+1}\sum_{i=0}^{n}\int{f_k}\d\delta_{T^i x}\right| \\
+        &=\left|\frac{1}{n}\sum_{i=0}^{n-1}f_k\left(T^ix\right)-\frac{1}{n+1}\sum_{i=0}^{n}f_k\left(T^ix\right)\right| \\
+        &=\left|\frac{1}{n(n+1)}\sum_{i=0}^{n-1}f_k\left(T^ix\right)-\frac{1}{n+1}f_k\left(T^nx\right)\right| \\
+        &\leq\frac{1}{n(n+1)}\cdot n\cdot\|f_k\|+\frac{1}{n+1}\|f_k\| \\
+        &\leq \frac{2\|f_k\|}{n+1}
+    \end{aligned}$\par
+    $\Rightarrow D(\mu_n,\mu_{n+1})\leq \frac{2}{n+1}$.\par
+    存在子列$m_k,n_k$，使得$\mu_{m_k}\to\sigma_1\in F_1,\mu_{n_k}\to\sigma_2\in F_2$.\par
+    不妨设$m_1<n_1<m_2<n_2<m_3<n_3<\cdots$ \par
+    设$N\in \mb{N}$使得$\forall\, n> N,D(\mu_n,\mu_{n+1})\leq \frac{d}{100}$.\par
+    不妨设$m_1>N$.\par
+    则对于$m_1,n_1$，$\exists\, l_1\in[m,n]$，$d(\mu_{l_1},F_1)\geq\frac{d}{5},d(\mu_{l_1},F_2)\geq\frac{d}{5}$.\par
+    同理，$\forall\, k$，$\exists\, l_k\in[m_k,n_k]$，使得$d(\mu_{l_k},F_1),d(\mu_{l_k},F_2)\geq\frac{d}{5}$.\par
+    $\Rightarrow \left\{\mu_{l_k}\right\}_{k\in\mb{N}}$的极限点不在$F_1\cup F_2=S$中，矛盾!
+\end{proof}
 
 
 

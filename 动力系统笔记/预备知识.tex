@@ -168,8 +168,8 @@
 下面我们证明$\mathcal{A}(\mathcal{S})$是一个代数.
 \begin{proof}
     (1)$\varnothing\in\mathcal{A}(\mathcal{S})$\par
-    (2)$A,B\in\mathcal{A}(\mathcal{S})\Rightarrow A,B\in\mathcal{A}(\mathcal{A}\subseteq\mathcal{S}) \Rightarrow A\cap B\in\mathcal{A}\Rightarrow A\cap B\in\mathcal{A}(\mathcal{S})$\par
-    (3)$A\in\mathcal{A}(\mathcal{S})\Rightarrow A\in\mathcal{A}(\mathcal{A}\supseteq\mathcal{S}) \Rightarrow X\setminus A\in\mathcal{A}(\mathcal{A}\subseteq\mathcal{S})\Rightarrow X\setminus A\in\mathcal{A}(\mathcal{S})$
+    (2)$A,B\in\mathcal{A}(\mathcal{S})\Rightarrow A,B\in\mathcal{A}(\mathcal{A}\supseteq\mathcal{S}) \Rightarrow A\cap B\in\mathcal{A}\Rightarrow A\cap B\in\mathcal{A}(\mathcal{S})$\par
+    (3)$A\in\mathcal{A}(\mathcal{S})\Rightarrow A\in\mathcal{A}(\mathcal{A}\supseteq\mathcal{S}) \Rightarrow X\setminus A\in\mathcal{A}(\mathcal{A}\supseteq\mathcal{S})\Rightarrow X\setminus A\in\mathcal{A}(\mathcal{S})$
 \end{proof}
 \begin{remark}
     可以发现，在上述证明过程中并未使用到$\mathcal{S}$为半代数的性质，因此上述定义实际上并不依赖于$\mathcal{S}$为半代数.
@@ -394,7 +394,7 @@
     上述证明过程中除了最后一步实际上并未使用单调集的性质，因此也可以脱离单调集，仅使用$\sigmaalg$相关概念证明$\mathcal{F} \supseteq \mathcal{B}(\mathcal{A})$.\par
     \begin{proof}
         (1)$\forall B_i \in \mathcal{F} \Rightarrow \bigcup_{i=1}^\infty{B_i} \in \mathcal{F}$.\par
-        (2)$B \in \mathcal{F} \Rightarrow \forall \varepsilon>0,\exists A \in \mathcal{A}$，使得$m(A \triangle B)=m(A \setminus B)+m(B \setminus A)=m(B \setminus A^c)+m(A\setminus B^c)=m(A^c \triangle B^c)<\varepsilon \Rightarrow B^c \in \mathcal{F}$.\par
+        (2)$B \in \mathcal{F} \Rightarrow \forall \varepsilon>0,\exists A \in \mathcal{A}$，使得$m(A \triangle B)=m(A \setminus B)+m(B \setminus A)=m(B^c \setminus A^c)+m(A^c\setminus B^c)=m(A^c \triangle B^c)<\varepsilon \Rightarrow B^c \in \mathcal{F}$.\par
         结合(1)(2)两点知$\mathcal{F}$为$\sigmaalg$，所以$\mathcal{F} \supseteq \mathcal{B}(\mathcal{A})$
     \end{proof}
 \end{remark}
