@@ -1,0 +1,358 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[UTF8]{ctex}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{mathtools}
+
+\geometry{left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
+
+\title{2022秋季动力系统期末考试解答}
+\author{GitHub Copilot}
+\date{\today}
+
+\newtheorem{theorem}{定理}
+\newtheorem{lemma}{引理}
+\newtheorem{definition}{定义}
+\newtheorem{problem}{题目}
+\newenvironment{solution}{\begin{proof}[解答]}{\end{proof}}
+
+\begin{document}
+
+\maketitle
+
+\section*{一、判断题 (12分)}
+
+\begin{enumerate}
+    \item \textbf{题目}：设 $Y=\{1, 2, \dots, k\}$，$X = \prod_{-\infty}^{\infty} Y$，其上的度量定义为 $d((x_i), (y_i)) = \sum_{i \in \mathbb{Z}} \frac{|x_i - y_i|}{k^{|i|}}$。那么 $X$ 上的左平移 $T_k$ 是可扩映射。
+    
+    \textbf{解答}：\textbf{正确}。
+    
+    \textbf{理由}：这是符号动力系统中的全移位（Full Shift）。对于符号空间，左平移映射是典型的可扩同胚。取扩充常数 $\delta = 1/2k$（或类似的小正数），如果 $d(T^n x, T^n y) < \delta$ 对所有 $n \in \mathbb{Z}$ 成立，则意味着 $x$ 和 $y$ 的第 0 位在任意时刻都非常接近，实际上在离散度量下必须相等，从而 $x_n = y_n$ 对所有 $n$ 成立，即 $x=y$。
+
+    \item \textbf{题目}：设 $Y$ 和 $X$ 同(1)。那么 $X$ 上的左平移 $T_k$ 的最大熵测度存在。
+    
+    \textbf{解答}：\textbf{正确}。
+    
+    \textbf{理由}：符号空间 $X$ 是紧致度量空间，左平移 $T_k$ 是可扩同胚（或更一般地，熵映射 $\mu \mapsto h_\mu(T)$ 是上半连续的）。根据变分原理及熵映射的上半连续性，最大熵测度一定存在。对于全移位，最大熵测度是唯一的，即每个符号概率均为 $1/k$ 的 Bernoulli 测度，其熵为 $\ln k$。
+
+    \item \textbf{题目}：圆周上的同胚的拓扑熵等于零。
+    
+    \textbf{解答}：\textbf{正确}。
+    
+    \textbf{理由}：这是一个经典结论。圆周 $S^1$ 上的同胚 $f$ 要么保向（共轭于旋转，熵为0），要么反向（平方共轭于旋转，熵也为0）。更一般地，一维流形（圆周、区间）上的同胚拓扑熵均为 0。注意：如果是连续映射（非同胚，如 $z \mapsto z^2$），熵可以大于 0。但题目指定为“同胚”。
+
+    \item \textbf{题目}：对于任何 $g \in SL(2, \mathbb{Z})$，$g$ 定义在环面 $\mathbb{R}^2/\mathbb{Z}^2$ 上的映射 $x+\mathbb{Z}^2 \mapsto gx+\mathbb{Z}^2$ 关于 Lebesgue 测度是遍历映射。
+    
+    \textbf{解答}：\textbf{错误}。
+    
+    \textbf{理由}：题目称“对于任何 $g$”。反例：取单位矩阵 $g = I = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \in SL(2, \mathbb{Z})$。对应的映射是恒等映射 $T(x) = x$，显然不是遍历的（任何非平凡子集都是不变集）。只有当 $g$ 的特征值都不是单位根（即双曲环面自同构，特征值模不为1）时，才是遍历的。
+\end{enumerate}
+
+\section*{二、(6分) 证明：序列 $\{\sqrt{n} \pmod 1\}$ 在 $[0, 1]$ 中稠密}
+
+\textbf{提示}：考虑 $\sqrt{n+1} - \sqrt{n}$。
+
+\begin{solution}
+    令 $x_n = \sqrt{n}$。考察相邻项的差分：
+    $$ \Delta x_n = \sqrt{n+1} - \sqrt{n} = \frac{1}{\sqrt{n+1} + \sqrt{n}} $$
+    显然，当 $n \to \infty$ 时，$\Delta x_n \to 0$。
+    同时，$\lim_{n \to \infty} x_n = +\infty$。
+    
+    \textbf{定理}：若实数列 $\{x_n\}$ 满足 $x_n \to \infty$ 且 $\Delta x_n \to 0$，则 $\{x_n \pmod 1\}$ 在 $[0, 1]$ 中稠密。
+    
+    \textbf{证明思路}：
+    对于任意区间 $(a, b) \subset [0, 1]$，我们需要证明存在 $n$ 使得 $\{x_n\} \in (a, b)$。
+    由于 $\Delta x_n \to 0$，存在 $N$ 使得当 $n > N$ 时，$\Delta x_n < b-a$（步长小于区间长度）。
+    由于 $x_n \to \infty$，序列必然会经过无数个整数点。
+    当序列跨过某个整数 $k$ 时，由于步长极小，它不可能“跳过”整个区间 $(k+a, k+b)$。它必然会落入该区间内的某一点 $x_m$。
+    此时 $\{x_m\} \in (a, b)$。
+    
+    因此，$\{\sqrt{n} \pmod 1\}$ 在 $[0, 1]$ 中稠密。
+\end{solution}
+
+\section*{三、(18分) 设 $T: X \to X$ 是紧致度量空间 $X$ 上的同胚}
+
+\begin{enumerate}
+    \item \textbf{写出 $M(X, T)$ 和 $E(X, T)$ 的定义，并写出 $M(X, T)$ 的度量 $D(\mu, m)$，使得 $M(X, T)$ 为一个紧致度量空间。}
+    
+    \textbf{解答}：
+    \begin{itemize}
+        \item $M(X, T)$：$X$ 上所有 $T$-不变 Borel 概率测度的集合。即 $\mu \in M(X, T)$ 当且仅当 $\mu(X)=1$ 且对任意 Borel 集 $A$，$\mu(T^{-1}A) = \mu(A)$。
+        \item $E(X, T)$：$X$ 上所有遍历测度的集合。即 $\mu \in E(X, T)$ 当且仅当 $\mu \in M(X, T)$ 且对于任意 $T$-不变集 $A$（即 $T^{-1}A = A$），有 $\mu(A) = 0$ 或 $\mu(A) = 1$。
+        \item 度量 $D(\mu, \nu)$：$M(X, T)$ 上的弱*拓扑（Weak-* topology）可由度量化。取 $C(X)$ 的一个可数稠密子集 $\{f_k\}_{k=1}^\infty$（因为 $X$ 是紧致度量空间，$C(X)$ 是可分的）。定义度量：
+        $$ D(\mu, \nu) = \sum_{k=1}^\infty \frac{1}{2^k} \frac{\left| \int f_k d\mu - \int f_k d\nu \right|}{1 + \|f_k\|_\infty} $$
+        在该度量下，$M(X, T)$ 是紧致度量空间。
+    \end{itemize}
+
+    \item \textbf{写出关于 $T: X \to X$ 的变分原理。}
+    
+    \textbf{解答}：
+    $$ h_{top}(T) = \sup_{\mu \in M(X, T)} h_\mu(T) $$
+    其中 $h_{top}(T)$ 是拓扑熵，$h_\mu(T)$ 是关于测度 $\mu$ 的测度熵。即拓扑熵等于所有不变概率测度的测度熵的上确界。
+
+    \item \textbf{设 $X = [0, 1)$ 是周长为 1 的圆周，$X$ 上的同胚 $T(x) = x + \alpha \pmod 1$，其中 $\alpha$ 是一个无理数。证明：}
+    
+    \begin{enumerate}
+        \item \textbf{如果 $\mu \in M(X, T)$，那么 $\int_0^1 e^{2\pi i k x} d\mu = 0 \quad (\forall k \in \mathbb{Z} \setminus \{0\})$。}
+        
+        \begin{proof}
+            设 $f_k(x) = e^{2\pi i k x}$。
+            由于 $\mu$ 是 $T$-不变的，故 $\int f_k(x) d\mu = \int f_k(T x) d\mu$。
+            $$ \int e^{2\pi i k x} d\mu(x) = \int e^{2\pi i k (x+\alpha)} d\mu(x) = e^{2\pi i k \alpha} \int e^{2\pi i k x} d\mu(x) $$
+            移项得：
+            $$ (1 - e^{2\pi i k \alpha}) \int e^{2\pi i k x} d\mu = 0 $$
+            由于 $\alpha$ 是无理数且 $k \neq 0$，故 $k\alpha$ 不是整数，从而 $e^{2\pi i k \alpha} \neq 1$。
+            因此必须有 $\int e^{2\pi i k x} d\mu = 0$。
+        \end{proof}
+
+        \item \textbf{$M(X, T)$ 只有一个元素 $m_{Leb}$，这里 $m_{Leb}$ 是 $X$ 的 Lebesgue 测度。（提示：证明 $\int f d\mu = \int f dm_{Leb}$）}
+        
+        \begin{proof}
+            设 $\mu \in M(X, T)$。由 (a) 可知，$\mu$ 的 Fourier 系数 $\hat{\mu}(k) = 0$ 对所有 $k \neq 0$ 成立。
+            显然 $\hat{\mu}(0) = \int 1 d\mu = 1$。
+            另一方面，Lebesgue 测度 $m_{Leb}$ 的 Fourier 系数也满足 $\hat{m}_{Leb}(k) = \delta_{k, 0}$。
+            即 $\mu$ 和 $m_{Leb}$ 具有相同的 Fourier 系数。
+            
+            根据三角多项式的逼近定理（Stone-Weierstrass 定理的推论），三角多项式在 $C(X)$ 中稠密。
+            对于任意 $f \in C(X)$ 和 $\epsilon > 0$，存在三角多项式 $P(x) = \sum c_k e^{2\pi i k x}$ 使得 $\|f - P\|_\infty < \epsilon$。
+            由于 $\int P d\mu = c_0 = \int P dm_{Leb}$，
+            $$ \left| \int f d\mu - \int f dm_{Leb} \right| \le \left| \int f d\mu - \int P d\mu \right| + \left| \int P d\mu - \int P dm_{Leb} \right| + \left| \int P dm_{Leb} - \int f dm_{Leb} \right| $$
+            $$ \le \epsilon + 0 + \epsilon = 2\epsilon $$
+            由 $\epsilon$ 的任意性，$\int f d\mu = \int f dm_{Leb}$ 对所有连续函数成立。
+            由 Riesz 表示定理的唯一性，$\mu = m_{Leb}$。
+            故 $M(X, T) = \{m_{Leb}\}$。
+        \end{proof}
+    \end{enumerate}
+\end{enumerate}
+
+\section*{四、(26分) 设 $X = \mathbb{R}^2/\mathbb{Z}^2$ 是二维环面}
+
+\begin{enumerate}
+    \item \textbf{设 $g = \begin{pmatrix} 2 & 0 \\ 0 & 3 \end{pmatrix}$。证明：$g$ 在 $X$ 上定义的映射 $x+\mathbb{Z}^2 \mapsto gx+\mathbb{Z}^2$ 是保测映射，其中概率测度为环面上的 Lebesgue 测度 $m_{Leb}$。同时计算 $g$ 的拓扑熵。}
+    
+    \begin{solution}
+        \textbf{保测性}：
+        映射 $T_g(x) = gx \pmod 1$ 是一个满射的环面自同态。
+        对于线性映射 $x \mapsto Ax$，如果 $\det A \neq 0$，它是局部同胚，且将局部体积放大 $|\det A|$ 倍。
+        同时，它是 $|\det A|$-对-1 的映射（这里 $|\det g| = 6$）。
+        对于任意 Borel 集 $E$，
+        $$ m_{Leb}(T_g^{-1}(E)) = \sum_{i} m_{Leb}(E_i) $$
+        其中 $T_g^{-1}(E)$ 是 $E$ 的 6 个原像区域的并，每个区域被压缩了 $1/6$。
+        严格来说，Lebesgue 测度是 Haar 测度。对于满射自同态，Haar 测度总是不变的。
+        或者验证 Fourier 系数：$\int f(gx) dx = \int f(y) dy$？
+        $\widehat{f \circ T}(n) = \int f(Ax) e^{-2\pi i \langle n, x \rangle} dx$。
+        更简单地，对于矩形 $I = I_1 \times I_2$，其原像是若干小矩形的并，总面积不变。
+        
+        \textbf{拓扑熵}：
+        对于环面自同态 $A$，拓扑熵由公式 $h(T) = \sum_{|\lambda_i| > 1} \ln |\lambda_i|$ 给出。
+        $g$ 的特征值为 2 和 3。
+        $$ h(g) = \ln 2 + \ln 3 = \ln 6 $$
+    \end{solution}
+
+    \item \textbf{利用两个保测映射的复合还是保测映射这个性质，证明：$g = \begin{pmatrix} 2 & 1 \\ 0 & 3 \end{pmatrix}$ 和 $\begin{pmatrix} 3 & 1 \\ 6 & 4 \end{pmatrix}$ 在 $X$ 上定义的映射是保测映射。}
+    
+    \begin{solution}
+        \textbf{对于 $A = \begin{pmatrix} 2 & 1 \\ 0 & 3 \end{pmatrix}$：}
+        可以分解为 $A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix} \begin{pmatrix} 2 & 0 \\ 0 & 3 \end{pmatrix}$。
+        令 $h = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$，这是 $SL(2, \mathbb{Z})$ 矩阵，定义了环面自同构，显然保 Lebesgue 测度。
+        令 $k = \begin{pmatrix} 2 & 0 \\ 0 & 3 \end{pmatrix}$，由 (1) 知其保测。
+        则 $T_A = T_h \circ T_k$ 是两个保测映射的复合，故保测。
+        
+        \textbf{对于 $B = \begin{pmatrix} 3 & 1 \\ 6 & 4 \end{pmatrix}$：}
+        注意 $\det B = 12 - 6 = 6 \neq 0$。
+        我们可以尝试分解或直接引用结论。若需利用复合性质：
+        $B = \begin{pmatrix} 1 & 0 \\ 2 & 1 \end{pmatrix} \begin{pmatrix} 3 & 1 \\ 0 & 2 \end{pmatrix}$。
+        第一部分 $\in SL(2, \mathbb{Z})$ 保测。
+        第二部分 $\begin{pmatrix} 3 & 1 \\ 0 & 2 \end{pmatrix} = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix} \begin{pmatrix} 3 & 0 \\ 0 & 2 \end{pmatrix}$。
+        $\begin{pmatrix} 3 & 0 \\ 0 & 2 \end{pmatrix}$ 类似于 (1) 中的对角阵，保测。
+        因此 $B$ 对应的映射是保测的。
+    \end{solution}
+
+    \item \textbf{证明 (1) 中的映射为遍历映射。（提示：$L^2(X)$ 空间的 Fourier 分析）}
+    
+    \begin{solution}
+        设 $f \in L^2(X)$ 是 $T_g$-不变函数，即 $f(gx) = f(x)$ a.e.。
+        展开 Fourier 级数 $f(x) = \sum_{n \in \mathbb{Z}^2} c_n e^{2\pi i \langle n, x \rangle}$。
+        $$ f(gx) = \sum_{n} c_n e^{2\pi i \langle n, gx \rangle} = \sum_{n} c_n e^{2\pi i \langle g^T n, x \rangle} $$
+        由 $f(x) = f(gx)$，比较系数得：
+        $$ c_n = c_{g^T n} $$
+        这意味着 Fourier 系数在双对偶映射 $g^T = \begin{pmatrix} 2 & 0 \\ 0 & 3 \end{pmatrix}$ 的轨道上取值相同。
+        对于 $n = (n_1, n_2) \neq (0, 0)$，
+        $(g^T)^k n = (2^k n_1, 3^k n_2)$。
+        由于 $|2^k n_1| \to \infty$ (若 $n_1 \neq 0$) 或 $|3^k n_2| \to \infty$ (若 $n_2 \neq 0$)，
+        轨道 $\{(g^T)^k n\}_{k \ge 0}$ 是无限集（除了 $n=0$）。
+        由 Riemann-Lebesgue 引理，$c_n \to 0$ 当 $|n| \to \infty$。
+        如果在一条无限轨道上 $c_n$ 为常数，则该常数必须为 0。
+        因此，对于所有 $n \neq 0$，有 $c_n = 0$。
+        故 $f(x) = c_0$ (常数)。
+        这证明了 $T_g$ 是遍历的。
+    \end{solution}
+\end{enumerate}
+
+\section*{五、(10分) 连分数展开的统计性质}
+
+\textbf{题目}：证明：对于几乎所有的 $x \in (0, 1)$，其连分数展开 $x = [0; a_1, a_2, \dots]$ 满足
+$$ \lim_{n\to\infty} \frac{1/a_1 + 1/a_2 + \dots + 1/a_n}{n} = \log_2 \left( \prod_{l=1}^\infty \left( \frac{(l+1)^2}{l(l+2)} \right)^{1/l} \right) $$
+
+\begin{solution}
+    考虑 Gauss 映射 $G: (0, 1) \to (0, 1)$，定义为 $G(x) = \{1/x\}$。
+    连分数系数 $a_n(x)$ 由 $a_1(x) = \lfloor 1/x \rfloor$，$a_n(x) = a_1(G^{n-1}(x))$ 给出。
+    Gauss 映射关于 Gauss 测度 $d\mu = \frac{1}{\ln 2} \frac{dx}{1+x}$ 是遍历的。
+    
+    考虑观测函数 $f(x) = \frac{1}{a_1(x)} = \frac{1}{\lfloor 1/x \rfloor}$。
+    题目左边的极限即为 Birkhoff 平均：
+    $$ \lim_{n\to\infty} \frac{1}{n} \sum_{i=1}^n f(G^{i-1}(x)) $$
+    根据 Birkhoff 遍历定理，对于几乎所有的 $x$，该极限收敛于 $f$ 关于 Gauss 测度的积分：
+    $$ I = \int_0^1 f(x) d\mu(x) = \frac{1}{\ln 2} \sum_{k=1}^\infty \int_{1/(k+1)}^{1/k} \frac{1}{k} \frac{dx}{1+x} $$
+    计算积分：
+    $$ \int_{1/(k+1)}^{1/k} \frac{1}{1+x} dx = \left[ \ln(1+x) \right]_{1/(k+1)}^{1/k} = \ln(1+\frac{1}{k}) - \ln(1+\frac{1}{k+1}) $$
+    $$ = \ln \left( \frac{k+1}{k} \cdot \frac{k+1}{k+2} \right) = \ln \left( \frac{(k+1)^2}{k(k+2)} \right) $$
+    代回 $I$ 的表达式：
+    $$ I = \frac{1}{\ln 2} \sum_{k=1}^\infty \frac{1}{k} \ln \left( \frac{(k+1)^2}{k(k+2)} \right) $$
+    利用对数性质 $\frac{1}{k} \ln A = \ln (A^{1/k})$ 和 $\sum \ln A_k = \ln (\prod A_k)$：
+    $$ I = \frac{1}{\ln 2} \ln \left( \prod_{k=1}^\infty \left( \frac{(k+1)^2}{k(k+2)} \right)^{1/k} \right) $$
+    再利用换底公式 $\frac{\ln A}{\ln 2} = \log_2 A$：
+    $$ I = \log_2 \left( \prod_{k=1}^\infty \left( \frac{(k+1)^2}{k(k+2)} \right)^{1/k} \right) $$
+    这正是题目右端要证明的表达式（将求积变量 $k$ 换为 $l$ 即得）。
+    
+    证毕。
+\end{solution}
+
+\section*{六、(18分) 设 $T: X \to X$ 是紧致度量空间 $X$ 上的同胚，并且 $X$ 中的每个点都是周期点。}
+
+\begin{enumerate}
+    \item \textbf{证明：$E(X, T)$ 中的任何一个测度 $\mu$ 都可以表示为 $\mu = \frac{1}{N} \sum_{i=0}^{N-1} \delta_{T^i p}$，其中 $p$ 是 $X$ 的某个周期点，$N$ 是 $p$ 的周期。}
+    
+    \begin{solution}
+        设 $\mu \in E(X, T)$ 是一个遍历测度。
+        由于 $X$ 是紧致度量空间，$\mu$ 的支撑集 $\text{supp}(\mu)$ 非空。
+        取 $p \in \text{supp}(\mu)$。根据题目假设，$X$ 中的每个点都是周期点，因此 $p$ 是周期点。
+        设 $p$ 的周期为 $N$，即 $T^N p = p$ 且 $T^k p \neq p$ ($0 < k < N$)。
+        考虑 $p$ 的轨道 $O(p) = \{p, Tp, T^2p, \dots, T^{N-1}p\}$。
+        
+        1. \textbf{$O(p)$ 是闭不变集}：由于 $O(p)$ 是有限集，且 $X$ 是 Hausdorff 空间（度量空间），故 $O(p)$ 是闭集。显然 $T(O(p)) = O(p)$，故它是不变集。
+        
+        2. \textbf{$\mu$ 集中在 $O(p)$ 上}：由于 $\mu$ 是遍历测度，对于不变闭集 $O(p)$，其测度 $\mu(O(p))$ 只能是 0 或 1。
+        假设 $\mu(O(p)) = 0$，则 $U = X \setminus O(p)$ 是开集且 $\mu(U) = 1$。这意味着 $\text{supp}(\mu) \subseteq U$，即 $\text{supp}(\mu) \cap O(p) = \emptyset$。但这与我们选取的 $p \in \text{supp}(\mu) \cap O(p)$ 矛盾。
+        因此，必须有 $\mu(O(p)) = 1$。
+        
+        3. \textbf{$\mu$ 在轨道上均匀分布}：
+        由于 $\mu$ 是 $T$-不变测度，对于任意 $k$，有 $\mu(\{T^k p\}) = \mu(T^{-1}(\{T^{k+1} p\})) = \mu(\{T^{k+1} p\})$（注意 $T$ 是双射，限制在轨道上也是双射）。
+        这意味着轨道上每个点的测度相等。
+        设 $\mu(\{p\}) = c$。则 $\mu(O(p)) = \sum_{i=0}^{N-1} \mu(\{T^i p\}) = N \cdot c$。
+        由 $\mu(O(p)) = 1$，得 $c = 1/N$。
+        
+        综上所述，$\mu = \frac{1}{N} \sum_{i=0}^{N-1} \delta_{T^i p}$。
+    \end{solution}
+
+    \item \textbf{证明 $T$ 的拓扑熵等于零。}
+    
+    \begin{solution}
+        我们将利用变分原理：$h_{top}(T) = \sup_{\mu \in M(X, T)} h_\mu(T)$。
+        
+        1. \textbf{遍历分解}：
+        $M(X, T)$ 是遍历测度集 $E(X, T)$ 的凸包（更精确地，由 Choquet 理论或遍历分解定理，任意不变测度 $\nu$ 可以表示为遍历测度的积分 $\nu = \int_{E(X, T)} \mu \, d\tau(\mu)$）。
+        测度熵 $h_\mu(T)$ 是关于 $\mu$ 的仿射函数，即 $h_\nu(T) = \int h_\mu(T) \, d\tau(\mu)$。
+        因此，要证明 $\sup_{\nu \in M(X, T)} h_\nu(T) = 0$，只需证明对于所有遍历测度 $\mu \in E(X, T)$，有 $h_\mu(T) = 0$。
+        
+        2. \textbf{计算遍历测度的熵}：
+        设 $\mu \in E(X, T)$。由第 (1) 问可知，$\mu$ 是支撑在有限周期轨道 $O(p)$ 上的均匀测度。
+        考虑动力系统 $(O(p), T|_{O(p)}, \mu)$。这是一个有限状态系统。
+        对于有限概率空间上的任何有限配分 $\xi$，其熵 $H_\mu(\xi)$ 总是有限的，且受限于状态数的对数：
+        $$ H_\mu(\bigvee_{i=0}^{n-1} T^{-i}\xi) \le H_\mu(\text{点配分}) = \sum_{x \in O(p)} -\mu(\{x\}) \ln \mu(\{x\}) = \ln N $$
+        其中 $N = |O(p)|$。
+        测度熵的定义为：
+        $$ h_\mu(T) = \sup_\xi \lim_{n \to \infty} \frac{1}{n} H_\mu(\bigvee_{i=0}^{n-1} T^{-i}\xi) $$
+        由于 $H_\mu(\dots) \le \ln N$（常数），
+        $$ \lim_{n \to \infty} \frac{1}{n} H_\mu(\dots) \le \lim_{n \to \infty} \frac{\ln N}{n} = 0 $$
+        因此，对于任意遍历测度 $\mu$，有 $h_\mu(T) = 0$。
+        
+        3. \textbf{结论}：
+        由于所有遍历测度的熵均为 0，故所有不变测度的熵均为 0。
+        由变分原理，$h_{top}(T) = 0$。
+    \end{solution}
+\end{enumerate}
+
+\section*{七、(10分) 周期点增长率与拓扑熵}
+
+\textbf{题目}：设 $T: X \to X$ 是紧致度量空间 $X$ 上的一个可扩同胚。设 $N_n(T) = \{x \in X : T^n x = x\}$。证明：
+$$ \limsup_{n\to\infty} \frac{1}{n} \ln |N_n(T)| \le h(T) $$
+
+\begin{solution}
+    由于 $T$ 是可扩同胚，存在可扩常数 $\delta > 0$。
+    对于任意 $n$，考虑 $N_n(T)$ 中的点。
+    如果 $x, y \in N_n(T)$ 且 $x \neq y$，则它们的轨道必然在某处分开超过 $\delta$。
+    实际上，对于周期点，我们可以证明 $N_n(T)$ 是一个 $(n, \epsilon)$-分离集（对于适当小的 $\epsilon$）。
+    
+    更精确地，由于 $T$ 是可扩的，熵映射是上半连续的，且 $h(T)$ 等于分离集增长率。
+    对于可扩同胚，如果 $x, y$ 是不同的周期点（周期 $n$），只要 $\epsilon < \delta/2$，它们就是 $(n, \epsilon)$-分离的吗？
+    不一定。但是，我们可以利用 Bowen 的定义。
+    
+    \textbf{标准证明}：
+    对于可扩同胚，存在生成元（Generator）$\mathcal{A}$（有限开覆盖或配分）。
+    $h(T) = h(T, \mathcal{A})$。
+    对于周期为 $n$ 的点 $x$，它对应于 $\mathcal{A}$ 的 $n$-长名字（Name）。
+    由于可扩性，不同的周期点对应不同的 $n$-长名字（或者名字数量有限制）。
+    实际上，对于可扩系统，$|N_n(T)| \le C e^{n h(T)}$。
+    
+    具体步骤：
+    取 $\epsilon < \delta/2$。
+    若 $x, y \in N_n(T)$ 且 $x \neq y$。
+    由于 $x, y$ 周期为 $n$，且 $x \neq y$，由可扩性，存在 $k \in \mathbb{Z}$ 使得 $d(T^k x, T^k y) > \delta$。
+    我们可以将 $k$ 平移到 $0, \dots, n-1$ 范围内吗？
+    因为 $T^n x = x$，轨道是周期的。如果 $d(T^k x, T^k y) \le \delta$ 对所有 $0 \le k \le n-1$ 成立，则由周期性，它对所有 $k \in \mathbb{Z}$ 成立，这推出 $x=y$，矛盾。
+    因此，存在 $0 \le k \le n-1$ 使得 $d(T^k x, T^k y) > \delta$。
+    这意味着 $N_n(T)$ 是一个 $(n, \delta)$-分离集。
+    
+    根据拓扑熵的定义（Bowen）：
+    $h(T) = \lim_{\epsilon \to 0} \limsup_{n \to \infty} \frac{1}{n} \ln s(n, \epsilon)$，其中 $s(n, \epsilon)$ 是最大 $(n, \epsilon)$-分离集的基数。
+    取 $\epsilon = \delta$，则 $N_n(T)$ 是一个 $(n, \delta)$-分离集。
+    所以 $|N_n(T)| \le s(n, \delta)$。
+    $$ \limsup_{n\to\infty} \frac{1}{n} \ln |N_n(T)| \le \limsup_{n\to\infty} \frac{1}{n} \ln s(n, \delta) \le h(T) $$
+    证毕。
+\end{solution}
+
+\section*{八、做题方法总结}
+
+\begin{enumerate}
+    \item \textbf{判断题技巧}：
+    \begin{itemize}
+        \item \textbf{反例法}：对于“任何”、“所有”类命题，尝试寻找简单的反例（如单位矩阵、恒等映射）。
+        \item \textbf{经典结论}：熟记常见系统的性质，如圆周同胚熵为0、全移位是可扩的、无理旋转唯一遍历等。
+    \end{itemize}
+
+    \item \textbf{稠密性证明}：
+    \begin{itemize}
+        \item \textbf{步长分析}：对于 $x_n \pmod 1$ 类型题目，检查 $\Delta x_n \to 0$ 且 $x_n \to \infty$。这是证明稠密性的强力工具。
+        \item \textbf{直观理解}：将序列视为在圆周上步长逐渐减小的运动。
+    \end{itemize}
+
+    \item \textbf{保测性与遍历性判定}：
+    \begin{itemize}
+        \item \textbf{保测性}：对于线性映射 $Ax$，检查 $|\det A|=1$。对于复合映射，利用保测映射的复合仍保测。
+        \item \textbf{遍历性}：
+        \begin{itemize}
+            \item \textbf{特征值判据}：环面自同构遍历 $\iff$ 无单位根特征值。
+            \item \textbf{Fourier 分析}：证明不变函数的 Fourier 系数除常数项外均为 0。这是处理遍历性问题的通用且严格的方法。
+        \end{itemize}
+    \end{itemize}
+
+    \item \textbf{拓扑熵计算}：
+    \begin{itemize}
+        \item \textbf{Bowen 公式}：环面自同构熵 $h(T) = \sum_{|\lambda|>1} \ln |\lambda|$。
+        \item \textbf{变分原理}：$h_{top}(T) = \sup h_\mu(T)$。对于全周期系统，所有测度熵为0，故拓扑熵为0。
+        \item \textbf{周期点增长率}：对于可扩系统，熵控制了周期点的指数增长率。
+    \end{itemize}
+
+    \item \textbf{连分数与遍历理论}：
+    \begin{itemize}
+        \item \textbf{Gauss 映射}：连分数展开对应 Gauss 映射 $G(x) = \{1/x\}$。
+        \item \textbf{Birkhoff 遍历定理}：将序列极限转化为空间平均（积分）。关键是写出正确的观测函数 $f(x)$ 和不变测度 $d\mu$。
+    \end{itemize}
+\end{enumerate}
+
+\end{document}
