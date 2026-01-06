@@ -30,54 +30,61 @@ $\forall\, x\in Q$，$\frac{1}{N}\sum_{n=0}^{N-1}{f_k \left(T^n_A(x)\right)}\to 
 \end{pmatrix}\cdots\begin{pmatrix}
     0 & 1\\
     1 & 1
-\end{pmatrix}}_{n\,\text{个}}=\begin{pmatrix}
-    q_n & q_{n-1} \\
-    p_n & p_{n-1}
+\end{pmatrix}}_{n+1\,\text{个}}=\begin{pmatrix}
+    q_{n-1} & q_{n} \\
+    p_{n-1} & p_{n}
 \end{pmatrix}$，其中$q_{n+1}=a_{n+1}q_n+q_{n-1}=q_n+q_{n-1},p_{n+1}=a_{n+1}p_n+p_{n-1}=p_n+p_{n-1}$满足斐波那契数列的递推公式.\par
 当$n=0$时，$\begin{pmatrix}
     0 & 1 \\
     1 & 1 \\
 \end{pmatrix}=\begin{pmatrix}
-    q_0 & q_{-1} \\
-    p_0 & p_{-1}
-\end{pmatrix}\Rightarrow q_0=0,q_{-1}=1,p_0=1,p_{-1}=1$.\par
+    q_{-1} & q_{0} \\
+    p_{-1} & p_{0}
+\end{pmatrix}\Rightarrow q_0=1,q_{-1}=0,p_0=1,p_{-1}=1$.\par
 因此对于$\{p_n\}_{n\in\mb{N}}$，有$p_n=F_{n+2}$.\par
 $\forall\, x\in Q,x=\begin{pmatrix}
     \alpha \\
     \beta
 \end{pmatrix}\in\mb{R}^2$，$A^{n+1}x=\begin{pmatrix}
-    q_n & q_{n-1} \\
-    p_n & p_{n-1}
+    q_{n-1} & q_{n} \\
+    p_{n-1} & p_{n}
 \end{pmatrix}\begin{pmatrix}
     \alpha \\
     \beta
 \end{pmatrix}=\begin{pmatrix}
-    \alpha q_n+\beta q_{n-1} \\
-    \alpha p_n+\beta p_{n-1}
+    \alpha q_{n-1}+\beta q_{n} \\
+    \alpha p_{n-1}+\beta p_{n}
 \end{pmatrix}$.\par
 取$g,h\in C(S^1)$，则$f(u,v)=g(u)\cdot h(v)\in C(X_2)$.\par
 则$\forall\, x\in\begin{pmatrix}
     \alpha \\
     \beta
-\end{pmatrix}\in Q,\frac{1}{N}\sum_{n=0}^{N-1}{f g(\alpha q_n+\beta q_{n-1})h(\alpha p_n+\beta p_{n-1})}\to (\int_{S_1}{g}\d x)(\int_{S^1}{h}\d x)$.\par
+\end{pmatrix}\in Q,\frac{1}{N}\sum_{n=0}^{N-1}{f g(\alpha q_{n-1}+\beta q_{n})h(\alpha p_{n-1}+\beta p_{n})}\to (\int_{S_1}{g}\d x)(\int_{S^1}{h}\d x)$.\par
 令$g=\bf{1}$，则$\forall\, h\in C(S^1),\forall\, x=\begin{pmatrix}
     \alpha \\
     \beta
-\end{pmatrix}\in Q,\frac{1}{N}\sum_{n=0}^{N-1}{h(\alpha p_n+\beta p_{n-1})}\to \int_{S^1}{h}\d x$.\par
+\end{pmatrix}\in Q,\frac{1}{N}\sum_{n=0}^{N-1}{h(\alpha p_{n-1}+\beta p_{n})}\to \int_{S^1}{h}\d x$.\par
 $\Rightarrow \forall\,\begin{pmatrix}
     \alpha \\
     \beta
-\end{pmatrix}\in Q,\{\alpha p_n+\beta p_{n-1}\}_{n\in\mb{N}}$在$[0,1)$中均匀分布.\par
-由于$p_n=F_{n+2}$，所以$\{\alpha F_{n+1}+\beta F_n\}_{n\in\mb{N}}$也在$[0,1)$中均匀分布.\par
+\end{pmatrix}\in Q,\{\alpha p_{n-1}+\beta p_{n}\}_{n\in\mb{N}}$在$[0,1)$中均匀分布.\par
+由于$p_n=F_{n+2}$，所以$\{\alpha F_{n}+\beta F_{n+1}\}_{n\in\mb{N}}$也在$[0,1)$中均匀分布.\par
 我们知道$F_n$的通项公式为$F_n=c(\lambda_1^n+\lambda_2^n)$，其中$|\lambda_1|>1,|\lambda_2|<1$.\par
 那么$\setjot[-4]\begin{aligned}[t]
-    \alpha F_{n+1}+\beta F_n &=\alpha c(\lambda_1^{n+1}+\lambda_1^{n+1})+\beta c(\lambda_1^n+\lambda_2^n)=\lambda_1^n(c\alpha\lambda_1+c\beta)+(\lambda_2^n\cdot c\beta+c\alpha\cdot \lambda_2^{n+1}) \\
-    &= F_n(\alpha \lambda_1+\beta)+\tilde{c}\lambda_2^n(\tilde{c}\,\text{为某个常数}) \\
+    \alpha F_{n}+\beta F_{n+1} &=\alpha c(\lambda_1^{n}+\lambda_2^{n})+\beta c(\lambda_1^{n+1}+\lambda_2^{n+1})=\lambda_1^n(c\beta\lambda_1+c\alpha)+(\lambda_2^n\cdot c\alpha+c\beta\cdot \lambda_2^{n+1}) \\
+    &= F_n(\beta\lambda_1+\alpha)+\tilde{c}\lambda_2^n(\tilde{c}\,\text{为某个常数}) \\
     &=\tilde{\alpha}F_n+\tilde{c}\lambda_2^n
 \end{aligned}$\par
-因此$\frac{1}{N}\sum_{n=0}^{N-1}{h(\tilde{\alpha}F_n)}=\frac{1}{N}\sum_{n=0}^{N-1}{\left(h(\alpha F_{n+1}+\beta F_n)-\tilde{c}\lambda_2^n\right)}=\frac{1}{N}\sum_{n=0}^{N-1}{\left(h(\alpha F_{n+1}+\beta F_n)\right)}-\frac{\tilde{c}}{N}\sum_{n=0}^{N-1}{\lambda_2^n}$.\par
-当$N\to\infty$时，$\frac{1}{N}\sum_{n=0}^{N-1}{\left(h(\alpha F_{n+1}+\beta F_n)\right)}\to\int_{S_1}{h}\d x$，$\frac{\tilde{c}}{N}\sum_{n=0}^{N-1}{\lambda_2^n}=\tilde{c}\cdot\frac{1-\lambda_2^N}{N(1-\lambda_2)}\stackrel{|\lambda_2|<1}{\longrightarrow} 0$.\par
-故$\forall\, h\in C(S^1),\frac{1}{N}\sum_{n=0}^{N-1}{h(\tilde{\alpha}F_n)}\to \int_{S^1}{h}\d x\Rightarrow \{\tilde{\alpha}F_n\}_{n\in\mb{N}}$在$[0,1)$中均匀分布.\par
+因此$\frac{1}{N}\sum_{n=0}^{N-1}{h(\tilde{\alpha}F_n)}=\frac{1}{N}\sum_{n=0}^{N-1}{h(\alpha F_{n}+\beta F_{n+1}-\tilde{c}\lambda_2^n)}$\par
+由于$|\lambda_2|<1$，故$|\lambda_2|^n\to 0$.\par
+又$h$是连续函数，因此$\forall\,\varepsilon>0$，$\exists\, M\in\mb{N}$，使得$\forall\, n> M$，$\left|h(\tilde{\alpha}F_n)-h\left(\alpha F_n+\beta F_{n+1}\right)\right|<\varepsilon$.\par
+所以$\setjot[-2]\begin{aligned}[t]
+    &\quad\left|\frac{1}{N}\sum_{n=0}^{N-1}h\left(\tilde{\alpha}F_n\right)-\frac{1}{N}\sum_{n=0}^{N-1}h\left(\alpha F_n+\beta F_{n+1}\right)\right| \\
+    &\leq\frac{1}{N}\sum_{n=0}^M{\left|h\left(\tilde{\alpha}F_n\right)-h\left(\alpha F_n+\beta F_{n+1}\right)\right|}+\frac{1}{N}\sum_{n=M+1}^N{\left|h\left(\tilde{\alpha}F_n\right)-h\left(\alpha F_n+\beta F_{n+1}\right)\right|} \\
+    &\leq\frac{2M\|h\|}{N}+\varepsilon
+\end{aligned} $\par
+令$N\to\infty,\varepsilon\to 0$，则$\left|\frac{1}{N}\sum_{n=0}^{N-1}h\left(\tilde{\alpha}F_n\right)-\frac{1}{N}\sum_{n=0}^{N-1}h\left(\alpha F_n+\beta F_{n+1}\right)\right|\to 0$.\par
+因此$\frac{1}{N}\sum_{n=0}^{N-1}{h(\tilde{\alpha}F_n)}\to\int_{S^1}h\d x$，故$\{\tilde{\alpha}F_n\}_{n\in\mb{N}}$在$[0,1)$中均匀分布.\par
 最后只需证明上述$\tilde{\alpha}$的全体构成一个全测集，即$m_\mathrm{Leb}\left(\left\{\tilde{\alpha}\left|\tilde{\alpha}=\alpha\lambda_1+\beta,\begin{pmatrix}
     \alpha \\
     \beta
@@ -98,11 +105,11 @@ $Q\subseteq \mb{R}^2$为全测集，由Fubini定理，存在$A\subseteq\mb{R}$�
 
 本节的第二个例子是下面这个定理：
 \begin{theorem}
-    设$\a\in\mb{R}\setminus\mb{Q}$，$p(x)=\alpha x^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0(a_i\in\mb{R})$，则$p(x)\mod 1$在$[0,1)$中均匀分布.
+    设$\a\in\mb{R}\setminus\mb{Q}$，$p(x)=\alpha x^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0(a_i\in\mb{R})$，则$\{p(n)\mod 1\}_{n\in\mb{N}}$在$[0,1)$中均匀分布.
 \end{theorem}
 根据均匀分布的等价条件，我们实际上只需要证明$\forall\, k\in\mb{Z}\setminus\{0\},\frac{1}{N}\sum_{n=0}^{N-1}{\cos{2k\pi p(n)}}\to 0$且$\frac{1}{N}\sum_{n=0}^{N-1}{\sin{2k\pi p(n)}}\to 0$.\par
 这等价于证明$\frac{1}{N}\sum_{n=0}^{N-1}{\eu^{2k\pi \iu p(n)}}\to 0(\forall\, k\in\mb{Z}\setminus\{0\})$.\par
-对于上面的定理，如果$p(n)=\alpha n+a_0$，它在$[0,1)$上均匀分布，因而$\frac{1}{N}\sum_{n=0}^{N-1}{\eu^{2k\pi \iu(\alpha n+a_0)}}\to 0$.为了将其余次数的多项式化规到这一情形，我们需要下述引理.\par
+对于上面的定理，如果$p(n)=\alpha n+a_0$，它在$[0,1)$上均匀分布，因而$\frac{1}{N}\sum_{n=0}^{N-1}{\eu^{2k\pi \iu(\alpha n+a_0)}}\to 0$.为了将其余次数的多项式化归到这一情形，我们需要下述引理.\par
 \begin{lemma}
     设$\{a_n\}_{n\in\mb{N}}$是$\mb{C}$中的有界序列，且满足$\forall\, h\in\mb{N}_{>0}$，$\frac{1}{N}\sum_{n=0}^{N-1}{\overline{a_{n+h}}a_n}\to 0$，那么$\frac{1}{N}\sum_{n=0}^{N-1}{a_n}\to 0$.
 \end{lemma}
@@ -139,7 +146,7 @@ $Q\subseteq \mb{R}^2$为全测集，由Fubini定理，存在$A\subseteq\mb{R}$�
 \end{instance}
 类似上面的例子，对于一般的多项式$p(n)$，只需要对$\mathrm{deg}\, p$用数学归纳法即可.另外，上述定理实际上可以加强为：
 \begin{theorem}{}
-    $p(x)=a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0$，若$a_i(1\leq i\leq n)$不全为有理数，则$p(x)\mod 1$在$[0,1)$中均匀分布.
+    $p(x)=a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0$，若$a_i(1\leq i\leq n)$不全为有理数，则$\{p(n)\mod 1\}_{n\in\mb{N}}$在$[0,1)$中均匀分布.
 \end{theorem}
 \begin{proof}
     我们对多项式的次数$n$使用第二数学归纳法.\par
@@ -308,7 +315,7 @@ $Q\subseteq \mb{R}^2$为全测集，由Fubini定理，存在$A\subseteq\mb{R}$�
     齐性集$A$是紧致度量空间中的闭集，因此$A$也是紧集，那么$\forall\,\varepsilon>0$ ，存在$A$ 的一个有限开覆盖$\{V_1,V_2,\cdots,V_m\}$，使得$\mathrm{diam}\, V_i\leq\varepsilon(1\leq i\leq m)$.\par
     由于$S:A\to A$是极小系统，则$\forall\, x\in A,\{\cdots,S^{-2}x,S^{-1}x,x,Sx,S^2x,\cdots\}$ 在$A$ 中稠密，因此$\{\cdots,S^{-2}x,S^{-1}x,x,Sx,S^2x,\cdots\}\cap V_i\neq\varnothing(\forall\, 1\leq i\leq m)$.\par
     $\Rightarrow \exists\, l\in\mb{Z},S^lx\in V_i\Rightarrow x\in S^lV_i$.那么$\left\{S^lV_i,l\in\mb{Z}\right\}$是$A$ 的一个开覆盖.\par
-    由于$A$是紧集，存在有限子覆盖$S^{-l_i}V_i,S^{-(l_i-1)V_i,\cdots,V_i},\cdots,S^{l_i}V_i(\forall\, 1\leq i\leq m)$.\par
+    由于$A$是紧集，存在有限子覆盖$S^{-l_i}V_i,S^{-(l_i-1)}V_i,\cdots,S^{l_i}V_i(\forall\, 1\leq i\leq m)$.\par
     令$L=\max_{1\leq i\leq m}{l_i}$，则$\left\{S^{-L}V_i,S^{-(L-1)}V_i,\cdots,V_i,\cdots,S^{L}V_i\right\}$是$A$ 的一个开覆盖.\par
     \begin{claim}{$\forall\, x,y\in A,\exists\, l\in\{-L,-(L-1),\cdots,L\}$ ，使得$d\left(S^ly,x\right)<\varepsilon$.}
         $\left\{V_i\right\}_{1\leq i\leq m}$ 是$A$ 的开覆盖$\Rightarrow \exists\, 1\leq i\leq m,\st x\in V_i$.\par
@@ -351,7 +358,7 @@ $Q\subseteq \mb{R}^2$为全测集，由Fubini定理，存在$A\subseteq\mb{R}$�
     令$S_n=\left\{x\in A\left|F(x)\geq\frac{1}{n}\right.\right\}(\forall\, n\in\mb{N})$，则$A=\bigcup_{n\in\mb{N}}{S_n}$.\par
     现证$S_n$是闭集.\par
     $S_n^c=\left\{x\in A\left|F(x)<\frac{1}{n}\right.\right\}$.则$\forall\, x\in S_n^c,\exists\, N\in\mb{N}$ ，使得$d \left(x,T^Nx\right)<\frac{1}{n}$.\par
-    由$T$的连续性，故存在$x$的邻域$U_x$，使得$\forall\, y\in U_x,d \left(x,T^Nx\right)<\frac{1}{x}$.\par
+    由$T$的连续性，故存在$x$的邻域$U_x$，使得$\forall\, y\in U_x,d \left(x,T^Nx\right)<\frac{1}{n}$.\par
     $\Rightarrow U_x\subseteq S_n^c\Rightarrow S_n^c$为开集，$S_n$为闭集.\par
     由引理\ref{lem:2.10}，$\exists\, n_0\in\mb{N}$，$S_{n_0}$包含内点.\par
     不妨设$B(x_0,r_0)\subset S_{n_0}$.\par

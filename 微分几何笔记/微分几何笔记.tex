@@ -102,6 +102,7 @@
     \end{wrapfigure}}
 
 
+
 %分式使用行间版
 \everymath{\displaystyle}
 
@@ -120,7 +121,7 @@
   colback=mygray,
   boxrule=0pt,
 }
-\graphicspath{ {./images/} }
+\graphicspath{ {./fig/} }
 \newcommand{\HRule}{\begin{center}\rule{0.9\linewidth}{0.2mm}\end{center}}
 \newcommand{\customfootnote}[1]{
   \let\thefootnote\relax\footnotetext{#1}
@@ -161,7 +162,2562 @@
 
 \input{Curves.tex}
 
+Section 7
 
+Exterior differential and Integration of 2-forms
+
+\HRule
+
+Definition 20 (Exterior differential)
+
+\HRule
+
+If \(\alpha\) is a 1-form on \(S\) , then the exterior differential in the \(S\) is defined as
+
+\[
+{\left( d\alpha \right) }_{p}\left( {\partial x,\partial y}\right)  = {\mathrm{T}}_{p}\left( {\alpha \left( {\partial y}\right) }\right) \left( {\partial x}\right)  - {\mathrm{T}}_{p}\left( {\alpha \left( {\partial x}\right) }\right) \left( {\partial y}\right)
+\]
+
+\[
+= {\nabla }_{\partial x}\alpha \left( {\partial y}\right)  - {\nabla }_{\partial y}\alpha \left( {\partial x}\right)
+\]
+
+for every chart \(\phi  : D \rightarrow  S\) around \(p\) .
+
+Remark
+
+\[
+d\left( {f\alpha }\right)  = {df} \land  \alpha  + {fd\alpha }
+\]
+
+\[
+d\left( {df}\right)  = 0
+\]
+
+1-form is called closed if \({d\alpha } = 0\) , and is called exact if there exists \(f : S \rightarrow  \mathbb{R}\) such that \({df} = \alpha\) . Actually, every exact form is also closed, but not every closed form is exact.
+
+\HRule
+
+Definition 21 (Integration of 2-forms)
+
+\HRule
+
+The integral of the 2-form \(\beta\) over the rectangle \(R\) is
+
+\[
+{\int }_{R}\beta  = {\int }_{a}^{b}{\int }_{c}^{d}{\beta }_{R\left( {x,y}\right) }\left( {\frac{\partial R\left( {x,y}\right) }{\partial x},\frac{\partial R\left( {x,y}\right) }{\partial y}}\right) {dydx}
+\]
+
+where \(\frac{\partial R\left( {x,y}\right) }{\partial x}\) is the tangent vector at \(R\left( {x,y}\right)  \in  S\) given by the curve \(t \rightarrow  R\left( {t + x,y}\right)\) , and similar definition for \(\frac{\partial R\left( {x,y}\right) }{\partial y}\) .
+
+We shall ask: "what does \({\int }_{R}\beta\) computes?" Let
+
+\[
+\beta  = {F}_{1}{dy} \land  {dz} + {F}_{2}{dz} \land  {dx} + {F}_{3}{dx} \land  {dy}
+\]
+
+be a 2-form on \(U \subseteq  {\mathbb{R}}^{3}\) with smooth function \({F}_{i} : U \rightarrow  \mathbb{R}\) . We may think of \(F = \; \left( {{F}_{1},{F}_{2},{F}_{3}}\right)  : U \rightarrow  {\mathbb{R}}^{3}\) as a vector field on \(U \subseteq  {\mathbb{R}}^{3}\) . Let \(R : \left\lbrack  {a,b}\right\rbrack   \times  \left\lbrack  {c,d}\right\rbrack   \rightarrow  U\) be a rectangular region, denote
+
+\[
+{T}_{x}\left( {x,y}\right)  = \frac{\partial R\left( {x,y}\right) }{\partial x},\;{T}_{y}\left( {x,y}\right)  = \frac{\partial R\left( {x,y}\right) }{\partial y}
+\]
+
+Write \({T}_{x} = \left( {{T}_{x}^{1},{T}_{x}^{2},{T}_{x}^{3}}\right)\) , then \({dx}\left( {T}_{x}\right)  = {T}_{x}^{1},{dy}\left( {T}_{x}\right)  = {T}_{x}^{2},{dz}\left( {T}_{x}\right)  = {T}_{x}^{3}\) , therefore
+
+\[
+{\int }_{R}\beta  = {\int }_{a}^{b}{\int }_{c}^{d}{\beta }_{R\left( {x,y}\right) }\left( {{T}_{x}\left( {x,y}\right) ,{T}_{y}\left( {x,y}\right) }\right) {dydx}
+\]
+
+\[
+= {\int }_{a}^{b}{\int }_{c}^{d}{F}_{1}{dy} \land  {dz}\left( {\frac{\partial R\left( {x,y}\right) }{\partial x},\frac{\partial R\left( {x,y}\right) }{\partial y}}\right) {dydx} + {F}_{2}{dz} \land  {dx}\left( {\frac{\partial R\left( {x,y}\right) }{\partial x},\frac{\partial R\left( {x,y}\right) }{\partial y}}\right) {dydx}
+\]
+
+\[
++ {F}_{3}{dx} \land  {dy}\left( {\frac{\partial R\left( {x,y}\right) }{\partial x},\frac{\partial R\left( {x,y}\right) }{\partial y}}\right) {dydx}
+\]
+
+\[
+= {\int }_{a}^{b}{\int }_{c}^{d}{F}_{1}\left( {{T}_{x}^{2}{T}_{y}^{3} - {T}_{x}^{3}{T}_{y}^{2}}\right) {dydx} + {F}_{2}\left( {{T}_{x}^{3}{T}_{y}^{1} - {T}_{x}^{1}{T}_{y}^{3}}\right) {dydx} + {F}_{3}\left( {{T}_{x}^{1}{T}_{y}^{2} - {T}_{x}^{2}{T}_{y}^{1}}\right) {dydx}
+\]
+
+\[
+= {\int }_{a}^{b}{\int }_{c}^{d}F\left( {R\left( {x,y}\right) }\right)  \cdot  n\left( {x,y}\right) {dydx}
+\]
+
+which is the classical surface integral over the vector field \(F =\) flux of \(F\) through the rectangle \(R\) .
+
+Suppose \(U \subseteq  {\mathbb{R}}^{2}\) open, \(\alpha\) a 2-form on \(U\) . Let \(R : \left\lbrack  {a,b}\right\rbrack   \times  \left\lbrack  {c,d}\right\rbrack\) injective and s.t. the det of jacobian is positive. Let \(\partial R\) be the boundary curve of \(R\) , then
+
+\[
+{\int }_{R}{d\alpha } = {\int }_{\partial R}\alpha
+\]
+
+\HRule
+
+Theorem 7
+
+(Green's thm)
+
+\HRule
+
+which corresponds to the stokes formula
+
+\[
+{\int }_{R}\operatorname{curl}V \cdot  {ndA} = {\int }_{\partial R}{Vdl}
+\]
+
+roof Let \(\alpha  = {\alpha }_{1}{dx} + {\alpha }_{2}{dy}\) , then
+
+\[
+{d\alpha } = d{\alpha }_{1} \land  {dx} + d{\alpha }_{2} \land  {dy} = \frac{\partial {\alpha }_{1}}{\partial y}{dy} \land  {dx} + \frac{\partial {\alpha }_{2}}{\partial x}{dx} \land  {dy} = \left( {\frac{\partial {\alpha }_{2}}{\partial x} - \frac{\partial {\alpha }_{1}}{\partial y}}\right) {dx} \land  {dy}
+\]
+
+therefore
+
+\[
+{\int }_{R}{d\alpha } = {\int }_{a}^{b}{\int }_{c}^{d}{\left( d\alpha \right) }_{R\left( {x,y}\right) }\left( {\frac{\partial R\left( {x,y}\right) }{\partial x},\frac{\partial R\left( {x,y}\right) }{\partial y}}\right) {dydx}
+\]
+
+\[
+= {\int }_{a}^{b}{\int }_{c}^{d}\left( {\frac{\partial {\alpha }_{2}}{\partial x}\left( {R\left( {x,y}\right) }\right)  - \frac{\partial {\alpha }_{1}}{\partial y}\left( {R\left( {x,y}\right) }\right) }\right) \left( {\frac{\partial {R}_{1}}{\partial x}\frac{\partial {R}_{2}}{\partial y} - \frac{\partial {R}_{2}}{\partial x}\frac{\partial {R}_{1}}{\partial y}}\right) {dydx}
+\]
+
+\[
+= {\int }_{a}^{b}{\int }_{c}^{d}\left( {\frac{\partial {\alpha }_{2}}{\partial x}\left( {R\left( {x,y}\right) }\right)  - \frac{\partial {\alpha }_{1}}{\partial y}\left( {R\left( {x,y}\right) }\right) }\right) \det \left( {\frac{\partial R}{\partial x},\frac{\partial R}{\partial y}}\right) {dydx}
+\]
+
+\[
+= {\iint }_{R\left( {\left\lbrack  {a,b}\right\rbrack   \times  \left\lbrack  {c,d}\right\rbrack  }\right) }\left( {\frac{\partial {\alpha }_{2}}{\partial x} - \frac{\partial {\alpha }_{1}}{\partial y}}\right) {dydx}
+\]
+
+\[
+= {\int }_{\partial R}{\alpha }_{1}{dx} + {\alpha }_{2}{dy}
+\]
+
+\[
+= {\int }_{\partial R}\alpha
+\]
+
+Cartan's moving frames
+
+Recall for curves, we had a moving frame (Cartan) at every point of curve (T, N, B), which was adapted the curve \(\left( {\mathrm{T} = \dot{c}}\right)\) . The change of this frame, expanded in terms of the frame, told us the curvature and the torsion of the curve. For the surface, the idea is to do something similar to get the curvature of a surface.
+
+Definition 22 (Moving frame)
+
+A moving frame on an open subset \(U \subseteq  {\mathbb{R}}^{3}\) consists of vector fields \({e}_{1},{e}_{2},{e}_{3} : U \rightarrow  {\mathbb{R}}^{3}\) such that for each point \(x \in  U\) , the values \({e}_{1}\left( x\right) ,{e}_{2}\left( x\right) ,{e}_{3}\left( x\right)\) are an orthonormal basis of \({\mathbb{R}}^{3}\) .
+
+Definition 23 (Change of frame) Suppose \({e}_{1} : U \rightarrow  {\mathbb{R}}^{3},{e}_{1} = \left( {{f}_{1},{f}_{2},{f}_{3}}\right)\) where \(f : U \rightarrow  \mathbb{R}\) , then
+
+\[
+d{e}_{1} = \left( {d{f}_{1},d{f}_{2},d{f}_{3}}\right)
+\]
+
+Since \({\left( d{f}_{i}\right) }_{x} : {\mathbb{R}}^{3} \rightarrow  \mathbb{R}\) is linear, hence also \({\left( d{e}_{1}\right) }_{x} = \left( {{\left( d{f}_{1}\right) }_{x},{\left( d{f}_{2}\right) }_{x},{\left( d{f}_{3}\right) }_{x}}\right)  : {\mathbb{R}}^{3} \rightarrow  {\mathbb{R}}^{3}\) is a linear map, and \({\left( d{e}_{1}\right) }_{x}\left( v\right)  = \left( {{\left( d{f}_{1}\right) }_{x}\left( v\right) ,{\left( d{f}_{2}\right) }_{x}\left( v\right) ,{\left( d{f}_{3}\right) }_{x}\left( v\right) }\right)\) shows how the \({e}_{i}\) changes in \(v\) direction.
+
+Definition 24 (Expand change to the frame itself)
+
+Since \({\left( d{e}_{i}\right) }_{x}\left( v\right)  \in  {\mathbb{R}}^{3}\) , and \({e}_{1}\left( x\right) ,{e}_{2}\left( x\right) ,{e}_{3}\left( x\right)\) is a basis of \({\mathbb{R}}^{3}\) , we can expand \({\left( d{e}_{i}\right) }_{x}\left( v\right)\) in terms of \({e}_{j}\left( x\right)\) :
+
+\[
+{\left( d{e}_{i}\right) }_{x}\left( v\right)  = \mathop{\sum }\limits_{{j = 1}}^{3}{\left( {\omega }_{i}^{j}\right) }_{x}\left( v\right) {e}_{j}\left( x\right)
+\]
+
+as \({e}_{1},{e}_{2},{e}_{3}\) are ONB, we have connection forms:
+
+\[
+{\left( {\omega }_{i}^{j}\right) }_{x}\left( v\right)  = {\left( d{e}_{i}\right) }_{x}\left( v\right) {e}_{j}\left( x\right)
+\]
+
+hence, \({\left( {\omega }_{i}^{j}\right) }_{x}\left( v\right)\) measures how much the vector \({e}_{i}\left( x\right)\) rotates towards \({e}_{j}\left( x\right)\) direction, and \({\left( {\omega }_{i}^{j}\right) }_{x}\left( v\right)\) is a 1-form for every \(i\) and \(j\) .
+
+It’s easy to say that \({\left( {\omega }_{i}^{j}\right) }_{x}\left( v\right)\) is skew-symmetric:
+
+\[
+0 = d{\left( {e}_{i} \cdot  {e}_{j}\right) }_{x}\left( v\right)  = {\left( d{e}_{i}\right) }_{x}\left( v\right)  \cdot  {e}_{j}\left( x\right)  + {e}_{i}\left( x\right)  \cdot  {\left( d{e}_{j}\right) }_{x}\left( v\right)  = {\left( {\omega }_{i}^{j}\right) }_{x}\left( v\right)  + {\left( {\omega }_{j}^{i}\right) }_{x}\left( v\right)
+\]
+
+therefore
+
+\[
+\left( {\omega }_{i}^{j}\right)  = \left( \begin{matrix} 0 & {\omega }_{1}^{2} & {\omega }_{1}^{3} \\   - {\omega }_{1}^{2} & 0 & {\omega }_{2}^{3} \\   - {\omega }_{1}^{3} &  - {\omega }_{2}^{3} & 0 \end{matrix}\right)
+\]
+
+Let \(c\) be a unit-speed curve with \(\kappa  > 0\) . Suppose that \({e}_{1},{e}_{2},{e}_{3}\) is a moving frame on \({\mathbb{R}}^{3}\) such that the restriction to \(c\) gives the Frenet-Serret frame, then
+
+\[
+{\left( {w}_{1}^{2}\right) }_{c\left( t\right) }\left( T\right)  = \kappa \left( t\right)
+\]
+
+\[
+{\left( {w}_{1}^{3}\right) }_{c\left( t\right) }\left( T\right)  = 0
+\]
+
+\[
+{\left( {w}_{2}^{3}\right) }_{c\left( t\right) }\left( T\right)  = \tau \left( t\right)
+\]
+
+which says that \({e}_{1}\left( { = T}\right)\) doesn’t tip in \({e}_{3}\left( { = B}\right)\) direction.
+
+Let \(f = \left\lbrack  {{f}_{1},{f}_{2},{f}_{3}}\right\rbrack\) be the standard basis of \({\mathbb{R}}^{3}\) , and suppose the rotation is described by the attitude matrix \(\left\lbrack  A\right\rbrack   = \left\lbrack  {a}_{ij}\right\rbrack\) , which satisfies \({\left\lbrack  A\right\rbrack  }^{T} = {\left\lbrack  A\right\rbrack  }^{-1}\) , then
+
+\[
+\left\lbrack  e\right\rbrack   = \left\lbrack  A\right\rbrack  \left\lbrack  f\right\rbrack
+\]
+
+therefore
+
+\[
+{\omega }_{i}^{j}\left( v\right)  = \left( {{\nabla }_{v}{e}_{i}}\right)  \cdot  {e}_{j} = \mathop{\sum }\limits_{k}\left( {d{a}_{ik}}\right) \left( v\right) {f}_{k} \cdot  {e}_{j} = \mathop{\sum }\limits_{k}\left( {\left( {d{a}_{ik}}\right) \left( v\right) }\right)  \cdot  {a}_{jk}
+\]
+
+i.e.
+
+\[
+\left\lbrack  \omega \right\rbrack   = d\left\lbrack  A\right\rbrack   \cdot  {\left\lbrack  A\right\rbrack  }^{T}
+\]
+
+The frame \({e}_{1},{e}_{2},{e}_{3}\) is not the most basic object, we want to replace the moving frame field \({e}_{i}\) with its dual 1-form \({\theta }_{i}\) .
+
+Definition 25 (Dual frame) The dual frame are 1-forms \({\theta }_{1},{\theta }_{2},{\theta }_{3}\) on \({\mathbb{R}}^{3}\) such that \({\left( {\theta }_{i}\right) }_{x}\left( {{e}_{j}\left( x\right) }\right)  = {\delta }_{ij}\) .
+
+We know that the attitude matrix \(\left\lbrack  {a}_{ij}\right\rbrack\) transforms the fixed Euclidean basis \(\left\{  {f}_{j}\right\}\) into Cartan’s frame field \(\left\{  {e}_{i}\right\}\) , we now show that the same rotation matrix transforms the 1-form basis \(\left\{  {d{x}_{j}}\right\}\) dual to \(\left\{  {f}_{j}\right\}\) into the 1-form basis \(\left\{  {\theta }_{i}\right\}\) dual to \(\left\{  {e}_{i}\right\}\) :
+
+\[
+\left\lbrack  \theta \right\rbrack   = \left\lbrack  A\right\rbrack  \left\lbrack  {dx}\right\rbrack
+\]
+
+where
+
+\[
+{\theta }_{i} = \mathop{\sum }\limits_{j}{\theta }_{i}\left( {f}_{j}\right) d{x}_{j}
+\]
+
+\(\mathop{\sum }\limits_{k}{\omega }_{k}^{i} \land  {\theta }_{k} + d{\theta }_{i} = 0.\)
+
+\[
+0 = d\left( {\mathop{\sum }\limits_{{k = 1}}^{3}{\theta }_{k} \cdot  {e}_{k}}\right)
+\]
+
+\[
+= \mathop{\sum }\limits_{k}\left( {\left( {d{e}_{k}}\right)  \land  {\theta }_{k} + \left( {d{\theta }_{k}}\right) {e}_{k}}\right)
+\]
+
+\[
+= \mathop{\sum }\limits_{k}\left( {\mathop{\sum }\limits_{i}\left( {{\omega }_{k}^{i}{e}_{i}}\right)  \land  {\theta }_{k} + \left( {d{\theta }_{k}}\right) {e}_{k}}\right)
+\]
+
+\[
+= \mathop{\sum }\limits_{i}{e}_{i}\left( {\mathop{\sum }\limits_{i}{\omega }_{k}^{i} \land  {\theta }_{k} + d{\theta }_{i}}\right)
+\]
+
+\[
+d\left\lbrack  \theta \right\rbrack   = \left\lbrack  \omega \right\rbrack   \land  \left\lbrack  \theta \right\rbrack
+\]
+
+Differentiating \(\left\lbrack  \theta \right\rbrack   = \left\lbrack  A\right\rbrack  \left\lbrack  {dx}\right\rbrack\) , then
+
+\[
+d\left\lbrack  \theta \right\rbrack   = d\left\lbrack  A\right\rbrack   \land  \left\lbrack  {dx}\right\rbrack   = d\left\lbrack  A\right\rbrack  {\left\lbrack  A\right\rbrack  }^{T} \land  \left\lbrack  A\right\rbrack  \left\lbrack  {dx}\right\rbrack   = \left\lbrack  \omega \right\rbrack   \land  \left\lbrack  \theta \right\rbrack
+\]
+
+\HRule
+
+Proposition 5 (The connection forms via the attitude matrix)
+
+Definition 26 (The duals \({\theta }_{i}\) of \({e}_{i}\) in terms of the duals \(d{x}_{j}\) of \(\left. {f}_{j}\right)\)
+
+Theorem 8 (Cartan's first structure equations
+
+Proposition 6
+
+(Cartan's first structure equation proved day attitude matrix)
+
+\HRule
+
+Theorem 9 (Second structure equation? \(\mathop{\sum }\limits_{j}{\omega }_{j}^{k} \land  {\omega }_{i}^{j} + d{\omega }_{i}^{k} = 0\)
+
+\[
+0 = d\left( {d{e}_{i}}\right)  = d\left( {\mathop{\sum }\limits_{j}{\omega }_{i}^{j} \cdot  {e}_{j}}\right)
+\]
+
+\[
+= \mathop{\sum }\limits_{j}\left( {d{e}_{j} \land  {\omega }_{i}^{j} + \left( {d{\omega }_{i}^{j}}\right) {e}_{j}}\right)
+\]
+
+\[
+= \mathop{\sum }\limits_{j}\left( {\mathop{\sum }\limits_{k}\left( {{\omega }_{j}^{k}{e}_{k}}\right)  \land  {\omega }_{i}^{j} + \left( {d{\omega }_{i}^{j}}\right) {e}_{j}}\right)
+\]
+
+\[
+= \mathop{\sum }\limits_{k}{e}_{k}\left( {\mathop{\sum }\limits_{j}{\omega }_{j}^{k} \land  {\omega }_{i}^{j} + d{\omega }_{i}^{k}}\right)
+\]
+
+Proposition 7
+
+(Cartan's second structure equationf proved by attitude matrix)
+
+\[
+d\left\lbrack  \omega \right\rbrack   = \left\lbrack  \omega \right\rbrack   \land  \left\lbrack  \omega \right\rbrack
+\]
+
+Differentiating \(\left\lbrack  \omega \right\rbrack\) , then
+
+\[
+d\left\lbrack  \omega \right\rbrack   = d\left\lbrack  {\left( {d\left\lbrack  A\right\rbrack  }\right) {\left\lbrack  A\right\rbrack  }^{T}}\right\rbrack
+\]
+
+\[
+=  - \left( {d\left\lbrack  A\right\rbrack  }\right)  \land  d{\left\lbrack  A\right\rbrack  }^{T}
+\]
+
+\[
+=  - \left( {d\left\lbrack  A\right\rbrack  }\right) {\left\lbrack  A\right\rbrack  }^{T} \land  \left\lbrack  A\right\rbrack  d{\left\lbrack  A\right\rbrack  }^{T}
+\]
+
+\[
+=  - \left( {d\left\lbrack  A\right\rbrack  }\right) {\left\lbrack  A\right\rbrack  }^{T} \land  {\left\lbrack  \left( d\left\lbrack  A\right\rbrack  \right) {\left\lbrack  A\right\rbrack  }^{T}\right\rbrack  }^{T}
+\]
+
+\[
+=  - \left\lbrack  \omega \right\rbrack   \land  {\left\lbrack  \omega \right\rbrack  }^{T}
+\]
+
+\[
+= \left\lbrack  \omega \right\rbrack   \land  \left\lbrack  \omega \right\rbrack
+\]
+
+Gauss map and shape operator
+
+Similar to study curves through Frenet-Serret frame, we use the Cartan method to study the surface \(S\) , and the strategy is to put frames on \(S\) (adapted), then study the rate of the frame's change.
+
+Recall that if \(S\) is a surface that is oriented, then there exists a normal field \(n : S \rightarrow \; {\mathbb{R}}^{3}\) , which vanishes nowhere, so we can define a map from \(p \in  S\) to the normal vector \(n\left( p\right)\) at this point, which is called Gauss map.
+
+If \(n\left( p\right)\) has unit norm for \(\forall p \in  S\) , then we call \(n : S \rightarrow  {S}^{2} \subseteq  {\mathbb{R}}^{3}\) the gauss map of \(S\) . Moreover, for the surface \(\phi  : D \rightarrow  S\) , gauss map \(n\) can be written as
+
+\[
+n\left( {u,v}\right)  \mathrel{\text{ := }} \frac{\frac{\partial \phi }{\partial u} \times  \frac{\partial \phi }{\partial v}}{\begin{Vmatrix}\frac{\partial \phi }{\partial u} \times  \frac{\partial \phi }{\partial v}\end{Vmatrix}}
+\]
+
+\HRule
+
+Definition 27
+
+(Gauss map)
+
+\HRule
+
+Remark
+
+If \(n : S \rightarrow  {S}^{2}\) is the gauss map, and \({e}_{1},{e}_{2},{e}_{3}\) a frame on \({\mathbb{R}}^{3}\) , then this frame is adapted to \(S\) if and only if \(n\left( p\right)  = {e}_{3}\left( p\right)\) .
+
+Example
+
+Consider the cylinder \(S = \left\{  {\left( {x,y,z}\right)  : {x}^{2} + {y}^{2} = {r}^{2}}\right\}\) , and the tangent space \(V \subseteq  {\mathbb{R}}^{3}\) is tangent to \(S\) at \(p = \left( {x,y,z}\right)  \in  S\) iff there is a curve \(c\left( t\right)  \in  S\) satisfying \(c\left( 0\right)  = p,\dot{c}\left( 0\right)  = \; v \in  V\) . If \(c\left( t\right)  = \left( {x\left( t\right) ,y\left( t\right) ,z\left( t\right) }\right)\) , then \(x{\left( t\right) }^{2} + y{\left( t\right) }^{2} = {r}^{2}\) , and take derivative, we get
+
+\[
+x \cdot  {v}_{1} + y \cdot  {v}_{2} = 0
+\]
+
+hence
+
+\[
+{v}_{1} = {ya},\;{v}_{2} =  - {xa},\;{v}_{3}\text{ arbitrary }
+\]
+
+for some constant \(a \in  \mathbb{R}\) . Therefore, the tangent space of \(S\) is spanned by
+
+\[
+y\partial x - x\partial y,\;\partial z
+\]
+
+for \(\left( {x,y,z}\right)  \in  S\) , and the normal field \(n : S \rightarrow  {\mathbb{R}}^{3}\) is \(n = x\partial x + y\partial y\) , thus for example
+
+\[
+{e}_{1} = \partial z,\;{e}_{2} = {e}_{1} \times  {e}_{3},\;{e}_{3} = \frac{x\partial x + y\partial y}{\sqrt{{x}^{2} + {y}^{2}}}
+\]
+
+is a frame on \({\mathbb{R}}^{3} \smallsetminus  \{ 0\}\) adapted for \(S\) .
+
+\HRule
+
+Lemma 4 (Moving frame and tangent vector field)
+
+\HRule
+
+Let \(S\) be a oriented surface with unit normal \(n\) , then there exists an adapted moving frame on open subset \(\mathcal{O} \subseteq  S\) if and only if there exists a non-vanishing tangent vector field \(v\) on \(\mathcal{O}\left( {{v}_{p} \in  {\mathrm{T}}_{p}S}\right)\) .
+
+Proof \(\Rightarrow\) : If \(\left( {{e}_{1},{e}_{2},{e}_{3}}\right)\) is an adapted moving frame, \({e}_{1}\left( p\right)  \in  {\mathrm{T}}_{p}S\) and never vanishes.
+
+\(\Leftarrow\) : If \(v\) is nowhere vanishing on \(\mathcal{O} \subseteq  S\) , then
+
+\[
+{e}_{1} = \frac{v}{\parallel v\parallel },\;{e}_{2} = {e}_{1} \times  n,\;{e}_{3} = n
+\]
+
+is an adapted frame on \(\mathcal{O}\) .
+
+\HRule
+
+"As we have seen in Chapter 1, the consideration of the rate of change of the tangent line to a curve \(c\) led us to an important ge-ornetric entity, namely, the curvature of \(c\) . In this chapter we shall extend this idea to regular surfaces; that is, we shall try to measure how rapidly a surface \(S\) pulls away from the tangent plane \({\mathrm{T}}_{p}S\) in a neighborhood of a point \(p \in  S\) . This is equivalent to measuring the rate of change at \(p\) os a unit normal vector field \(N\) on a neighborhood of \(p\) . As we shall see shortly, this rate of change is given by a linear map on \({\mathrm{T}}_{p}S\) which happens to be self-adjoint. A surprisingly large number of local properties of \(S\) at \(p\) can be derived from the study of this linear map."
+
+Selected from do Carmo, Differential Geometry of Curves and Surfaces, page 134
+
+\HRule
+
+If \({e}_{1},{e}_{2},{e}_{3}\) is an adapted frame \(\mathcal{O} \in  {\mathbb{R}}^{3}\) , then
+
+\[
+{\left( d{e}_{i}\right) }_{p}\left( v\right)  = \mathop{\sum }\limits_{j}{\left( {\omega }_{i}^{j}\right) }_{p}\left( v\right) {e}_{j}\left( p\right) \;\text{ for }p \in  \mathcal{O} \cap  S,v \in  {\mathrm{T}}_{p}S \subseteq  {\mathbb{R}}^{3}.
+\]
+
+For curves, only needed points on the curve and \(v = T\) , the tangent direction to recover the curvature and torsion of the curve, but for the surfaces, we have two tangent directions. Because of the anti-symmetry of \(\left( {\omega }_{i}^{j}\right)\) , the only independent elements are \({\omega }_{1}^{2},{\omega }_{1}^{3},{\omega }_{2}^{3}\) , where \({\omega }_{1}^{2}\) measures how much \({e}_{1}\) changes in \({e}_{2}\) direction, showing the information about \({\mathrm{T}}_{p}S\) , which is "intrinsic"; while \({\omega }_{1}^{3},{\omega }_{2}^{3}\) measures how \({e}_{3}\) changes in \({e}_{1},{e}_{2}\) direction, showing the change of the gauss map/normal vector field, which is "extrinsic".
+
+\HRule
+
+Definition 28 (Shape operator)
+
+\HRule
+
+The shape operator (Weingarten map)
+
+\[
+{\mathcal{S}}_{p} =  - {\mathrm{T}}_{p}n =  - \nabla {n}_{p} : {\mathrm{T}}_{p}S \rightarrow  {\mathrm{T}}_{p}S
+\]
+
+measures the change of \(n : S \rightarrow  {S}^{2}\) , and
+
+\[
+{\mathcal{S}}_{p}\left( v\right)  =  - {\nabla }_{v}{n}_{p} =  - d{n}_{p} \cdot  v =  - {\left. \left( \frac{\partial n}{\partial x},\frac{\partial n}{\partial y},\frac{\partial n}{\partial z}\right) \right| }_{\left( {x,y,z}\right)  = p} \cdot  v
+\]
+
+\[
+=  - \nabla n\left( {c\left( 0\right) }\right)  \cdot  \dot{c}\left( 0\right)  =  - {\left. \frac{\mathrm{d}}{\mathrm{d}t}\right| }_{t = 0}n\left( {c\left( t\right) }\right)  =  - {\left. \mathop{\sum }\limits_{{i = 1}}^{3}\frac{\mathrm{d}}{\mathrm{d}t}\right| }_{t = 0}{n}^{i}\left( {c\left( t\right) }\right) {e}_{i}
+\]
+
+If \(\left( {{e}_{1},{e}_{2},{e}_{3}}\right)\) is an adapted frame, then \({e}_{3} = n\)
+
+\[
+{\mathcal{S}}_{p}\left( v\right)  =  - {\left( d{e}_{3}\right) }_{p}\left( v\right)  = {\left( {\omega }_{1}^{3}\right) }_{p}\left( v\right) {e}_{1}\left( p\right)  + {\left( {\omega }_{2}^{3}\right) }_{p}\left( v\right) {e}_{2}\left( p\right)
+\]
+
+therefore, the shape operator is the analog of curvature/torsion of a curve: \(\kappa ,\tau\) tell us how \(T\) and \(B\) are changing in \(N\) direction, while \(\mathcal{S}\) tells us how \(n\) is changing in the two tangent directions.
+
+\[
+I{I}_{p}\left( {v,w}\right)  = v \cdot  {\mathcal{S}}_{p}\left( w\right)  = {I}_{p}\left( {v,{\mathcal{S}}_{p}\left( w\right) }\right) ,p \in  S,v,w \in  {\mathrm{T}}_{p}S.
+\]
+
+\begin{center}
+\includegraphics[width=0.6\textwidth]{fig/bo_d4vqblv7aajc73ft760g_6_333_1362_831_440_0.jpg}
+\end{center}
+\hspace*{3em} 
+
+Figure 5. The Shape Operator applied to a short tangent vector \(v\) emanating from \(p\) in \({\mathrm{T}}_{p}S\) tells us how much the normal changes from the tail to the tip of \(v\) . This change \({\delta n} \approx   - \mathcal{S}\left( v\right)\) ultimately lies in the parallel tangent plane to \({S}^{2}\) at \(n\left( p\right)\) . Superimposing the two tangent planes, \(S\) may be viewed as a linear transformation of \({\mathrm{T}}_{p}S\) to itself, here depicted detached from \(S\) , floating between the two surfaces.
+
+Proposition 8 ( \({\mathcal{S}}_{p}\) is a self-adjoint linear operator) For each point \(p\) of \(S \subseteq  {\mathbb{R}}^{3}\) , the shape operator is a self-adjoint linear operator
+
+\[
+{\mathcal{S}}_{p} : {\mathrm{T}}_{p}S \rightarrow  {\mathrm{T}}_{p}S
+\]
+
+on the tangent plane of \(S\) at \(p\) .
+
+Proof
+
+As \(n\) is a unit vector field, \({n}_{p} \cdot  {n}_{p} = 1\) for any \(p \in  S\) , thus by a Leibniz property of covariant derivatives
+
+\[
+0 = {\nabla }_{v}\left( {{n}_{p} \cdot  {n}_{p}}\right)  = 2\left( {{\nabla }_{v}{n}_{p}}\right)  \cdot  {n}_{p} =  - 2{\mathcal{S}}_{p}\left( v\right)  \cdot  {n}_{p}
+\]
+
+where \(v\) is tangent to \(S\) at \(p\) , thus \({\mathcal{S}}_{p}\) is a function from \({\mathrm{T}}_{p}S\) to \({\mathrm{T}}_{p}S\) . The linearity of \({\mathcal{S}}_{p}\) is a consequence of a linearity property of covariant derivatives:
+
+\[
+{\mathcal{S}}_{p}\left( {{av} + {bw}}\right)  =  - {\nabla }_{{av} + {bw}}{n}_{p} =  - \left( {a{\nabla }_{v}{n}_{p} + b{\nabla }_{w}{n}_{p}}\right)  = a{\mathcal{S}}_{p}\left( v\right)  + b{\mathcal{S}}_{p}\left( w\right)
+\]
+
+Suppose \(\left\{  {{x}_{u},{x}_{v}}\right\}\) are the associated basis of \({\mathrm{T}}_{p}S\) , then \(\left( {n,{x}_{u}}\right)  = 0 = \left( {n,{x}_{v}}\right)\) , take the derivatives of them relative to \(v\) and \(u\) , obtain
+
+\[
+\left( {{n}_{v},{x}_{u}}\right)  + \left( {n,{x}_{uv}}\right)  = 0
+\]
+
+\[
+\left( {{n}_{u},{x}_{v}}\right)  + \left( {n,{x}_{vu}}\right)  = 0
+\]
+
+thus
+
+\[
+\left( {{n}_{u},{x}_{v}}\right)  =  - \left( {n,{x}_{vu}}\right)  = \left( {{n}_{v},{x}_{u}}\right)
+\]
+
+Example
+
+Sphere of radius \(R\) has gauss map \({n}_{p} = \frac{p}{R},{n}_{p} \cdot  {n}_{p} = 1\) , so
+
+\[
+{\mathcal{S}}_{p}\left( v\right)  =  - {\mathrm{T}}_{p}n\left( v\right)  =  - {\left. \frac{\mathrm{d}}{\mathrm{d}t}\right| }_{t = 0}n\left( {c\left( t\right) }\right)  =  - {\left. \frac{\mathrm{d}}{\mathrm{d}t}\right| }_{t = 0}\frac{c\left( t\right) }{R} =  - \frac{v}{R}
+\]
+
+which doesn’t depend on \(p\) , and gets small if \(R \rightarrow   + \infty\) .
+
+Proposition 9 ("Detection of curvature via acceleration") If \(c : I \rightarrow  S\) is a smooth curve in \(S\) , then
+
+\[
+\ddot{c}\left( t\right)  \cdot  n\left( {c\left( t\right) }\right)  = \dot{c}\left( t\right)  \cdot  {\mathcal{S}}_{c\left( t\right) }\left( {\dot{c}\left( t\right) }\right)
+\]
+
+Proof if \(c\) in \(S\) , then \(\dot{c}\left( t\right)  \in  {T}_{c\left( t\right) }S\) , thus
+
+\[
+\dot{c}\left( t\right)  \cdot  n\left( {c\left( t\right) }\right)  = 0
+\]
+
+\({\left. \frac{\mathrm{d}}{\mathrm{d}t}\right| }_{t} :\)
+
+\[
+\ddot{c}\left( t\right)  \cdot  n\left( {c\left( t\right) }\right)  + \dot{c}\left( t\right)  \cdot  {T}_{c\left( t\right) }n\left( {\dot{c}\left( t\right) }\right)  = 0
+\]
+
+therefore, all curves in \(S\) with a given velocity \(v\) at \(p\) have the same acceleration in the normal direction, namely \(v \cdot  {\mathcal{S}}_{p}\left( v\right)\) . This normal accelaration comes from the fact that the curve has to stay at the surface and is determined by geometry of the surface.
+
+Definition 29 (The first fundamental form)
+
+\[
+{I}_{p}\left( {v,w}\right)  = v \cdot  w,p \in  S,v,w \in  {\mathrm{T}}_{p}S.
+\]
+
+\({}^{1}\) The first fundamental form I of a surface element is just the restriction of Euclidean inner product to all tangent planes.
+
+\HRule
+
+Definition 30 (The second fundamental form)
+
+\HRule
+
+Remark If \(\phi  : {\mathbb{R}}^{2} \supseteq  D\left( {\text{ coords }{x}_{1},{x}_{2}}\right)  \rightarrow  S \subseteq  {\mathbb{R}}^{3}\) is chart, then
+
+\[
+{I}_{ij}^{\phi }\left( {{x}_{1},{x}_{2}}\right)  = {I}_{\phi \left( {{x}_{1},{y}_{2}}\right) }\left( {\frac{\partial \phi }{\partial {x}_{i}},\frac{\partial \phi }{\partial {x}_{j}}}\right)  = \frac{\partial \phi }{\partial {x}_{i}} \cdot  \frac{\partial \phi }{\partial {x}_{j}}
+\]
+
+\[
+I{I}_{ij}^{\phi }\left( {{x}_{z},{x}_{2}}\right)  = I{I}_{\phi \left( {{x}_{1},{x}_{2}}\right) }\left( {\frac{\partial \phi }{\partial {x}_{i}},\frac{\partial \phi }{\partial {x}_{j}}}\right)  =  - \frac{\partial \phi }{\partial {x}_{i}}{T}_{\phi \left( {{x}_{1},{x}_{2}}\right) }n\left( \frac{\partial \phi }{\partial {x}_{j}}\right)
+\]
+
+since \(\frac{\partial \phi }{\partial {x}_{i}}\left( {{x}_{1},{x}_{2}}\right)  \cdot  n\left( {\phi \left( {{x}_{1},{x}_{2}}\right) }\right)  = 0\) , put \(\frac{\partial }{\partial {x}_{j}}\) on it, we get
+
+\[
+\frac{{\partial }^{2}\phi }{\partial {x}_{j}\partial {x}_{i}}\left( {{x}_{1},{x}_{2}}\right)  \cdot  n\left( {\phi \left( {{x}_{1},{x}_{2}}\right) }\right)  + \frac{\partial \phi }{\partial {x}_{i}}\left( {{x}_{1},{x}_{2}}\right)  \cdot  {T}_{\phi \left( {{x}_{1},{x}_{2}}\right) }n\left( \frac{\partial \phi }{\partial {x}_{j}}\right)  = 0
+\]
+
+therefore \({}^{2}\)
+
+\[
+I{I}_{ij}^{\phi }\left( {{x}_{1},{x}_{2}}\right)  = \frac{{\partial }^{2}\phi }{\partial {x}_{j}\partial {x}_{i}}\left( {{x}_{1},{x}_{2}}\right)  \cdot  n\left( {\phi \left( {{x}_{1},{x}_{2}}\right) }\right)
+\]
+
+Example Sphere with \(\phi \left( {\theta ,\varphi }\right)  = \left( {\sin \cos \varphi ,\sin \theta \sin \varphi ,\cos \theta }\right)\) , then
+
+\[
+\frac{\partial \phi }{\partial \theta } = \left( {\cos \theta \cos \varphi ,\cos \theta \sin \varphi , - \sin \theta }\right)
+\]
+
+\[
+\frac{\partial \phi }{\partial \varphi } = \left( {-\sin \theta \sin \varphi ,\sin \theta \cos \varphi ,0}\right)
+\]
+
+therefore
+
+\[
+I\left( {\theta ,\varphi }\right)  = \left( \begin{matrix} 1 & 0 \\  0 & {\sin }^{2}\theta  \end{matrix}\right)
+\]
+
+As \({\mathcal{S}}_{p}\left( v\right)  =  - v\) , we have \({II}\left( {\theta ,\varphi }\right)  =  - I\left( {\theta ,\varphi }\right)\) .
+
+Proposition 10
+
+Consider the surface given by the graph of a smooth function \(f : {\mathbb{R}}^{2} \supseteq  U \rightarrow  \mathbb{R},S = \; \{ \left( {x,y,z}\right)  \mid  \left( {x,y}\right)  \in  U,z = f\left( {x,y}\right) \}\) . Suppose \(f\left( {0,0}\right)  = 0\) , then
+
+\[
+\frac{\partial f}{\partial x}\left( {0,0}\right)  = \frac{\partial f}{\partial y}\left( {0,0}\right)  = 0 \Leftrightarrow  {T}_{\left( 0,0\right) }S = \left\{  {\left. \left( {{v}_{1},{v}_{2},{v}_{3}}\right) \right| \;{v}_{3} = 0}\right\}
+\]
+
+Assume \(c : I \rightarrow  S,c\left( 0\right)  = \left( {0,0,0}\right)\) and \(\dot{c}\left( 0\right)  = \left( {{v}_{1},{v}_{2},{v}_{3}}\right)\) . Let
+
+\[
+c\left( t\right)  = \left( {x\left( t\right) ,y\left( t\right) ,z\left( t\right) }\right) ,\;z\left( t\right)  = f\left( {x\left( t\right) ,y\left( t\right) }\right)
+\]
+
+Take derivative at \(t = 0\) , we get
+
+\[
+{v}_{3} = \frac{\partial f}{\partial x}\left( {0,0}\right)  \cdot  {v}_{1} + \frac{\partial f}{\partial y}\left( {0,0}\right)  \cdot  {v}_{2}
+\]
+
+Using \(\frac{\partial f}{\partial x}\left( {0,0}\right)  = \frac{\partial f}{\partial y}\left( {0,0}\right)  = 0\) , then \({v}_{3} = 0\) .
+
+\HRule
+
+\({}^{2}\) Consider a unit-speed curve \(c \subseteq \; S\) with \(c\left( 0\right)  = p\) , then
+
+\[
+I{I}_{p}\left( {\dot{c}\left( 0\right) }\right)  =  - \left( {d{n}_{p}\left( {\dot{c}\left( 0\right) }\right) ,\dot{c}\left( 0\right) }\right)
+\]
+
+\[
+=  - \left( {\dot{n}\left( 0\right) ,\dot{c}\left( 0\right) }\right)
+\]
+
+\[
+= \left( {n\left( 0\right) ,\ddot{c}\left( 0\right) }\right)
+\]
+
+\[
+= \left( {n,{\kappa n}}\right) \left( p\right)
+\]
+
+\[
+= \kappa \left( p\right)
+\]
+
+\HRule
+
+Remark
+
+\[
+I{I}_{\left( 0,0,0\right) }\left( {v,w}\right)  = v \cdot  {\mathcal{S}}_{\left( 0,0,0\right) }w = v \cdot  \nabla \left( {\frac{\partial f}{\partial x}\left( {0,0}\right) ,\frac{\partial f}{\partial y}\left( {0,0}\right) ,0}\right) w
+\]
+
+\[
+= \left( {{v}_{1},{v}_{2},0}\right)  \cdot  \operatorname{Jacobi}\left( {\frac{\partial f}{\partial x}\left( {0,0}\right) ,\frac{\partial f}{\partial y}\left( {0,0}\right) ,0}\right) \left( {{w}_{1},{w}_{2},0}\right)
+\]
+
+\[
+= \frac{{\partial }^{2}f}{\partial {x}^{2}}\left( {0,0}\right) {v}_{1}{w}_{1} + \frac{{\partial }^{2}f}{\partial x\partial y}\left( {0,0}\right) \left( {{v}_{1}{w}_{2} + {v}_{2}{w}_{1}}\right)  + \frac{{\partial }^{2}f}{\partial {y}^{2}}\left( {0,0}\right) {v}_{2}{w}_{2}
+\]
+
+which means the second fundamental form encodes the second order Taylor expansion of \(f\) .
+
+Section 10
+
+\section*{Normal curvature}
+
+\({\mathcal{S}}_{p} : {\mathrm{T}}_{p}S \rightarrow  {\mathrm{T}}_{p}S\) measures the curvature of the surface \(S \subseteq  {\mathbb{R}}^{3}\) , we’d like to extract "number" from that linear operator \({\mathcal{S}}_{p}\) . A direct way is to assume \(\left\{  {{e}_{1},{e}_{2},{e}_{3}}\right\}\) adapted to \(S\) , and then
+
+\[
+I{I}_{ij} = I{I}_{p}\left( {{e}_{i},{e}_{j}}\right)  = {e}_{i} \cdot  {\mathcal{S}}_{p}{e}_{j}
+\]
+
+The disadvantage of this way is depending on the frame and is complicated, as you need to handle two vectors at the same time.
+
+Definition 31 Another way is let \(u \in  {\mathrm{T}}_{p}S\) be a unit vector \(\left( {\parallel u\parallel  = 1}\right)\) , then define
+
+\[
+{\kappa }_{p}\left( u\right)  = I{I}_{p}\left( {u,u}\right)  = u \cdot  {\mathcal{S}}_{p}u
+\]
+
+which is called the normal curvature in the \(u\) -direction.
+
+Example Last time \({}^{3} : S =\) graph of \(f\left( {x,y}\right)\) , then
+
+\[
+{\kappa }_{\left( 0,0\right) }\left( {u,u,0}\right)  = \frac{{\partial }^{2}f}{\partial {x}^{2}}\left( {0,0}\right) {u}^{2} + 2\frac{{\partial }^{2}f}{\partial x\partial y}\left( {0,0}\right) {u}^{2} + \frac{{\partial }^{2}f}{\partial {y}^{2}}\left( {0,0}\right) {u}^{2}
+\]
+
+\[
+= \frac{{\partial }^{2}f}{\partial {x}^{2}}\left( {0,0}\right)  + 2\frac{{\partial }^{2}f}{\partial x\partial y}\left( {0,0}\right)  + \frac{{\partial }^{2}f}{\partial {y}^{2}}\left( {0,0}\right)
+\]
+
+Remark (Why normal?) If \(c\) is a unit-speed curve in \(S\) , then
+
+\[
+{\kappa }_{c\left( t\right) }\left( {\dot{c}\left( t\right) }\right)  = \dot{c}\left( t\right) {\mathcal{S}}_{p}\left( {\dot{c}\left( t\right) }\right)  = \ddot{c}\left( t\right)  \cdot  {n}_{c\left( t\right) } = \kappa \left( t\right) N\left( t\right)  \cdot  {n}_{c\left( t\right) } = \kappa \left( t\right) \cos \angle \left( {N\left( t\right) ,{n}_{c\left( t\right) }}\right)
+\]
+
+where \(N\left( t\right)\) is the normal vector of the curve in \({\mathbb{R}}^{3},{n}_{c\left( t\right) }\) is the normal vector of \(c\left( t\right)\) on the surface, and it's called the "outside" \({}^{4}\) projection of the curvature of a curve on the surface.
+
+The maximum and minimum of the normal curvature \({\kappa }_{p}\left( u\right)\) as \(u \in  {\mathrm{T}}_{p}S,\parallel u\parallel  = 1\) are called principle curvatures of \(p\) , denoted by \({\kappa }_{1}\) and \({\kappa }_{2}\) , the associated directions \({u}_{1}\) and \({u}_{2}\) are called the principle directions. Equivalently, by threom of linear algebra, \({\kappa }_{1}\left( p\right)\) and \({\kappa }_{2}\left( p\right)\) are eigenvalues of \({\mathcal{S}}_{p}\) with eigenvectors \({u}_{1}\) and \({u}_{2}\) . That is
+
+\[
+{\mathcal{S}}_{p}{u}_{1} = {\kappa }_{1}\left( p\right) {u}_{1},\;{\mathcal{S}}_{p}{u}_{2} = {\kappa }_{2}\left( p\right) {u}_{2}
+\]
+
+\HRule
+
+Definition 32
+
+(Principle curvatures)
+
+\HRule
+
+That's because
+
+\[
+{\kappa }_{p}\left( u\right)  = {u}^{T}{\mathcal{S}}_{p}u
+\]
+
+\HRule
+
+\({}^{3}\) See remark 8 for more details.
+
+\({}^{4}\) Think figuratively, when you walk through a very "flat" desert on Earth, you think you're taking a straight path, but from outer space, the path you're taking through the desert is clearly curved.
+
+\HRule
+
+and use the Lagrange multiple method:
+
+\[
+\mathcal{L} :  = {u}^{T}{\mathcal{S}}_{p}u - \lambda {u}^{T}u
+\]
+
+so the extremum condition is
+
+\[
+{\mathcal{S}}_{p}u = {\lambda u}
+\]
+
+Moreover, if \(\left( {{u}_{1},{u}_{2}}\right)  = 0\) , then
+
+\[
+{I}_{p}\left( {{u}_{1},{u}_{2}}\right)  = \left( \begin{array}{ll} 1 & 0 \\  0 & 1 \end{array}\right)
+\]
+
+\[
+I{I}_{p}\left( {{u}_{1},{u}_{2}}\right)  = \left( \begin{matrix} {\kappa }_{1}\left( p\right) & 0 \\  0 & {\kappa }_{2}\left( p\right)  \end{matrix}\right)
+\]
+
+\[
+\left\lbrack  \mathcal{S}\right\rbrack   = \left( \begin{array}{ll} {\omega }_{1}^{3}\left( {e}_{1}\right) & {\omega }_{1}^{3}\left( {e}_{2}\right) \\  {\omega }_{2}^{3}\left( {e}_{1}\right) & {\omega }_{2}^{3}\left( {e}_{2}\right)  \end{array}\right)
+\]
+
+\HRule
+
+Proposition 11 (The matrix of \(\mathcal{S}\) under Cartan's moving frame)
+
+\HRule
+
+Moreover, if
+
+\[
+\left\lbrack  \mathcal{S}\right\rbrack   = \left( \begin{matrix} {\kappa }_{1} & 0 \\  0 & {\kappa }_{2} \end{matrix}\right)
+\]
+
+then
+
+\[
+{\omega }_{1}^{3} = {\kappa }_{1}{\theta }^{1},\;{\omega }_{2}^{3} = {\kappa }_{2}{\theta }^{2}
+\]
+
+Proof
+
+\[
+\mathcal{S}\left( v\right)  =  - {\nabla }_{v}n =  - {\nabla }_{v}{e}_{3} =  - \left( {{\nabla }_{v}{e}_{3} \cdot  {e}_{1}}\right) {e}_{1} - \left( {{\nabla }_{v}{e}_{3} \cdot  {e}_{2}}\right) {e}_{2} = {\omega }_{1}^{3}\left( v\right) {e}_{1} + {\omega }_{2}^{3}\left( v\right) {e}_{2}
+\]
+
+Example
+
+The sphere has \({\mathcal{S}}_{p} = \left( \begin{matrix}  - 1 & 0 \\  0 &  - 1 \end{matrix}\right)  \cdot  {}^{5}\)
+
+Example
+
+Since \({u}_{1},{u}_{2}\) are orthonormal in \({\mathrm{T}}_{p}S\) , every vector \(v \in  {\mathrm{T}}_{p}S\) is of the form \(v = {v}_{1}{u}_{1} + \; {v}_{2}{u}_{2}\) for some \({v}_{1},{v}_{2} \in  \mathbb{R}\) , and if \({\left| v\right| }^{2} = 1\) , let’s say \({v}_{1} = \cos \theta ,{v}_{2} = \sin \theta\) for \(\theta  = \angle \left( {{v}_{1},{u}_{1}}\right)\) , then \({}^{6}\)
+
+\[
+{\kappa }_{p}\left( v\right)  = {I}_{p}\left( {v,{\mathcal{S}}_{p}\left( v\right) }\right)
+\]
+
+\[
+= {I}_{p}\left( {\cos \theta {u}_{1} + \sin \theta {u}_{2},{\mathcal{S}}_{p}\left( {\cos \theta {u}_{1} + \sin \theta {u}_{2}}\right) }\right)
+\]
+
+\[
+= {I}_{p}\left( {\cos \theta {u}_{1} + \sin \theta {u}_{2},{\kappa }_{1}\left( p\right) \cos \theta {u}_{1} + {\kappa }_{2}\left( p\right) \sin \theta {u}_{2}}\right)
+\]
+
+\[
+= {\kappa }_{1}\left( p\right) {\cos }^{2}\theta  + {\kappa }_{2}\left( p\right) {\sin }^{2}\theta
+\]
+
+\(k\) . If the surface is given as the graph of \(f\left( {x,y}\right)  = z\) , we have the taylor expansion \(z \sim \; \frac{1}{2}a{x}^{2} + {bxy} + \frac{1}{2}c{y}^{2}\) . And \({\kappa }_{\left( 0,0\right) }\left( {{v}_{1},{v}_{2},0}\right)  = a{v}_{1}^{2} + {2b}{v}_{1}{v}_{2} + c{v}_{2}^{2}\) , we can rotate the x-y axis so that in this case \(b = 0\) , then \(a = {\kappa }_{1}\left( {0,0}\right)\) and \(c = {\kappa }_{2}\left( {0,0}\right)\) . In other words, \(z \sim  \frac{1}{2}{\kappa }_{1}{x}^{2} + \frac{1}{2}{\kappa }_{2}{y}^{2}\) is the local description of the surface in terms of \({\kappa }_{1}\) and \({\kappa }_{2}\) .
+
+\HRule
+
+\({}^{6}\) It can also be written in the form of matrix:
+
+\[
+{\kappa }_{p}\left( v\right)  = {I}_{p}\left( {v,{\mathcal{S}}_{p}\left( v\right) }\right)
+\]
+
+\[
+= \left( \begin{matrix} \cos \theta \\  \sin \theta  \end{matrix}\right)  \cdot  \mathcal{S}\left( \begin{matrix} \cos \theta \\  \sin \theta  \end{matrix}\right)
+\]
+
+\HRule
+
+\begin{center}
+\includegraphics[width=0.7\textwidth]{fig/bo_d4vqblv7aajc73ft760g_11_283_240_931_400_0.jpg}
+\end{center}
+\hspace*{3em} 
+
+Figure 6. The principal curvatures tell us how quickly the surface falls away - downwards in this figure from the tangent plane as we begin to travel in each of the two perpendicular principal directions. When we instead move a distance \(\epsilon\) within the tangent plane in a general direction \(\theta\) , the distance \(z\) that the surface falls away is simply the sum of the falls due to each of these two components separately.
+
+Lemma 5 (Singular Value Decomposition (SVD))
+
+\[
+M = {R}_{\varphi } \circ  \sum  \circ  {R}_{-\theta }
+\]
+
+\begin{center}
+\includegraphics[width=0.7\textwidth]{fig/bo_d4vqblv7aajc73ft760g_11_266_1006_975_804_0.jpg}
+\end{center}
+\hspace*{3em} 
+
+Figure 7. Singular Value Decomposition (SVD): The top half of the figure illustrates the effect, from left to right, of a general linear transformation \(M\) on an origin-centered circle. Preservation of midpoints enables us to prove that \(M\) is equivalent to two perpendicular stretches (by the "singular values" \({\sigma }_{1}\) and \({\sigma }_{2}\) ), followed by a rotation, which we call the twist \(\equiv  \tau\) ; here \(\tau  = \varphi  - \theta\) . The bottom half of the figure demonstrates that this SVD is equivalent to being able to write \(M = {R}_{\varphi } \circ  \sum  \circ  {R}_{-\theta }\) , where \(\sum\) stretches horizontally by \({\sigma }_{1}\) and vertically by \({\sigma }_{2}\) .
+
+7 The Shape Operator \(\mathcal{S}\) is a geometric entity, independent of any particular choice of basis vectors, but the matrix \(\left\lbrack  \mathcal{S}\right\rbrack\) certainly does depend row his choice it's because \(\left\lbrack  \mathcal{S}\right\rbrack   = {\left\lbrack  \mathcal{S}\right\rbrack  }^{T}\) , which may relate to the self-adjoint property of \(\mathcal{S}\) .
+
+Definition 33 (The general matrix of \(\mathcal{S}\) )
+
+\({}^{7}\) Suppose that we choose an arbitrary orthonormal basis \(\left\{  {{E}_{1},{E}_{2}}\right\}\) , without first finding the principal directions and curvatures; how will the matrix look? While we may not yet know the principal directions, they certainly exist, so let us suppose that \(\left\{  {{e}_{1},{e}_{2}}\right\}\) are obtained by rotating \(\left\{  {{E}_{1},{E}_{2}}\right\}\) through some unknown angle \(\theta\) , then \({}^{8}\)
+
+\[
+\left\lbrack  \mathcal{S}\right\rbrack   = {R}_{\theta } \circ  \sum  \circ  {R}_{-\theta }
+\]
+
+\begin{center}
+\includegraphics[width=0.8\textwidth]{fig/bo_d4vqblv7aajc73ft760g_12_248_553_1031_443_0.jpg}
+\end{center}
+\hspace*{3em} 
+
+Figure 8. On the left, \(\mathcal{S}\) stretches the orthogonal principal directions by factors equal to the principal curvatures, deforming the unit circle into an ellipse aligned with the principal directions. This effect of \(\mathcal{S}\) is equivalent to first rotating by \(- \theta\) , producing the figure on the right, then stretching horizontally by \({\kappa }_{1}\) and vertically by \({\kappa }_{2}\) , then rotating back by \(\theta\) .
+
+Definition 34
+
+A point \(p \in  S\) is called
+
+\begin{itemize}\relax
+\item\relax umbilic (novel): if \({\kappa }_{1}\left( p\right)  = {\kappa }_{2}\left( p\right)\) , i.e. \({\kappa }_{p}\left( u\right)\) is independent of \(u\) , ex every point on the sphere.
+\end{itemize}
+
+\begin{itemize}\relax
+\item\relax elliptic: if \({\kappa }_{1}\left( p\right)\) and \({\kappa }_{2}\left( p\right)\) have the same sign \(\left( {{\kappa }_{1} \neq  {\kappa }_{2}}\right)\)
+\end{itemize}
+
+\begin{itemize}\relax
+\item\relax hyperbolic: if \({\kappa }_{1}\left( p\right)\) and \({\kappa }_{2}\left( p\right)\) have the opposite sign, which is saddle-like.
+\end{itemize}
+
+\begin{itemize}\relax
+\item\relax parabolic: if \({\kappa }_{1}\left( p\right)  = 0\) or \({\kappa }_{2}\left( p\right)  = 0\) , ex cylinder.
+\end{itemize}
+
+\begin{center}
+\includegraphics[width=0.8\textwidth]{fig/bo_d4vqblv7aajc73ft760g_12_206_1555_1095_393_0.jpg}
+\end{center}
+\hspace*{3em} 
+
+Figure 9. [a] If \({\kappa }_{1}\) and \({\kappa }_{2}\) have the same sign then the surface locally resembles a hill, and a slice parallel to the tangent plane yields an ellipse (or misses the surface entirely). [b] If \({\kappa }_{1}\) and \({\kappa }_{2}\) have opposite sign then the surface locally resembles a saddle. A parallel slice above the tangent plane yields both branches of a hyperbola.
+
+Definition 35 (Darboux frame)
+
+A frame \({e}_{1},{e}_{2},{e}_{3}\) adapted to \(S\) is called the Darboux frame if \({e}_{1}\left( p\right)\) and \({e}_{2}\left( p\right)\) are the principle directions at \(p\) .
+
+Definition 36 (Line of curvature)
+
+A unit-speed curve \(c\) is called a line of curvature if \(\dot{c}\) is always a principal direction, e.g. \(\dot{c}\left( t\right)  = {u}_{1}\left( {c\left( t\right) }\right)\) .
+
+\HRule
+
+Theorem 10 (do Carmo 3.4.4, O'Neill,
+
+Proposition 12
+
+(The rate of change of the principal curvature)
+
+\HRule
+
+Away from umbilic points, a Darboux frame frame always exists.
+
+\[
+d{\kappa }_{1}\left( {e}_{2}\right)  = \left( {{\kappa }_{1} - {\kappa }_{2}}\right) {\omega }_{1}^{2}\left( {e}_{1}\right) \tag{10.1}
+\]
+
+\[
+d{\kappa }_{2}\left( {e}_{1}\right)  = \left( {{\kappa }_{1} - {\kappa }_{2}}\right) {\omega }_{1}^{2}\left( {e}_{2}\right)
+\]
+
+Proof Suppose \(\left\{  {{e}_{1},{e}_{2},{e}_{3}}\right\}\) is a Darboux frame on \(S,\mathcal{S}{e}_{1} = {\kappa }_{1}{e}_{1},\mathcal{S}{e}_{2} = {\kappa }_{2}{e}_{2}\) . Hence
+
+\[
+I{I}_{ij} = {II}\left( {{e}_{i},{e}_{j}}\right)  = {e}_{i} \cdot  \mathcal{S}{e}_{j}
+\]
+
+Moreover,
+
+\[
+{\omega }_{1}^{3} = {\kappa }_{1}{\theta }^{1},\;{\omega }_{2}^{3} = {\kappa }_{2}{\theta }^{2} \tag{10.2}
+\]
+
+take \(d\) :
+
+\[
+d{\omega }_{1}^{3} = d{\kappa }_{1} \land  {\theta }^{1} + {\kappa }_{1}d{\theta }^{1}
+\]
+
+As
+
+\[
+d\left\lbrack  \omega \right\rbrack   = \left\lbrack  \omega \right\rbrack   \land  \left\lbrack  \omega \right\rbrack   \Rightarrow  d{\omega }_{1}^{3} = {\omega }_{1}^{2} \land  {\omega }_{2}^{3}
+\]
+
+\[
+d\left\lbrack  \theta \right\rbrack   = \left\lbrack  \omega \right\rbrack   \land  \left\lbrack  \theta \right\rbrack   \Rightarrow  d{\theta }^{1} = {\omega }_{1}^{2} \land  {\theta }^{2} + {\omega }_{1}^{3} \land  {\theta }^{3} = {\omega }_{1}^{2} \land  {\theta }^{2}
+\]
+
+here we assume \({\theta }^{3} = 0\) , we have
+
+\[
+{\omega }_{1}^{2} \land  {\omega }_{2}^{3} = d{\kappa }_{1} \land  {\theta }^{1} + {\kappa }_{1}{\omega }_{1}^{2} \land  {\theta }^{2}
+\]
+
+substitute \({\omega }_{2}^{3}\) by equation (10.2), then
+
+\[
+d{\kappa }_{1} \land  {\theta }^{1} = {\omega }_{1}^{2} \land  {\omega }_{2}^{3} - {\kappa }_{1}{\omega }_{1}^{2} \land  {\theta }^{2}
+\]
+
+\[
+= {\omega }_{1}^{2} \land  \left( {{\kappa }_{2}{\theta }^{2}}\right)  - {\kappa }_{1}{\omega }_{1}^{2} \land  {\theta }^{2} \tag{10.3}
+\]
+
+\[
+= \left( {{\kappa }_{2} - {\kappa }_{1}}\right) {\omega }_{1}^{2} \land  {\theta }^{2}
+\]
+
+Apply basis \(\left( {{e}_{1},{e}_{2}}\right)\) to the above equation (10.3), we get
+
+\[
+- d{\kappa }_{1}\left( {e}_{2}\right)  = \left( {{\kappa }_{2} - {\kappa }_{1}}\right) {\omega }_{1}^{2}\left( {e}_{1}\right)
+\]
+
+i.e.
+
+\[
+d{\kappa }_{1}\left( {e}_{2}\right)  = \left( {{\kappa }_{1} - {\kappa }_{2}}\right) {\omega }_{1}^{2}\left( {e}_{1}\right)
+\]
+
+Similarly
+
+\[
+d{\kappa }_{2}\left( {e}_{1}\right)  = \left( {{\kappa }_{1} - {\kappa }_{2}}\right) {\omega }_{1}^{2}\left( {e}_{2}\right)
+\]
+
+Remark \({\omega }_{1}^{2}\) is measuring the change of principal curvature/directions.
+
+\HRule
+
+"In both these equations, \({\omega }_{1}^{2}\left( v\right)\) tells us how fast the principal directions are rotating within \(S\) as we move along the surface in the direction \(v\) . So, putting both equations into words, as we move off at right angles to a principal direction, the rate of change of that principal curvature is proportional to both the difference of the two principal curvatures, and to the rate at which the principal directions rotate."
+
+Selected from Needham, Visual Differential Geometry and Forms: A Mathematical Drama in Five Acts, 38.6
+
+\HRule
+
+Gaussian curvature
+
+The preceding subsection found the geometrical meaning of the eigenvalues and eigenvectors of the shape operator. Now we examine the determinant and trace of \(S\) , i.e. extract numbers from a matrix, independent of the basis. That is, apply a \(2 \times  2\) matrix to the shape operator.
+
+Definition 37 (Gaussian and mean curvature) Example
+
+\(\kappa \left( t\right)  = \det {\mathcal{S}}_{p} = {\kappa }_{1}\left( p\right)  \cdot  {\kappa }_{2}\left( p\right)\) is called the Gaussian curvature. And \(H\left( p\right)  = \frac{1}{2}\operatorname{tr}{\mathcal{S}}_{p} = \; \frac{1}{2}\left( {{\kappa }_{1}\left( p\right)  + {\kappa }_{2}\left( p\right) }\right)\) is called the mean curvature.
+
+plane: \(\kappa  = 0 = H\) .
+
+cylinder: \(\kappa  = 0,H \neq  0\) .
+
+sphere of radius \(R : \kappa  = \frac{1}{{R}^{2}}\) .
+
+Remark \(\kappa \left( p\right)  > 0, = 0, < 0 \Leftrightarrow  p\) is elliptic, parabolic, hyperbolic.
+
+Proposition 13 (Characteristic polynomial of \({\mathcal{S}}_{p})\)
+
+\[
+\det \left( {{\mathcal{S}}_{p} - {\lambda Id}}\right)  = \left( {{\kappa }_{1} - \lambda }\right) \left( {{\kappa }_{2} - \lambda }\right)  = {\lambda }^{2} - {2H\lambda } + \kappa
+\]
+
+In particular, \({\kappa }_{1},{\kappa }_{2} = H \pm  \sqrt{{H}^{2} - \kappa }\) .
+
+Proposition 14
+
+Let \({e}_{1},{e}_{2},{e}_{3}\) be a moving frame adapted to \(S \in  {\mathbb{R}}^{3}\) with dual frame \({\theta }^{j}\) and connection forms \({\omega }_{i}^{j}\) , then
+
+\[
+d{\omega }_{2}^{1} = \kappa {\theta }^{1} \land  {\theta }^{2} \tag{11.1}
+\]
+
+\[
+{\omega }_{1}^{3} \land  {\theta }^{2} + {\theta }^{1} \land  {\omega }_{2}^{3} = {2H}{\theta }^{1} \land  {\theta }^{2} \tag{11.2}
+\]
+
+Proof Recall \(I{I}_{ij} = {e}_{i} \cdot  {\mathcal{S}}_{p}{e}_{j}\) is the matrix expression of \({\mathcal{S}}_{p}\) , then
+
+\[
+\det \left( {I{I}_{ij}}\right)  = \kappa ,\;\operatorname{tr}I{I}_{ij} = {2H}
+\]
+
+thus
+
+\[
+d{\omega }_{2}^{1} =  - d{\omega }_{1}^{2} =  - {\omega }_{1}^{3} \land  {\omega }_{3}^{2} = {\omega }_{1}^{3} \land  {\omega }_{2}^{3}
+\]
+
+\[
+= \left( {I{I}_{11}{\theta }^{1} + I{I}_{12}{\theta }^{2}}\right)  \land  \left( {I{I}_{21}{\theta }^{1} + I{I}_{22}{\theta }^{2}}\right)
+\]
+
+\[
+= \left( {I{I}_{11}I{I}_{22} - I{I}_{12}I{I}_{21}}\right) {\theta }^{1} \land  {\theta }^{2}
+\]
+
+\[
+= \det I{I}_{ij}{\theta }^{1} \land  {\theta }^{2}
+\]
+
+\[
+= \kappa {\theta }^{1} \land  {\theta }^{2}
+\]
+
+and
+
+\[
+{\omega }_{1}^{3} \land  {\theta }^{2} + {\theta }^{1} \land  {\omega }_{2}^{3} = I{I}_{11}{\theta }^{1} \land  {\theta }^{2} + I{I}_{22}{\theta }^{1} \land  {\theta }^{2}
+\]
+
+\[
+= {2H}{\theta }^{1} \land  {\theta }^{2}
+\]
+
+\({\omega }_{1}^{2}\) measures the rate of change of the frame \({e}_{1},{e}_{2}\) on \(S\) , and \(\kappa\) becomes kind of second order rate of change. Eq (11.1) depends only on \({e}_{1},{e}_{2}\) , which means \(\kappa\) only depends on the behavior of \({e}_{1},{e}_{2}\) . In contrast, according to eq (11.2), \({II},{\mathcal{S}}_{p},{\omega }_{1}^{3},{\omega }_{2}^{3}\) and \(H\) all depend on \({e}_{1},{e}_{2},{e}_{3}\) . The astonishing thing is \(\kappa  = {\kappa }_{1}{\kappa }_{2}\) is independent of \({e}_{3}\) .
+
+To sum up, for a adapted frame \({e}_{1},{e}_{2},{e}_{3}\) with dual frame \({\theta }_{1},{\theta }_{2},{\theta }_{3}\) and connection forms \({\omega }_{i}^{j}\) , restricted to \(S\) (only on \({\mathrm{T}}_{p}S\) ), we have
+
+\begin{itemize}\relax
+\item\relax \({\theta }_{1},{\theta }_{2}\) are the dual frame of \({e}_{1}\left( p\right) ,{e}_{2}\left( p\right)  \in  {\mathrm{T}}_{p}S\)
+\end{itemize}
+
+\begin{itemize}\relax
+\item\relax \({\omega }_{1}^{2}\) measures the rate of change of \({e}_{1},{e}_{2}\)
+\end{itemize}
+
+\begin{itemize}\relax
+\item\relax \({\theta }_{3} = 0\)
+\end{itemize}
+
+\begin{itemize}\relax
+\item\relax \({\omega }_{1}^{3},{\omega }_{2}^{3}\) describe the shape operator \({II}\)
+\end{itemize}
+
+\HRule
+
+Theorem 11 (The six fundamental form equations of a surface)
+
+\HRule
+
+1st structure equations on \(S\)
+
+\[
+d{\theta }^{1} = {\omega }_{1}^{2} \land  {\theta }^{2}
+\]
+
+\[
+d{\theta }^{2} = {\omega }_{2}^{1} \land  {\theta }^{1}
+\]
+
+Symmetry equation
+
+\[
+{\omega }_{1}^{3} \land  {\theta }^{1} + {\omega }_{2}^{3} \land  {\theta }^{2} = 0
+\]
+
+\[
+{\omega }_{1}^{3} \land  {\theta }^{2} + {\omega }_{2}^{3} \land  {\theta }^{1} = {2H}{\theta }^{1} \land  {\theta }^{2}
+\]
+
+2nd structure equations on \(S\)
+
+Gaussian equation
+
+\[
+d{\omega }_{1}^{2} =  - \kappa {\theta }^{1} \land  {\theta }^{2}
+\]
+
+Codazzi equations (change of shape operator)
+
+\[
+d{\omega }_{1}^{3} = {\omega }_{1}^{2} \land  {\omega }_{2}^{3}
+\]
+
+\[
+d{\omega }_{2}^{3} = {\omega }_{2}^{1} \land  {\omega }_{1}^{3}
+\]
+
+Roughly speaking, intrinsic properties can be measured by inhibitions living on \(S( =\) ant perspective); extrinsic properties depend on how the surface \(S\) is realized as a subset of \({\mathbb{R}}^{3}\) (= space view).
+
+Next we want to see how do frame properties transform as we change our surface. Suppose \(F : S\left( { \subseteq  {\mathbb{R}}^{3}}\right)  \rightarrow  \bar{S}\left( { \subseteq  {\mathbb{R}}^{3}}\right)\) , and we want to use \(F\) to compare objects living on \(\bar{S}\) with the objects on \(S\) .
+
+Definition 38 (Pushforward and Pullback) pushforward: objects on \(S \rightarrow\) objects on \(\bar{S}\) .
+
+pullback: objects living on \(\bar{S}\) induce something living on \(S\) .
+
+Example (Pushforward of curves) If \(c : I \rightarrow  S\) , then the pushforward of \(c\) via \(F\) is the curve in \(\bar{S}\) .
+
+\[
+{c}_{F} = F \circ  c : I \rightarrow  \bar{S}
+\]
+
+i.e.
+
+\[
+{c}_{F}\left( t\right)  = F\left( {c\left( t\right) }\right)
+\]
+
+Example
+
+(Pushforward of tangent vectors) If \(v \in  {\mathrm{T}}_{p}S\) , represented by a curve \(c : I \rightarrow  S\) , then the pushforward of \(v\) is the tangent vector \(w \in  {T}_{F\left( p\right) }\bar{S}\) represented by the curve \({c}_{F} = F \circ  c\) , i.e.
+
+\[
+w = {\left. \frac{\mathrm{d}}{\mathrm{d}t}\right| }_{t = 0}F\left( {c\left( t\right) }\right)  = {\mathrm{T}}_{p}F\left( {{\left. \frac{\mathrm{d}}{\mathrm{d}t}\right| }_{t = 0}c\left( t\right) }\right)  = {\mathrm{T}}_{p}F\left( v\right)
+\]
+
+therefore, this pushforward is just the derivative \({\mathrm{T}}_{p}F : {\mathrm{T}}_{p}S \rightarrow  {T}_{F\left( p\right) }\bar{S}\) .
+
+Example
+
+(Pullback of a 1-form) If \(\alpha\) is a 1-form on \(\bar{S}\) , then the pullback of \(\alpha\) by \(F\) is the 1-form \(\beta\) defined by
+
+\[
+{\beta }_{p}\left( v\right)  = {\alpha }_{F\left( p\right) }\left( {{\mathrm{T}}_{p}F\left( v\right) }\right)  \in  \mathbb{R},p \in  S,v \in  {\mathrm{T}}_{p}S,{\mathrm{\;T}}_{p}F\left( v\right)  \in  {T}_{F\left( p\right) }\bar{S}
+\]
+
+| Moreover, the 1-form \(\beta\) is usually written as \(\beta  = {F}^{ * }\alpha\) .
+
+Example
+
+(Pullback of bilinear forms) If \({\alpha }_{\bar{p}} : {T}_{\bar{p}}\bar{S} \times  {T}_{\bar{p}}\bar{S} \rightarrow  \mathbb{R}\) is a (smooth) family of bilinear forms on \(\bar{S}\) , then the pullback \({\left( {F}^{ * }\alpha \right) }_{p} : {\mathrm{T}}_{p}S \times  {\mathrm{T}}_{p}S \rightarrow  \mathbb{R}\) is defined by
+
+\[
+{\left( {F}^{ * }\alpha \right) }_{p}\left( {v,w}\right)  = {\alpha }_{F\left( p\right) }\left( {{\mathrm{T}}_{p}F\left( v\right) ,{\mathrm{T}}_{p}F\left( w\right) }\right)  \in  \mathbb{R},\;{\mathrm{T}}_{p}F\left( v\right) ,{\mathrm{T}}_{p}F\left( w\right)  \in  {T}_{F\left( p\right) }\bar{S}
+\]
+
+which is a family of bilinear forms on \(S\) , with the same symmetries as \(\alpha\) .
+
+Example \(\phi  : {\mathbb{R}}^{2} \supseteq  U \rightarrow  S\) is a chart on \(S\) , then
+
+\[
+{\phi }^{ * }{II} = I{I}^{\phi }
+\]
+
+\[
+{\phi }^{ * }\alpha  = {\alpha }^{\phi }
+\]
+
+if \(\alpha\) is a 1 or 2 form.
+
+Proposition 15 If \(\alpha\) and \(\beta\) are 1-forms on \(\bar{S}\) , then
+
+\[
+{F}^{ * }\left( {\alpha  \land  \beta }\right)  = \left( {{F}^{ * }\alpha }\right)  \land  \left( {{F}^{ * }\beta }\right)
+\]
+
+\[
+d\left( {{F}^{ * }\alpha }\right)  = {F}^{ * }\left( {d\alpha }\right)
+\]
+
+Proof
+
+\[
+{\left( {F}^{ * }\left( \alpha  \land  \beta \right) \right) }_{p}\left( {v,w}\right)  = {\left( \alpha  \land  \beta \right) }_{F\left( p\right) }\left( {{\mathrm{T}}_{p}F\left( v\right) ,{\mathrm{T}}_{p}F\left( w\right) }\right)
+\]
+
+\[
+= {\alpha }_{F\left( p\right) }\left( {{\mathrm{T}}_{p}F\left( v\right) }\right)  \cdot  {\beta }_{F\left( p\right) }\left( {{\mathrm{T}}_{p}F\left( w\right) }\right)  - {\alpha }_{F\left( p\right) }\left( {{\mathrm{T}}_{p}F\left( w\right) }\right)  \cdot  {\beta }_{F\left( p\right) }\left( {{\mathrm{T}}_{p}F\left( v\right) }\right)
+\]
+
+\[
+= \left( {{F}^{ * }{\alpha }_{p}}\right) \left( v\right)  \cdot  \left( {{F}^{ * }{\beta }_{p}}\right) \left( w\right)  - \left( {{F}^{ * }{\alpha }_{p}}\right) \left( w\right)  \cdot  \left( {{F}^{ * }{\beta }_{p}}\right) \left( v\right)
+\]
+
+\[
+= {\left( \left( {F}^{ * }\alpha \right)  \land  \left( {F}^{ * }\beta \right) \right) }_{p}\left( {v,w}\right)
+\]
+
+Let \(\phi  : U \rightarrow  S\) be a chart on \(S\) , then
+
+\[
+{\left( d\left( {F}^{ * }\alpha \right) \right) }_{\phi \left( {x,y}\right) }\left( {{T}_{x,y}\phi \left( {\partial x}\right) ,{T}_{x,y}\phi \left( {\partial y}\right) }\right)
+\]
+
+\[
+= \frac{\partial }{\partial x}\left( {{\left( {F}^{ * }\alpha \right) }_{\phi \left( {x,y}\right) }{T}_{x,y}\phi \left( {\partial y}\right) }\right)  - \frac{\partial }{\partial y}\left( {{\left( {F}^{ * }\alpha \right) }_{\phi \left( {x,y}\right) }{T}_{x,y}\phi \left( {\partial x}\right) }\right)
+\]
+
+\[
+= \frac{\partial }{\partial x}\left( {{\alpha }_{F\left( {\phi \left( {x,y}\right) }\right) }{T}_{\phi \left( {x,y}\right) }F\left( {{T}_{x,y}\phi \left( {\partial y}\right) }\right) }\right)  - \frac{\partial }{\partial y}\left( {{\alpha }_{F\left( {\phi \left( {x,y}\right) }\right) }{T}_{\phi \left( {x,y}\right) }F\left( {{T}_{x,y}\phi \left( {\partial x}\right) }\right) }\right)
+\]
+
+\[
+= \frac{\partial }{\partial x}\left( {{\alpha }_{F\left( {\phi \left( {x,y}\right) }\right) }{T}_{x,y}\left( {F \circ  \phi }\right) \left( {\partial y}\right) }\right)  - \frac{\partial }{\partial y}\left( {{\alpha }_{F\left( {\phi \left( {x,y}\right) }\right) }{T}_{x,y}\left( {F \circ  \phi }\right) \left( {\partial x}\right) }\right)
+\]
+
+\[
+= {\left( d\alpha \right) }_{F\left( {\phi \left( {x,y}\right) }\right) }\left( {{T}_{x,y}\left( {F \circ  \phi }\right) \left( {\partial x}\right) ,{T}_{x,y}\left( {F \circ  \phi }\right) \left( {\partial y}\right) }\right)
+\]
+
+\[
+= {\left( {F}^{ * }\left( d\alpha \right) \right) }_{\phi \left( {x,y}\right) }\left( {{T}_{x,y}\phi \left( {\partial x}\right) ,{T}_{x,y}\phi \left( {\partial y}\right) }\right)
+\]
+
+Definition 39 (Isometry of surfaces) An isometry of surfaces \(S\) and \(\bar{S}\) is a bijective map \(F : S \rightarrow  \bar{S}\) that preserves the inner
+
+product of tangent vectors:
+
+\[
+v \cdot  w = {\mathrm{T}}_{p}F\left( v\right)  \cdot  {\mathrm{T}}_{p}F\left( w\right) ,\;\forall v,w \in  {\mathrm{T}}_{p}S
+\]
+
+i.e.
+
+\[
+{F}^{ * }\bar{I} = I
+\]
+
+Definition 40 (Local isometry)
+
+Local isometry is a map \(F : S \rightarrow  \bar{S}\) such that every point \(p \in  S\) has some neighborhood \(U \subseteq  S\) such that \(F : S \supseteq  U \rightarrow  F\left( U\right)  \subseteq  \bar{S}\) is a isometry.
+
+According to definition, (local) isometries preserve the length of tangent vectors, but does it also preserve the distance of two points at the surface?
+
+Definition 41 (Distance on the surface) The distance between \(p,q \in  S\) is
+
+\[
+d\left( {p,q}\right)  = \inf \left( c\right) ,\text{ with }c\left( 0\right)  = p,c\left( 1\right)  = q
+\]
+
+Proposition 16 For every isometry \(F\)
+
+\[
+d\left( {p,q}\right)  = d\left( {F\left( p\right) ,F\left( q\right) }\right) ,\;\forall p,q \in  S
+\]
+
+Proof \({\mathrm{T}}_{p}F : {\mathrm{T}}_{p}S \rightarrow  {\mathrm{T}}_{p}\bar{S}\) preserves the length of vectors, thus
+
+\[
+L\left( c\right)  = L\left( {F \circ  c}\right)  = {\int }_{0}^{1}\begin{Vmatrix}{\frac{\mathrm{d}}{\mathrm{d}t}F\left( {c\left( t\right) }\right) }\end{Vmatrix}\mathrm{d}t
+\]
+
+Theorem 12 (Gauss Theorema Egregium, 1827, "Remarkable Theorem")
+
+The Gauss curvature \(\kappa\) of a surface \(S\) only depends on the first fundamental form \(I\) on \(S\) , and it’s invariant under local isometries \(F : S \rightarrow  \bar{S}\) , i.e.
+
+\(\kappa \left( p\right)  = \overline{\kappa }\left( {F\left( p\right) }\right) ,\;\forall p \in  S,\) where \(\overline{\kappa } : \bar{S} \rightarrow  \mathbb{R}\) gauss curvature of \(\bar{S}\)
+
+Idea of the proof is
+
+\begin{itemize}\relax
+\item\relax Use the structure equation
+\end{itemize}
+
+\[
+d{\theta }^{1} = {\omega }_{1}^{2} \land  {\theta }^{2}
+\]
+
+\[
+d{\theta }^{2} = {\omega }_{2}^{1} \land  {\theta }^{1}
+\]
+
+to say that \({\omega }_{1}^{2} =  - {\omega }_{2}^{1}\) is uniquely defined by \({\theta }^{1},{\theta }^{2}\) , and thus only depends on \(I\) .
+
+\begin{itemize}\relax
+\item\relax Use the Gauss equation \(d{\omega }_{1}^{2} =  - \kappa {\theta }^{1} \land  {\theta }^{2}\) to conclude that \(\kappa\) depends only on \(I\) .
+\end{itemize}
+
+Lemma 6
+
+\begin{itemize}\relax
+\item\relax If \(\left( {{e}_{1},{e}_{2},{e}_{3}}\right)\) is a frame on \({\mathbb{R}}^{3}\) adapted to \(S\) , then \({e}_{1}\left( p\right)\) and \({e}_{2}\left( p\right)\) form an orthonormal basis of \({\mathrm{T}}_{p}S\) with respect to \(S\) , because \(I\left( {{e}_{i},{e}_{j}}\right)  = {e}_{i} \cdot  {e}_{j}\) .
+\end{itemize}
+
+\begin{itemize}\relax
+\item\relax Conversely, if \({e}_{1},{e}_{2}\) are vector fields on \(S\) forming an ONB of \({\mathrm{T}}_{p}S,\forall p \in  S\) , then they can be extended to a frame \({e}_{1},{e}_{2},{e}_{3}\) on \({\mathbb{R}}^{3}\) adapted to \(S\) .
+\end{itemize}
+
+Lemma 7 There exists exactly one 1-form \(\alpha\) on \(S\) satisfying
+
+\[
+d{\theta }^{1} = \alpha  \land  {\theta }^{2}\;\text{ and }\;d{\theta }^{2} =  - \alpha  \land  {\theta }^{1} \tag{11.3}
+\]
+
+Proof Apply \({e}_{1},{e}_{2}\) to the equations
+
+\[
+d{\theta }^{1}\left( {{e}_{1},{e}_{2}}\right)  = \alpha  \land  {\theta }^{2}\left( {{e}_{1},{e}_{2}}\right)  = \alpha \left( {e}_{1}\right) {\theta }^{2}\left( {e}_{2}\right)  - 0 = \alpha \left( {e}_{1}\right)
+\]
+
+\[
+d{\theta }^{2}\left( {{e}_{1},{e}_{2}}\right)  =  - \alpha  \land  {\theta }^{1}\left( {{e}_{1},{e}_{2}}\right)  = 0 + \alpha \left( {e}_{2}\right) {\theta }^{1}\left( {e}_{1}\right)  = \alpha \left( {e}_{2}\right)
+\]
+
+\(\alpha\) is uniquely defined by these equations, and the unique 1-form satisfying (11.3) is called the connection form associated with \({e}_{1},{e}_{2}\) , written as \(\alpha  = {\omega }_{1}^{2}\) . That is, \({\omega }_{1}^{2}\) on \(S\) only depends on \({e}_{1},{e}_{2}\) , and thus only \(I\) , not on \({II}/\mathcal{S}\) .
+
+Lemma 8 There exists a unique function \(\kappa\) on \(S\) such that
+
+\[
+d{\omega }_{1}^{2} = \kappa {\theta }^{1} \land  {\theta }^{2}
+\]
+
+where \({\omega }_{1}^{2}\) is the connection of the tangent frame \({e}_{1},{e}_{2}\) .
+
+Proof Evaluate the equation on \({e}_{1},{e}_{2}\)
+
+\[
+d{\omega }_{1}^{2}\left( {{e}_{1},{e}_{2}}\right)  = \kappa {\theta }^{1} \land  {\theta }^{2}\left( {{e}_{1},{e}_{2}}\right)  = \kappa
+\]
+
+which means \(\kappa\) only depends on the tangent plane \({e}_{1},{e}_{2}\) .
+
+\HRule
+
+Lemma 9 (Behavior of \({e}_{1},{e}_{2},{\theta }^{1},{\theta }^{2}\) and \({\omega }_{1}^{2}\) under isometries)
+
+\HRule
+
+\(F : S \rightarrow  \bar{S}\) isometry. Let \({e}_{1},{e}_{2}\) be a tangent plane on \(S\) , with dual frame \({\theta }^{1},{\theta }^{2}\) and connection form \({\omega }_{1}^{2}\) , then
+
+1. \({\bar{e}}_{1}\left( \bar{p}\right)  = {\mathrm{T}}_{p}F\left( {{e}_{1}\left( p\right) }\right) ,{\bar{e}}_{2}\left( \bar{p}\right)  = {\mathrm{T}}_{p}F\left( {{e}_{2}\left( p\right) }\right) \left( {\bar{p} = F\left( p\right) }\right)\) , are tangent frames on \(\bar{S}\)
+
+2. The dual tangent frame \({\overline{\theta }}^{1},{\overline{\theta }}^{2}\) on \(\bar{S}\) associated with \({\bar{e}}_{1},{\bar{e}}_{2}\) is uniquely defined by
+
+\[
+{F}^{ * }{\overline{\theta }}^{1} = {\theta }^{1},\;{F}^{ * }{\overline{\theta }}^{2} = {\theta }^{2}
+\]
+
+3. The connection form \({\overline{\omega }}_{1}^{2}\) on \(\bar{S}\) associated with \({\bar{e}}_{1},{\bar{e}}_{2}\) is uniquely defined by
+
+\[
+{F}^{ * }{\overline{\omega }}_{1}^{2} = {\omega }_{1}^{2}
+\]
+
+Proof 1.
+
+\[
+{\bar{I}}_{F\left( p\right) }\left( {{\bar{e}}_{i}\left( \bar{p}\right) ,{\bar{e}}_{j}\left( \bar{p}\right) }\right)  = {\bar{I}}_{F\left( p\right) }\left( {{\mathrm{T}}_{p}F\left( {{e}_{i}\left( p\right) }\right) ,{\mathrm{T}}_{p}F\left( {{e}_{j}\left( p\right) }\right) }\right)
+\]
+
+\[
+= \left( {{F}^{ * }\bar{I}}\right) \left( {{e}_{i}\left( p\right) ,{e}_{j}\left( p\right) }\right)
+\]
+
+\[
+= I\left( {{e}_{i}\left( p\right) ,{e}_{j}\left( p\right) }\right)
+\]
+
+which means \({\bar{e}}_{1},{\bar{e}}_{2}\) are orthonormal with respect to \(\bar{I}\) .
+
+2. Let’s check \({F}^{ * }{\overline{\theta }}^{1} = {\theta }^{1}\) on the basis \({e}_{1},{e}_{2}\)
+
+\[
+{\left( {F}^{ * }{\overline{\theta }}^{1}\right) }_{p}\left( {e}_{1}\right)  = {\overline{\theta }}_{F\left( p\right) }^{1}\left( {{\mathrm{\;T}}_{p}F\left( {e}_{1}\right) }\right)  = {\overline{\theta }}_{F\left( p\right) }^{1}{\bar{e}}_{1}\left( \bar{p}\right)  = 1
+\]
+
+\[
+{\left( {F}^{ * }{\overline{\theta }}^{1}\right) }_{p}\left( {e}_{2}\right)  = {\overline{\theta }}_{F\left( p\right) }^{1}\left( {{\mathrm{\;T}}_{p}F\left( {e}_{2}\right) }\right)  = {\overline{\theta }}_{F\left( p\right) }^{1}{\bar{e}}_{2}\left( \bar{p}\right)  = 0
+\]
+
+therefore
+
+\[
+{F}^{ * }{\overline{\theta }}^{1} = {\theta }^{1}
+\]
+
+and similarly for \({F}^{ * }{\overline{\theta }}^{2} = {\theta }^{2}\)
+
+3. Recall for 1-forms \(\alpha ,\beta\) on \(\bar{S}\)
+
+\[
+{F}^{ * }\left( {\alpha  \land  \beta }\right)  = \left( {{F}^{ * }\alpha }\right)  \land  \left( {{F}^{ * }\beta }\right)
+\]
+
+\[
+d\left( {{F}^{ * }\alpha }\right)  = {F}^{ * }\left( {d\alpha }\right)
+\]
+
+we have
+
+\[
+{F}^{ * }\left( {d{\overline{\theta }}^{1}}\right)  = d\left( {{F}^{ * }{\overline{\theta }}^{1}}\right)  = d{\theta }^{1}
+\]
+
+\[
+{F}^{ * }\left( {d{\overline{\theta }}^{1}}\right)  = {F}^{ * }\left( {{\overline{\omega }}_{1}^{2} \land  {\overline{\theta }}^{2}}\right)  = \left( {{F}^{ * }{\overline{\omega }}_{1}^{2}}\right)  \land  \left( {{F}^{ * }{\overline{\theta }}^{2}}\right)  = \left( {{F}^{ * }{\overline{\omega }}_{1}^{2}}\right)  \land  {\theta }^{2}
+\]
+
+therefore
+
+\[
+d{\theta }^{1} = \left( {{F}^{ * }{\overline{\omega }}_{1}^{2}}\right)  \land  {\theta }^{2}
+\]
+
+and similarly
+
+\[
+d{\theta }^{2} =  - \left( {{F}^{ * }{\overline{\omega }}_{1}^{2}}\right)  \land  {\theta }^{1}
+\]
+
+thus
+
+\[
+{F}^{ * }{\overline{\omega }}_{1}^{2} = {\omega }_{1}^{2}
+\]
+
+Proof (Proof of the Gauss theorem)
+
+\[
+d{\overline{\omega }}_{1}^{2} =  - \overline{\kappa }{\overline{\theta }}^{1} \land  {\overline{\theta }}^{2}
+\]
+
+pull back by \({F}^{ * }\)
+
+LHS \(\;{F}^{ * }\left( {d{\overline{\omega }}_{1}^{2}}\right)  = d\left( {{F}^{ * }{\overline{\omega }}_{1}^{2}}\right)  = d{\omega }_{1}^{2} =  - \kappa {\theta }^{1} \land  {\theta }^{2}\)
+
+RHS \(\;{F}^{ * }\left( {-\overline{\kappa }{\overline{\theta }}^{1} \land  {\overline{\theta }}^{2}}\right)  = \left( {-\overline{\kappa } \circ  F}\right) {F}^{ * }\left( {{\overline{\theta }}^{1} \land  {\overline{\theta }}^{2}}\right)  =  - \overline{\kappa } \circ  F\left( {{F}^{ * }{\overline{\theta }}^{1}}\right)  \land  \left( {{F}^{ * }{\overline{\theta }}^{2}}\right)  =  - \overline{\kappa } \circ  F{\theta }^{1} \land  {\theta }^{2}\)
+
+therefore
+
+\[
+- \kappa {\theta }^{1} \land  {\theta }^{2} =  - \overline{\kappa } \circ  F{\theta }^{1} \land  {\theta }^{2}
+\]
+
+Apply \({e}_{1},{e}_{2}\) to this equation, we have
+
+\[
+\kappa  = \overline{\kappa } \circ  F
+\]
+
+As we get the Remarkable Theorem, we wonder if we can reconstruct surfaces from curvature. The answer is in general no, but in some situations yes.
+
+Theorem 13 (Reconstruct surfaces from curvature)
+
+Let \(S \subseteq  {\mathbb{R}}^{3}\) surface such that every two points on \(S\) can be connected by a path in \(S\) and every point is an umbillic point, then \(S\) has constant Gaussian curvature \(\kappa  \geq  0\) , and
+
+\begin{itemize}\relax
+\item\relax If \(\kappa  = 0\) , then \(S\) is point of the plain
+\end{itemize}
+
+\begin{itemize}\relax
+\item\relax If \(\kappa  > 0\) , then \(S\) is point of the sphere of radius \(\frac{1}{\sqrt{\kappa }}\)
+\end{itemize}
+
+Proof Assume \({e}_{1},{e}_{2},{e}_{3}\) an frame adapted to \(S\) . As every point is umbillic
+
+\[
+\mathcal{S}{e}_{1} = \kappa {e}_{1},\;\mathcal{S}{e}_{2} = \kappa {e}_{2}
+\]
+
+thus \({e}_{1},{e}_{2},{e}_{3}\) is a Darboux frame. According to equation (10.1), we have
+
+\[
+{d\kappa }\left( {e}_{1}\right)  = 0 = {d\kappa }\left( {e}_{2}\right)
+\]
+
+Theorem 14
+
+If \(S\) is a compact surface in \({\mathbb{R}}^{3}\) with constant Guassian curvature \(\kappa  > 0\) , then \(S\) is the sphere of radius \(\frac{1}{\sqrt{\kappa }}\) .
+
+Geodesics: parallel transport
+
+\HRule
+
+Proposition 17 (Geodesics in plane)
+
+\HRule
+
+In plane, the following are equivalent for a curve \(c\left( t\right)\)
+
+1. \(c\left( t\right)\) is a straight line
+
+2. curvature of \(c\) is zero, i.e. \(\ddot{c} = 0\)
+
+3. \(\dot{c}\left( t\right)\) are parallel vectors for all \(t\)
+
+4. extrema of the length functional \(( =\) is the shortest path between two points)
+
+Next we consider the geodesics on the surface. Let \(c\) be a curve in \(S\) of constant speed \(v = \left| {\dot{c}\left( t\right) }\right|\) . Consider a frame \({e}_{1},{e}_{2},{e}_{3}\) a adapted frame satisfying \({e}_{1}\left( {c\left( t\right) }\right)  = \frac{\dot{c}\left( t\right) }{v}\) . Since \(\ddot{c} \cdot  \dot{c} = 0\) , there exists faculties \({\kappa }_{g}\left( t\right)\) and \({\kappa }_{n}\left( t\right)\) such that
+
+\[
+\frac{\ddot{c}\left( t\right) }{{v}^{2}} = {\kappa }_{g}\left( t\right) {e}_{2}\left( {c\left( t\right) }\right)  + {\kappa }_{n}\left( t\right) {e}_{3}\left( {c\left( t\right) }\right)
+\]
+
+curvature of curve
+
+\[
+\kappa \left( t\right)  = \frac{\parallel \ddot{c}\left( t\right) \parallel }{{v}^{2}} = \sqrt{{\kappa }_{g}^{2}\left( t\right)  + {\kappa }_{n}^{2}\left( t\right) }
+\]
+
+Also
+
+\[
+\frac{\ddot{c}\left( t\right) }{v} = \frac{\mathrm{d}}{\mathrm{d}t}\left( \frac{\dot{c}\left( t\right) }{v}\right)  = \frac{\mathrm{d}}{\mathrm{d}t}\left( {{e}_{1}\left( {c\left( t\right) }\right) }\right)  = {T}_{c\left( t\right) }{e}_{1}\left( {\dot{c}\left( t\right) }\right)
+\]
+
+\[
+= {\omega }_{1}^{2}\left( {\dot{c}\left( t\right) }\right) {e}_{2}\left( {c\left( t\right) }\right)  + {\omega }_{1}^{3}\left( {\dot{c}\left( t\right) }\right) {e}_{3}\left( {c\left( t\right) }\right)
+\]
+
+\HRule
+
+\({}^{9}\) Meusnier realized in 1779 that the surface forces all such curves to bend by the same amount: \({\kappa }_{n}\) is independent of the specific curve c. Suppose the curves are unit-speed, then
+
+\[
+{\kappa }_{n}\left( t\right)  = N \cdot  {e}_{3}
+\]
+
+\[
+= \dot{T} \cdot  n
+\]
+
+\[
+= T \cdot  \dot{n}
+\]
+
+But \(\dot{n}\) is the rate of change of the surface normal in the \(T\) direction, which is independent of the curves.
+
+\HRule
+
+therefore \({}^{9}\)
+
+\[
+{\kappa }_{g}\left( t\right)  = {\omega }_{1}^{2}\left( \frac{\dot{c}\left( t\right) }{v}\right) \;\text{ and }\;{\kappa }_{n}\left( t\right)  = {\omega }_{1}^{3}\left( \frac{\dot{c}\left( t\right) }{v}\right)
+\]
+
+\begin{center}
+\includegraphics[width=0.4\textwidth]{fig/bo_d4vqblv7aajc73ft760g_20_470_1423_583_547_0.jpg}
+\end{center}
+\hspace*{3em} 
+
+Figure 10. The curve acceleration \(\kappa\) can be decomposed into the geodesic curvature vector \({\kappa }_{g}\) tangent to the surface, and the normal curvature vector \({\kappa }_{n}\) perpendicular to the surface: \(\kappa  = {\kappa }_{g} + {\kappa }_{n}\)
+
+\HRule
+
+Definition 42 (Geodesic on the surface)
+
+\HRule
+
+A curve \(c\) with constant speed in \(S\) is called a geodesic if any of the following equiv properties hold:
+
+1. \({\kappa }_{g}\left( t\right)  = 0\) ("intrinsically straight")
+
+2. \(\ddot{c}\left( t\right)\) is completely in the normal direction
+
+3. \({\omega }_{1}^{2}\left( {\dot{c}\left( t\right) }\right)  = 0\) , i.e. parallel transport (this section)
+
+4. shortest length (next section)
+
+Example
+
+\(S =\) plane \({\mathbb{R}}^{2}\) in \({\mathbb{R}}^{3},c\left( t\right)  : I \rightarrow  {\mathbb{R}}^{2},\dot{c}\left( t\right)\) is normal (z-axis) iff \(\ddot{c}\left( t\right)  = 0\) , i.e. geodesics in \({\mathbb{R}}^{2}\) are just straight lines.
+
+Example
+
+\(S =\) sphere, a great circle is the intrinsic of the sphere with a plane through the origin. If we parametric such a great circle to have constant speed, then it is a geodesic, since its acceleration is purely pointing to the center (=normal).
+
+In the plane, geodesics are exactly those curves with parallel tangent vectors. The question is, what is the notion of "parallel" on a surface.
+
+\begin{center}
+\includegraphics[width=0.4\textwidth]{fig/bo_d4vqblv7aajc73ft760g_21_465_912_591_403_0.jpg}
+\end{center}
+\hspace*{3em} 
+
+Figure 11. Constructing a Geodesic via Parallel Transport. Launch a particle from \(p\) with velocity \(v\) , and define \(G\) to be the curve obtained by parallel-transporting \(v\) along itself, so that the new velocity at the neighboring point \(q\) is \({v}_{\left| \right| }\) . Then the acceleration \(\dot{v}\) is given by \(\dot{v}\epsilon  = {v}_{\mid  \mid  } - v\) . But then \(\dot{v} \propto  n\) , and therefore \(G\) is geodesic.
+
+\HRule
+
+Definition 43 (Vector field along curve)
+
+\HRule
+
+Let \(c : I \rightarrow  S\) be a curve. A vector field along \(c\) is a smooth map \(X : I \rightarrow  {\mathbb{R}}^{3}\) such that \(X\left( t\right)  \in  {T}_{c\left( t\right) }S\) for all \(t \in  I\) .
+
+According to the definition, \(X\left( t\right)  = \dot{c}\left( t\right)\) is a vector field along \(c\) . The derivative of \(X\) , is a map \(\frac{\mathrm{d}}{\mathrm{d}t}X : I \rightarrow  {\mathbb{R}}^{3}\) , but \(\frac{\mathrm{d}}{\mathrm{d}t}X\) is usually not tangent to \(S\) . The idea to handle this is to decompose \(\frac{\mathrm{d}}{\mathrm{d}t}X\) into part that is tangent to \(S\) and another part that is normal.
+
+For this purpose, choose a adapted frame \({e}_{1},{e}_{2},{e}_{3}\) on \(S\) , then
+
+\[
+X\left( t\right)  = {f}_{1}\left( t\right) {e}_{1}\left( {c\left( t\right) }\right)  + {f}_{2}\left( t\right) {e}_{2}\left( {c\left( t\right) }\right)
+\]
+
+for some smooth function \({f}_{1},{f}_{2} : I \rightarrow  \mathbb{R}\) , thus
+
+\[
+\frac{d}{dt}X\left( t\right)  = \left( {{\dot{f}}_{1}\left( t\right)  + {f}_{2}\left( t\right) {\omega }_{2}^{1}\left( {\dot{c}\left( t\right) }\right) }\right) {e}_{1}\left( {c\left( t\right) }\right)  + \left( {{\dot{f}}_{2}\left( t\right)  + {f}_{1}\left( t\right) {\omega }_{1}^{2}\left( {\dot{c}\left( t\right) }\right) }\right) {e}_{2}\left( {c\left( t\right) }\right)  +
+\]
+
+\[
+\left( {{f}_{1}\left( t\right) {\omega }_{1}^{3}\left( {\dot{c}\left( t\right) }\right)  + {f}_{2}\left( t\right) {\omega }_{2}^{3}\left( {\dot{c}\left( t\right) }\right) }\right) {e}_{3}\left( {c\left( t\right) }\right)
+\]
+
+\HRule
+
+Definition 44 (For the tangent part, covariant derivative)
+
+\HRule
+
+Let \({e}_{1},{e}_{2},{e}_{3}\) be a frame and \(X\left( t\right)  = {f}_{1}\left( t\right) {e}_{1}\left( {c\left( t\right) }\right)  + {f}_{2}\left( t\right) {e}_{2}\left( {c\left( t\right) }\right)\) be a vector field along the curve \(c\) , then covariant derivative of \(X\) is the vector field along \(c\) defined by
+
+\[
+\frac{\nabla }{dt}X\left( t\right)  = \left( {{\dot{f}}_{1} + {f}_{2}{\omega }_{2}^{1}\left( \dot{c}\right) }\right) {e}_{1}\left( {c\left( t\right) }\right)  + \left( {{\dot{f}}_{2} + {f}_{1}{\omega }_{1}^{2}\left( \dot{c}\right) }\right) {e}_{2}\left( {c\left( t\right) }\right)
+\]
+
+Note that \(\frac{\nabla }{dt}\) depends only on \({\omega }_{1}^{2}\) , is the "intrinsic derivative of \({X}^{\prime \prime }\) .
+
+\begin{center}
+\includegraphics[width=0.7\textwidth]{fig/bo_d4vqblv7aajc73ft760g_22_294_598_964_614_0.jpg}
+\end{center}
+\hspace*{3em} 
+
+Figure 12. The Intrinsic ("Covariant") Derivative, \({D}_{v}w\) , which measures the intrinsic rate of change of \(w\) along \(v\) , is especially easy to visualize if \(v\) is the velocity of a geodesic \(G\) , for then the trip of peel surrounding \(G\) flattens into a straight line, and parallel transport of \({w}_{\left| \right| }\) within the surface becomes ordinary Euclidean parallel transport within the plane.
+
+Definition 45 (For the normal part) Consider
+
+\[
+\mathcal{S}\left( {\dot{c}\left( t\right) }\right)  = {\omega }_{1}^{3}\left( {\dot{c}\left( t\right) }\right) {e}_{1} + {\omega }_{2}^{3}\left( {\dot{c}\left( t\right) }\right) {e}_{2}
+\]
+
+therefore
+
+\[
+\mathcal{S}\left( {\dot{c}\left( t\right) }\right)  \cdot  X\left( t\right)  = {f}_{1}\left( t\right) {\omega }_{1}^{3}\left( {\dot{c}\left( t\right) }\right)  + {f}_{2}\left( t\right) {\omega }_{2}^{3}\left( {\dot{c}\left( t\right) }\right)
+\]
+
+i.e.
+
+\[
+I{I}_{c\left( t\right) }\left( {\dot{c}\left( t\right) ,X\left( t\right) }\right)  = \text{ normal part of }\frac{d}{dt}X\left( t\right)
+\]
+
+Theorem 15 (Gauss-Weingarten formula) To sum up
+
+\[
+\frac{d}{dt}X\left( t\right)  = \frac{\nabla }{dt}X\left( t\right)  + I{I}_{c\left( t\right) }\left( {\dot{c}\left( t\right) ,X\left( t\right) }\right)  \cdot  n\left( {c\left( t\right) }\right)
+\]
+
+If \(X = \dot{c}\left( t\right)\) , then
+
+\[
+\ddot{c}\left( t\right)  = \frac{\mathrm{d}}{\mathrm{d}t}\dot{c}\left( t\right)  = \frac{\nabla }{dt}\dot{c}\left( t\right)  + I{I}_{c\left( t\right) }\left( {\dot{c}\left( t\right) ,\dot{c}\left( t\right) }\right)  \cdot  n\left( {c\left( t\right) }\right)
+\]
+
+\[
+= \frac{\nabla }{dt}\dot{c}\left( t\right)  + \kappa \left( {\dot{c}\left( t\right) }\right)  \cdot  n\left( {c\left( t\right) }\right)
+\]
+
+\[
+= {\kappa }_{g}\left( t\right) {e}_{2}\left( {c\left( t\right) }\right)  + {\kappa }_{n}\left( t\right) {e}_{3}\left( {c\left( t\right) }\right)
+\]
+
+\HRule
+
+Proposition 18 (Property of \(\frac{\nabla }{dt})\)
+
+\HRule
+
+\(\frac{\nabla }{dt}\) has some similar properties with \(\frac{\mathrm{d}}{\mathrm{d}t}\) .
+
+1. \(\frac{\nabla }{dt}X\) does not depend on the frame used in the definition
+
+2. Leibniz property: \(\frac{\nabla }{dt}\left( {\lambda x}\right)  = \dot{\lambda }X + \lambda \frac{\nabla }{dt}X\) for \(\lambda  : I \rightarrow  \mathbb{R}\)
+
+3. Chain rule: For every smooth function \(\phi  : J \rightarrow  I,J \in  \mathbb{R}\) interval
+
+\[
+\frac{\nabla }{ds}\left( {X \circ  \phi }\right) \left( s\right)  = \dot{\phi }\left( s\right) \frac{\nabla }{dt}X\left( {\phi \left( s\right) }\right)
+\]
+
+4. For every \(X,Y\) along \(c\) , we have
+
+\[
+\frac{d}{dt}I\left( {X,Y}\right)  = I\left( {\frac{\nabla }{dt}X,Y}\right)  + I\left( {X,\frac{\nabla }{dt}Y}\right)
+\]
+
+5. Let \(c : I \times  \left\lbrack  {-1,1}\right\rbrack   \rightarrow  S\) be a smooth map and let \(\frac{\nabla }{dt}\) be cov derivative along the curve \(t \rightarrow  c\left( {t,\epsilon }\right) \left( {\epsilon \text{ fixed }}\right)\) , and let \(\frac{\nabla }{d\epsilon }\) be the cov derivative along \(\epsilon  \rightarrow  c\left( {t,\epsilon }\right) (t\) fixed), then
+
+\[
+\frac{\nabla }{dt}\frac{\partial }{\partial \epsilon }c\left( {t,\epsilon }\right)  = \frac{\nabla }{d\epsilon }\frac{\partial }{\partial t}c\left( {t,\epsilon }\right)
+\]
+
+of For 4, since \(X\left( t\right) ,Y\left( t\right)  \bot  n\left( {c\left( t\right) }\right)\) , we have
+
+\[
+\frac{d}{dt}\left( {X\left( t\right) ,Y\left( t\right) }\right)  = \left( {\frac{d}{dt}X\left( t\right) }\right)  \cdot  Y\left( t\right)  + X\left( t\right)  \cdot  \left( {\frac{d}{dt}Y\left( t\right) }\right)
+\]
+
+\[
+= \left( {\frac{\nabla }{dt}X\left( t\right)  + I{I}_{c\left( t\right) }\left( {\dot{c}\left( t\right) ,X\left( t\right) }\right)  \cdot  n\left( {c\left( t\right) }\right) }\right)  \cdot  Y\left( t\right)  +
+\]
+
+\[
+X\left( t\right)  \cdot  \left( {\frac{\nabla }{dt}Y\left( t\right)  + I{I}_{c\left( t\right) }\left( {\dot{c}\left( t\right) ,Y\left( t\right) }\right)  \cdot  n\left( {c\left( t\right) }\right) }\right)
+\]
+
+\[
+= \left( {\frac{\nabla }{dt}X\left( t\right) }\right)  \cdot  Y\left( t\right)  + X\left( t\right)  \cdot  \left( {\frac{\nabla }{dt}Y\left( t\right) }\right)
+\]
+
+For 5
+
+\[
+\frac{\nabla }{dt}\left( \frac{\partial c}{\partial \epsilon }\right)  + {II}\left( {\frac{\partial c}{\partial t},\frac{\partial c}{\partial \epsilon }}\right)  = \frac{\partial }{\partial t}\frac{\partial }{\partial \epsilon }c = \frac{\partial }{\partial \epsilon }\frac{\partial }{\partial t}c = \frac{\nabla }{d\epsilon }\left( \frac{\partial c}{\partial t}\right)  + {II}\left( {\frac{\partial c}{\partial \epsilon },\frac{\partial c}{\partial t}}\right)
+\]
+
+Theorem 16 (Parallel transport)
+
+Given a curve \(c : I \rightarrow  S\) and a vector \({X}_{0} \in  {T}_{c\left( t\right) }S\) , there exists a unique vector field \(X\) along \(c\) satisfying
+
+\[
+\frac{\nabla }{dt}X\left( t\right)  = 0,\;X\left( 0\right)  = {X}_{0}
+\]
+
+\(X\left( t\right)\) is called the parallel transport of \({X}_{0}\) along \(c\) .
+
+Proof of Suppose that \(\frac{\nabla }{dt}X = 0\) , then
+
+\[
+\frac{\mathrm{d}}{\mathrm{d}t}I\left( {X,X}\right)  = I\left( {\frac{\nabla }{dt}X,X}\right)  + I\left( {X,\frac{\nabla }{dt}X}\right)  = 0
+\]
+
+thus length \(\left| {X\left( t\right) }\right|  = r\) constant. Hence if \({e}_{1},{e}_{2}\) are tangent frame, then
+
+\[
+X\left( t\right)  = r\cos \varphi \left( t\right) {e}_{1}\left( {c\left( t\right) }\right)  + r\sin \varphi \left( t\right) {e}_{2}\left( {c\left( t\right) }\right)
+\]
+
+reduced to find this angle function \(\varphi  : I \rightarrow  \mathbb{R}\) .
+
+\[
+0 = \frac{\nabla }{dt}X\left( t\right)
+\]
+
+\[
+= \left( {-r\dot{\varphi }\sin \varphi  + r\sin \varphi {\omega }_{2}^{1}\left( {\dot{c}\left( t\right) }\right) }\right) {e}_{1} + \left( {r\dot{\varphi }\cos \varphi  + r\cos \varphi {\omega }_{1}^{2}\left( {\dot{c}\left( t\right) }\right) }\right) {e}_{2}
+\]
+
+i.e.
+
+\[
+\dot{\varphi }\left( t\right)  + {\omega }_{1}^{2}\left( {\dot{c}\left( t\right) }\right)  = 0
+\]
+
+therefore
+
+\[
+\varphi \left( t\right)  = \varphi \left( 0\right)  - {\int }_{0}^{t}{\omega }_{1}^{2}\left( {\dot{c}\left( t\right) }\right) {d\tau }
+\]
+
+which means the integration of \({\omega }_{1}^{2}\left( {\dot{c}\left( t\right) }\right)\) is the rotation that is need to stay parallel along \(c\) .
+
+\begin{itemize}\relax
+\item\relax For the plane, \({\omega }_{1}^{2} = 0\) , so \(\varphi\) is constant and does not depend on \(c\) , i.e. parallel transport does not depend on the curve choose to connect to points.
+\end{itemize}
+
+\begin{itemize}\relax
+\item\relax But on surfaces, \(\varphi\) depends on \(c\) , i.e. parallel transport of a vector frame \(p\) to \(q\) depends on the curve chosen to connect \(p \rightarrow  q\) . Hence, if \(c : \left\lbrack  {0,1}\right\rbrack   \rightarrow  S\) is a closed loop in \(S\) , then the vectors \(X\left( 0\right)\) and \(X\left( 1\right)\) are rotated by angle
+\end{itemize}
+
+\[
+\operatorname{Hol}\left( c\right)  = \varphi \left( 1\right)  - \varphi \left( 0\right)
+\]
+
+\[
+=  - {\int }_{0}^{1}{\omega }_{1}^{2}\left( {\dot{c}\left( \tau \right) }\right) {d\tau }
+\]
+
+\[
+=  - {\int }_{c}{\omega }_{1}^{2}
+\]
+
+which is called the Holonomy angle.
+
+Section 13
+
+Geodesics: variations
+
+Assume for a moment that \(f : S \rightarrow  \mathbb{R}\) is a smooth function and we would like to find the minima of \(f\) , i.e. find the zeros of the derivative \({T}_{m}f\) . So we need to find the point \(m\) such for any curve \(\gamma  : I \rightarrow  S\) satisfy at \(m\) , we have
+
+\[
+0 = {T}_{m}f\left( {\dot{\gamma }\left( 0\right) }\right)  = {\left. \frac{d}{d\epsilon }\right| }_{0}f\left( {\gamma \left( \epsilon \right) }\right)
+\]
+
+Here we apply some ideas to the "function"
+
+\(L : \{\) all paths connect \(p \rightarrow  q\}  \rightarrow  \mathbb{R}\)
+
+\begin{center}
+\includegraphics[width=0.2\textwidth]{fig/bo_d4vqblv7aajc73ft760g_25_1348_505_361_181_0.jpg}
+\end{center}
+\hspace*{3em} 
+
+Figure 13. \({c}_{\epsilon }\left( t\right)\) , varieties of a curve \(c\) , and the corresponding "tangent vector" \(V\left( t\right)\)
+
+which means we need to say what are variations of a curve.
+
+\HRule
+
+Definition 46 (Varieties of a curve)
+
+\HRule
+
+If \(c : \left\lbrack  {0,1}\right\rbrack   \rightarrow  S\) is a curve from \(p = c\left( 0\right)\) to \(q = c\left( 1\right)\) , then a smooth varieties of \(c\) is a family of curves \({c}_{\epsilon }\) , depending on some particular \(\epsilon  \in  \left\lbrack  {0,1}\right\rbrack\) such that \(\widehat{c} : \left\lbrack  {0,1}\right\rbrack   \times  \left\lbrack  {0,1}\right\rbrack   \rightarrow \; S\) is smooth, written as \(\widehat{c}\left( {t,\epsilon }\right)  = {c}_{\epsilon }\left( t\right)\) , and \({c}_{\epsilon }\) is just \(c\) , i.e. \(\widehat{c}\left( {t,0}\right)  = c\left( t\right)\) . If \({c}_{\epsilon }\left( 0\right)  = p\) and \({c}_{\epsilon }\left( 1\right)  = q\) , the \({c}_{\epsilon }\) is said to be variation with fixed endpoints.
+
+\HRule
+
+Definition 47 ("Tangent vector")
+
+\HRule
+
+For a variation \({c}_{\epsilon }\) , the variational vector field \(V\left( t\right)  = {\left. \frac{\partial {c}_{\epsilon }\left( t\right) }{\partial \epsilon }\right| }_{\epsilon  = 0}\) is a vector field along c. If \({c}_{\epsilon }\) has fixed endpoints, then \(V\left( 0\right)  = 0 = V\left( 1\right)\) .
+
+\[
+E\left( c\right)  = \frac{1}{2}{\int }_{0}^{1}{\left| \dot{c}\left( \tau \right) \right| }^{2}{d\tau }
+\]
+
+\HRule
+
+Definition 48 (The energy of curve)
+
+\HRule
+
+Proposition 19 If \({c}_{\epsilon }\) is a smooth variation of a regular curve \(c\) , with fixed endpoints, then
+
+\[
+{\left. \frac{d}{d\epsilon }\right| }_{0}L\left( {c}_{\epsilon }\right)  =  - {\int }_{0}^{1}\frac{I\left( {V\left( \tau \right) ,\frac{\nabla }{dt}\dot{c}\left( \tau \right) }\right) }{\left| \dot{c}\left( \tau \right) \right| }{d\tau }
+\]
+
+\[
+{\left. \frac{d}{d\epsilon }\right| }_{0}E\left( {c}_{\epsilon }\right)  =  - {\int }_{0}^{1}I\left( {V\left( \tau \right) ,\frac{\nabla }{dt}\dot{c}\left( \tau \right) }\right) {d\tau }
+\]
+
+where \(V\left( t\right)\) is the variational vector field of \({c}_{\epsilon }\) .
+
+Proof
+
+\[
+{\left. \frac{d}{d\epsilon }\right| }_{0}E\left( {c}_{\epsilon }\right)  = {\left. \frac{1}{2}{\int }_{0}^{1}\frac{\partial }{\partial \epsilon }\right| }_{\epsilon  = 0}{\left| \dot{c}\left( \tau \right) \right| }^{2}{d\tau }
+\]
+
+\[
+= \frac{1}{2}{\int }_{0}^{1}I\left( {{\left. \frac{\nabla }{d\epsilon }\right| }_{\epsilon  = 0}{\dot{c}}_{\epsilon }\left( \tau \right) ,\dot{c}\left( \tau \right) }\right)  + I\left( {{\left. \dot{c}\left( \tau \right) ,\frac{\nabla }{d\epsilon }\right| }_{\epsilon  = 0}{\dot{c}}_{\epsilon }\left( \tau \right) }\right) {d\tau }
+\]
+
+\[
+= {\int }_{0}^{1}I\left( {{\left. \frac{\nabla }{d\epsilon }\right| }_{\epsilon  = 0}{\dot{c}}_{\epsilon }\left( \tau \right) ,\dot{c}\left( \tau \right) }\right) {d\tau }
+\]
+
+\[
+= {\int }_{0}^{1}I\left( {{\left. \frac{\nabla }{d\epsilon }\right| }_{\epsilon  = 0}{\left. \frac{d}{dt}\right| }_{t = \tau }{c}_{\epsilon }\left( t\right) ,\dot{c}\left( \tau \right) }\right) {d\tau }
+\]
+
+\[
+= {\int }_{0}^{1}I\left( {{\left. \frac{\nabla }{dt}\right| }_{t = \tau }V\left( t\right) ,\dot{c}\left( \tau \right) }\right) {d\tau }
+\]
+
+\[
+= {\int }_{0}^{1}{\left. \frac{d}{dt}\right| }_{t = \tau }I\left( {V\left( t\right) ,\dot{c}\left( t\right) }\right)  - I\left( {V\left( \tau \right) ,{\left. \frac{\nabla }{dt}\right| }_{t = \tau }\dot{c}\left( t\right) }\right) {d\tau }
+\]
+
+\[
+= I\left( {V\left( 1\right) ,\dot{c}\left( 1\right) }\right)  - I\left( {V\left( 0\right) ,\dot{c}\left( 0\right) }\right)  - {\int }_{0}^{1}I\left( {V\left( \tau \right) ,{\left. \frac{\nabla }{dt}\right| }_{t = \tau }\dot{c}\left( t\right) }\right) {d\tau }
+\]
+
+\[
+=  - {\int }_{0}^{1}I\left( {V\left( \tau \right) ,{\left. \frac{\nabla }{dt}\right| }_{t = \tau }\dot{c}\left( t\right) }\right) {d\tau }
+\]
+
+Proof for \(L\) is exactly the same.
+
+Regularity of \(c\) is only needed for the varieties of \(L\) , not of \(E\) . Problems like this are usually the reason why the energy is slightly better behaved than then length.
+
+Theorem 17
+
+Let \(c\) be a curve in \(S\) with constant speed, then \(c\) is a geodesic if and only if it is an extreme of the energy and length functional. That is
+
+\[
+{\left. \frac{d}{d\epsilon }\right| }_{0}E\left( {c}_{\epsilon }\right)  = 0 = {\left. \frac{d}{d\epsilon }\right| }_{0}L\left( {c}_{\epsilon }\right)
+\]
+
+for any smooth variation \({c}_{\epsilon }\) with fixed endpoints.
+
+Proof
+
+\(\Rightarrow\) clear from previous proposition, since \(\frac{\nabla }{dt}\dot{c} = 0\) for a geodesic.
+
+\(\Leftarrow\) If \(\frac{\nabla }{dt}\dot{c} \neq  0\) , then there exists a variaties \({c}_{\epsilon }\) with vector field \(V = \frac{\nabla }{dt}\dot{c}\) , thus
+
+\[
+{\left. \frac{d}{d\epsilon }\right| }_{0}E\left( {c}_{\epsilon }\right)  =  - {\int }_{0}^{1}I\left( {\frac{\nabla }{dt}\dot{c},\frac{\nabla }{dt}\dot{c}}\right) {d\tau } < 0
+\]
+
+contradicts with the fact that \({\left. \frac{\mathrm{d}}{\mathrm{d}\epsilon }\right| }_{0}E\left( {c}_{\epsilon }\right)  = 0\) .
+
+Remark
+
+Every point \(p\) has a sufficially small neighborhood \(U\) such that there is exactly one shortest connection \(c\) from \(p\) to any \(q \in  U\) , and \(c\) is then a geodesic.
+
+Locally, geodesics minimize the length or energy. But globally not, for example, points on the sphere can be connected by many different geodesics (great circles).
+
+\HRule
+
+Theorem 18 (Hopf-Rinow, metrically complete)
+
+\HRule
+
+Let \(S\) be a connected surface (every two points can be connected by smooth curves). Assume that every geodesic exists for all times, then for every \(q \in  S\) , there exists a
+
+geodesic \(c\) form \(p\) to \(q\) such that
+
+\[
+d\left( {p,q}\right)  = L\left( c\right)
+\]
+
+But the geodesic doesn’t exist for all times. And whatever curve \(c\) from \(p \rightarrow  q\) has
+
+\[
+L\left( c\right)  > d\left( {p,q}\right)
+\]
+
+Similar to the uniqueness and existence theorem for parallel transport, we can show that there is a unique geodesic starting at a given point in a given direction.
+
+For \(p \in  S\) , the exponential map
+
+\[
+{\exp }_{p} : {\mathrm{T}}_{p}S \supseteq  {V}_{p} \rightarrow  S
+\]
+
+is given by \({\exp }_{p}\left( V\right)  = {c}_{V}\left( 1\right)\) , where \({c}_{V}\) is the geodesic with \(c\left( 0\right)  = p,\dot{c}\left( 0\right)  = V\) , and \({V}_{p}\) contains all \(V \in  {\mathrm{T}}_{p}S\) for which \({c}_{V}\) is defined at least up to time \(t = 1\) .
+
+Remark - Then \({\exp }_{p}\left( {tV}\right)  = {c}_{V}\left( t\right)\) for all \(t \in  \left\lbrack  {0,1}\right\rbrack\) (by uniqueness of geodesics).
+
+\begin{itemize}\relax
+\item\relax \({\exp }_{p}\) collects all geodesics starting at \(p\) .
+\end{itemize}
+
+\begin{itemize}\relax
+\item\relax For small enough \({V}_{p},{\exp }_{p}\) is diffeomorphism of \({V}_{p}\) onto a neighborhood of \(p\) in \(S\) .
+\end{itemize}
+
+Get polar coordinates as follows
+
+\begin{itemize}\relax
+\item\relax Choose an orthonormal basis \({f}_{1}\) and \({f}_{2}\) in \({\mathrm{T}}_{p}S\) , then
+\end{itemize}
+
+\[
+V = r\cos \varphi {f}_{1} + r\sin \varphi {f}_{2}
+\]
+
+for all nonzero \(v \in  {\mathrm{T}}_{p}S,r > 0,\varphi  \in  \lbrack 0,{2\pi })\) .
+
+\begin{itemize}\relax
+\item\relax Transport it via the exp map
+\end{itemize}
+
+\[
+{\phi }_{p}\left( {r,\varphi }\right)  = {\exp }_{p}\left( {r\cos \varphi {f}_{1} + r\sin \varphi {f}_{2}}\right)
+\]
+
+which is well-defined if \(r\) is small enough, and is called the geodesic polar mapping at \(p\) .
+
+\begin{itemize}\relax
+\item\relax Pushforward of tangent space:
+\end{itemize}
+
+\[
+\frac{\partial }{\partial r}\left( q\right)  = {T}_{\left( r,\varphi \right) }{\phi }_{p}\left( {\frac{\partial }{\partial r}\left( {r,\varphi }\right) }\right)
+\]
+
+\[
+\frac{\partial }{\partial \varphi }\left( q\right)  = {T}_{\left( r,\varphi \right) }{\phi }_{p}\left( {\frac{\partial }{\partial \varphi }\left( {r,\varphi }\right) }\right)
+\]
+
+where \(q = {\phi }_{p}\left( {r,\varphi }\right)\) , and we have
+
+\({I}_{q}\left( {\frac{\partial }{\partial r},\frac{\partial }{\partial r}}\right)  = 1\;\) radial geodesics have unit speed \({I}_{q}\left( {\frac{\partial }{\partial r},\frac{\partial }{\partial \varphi }}\right)  = 0\;\) radial geod \(\bot\) polar circle
+
+\[
+{I}_{q}\left( {\frac{\partial }{\partial \varphi },\frac{\partial }{\partial \varphi }}\right)  > 0
+\]
+
+\begin{center}
+\includegraphics[width=0.2\textwidth]{fig/bo_d4vqblv7aajc73ft760g_27_1350_573_362_325_0.jpg}
+\end{center}
+\hspace*{3em} 
+
+Figure 14. Exponential map
+
+\HRule
+
+\begin{center}
+\includegraphics[width=0.2\textwidth]{fig/bo_d4vqblv7aajc73ft760g_27_1365_1187_333_389_0.jpg}
+\end{center}
+\hspace*{3em} 
+
+Figure 15. Polar coordinates
+
+Definition 49
+
+(Exponential map)
+
+Definition 50 (Coordinates via geodesics)
+
+\HRule
+
+The representation of \(I\) with respect to \({\psi }_{p}\) is
+
+\[
+{\phi }_{p}^{ * }I = \left( \begin{matrix} 1 & 0 \\  0 & G\left( {r,\varphi }\right)  \end{matrix}\right)  = \left( \begin{matrix} 1 & 0 \\  0 & {I}_{{\phi }_{p}\left( {r,\varphi }\right) }\left( {\frac{\partial }{\partial \varphi },\frac{\partial }{\partial \varphi }}\right)  \end{matrix}\right)
+\]
+
+The distance between \({\phi }_{p}\left( {r,\varphi }\right)\) and \({\phi }_{p}\left( {r,\varphi  + \epsilon }\right)\) is approx
+
+\[
+\epsilon \left| \frac{\partial {\phi }_{p}\left( {r,\varphi }\right) }{\partial \varphi }\right|  = \epsilon \sqrt{{I}_{{\phi }_{p}\left( {r,\varphi }\right) }\left( {\frac{\partial }{\partial \varphi },\frac{\partial }{\partial \varphi }}\right) } = \epsilon \sqrt{G\left( {r,\varphi }\right) }
+\]
+
+\begin{center}
+\includegraphics[width=0.2\textwidth]{fig/bo_d4vqblv7aajc73ft760g_28_1347_490_365_249_0.jpg}
+\end{center}
+\hspace*{3em} 
+
+Figure 16. In the plane, even though these geodesics diverge from each other, they do so without any force pushing them apart, their relative acceleration vanishes.
+
+Therefore, if \(\frac{\partial }{\partial }\sqrt{G} > 0\) , the distance between geodesics is increasing with larger \(r\) , and thus radial geodesics are spreading apart.
+
+Example
+
+ple In the plane \({\mathbb{R}}^{2}\) , with standard coordinate, \(G\left( {r,\varphi }\right)  = {r}^{2},\frac{\partial }{\partial r}\sqrt{G} = 1,\frac{{\partial }^{2}}{{\partial }^{2}r}\sqrt{G} = 0\) .
+
+Theorem 19 \(\sqrt{G}\) satisfies the Jacobi diff eq
+
+\[
+\frac{{\partial }^{2}}{\partial {r}^{2}}\sqrt{G} + \kappa \left( p\right) \sqrt{G} = 0
+\]
+
+which means neighbouring geodesics travelling through a region of negative curvature are repelled by each other, accelerating apart. And \(\sqrt{G}\) has Taylor ex
+
+\[
+\sqrt{G}\left( {r,\varphi }\right)  = r + \frac{1}{2}\frac{{\partial }^{2}\sqrt{G}}{\partial {r}^{2}}{r}^{2} + \frac{1}{6}\frac{{\partial }^{3}\sqrt{G}}{\partial {r}^{3}}{r}^{3} + \mathcal{O}\left( {r}^{4}\right)
+\]
+
+\[
+= r + \frac{1}{2}\left( {-\kappa \left( p\right) \sqrt{G}}\right) {r}^{2} + \frac{1}{6}\frac{\partial \left( {-\kappa \left( p\right) \sqrt{G}}\right) }{\partial r}{r}^{3} + \mathcal{O}\left( {r}^{4}\right)
+\]
+
+\[
+= r - \kappa \left( p\right) \frac{{r}^{3}}{6} + \mathcal{O}\left( {r}^{4}\right) ,\;p = {\phi }_{p}\left( {0,\varphi }\right) ,\;r \geq  0
+\]
+
+Remark
+
+\begin{itemize}\relax
+\item\relax The role of speeding of the radial geodesics depends only on Gaussian Curvature. For \(\kappa  > 0\) , the speeding is slower than on \({\mathbb{R}}^{2}\) . This gives another way to measure \(\kappa\) intrinsically, i.e. gives another proof of Gaussian theorem.
+\end{itemize}
+
+\begin{itemize}\relax
+\item\relax Go some fixed distance \(R\) away from a point \(p\) along a geodesic, this gives the polar circle \({C}_{R}\)
+\end{itemize}
+
+\[
+{C}_{R}\left( \varphi \right)  = {\phi }_{p}\left( {R,\varphi }\right)
+\]
+
+\begin{itemize}\relax
+\item\relax measure the length of \({C}_{R}\) :
+\end{itemize}
+
+\[
+L\left( {C}_{R}\right)  = {\int }_{0}^{2\pi }\sqrt{I\left( {\frac{\partial }{\partial \varphi },\frac{\partial }{\partial \varphi }}\right) }{d\varphi } = {\int }_{0}^{2\pi }\sqrt{G\left( {R,\varphi }\right) }{d\varphi }
+\]
+
+\[
+\approx  {2\pi }\left( {R - \kappa \left( p\right) \frac{{R}^{3}}{6} + \mathcal{O}\left( {R}^{3}\right) }\right)
+\]
+
+\[
+= {2\pi R} - \frac{\pi }{3}{R}^{3}\kappa \left( p\right)  + \mathcal{O}\left( {R}^{3}\right)
+\]
+
+Transfer, get
+
+\[
+\kappa \left( p\right)  = \mathop{\lim }\limits_{{R \rightarrow  0}}\frac{3}{\pi } \cdot  \frac{{2\pi R} - L\left( {C}_{R}\right) }{{R}^{3}}
+\]
+
+Section 14
+
+Fundamental theorem for surfaces
+
+For curves, we reconstruct the curve from curvature and torsion, with \(\parallel \dot{c}\parallel  = 1\) ; for surfaces, we construct the surface from
+
+\begin{itemize}\relax
+\item\relax Gaussian curvature is not enough, as plane and the cylinder both have \(\kappa  = 0\) .
+\end{itemize}
+
+\begin{itemize}\relax
+\item\relax The first fundamental form doesn't say anything about the normal.
+\end{itemize}
+
+\begin{itemize}\relax
+\item\relax The first and second fundamental forms.
+\end{itemize}
+
+The problem is, \(I\) and \({II}\) are forms on \({\mathrm{T}}_{p}S\) , which means we need to have \(S\) first to specify \(I\) and \({II}\) . But we hope to reconstruct a local map of a surface from the local map of \(I\) and \({II}\) .
+
+If \(S\) is a parameterized surface via \(\psi  : {\mathbb{R}}^{2} \supseteq  D \rightarrow  S\) , then
+
+\[
+g = \left( \begin{array}{ll} {g}_{11} & {g}_{12} \\  {g}_{21} & {g}_{22} \end{array}\right)  = {\psi }^{ * }I,\;l = \left( \begin{array}{ll} {l}_{11} & {l}_{12} \\  {l}_{21} & {l}_{22} \end{array}\right)  = {\psi }^{ * }{II}
+\]
+
+where \(g\) and is the families of symmetric metrics, parameterized by points \(\left( {x,y}\right)  \in  D\) .
+
+Given two matrices \(g\) and \(l\) (parameterized by \(D\) ), can we construct \(\psi  : D \rightarrow  {\mathbb{R}}^{2}\) with first and second form \(I\) and \({II}\) on \(\psi \left( D\right)  = S\) such that \({\psi }^{ * }I = g\) and \({\psi }^{ * }{II} = l\) ? To find the map \(\psi\) , here we first let \({\psi }^{ * }{e}_{1},{\psi }^{ * }{e}_{2}\) be an orthonormal frame on \(D \subseteq  {\mathbb{R}}^{2}\) with respect to \(g\) , using Schmidt orthogonalization:
+
+\[
+{\psi }^{ * }{e}_{1} = \frac{1}{\sqrt{{g}_{11}}}\partial x,\;{\psi }^{ * }{e}_{2} = \sqrt{\frac{{g}_{11}}{{g}_{11}{g}_{22} - {g}_{12}^{2}}}\left( {-\frac{{g}_{12}}{{g}_{11}}\partial x + \partial y}\right)
+\]
+
+then we can get the dual frame \({\psi }^{ * }{\theta }^{1},{\psi }^{ * }{\theta }^{2}\) . After that, using 1st structure equations:
+
+\[
+d\left( {{\psi }^{ * }{\theta }^{1}}\right)  = \left( {{\psi }^{ * }{\omega }_{1}^{2}}\right)  \land  \left( {{\psi }^{ * }{\theta }^{2}}\right)
+\]
+
+\[
+d\left( {{\psi }^{ * }{\theta }^{2}}\right)  = \left( {{\psi }^{ * }{\omega }_{2}^{1}}\right)  \land  \left( {{\psi }^{ * }{\theta }^{1}}\right)
+\]
+
+\HRule
+
+Definition 51 (Pullback of \(I\) and II form)
+
+\HRule
+
+we can calculate \({\psi }^{ * }{\omega }_{1}^{2}\) . Next we need to calculate \({\psi }^{ * }{\omega }_{1}^{3}\) :
+
+\[
+{\psi }^{ * }{\omega }_{1}^{3} = \left( {{\psi }^{ * }{\omega }_{1}^{3}}\right) \left( {\partial x}\right) {dx} + \left( {{\psi }^{ * }{\omega }_{1}^{3}}\right) \left( {\partial y}\right) {dy}
+\]
+
+\[
+= {\omega }_{1}^{3}\left( {{\mathrm{\;T}}_{p}\psi \left( {\partial x}\right) }\right) {dx} + {\omega }_{1}^{3}\left( {{\mathrm{\;T}}_{p}\psi \left( {\partial y}\right) }\right) {dy}
+\]
+
+\[
+= {\omega }_{1}^{3}\left( { < {\mathrm{T}}_{p}\psi \left( {\partial x}\right) ,{e}_{1} > {e}_{1} +  < {\mathrm{T}}_{p}\psi \left( {\partial x}\right) ,{e}_{2} > {e}_{2}}\right) {dx} +
+\]
+
+\[
+{\omega }_{1}^{3}\left( { < {\mathrm{T}}_{p}\psi \left( {\partial y}\right) ,{e}_{1} > {e}_{1} +  < {\mathrm{T}}_{p}\psi \left( {\partial y}\right) ,{e}_{2} > {e}_{2}}\right) {dy}
+\]
+
+\[
+= \left( {{l}_{11} < {\mathrm{T}}_{p}\psi \left( {\partial x}\right) ,{e}_{1} >  + {l}_{21} < {\mathrm{T}}_{p}\psi \left( {\partial x}\right) ,{e}_{2} > }\right) {dx} +
+\]
+
+\[
+\left( {{l}_{11} < {\mathrm{T}}_{p}\psi \left( {\partial y}\right) ,{e}_{1} >  + {l}_{21} < {\mathrm{T}}_{p}\psi \left( {\partial y}\right) ,{e}_{2} > }\right) {dy}
+\]
+
+\[
+= \left( {{l}_{11} < {dx},{\psi }^{ * }{e}_{1} >  + {l}_{21} < {dx},{\psi }^{ * }{e}_{2} > }\right) {dx} +
+\]
+
+\[
+\left( {{l}_{11} < {dy},{\psi }^{ * }{e}_{1} >  + {l}_{21} < {dy},{\psi }^{ * }{e}_{2} > }\right) {dy}
+\]
+
+\[
+= \mathop{\sum }\limits_{{i = 1,2}}{l}_{i1}\left( { < d{x}^{1},{\psi }^{ * }{e}_{i} >  +  < d{x}^{2},{\psi }^{ * }{e}_{i} > }\right) d{x}^{i}
+\]
+
+\[
+= \mathop{\sum }\limits_{{i,j = 1,2}}{l}_{i1} < d{x}^{j},{\psi }^{ * }{e}_{i} > d{x}^{i}
+\]
+
+\({\psi }^{ * }{\omega }_{2}^{3}\) is similar.
+
+\[
+d{\omega }_{1}^{2} = 0
+\]
+
+\[
+d{\omega }_{1}^{3} = 0 = d{\omega }_{2}^{3}
+\]
+
+\HRule
+
+Theorem 20 (Gauss-Godozzi equation)
+
+\HRule
+
+Lemma 10
+
+Assume \({\omega }_{i}^{j}\) satisfy the Gauss-Godozzi equation, then for \({p}_{0} \in  {\mathbb{R}}^{3}\) and frame \({f}_{1},{f}_{2},{f}_{3}\) that are orthonormal basis of \({\mathbb{R}}^{2}\) , there exists a unique smooth \(\psi  : {\mathbb{R}}^{2} \supseteq  D \rightarrow  {\mathbb{R}}^{3}\) and smooth function \({e}_{1},{e}_{2},{e}_{3} : {\mathbb{R}}^{2} \supseteq  D \rightarrow  {\mathbb{R}}^{3}\) forming an orthonormal basis of \({\mathbb{R}}^{3}\) for each \(p \in  D\) such that
+
+\[
+{T}_{\left( x,y\right) }\psi \left( v\right)  = {\theta }_{\left( x,y\right) }^{1}\left( v\right) {e}_{1}\left( {x,y}\right)  + {\theta }_{\left( x,y\right) }^{2}\left( v\right) {e}_{2}\left( {x,y}\right)
+\]
+
+\[
+{T}_{\left( x,y\right) }{e}_{1}\left( v\right)  = \mathop{\sum }\limits_{j}{\left( {\omega }_{i}^{j}\right) }_{\left( x,y\right) }\left( v\right) {e}_{j}\left( {x,y}\right)
+\]
+
+\[
+\psi \left( 0\right)  = {p}_{0},\;{e}_{i}\left( 0\right)  = {f}_{i}
+\]
+
+Finally, we just need to solve the ODE to get the analytical expression of \({e}_{1},{e}_{2},{e}_{3}\) :
+
+\[
+d\left( \begin{array}{l} {e}_{1} \\  {e}_{2} \\  {e}_{3} \end{array}\right)  = \left( \begin{matrix} 0 & {\psi }^{ * }{\omega }_{1}^{2} & {\psi }^{ * }{\omega }_{1}^{3} \\   - {\psi }^{ * }{\omega }_{1}^{2} & 0 & {\psi }^{ * }{\omega }_{2}^{3} \\   - {\psi }^{ * }{\omega }_{1}^{3} &  - {\psi }^{ * }{\omega }_{2}^{3} & 0 \end{matrix}\right) \left( \begin{array}{l} {e}_{1} \\  {e}_{2} \\  {e}_{3} \end{array}\right)
+\]
+
+Example Assume
+
+\[
+g = \left( \begin{matrix} {a}^{2} + 1 & 0 \\  0 & {a}^{2}{x}^{2} \end{matrix}\right) ,\;l = \frac{ax}{\sqrt{{a}^{2} + 1}}\left( \begin{array}{ll} 0 & 0 \\  0 & 1 \end{array}\right)
+\]
+
+and \(D = \left\{  {\left( {x,y}\right)  \in  {\mathbb{R}}^{2} : x > 0,y \in  \left( {0,{2\pi }}\right) }\right\}\) , then
+
+\[
+{\psi }^{ * }{e}_{1} = \frac{1}{\sqrt{{a}^{2} + 1}}\partial x,\;{\psi }^{ * }{e}_{2} = \frac{1}{ax}\partial y
+\]
+
+\[
+{\psi }^{ * }{\theta }^{1} = \sqrt{{a}^{2} + 1}{dx},\;{\psi }^{ * }{\theta }^{2} = {axdy}
+\]
+
+and
+
+\[
+{\psi }^{ * }{\omega }_{1}^{2} = \frac{ady}{\sqrt{{a}^{2} + 1}},\;{\psi }^{ * }{\omega }_{1}^{3} = 0,\;{\psi }^{ * }{\omega }_{2}^{3} = \frac{dy}{\sqrt{{a}^{2} + 1}}
+\]
+
+The results satisfy the Gauss-Codozzi equation, then
+
+\[
+{T}_{\left( x,y\right) }\psi  = \sqrt{{a}^{2} + 1}{dx}{e}_{1} + {axdy}{e}_{2}
+\]
+
+then we need to solve the ODE
+
+\[
+d\left( \begin{array}{l} {e}_{1} \\  {e}_{2} \\  {e}_{3} \end{array}\right)  = \left( \begin{matrix} 0 & \frac{ady}{\sqrt{{a}^{2} + 1}} & 0 \\   - \frac{ady}{\sqrt{{a}^{2} + 1}} & 0 & \frac{dy}{\sqrt{{a}^{2} + 1}} \\   - 0 &  - \frac{dy}{\sqrt{{a}^{2} + 1}} & 0 \end{matrix}\right) \left( \begin{array}{l} {e}_{1} \\  {e}_{2} \\  {e}_{3} \end{array}\right)
+\]
+
+the solution is
+
+\[
+{e}_{1} = \frac{1}{\sqrt{{a}^{2} + 1}}\left( \begin{matrix} a\cos y \\  a\sin y \\  1 \end{matrix}\right) ,\;{e}_{2} = \left( \begin{matrix}  - \sin y \\  \cos y \\  0 \end{matrix}\right) ,\;{e}_{3} = \frac{1}{\sqrt{{a}^{2} + 1}}\left( \begin{matrix}  - \cos y \\   - \sin y \\  a \end{matrix}\right)
+\]
+
+therefore
+
+\[
+\psi \left( {x,y}\right)  = x\left( \begin{matrix} a\cos y \\  a\sin y \\  1 \end{matrix}\right)
+\]
+
+\HRule
+
+Theorem 21 (Fundamental theorem for surfaces)
+
+\HRule
+
+If \(g\) and \(l\) are families of symmetric matrices, with \(g\) positive def, and satisfying the Gauss-Godozzi equation, then there exists a parameterized surface \(S\) such that \(g\) and \(l\) are the local representation of \(I\) and \({II}\) of \(S\) . Locally, a surface is uniquely (up to translation and rotation) defined by its first and second fundamental form.
+
+Look at local coordinates first. Suppose \(\psi  : {\mathbb{R}}^{2} \supseteq  D \rightarrow  S\) , and we want to know what’s the area of \(\psi \left( D\right)\) . For all vectors \(\left( {{v}_{1},0}\right)\) and \(\left( {0,{v}_{2}}\right)  \in  {\mathbb{R}}^{2}\) , the line segment from \(\psi \left( {x,y}\right)\) to \(\psi \left( {x + {v}_{1},y}\right)\) is linearly approximated by \({T}_{\left( x,y\right) }\psi \left( \left( {{v}_{1},0}\right) \right)\) . And similarly, the segment \(\psi \left( {x,y}\right)  \rightarrow  \psi \left( {x,y + {v}_{2}}\right)  \approx  {T}_{\left( x,y\right) }\psi \left( \left( {0,{v}_{2}}\right) \right)\) . Here the area of \(\psi \left( R\right)\) is approximated by the area of parallel segment of \({T}_{\left( x,y\right) }\psi \left( \left( {{v}_{1},0}\right) \right)\) and \({T}_{\left( x,y\right) }\psi \left( \left( {0,{v}_{2}}\right) \right)\) , i.e. the area of
+
+\[
+\psi \left( R\right)  \approx  \left| {{T}_{\left( x,y\right) }\psi \left( \left( {{v}_{1},0}\right) \right)  \times  {T}_{\left( x,y\right) }\psi \left( \left( {0,{v}_{2}}\right) \right) }\right|
+\]
+
+\begin{center}
+\includegraphics[width=0.3\textwidth]{fig/bo_d4vqblv7aajc73ft760g_31_1349_1555_401_191_0.jpg}
+\end{center}
+\hspace*{3em} 
+
+Figure 17. Exponential map
+
+Then, if we have a two form \({dA}\) on \(S\) satisfying
+
+\[
+{\left( dA\right) }_{p}\left( {{u}_{1},{u}_{2}}\right)  = \left| {{u}_{1} \times  {u}_{2}}\right| ,\;\forall p \in  S
+\]
+
+thus
+
+\[
+\text{ area of }\psi \left( R\right)  \approx  {\left( {\psi }^{ * }\left( dA\right) \right) }_{\left( x,y\right) }\left( {\left( {{v}_{1},0}\right) ,\left( {0,{v}_{2}}\right) }\right)
+\]
+
+\[
+= {\left( dA\right) }_{\psi \left( {x,y}\right) }\left( {{T}_{\left( x,y\right) }\psi \left( \left( {{v}_{1},0}\right) \right) ,{T}_{\left( x,y\right) }\psi \left( \left( {0,{v}_{2}}\right) \right) }\right)
+\]
+
+And we have
+
+\[
+\text{ area of }\psi \left( D\right)  = \mathop{\sum }\limits_{R}\text{ area of }\psi \left( R\right)  = \mathop{\sum }\limits_{R}{dA}\left( {{T\psi }\left( \left( {1,0}\right) \right) ,{T\psi }\left( \left( {0,1}\right) \right) }\right)
+\]
+
+\[
+= {\int }_{D}{\psi }^{ * }{dA} = {\int }_{\psi \left( D\right) }{dA}
+\]
+
+However, integration needs an orientation, and with the wrong orientations, we may get a negative area, which means we need to incorporate the normal in the def of \({dA}\) .
+
+\HRule
+
+Definition 52 (Area element and Total area)
+
+\HRule
+
+Let \(S\) be a surface, oriented by a unit speed field \(n\) . The area element is the 2 -form \({dA}\) on \(S\) defined by
+
+\[
+{\left( dA\right) }_{p}\left( {{u}_{1},{u}_{2}}\right)  = {n}_{p} \cdot  \left( {{u}_{1} \times  {u}_{2}}\right)
+\]
+
+The total area of \(S\) is defined by
+
+\[
+{\int }_{S}{dA}
+\]
+
+Example - On the plane \({\mathbb{R}}^{2},{dA} = {dx} \land  {dy}\)
+
+\begin{itemize}\relax
+\item\relax On the unit sphere, \({\left( dA\right) }_{p}\left( {{u}_{1},{u}_{2}}\right)  = {n}_{p} \cdot  \left( {{u}_{1} \times  {u}_{2}}\right)\) and according to one of the total area
+\end{itemize}
+
+\[
+{\int }_{{S}^{2}}{dA} = {4\pi }
+\]
+
+\({trk}\) Be careful! The notation \({dA}\) is misleading as it suggests that there is a 1-form \(A\) on \(S\) such that the area element is \({dA}\) , i.e. exterior diff of \(A\) . For example, it may be misread from \({dA} = {dx} \land  {dy} = d\left( {xdy}\right)\) that \(A = {xdy}\) . Normally, \({dA}\) is not exact. If so, then by stokes theorem, we have
+
+\[
+{\int }_{S}{dA} = {\int }_{\partial S}A = 0
+\]
+
+for every compact surface without boundary.
+
+Proposition 20 For every frame \({e}_{1},{e}_{2},{e}_{3}\) adapted to \(S\) , with dual frame \({\theta }^{1},{\theta }^{2},{\theta }^{3}\) , we have
+
+\[
+{dA} =  \pm  {\theta }^{1} \land  {\theta }^{2}
+\]
+
+Proof enough to verify this formula when evaluated on \({e}_{1}\) and \({e}_{2}\) :
+
+\[
+{\left( dA\right) }_{p}\left( {{e}_{1}\left( p\right) ,{e}_{2}\left( p\right) }\right)  = {e}_{3}\left( p\right)  \cdot  \left( {{e}_{1}\left( p\right)  \times  {e}_{2}\left( p\right) }\right)  =  \pm  1
+\]
+
+\[
+{\left( {\theta }^{1} \land  {\theta }^{2}\right) }_{p}\left( {{e}_{1}\left( p\right) ,{e}_{2}\left( p\right) }\right)  = {\theta }_{p}^{1}\left( {{e}_{1}\left( p\right) }\right) {\theta }_{p}^{2}\left( {{e}_{2}\left( p\right) }\right)  - 0 = 1
+\]
+
+Section 15
+
+Gauss-Bonnet theorem
+
+\HRule
+
+Theorem 22 (Gauss-Bonnet theorem)
+
+\HRule
+
+\(S\) compact
+
+\[
+\frac{1}{2\pi }{\int }_{S}{\kappa dA} = 2 \cdot  \left( {1 - \# \text{ holes in }S}\right)
+\]
+
+the surprising thing is the left is the local information, which is easy to measure, while the right is the global information, which is hard to measure intrinsically. Also,
+
+the theorem tells us the holes will not change under deformations, which is called a topological invariant.
+
+Example
+
+\({S}_{{R}^{2}}\) has \(\kappa  = \frac{1}{{R}^{2}}\) , then
+
+\[
+\frac{1}{{2\pi }{R}^{2}}{\int }_{{S}_{{R}^{2}}}{\kappa dA} = \frac{1}{{2\pi }{R}^{2}} \cdot  {4\pi }{R}^{2} = 2
+\]
+
+There are some strange things about this theorem. For \(\int {\kappa dA}\) , we’re not clear why this should be an integer. Also, \(\kappa\) depends on the first fundamental form, but holes can just be seen and counted.
+
+Far reaching generalizations, we guess
+
+\(\int \{\) local data, geometric, def via some auxiliary data \(\}  =\)
+
+Topological invariant, with some integrity, doesn't depend on the auxiliary data
+
+Let \({e}_{1},{e}_{2},{e}_{3}\) be a frame adapted to \(S\) with dual frame \(\theta\) , positively oriented, then
+
+\[
+{\kappa dA} = \kappa {\theta }^{1} \land  {\theta }^{2} = d{\omega }_{2}^{1}
+\]
+
+Assume \(B\) is a region with \(\partial B\) smooth, then
+
+\[
+{\int }_{B}{\kappa dA} = {\int }_{B}d{\omega }_{2}^{1} = {\int }_{\partial B}{\omega }_{2}^{1} \tag{15.1}
+\]
+
+which is valid for all \(B \subseteq  S\) that have a global frame. If watch this in line integral, suppose \(c\) is a unit-speed curve such that \(\dot{c} = {e}_{1}\) , then
+
+\[
+{\omega }_{2}^{1}\left( {\dot{c}\left( t\right) }\right)  =  - {\omega }_{1}^{2}\left( {\dot{c}\left( t\right) }\right)  =  - {\kappa }_{g}\left( t\right)
+\]
+
+In general, \(\dot{c}\left( t\right)  = \cos \varphi \left( t\right) {e}_{1}\left( {c\left( t\right) }\right)  + \sin \varphi \left( t\right) {e}_{2}\left( {c\left( t\right) }\right)\) , then according to the proof of the parallel transport theorem, we have
+
+\[
+{\kappa }_{g}\left( t\right)  = \dot{\varphi }\left( t\right)  + {\omega }_{1}^{2}\left( {\dot{c}\left( t\right) }\right)
+\]
+
+Integral, we have
+
+\[
+{\int }_{a}^{b}{\kappa }_{g}\left( t\right) \mathrm{d}t = \varphi \left( b\right)  - \varphi \left( a\right)  - {\int }_{c}{\omega }_{2}^{1} = \text{ Winding number } \cdot  {2\pi } - {\int }_{c}{\omega }_{2}^{1} \tag{15.2}
+\]
+
+Substitute (15.1) into (15.2), we get
+
+\[
+{\int }_{B}{\kappa dA} + {\int }_{a}^{b}{\kappa }_{g}\left( t\right) \mathrm{d}t = \text{ Winding number } \cdot  {2\pi }
+\]
+
+\HRule
+
+Theorem 23 (Local version of Gauss-Bonnet)
+
+\HRule
+
+Let \(S\) be a compact oriented surface with area element \({dA}\) . For every subset \(B \subseteq  S\) admitting a global, adapted, positively oriented frame, whose bounding curve \(\partial B : \left\lbrack  {a,b}\right\rbrack   \rightarrow  S\) is smooth, simple and unit-speed, then
+
+\[
+{\int }_{B}{\kappa dA} + {\int }_{a}^{b}{\kappa }_{g}\left( t\right) \mathrm{d}t = {2\pi }
+\]
+
+\begin{center}
+\includegraphics[width=0.8\textwidth]{fig/bo_d4vqblv7aajc73ft760g_34_212_234_1099_427_0.jpg}
+\end{center}
+\hspace*{3em} 
+
+Figure 18. As a particle traces a simple loop, its velocity executes one positive revolution. In [a] \({\varphi }_{1} + {\varphi }_{2} + {\varphi }_{3} = {2\pi }\) ; in [b] \({\int }_{c}{d\varphi } =\) net rotation of \(v = {2\pi }\) .
+
+Theorem 24 If \(\partial B\) is piece-wise smooth with interior angles \({\varphi }_{1},\cdots ,{\varphi }_{n}\) , then
+
+\[
+{\int }_{B}{\kappa dA} + {\int }_{a}^{b}{\kappa }_{g}\left( t\right) \mathrm{d}t + \left( {{n\pi } - \mathop{\sum }\limits_{i}{\varphi }_{i}}\right)  = {2\pi }
+\]
+
+particularly, in triangle, we have
+
+\[
+{\int }_{B}{\kappa dA} + {\int }_{a}^{b}{\kappa }_{g}\left( t\right) \mathrm{d}t = \mathop{\sum }\limits_{i}{\varphi }_{i} - \pi
+\]
+
+\HRule
+
+Definition 53 (Euler characteristic)
+
+\HRule
+
+The Euler characteristic of a triangulation is
+
+\[
+\mathcal{X} = \# \text{ points/vertices - \#edges + \#faces }
+\]
+
+for sphere \(\mathcal{X} = 2\) , and torus \(\mathcal{X} = 0\) .
+
+\begin{center}
+\includegraphics[width=0.7\textwidth]{fig/bo_d4vqblv7aajc73ft760g_34_246_1430_980_442_0.jpg}
+\end{center}
+\hspace*{3em} 
+
+Figure 19. Since the surface of a tetrahedron is homeomorphic to the sphere \({S}^{2}\) , we may consider this as a valid triangulation for the latter. This triangulation is formed basically by four triangles, four vertices and six edges.
+
+\begin{center}
+\includegraphics[width=0.7\textwidth]{fig/bo_d4vqblv7aajc73ft760g_35_280_249_999_376_0.jpg}
+\end{center}
+\hspace*{3em} 
+
+Figure 20. The triangulation of a torus, performed on the representation of torus given by the quotient space of the square by the proper identification in the border.
+
+Theorem 25
+
+For every compact oriented surfaces \(S\) without boundary and with area element \({dA}\) and gauss curvature \(\kappa\) , we have
+
+\[
+{\int }_{S}{\kappa dA} = {2\pi }\mathcal{X}\left( S\right)
+\]
+
+this is also a version for surfaces with boundary.
+
+Decompose \(S\) into triangles \({\Delta }_{j}\) , we can assume that the triangle is covered by a single chart, thus enabling applying local version of Gauss-Bonnet:
+
+\[
+{\int }_{S}{\kappa dA} = \mathop{\sum }\limits_{j}{\int }_{{\Delta }_{j}}{\kappa dA}
+\]
+
+\[
+= \mathop{\sum }\limits_{j}\left( {{\varphi }_{1}^{j} + {\varphi }_{2}^{j} + {\varphi }_{3}^{j} - \pi  - {\int }_{\partial {\Delta }_{j}}{\kappa }_{g}}\right)
+\]
+
+Since we consider the condition without boundary, and for two triangle sharing one edge, the edge has the opposite orientation, we have
+
+\[
+\mathop{\sum }\limits_{j}{\int }_{\partial {\Delta }_{j}}{\kappa }_{g} = 0
+\]
+
+meanwhile, for a vertex, all interior angles sum up to \({2\pi }\) , i.e.
+
+\[
+\mathop{\sum }\limits_{j}\left( {{\varphi }_{1}^{j} + {\varphi }_{2}^{j} + {\varphi }_{3}^{j}}\right)  = {2\pi }
+\]
+
+therefore
+
+\[
+{\int }_{S}{\kappa dA} = {2\pi }\# \text{ vertices } - \pi \# \text{ faces }
+\]
+
+As each face has 3 edges, and each edge is shared by 2 faces, i.e. 3 \# faces = 2 \# edges, we have -\# faces = (2-3)\# faces = 2(\# faces - \# edges), thus
+
+\[
+{\int }_{S}{\kappa dA} = {2\pi }\left( {\# \text{ vertices } + \# \text{ faces } - \# \text{ edges }}\right)  = {2\pi }\mathcal{X}\left( S\right)
+\]
+
+\begin{center}
+\includegraphics[width=0.8\textwidth]{fig/bo_d4vqblv7aajc73ft760g_36_195_227_1119_644_0.jpg}
+\end{center}
+\hspace*{3em} 
+
+Figure 21. The general closed surface \(S\) extends to the left in an unknown manner, indicated by ???. We cut out two triangles from the triangulation (not shown) of \(S\) , reducing \(\mathcal{X}\left( S\right)\) by 2, then glue on the handle, which has no effect on \(\mathcal{X}\left( S\right)\) . Thus gluing on a handle reduces \(\mathcal{X}\left( S\right)\) by 2 .
 
 
 \end{document}

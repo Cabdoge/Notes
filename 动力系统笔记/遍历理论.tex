@@ -566,7 +566,7 @@ $\begin{aligned}
         因此$T^{-1}E_{\alpha,\beta}=E_{\alpha,\beta}$.\par
         由极大遍历定理可知$\int_{E_{\alpha,\beta}\cap E_\alpha}{f}\d m\geq \alpha m(E_{\alpha,\beta}\cap E_\alpha)\xLongrightarrow{E_{\alpha,\beta}\subseteq E_\alpha}\int_{E_{\alpha,\beta}}{f}\d m\geq \alpha m(E_{\alpha,\beta})$.\par
         又$E_{\alpha,\beta}=\left\{x\in X\left|f^*(x)>\alpha,f_*(x)<\beta\right.\right\}=\left\{x\in X\left|(-f)_*(x)< -\alpha< -\beta<(-f)_*(x)\right.\right\}$.\par
-        类似地，就有$\int_{E_{\alpha,\beta}}{-f}\d m\leq -\beta m(E_{\alpha,\beta}) \Rightarrow \int_{E_{\alpha,\beta}}{f}\d m\geq \beta m(E_{\alpha,\beta})$.\par
+        类似地，就有$\int_{E_{\alpha,\beta}}{-f}\d m\geq -\beta m(E_{\alpha,\beta}) \Rightarrow \int_{E_{\alpha,\beta}}{f}\d m\leq \beta m(E_{\alpha,\beta})$.\par
         因此$\beta m(E_{\alpha,\beta})\geq \int_{E_{\alpha,\beta}}{f}\d m\geq \alpha m(E_{\alpha,\beta})\xLongrightarrow{\alpha\geq\beta} m(E_{\alpha,\beta})=0$.\par
         \item 极限$f^*$是$T-$不变的，$f^*\circ T=f^*$.\par
         \item $f^*\in L^1(X,\mcal{B},m)$.\par
@@ -647,8 +647,8 @@ $\begin{aligned}
             0 & 1 \\
             1 & a_n
         \end{pmatrix}=\begin{pmatrix}
-            p_{n-1} & p_n \\
-            q_{n-1} & q_n
+            q_{n-1} & q_n \\
+            p_{n-1} & p_n
         \end{pmatrix}$$\setjot[-3]\begin{aligned}
             &\forall\, n\in\mb{N} \\
             &q_{-1}=0,q_{-1}=1 \\
@@ -684,14 +684,14 @@ $\begin{aligned}
                 1 & a_{k+1}
             \end{pmatrix} \\
             &=\begin{pmatrix}
-                p_{k-1} & p_k \\
-                q_{k-1} & q_k
+                q_{k-1} & q_k \\
+                p_{k-1} & p_k
             \end{pmatrix}\begin{pmatrix}    
                 0 & 1 \\
                 1 & a_{k+1}
             \end{pmatrix} =\begin{pmatrix}
-                p_k & a_{k+1}p_k+p_{k-1} \\
-                q_k & a_{k+1}q_k+q_{k-1}
+                q_k & a_{k+1}q_k+q_{k-1} \\
+                p_k & a_{k+1}p_k+p_{k-1}
             \end{pmatrix}
         \end{aligned}$\par
         因此$\begin{pmatrix}
@@ -796,10 +796,10 @@ $\Rightarrow \frac{p_{2k}}{q_{2k}}\leq x\leq \frac{p_{2k+1}}{q_{2k+1}}(\forall\,
 \end{lemma}
 \begin{proof}
     \begin{itemize}
-        \item $\forall\, x\in (0,1)\setminus\mb{Q}$，因为$a_0=0,a_1(x)\leq\frac{1}{x}\Rightarrow x\leq\frac{1}{a_1(x)}$，所以$a_0(x)\leq x\leq a_0(x)+\frac{1}{a_0(x)}$.
+        \item $\forall\, x\in (0,1)\setminus\mb{Q}$，因为$a_0=0,a_1(x)\leq\frac{1}{x}\Rightarrow x\leq\frac{1}{a_1(x)}$，所以$a_0(x)\leq x\leq a_0(x)+\frac{1}{a_1(x)}$.
         \item $\forall\, x\in(0,1)\setminus\mb{Q}$，$\setjot\begin{aligned}[t]
             &a_0(Tx) \leq Tx\leq a_0(Tx)+\frac{1}{a_1(Tx)} \\
-            \Rightarrow& a_0(Tx)\geq\frac{1}{x}-\left[\frac{1}{x}\right]\leq a_0(Tx)+\frac{1}{a_1(Tx)} \\
+            \Rightarrow& a_0(Tx)\leq\frac{1}{x}-\left[\frac{1}{x}\right]\leq a_0(Tx)+\frac{1}{a_1(Tx)} \\
             \Rightarrow& a_0(Tx)+\left[\frac{1}{x}\right]\leq\frac{1}{x}\leq a_0(Tx)+\frac{1}{a_1(Tx)}+\left[\frac{1}{x}\right]
         \end{aligned}$.\par
         $\xLongrightarrow{a_0(Tx)=0,a_1(Tx)=a_2(x)}a_1(x)\leq\frac{1}{x}\leq\frac{1}{a_2(x)}+a_1(x)\Rightarrow \frac{1}{a_1(x)+\dfrac{1}{a_2(x)}}\leq x\leq \frac{1}{a_1(x)}$.\par
@@ -920,12 +920,12 @@ $\Rightarrow\frac{p_{n+k}(x)}{q_{n+k}(x)}=\frac{p_n(x)+p_{n-1}(x)\cdot\dfrac{p_{
         \hspace{-1.5em}$\Rightarrow\frac{1}{2}m_{Leb}(I)m_{Leb}(I(b_1,\cdots,b_n))\leq m_\mathrm{Leb}\left(T^{-n}I\cap I(b_1,\cdots,b_n)\right)\leq 2m_\mathrm{Leb}(I)m_\mathrm{Leb}(I(b_1\cdots,b_n))$.\par
         考虑$\forall\, A\subset (0,1)$，它的测度定义为$m(A)=\frac{1}{\ln 2}\int_A{\frac{1}{1+x}}\d x$.\par
         得到它和Lebesgue测度之间的关系为$\frac{1}{2\ln 2}m_\mathrm{Leb}(A)\leq m(A)\leq \frac{1}{\ln 2}m_\mathrm{Leb}(A)$.\par
-        故$m$绝对连续于$m_\mathrm{Leb}$，且存在绝对常数$0<c_1<c_2$，$\st\forall\, I\subset (0,1)$，$\forall\, b_1,b_2,\cdots b_N\in \mb{N}^+$，都有$c_1m(I)m(I(b_1,b_2,\cdots,b_n))\leq m \left(T^{-n}I\cap I(b_1,b_2,\cdots,c_n)\right)\leq c_2m(I)m(I(b_1,b_2,\cdots,c_n))$.\par
+        故$m$绝对连续于$m_\mathrm{Leb}$，且存在绝对常数$0<c_1<c_2$，$\st\forall\, I\subset (0,1)$，$\forall\, b_1,b_2,\cdots b_N\in \mb{N}^+$，都有$c_1m(I)m(I(b_1,b_2,\cdots,b_n))\leq m \left(T^{-n}I\cap I(b_1,b_2,\cdots,b_n)\right)\leq c_2m(I)m(I(b_1,b_2,\cdots,b_n))$.\par
         \item 设$A\subset (0,1),T^{-1}A=A$，现证$m(A)=0$或$1$.\par
-        令$\mcal{F}=\left\{E\in\mcal{B}\left|c_1m(E)m(I(b_1,\cdots,b_n))\leq m \left(T^{-n}E\cap I(b_1,\cdots,c_n)\right)\leq c_2m(E)m(I(b_1,\cdots,c_n))\right.\right\}$.\par
+        令$\mcal{F}=\left\{E\in\mcal{B}\left|c_1m(E)m(I(b_1,\cdots,b_n))\leq m \left(T^{-n}E\cap I(b_1,\cdots,b_n)\right)\leq c_2m(E)m(I(b_1,\cdots,b_n))\right.\right\}$.\par
         则$\mcal{F}$构成了$X$的一个单调类，且包含所有的区间.\par
         由于所有区间构成的集合是$X$的一个半代数，其生成了$X$的Borel$\sigmaalg$，因此$\mcal{F}=\mcal{B}$.\par
-        令$E=A$，$有c_1m(A)m(I(b_1,\cdots,b_n))\leq m \left(T^{-n}A\cap I(b_1,\cdots,c_n)\right)\leq c_2m(A)m(I(b_1,\cdots,c_n))$.\par
+        令$E=A$，$有c_1m(A)m(I(b_1,\cdots,b_n))\leq m \left(T^{-n}A\cap I(b_1,\cdots,b_n)\right)\leq c_2m(A)m(I(b_1,\cdots,b_n))$.\par
         其中$I(b_1,b_2,\cdots,b_n)=\left\{x\in(0,1)\left|x\,\text{介于}\,\frac{p_n}{q_n}\,\text{与}\,\frac{p_n+p_{n-1}}{q_n+q_{n-1}}\,\text{之间}\,\right.\right\}$且$m(I(b_1,\cdots,b_n))=\frac{1}{q_n(q_n+q_{n+1})}$.\par
         固定$n\in\mb{N}$，则$(b_1,b_2,\cdots,b_n)$取遍所有的$n$元正整数组，$\left\{I(b_1,\cdots,b_n),b_i\in\mb{N}^+\right\}$是$X=(0,1)$的分划.\par
         因此$\left\{I(b_1,b_2,\cdots,b_n),b_i\in\mb{N}^+\right\}$可以生成$(0,1)$上所有的区间.\par
@@ -957,7 +957,7 @@ $x\in(0,1)\setminus\mb{Q}$，则$\begin{aligned}[t]
     设$X_1,X_2,\cdots,X_n,\cdots$是$\Omega$上的一列随机变量，如果：
     \begin{enumerate}[(1)]
         \item  对于$\mb{R}$中的任意可测集$A_1,A_2,\cdots,A_n,\cdots$，$m(X_{i_1}\in A_{i_1},X_{i_2}\in A_{i_2},\cdots,X_{i_k}\in A_{i_k})=m(X_{i_1}\in A_{i_1})\cdot m(X_{i_2}\in A_{i_2})\cdots m(X_{i_k}\in A_{i_k})(\forall\, 1\leq i_1<i_2<\cdots<i_k\leq\infty)$，其中$m(X_i\in A_i)$为$X_i$属于$A_i$的概率，则称$X_1,X_2,\cdots,X_n$为\textbf{独立}随机变量.
-        \item $\forall\,\mb{R}$中的可测集$A$，$\forall\,1\leq i\leq j\leq \infty,m(X_i\in A_i)=m(X_j\in A_j)$，则称$X_1,\cdots, X_n,\cdots$同分布
+        \item $\forall\,\mb{R}$中的可测集$A$，$\forall\,1\leq i\leq j\leq \infty,m(X_i\in A)=m(X_j\in A)$，则称$X_1,\cdots, X_n,\cdots$同分布
         \item 若同时满足以上两个条件，则称$X_1,X_2,\cdots,X_n,\cdots$独立同分布.
     \end{enumerate}
 \end{definition}
@@ -1015,20 +1015,20 @@ $x\in(0,1)\setminus\mb{Q}$，则$\begin{aligned}[t]
     令$S=\Phi^{-1}(Y)$，现证$m(S)=m(\Omega)=1$.\par
     $\setjot[-6]\begin{aligned}[t]
         m \left(\Phi^{-1}(A_1\times A_2\times\cdots\times A_k\times\mb{R}\times\mb{R}\times\cdots)\right)&=m(X_1\in A_i,X_2\in A_2,\cdots,X_k\in A_k) \\
-        &=m(Xx_1\in A_1)m(X_2\in A_2)\cdots m(X_k\in A_k)\\
+        &=m(X_1\in A_1)m(X_2\in A_2)\cdots m(X_k\in A_k)\\
         &=\mu_0(A_1)\mu_0(A_2)\cdots\mu_0(A_k) \\
         &=\mu(A_1\times A_2\times\cdots\times A_k\times\mb{R}\times\mb{R}\times\cdots)
     \end{aligned}$\par
     $\Rightarrow$对任意半代数$E\in\prod_{i=1}^\infty{\mb{R}}$，$m \left(\Phi^{-1}(E)\right)=\mu(E)$，进一步可以证明上述等式对$\prod_{i=1}^\infty{\mb{R}}$中的可测集成立.\par
     $\Rightarrow m(S)=m \left(\Phi^{-1}(Y)\right)=\mu(Y)=1$.\par
     而$\forall\,\omega\in S,x=(X_1(\omega),X_2(\omega),\cdots,X_n(\omega),\cdots)\in Y$，\par
-    代入$(*)$式即得$\frac{1}{n}\sum_{k=0}^{n-1}{f\left(T^k{x}\right)}=\frac{1}{n}(X_1(\omega),X_2(\omega),\cdots,X_n(\omega),\cdots)\to\mb{E}(X_1)\; (\aew \omega\in\Omega)$
+    代入$(*)$式即得$\frac{1}{n}\sum_{k=0}^{n-1}{f\left(T^k{x}\right)}=\frac{1}{n}(X_1(\omega)+X_2(\omega)+\cdots+X_n(\omega)+\cdots)\to\mb{E}(X_1)\; (\aew \omega\in\Omega)$
 \end{proof}
 
 
 \section{环面上的遍历映射}
 
-在本节，我们的目标是利用遍历理论证明数论中的重要定理Von Staudt-Clausen定理.首先，需要介绍环面的概念.
+在本节，我们的目标是研究环面上的保测映射与遍历映射.首先，需要介绍环面的概念.
 \begin{definition}[环面]
     $\mb{R}^n=\left\{(x_1,x_2,\cdots,x_n)^T|x_i\in\mb{R},1\leq i\leq n\right\}$，$\mb{Z}^n=\left\{(x_1,x_2,\cdots,x_n)^T|x_i\in\mb{Z},1\leq i\leq n\right\}$是其格点子群，则把$\mb{Z}^n$的左陪集构成的空间$X_n=\mb{R}^n/\mb{Z}^n=\left\{x+\mb{Z}^n|x\in\mb{R}^n\right\}$称为\textbf{$\bm{n}$维环面}.
 \end{definition}
@@ -1201,7 +1201,7 @@ $\forall\, A\in M'_n(\mb{Z})$，可以定义$X_n$上的映射$\setjot[-6]\begin{
     记$P^{-1}= \begin{pNiceMatrix}
         1 & \\
         & P_1
-    \end{pNiceMatrix}\tilde{P_0},Q^{-1}=\tilde{Q_0}\begin{pNiceMatrix}
+    \end{pNiceMatrix}\tilde{P_0}P_0,Q^{-1}=\tilde{Q_0}Q_0\begin{pNiceMatrix}
         1 & \\
         & Q_1
     \end{pNiceMatrix}$\par
@@ -1222,7 +1222,7 @@ $\forall\, A\in M'_n(\mb{Z})$，可以定义$X_n$上的映射$\setjot[-6]\begin{
         d_1 & & \\
         & \ddots & \\
         & & d_n
-    \end{smallmatrix}\right)=PDQ$，则$T_A=T_PT_DT_Q$.\par
+    \end{smallmatrix}\right)Q=PDQ$，则$T_A=T_PT_DT_Q$.\par
     现证$T_D$是保测映射.\par
     $\setjot[-6]\begin{aligned}[t]
         T_D:X_n &\to X_n \\

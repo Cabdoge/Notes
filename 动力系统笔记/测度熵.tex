@@ -89,7 +89,7 @@ Y_2 \arrow[rr, "T_2"']                    &  & Y_2
 \end{lemma}
 \begin{proof}
     $\forall\,m,n\in\mb{N}$，设$n=qm+r\;(0\leq r<m,q\in\mb{N})$.\par
-    则$a_n=a_{qm+r}\geq a_{qm}+a_r\leq a_{(q-1)m}+a_m+a_r\leq\cdots\leq qa_m+a_r$.\par
+    则$a_n=a_{qm+r}\leq a_{qm}+a_r\leq a_{(q-1)m}+a_m+a_r\leq\cdots\leq qa_m+a_r$.\par
     对不等式两边同除$n$，则有$\frac{a_n}{n}\leq\frac{q a_m+a_r}{qm+r}\leq\frac{a_m}{m}+\frac{a_r}{qm}$.\par
     固定$m$，令$q\to\infty$，则$n\to\infty$，因而$\varlimsup_{n\to\infty}\frac{a_n}{n}\leq\frac{a_m}{m}\;(\forall\, m\in\mb{N})$.\par
     再令$m\to\infty$，则$\varlimsup_{n\to\infty}{\frac{a_n}{n}}\leq\varliminf_{n\to\infty}\frac{a_m}{m}\Rightarrow$极限存在.\par
@@ -103,7 +103,7 @@ Y_2 \arrow[rr, "T_2"']                    &  & Y_2
 \begin{proof}
     令$a_n=H\left(\bigvee_{i=0}^{n-1}T^{-i}\eta\right),a_0=0$，那么$\forall\,n\geq 0,a_n\geq 0$.\par
     $\setjot[-2]\begin{aligned}[t]
-        a_{m_n}&=H\left(\bigvee_{i=0}^{m+n-1}{T^{-i}\eta}\right)=H\left(\bigvee_{i=0}^{n-1}{T^{-i}\eta}+\bigvee_{i=m}^{n+m-1}{T^{-i}\eta}\right) \\
+        a_{m+n}&=H\left(\bigvee_{i=0}^{m+n-1}{T^{-i}\eta}\right)=H\left(\bigvee_{i=0}^{n-1}{T^{-i}\eta}+\bigvee_{i=m}^{n+m-1}{T^{-i}\eta}\right) \\
         &\leq H\left(\bigvee_{i=0}^{n-1}{T^{-i}\eta}\right)+H\left(\bigvee_{i=m}^{n+m-1}{T^{-i}\eta}\right) \\
         &=a_m+ H\left(T^{-m}\left(\bigvee_{i=0}^{n-1}{T^{-i}\eta}\right)\right) \\
         &\xlongequal{T\,\text{保测}}a_m+H\left(\bigvee_{i=0}^{n-1}{T^{-i}\eta}\right)=a_m+a_n \\
@@ -186,14 +186,14 @@ Y_2 \arrow[rr, "T_2"']                    &  & Y_2
     设$\eta$ 是$X$ 的一个有限可测分解，令$\xi=\eta\vee T^{-1}\eta\vee \cdots\vee T^{-(\ell-1)}\eta$.\par
     那么$\bigvee_{i=0}^{n-1}\left(T^\ell\right)^{-i}\xi=\eta\vee T^{-1}\eta\vee\cdots T^{-(\ell-1)}\eta\vee\cdots\vee T^{-(n\ell-1)}\eta=\bigvee_{i=0}^{n\ell-1}{T^{-i}\eta}$.\par
     $\Rightarrow \setjot[-2]\begin{aligned}[t]
-        h \left(T^{\ell},\eta\right)&=\lim_{n\to\infty}{\frac{1}{n}H \left(\bigvee_{i=0}^{n-1}\left(T^\ell\right)^{-i}\xi\right)} =\lim_{n\to\infty}{\frac{1}{n}H \left(\bigvee_{i=0}^{n\ell-1}T^{-i}\eta\right)}\\
+        h \left(T^{\ell},\xi\right)&=\lim_{n\to\infty}{\frac{1}{n}H \left(\bigvee_{i=0}^{n-1}\left(T^\ell\right)^{-i}\xi\right)} =\lim_{n\to\infty}{\frac{1}{n}H \left(\bigvee_{i=0}^{n\ell-1}T^{-i}\eta\right)}\\
         &=\ell\cdot\lim_{n\to\infty}{\frac{1}{nl}H \left(\bigvee_{i=0}^{n\ell-1}{T^{-i}\eta}\right)} \\
         &=\ell h(T,\eta)
     \end{aligned} $\par
     因此$h \left(T^\ell\right)\geq\sup_{\xi}{h \left(T^\ell,\xi\right)}=\ell \sup_{\eta}{h(T,\eta)}=\ell h(T)$.\par
     
     如果$\alpha\geq\beta$，$H(\alpha)=H(\alpha\vee\beta)=H(\beta)+H(\alpha|\beta)\geq H(\beta)$.\par
-    因此由$\xi\geq\eta$ ，可得$h \left(T^\ell,\xi\right)\geq h(T,\eta)$.\par
+    因此由$\xi\geq\eta$ ，可得$h \left(T^\ell,\xi\right)\geq h(T^\ell,\eta)$.\par
     $\Rightarrow h \left(T^\ell,\eta\right)\leq \ell h \left(T,\eta\right)$.\par
     取上确界，可得$\sup_{\eta}{h \left(T^\ell,\eta\right)}\leq \ell\sup_{\eta}{h(T,\eta)}$ ，即$h \left(T^\ell\right)\leq \ell h(T)$.\par
     $\Rightarrow h \left(T^\ell\right)=\ell h(T)$.\par
@@ -272,7 +272,7 @@ Y_2 \arrow[rr, "T_2"']                    &  & Y_2
     调整$A_j'$，令$S_j=\left\{C_{i,j}\Bigl|m(B_j|C_{i,j})\geq 1-\sqrt{\delta},\mathrm{i.e.}\, \frac{m(B_j\cap C_{i,j})}{m(C_{i,j})}\geq 1-\sqrt{\delta}\right\}$\par
     定义$A_j'=\bigcup_{C_{i,j}\in S_j}{C_{i,j}},A_j'\subseteq A_j\;(\forall\, j\in\{1,2,\cdots,k\})$
     \begin{claim}{$m \left(A_j\setminus A_j'\right)\leq \sqrt{\delta}$}
-        $A_j\setminus A_j'=bigcup_{C_{i,j}\notin S_j}{C_{i,j}}$\par
+        $A_j\setminus A_j'=\bigcup_{C_{i,j}\notin S_j}{C_{i,j}}$\par
         $C_{i,j}\notin S_j\Rightarrow m(B_j|C_{i,j})<1-\sqrt{\delta}\Rightarrow m \left(B_j^c|C_{i,j}\right)\geq \sqrt{\delta}$.\par
         则$m(A_i\setminus A_i')=\sum_{C_{i,j}\notin S_j}{m(C_{i,j})}\setjot[-2]\begin{aligned}[t]
             &\leq \frac{1}{\sqrt{\delta}}\sum_{C_{i,j}\notin S_j}m(C_{i,j})m(B_j^c|C_{i,j}) \\

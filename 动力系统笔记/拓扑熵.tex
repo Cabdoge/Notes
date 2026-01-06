@@ -35,7 +35,7 @@
     \begin{enumerate}[(1)]
         \item 设$\alpha',\beta'$分别是$\alpha,\beta$的开覆盖，使得$\#\alpha'=N(\alpha),\#\beta'=N(\beta)$.\par
         $\alpha'\vee\beta'=\{A\cap B|A\in\alpha',B\in\beta'\}$\par
-        则$\#\alpha'\vee\beta'\geq N(\alpha)\cdot N(\beta)$
+        则$\#\alpha'\vee\beta'\leq N(\alpha)\cdot N(\beta)$
         $\Rightarrow N(\alpha\vee\beta)\leq\#\alpha'\vee\beta'\leq N(\alpha)\cdot N(\beta)$\par
         $\Rightarrow H(\alpha\vee\beta)\leq H(\alpha)+H(\beta)$
         \item 设$\alpha'$是$\alpha$的开覆盖，使得$\#\alpha'=N(\alpha)$.\par
@@ -157,7 +157,7 @@ X_2 \arrow[rr, "T_2"']                    &  & X_2
 可以引理可以帮助我们证明$h_1(T)=h_2(T)$.\par
 
 \begin{lemma}{}
-    设$\alpha$是$X$的开覆盖，$\delta$是$\alpha$的Lebesgue数，那么$N \left(\bigvee_{i=0}^{n-1}T^{-i}\alpha\right)\leq r_n \left(\frac{\varepsilon}{2}\right)$
+    设$\alpha$是$X$的开覆盖，$\delta$是$\alpha$的Lebesgue数，那么$N \left(\bigvee_{i=0}^{n-1}T^{-i}\alpha\right)\leq r_n \left(\frac{\delta}{2}\right)$
 \end{lemma}
 \begin{proof}
     设$F$是$\left(n,\frac{\delta}{2}\right)-$生成集，使得$|F|=r_n \left(\frac{\delta}{2}\right),X=\bigcup_{x\in F}B_n\left(x,\frac{\delta}{2}\right)$.\par
@@ -176,15 +176,14 @@ X_2 \arrow[rr, "T_2"']                    &  & X_2
 \begin{proof}
     设$\gamma\subseteq \bigvee_{i=0}^{n-1}T^{-i}\alpha$，使得$|\gamma|=N\left(\bigvee_{i=0}^{n-1}T^{-i}\alpha\right)$.\par
     设$A_i\in\alpha,0\leq i\leq n-1$且$A_0\cap T^{-1}A_1\cap \cdots\cap T^{-(n-1)}A_{n-1}\in\gamma$.\par
-    那么对于任意$(n,\varepsilon)-$分离集$E$，$|A_0\cap T^{-1}A\cap\cdots\cap T^{-(n-1)A_{n-1}}|\leq 1$.\par
+    那么对于任意$(n,\varepsilon)-$分离集$E$，$|A_0\cap T^{-1}A\cap\cdots\cap T^{-(n-1)A_{n-1}}\cap E|\leq 1$.\par
     否则$\exists\, x,y\in A_0\cap T^{-1}A_1\cap\cdots\cap T^{-(n-1)}A_{n-1}\cap E$，由$\mathrm{diam}\, \alpha<\varepsilon$可知$d(x,y)<\varepsilon,\cdots,d(T^{-(n-1)}x,T^{-(n-1)}y)<\varepsilon$，矛盾.\par
     因此$s_n(\varepsilon)\leq |E|\leq |\gamma|=N\left(\bigvee_{i=0}^{n-1}T^{-i}\alpha\right)$.
 \end{proof}
 
 最后，我们就可以证明定理\ref{thm:4.2}了.
 \begin{theorem*}
-    $h(T)=h_1(T)=h_2(T)$
-\end{theorem*}
+    $h(T)=h_1(T)=h_2(T)$456789
 \begin{proof}
     \begin{itemize}
         \item $h_1(T)=h_2(T)$\par
@@ -200,7 +199,7 @@ X_2 \arrow[rr, "T_2"']                    &  & X_2
         取上极限可得$\limsup_{n\to\infty}{\frac{1}{n}\ln{s_n(\varepsilon)}}\leq \limsup_{n\to\infty}{\frac{1}{n}\ln{N\left(\bigvee_{i=0}^{n-1}T^{-i}\alpha\right)}}=h(T,\alpha)\leq h(T)$.\par
         再令$\varepsilon\to 0$，则$h_2(T)\leq h(T)$.
     \end{itemize}\par
-    综合以上三点可知$h(T)=h_1(T)=h_2(T)$.\par
+    综合以上三点可知$h(T)=h_1(T)=h_2(T)$.
 \end{proof}
 
 下面介绍拓扑熵的一些性质.\par

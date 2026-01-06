@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.28)  25 DEC 2025 11:38
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.28)  5 JAN 2026 13:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1332,27 +1332,27 @@ Package csquotes Info: ... none found.
  (./微分几何笔记.aux)
 \openout1 = `微分几何笔记.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 145.
-LaTeX Font Info:    ... okay on input line 145.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 145.
-LaTeX Font Info:    ... okay on input line 145.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 145.
-LaTeX Font Info:    ... okay on input line 145.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 145.
-LaTeX Font Info:    ... okay on input line 145.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 145.
-LaTeX Font Info:    ... okay on input line 145.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 145.
-LaTeX Font Info:    ... okay on input line 145.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 145.
-LaTeX Font Info:    ... okay on input line 145.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 145.
-LaTeX Font Info:    ... okay on input line 145.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 145.
-LaTeX Font Info:    ... okay on input line 145.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 145.
-LaTeX Font Info:    ... okay on input line 145.
-Package hyperref Info: Link coloring ON on input line 145.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+Package hyperref Info: Link coloring ON on input line 146.
  (./微分几何笔记.out) (./微分几何笔记.out)
 \@outlinefile=\write7
 \openout7 = `微分几何笔记.out'.
@@ -1423,10 +1423,10 @@ Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file '微分几何笔记.bbl' not found.
 
 No file 微分几何笔记.bbl.
-Package biblatex Info: Reference section=0 on input line 145.
-Package biblatex Info: Reference segment=0 on input line 145.
+Package biblatex Info: Reference section=0 on input line 146.
+Package biblatex Info: Reference segment=0 on input line 146.
 \c@lstlisting=\count571
-Package hyperref Info: Option `pageanchor' set `false' on input line 150.
+Package hyperref Info: Option `pageanchor' set `false' on input line 151.
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: xetex
 * paper: a4paper
@@ -1462,31 +1462,31 @@ Package hyperref Info: Option `pageanchor' set `false' on input line 150.
 File: example-image.pdf Graphic file (type pdf)
 <use example-image.pdf>
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/n' will be
-(Font)              scaled to size 10.95pt on input line 150.
+(Font)              scaled to size 10.95pt on input line 151.
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/n' will be
-(Font)              scaled to size 24.88pt on input line 150.
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 150.
+(Font)              scaled to size 24.88pt on input line 151.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 151.
 (f:/texlive/2025/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 150.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 151.
  (f:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 150.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 151.
  (f:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+esvect on input line 150.
+LaTeX Font Info:    Trying to load font information for U+esvect on input line 151.
  (f:/texlive/2025/texmf-dist/tex/latex/esvect/uesvect.fd
 File: uesvect.fd 
 )
-LaTeX Font Info:    Trying to load font information for OMX+mdugm on input line 150.
+LaTeX Font Info:    Trying to load font information for OMX+mdugm on input line 151.
  (f:/texlive/2025/texmf-dist/tex/latex/mathdesign/mdugm/omxmdugm.fd
 File: omxmdugm.fd 2013/08/29 Fontinst v1.933 font definitions for OMX/mdugm.
 )
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/n' will be
-(Font)              scaled to size 14.4pt on input line 150.
+(Font)              scaled to size 14.4pt on input line 151.
 
 
 [1
@@ -1495,7 +1495,7 @@ LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/n' will be
 
 ]
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/n' will be
-(Font)              scaled to size 17.28pt on input line 156.
+(Font)              scaled to size 17.28pt on input line 157.
  (./微分几何笔记.toc)
 \tf@toc=\write8
 \openout8 = `微分几何笔记.toc'.
@@ -1515,16 +1515,16 @@ LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/n' will be
 ] (./Curves.tex
 
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 40.
+(Font)              scaled to size 10.0pt on input line 39.
 [1
 
 ]
 
 [2]
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 114.
+(Font)              scaled to size 8.0pt on input line 111.
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 114.
+(Font)              scaled to size 6.0pt on input line 111.
 
 
 [3]
@@ -1538,6 +1538,8 @@ File: fig/bo_d3cgcuc601uc738c0ulg_1_462_1366_580_219_0.jpg Graphic file (type bm
 
 [6]
 
+LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/n' will be
+(Font)              scaled to size 14.4pt on input line 327.
 [7]
 
 [8]
@@ -1553,15 +1555,15 @@ File: fig/bo_d3cgcuc601uc738c0ulg_3_224_1244_1070_423_0.jpg Graphic file (type b
 
 [12]
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 585.
+(Font)              scaled to size 9.0pt on input line 582.
 
 
-Package hyperref Warning: Ignoring empty anchor on input line 585.
+Package hyperref Warning: Ignoring empty anchor on input line 582.
 
 
 
 [13]
-Overfull \hbox (7.5583pt too wide) in paragraph at lines 667--668
+Overfull \hbox (7.5583pt too wide) in paragraph at lines 664--665
 []$\OML/cmm/m/it/10.95 T [] ; N [] ; B []$ \TU/TeXGyreTermesX(0)/m/n/10.95 are orthogonal to each other and have unit length; notice that $[] \OT1/cmr/m/n/10.95 =$ $[] [] \OMS/cmsy/m/n/10.95 ^^@
  []
 
@@ -1569,7 +1571,153 @@ Overfull \hbox (7.5583pt too wide) in paragraph at lines 667--668
 
 [14])
 
-[15] (./微分几何笔记.aux)
+[15]
+
+[16]
+
+[17]
+
+[18]
+
+[19]
+
+[20]
+
+[21]
+
+[22]
+File: fig/bo_d4vqblv7aajc73ft760g_6_333_1362_831_440_0.jpg Graphic file (type bmp)
+<fig/bo_d4vqblv7aajc73ft760g_6_333_1362_831_440_0.jpg>
+
+
+[23]
+
+[24]
+
+[25]
+
+[26]
+
+[27]
+
+[28]
+
+[29]
+File: fig/bo_d4vqblv7aajc73ft760g_11_283_240_931_400_0.jpg Graphic file (type bmp)
+<fig/bo_d4vqblv7aajc73ft760g_11_283_240_931_400_0.jpg>
+File: fig/bo_d4vqblv7aajc73ft760g_11_266_1006_975_804_0.jpg Graphic file (type bmp)
+<fig/bo_d4vqblv7aajc73ft760g_11_266_1006_975_804_0.jpg>
+
+
+[30]
+File: fig/bo_d4vqblv7aajc73ft760g_12_248_553_1031_443_0.jpg Graphic file (type bmp)
+<fig/bo_d4vqblv7aajc73ft760g_12_248_553_1031_443_0.jpg>
+File: fig/bo_d4vqblv7aajc73ft760g_12_206_1555_1095_393_0.jpg Graphic file (type bmp)
+<fig/bo_d4vqblv7aajc73ft760g_12_206_1555_1095_393_0.jpg>
+
+
+[31]
+
+[32]
+
+[33]
+Overfull \hbox (26.6815pt too wide) in paragraph at lines 1132--1133
+[]$\OML/cmm/m/it/10.95 ^^T [] \OT1/cmr/m/n/10.95 = [] \OMS/cmsy/m/n/10.95 S[] \OT1/cmr/m/n/10.95 = \OML/cmm/m/it/10.95 ^^T[] [] \OMS/cmsy/m/n/10.95 ^^A \OML/cmm/m/it/10.95 ^^T[] []$ \TU/TeXGyreTermesX(0)/m/n/10.95 is called the Gaussian curvature. And $\OML/cmm/m/it/10.95 H [] \OT1/cmr/m/n/10.95 = [] [] \OMS/cmsy/m/n/10.95 S[] \OT1/cmr/m/n/10.95 =  [] []$
+ []
+
+
+
+[34]
+
+[35]
+
+[36]
+
+[37]
+
+[38]
+
+[39]
+
+[40]
+
+[41]
+File: fig/bo_d4vqblv7aajc73ft760g_20_470_1423_583_547_0.jpg Graphic file (type bmp)
+<fig/bo_d4vqblv7aajc73ft760g_20_470_1423_583_547_0.jpg>
+
+
+[42]
+File: fig/bo_d4vqblv7aajc73ft760g_21_465_912_591_403_0.jpg Graphic file (type bmp)
+<fig/bo_d4vqblv7aajc73ft760g_21_465_912_591_403_0.jpg>
+
+
+[43]
+File: fig/bo_d4vqblv7aajc73ft760g_22_294_598_964_614_0.jpg Graphic file (type bmp)
+<fig/bo_d4vqblv7aajc73ft760g_22_294_598_964_614_0.jpg>
+
+
+[44]
+
+[45]
+
+[46]
+File: fig/bo_d4vqblv7aajc73ft760g_25_1348_505_361_181_0.jpg Graphic file (type bmp)
+<fig/bo_d4vqblv7aajc73ft760g_25_1348_505_361_181_0.jpg>
+
+
+[47]
+
+[48]
+
+[49]
+
+[50]
+File: fig/bo_d4vqblv7aajc73ft760g_27_1350_573_362_325_0.jpg Graphic file (type bmp)
+<fig/bo_d4vqblv7aajc73ft760g_27_1350_573_362_325_0.jpg>
+File: fig/bo_d4vqblv7aajc73ft760g_27_1365_1187_333_389_0.jpg Graphic file (type bmp)
+<fig/bo_d4vqblv7aajc73ft760g_27_1365_1187_333_389_0.jpg>
+
+
+[51]
+File: fig/bo_d4vqblv7aajc73ft760g_28_1347_490_365_249_0.jpg Graphic file (type bmp)
+<fig/bo_d4vqblv7aajc73ft760g_28_1347_490_365_249_0.jpg>
+
+
+[52]
+
+[53]
+
+[54]
+
+[55]
+File: fig/bo_d4vqblv7aajc73ft760g_31_1349_1555_401_191_0.jpg Graphic file (type bmp)
+<fig/bo_d4vqblv7aajc73ft760g_31_1349_1555_401_191_0.jpg>
+
+
+[56]
+
+[57]
+
+[58]
+File: fig/bo_d4vqblv7aajc73ft760g_34_212_234_1099_427_0.jpg Graphic file (type bmp)
+<fig/bo_d4vqblv7aajc73ft760g_34_212_234_1099_427_0.jpg>
+
+
+[59]
+File: fig/bo_d4vqblv7aajc73ft760g_34_246_1430_980_442_0.jpg Graphic file (type bmp)
+<fig/bo_d4vqblv7aajc73ft760g_34_246_1430_980_442_0.jpg>
+File: fig/bo_d4vqblv7aajc73ft760g_35_280_249_999_376_0.jpg Graphic file (type bmp)
+<fig/bo_d4vqblv7aajc73ft760g_35_280_249_999_376_0.jpg>
+
+
+[60]
+
+[61]
+File: fig/bo_d4vqblv7aajc73ft760g_36_195_227_1119_644_0.jpg Graphic file (type bmp)
+<fig/bo_d4vqblv7aajc73ft760g_36_195_227_1119_644_0.jpg>
+
+
+[62] (./微分几何笔记.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2022/08/05>
@@ -1581,12 +1729,12 @@ Package logreq Info: Writing requests to '微分几何笔记.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 48304 strings out of 473832
- 1023407 string characters out of 5733157
- 2027861 words of memory out of 5000000
- 70528 multiletter control sequences out of 15000+600000
- 571479 words of font info for 125 fonts, out of 8000000 for 9000
+ 48470 strings out of 473832
+ 1033098 string characters out of 5733157
+ 2027858 words of memory out of 5000000
+ 70676 multiletter control sequences out of 15000+600000
+ 571487 words of font info for 126 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 103i,12n,129p,945b,803s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 103i,12n,129p,992b,803s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on 微分几何笔记.pdf (18 pages).
+Output written on 微分几何笔记.pdf (65 pages).

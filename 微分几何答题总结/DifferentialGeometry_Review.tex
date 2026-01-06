@@ -1,0 +1,369 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+
+\setlist[itemize]{noitemsep, topsep=2pt}
+
+\geometry{left=1cm, right=1cm, top=1cm, bottom=1.5cm}
+
+% Define colors for highlighting
+\definecolor{keywordcolor}{RGB}{0, 0, 200}
+\definecolor{formulacolor}{RGB}{200, 0, 0}
+\definecolor{examplecolor}{RGB}{0, 100, 0}
+
+\newcommand{\key}[1]{\textcolor{keywordcolor}{\textbf{#1}}}
+\newcommand{\formula}[1]{\textcolor{formulacolor}{#1}}
+\newcommand{\ex}[1]{\textcolor{examplecolor}{#1}}
+\renewcommand{\d}{\mathop{}\!\mathrm{d}}
+
+%分式使用行间版
+\everymath{\displaystyle}
+
+\title{\textbf{Differential Geometry: Key Definitions, Methods, and Examples}}
+\author{Generated Summary}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Curves in $\mathbb{R}^3$}
+
+\subsection{Basic Definitions of curves}
+
+\begin{itemize}
+    \item \key{Length of a Curve:} The length of a parameterized curve $c$ is $\formula{L(c):=\int_a^b\|\dot{c}(t)\|\d t}$.
+    \item \key{Regular Curve:} A curve $c(t)$ is regular if $\dot{c}(t) \neq 0$ for all $t\in I$.
+    \item \key{Arc Length Parametrization}: A curve $c(s)$ is unit-speed if $\|\dot{c}(s)\| = 1$.\par
+    For exerty regular curve, $\formula{\psi(t)=\int_{t_0}^t\|\dot{c}(t)\|\d t,\psi^{-1}\equiv \varphi,\tilde{c}=c\circ\varphi}$ is unit-speed.
+    \item \key{Frenet Frame:} If $c$ is a unit-speed curve, $\formula{T(t):=\dot{c}(t),N(t):=\frac{\ddot{c}(t)}{\|\ddot{c}(t)\|}}$ has unit length nad are perpendicular to each other.
+\end{itemize}
+
+\begin{itemize}
+    
+    \item \key{Curvature ($\kappa$)}: Measures how fast the curve turns. For a unit-speed curve, $\formula{\kappa(t) = \|\ddot{c}(t)\|}$.\par
+    For a general curve, $\formula{\kappa(t) = \frac{\|\dot{c}(t) \times \ddot{c}(t)\|}{\|\dot{c}(t)\|^3}=\frac{\sqrt{\|\ddot{c}(t)\|^2-\dot{v}(t)^2}}{v(t)^2}=\frac{\sqrt{v(t)^2\|\ddot{c}(t)\|^2-\left(\dot{c}(t)\cdot\ddot{c}(t)\right)^2}}{v(t)^3}}$
+    \item \key{Torsion ($\tau$)}: Measures how much the curve twists out of the plane of curvature.\par
+    For a general curve, $\formula{\tau(t) = \frac{(\dot{c}(t) \times \ddot{c}(t)) \cdot \dddot{c}(t)}{\|\dot{c}(t) \times \ddot{c}(t)\|^2}}$.
+    \item \key{Frenet-Serret Frame}: Let $c$ be a unit-speed curve in $\mathbb{R}^3$, \formula{$T(t) = \dot{c}(t),N(t) = \frac{\ddot{c}(t)}{\left|\ddot{c}(t)\right|}=\frac{\ddot{c}(t)}{\left|\kappa(t)\right|},B(t)= T(t) \times N(t)$} are the tangent field, the normal field and the binormal field.$\{T, N, B\}$ is called the Frenet-Serret frame.
+    \item \key{Frenet-Serret Formulas}:
+    \begin{equation}
+        \formula{\begin{pmatrix} T' \\ N' \\ B' \end{pmatrix} = \begin{pmatrix} 0 & \kappa & 0 \\ -\kappa & 0 & \tau \\ 0 & -\tau & 0 \end{pmatrix} \begin{pmatrix} T \\ N \\ B \end{pmatrix}}
+    \end{equation}
+\end{itemize}
+
+\subsection{Extra Applications}
+
+\begin{itemize}
+    \item \key{Isoperimetric Inequality}: For a closed curve of length $L$ enclosing area $A$, $\formula{L^2 \geq 4\pi A}$ with equality iff the curve is a circle.
+    \item \key{Winding Number}: Let $c$ a loop and $P_0$ be a point not lying on the curve, the winding number $W(c,P_0)$ is the number of times $c$ goes counter clockwise around $P_0$.\par
+    If $c(t)=P_0+r(t)\left(\cos\theta(t),\sin\theta(t)\right)$ and $P_0=0$, then $\formula{W(c,P_0) = \frac{1}{2\pi}\int_a^b\frac{\dot{y}x-\dot{x}y}{x^2+y^2}(t) \, dt}$.
+\end{itemize}
+
+
+
+\subsection{Calculation Examples}
+
+\subsubsection{Example: Helix}
+Consider the helix $c(t) = (a \cos t, a \sin t, bt)$.
+\begin{itemize}
+    \item \textbf{Velocity}: $\dot{c}(t) = (-a \sin t, a \cos t, b)$. Speed $v = \sqrt{a^2 + b^2}$.
+    \item \textbf{Unit Tangent}: $T = \frac{1}{v}(-a \sin t, a \cos t, b)$.
+    \item \textbf{Curvature}: $\formula{\kappa = \frac{a}{a^2 + b^2}}$.
+    \item \textbf{Torsion}: $\formula{\tau = \frac{b}{a^2 + b^2}}$.
+\end{itemize}
+
+\subsubsection{Example: Plane Curves}
+For a plane curve $c(t) = (x(t), y(t))$, the curvature is given by:
+\begin{equation}
+    \formula{\kappa = \frac{|\dot{x}\ddot{y} - \dot{y}\ddot{x}|}{(\dot{x}^2 + \dot{y}^2)^{3/2}}}
+\end{equation}
+
+\section{Surfaces in $\mathbb{R}^3$}
+
+\subsection{Definition and Construction of Surfaces}
+\begin{itemize}
+    \item \key{Regular Map:}
+    \item \key{ }
+    \item \key{Coordinate Chart:} Given a subset $S\subseteq \mathbb{R}^3$, a coordinate chart on $S$ around a point $m\in S$, consists of
+    \begin{itemize}
+        \item an open subset $D\subseteq\mathbb{R}^2$
+        \item a regular,injective smooth map $\Phi:D\to S$, $\Phi(D)\subseteq S$
+        \item an open subset $\theta\in\mathbb{R}^3,m\in\theta$
+    \end{itemize}
+    such that $\Phi(D)=S\cap \theta$ and $\Phi^{-1}:\theta\cap S\to D$ is continuous.
+    \item \key{Surface:} A subset $S\subseteq \mathbb{R}^3$ is a surface if every point $m\in S$ has a coordinate chart centered at $m$.\par
+    There are three common surfaces:
+    \begin{itemize}
+        \item \key{Ruled Surface:} A ruled surface is a surface swept only by staight line $l:I\to\mathbb{R}^3$ moving along some curve $c:I\to\mathbb{R}^3\Rightarrow \formula{\Phi(t,r)=c(t)+r l(t),r\in\mathbb{R}}$ 
+        \item \key{Graphs:} Evert smooth function of $D\subseteq\mathbb{R}^2\to\mathbb{R}^3$ determines a parameterized surface \formula{$S=\mathrm{graph}\;f=\left\{(x,y,z)\in D\times\mathbb{R}:z=f(x,y)\right\}$}
+        \item \key{Level Sets:} Let $g:\mathbb{R}^3\to\mathbb{R}$ a smooth function.For every $c\in\mathbb{R}$, consider \formula{$S=g^{-1}(C)=\left\{(x,y,z)\in\mathbb{R}^3,g(x,y,z)=c\right\}$} is called a level set.\par
+        If $\left(\frac{\partial g}{\partial x},\frac{\partial g}{\partial y},\frac{\partial g}{\partial z}\right) \neq 0$ on $g^{-1}(C)$, then $S$ is a surface.
+    \end{itemize}
+    \item \key{Tangent Plane}
+    \item \key{}
+\end{itemize}
+
+\subsection{First Fundamental Form}
+
+\begin{itemize}
+    \item \key{Parametrization}: $\Phi(u, v) : U \to \mathbb{R}^3$. Tangent basis: $\{\Phi_u, \Phi_v\}$.
+    \item \key{Coefficients}:
+    \begin{equation}
+        \formula{E = \langle \Phi_u, \Phi_u \rangle, \quad F = \langle \Phi_u, \Phi_v \rangle, \quad G = \langle \Phi_v, \Phi_v \rangle}
+    \end{equation}
+    \item \key{Metric Matrix}: $I = \begin{pmatrix} E & F \\ F & G \end{pmatrix}$.
+    \item \key{Arc Length on Surface}: $ds^2 = E du^2 + 2F du dv + G dv^2$.
+    \item \key{Area Element}: $dA = \sqrt{EG - F^2} \, du \, dv$.
+\end{itemize}
+
+\subsection{Second Fundamental Form}
+
+\begin{itemize}
+    \item \key{Unit Normal}: $n = \frac{\Phi_u \times \Phi_v}{\|\Phi_u \times \Phi_v\|}$.
+    \item \key{Coefficients}:
+    \begin{equation}
+        \formula{e = \langle \Phi_{uu}, n \rangle, \quad f = \langle \Phi_{uv}, n \rangle, \quad g = \langle \Phi_{vv}, n \rangle}
+    \end{equation}
+    \item \key{Matrix}: $II = \begin{pmatrix} e & f \\ f & g \end{pmatrix}$.
+\end{itemize}
+
+\subsection{Curvature}
+
+\begin{itemize}
+    \item \key{Shape Operator (Weingarten Map)}: $S = -dn$. Matrix representation:
+    \begin{equation}
+        \formula{S = I^{-1} II = \frac{1}{EG-F^2} \begin{pmatrix} G & -F \\ -F & E \end{pmatrix} \begin{pmatrix} e & f \\ f & g \end{pmatrix}}
+    \end{equation}
+    \item \key{Gaussian Curvature ($K$)}: Determinant of Shape Operator.
+    \begin{equation}
+        \formula{K = \det(S) = \frac{eg - f^2}{EG - F^2}}
+    \end{equation}
+    \item \key{Mean Curvature ($H$)}: Trace of Shape Operator.
+    \begin{equation}
+        \formula{H = \frac{1}{2}\text{tr}(S) = \frac{eG - 2fF + gE}{2(EG - F^2)}}
+    \end{equation}
+    \item \key{Principal Curvatures ($k_1, k_2$)}: Eigenvalues of $S$. $K = k_1 k_2$, $H = \frac{k_1 + k_2}{2}$.
+\end{itemize}
+
+\subsection{Calculation Examples}
+
+\subsubsection{Example: Cylinder}
+Parametrization: $\Phi(\theta, z) = (r \cos \theta, r \sin \theta, z)$.
+\begin{itemize}
+    \item $E = r^2, F = 0, G = 1$.
+    \item $e = -r, f = 0, g = 0$ (with inward normal).
+    \item \textbf{Gaussian Curvature}: $\formula{K = \frac{(-r)(0) - 0}{r^2} = 0}$.
+    \item \textbf{Mean Curvature}: $H = -1/(2r)$.
+    \item \textbf{Geodesics}: Helices, circles, and vertical lines.
+\end{itemize}
+
+\subsubsection{Example: Sphere of Radius $R$}
+\begin{itemize}
+    \item $K = \frac{1}{R^2}$.
+    \item $H = -\frac{1}{R}$ (or $1/R$ depending on normal orientation).
+\end{itemize}
+
+\subsubsection{Example: Torus}
+Parametrization: $\Phi(u, v) = ((R + r \cos v) \cos u, (R + r \cos v) \sin u, r \sin v)$.
+\begin{itemize}
+    \item \textbf{Gaussian Curvature}:
+    \begin{equation}
+        \formula{K = \frac{\cos v}{r(R + r \cos v)}}
+    \end{equation}
+    \item Outer circle ($v=0$): $K > 0$. Inner circle ($v=\pi$): $K < 0$. Top/Bottom ($v=\pm \pi/2$): $K=0$.
+\end{itemize}
+
+\subsubsection{Example: Surface of Revolution}
+Curve $c(t) = (r(t), 0, z(t))$ rotated around z-axis.
+\begin{itemize}
+    \item \textbf{Gaussian Curvature}:
+    \begin{equation}
+        \formula{K = -\frac{r''(t)}{r(t)}} \quad \text{(assuming unit speed profile)}
+    \end{equation}
+\end{itemize}
+
+\section{Moving Frames and Dual Frames (Cartan's Method)}
+
+\subsection{General Theory for Orthonormal Frames}
+
+\begin{itemize}
+    \item \key{Frame and Coframe}:
+    Let $\{e_1, \dots, e_n\}$ be an orthonormal frame field ($\langle e_i, e_j \rangle = \delta_{ij}$).
+    The \key{Dual Frame (Coframe)} is the set of 1-forms $\{\omega^1, \dots, \omega^n\}$ such that:
+    \begin{equation}
+        \formula{\omega^i(e_j) = \delta^i_j}
+    \end{equation}
+    Any 1-form $\alpha$ can be written as $\alpha = \sum \alpha(e_i)\omega^i$.
+    
+    \item \key{Connection Forms}:
+    The 1-forms $\omega_{ij}$ define the covariant derivative of the frame:
+    \begin{equation}
+        \formula{\nabla e_i = \sum_j \omega_{ji} e_j} \quad \text{or equivalently} \quad \formula{d e_i = \sum_j \omega_{ji} e_j}
+    \end{equation}
+    \textbf{Condition}: For orthonormal frames, the connection matrix is skew-symmetric:
+    \begin{equation}
+        \formula{\omega_{ij} = -\omega_{ji}} \quad (\implies \omega_{ii} = 0)
+    \end{equation}
+\end{itemize}
+
+\subsection{Cartan's Structure Equations}
+
+These equations hold for any orthonormal frame in a Riemannian manifold (e.g., $\mathbb{R}^3$ or a surface).
+
+\begin{enumerate}
+    \item \key{First Structure Equation} (Torsion-Free Condition):
+    Relates the exterior derivative of the coframe to the connection forms.
+    \begin{equation}
+        \formula{d\omega^i = \sum_j \omega^j \wedge \omega_{ji} = -\sum_j \omega^j \wedge \omega_{ij}}
+    \end{equation}
+    \textit{Usage}: Used to determine $\omega_{ij}$ from known $\omega^i$.
+
+    \item \key{Second Structure Equation} (Curvature):
+    Relates the curvature 2-forms $\Omega_{ij}$ to the connection forms.
+    \begin{equation}
+        \formula{\Omega_{ij} = d\omega_{ij} + \sum_k \omega_{ik} \wedge \omega_{kj}}
+    \end{equation}
+    For flat space ($\mathbb{R}^3$), $\Omega_{ij} = 0$, so $d\omega_{ij} = -\sum \omega_{ik} \wedge \omega_{kj}$.
+\end{enumerate}
+
+\subsection{Application to Surfaces in $\mathbb{R}^3$}
+
+Let $S \subset \mathbb{R}^3$ be a surface. Choose an \key{Adapted Frame} $\{e_1, e_2, e_3\}$ such that $e_1, e_2$ are tangent to $S$ and $e_3$ is the unit normal ($n$).
+
+\begin{itemize}
+    \item \key{Restriction to Surface}:
+    On $S$, the normal displacement is zero, so:
+    \begin{equation}
+        \formula{\omega^3 = 0}
+    \end{equation}
+    
+    \item \key{Connection Forms on Surface}:
+    From $d\omega^3 = \omega^1 \wedge \omega_{13} + \omega^2 \wedge \omega_{23} = 0$, we deduce relations involving the Second Fundamental Form coefficients $h_{ij}$:
+    \begin{equation}
+        \omega_{13} = h_{11}\omega^1 + h_{12}\omega^2, \quad \omega_{23} = h_{21}\omega^1 + h_{22}\omega^2 \quad (h_{12}=h_{21})
+    \end{equation}
+    
+    \item \key{Gaussian Curvature ($K$)}:
+    The intrinsic curvature of the surface is determined by the connection form $\omega_{12}$ (tangent rotation):
+    \begin{equation}
+        \formula{d\omega_{12} = -K \, \omega^1 \wedge \omega^2}
+    \end{equation}
+    Alternatively, using the Gauss Equation: $d\omega_{12} = -\omega_{13} \wedge \omega_{32}$.
+    
+    \item \key{Mean Curvature ($H$)}:
+    \begin{equation}
+        \formula{H = \frac{1}{2}(h_{11} + h_{22})}
+    \end{equation}
+    where $\omega_{13} \wedge \omega_{23} = K \omega^1 \wedge \omega^2$ (determinant) and $\omega_{13} \wedge \omega^2 + \omega^1 \wedge \omega_{23} = 2H \omega^1 \wedge \omega^2$ (trace).
+\end{itemize}
+
+\subsection{Algorithm: Computing Curvature via Coframe}
+
+\begin{enumerate}
+    \item \textbf{Choose a Frame}: Find orthonormal $e_1, e_2$ tangent to $S$.
+    \item \textbf{Find Coframe}: Write $ds^2 = (\omega^1)^2 + (\omega^2)^2$. Identify $\omega^1, \omega^2$.
+    \item \textbf{Differentiate}: Compute $d\omega^1$ and $d\omega^2$.
+    \item \textbf{Solve for $\omega_{12}$}: Use the First Structure Equation:
+    \begin{equation*}
+        d\omega^1 = \omega^2 \wedge \omega_{21}, \quad d\omega^2 = \omega^1 \wedge \omega_{12}
+    \end{equation*}
+    (Recall $\omega_{21} = -\omega_{12}$).
+    \item \textbf{Compute $K$}: Calculate $d\omega_{12}$ and write it as $-K \omega^1 \wedge \omega^2$.
+\end{enumerate}
+
+\subsection{Example: Spherical Coordinates}
+On a sphere of radius $R$:
+\begin{itemize}
+    \item \textbf{Coframe}: $\omega^1 = R d\theta$, $\omega^2 = R \sin\theta d\phi$.
+    \item \textbf{Differentials}:
+    $d\omega^1 = 0$,
+    $d\omega^2 = R \cos\theta d\theta \wedge d\phi = \frac{\cos\theta}{R\sin\theta} \omega^1 \wedge \omega^2$.
+    \item \textbf{Connection Form}:
+    Assume $\omega_{12} = A \omega^1 + B \omega^2$.
+    $0 = d\omega^1 = \omega^2 \wedge (-\omega_{12}) \implies \omega_{12} \propto \omega^2$.
+    $d\omega^2 = \omega^1 \wedge \omega_{12}$.
+    Result: $\formula{\omega_{12} = -\cos\theta d\phi}$.
+    \item \textbf{Curvature}: $d\omega_{12} = \sin\theta d\theta \wedge d\phi = \frac{1}{R^2} \omega^1 \wedge \omega^2 \implies K = \frac{1}{R^2}$.
+\end{itemize}
+
+\subsection{The Darboux Frame (Frame along a Curve)}
+
+For a unit-speed curve $c(s)$ on a surface $S$:
+\begin{itemize}
+    \item \key{Definition}: An orthonormal frame $\{T, V, n\}$ adapted to both the curve and the surface.
+    \begin{itemize}
+        \item $T(s) = \dot{c}(s)$ (Unit Tangent).
+        \item $n(s)$ is the surface unit normal restricted to the curve.
+        \item $V(s) = n(s) \times T(s)$ (Tangent Normal / Side Normal).
+    \end{itemize}
+    
+    \item \key{Darboux Equations} (Analogous to Frenet formulas):
+    \begin{equation}
+        \formula{\begin{pmatrix} T' \\ V' \\ n' \end{pmatrix} = \begin{pmatrix} 0 & \kappa_g & \kappa_n \\ -\kappa_g & 0 & \tau_g \\ -\kappa_n & -\tau_g & 0 \end{pmatrix} \begin{pmatrix} T \\ V \\ n \end{pmatrix}}
+    \end{equation}
+    
+    \item \key{Curvatures}:
+    \begin{itemize}
+        \item \textbf{Geodesic Curvature} ($\kappa_g$): Bending in the tangent plane. $\kappa_g = \langle T', V \rangle = \omega_{12}(T)$.
+        \item \textbf{Normal Curvature} ($\kappa_n$): Bending normal to the surface. $\kappa_n = \langle T', n \rangle = II(T, T) = \omega_{13}(T)$.
+        \item \textbf{Geodesic Torsion} ($\tau_g$): Twisting of the normal. $\tau_g = \langle n', V \rangle = \omega_{23}(T)$.
+    \end{itemize}
+    
+    \item \key{Relation to Space Curvature}:
+    The curvature vector of the curve is $\vec{\kappa} = T' = \kappa_g V + \kappa_n n$.
+    Squared curvature: $\formula{\kappa^2 = \kappa_g^2 + \kappa_n^2}$.
+\end{itemize}
+
+\section{Geodesics}
+
+\subsection{Definitions}
+\begin{itemize}
+    \item \key{Geodesic}: A curve $\gamma(t)$ with zero geodesic curvature ($\kappa_g = 0$). Equivalently, the acceleration is normal to the surface.
+    \item \key{Geodesic Equations}:
+    \begin{equation}
+        \formula{\ddot{u}^k + \sum_{i,j} \Gamma_{ij}^k \dot{u}^i \dot{u}^j = 0}
+    \end{equation}
+    where $\Gamma_{ij}^k$ are Christoffel symbols derived from the metric $g_{ij}$.
+\end{itemize}
+
+\subsection{Examples}
+\begin{itemize}
+    \item \textbf{Plane}: Straight lines.
+    \item \textbf{Sphere}: Great circles.
+    \item \textbf{Cylinder}: Helices, circles, lines.
+\end{itemize}
+
+\section{Gauss-Bonnet Theorem}
+
+\subsection{Local Gauss-Bonnet}
+For a region $R$ with boundary $\partial R$:
+\begin{equation}
+    \formula{\iint_R K \, dA + \int_{\partial R} \kappa_g \, ds + \sum \theta_i = 2\pi}
+\end{equation}
+where $\theta_i$ are exterior angles at vertices.
+
+\subsection{Global Gauss-Bonnet}
+For a compact surface $S$ without boundary:
+\begin{equation}
+    \formula{\iint_S K \, dA = 2\pi \chi(S)}
+\end{equation}
+where $\chi(S) = 2 - 2g$ is the Euler characteristic ($g$ is the genus/number of holes).
+
+\subsection{Example: Holonomy on Sphere}
+Parallel transport of a vector around a latitude circle $C$ at colatitude $\theta_0$.
+\begin{itemize}
+    \item Angle of rotation (Holonomy): $\Delta \phi = 2\pi \cos \theta_0$.
+    \item This equals the integral of curvature over the cap bounded by $C$.
+\end{itemize}
+
+\end{document}
