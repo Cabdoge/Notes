@@ -378,7 +378,7 @@
 
 \begin{instance}
     $\pi_1(\mathbb{E}^n, x_0) = \{1\}$，平凡群.
-    因为对于任意闭路$a$，都有$a\simeqdot c_{x_0}$（通过直线同伦）.
+    因为对于任意闭路$a$，都有$a\simeqdot c_{x_0}$(通过直线同伦).
 \end{instance}
 
 \begin{instance}
@@ -1259,6 +1259,404 @@ Y \arrow[rr, "def\;\;retr"]                   &  & B\makebox[0pt][l]{${} =f(A) $
     \end{enumerate}\par
     对于 $a, a' \in A$，若 $f(a) = f(a')$，则$f \circ H(a, t) = f(a)=f(a')= f \circ H(a', t)$
 \end{proof}
+
+\section{商空间的形变收缩核}
+
+\begin{proposition}
+    $nT^2-\{p\}\simeq \bigvee_{i=1}^{2n}S_i^1$($2n$个圆的一点并).
+\end{proposition}
+
+\begin{proof}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{example-image}
+        \includegraphics[width=0.45\textwidth]{example-image}
+        \caption{商空间形变收缩示意图}
+    \end{figure}
+    以$2T^2$为例，有其八边形表示，在其中挖去一个点后，$nT^2-\{p\}$可以形变收缩到多边形的边界上，记收缩映射为$r(x)$，形变收缩核即边界为$A$.\par
+    对于商映射$f$和实现形变收缩的同伦$H(x,t)=(1-t)x+tr(x)$，若$f(x)=f(x')$，则$x,x'\in A$，有$x=r(x)$和$x'=r(x')$.\par
+    同伦满足：$H(x,t)=(1-t)x+tr(x)=x,H(x',t)=(1-t)x'+tr(x')=x'$.\par
+    故$f\circ H(x,t)=f(x)=,f\circ H(x',t)=f(x')$.\par
+    注意，粘合只发生在形变收缩中，因此$Y$形变收缩到$B$，且$Y\simeq B$，
+    即$2T^2-\{pt\}\simeq \bigvee_{i=1}^4 S_i^1$.
+\end{proof}
+
+\begin{lemma}
+    $D^n\times [0,1]$形变收缩到$D^n\times \{0\}\cup S^{n-1}\times [0,1]$.
+\end{lemma}
+
+\begin{proof}
+    我们有定义：$D^n=\left\{ (x_1,\dots,x_n)\in \mathbb{E}^n \biggl| \sum_{i=1}^n x_i^2\leq 1 \right\}$.\par
+    $D^n\times [0,1]=\left\{ (x_1,\dots,x_n,x_{n+1})\in \mathbb{E}^{n+1} \bigg| \sum_{i=1}^n x_i^2\leq 1,x_{n+1}\in [0,1] \right\}$.\par
+    取点$P=(0,\dots,0,2)\in \mathbb{E}^{n+1}$.
+    将$P$与$D^n\times [0,1]$中的每一点用直线连接，记$r(x)$是$x$与$P$的连线与$D^n\times \{0\}\cup S^{n-1}\times [0,1]$的交点.\par
+    同伦$\setjot[-4]\begin{aligned}[t]
+            H: D^n\times [0,1]\times [0,1] &\to D^n\times [0,1] \\
+            (x,t) &\mapsto (1-t)x+tr(x)
+    \end{aligned}$实现了形变收缩.
+\end{proof}
+    
+
+\begin{proposition}
+    设$X$是一个空间，$f\simeq g:S^{n-1}\to X$.
+    定义
+    \[ X\cup_f D^n=X\sqcup D^n / x\sim f(x) \]
+    \[ X\cup_g D^n=X\sqcup D^n / x\sim g(x) \]
+    其中$x\in \partial D^n=S^{n-1}$.
+    则$X\cup_f D^n\simeq X\cup_g D^n$.
+\end{proposition}
+
+\begin{proof}
+    设$H:S^{n-1}\times [0,1]\to X$实现了$f\simeq g$，即$H(x,0)=f(x),H(x,1)=g(x)$.
+    我们要证明$X\cup_f D^n$和$X\cup_g D^n$都同伦等价于$X\cup_H D^n\times [0,1]$.
+    此处$X\cup_H D^n\times [0,1]=X\sqcup D^n\times [0,1] / x\sim H(x),x\in S^{n-1}\times [0,1]$.
+    
+    由引理，$D^n\times [0,1]$形变收缩到$D^n\times \{0\}\cup S^{n-1}\times [0,1]$.
+    这诱导了一个商空间上的形变收缩：
+    \[ X\cup D^n\times [0,1] \xrightarrow{\text{def. retr.}} X\cup D^n\times \{0\}\cup S^{n-1}\times [0,1] \]
+    通过商映射$q:X\sqcup D^n\times [0,1]\to X\cup_H D^n\times [0,1]$，
+    由于对于$x\in S^{n-1}\times [0,1]$，有$q(x)=q(H(x))$且$H(x)\in X$，
+    同伦$\tilde{H}$与商映射交换，因为粘合只发生在形变收缩的目标集上.
+    
+    因此，$X\cup_H D^n\times [0,1]$形变收缩到
+    \[ X\cup_H \left( D^n\times \{0\}\cup S^{n-1}\times [0,1] \right) = X\cup_f D^n \]
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{example-image}
+        \caption{粘合空间同伦等价示意图1}
+    \end{figure}
+    所以$X\cup_H D^n\times [0,1]\simeq X\cup_f D^n$.
+    
+    类似地，$X\cup_H D^n\times [0,1]\simeq X\cup_g D^n$.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{example-image}
+        \caption{粘合空间同伦等价示意图2}
+    \end{figure}
+    故$X\cup_f D^n\simeq X\cup_g D^n$.
+\end{proof}
+
+\begin{instance}
+    用一条线连接圆周上两点的图形同伦等价于2圆束.\par
+    设$X=S^1$，$D^1=[-1,1]$，$\partial D^1=S^0=\{\bullet,\bullet\}$.\par
+    令$f:S^0\to S^1$，$\text{Im}(f)=\{P_1,P_2\}$，$g:S^0\to S^1$，$\text{Im}(g)=\{P_0\}$.\par
+    则$f\simeq g:S^0\to S^1$，由上述命题可知$X\cup_f D^1\simeq X\cup_g D^1$.
+\end{instance}
+
+\begin{instance}
+    三个相连的圆周同伦等价于3圆束.\par
+    $S^1\vee S^1\cup_f D^1 \simeq S^1\vee S^1\cup_g D^1$.
+    $f\simeq g:S^0\to S^1\vee S^1$.
+\end{instance}
+
+\section{有限表现群}
+
+\begin{definition}{群的自由积}
+    设$G_1,G_2$是群，定义它们的\textbf{自由积}为：
+    \[ G_1*G_2:=\{ \alpha_1\beta_1\alpha_2\beta_2\dots\alpha_n\beta_n \mid \alpha_i\in G_1,\beta_i\in G_2 \} \]
+    其中运算法则如下：
+    \[ \alpha_1\beta_1\dots\alpha_n\beta_n \cdot \alpha'_1\beta'_1\dots\alpha'_m\beta'_m = \alpha_1\beta_1\dots\alpha_n\beta_n \alpha'_1\beta'_1\dots\alpha'_m\beta'_m \]
+\end{definition}
+
+\begin{instance}
+    考虑两个无限循环群$\mathbb{Z}=\{ \dots,a^{-2},a^{-1},1,a,a^2,\dots \}$，$\mathbb{Z}=\{ \dots,b^{-2},b^{-1},1,b,b^2,\dots \}$.\par
+    则$\mathbb{Z}*\mathbb{Z}$.
+    其凯莱图如下：
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\textwidth]{example-image}
+        \caption{$\mathbb{Z}*\mathbb{Z}$的凯莱图}
+    \end{figure}
+\end{instance}
+
+\begin{definition}{自由群}
+    $\underbrace{\mathbb{Z}*\mathbb{Z}*\dots*\mathbb{Z}}_{n}=F_n$称为\textbf{秩为$n$的自由群}.
+\end{definition}
+
+\begin{definition}{生成元集}
+    $\{g_1,g_2,\dots,g_n\}$是群$G$的\textbf{生成元集}，如果$G$中的每个元素都是有限个$g_i$及其逆元的乘积.
+\end{definition}
+
+\begin{definition}{正规闭包}
+    设$G$是群，$S\subset G$是子集.包含$S$的$G$的最小\textbf{正规子群}称为$S$的\textbf{正规闭包}，记为$\overline{S}$.
+    
+    具体地，
+    \[ \overline{S}:=\{ g_1 s_1^{\pm 1} g_1^{-1} \dots g_n s_n^{\pm 1} g_n^{-1} \mid g_i\in G, s_i\in S \} \]
+    即$\overline{S}$由$\{ gsg^{-1} \mid g\in G, s\in S \}$生成.
+    显然对于任意$h\in G$，有$h \left( g_1 s_1 g_1^{-1} \dots \right) h^{-1}\in \overline{S}$.
+\end{definition}
+
+\begin{definition}{自由群}
+    自由群 $F_n = \langle g_1, g_2, \dots, g_n \rangle = \underbrace{\mathbb{Z} * \mathbb{Z} * \dots * \mathbb{Z}}_{n}$.
+\end{definition}
+
+\begin{definition}{有限表现群}
+    设 $\{r_1, r_2, \dots, r_m\} \subset F_n$.
+    商群 $F_n / \overline{\{r_1, r_2, \dots, r_m\}}$ 记为
+    \[ \langle g_1, g_2, \dots, g_n \mid r_1, r_2, \dots, r_m \rangle = G \]
+    其中 $g_i$ 称为\textbf{生成元}，$r_j$ 称为\textbf{关系元}.
+    有限表现群是指具有有限个生成元和有限个关系元的群.
+\end{definition}
+
+\begin{instance}
+    $\mathbb{Z}/n\mathbb{Z} = \langle g \mid g^n \rangle = \{ 1, g, g^2, \dots, g^{n-1} \}$.
+\end{instance}
+
+\begin{instance}
+    $\mathbb{Z} \times \mathbb{Z} = \langle g_1, g_2 \mid g_1 g_2 g_1^{-1} g_2^{-1} \rangle$.
+    关系 $g_1 g_2 g_1^{-1} g_2^{-1} = 1$ 蕴含 $g_1 g_2 = g_2 g_1$.\par
+    一般地，$\underbrace{\mathbb{Z} \times \mathbb{Z} \times \dots \times \mathbb{Z}}_{n} = \langle g_1, \dots, g_n \mid g_i g_j g_i^{-1} g_j^{-1}, 1 \leq i < j \leq n \rangle$.
+    这称为\textbf{自由阿贝尔群}.
+\end{instance}
+
+\section{Seifert-van Kampen 定理}
+
+设 $X$ 是一个拓扑空间，$\{U, V\}$ 是 $X$ 的开覆盖.
+假设 $U, V, U \cap V \neq \varnothing$ 都是道路连通的(从而 $X$ 是道路连通的). \par
+则有以下交换图成立： \par
+\begin{tikzcd}[labels={font=\normalsize}]
+                                               &  & U \arrow[rrd, "j_1"]  &  &   \\
+\makebox[0pt][r]{$\textcolor{red}{x_0\in}$\,}U\cap V \arrow[rru, "i_1"] \arrow[rrd, "i_2"'] &  &                       &  & X \\
+                                               &  & V \arrow[rru, "j_2"'] &  &  
+\end{tikzcd}
+\begin{tikzcd}[labels={font=\normalsize}]
+                                               &  & \pi_1(U, x_0) \arrow[rrd, "(j_1)_*"]  &  &   \\
+\pi_1(U \cap V, x_0) \arrow[rru, "(i_1)_*"] \arrow[rrd, "(i_2)_*"'] &  &                       &  & \pi_1(X, x_0) \\
+                                               &  & \pi_1(V, x_0) \arrow[rru, "(j_2)_*"'] &  &  
+\end{tikzcd}\par
+即：$j_1\circ i_1=j_2\circ i_2,(j_1)_* \circ (i_1)_* = (j_2)_* \circ (i_2)_*$.
+
+定义$\setjot[-4]\begin{aligned}[t]
+    \Phi: \pi_1(U, x_0) * \pi_1(V, x_0) &\to \pi_1(X, x_0) \\
+    \alpha_1 \beta_1 \dots \alpha_n \beta_n &\mapsto (j_1)_*(\alpha_1) (j_2)_*(\beta_1) \dots (j_1)_*(\alpha_n) (j_2)_*(\beta_n)
+\end{aligned}$，其中 $\alpha_i \in \pi_1(U, x_0), \beta_i \in \pi_1(V, x_0)$.则$\Phi$是一个同态.
+
+\begin{lemma}
+    $\Phi$ 是满射.
+\end{lemma}
+
+\begin{proof}
+    设 $a: [0,1] \to X$ 是 $X$ 中以 $x_0$ 为基点的闭路.\par
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{fig/12.1.png}
+        \caption{回路分割示意图}
+    \end{figure}
+    由Lebesgue引理，则可以选取足够大的$n$，使得$a$将每个区间 $\left[\frac{i-1}{n}, \frac{i}{n}\right]$完整映入$U$ 或 $V$ 中.\par
+    令 $a_i = a|_{\left[\frac{i-1}{n}, \frac{i}{n}\right]}:[0,1]\to \left[\frac{i-1}{n},\frac{i}{n}\right]\stackrel{a}{\to} X$.\par
+    $\forall\,i=1, \dots, n-1$，选择一条从 $x_0$ 到 $a\left(\frac{i}{n}\right)$的道路$h_i$.\par
+    如果$a\left(\frac{i}{n}\right) \in U \cap V$，则选择 $h_i$ 完全位于 $U \cap V$ 中.否则，选择它位于 $U$ 或 $V$ 中(取决于点在哪里).\par
+    定义回路 $\tilde{a}_i = h_{i-1} \cdot a_i \cdot \overline{h}_i$(其中 $h_0, h_n$ 为常值路径)，则$[\tilde{a}_i] \in \pi_1(U, x_0)$ 或 $\in \pi_1(V, x_0)$.\par
+    令$\mathcal{V} = [\tilde{a}_1] \cdot [\tilde{a}_2] \dots [\tilde{a}_n] \in \pi_1(U, x_0) * \pi_1(V, x_0)$.
+    则 $\Phi(\mathcal{V}) = [\tilde{a}_1 \cdot \tilde{a}_2 \dots \tilde{a}_n] = [a]$.
+\end{proof}
+基于以上结论，由于同态基本定理，就有$\pi_1(X, x_0) \cong \pi_1(U, x_0) * \pi_1(V, x_0) / \ker \Phi$.\par
+
+\begin{lemma}
+    设 $N$ 是 $\pi_1(U, x_0) * \pi_1(V, x_0)$ 中集合$\{ (i_1)_*(\alpha) (i_2)_*(\alpha^{-1}) \mid \alpha \in \pi_1(U \cap V, x_0) \}$
+    的正规闭包，则 $N \leq \ker \Phi$.
+\end{lemma}
+
+\begin{proof}
+    若$(i_1)_*(\alpha) (i_2)_*(\alpha^{-1}) \in \ker \Phi$，那么$\Phi\left((i_1)_*(\alpha) (i_2)_*(\alpha^{-1})\right)=1$.\par
+    故$\Phi\left(g(i_1)_*(\alpha) (i_2)_*(\alpha^{-1})g^{-1}\right)=\Phi(g)\Phi\left((i_1)_*(\alpha) (i_2)_*(\alpha^{-1})\right)\Phi(g^{-1})=1$.\par
+    因此只需证明对于任意 $\alpha \in \pi_1(U \cap V, x_0)$，有 $(i_1)_*(\alpha) (i_2)_*(\alpha^{-1}) \in \ker \Phi$.\par
+    $\setjot[-3]\begin{aligned}[t]
+        \Phi((i_1)_*(\alpha) (i_2)_*(\alpha^{-1})) &= (j_1)_*((i_1)_*(\alpha)) (j_2)_*((i_2)_*(\alpha^{-1})) \\
+        &= (j_1)_*((i_1)_*(\alpha)) ((j_2)_*((i_2)_*(\alpha)))^{-1} \quad\left((j_1)_* \circ (i_1)_* = (j_2)_* \circ (i_2)_*\right) \\
+        &= 1
+    \end{aligned}$.
+\end{proof}
+
+\begin{lemma}
+    $\ker \Phi \leq N$.
+\end{lemma}
+
+\begin{proof}
+    略.
+\end{proof}
+
+因此，$\ker \Phi = N$.
+
+\begin{theorem}[Seifert-van Kampen 定理]
+    \[ \pi_1(X, x_0) \cong \pi_1(U, x_0) * \pi_1(V, x_0) / N \]
+    其中 $N$ 是由 $\{ (i_1)_*(\alpha) (i_2)_*(\alpha^{-1}) \mid \alpha \in \pi_1(U \cap V, x_0) \}$ 生成的正规闭包.
+\end{theorem}
+
+\begin{corollary}
+    如果 $U$ 和 $V$ 都是单连通的，那么 $X$ 也是单连通的.
+\end{corollary}
+
+\begin{instance}
+    $\pi_1(S^n) = \{1\}, n \geq 2$.\par
+    取 $U = S^n - \{N\} \cong \mathbb{E}^n$， $V = S^n - \{S\} \cong \mathbb{E}^n$.
+    $U \cap V = S^n - \{N, S\} \neq \varnothing$.
+    $U, V, U \cap V$ 都是道路连通的，且$U,V$都是单连通的，故$\pi_1(U) = \pi_1(V) = \{1\}$.
+\end{instance}
+
+\begin{corollary}
+    如果 $U \cap V$ 是单连通的，那么
+    \[ \pi_1(X, x_0) \cong \pi_1(U, x_0) * \pi_1(V, x_0) \]
+\end{corollary}
+
+\begin{instance}
+    $\pi_1(2\,\text{圆束}) \cong \mathbb{Z} * \mathbb{Z}$.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{example-image}
+        \caption{8字型空间分解示意图}
+    \end{figure}
+    $U = X - \{A\} \simeq S^1$.
+    $V = X - \{B\} \simeq S^1$.
+    $U \cap V = X - \{A, B\}$ 是单连通的(X形).\par
+    故$\pi_1(X) \cong \pi_1(U) * \pi_1(V) \cong \mathbb{Z} * \mathbb{Z}$.
+\end{instance}
+
+\begin{instance}
+    三叶草形(三圆的一点并)：$\pi_1 \cong \mathbb{Z} * \mathbb{Z} * \mathbb{Z}$.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{example-image}
+        \caption{三圆并空间分解示意图}
+    \end{figure}
+    $U = X - \{C\} \simeq S^1 \vee S^1$.
+    $V = X - \{A, B\} \simeq S^1$.
+    $U \cap V = X - \{A, B, C\}$ 是单连通的.
+\end{instance}
+
+\begin{instance}
+    \[ \pi_1 \left( \bigvee_{i=1}^n S_i^1 \right) = \underbrace{\mathbb{Z} * \mathbb{Z} * \dots * \mathbb{Z}}_{n} \]
+\end{instance}
+
+\begin{instance}
+    $X$ 为三个圆环连成的链状结构.
+    \[ X = \includegraphics[height=1.5em]{example-image} \]
+    则 $\pi_1(X) \cong \mathbb{Z} * \mathbb{Z} * \mathbb{Z}$.
+\end{instance}
+
+\begin{instance}
+    双叶覆盖(2-sheeted cover)示例.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.4\textwidth]{example-image}
+        \caption{覆盖空间示意图}
+    \end{figure}
+    $\mathbb{Z} * \mathbb{Z} * \mathbb{Z}$ 是 $\mathbb{Z} * \mathbb{Z}$ 的一个指数为2的子群.
+    生成元为 $\{ a, b^2, b a b^{-1} \}$.
+\end{instance}
+
+\begin{corollary}
+    如果 $V$ 是单连通的，那么$\pi_1(X, x_0) \cong \pi_1(U, x_0) / \overline{\{ (i_1)_*(\alpha) \mid \alpha \in \pi_1(U \cap V, x_0) \}}$.
+\end{corollary}
+
+\begin{instance}
+    $K$：克莱因瓶的基本群
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{fig/10.45.png}
+        \caption{克莱因瓶的基本群计算}
+    \end{figure}
+    取 $U = K \setminus \{p\}$，$V = p$ 的开圆盘邻域.
+    $U$ 和 $V$ 都是开集，且 $U \cup V = K$.
+    $U \cap V \neq \varnothing$ 且是道路连通的.
+    $V$ 是单连通的.
+    
+    我们有同伦等价关系：
+    $U \simeq S^1 \vee S^1$(由图中的 $a_1, a_2$ 环路构成)，$U \cap V \simeq S^1$(由环路 $d$ 构成).
+    
+    计算基本群：
+    $\setjot[-3]\begin{aligned}[t]
+        \pi_1(K, x_0) &\cong \pi_1(U, x_0) / \overline{\{ (i_1)_*(\alpha) \mid \alpha \in \pi_1(U \cap V, x_0) \}} \\
+    &\cong \pi_1(U, x_0) / \overline{\{ (i_1)_*[d] \}} \\
+    &\cong \pi_1(U, x_1) / \overline{\{ w_{\#} (i_1)_*[d] \}} \\
+    &= (\mathbb{Z}\langle [a_1] \rangle * \mathbb{Z}\langle [a_2] \rangle) / \overline{\{ w^{-1} \cdot [d] \cdot w \}} \\
+    &= (\mathbb{Z}\langle [a_1] \rangle * \mathbb{Z}\langle [a_2] \rangle) / \overline{\{ [a_1]^2 [a_2]^2 \}} \\
+    &= \langle [a_1], [a_2] \mid [a_1]^2 [a_2]^2 \rangle
+    \end{aligned}$
+\end{instance}
+
+\begin{instance}
+    $2T^2$(双环面).
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\textwidth]{example-image}
+        \caption{双环面的基本群计算}
+    \end{figure}
+    类似地，取 $U = 2T^2 - \{p\}$， $V$ 为 $p$ 的圆盘邻域.
+    \[ \pi_1(2T^2) \cong \langle [a_1], [b_1], [a_2], [b_2] \mid   \rangle \]
+    
+    推广到 $nT^2$($n$个环面的连通和)：
+    \[ \pi_1(nT^2) \cong \langle [a_1], [b_1], \dots, [a_n], [b_n] \mid \prod_{i=1}^n [a_i][b_i][a_i]^{-1}[b_i]^{-1} \rangle \]
+    
+    推广到 $mP^2$($m$个实射影平面的连通和)：
+    \[ \pi_1(mP^2) \cong \langle [a_1], \dots, [a_m] \mid [a_1]^2 \dots [a_m]^2 \rangle \]
+\end{instance}
+一般地，只要一个多边形表示只有一个顶点类，从任何一个定点出发，沿着边界走一圈，就能得到基本群的关系元.\par
+
+\begin{instance}
+    $X$ 如下所示(三角形区域粘合).
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.4\textwidth]{example-image}
+        \caption{三角形粘合空间}
+    \end{figure}
+    \[ \pi_1(X) \cong \langle [a] \mid [a]^3 \rangle \cong \mathbb{Z}_3 (\text{或 } \mathbb{Z}/3\mathbb{Z}) \]
+\end{instance}
+
+\begin{instance}
+    $X$ 如下所示(五边形区域粘合).
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.4\textwidth]{example-image}
+        \caption{五边形粘合空间}
+    \end{figure}
+    取 $U = X - \{p\}$，同伦等价于两圆的一点并.
+    \[ \pi_1(X) \cong \langle [a], [b] \mid [a]^2 [b] [a] [b]^{-1} \rangle \]
+\end{instance}
+
+\begin{instance}
+    $X$ 如下所示(六边形区域粘合).
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{example-image}
+        \caption{六边形粘合空间}
+    \end{figure}
+    $U = X - \{p\}$ 同伦等价于图示图形(由 $a,b,c$ 构成的图).
+    \[
+    \begin{aligned}
+    \pi_1(X) &\cong \langle [a \cdot b], [c \cdot b] \mid [a][b][c][a]^{-1}[b]^{-1}[c]^{-1} \rangle \\
+    &\cong \langle [a \cdot b], [c \cdot b] \mid [a \cdot b] [c \cdot b] [b]^{-1} [a]^{-1} [b]^{-1} [c]^{-1} \rangle \\
+    &\cong \langle [a \cdot b], [c \cdot b] \mid [a \cdot b] [c \cdot b] [a \cdot b]^{-1} [c \cdot b]^{-1} \rangle \\
+    &\cong \langle g_1, g_2 \mid g_1 g_2 g_1^{-1} g_2^{-1} \rangle \\
+    &\cong \mathbb{Z} \times \mathbb{Z}
+    \end{aligned}
+    \]
+\end{instance}
+
+\begin{instance}
+    设 $Y$ 是一个空间，$D^n$ 是 $n$ 维圆盘($n \geq 3$).
+    $f: S^{n-1} \to Y$.
+    $X = Y \cup_f D^n = Y \sqcup D^n / x \sim f(x), x \in S^{n-1} = \partial D^n$.
+    
+    则 $\pi_1(Y \cup_f D^n) \cong \pi_1(Y)$.
+\end{instance}
+
+\begin{proof}
+    取 $p \in \text{Int}(D^n)$.
+    $U = X - \{p\} \xrightarrow{\text{def. ret.}} Y$.
+    $V$ 是 $p$ 的小圆盘邻域.
+    $U \cap V = V - \{p\} \simeq S^{n-1}$.
+    由于 $n \geq 3$， $S^{n-1}$ 是单连通的.
+    所以
+    \[
+    \begin{aligned}
+    \pi_1(X) &\cong \pi_1(U) * \pi_1(V) \\
+    &\cong \pi_1(U) \cong \pi_1(Y)
+    \end{aligned}
+    \]
+\end{proof}
+
+
 
 
 

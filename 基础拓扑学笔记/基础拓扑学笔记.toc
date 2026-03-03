@@ -67,3 +67,21 @@
 \contentsline {section}{\numberline {10.11}同伦等价空间的基本群}{81}{section.10.11}%
 \contentsline {section}{\numberline {10.12}形变收缩}{83}{section.10.12}%
 \contentsline {section}{\numberline {10.13}商空间的形变收缩}{85}{section.10.13}%
+\contentsline {section}{\numberline {10.14}商空间的形变收缩核}{87}{section.10.14}%
+\contentsline {section}{\numberline {10.15}有限表现群}{89}{section.10.15}%
+\contentsline {section}{\numberline {10.16}Seifert-van Kampen 定理}{91}{section.10.16}%
+\contentsline {chapter}{\numberline {第十一章}补充}{98}{chapter.11}%
+\contentsline {section}{\numberline {11.1}代数学基本定理}{98}{section.11.1}%
+\contentsline {section}{\numberline {11.2}不动点}{99}{section.11.2}%
+\contentsline {section}{\numberline {11.3}复习}{101}{section.11.3}%
+\contentsline {subsection}{\numberline {11.3.1}拓扑空间 (Topological Space)}{101}{subsection.11.3.1}%
+\contentsline {subsection}{\numberline {11.3.2}连续映射 (Continuous map)}{101}{subsection.11.3.2}%
+\contentsline {subsection}{\numberline {11.3.3}分离公理 (Separation Axioms)}{101}{subsection.11.3.3}%
+\contentsline {subsection}{\numberline {11.3.4}可数性 (Countability)}{101}{subsection.11.3.4}%
+\contentsline {subsection}{\numberline {11.3.5}度量空间 (Metric space)}{101}{subsection.11.3.5}%
+\contentsline {subsection}{\numberline {11.3.6}紧致性 (Compactness)}{102}{subsection.11.3.6}%
+\contentsline {subsection}{\numberline {11.3.7}连通性 (Connectedness)}{102}{subsection.11.3.7}%
+\contentsline {subsection}{\numberline {11.3.8}商空间 (Quotient spaces)}{102}{subsection.11.3.8}%
+\contentsline {subsection}{\numberline {11.3.9}同伦 (Homotopy)}{103}{subsection.11.3.9}%
+\contentsline {subsection}{\numberline {11.3.10}基本群 (Fundamental group)}{104}{subsection.11.3.10}%
+\contentsline {subsection}{\numberline {11.3.11}覆盖空间 (Covering space)}{105}{subsection.11.3.11}%

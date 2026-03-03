@@ -1,0 +1,468 @@
+\chapter{补充}
+
+\section{代数学基本定理}
+
+\begin{lemma}
+    $h:S^1\to \mathbb{C}-\{0\}$是零伦的当且仅当$h$可以连续延拓到$g: D^2 \to \mathbb{C}-\{0\}$.
+\end{lemma}
+\begin{proof}
+    $(\impliedby)$
+    假设 $h$ 可延拓为 $g: D^2 \to \mathbb{C}-\{0\}$，则$h = g|_{\partial D^2}: S^1 \to \mathbb{C}-\{0\}$.\par
+    取常值映射$\setjot[-4]\begin{aligned}[t]
+        h_0: S^1 &\to \mathbb{C}-\{0\} \\
+        z &\mapsto g(0),0 \in D^2
+    \end{aligned}$，
+    构造 $\setjot[-4]\begin{aligned}[t]
+        H: S^1 \times [0, 1] &\to \mathbb{C}-\{0\} \\
+        (z, t) &\mapsto g(tz)
+    \end{aligned}$.\par
+    则$H(z, 1)=g(z)=h(z)$，$H(z, 0)=g(0)=h_0(z)$，故 $h \simeq h_0$，$h$ 是零同伦的.\par
+    $(\implies)$
+    假设 $h$ 是零同伦的，即存在常值映射 $c: S^1 \to \mathbb{C}-\{0\}$ 及同伦 $H: S^1 \times [0, 1] \longrightarrow \mathbb{C}-\{0\}$ 使得 $H(z, 1) = h(z)$ 且 $H(z, 0) = c$.
+    
+    由于 $D^2 \cong (S^1 \times [0, 1]) / (S^1 \times \{0\})$.
+    定义$\setjot[-2]\begin{aligned}[t]
+        g: D^2 &\to \mathbb{C}-\{0\} \\
+        x &\mapsto\begin{cases}
+            H\left(\frac{x}{|x|}, |x|\right),&x\neq 0 \\
+            c,&x=0
+        \end{cases}
+    \end{aligned}$\par
+    由于 $H(z, 0) = c$ 对所有 $z \in S^1$ 成立，故 $g$ 在 $0$ 处良定义且连续.
+    当 $x \in S^1$ 时，$t=1$，则 $g(x) = H(x, 1) = h(x)$.
+    所以 $g$ 是 $h$ 的连续延拓.
+\end{proof}
+
+\begin{theorem}
+    $f(z) = z^n + a_{n-1}z^{n-1} + \dots + a_1 z + a_0 = 0$ 在 $\mathbb{C}$ 中有根，其中 $a_i \in \mathbb{C}, n \geq 1$.
+\end{theorem}
+
+\begin{proof}
+    (1) 特殊情况：$|a_{n-1}| + \dots + |a_1| + |a_0| < 1$.\par
+    假设 $f(z)=0$ 在 $\mathbb{C}$ 中没有根.\par
+    令 $D^2 = \{z \in \mathbb{C} \mid |z| \leq 1\}$，$\partial D^2 = S^1$，
+    $\setjot[-4]\begin{aligned}[t]
+        g: D^2 &\to \mathbb{C}-\{0\} \\
+        z &\mapsto f(z) = z^n + a_{n-1}z^{n-1} + \dots + a_1 z + a_0
+    \end{aligned}$.\par
+    令 $h = g|_{\partial D^2}: S^1 \longrightarrow \mathbb{C}-\{0\}$.
+
+    由于 $h$ 可延拓为 $g$，故 $h$ 是零同伦的.\par
+    构造同伦 $\setjot[-4]\begin{aligned}[t]
+        H: S^1 \times [0, 1] &\to \mathbb{C}-\{0\} \\
+        (z, t) &\mapsto z^n + t(a_{n-1}z^{n-1} + \dots + a_1 z + a_0)
+    \end{aligned}$\par
+    我们有$\setjot[-4]\begin{aligned}[t]
+        |H(z, t)| &= |z^n + t(a_{n-1}z^{n-1} + \dots + a_1 z + a_0)| \\
+    &\geq |z^n| - |t(a_{n-1}z^{n-1} + \dots + a_1 z + a_0)| \\
+    &= 1 - t|a_{n-1}z^{n-1} + \dots + a_1 z + a_0| \\
+    &\geq 1 - t(|a_{n-1}| + \dots + |a_1| + |a_0|) > 0
+    \end{aligned}$
+
+    因此 $H$ 是良定义的且连续.
+
+    $H$ 实现 $h \simeq z^n$，其中$\setjot[-4]\begin{aligned}[t]
+        S^1 &\to \mathbb{C}-\{0\} \\
+        e^{2\pi i t} &\mapsto e^{2\pi i n t}
+    \end{aligned}$.\par
+    而$z^n$ 在基本群之间诱导了非平凡同态，所以 $h$ 不是零同伦的.矛盾！ \par
+    所以 $f(z)=0$ 在 $\mathbb{C}$ 中有根.\par
+    (2) 一般情况，$z^n + a_{n-1}z^{n-1} + \dots + a_1 z + a_0 = 0$.\par
+    令 $z=cy$，则$(cy)^n + a_{n-1}(cy)^{n-1} + \dots + a_1(cy) + a_0 = 0$.\par
+    取 $c \in \mathbb{R}$，$c$ 足够大使得$\left|\frac{a_{n-1}}{c}\right| + \dots + \left|\frac{a_1}{c^{n-1}}\right| + \left|\frac{a_0}{c^n}\right| < 1$.\par
+    方程 $y^n + \frac{a_{n-1}}{c}y^{n-1} + \dots + \frac{a_1}{c^{n-1}}y + \frac{a_0}{c^n} = 0$ 属于情况 (1)，它有根 $y_0 \in \mathbb{C}$.\par
+    那么 $z^n + a_{n-1}z^{n-1} + \dots + a_1 z + a_0 = 0$ 有根 $z_0 = c y_0 \in \mathbb{C}$.
+\end{proof}
+
+\begin{lemma}
+    $f:X\to Y$是零伦的当且仅当$f$可以连续扩张到锥空间$CX$上.
+\end{lemma}
+\begin{proof}
+    $(\implies)$
+    若 $f$ 是零伦的，则存在常值映射$\setjot[-6]\begin{aligned}[t]
+        c: X &\to Y \\
+        x &\mapsto y_0
+    \end{aligned}$及同伦$H: X \times [0, 1] \to Y$ 使得 $H(x, 0) = f(x)$ 且 $H(x, 1) = y_0$.\par
+    锥空间定义为 $CX = (X \times [0, 1]) / (X \times \{1\})$.
+    由于 $H$ 将集合 $X \times \{1\}$ 映射为单点 $y_0$，根据商映射泛性质，$H$ 诱导了连续映射 $F: CX \to Y$，满足 $F([x, t]) = H(x, t)$.\par
+    限制在底面 $X \cong X \times \{0\}$ 上，$F([x, 0]) = H(x, 0) = f(x)$，即 $F$ 是 $f$ 的扩张.\par
+    $(\impliedby)$
+    若 $f$ 能扩张为 $F: CX \to Y$，满足 $F([x, 0]) = f(x)$.\par
+    令 $q: X \times [0, 1] \to CX$ 为商映射. 定义 $H = F \circ q: X \times [0, 1] \to Y$.\par
+    则 $H$ 连续，且 $H(x, 0) = F([x, 0]) = f(x)$，$H(x, 1) = F([x, 1]) = F(*)$ (常值).\par
+    故 $H$ 是 $f$ 到常值映射的同伦，$f$ 是零伦的.
+\end{proof}
+
+
+\section{不动点}
+
+\begin{lemma}
+    $S^1 = \partial D^2$，$S^1$ 不是 $D^2$ 的收缩核 (retract).
+\end{lemma}
+
+\begin{proof}
+    假设 $r: D^2 \longrightarrow S^1$ 是一个收缩.\par
+    那么 $r \circ i = id_{S^1}: S^1 \longrightarrow S^1$. \par
+    取 $x_0 \in S^1$，则有下述交换图成立： \par
+    \begin{tikzcd}[labels={font=\normalsize},row sep=large, column sep=large]
+    \makebox[0pt][r]{\textcolor{red}{$x_0\in$\,}}S^1 \arrow[rr, "id_{S^1}"] \arrow[dr, "i"'] & & S^1 \\
+    & D^2 \arrow[ru, "r"'] &
+    \end{tikzcd}
+    \hspace{1em}
+    \begin{tikzcd}[labels={font=\normalsize},row sep=large, column sep=large]
+    % 左上节点：标注放在左侧 (makebox[0pt][r])
+    % \quad 用于增加一点间距
+    \makebox[0pt][r]{\textcolor{red}{$\mathbb{Z}\cong$\,}} \pi_1(S^1, x_0) 
+      \arrow[rr, "id"] 
+      \arrow[dr, "i_*"'] 
+    & & 
+    % 右上节点：标注放在右侧 (makebox[0pt][l])
+    \pi_1(S^1, x_0) \makebox[0pt][l]{\,\textcolor{red}{$\cong \mathbb{Z}$}} 
+    \\
+    & 
+    % 下方节点：标注放在右侧
+    \pi_1(D^2, x_0) \makebox[0pt][l]{\,\textcolor{red}{$\cong\{1\}$}}
+      \arrow[ur, "r_*"'] 
+    & 
+    \end{tikzcd} \par
+    即$r_* \circ i_* = id: \pi_1(S^1, x_0) \longrightarrow \pi_1(S^1, x_0)$.\par
+    由于 $\pi_1(D^2, x_0) = \{1\}$，$r_* \circ i_*$ 是平凡同态，矛盾！
+\end{proof}
+
+\begin{theorem}[Brouwer不动点定理]
+    若 $f: D^2 \longrightarrow D^2$ 是连续的，则 $f$ 有不动点，即 $\exists\,x_0 \in D^2$，使得 $f(x_0) = x_0$.
+\end{theorem}
+
+\begin{proof}
+    假设 $\forall x \in D^2, f(x) \neq x$.构造一个连续映射 $g: D^2 \longrightarrow S^1$ 如下：
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.4\textwidth]{example-image}
+    \end{figure}
+
+    对于任意 $x \in S^1$，$g(x)$为$x$和$f(x)$的连线与$S^1$的交点.\par
+    所以 $g$ 是一个从 $D^2$ 到 $S^1$ 的收缩.\par
+    矛盾！故 $f: D^2 \longrightarrow D^2$ 必须有不动点.
+\end{proof}
+使用Brouwer不动点定理可以证明以下定理：
+\begin{theorem}[Frobenius定理]
+    假设 $A$ 是一个 $3 \times 3$ 矩阵.
+    \[
+        \begin{pmatrix}
+        a_{11} & a_{12} & a_{13} \\
+        a_{21} & a_{22} & a_{23} \\
+        a_{31} & a_{32} & a_{33}
+        \end{pmatrix}, \quad a_{ij} \in \mathbb{R}, \quad a_{ij} > 0
+    \]
+    那么 $A$ 有一个特征值 $\lambda \in \mathbb{R}$，且 $\lambda > 0$.
+\end{theorem}
+
+\begin{proof}
+    定义$\setjot[-2]\begin{aligned}[t]
+        \sigma: \mathbb{R}^3 &\to \mathbb{R}^3 \\
+        \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix} &\mapsto A \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix}
+    \end{aligned} $\par
+    令 $\Omega = \{(x_1, x_2, x_3) \in S^2 \mid x_i \geq 0, i=1,2,3\}$.\par
+    则$\Omega \cong D^2$，且$\forall x \in \Omega,\sigma(x) \neq 0$，$\frac{\sigma(x)}{\|\sigma(x)\|} \in \Omega$.\par
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.4\textwidth]{example-image}
+    \end{figure}
+    故映射$\setjot[-4]\begin{aligned}[t]
+        f: \Omega &\to \Omega \\
+        x &\mapsto \frac{\sigma(x)}{\|\sigma(x)\|}
+    \end{aligned}$有一个不动点 $x^0$.\par
+    $\frac{\sigma(x^0)}{\|\sigma(x^0)\|} = x^0 \implies \sigma(x^0) = \|\sigma(x^0)\| \cdot x^0$.\par
+    所以 $\|\sigma(x^0)\|$ 是 $A$ 的一个特征值，且满足$\|\sigma(x^0)\| \in \mathbb{R}$，$\|\sigma(x^0)\| > 0$.
+\end{proof}
+
+\section{复习}
+
+\subsection{拓扑空间 (Topological Space)}
+
+开集 (open sets)，闭集 (closed sets)，基 (base)，内部 (interior)，闭包 (closure)，聚点 (limit point)，边界 (boundary).
+
+$E^n$，有限拓扑空间 (finite topological space)，$\mathbb{R}_{fc}$.
+
+$\mathbb{R}_l([a, b))$.
+
+子空间 (subspace). 平凡拓扑 (trivial topology)，离散拓扑 (discrete topology).
+
+更细 (finer)，更粗 (coarser).
+
+$x \in \mathring{A} \iff \exists$ $x$ 的邻域 $U$，s.t. $U \subset A$.
+
+$x \in \bar{A} \iff$ 对任意 $x$ 的邻域 $U$，$U \cap A \neq \emptyset$.
+
+$x$ 是 $A$ 的聚点 $\iff x \in \overline{A-\{x\}}$.
+
+\subsection{连续映射 (Continuous map)}
+
+同胚 (homeomorphism)，嵌入 (embedding)，开映射 (open map).
+
+闭映射 (closed map)，延拓与限制 (extension and restriction).
+
+复合 (composition)，拼接引理 (pasting lemma).
+
+$f: Z \longrightarrow X \times Y$ 是连续的 $\iff \pi_1 \circ f$ 和 $\pi_2 \circ f$ 是连续的.
+
+\subsection{分离公理 (Separation Axioms)}
+
+Hausdorff $\impliedby$ 正则 (regular) $\impliedby$ 正规 (normal).
+
+$X$ 是 Hausdorff $\iff \Delta = \{(x, x) \in X \times X\}$ 在 $X \times X$ 中是闭的.
+
+Tietze 延拓定理 (Tietze extension THM).
+$X$ 是正规的，$A \subset X$ 是闭集，$f: A \longrightarrow E^1$ 连续 $\implies f$ 可延拓为 $F: X \longrightarrow E^1$.
+
+\subsection{可数性 (Countability)}
+
+第一可数 (1st countable) $\impliedby$ 第二可数 (2nd countable).
+
+\subsection{度量空间 (Metric space)}
+
+度量空间是正规的，第一可数的，但不一定是第二可数的.
+
+Urysohn 度量化定理 (Urysohn metrization THM):
+正则 (regular) + 第二可数 (2nd countable) $\implies$ 可度量化 (metrizable).
+
+\subsection{紧致性 (Compactness)}
+
+$X$ 紧，$f: X \longrightarrow Y$ 连续 $\implies f(X)$ 在 $Y$ 中紧.
+
+紧空间中的闭集是紧的.
+
+Hausdorff 空间中的紧集是闭的.
+
+$A \subset E^n$ 是紧的 $\iff A$ 是有界闭集.
+
+最大 (小) 值定理 (Maximum/Minimum Value THM).
+
+$X, Y$ 紧 $\iff X \times Y$ 是紧的.
+
+紧度量空间，Lebesgue 引理 (Lebesgue lemma).
+
+$X$ Hausdorff，$C_\lambda$ 紧 $\implies \bigcap_{\lambda \in \Lambda} C_\lambda$ 是紧的.
+
+局部紧 (locally compact).
+
+单点紧化 (one-point compactification) $E^n \cup \{\infty\} \cong S^n$.
+
+\subsection{连通性 (Connectedness)}
+
+$X$ 连通，$f: X \longrightarrow Y$ 连续 $\implies f(X)$ 在 $Y$ 中连通.
+
+$A$ 在 $X$ 中连通，$A \subset B \subset \bar{A} \implies B$ 是连通的.
+
+$\{A_\lambda \mid \lambda \in \Lambda\}$ 是 $X$ 的连通覆盖，$\bigcap_{\lambda \in \Lambda} A_\lambda \neq \emptyset$，则 $X$ 是连通的.
+
+$X, Y$ 连通 $\iff X \times Y$ 是连通的.
+
+介值定理 (Intermediate Value THM). 连通分支 (component) \{连通性，极大性，闭集\}.
+
+道路连通 (path connected)，拓扑学家正弦曲线 (Topologist's sine curve).
+
+道路分支 (path component) \{道路连通性，极大性\}.
+
+局部道路连通 (locally path connected).
+连通 + 局部道路连通 $\implies$ 道路连通.
+
+\subsection{商空间 (Quotient spaces)}
+
+$q: X \longrightarrow X/\sim$. $U \subset X/\sim$ 是开集 $\iff q^{-1}(U) \subset X$ 是开集.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.4\textwidth]{example-image}
+\end{figure}
+
+$f$ 是连续的 $\iff f \circ q$ 是连续的.
+
+连续映射 $f: X \longrightarrow Y$ 是 \{同胚 / 商映射\}.
+
+若 $X$ 是紧的，$Y$ 是 Hausdorff 且 $f$ 是 \{双射 / 满射\} $\implies$ \{同胚 / 商映射 (若 $f$ 开或闭)\}.
+
+$D^n/\partial D^n \cong S^n$. $CX = X \times [0, 1] / X \times \{1\}$.
+
+$\mathbb{R}P^n, \mathbb{C}P^n$. 圆环 (Annulus)，莫比乌斯带 (Möbius band).
+
+环面 (torus)，克莱因瓶 (Klein bottle). $nT^2, mP^2$.
+
+曲面 (Surface)，连通和 (Connected sum)，三角剖分 (Triangulation).
+
+欧拉示性数 (Euler characteristic). $\chi(S_1 \# S_2) = \chi(S_1) + \chi(S_2) - 2$.
+
+闭曲面分类 (Classification of closed surface) $\{S^2, nT^2, mP^2\}$.
+
+标准多边形表示 (standard polygonal representation).
+
+$nT^2: a_1b_1a_1^{-1}b_1^{-1} \dots a_nb_na_n^{-1}b_n^{-1}$.
+
+$mP^2: a_1^2 a_2^2 \dots a_m^2$.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.3\textwidth]{example-image}
+\end{figure}
+
+\subsection{同伦 (Homotopy)}
+
+$f \simeq g: X \longrightarrow Y$.
+
+直线同伦 (straight-line homotopy) $H: X \times [0, 1] \longrightarrow Y$.
+\[
+    H(x, 0) = f(x), \quad H(x, 1) = g(x)
+\]
+
+相对同伦 (relative homotopy) $H: f \simeq g \text{ rel } A$.
+\[
+    H(x, 0) = f(x), \quad H(x, 1) = g(x)
+\]
+\[
+    H(a, t) = f(a) = g(a), \quad \forall a \in A
+\]
+
+路径同伦 (path homotopy) $H: a_0 \simeq a_1$.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.4\textwidth]{example-image}
+\end{figure}
+
+$f$ 是零同伦的 (null-homotopic) 如果 $f \simeq c: X \longrightarrow Y$，其中 $c$ 是常值映射 (constant).
+
+$f: X \longrightarrow Y$ 是零同伦的 $\iff f$ 可以延拓为 $F: CX \longrightarrow Y$.
+
+同伦等价 (homotopy equivalence) $X \simeq Y$.
+
+可缩空间 (Contractible space). $CX$ 是可缩的.
+
+收缩 (retraction) $r: X \longrightarrow A$. $r \circ i = id_A: A \longrightarrow A$.
+
+形变收缩 (deformation retraction).
+\[
+\begin{cases}
+    r \circ i = id_A \\
+    id_X \simeq i \circ r, \text{ rel } A
+\end{cases}
+\]
+
+$H: X \times [0, 1] \longrightarrow X$.
+\[
+\begin{cases}
+    H(x, 0) = x \\
+    H(x, 1) = r(x) \in A \\
+    H(a, t) = a, \quad \forall a \in A, t \in [0, 1]
+\end{cases}
+\]
+
+$f: X \longrightarrow Y$ 是一个商映射 (quotient map).
+$H: X \times [0, 1] \longrightarrow X$ 实现从 $X$ 到 $A$ 的形变收缩 (def. retr.).
+如果 $x_0 \sim_f x_1 \implies H(x_0, t) \sim_f H(x_1, t)$，那么 $Y$ 形变收缩道 $B = q(A)$.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.4\textwidth]{example-image}
+\end{figure}
+
+\[
+    nT^2 - \{pt\} \simeq \bigvee_{i=1}^{2n} S^1_i \quad mP^2 - \{pt\} \simeq \bigvee_{i=1}^{m} S^1_i
+\]
+
+\subsection{基本群 (Fundamental group)}
+
+$\pi_1(X, x_0)$.
+
+$f: X \longrightarrow Y$ 诱导 $f_*: \pi_1(X, x_0) \longrightarrow \pi_1(Y, f(x_0))$.
+\[
+    [\alpha] \longmapsto [f \circ \alpha]
+\]
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.3\textwidth]{example-image}
+\end{figure}
+
+$\omega_\#: \pi_1(X, x_0) \longrightarrow \pi_1(X, x_1)$.
+\[
+    \alpha \longmapsto \omega^{-1} \alpha \omega
+\]
+
+$\pi_1(S^1) \cong \mathbb{Z}$.
+
+$\pi_1(X \times Y, (x_0, y_0)) \cong \pi_1(X, x_0) \times \pi_1(Y, y_0)$.
+
+单连通 (Simple connected): 道路连通 + $\pi_1(X)$ 平凡 (trivial).
+
+$H: f \simeq g: X \longrightarrow Y$.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.4\textwidth]{example-image}
+\end{figure}
+
+$h = [0, 1] \longrightarrow Y$，$t \longmapsto H(x_0, t)$.
+
+$g_* = [h]_\# \circ f_*$.
+
+$X \simeq Y \implies \pi_1(X) \cong \pi_1(Y)$，$X, Y$ 道路连通.
+
+Seifert-van Kampen 定理 (Seifert-van Kampen THM).
+
+$\pi_1(S^n) = \{1\}$，$n \ge 2$.
+
+$\pi_1(\infty) = \mathbb{Z} * \mathbb{Z}$.
+
+$\pi_1(nT^2)$. $\pi_1(mP^2)$.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.2\textwidth]{example-image}
+\end{figure}
+$\pi_1(\dots) = \mathbb{Z}_3$.
+
+自由群 (free group)，自由积 (free product) $G_1 * G_2$.
+生成元和关系元 (generator and relator). 
+$\langle g_1, \dots, g_n \mid r_1, \dots, r_m \rangle$.
+
+\subsection{覆盖空间 (Covering space)}
+
+$p: E \longrightarrow B$.
+
+$p: E^1 \longrightarrow S^1$. $p: S^n \longrightarrow \mathbb{R}P^n$.
+
+$p: T^2 \longrightarrow K$ (torus $\to$ Klein bottle).
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.3\textwidth]{example-image}
+\end{figure}
+
+提升 (lift).
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.3\textwidth]{example-image}
+\end{figure}
+
+唯一提升定理 (Unique Lifting THM)，路径提升定理 (Path Lifting THM).
+
+路径同伦提升 (Path homotopy Lifting)，提升准则 (Lifting criteria).
+
+$p_*: \pi_1(E, e_0) \longrightarrow \pi_1(B, b_0)$ 是单射 (injective).
+
+$[\pi_1(B, b_0) : p_* \pi_1(E, e_0)] = \# p^{-1}(b_0)$ (叶数 number of sheets).
+
+$\{p_* \pi_1(E, e) \mid e \in p^{-1}(b_0)\}$ 是 $\pi_1(B, b_0)$ 的一个共轭类子群 (conjugacy class of subgroup).
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.5\textwidth]{example-image}
+    \caption{万有覆盖 (universal cover) 树 (tree)}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.5\textwidth]{example-image}
+\end{figure}
