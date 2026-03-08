@@ -19,12 +19,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Collect PDFs
+      - name: Collect PDFs (keep structure)
         shell: bash
         run: |
           set -euxo pipefail
           mkdir -p dist
-
           rsync -av --prune-empty-dirs --include='*/' --include='*.pdf' --exclude='*' ./ dist/ || true
 
           echo "Found PDFs:"
@@ -44,31 +43,33 @@ jobs:
           cd ..
           ls -lah pdfs.zip
 
-      - name: Debug:show conflicting asset names (upload set ∩ existing assets)
+      - name: Prepare uniquely-named single-file assets
         shell: bash
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euxo pipefail
+          rm -rf assets
+          mkdir -p assets
 
-          # Build upload basenames
-          find dist -type f -name '*.pdf' -print0 | xargs -0 -n1 basename | sort -u > upload_names.txt
+          # For each pdf under dist/, create a uniquely named copy in assets/
+          # Name rule: replace '/' with '__' to encode path into filename.
+          while IFS= read -r -d '' f; do
+            rel="${f#dist/}"          # relative path inside dist
+            out="${rel//\//__}"       # encode path separators
+            cp -f "$f" "assets/$out"
+          done < <(find dist -type f -name '*.pdf' -print0)
 
-          # Fetch existing names
-          api="https://api.github.com/repos/${GITHUB_REPOSITORY}/releases/tags/latest"
-          curl -sSf -H "Authorization: Bearer ${GH_TOKEN}" -H "X-GitHub-Api-Version: 2022-11-28" "$api" \
-            | python3 - <<'PY' > existing_names.txt
-          import json,sys 
-          r=json.load(sys.stdin)
-          for a in r.get("assets",[]):
-          print(a["name"])
-          PY
-          sort -u existing_names.txt -o existing_names.txt
+          echo "Prepared assets:"
+          ls -lah assets | sed -n '1,200p'
 
-          echo "== Conflicts (these names already exist in release 'latest') =="
-          comm -12 upload_names.txt existing_names.txt || true
+          # Safety check: ensure no duplicate names in assets/
+          dup="$(ls assets | sort | uniq -d || true)"
+          if [ -n "$dup" ]; then
+            echo "ERROR: duplicate asset names still exist:"
+            echo "$dup"
+            exit 1
+          fi
 
-      - name: Publish/Update GitHub Release (tag:latest)
+      - name: Publish/Update GitHub Release (tag: latest)
         uses: softprops/action-gh-release@v2
         with:
           tag_name: latest
@@ -78,6 +79,6 @@ jobs:
             Commit: ${{ github.sha }}
           files: |
             pdfs.zip
-            dist/**/*.pdf
+            assets/*.pdf
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
