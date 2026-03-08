@@ -1,0 +1,61 @@
+name: Release PDFs
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-pdfs
+  cancel-in-progress: true
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Collect PDFs
+        shell: bash
+        run: |
+          set -euxo pipefail
+          mkdir -p dist
+
+          # Collect all PDFs (keep directory structure to avoid name collisions)
+          rsync -av --prune-empty-dirs --include='*/' --include='*.pdf' --exclude='*' ./ dist/ || true
+
+          echo "Found PDFs:"
+          find dist -type f -name '*.pdf' -print || true
+
+          # Fail if no PDFs found
+          if ! find dist -type f -name '*.pdf' | grep -q .; then
+            echo "No PDFs found. Nothing to release."
+            exit 1
+          fi
+
+      - name: Create ZIP bundle
+        shell: bash
+        run: |
+          set -euxo pipefail
+          cd dist
+          zip -r ../pdfs.zip .
+          cd ..
+          ls -lah pdfs.zip
+
+      - name: Publish/Update GitHub Release (tag: latest)
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest
+          name: latest
+          body: |
+            Auto-updated PDFs from repository push.
+            Commit: ${{ github.sha }}
+          files: |
+            pdfs.zip
+            dist/**/*.pdf
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
