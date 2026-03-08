@@ -44,6 +44,30 @@ jobs:
           cd ..
           ls -lah pdfs.zip
 
+      - name: Debug:show conflicting asset names (upload set ∩ existing assets)
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euxo pipefail
+
+          # Build upload basenames
+          find dist -type f -name '*.pdf' -print0 | xargs -0 -n1 basename | sort -u > upload_names.txt
+
+          # Fetch existing names
+          api="https://api.github.com/repos/${GITHUB_REPOSITORY}/releases/tags/latest"
+          curl -sSf -H "Authorization: Bearer ${GH_TOKEN}" -H "X-GitHub-Api-Version: 2022-11-28" "$api" \
+            | python3 - <<'PY' > existing_names.txt
+          import json,sys 
+          r=json.load(sys.stdin)
+          for a in r.get("assets",[]):
+          print(a["name"])
+          PY
+          sort -u existing_names.txt -o existing_names.txt
+
+          echo "== Conflicts (these names already exist in release 'latest') =="
+          comm -12 upload_names.txt existing_names.txt || true
+
       - name: Publish/Update GitHub Release (tag:latest)
         uses: softprops/action-gh-release@v2
         with:
