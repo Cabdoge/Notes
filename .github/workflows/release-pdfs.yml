@@ -25,13 +25,11 @@ jobs:
           set -euxo pipefail
           mkdir -p dist
 
-          # Collect all PDFs (keep directory structure to avoid name collisions)
           rsync -av --prune-empty-dirs --include='*/' --include='*.pdf' --exclude='*' ./ dist/ || true
 
           echo "Found PDFs:"
           find dist -type f -name '*.pdf' -print || true
 
-          # Fail if no PDFs found
           if ! find dist -type f -name '*.pdf' | grep -q .; then
             echo "No PDFs found. Nothing to release."
             exit 1
