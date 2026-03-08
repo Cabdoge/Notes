@@ -1,0 +1,162 @@
+\documentclass[11pt,a4paper,openany,twoside,leqno]{ctexbook}
+
+%================ 核心：rainbow 环境 ================
+\usepackage{rainbow}
+\usepackage{bookstyle}
+
+%================ 数学 ================
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+%================ 页面布局 ================
+\usepackage{geometry}
+
+
+%================ 行距 ================
+\usepackage{setspace}
+\setstretch{1.3}
+
+\usepackage{calc}
+\setlength{\lineskip}{\baselineskip-\ccwd}
+\setlength{\lineskiplimit}{2.5pt}
+
+%================ 缩小公式上下间距 ================
+\AtBeginDocument{
+  \abovedisplayskip=-7pt
+  \belowdisplayskip=5pt
+  \abovedisplayshortskip=-7pt
+  \belowdisplayshortskip=5pt
+}
+
+%================ 图形与绘图 ================
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing,arrows.meta,cd}
+\usepackage{graphicx}
+\usepackage{float}
+
+%================ 图片环绕 ================
+\usepackage{wrapfig}
+\usepackage{caption}
+
+%================ 表格 ================
+\usepackage{makecell}
+\definecolor{rbStructureBlue}{RGB}{60,113,183}
+\colorlet{rowcolcolor}{rbStructureBlue!25!white}
+
+%================ 其他工具宏包 ================
+\usepackage{pifont}        % 圆圈数字
+\usepackage{faktor}        % 商集符号
+\usepackage{extarrows}     % 额外长度自适应箭标
+
+%================ 蓝色加粗 / 常用简写 ================
+\definecolor{titleblue}{HTML}{3498DB}
+\newcommand{\allbf}[1]{\boldmath\bfseries{#1}\unboldmath\normalfont}
+\newcommand{\bluebf}[1]{\textcolor{rbStructureBlue}{\allbf{#1}}}
+
+%================ 向量 ================
+\usepackage[f]{esvect}
+\renewcommand{\vector}[1]{\vv{#1}}
+
+%================ 几何简写 ================
+\newcommand{\plane}{\text{平面}\ }
+\newcommand{\paraleq}{%
+    \mathrel{\text{%
+        \tikz[baseline]
+        \draw (.1em,0ex) -- (.9em,0ex)
+        (.1em,-.425ex) -- (.9em,-.425ex)
+        (.350em,.1ex) -- (.650em,1.5ex)
+        (.550em,.1ex) -- (.850em,1.5ex);}}}
+
+%================ 数学简写 ================
+\newcommand{\mb}{\mathbb}
+\newcommand{\z}{\text}
+\renewcommand{\a}{\alpha}
+\renewcommand{\b}{\beta}
+\renewcommand{\d}{\delta}
+\newcommand{\D}{\Delta}
+\renewcommand{\l}{\lambda}
+\newcommand{\m}{\mu}
+\newcommand{\p}{\uppi}
+\renewcommand{\th}{\theta}
+\newcommand{\lam}{\lambda}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\newcommand{\rttri}{\mathrm{Rt}\triangle}
+\newcommand{\npar}{\par\noindent}
+\DeclareSymbolFont{ugmL}{OMX}{mdugm}{m}{n}
+\DeclareMathAccent{\wideparen}{\mathord}{ugmL}{"F3}
+\newcommand{\open}{\,\text{开集}\,}
+\newcommand{\close}{\,\text{闭集}\,}
+\newcommand{\setjot}[1][0]{\setlength{\jot}{#1 pt}}
+\newcommand{\mcal}[1]{\mathcal{#1}}
+\newcommand{\mbb}[1]{\mathbb{#1}}
+
+%================ 定端同伦符号 ================
+\usepackage{accents}
+\newcommand{\simeqdot}{\mathrel{\mathrm{\underaccent{\dot}{\mathord{\simeq}}}}}
+
+\DeclareMathOperator{\st}{\,\text{s.t.}}
+\DeclareMathOperator{\aew}{\,\text{a.e.}}
+\DeclareMathOperator{\ie}{\,\text{i.e.}}
+
+%================ 填空线 ================
+\newcommand{\fillin}[1][3.5]{%
+  \nolinebreak
+  \hspace{0.2em}%
+  \rule[-0.5ex]{#1em}{0.5pt}%
+  \hspace{0.05em}
+}
+\newcommand{\fl}{\fillin}
+
+%================ 图片环绕辅助 ================
+\usepackage{mwe}
+\newcommand{\wrapfix}[1][-1]{\begin{wrapfigure}{r}{0.001\textwidth}%
+    \vspace{#1 em}%
+    \includegraphics[width=0.001\textwidth]{example-image}%
+    \end{wrapfigure}}
+
+%================ 分式使用行间版 ================
+\everymath{\displaystyle}
+
+%================ 目录显示到 subsection ================
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+
+%================ enumerate 第二级样式 ================
+\setlist[enumerate,2]{label=(\arabic*), leftmargin=2em}
+
+%================ 强制右页开始 ================
+\makeatletter
+\newcommand{\ForceRightPage}{%
+  \clearpage
+  \ifodd\value{page}\relax
+  \else
+    \hbox{}\thispagestyle{empty}\newpage
+  \fi
+}
+\makeatother
+
+\raggedbottom
+
+
+\begin{document}
+
+
+\title{群与代数表示论笔记}
+\date{}
+\maketitle
+\setcounter{page}{1}
+
+\frontmatter
+\pagenumbering{roman}     % 目录等用罗马数字
+\clearpage
+\tableofcontents
+\clearpage
+
+\ForceRightPage
+\mainmatter
+
+\input{群表示.tex}
+
+
+\end{document}

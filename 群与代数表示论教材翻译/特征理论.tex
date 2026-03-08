@@ -1,0 +1,634 @@
+\chapter{特征理论}
+
+\section{表示的特征值}
+
+设 \(\mathrm{V}\) 为一具基为 \(\left( {e}_{i}\right)\) 共 \(n\) 个元素的向量空间，且令 \(a\) 为将 \(\mathbf{V}\) 映到其自身的线性映射，其矩阵为 \(\left( {a}_{ij}\right)\) .称 \(a\) 的迹为标量
+
+\[
+\operatorname{Tr}\left( a\right)  = \mathop{\sum }\limits_{i}{a}_{ii}
+\]
+
+它等于 a 的特征值之和(按重数计)，且不依赖于所选基 \(\left( {e}_{i}\right)\) .
+
+现在令 \(\rho  : \mathbf{G} \rightarrow  \mathbf{{GL}}\left( \mathrm{V}\right)\) 为有限群 \(\mathbf{G}\) 在向量空间 \(\mathrm{V}\) 上的线性表示.对每个 \(s \in  \mathrm{G}\) ，设:
+
+\[
+{\chi }_{\rho }\left( s\right)  = \operatorname{Tr}\left( {\rho }_{s}\right) .
+\]
+
+由此得的在 \(\mathrm{G}\) 上的复值函数 \({\chi }_{\rho }\) 称为表示 \(\rho\) 的特征；该函数的重要性主要在于它刻画了表示 \(\rho\) (参见 2.3).
+\begin{proposition}[]
+    若 \(\chi\) 是一表示 \(\rho\) 的特征，且其次数为 \(n\) ，则有:
+
+(i) \(\chi \left( 1\right)  = n\) ,
+
+(ii) 对于 \(s \in  \mathrm{G}\) 有 \(\chi \left( {s}^{-1}\right)  = \chi {\left( s\right) }^{ * }\;\) ，
+
+(iii) 对于 \(s,t \in  \mathrm{G}\) 有 \(\chi \left( {{ts}{t}^{-1}}\right)  = \chi \left( s\right) \;\) .
+
+(若 \(z = x + {iy}\) 是复数，我们用 \({z}^{ * }\) 或 \(\bar{z}\) 表示其共轭 \(x - {iy}\) .)
+\end{proposition}
+
+我们有 \(\rho \left( 1\right)  = 1\) ，且 \(\operatorname{Tr}\left( 1\right)  = n\) 因为 \(\mathrm{V}\) 的维数为 \(n\) ；因此得 (i).
+
+对于(ii)我们注意到 \({\rho }_{s}\) 具有有限阶；因此其特征值 \({\lambda }_{1},\ldots ,{\lambda }_{n}\) 也具有有限阶，故其模均为1(这也可从 \({\rho }_{s}\) 可由酉矩阵给出看出，参见1.3).因此
+
+\[
+\chi {\left( s\right) }^{ * } = \operatorname{Tr}{\left( {\rho }_{s}\right) }^{ * } = \sum {\lambda }_{i}^{ * } = \sum {\lambda }_{i}^{-1} = \operatorname{Tr}\left( {\rho }_{s}^{-1}\right)  = \operatorname{Tr}\left( {\rho }_{{s}^{-1}}\right)  = \chi \left( {s}^{-1}\right) .
+\]
+
+公式(iii)也可写为 \(\chi \left( {vu}\right)  = \chi \left( {uv}\right)\) ，将 \(u = {ts},v = {t}^{-1}\) 代入；因此它可由众所周知的公式推出
+
+\[
+\operatorname{Tr}\left( {ab}\right)  = \operatorname{Tr}\left( {ba}\right)
+\]
+
+该公式对任意两个将 \(\mathbf{V}\) 映入自身的线性映射 \(a\) 和 \(b\) 成立.
+
+注. 在 \(\mathbf{G}\) 上满足恒等式 (iii) 的函数 \(f\) ，或者等价地说 \(f\left( {uv}\right)  = f\left( {vu}\right)\) ，称为类函数.我们将在 2.5 中看到每个类函数都是若干特征的线性组合.
+
+命题2. 设 \({\rho }^{1} : \mathrm{G} \rightarrow  \mathbf{{GL}}\left( {\mathrm{V}}_{1}\right)\) 和 \({\rho }^{2} : \mathrm{G} \rightarrow  \mathbf{{GL}}\left( {\mathrm{V}}_{2}\right)\) 为 \(\mathrm{G}\) 的两个线性表示，令 \({\chi }_{1}\) 和 \({\chi }_{2}\) 为它们的特征.则:
+
+(i) 直和表示 \({\mathrm{V}}_{1} \oplus  {\mathrm{V}}_{2}\) 的特征 \(\chi\) 等于 \({\chi }_{1} + {\chi }_{2}\)
+
+(ii) 张量积表示 \({\mathrm{V}}_{1} \otimes  {\mathrm{V}}_{2}\) 的特征 \(\psi\) 等于 \({\chi }_{1} \cdot  {\chi }_{2}\) .
+
+设 \({\rho }^{1}\) 和 \({\rho }^{2}\) 以矩阵形式给出: \({\mathrm{R}}_{s}^{1},{\mathrm{R}}_{s}^{2}\) .表示 \({\mathrm{V}}_{1} \oplus  {\mathrm{V}}_{2}\) 由下式给出
+
+\[
+{\mathrm{R}}_{s} = \left( \begin{matrix} {\mathrm{R}}_{s}^{1} & 0 \\  0 & {\mathrm{R}}_{s}^{2} \end{matrix}\right)
+\]
+
+从而 \(\operatorname{Tr}\left( {\mathrm{R}}_{s}\right)  = \operatorname{Tr}\left( {\mathrm{R}}_{s}^{1}\right)  + \operatorname{Tr}\left( {\mathrm{R}}_{s}^{2}\right)\) ，即 \(\chi \left( s\right)  = {\chi }_{1}\left( s\right)  + {\chi }_{2}\left( s\right)\) .
+
+我们对(ii)以同样方式处理:按1.5的记法，我们有
+
+\[
+{\chi }_{1}\left( s\right)  = \mathop{\sum }\limits_{{i}_{1}}{r}_{{i}_{1}{i}_{1}}\left( s\right) ,\;{\chi }_{2}\left( s\right)  = \mathop{\sum }\limits_{{i}_{2}}{r}_{{i}_{2}{i}_{2}}\left( s\right) ,
+\]
+
+\[
+\psi \left( s\right)  = \mathop{\sum }\limits_{{{i}_{1},{i}_{2}}}{r}_{{i}_{1}{i}_{1}}\left( s\right) {r}_{{i}_{2}{i}_{2}}\left( s\right)  = {\chi }_{1}\left( s\right)  \cdot  {\chi }_{2}\left( s\right) .
+\]
+
+命题3. 设 \(\rho  : \mathbf{G} \rightarrow  \mathbf{{GL}}\left( \mathrm{V}\right)\) 为 \(\mathbf{G}\) 的线性表示， \(\chi\) 为其特征.令 \({\chi }_{\sigma }^{2}\) 为 \(\mathrm{V}\) 的对称平方 \({\operatorname{Sym}}^{2}\left( \mathrm{V}\right)\) (参见1.5)的特征，令 \({\chi }_{\alpha }^{2}\) 为 \({\operatorname{Alt}}^{2}\left( \mathrm{V}\right)\) 的特征.对每个 \(s \in  \mathrm{G}\) ，有
+
+\[
+{\chi }_{\sigma }^{2}\left( s\right)  = \frac{1}{2}\left( {\chi {\left( s\right) }^{2} + \chi \left( {s}^{2}\right) }\right)
+\]
+
+\[
+{\chi }_{\alpha }^{2}\left( s\right)  = \frac{1}{2}\left( {\chi {\left( s\right) }^{2} - \chi \left( {s}^{2}\right) }\right)
+\]
+
+并且 \({\chi }_{\sigma }^{2} + {\chi }_{\alpha }^{2} = {\chi }^{2}\) .
+
+设 \(s \in  \mathbf{G}\) .可以选取由 \(\left( {e}_{i}\right)\) 的特征向量组成的基 \(\mathbf{V}\) ，例如这是因为 \({\rho }_{s}\) 可由酉矩阵表示，参见 1.3.于是我们有 \({\rho }_{s}{e}_{i} = {\lambda }_{i}{e}_{i}\) 且 \({\lambda }_{i} \in  \mathbb{C}\) ，因此
+
+\[
+\chi \left( s\right)  = \sum {\lambda }_{i},\;\chi \left( {s}^{2}\right)  = \sum {\lambda }_{i}^{2}.
+\]
+
+另一方面，我们有
+
+\[
+\left( {{\rho }_{s} \otimes  {\rho }_{s}}\right) \left( {{e}_{i} \cdot  {e}_{j} + {e}_{j} \cdot  {e}_{i}}\right)  = {\lambda }_{i}{\lambda }_{j} \cdot  \left( {{e}_{i} \cdot  {e}_{j} + {e}_{j} \cdot  {e}_{i}}\right) ,
+\]
+
+\[
+\left( {{\rho }_{s} \otimes  {\rho }_{s}}\right) \left( {{e}_{i} \cdot  {e}_{j} - {e}_{j} \cdot  {e}_{i}}\right)  = {\lambda }_{i}{\lambda }_{j} \cdot  \left( {{e}_{i} \cdot  {e}_{j} - {e}_{j} \cdot  {e}_{i}}\right) ,
+\]
+
+因此
+
+\[
+{\chi }_{\sigma }^{2}\left( s\right)  = \mathop{\sum }\limits_{{i < j}}{\lambda }_{i}{\lambda }_{j} = \sum {\lambda }_{i}^{2} + \mathop{\sum }\limits_{{i < j}}{\lambda }_{i}{\lambda }_{j} = \frac{1}{2}{\left( \sum {\lambda }_{i}\right) }^{2} + \frac{1}{2}\sum {\lambda }_{i}^{2}
+\]
+
+\[
+{\chi }_{\alpha }^{2}\left( s\right)  = \mathop{\sum }\limits_{{i < j}}{\lambda }_{i}{\lambda }_{j} = \frac{1}{2}{\left( \sum {\lambda }_{i}\right) }^{2} - \frac{1}{2}\sum {\lambda }_{i}^{2}.
+\]
+
+命题得证.
+
+(注意等式 \({\chi }_{\sigma }^{2} + {\chi }_{\alpha }^{2} = {\chi }^{2}\) ，它反映了 \(\mathrm{V} \otimes  \mathrm{V}\) 为 \({\operatorname{Sym}}^{2}\left( \mathrm{V}\right)\) 与 \({\operatorname{Alt}}^{2}\left( \mathrm{V}\right)\) 的直和.)
+
+练习
+
+2.1. 设 \(\chi\) 和 \({\chi }^{\prime }\) 是两个表示的特征.证明下列公式:
+
+\[
+{\left( \chi  + {\chi }^{\prime }\right) }_{\sigma }^{2} = {\chi }_{\sigma }^{2} + {\chi }_{\sigma }^{\prime 2} + \chi {\chi }^{\prime }
+\]
+
+\[
+{\left( \chi  + {\chi }^{\prime }\right) }_{\alpha }^{2} = {\chi }_{\alpha }^{2} + {\chi }_{\alpha }^{\prime 2} + \chi {\chi }^{\prime }
+\]
+
+2.2. 设 \(\mathrm{X}\) 为一个有限集合， \(\mathrm{G}\) 在其上作用，令 \(\rho\) 为相应的置换表示［参见 1.2，例(c)］， \({\chi }_{\mathrm{X}}\) 为 \(\rho\) 的特征.设 \(s \in  \mathbf{G}\) ；证明 \({\chi }_{\mathrm{X}}\left( s\right)\) 为被 \(s\) 固定的 \(\mathrm{X}\) 元素个数.
+
+2.3. 设 \(\rho  : G \rightarrow  {GL}\left( V\right)\) 为一线性表示，其特征为 \(\chi\) ，令 \({V}^{\prime }\) 为 \(V\) 的对偶，即 \(V\) 上线性函数的空间.对 \(x \in  V,{x}^{\prime } \in  {V}^{\prime }\) ，记 \(\left\langle  {x,{x}^{\prime }}\right\rangle\) 为线性泛函 \({x}^{\prime }\) 在 \(x\) 处的值.证明存在唯一的线性表示 \({\rho }^{\prime } : \mathrm{G} \rightarrow  \mathrm{{GL}}\left( {\mathrm{V}}^{\prime }\right)\) ，使得
+
+\[
+\left\langle  {{\rho }_{s}x,{\rho }_{s}^{\prime }{x}^{\prime }}\right\rangle   = \left\langle  {x,{x}^{\prime }}\right\rangle  \;\text{ for }s \in  \mathrm{G},x \in  \mathrm{V},{x}^{\prime } \in  {\mathrm{V}}^{\prime }.
+\]
+
+这称为 \(\rho\) 的对偶(或反合同)表示；其特征为 \({\chi }^{ * }\) .
+
+2.4. 设 \({\rho }_{1} : G \rightarrow  \operatorname{GL}\left( {V}_{1}\right)\) 和 \({\rho }_{2} : G \rightarrow  \operatorname{GL}\left( {V}_{2}\right)\) 为两个线性表示，特征分别为 \({\chi }_{1}\) 和 \({\chi }_{2}\) .令 \(W = \operatorname{Hom}\left( {{V}_{1},{V}_{2}}\right)\) 为线性映射空间 \(f : {V}_{1} \rightarrow  {V}_{2}\) .对 \(s \in  G\) 与 \(f \in  W\) 令 \({\rho }_{s}f = {\rho }_{2,s} \circ  f \circ  {\rho }_{1,s}^{-1}\) ，于是 \({\rho }_{s}f \in  \mathbf{W}\) .证明这给出了一个线性表示 \(\rho  : \mathbf{G} \rightarrow  \mathbf{{GL}}\left( \mathbf{W}\right)\) ，且其特征为 \({\chi }_{1}^{ * } \cdot  {\chi }_{2}\) .该表示与 \({\rho }_{1}^{\prime } \otimes  {\rho }_{2}\) 同构，
+
+其中 \({\rho }_{1}^{\prime }\) 为 \({\rho }_{1}\) 的对偶，参见练习 2.3.
+
+\section*{2.2 舒尔引理；基本应用}
+
+命题 4(舒尔引理).设 \({\rho }^{1} : \mathrm{G} \rightarrow  \mathbf{{GL}}\left( {\mathrm{V}}_{1}\right)\) 与 \({\rho }^{2} : \mathrm{G} \rightarrow  \mathbf{{GL}}\left( {\mathrm{V}}_{2}\right)\) 为 \(\mathrm{G}\) 的两个不可约表示，且令 \(f\) 为从 \({\mathrm{V}}_{1}\) 到 \({\mathrm{V}}_{2}\) 的线性映射，满足对所有 \(s \in  \mathrm{G}\) 有 \({\rho }_{s}^{2} \circ  f = f \circ  {\rho }_{s}^{1}\) .则:
+
+(1) 若 \({\rho }^{1}\) 与 \({\rho }^{2}\) 非同构，则有 \(f = 0\) .
+
+(2) 如果 \({\mathbf{V}}_{1} = {\mathbf{V}}_{2}\) 和 \({\rho }^{1} = {\rho }^{2},f\) 是中心相似(即标量乘以恒等映射).
+
+情况 \(f = 0\) 是平凡的.现在假设 \(f \neq  0\) 并令 \({\mathrm{W}}_{1}\) 为其核(即满足 \(x \in  {\mathrm{V}}_{1}\) 的所有 \({fx} = 0\) 的集合).对于 \(x \in  {\mathrm{W}}_{1}\) 我们有 \(f{\rho }_{s}^{1}x = {\rho }_{s}^{2}{fx} \; = 0\) ，于是 \({\rho }_{s}^{1}\chi  \in  {\mathrm{W}}_{1}\) ，且 \({\mathrm{W}}_{1}\) 在 G 下不变.由于 \({\mathrm{V}}_{1}\) 是不可约的， \({W}_{1}\) 等于 \({V}_{1}\) 或 0；第一种情况被排除，因为它蕴含 \(f = 0\) .同样的论证表明映射 \(f\) 的像 \({W}_{2}\) (即满足 \({fx}\) 的 \(x \in  {V}_{1}\) 的集合)等于 \({V}_{2}\) .性质 \({W}_{1} = 0\) 和 \({W}_{2} = {V}_{2}\) 显示 \(f\) 是从 \({V}_{1}\) 到 \({V}_{2}\) 的同构，从而证明了命题 (1).
+
+现在假设 \({V}_{1} = {V}_{2},{\rho }^{1} = {\rho }^{2}\) ，并令 \(\lambda\) 为 \(f\) 的一个特征值:至少存在一个，因为标量域是复数域.设 \({f}^{\prime } = f - \lambda\) .既然 \(\lambda\) 是 \(f\) 的特征值，则算子 \({f}^{\prime }\) 的核为 \(\neq  0\) ；另一方面，我们有 \({\rho }_{s}^{2} \circ  {f}^{\prime } = {f}^{\prime } \circ  {\rho }_{s}^{1}\) .证明的第一部分表明这些性质只可能在 \({f}^{\prime } = 0\) 的情形，即当 \(f\) 等于 \(\lambda\) 时成立.
+
+保留假设 \({V}_{1}\) 和 \({V}_{2}\) 是不可约的，并记 \(\mathbf{G}\) 的阶为 \(g\) .
+
+推论 1. 设 \(h\) 是从 \({\mathrm{V}}_{1}\) 到 \({\mathrm{V}}_{2}\) 的线性映射，并设:
+
+\[
+{h}^{0} = \frac{1}{g}\mathop{\sum }\limits_{{t \in  \mathrm{G}}}{\left( {\rho }_{t}^{2}\right) }^{-1}h{\rho }_{t}^{1}.
+\]
+
+则有:
+
+(1) 若 \({\rho }^{1}\) 和 \({\rho }^{2}\) 不同构，则有 \({h}^{0} = 0\) .
+
+(2) 若 \({\mathrm{V}}_{1} = {\mathrm{V}}_{2}\) 和 \({\rho }^{1} = {\rho }^{2},{h}^{0}\) 是比为 \(\left( {1/n}\right) \operatorname{Tr}\left( h\right)\) 的同构变换，且 \(n = \dim \left( {\mathrm{V}}_{1}\right) .\)
+
+我们有 \({\rho }_{s}^{2}{h}^{0} = {h}^{0}{\rho }_{s}^{1}\) .确实:
+
+\[
+{\left( {\rho }_{s}^{2}\right) }^{-1}{h}^{0}{\rho }_{s}^{1} = \frac{1}{g}\mathop{\sum }\limits_{{t \in  \mathrm{G}}}{\left( {\rho }_{s}^{2}\right) }^{-1}{\left( {\rho }_{t}^{2}\right) }^{-1}h{\rho }_{t}^{1}{\rho }_{s}^{1}
+\]
+
+\[
+= \frac{1}{g}\mathop{\sum }\limits_{{t \in  \mathrm{G}}}{\left( {\rho }_{ts}^{2}\right) }^{-1}h{\rho }_{ts}^{1} = {h}^{0}.
+\]
+
+将命题 4 应用于 \(f = {h}^{0}\) ，我们在情况 (1) 中看到 \({h}^{0} = 0\) ，在情况 (2) 中看到 \({h}^{0}\) 等于某个标量 \(\lambda\) .此外，在后一种情况下，我们有:
+
+\[
+\operatorname{Tr}\left( {h}^{0}\right)  = \frac{1}{g}\mathop{\sum }\limits_{{t \in  \mathrm{G}}}\operatorname{Tr}\left( {{\left( {\rho }_{t}^{1}\right) }^{-1}h{\rho }_{t}^{1}}\right)  = \operatorname{Tr}\left( h\right)
+\]
+
+并且由于 \(\operatorname{Tr}\left( \lambda \right)  = n \cdot  \lambda\) ，我们得到 \(\lambda  = \left( {1/n}\right) \operatorname{Tr}\left( h\right)\) .
+
+现在我们在假设 \({\rho }^{1}\) 与 \({\rho }^{2}\) 以矩阵形式给定的情况下重写推论 1:
+
+\[
+{\rho }_{t}^{1} = \left( {{r}_{{i}_{1}{j}_{1}}\left( t\right) }\right) ,{\rho }_{t}^{2} = \left( {{r}_{{i}_{2}{j}_{2}}\left( t\right) }\right) .
+\]
+
+线性映射 \(h\) 由矩阵 \(\left( {x}_{{i}_{2}{i}_{1}}\right)\) 定义，同样 \({h}^{0}\) 由 \(\left( {x}_{{i}_{2}{i}_{1}}^{0}\right)\) 定义.由 \({h}^{0}\) 的定义我们有:
+
+\[
+{x}_{{i}_{2}{i}_{1}}^{0} = \frac{1}{g}\mathop{\sum }\limits_{{t,{j}_{1},{j}_{2}}}{r}_{{i}_{2}{j}_{2}}\left( {t}^{-1}\right) {x}_{{j}_{2}{j}_{1}}{r}_{{j}_{1}{i}_{1}}\left( t\right) .
+\]
+
+右边对于 \({x}_{{j}_{2}{j}_{1}}\) 是一个线性型；在情况 (1) 中，该型对所有 \({x}_{{j}_{2}{j}_{1}}\) 的取值系统都为零；因此其系数为零.由此得:
+
+推论 2. 在情况 (1) 中，我们有:
+
+\[
+\frac{1}{g}\mathop{\sum }\limits_{{t \in  \mathrm{G}}}{r}_{{i}_{2}{j}_{2}}\left( {t}^{-1}\right) {r}_{{j}_{1}{i}_{1}}\left( t\right)  = 0
+\]
+
+对任意 \({i}_{1},{i}_{2},{j}_{1},{j}_{2}\) .
+
+在情况 (2) 中我们类似地有 \({h}^{0} = \lambda\) ，即 \({x}_{{i}_{2}{i}_{1}}^{0} = \lambda {\delta }_{{i}_{2}{i}_{1}}\left( {\delta }_{{i}_{2}{i}_{1}}\right.\) 表示Kronecker符号(当 \({i}_{1} = {i}_{2}\) 时等于 1，否则为 0)，并且有 \(\lambda  = \left( {1/n}\right) \operatorname{Tr}\left( h\right)\) ，也就是 \(\lambda  = \left( {1/n}\right) \sum {\delta }_{{j}_{2}{j}_{1}}{\chi }_{{j}_{2}{j}_{1}}\) .因此有等式:
+
+\[
+\frac{1}{g}\mathop{\sum }\limits_{{t,{j}_{1},{j}_{2}}}{r}_{{i}_{2}{j}_{2}}\left( {t}^{-1}\right) {x}_{{j}_{2}{j}_{1}}{r}_{{j}_{1}{i}_{1}}\left( t\right)  = \frac{1}{n}\mathop{\sum }\limits_{{{j}_{1},{j}_{2}}}{\delta }_{{i}_{2}{i}_{1}}{\delta }_{{j}_{2}{j}_{1}}{x}_{{j}_{2}{j}_{1}}.
+\]
+
+比较 \({x}_{{j}_{2}{j}_{1}}\) 的系数，我们如上得到:
+
+推论 3. 在情况 (2) 中我们有:
+
+\[
+\frac{1}{g}\mathop{\sum }\limits_{{t \in  \mathrm{G}}}{r}_{{i}_{2}{j}_{2}}\left( {t}^{-1}\right) {r}_{{j}_{1}{i}_{1}}\left( t\right)  = \frac{1}{n}{\delta }_{{i}_{2}{i}_{1}}{\delta }_{{j}_{2}{j}_{1}} = \left\{  \begin{array}{ll} 1/n & \text{ if }{i}_{1} = {i}_{2}\text{ and }{j}_{1} = {j}_{2} \\  0 & \text{ otherwise } \end{array}\right.
+\]
+
+注
+
+(1) 若 \(\phi\) 与 \(\psi\) 是作用在 \(G\) 上的函数，设
+
+\[
+\langle \phi ,\psi \rangle  = \frac{1}{g}\mathop{\sum }\limits_{{t \in  \mathrm{G}}}\phi \left( {t}^{-1}\right) \psi \left( t\right)  = \frac{1}{g}\mathop{\sum }\limits_{{t \in  \mathrm{G}}}\phi \left( t\right) \psi \left( {t}^{-1}\right) .
+\]
+
+我们有 \(\langle \phi ,\psi \rangle  = \langle \psi ,\phi \rangle\) .此外 \(\langle \phi ,\psi \rangle\) 在 \(\phi\) 与 \(\psi\) 上是线性的.用此记法，推论 2 与 3 分别变为
+
+\[
+\left\langle  {{r}_{{i}_{2}{j}_{2}},{r}_{{j}_{1}{i}_{1}}}\right\rangle   = 0\;\text{ and }\;\left\langle  {{r}_{{i}_{2}{j}_{2}},{r}_{{j}_{1}{i}_{1}}}\right\rangle   = \frac{1}{n}{\delta }_{{i}_{2}{i}_{1}}{\delta }_{{j}_{2}{j}_{1}}.
+\]
+
+(2) 设矩阵 \(\left( {{r}_{ij}\left( t\right) }\right)\) 为酉矩阵(可通过适当选取基实现，参见 1.3).此时我们有 \({r}_{ij}\left( {t}^{-1}\right)  = {r}_{ji}{\left( t\right) }^{ * }\) ，且推论 2 与 3 就是下一节所定义的标量积 \(\left( {\phi  \mid  \psi }\right)\) 的正交关系.
+
+\section*{2.3 特征的正交关系}
+
+先给出一个记号.若 \(\phi\) 与 \(\chi\) 是群 G 上的两个复值函数，令
+
+\[
+\left( {\phi  \mid  \psi }\right)  = \frac{1}{g}\mathop{\sum }\limits_{{t \in  \mathrm{G}}}\phi \left( t\right) \psi {\left( t\right) }^{ * },\;g\text{ being the order of }\mathrm{G}.
+\]
+
+这是一个标量积:对 \(\phi\) 是线性的，对 \(\psi\) 是半线性的，并且对所有 \(\phi  \neq  0\) 我们有 \(\left( {\phi  \mid  \phi }\right)  > 0\) .
+
+如果 \(\check{\psi }\) 是由公式 \(\check{\psi }\left( t\right)  = \psi {\left( {t}^{-1}\right) }^{ * }\) 定义的函数，我们有
+
+\[
+\left( {\phi  \mid  \psi }\right)  = \frac{1}{g}\mathop{\sum }\limits_{{t \in  \mathrm{G}}}\phi \left( t\right) \check{\psi }\left( {t}^{-1}\right)  = \langle \phi ,\check{\psi }\rangle ,
+\]
+
+参见 2.2，注 1.特别地，若 \(\chi\) 是 G 的表示的迹字符，则我们有 \(\dot{\chi } = \chi\) (命题 1)，因此对 G 上任意函数 \(\phi\) 有 \(\left( {\phi  \mid  \chi }\right)  = \langle \phi ,\chi \rangle\) .因此只要关心迹字符，就可以随意使用 \(\left( {\phi  \mid  \chi }\right)\) 或 \(\langle \phi ,\chi \rangle\) .
+
+\section*{定理 3}
+
+(i) 若 \(\chi\) 是不可约表示的迹字符，则有 \(\left( {\chi  \mid  \chi }\right)  = 1\) (即 \(\chi\) “范数为 1”).
+
+ii) 若 \(\chi\) 与 \({\chi }^{\prime }\) 是两个互非同构的不可约表示的迹字符，则有 \(\left( {\chi  \mid  {\chi }^{\prime }}\right)  = 0\) (即 \(\chi\) 与 \({\chi }^{\prime }\) 正交).
+
+设 \(\rho\) 为一个不可约表示，迹字符为 \(\chi\) ，以矩阵形式表示为 \({\rho }_{t} = \left( {{r}_{ij}\left( t\right) }\right)\) .我们有 \(\chi \left( t\right)  = \sum {r}_{ii}\left( t\right)\) ，因此
+
+\[
+\left( {\chi  \mid  \chi }\right)  = \langle \chi ,\chi \rangle  = \mathop{\sum }\limits_{{i,j}}\left\langle  {{r}_{ii},{r}_{jj}}\right\rangle  .
+\]
+
+但根据命题 4 的推论 3，我们有 \(\left\langle  {{r}_{ii},{r}_{jj}}\right\rangle   = {\delta }_{ij}/n\) ，其中 \(n\) 为 \(\rho\) 的次数.因此
+
+\[
+\left( {\chi  \mid  \chi }\right)  = \left( {\mathop{\sum }\limits_{{i,j}}{\delta }_{ij}}\right) /n = n/n = 1
+\]
+
+因为指标 \(i,j\) 各自取 \(n\) 个值.(ii) 的证明相同，改用推论 2 代替推论 3.
+
+备注.不可约表示的迹字符称为不可约迹字符.定理 3 表明不可约迹字符构成一组正交归一系统；这个结果将在后文补全(2.5，定理 6).
+
+定理 4.设 \(\mathrm{V}\) 为群 \(\mathrm{G}\) 的线性表示，迹字符为 \(\phi\) ，并假定 \(\mathrm{V}\) 分解为若干不可约表示的直和:
+
+\[
+\mathrm{V} = {\mathrm{W}}_{1} \oplus  \cdots  \oplus  {\mathrm{W}}_{k}.
+\]
+
+那么，若 \(\mathrm{W}\) 为迹字符为 \(\chi\) 的不可约表示，和 \({\mathrm{W}}_{i}\) 同构的个数等于标量积 \(\left( {\phi  \mid  \chi }\right)  = \langle \phi ,\chi \rangle\) .
+
+设 \({\chi }_{i}\) 为 \({\mathrm{W}}_{i}\) 的迹字符.由命题 2，我们有
+
+\[
+\phi  = {\chi }_{1} + \cdots  + {\chi }_{k}
+\]
+
+因此 \(\left( {\phi  \mid  \chi }\right)  = \left( {{\chi }_{1} \mid  \chi }\right)  + \cdots  + \left( {{\chi }_{k} \mid  \chi }\right)\) .但根据前述定理， \(\left( {{\chi }_{i} \mid  \chi }\right)\) 等于 1 或 0，取决于 \({\mathrm{W}}_{i}\) 是否与 W 同构.结论随之成立.
+
+推论 1.与 \(\mathrm{W}\) 同构的 \({\mathrm{W}}_{i}\) 的个数不依赖于所选的分解.
+
+(该数称为“W 在 V 中出现的次数”或“W 被包含在 V 中的次数”.)
+
+确实， \(\left( {\phi  \mid  \chi }\right)\) 不依赖于分解.
+
+备注.正是在这个意义上可以说表示分解为不可约表示时具有唯一性.我们将在2.6节回到此处.
+
+推论2. 具有相同特征的两个表示是同构的.
+
+事实上，推论1表明它们对每一个给定的不可约表示包含相同次数.
+
+上述结果将表示的研究归结为其特征的研究.若 \({\chi }_{1},\ldots ,{\chi }_{h}\) 为 \(G\) 的不同不可约特征，且 \({\mathrm{W}}_{1},\ldots ,{\mathrm{W}}_{k}\) 表示对应的表示，则每个表示 \(\mathrm{V}\) 同构于直和
+
+\[
+\mathrm{V} = {m}_{1}{\mathrm{\;W}}_{1} \oplus  \cdots  \oplus  {m}_{h}{\mathrm{\;W}}_{h}\;{m}_{i}\text{ integers } \neq  0.
+\]
+
+\(\mathrm{V}\) 的特征 \(\phi\) 等于 \({m}_{1}{\chi }_{1} + \cdots  + {m}_{h}{\chi }_{h}\) ，并且我们有 \({m}_{i} = \left( {\phi  \mid  {\chi }_{i}}\right)\) .[这对两个不可约表示的张量积 \({\mathrm{W}}_{i} \otimes  {\mathrm{W}}_{j}\) 尤为适用，并表明乘积 \({\chi }_{i} \cdot  {\chi }_{i}\) 分解为 \({\chi }_{i}{\chi }_{j} = \sum {m}_{ij}^{k}{\chi }_{k}\) ，其中 \({m}_{ij}^{k}\) 为整数 \(\geq  0\) .] \({\chi }_{i}\) 之间的正交关系还意味着:
+
+\[
+\left( {\phi  \mid  \phi }\right)  = \mathop{\sum }\limits_{{i = 1}}^{{i = h}}{m}_{i}^{2}
+\]
+
+因此:
+
+定理5. 若 \(\phi\) 是表示的特征， \(\mathrm{V},\left( {\phi  \mid  \phi }\right)\) 为正整数，并且我们有 \(\left( {\phi  \mid  \phi }\right)  = 1\) 当且仅当 \(\mathrm{V}\) 是不可约的.
+
+确实，只有当某一 \({m}_{i}\) 等于1而其余等于0时， \(\sum {m}_{i}^{2}\) 才等于1，即当 \(\mathbf{V}\) 同构于某一 \({\mathbf{W}}_{i}\) 时.
+
+由此得到一个非常方便的不可约性判据.
+
+\section*{练习}
+
+2.5. 设 \(\rho\) 为特征为 \(\chi\) 的线性表示.证明 \(\rho\) 包含单位表示的次数等于 \(\left( {\chi  \mid  1}\right) \; = \left( {1/g}\right) \mathop{\sum }\limits_{{s \in  \mathrm{G}}}\chi \left( s\right)\) .
+
+2.6. 设 \(\mathrm{X}\) 为有限集， \(\mathrm{G}\) 在其上作用， \(\rho\) 为相应的置换表示(1.2)， \(\chi\) 为其特征.
+
+(a) 元素 \(x \in  \mathbf{X}\) 在 \(\mathbf{G}\) 下的像的集合 \(\mathbf{G}x\) 称为一个轨道.设不同轨道的数目为 \(c\) .证明 \(c\) 等于 \(\rho\) 中包含平凡表示 1 的次数；由此推出 \(\left( {\chi  \mid  1}\right)  = c\) .特别地，如果 \(G\) 是传递的(即如果 \(c = 1\) )，则 \(\rho\) 可以分解为 \(1 \oplus  \theta\) ，且 \(\theta\) 不包含平凡表示.如果 \(\psi\) 是 \(\theta\) 的特征，则有 \(\chi  = 1 + \psi\) 和 \(\left( {\psi  \mid  1}\right)  = 0\) .
+
+(b) 令 \(G\) 通过公式 \(s\left( {x,y}\right)  = \left( {{sx},{sy}}\right)\) 在 \(X\) 的积 \(X \times  X\) 上以自身作用.证明相应置换表示的迹为 \({\chi }^{2}\) .
+
+(c) 假设 \(\mathbf{G}\) 在 \(\mathbf{X}\) 上传递，且 \(\mathbf{X}\) 至少有两个元素.若对任意满足 \(x \neq  y\) 和 \({x}^{\prime } \neq  {y}^{\prime }\) 的 \(x,y,{x}^{\prime },{y}^{\prime } \in  \mathrm{X}\) ，存在 \(s \in  \mathrm{G}\) 使得 \({x}^{\prime } = {sx}\) 与 \({y}^{\prime } = {sy}\) 成立，则称 \(\mathbf{G}\) 为双传递.证明下列性质等价:
+
+(i) \(G\) 为双传递.
+
+(ii) \(G\) 在 \(X \times  X\) 上的作用有两个轨道，即对角线及其补集.
+
+(iii) \(\left( {{\chi }^{2} \mid  1}\right)  = 2\) .
+
+(iv) 在 (a) 中定义的表示 \(\theta\) 是不可约的.
+
+[等价 (i) \(\Leftrightarrow\) (ii) 显然；(ii) \(\Leftrightarrow\) (iii) 从 (a) 与 (b) 推出.若 \(\psi\) 是 \(\theta\) 的迹，则有 \(1 + \psi  = \chi\) 与 \(\left( {1 \mid  1}\right)  = 1,\left( {\psi  \mid  1}\right)  = 0\) ，由此可见 (iii) 等价于 \(\left( {{\psi }^{2} \mid  1}\right)  = 1\) ，即等价于 \(\left( {1/g}\right) \mathop{\sum }\limits_{{s \in  \mathrm{G}}}\psi {\left( s\right) }^{2} = 1\) ；由于 \(\psi\) 为实值，这确实意味着 \(\theta\) 不可约，参见定理 5.]
+
+\section*{2.4 正则表示的分解}
+
+记号.于第 2 章余下部分，G 的不可约特征记为 \({\chi }_{1},\ldots ,{\chi }_{h}\) ；其次数记为 \({n}_{1},\ldots ,{n}_{k}\) ；我们有 \({n}_{i} \; = {\chi }_{i}\left( 1\right)\) ，参见命题 1.
+
+设 \(\mathrm{R}\) 为 \(\mathrm{G}\) 的正则表示.回想(参见 1.2)它有一组基 \({\left( {e}_{t}\right) }_{t \in  \mathrm{G}}\) 使得 \({\rho }_{s}{e}_{t} = {e}_{st}\) .若 \(s \neq  1\) ，则对所有 \(t\) 有 \({st} \neq  t\) ，这表明 \({\rho }_{s}\) 的矩阵的对角项为零；特别地我们有 \(\operatorname{Tr}\left( {\rho }_{s}\right)  = 0\) .另一方面，对 \(s = 1\) ，我们有
+
+\[
+\operatorname{Tr}\left( {\rho }_{s}\right)  = \operatorname{Tr}\left( 1\right)  = \dim \left( \mathrm{R}\right)  = g.
+\]
+
+因此:
+
+命题 5. 正则表示的特征 \({r}_{\mathrm{G}}\) 由下列公式给出:
+
+\[
+{r}_{\mathrm{G}}\left( 1\right)  = g,\;\text{ order of }\mathrm{G},
+\]
+
+\[
+{r}_{\mathrm{G}}\left( s\right)  = 0\;\text{ if }s \neq  1.
+\]
+
+推论 1. 每个不可约表示 \({\mathbf{W}}_{i}\) 都包含在正则表示中，其重数等于其次数 \({n}_{i}\) .
+
+根据定理 4，此数等于 \(\left\langle  {{r}_{\mathrm{G}},{\chi }_{i}}\right\rangle\) ，并且我们有
+
+\[
+\left\langle  {{r}_{\mathrm{G}},{\chi }_{i}}\right\rangle   = \frac{1}{g}\mathop{\sum }\limits_{{s \in  \mathrm{G}}}{r}_{\mathrm{G}}\left( {s}^{-1}\right) {\chi }_{i}\left( s\right)  = \frac{1}{g}g \cdot  {\chi }_{i}\left( 1\right)  = {\chi }_{i}\left( 1\right)  = {n}_{i}.
+\]
+
+推论 2.
+
+(a) 次数 \({n}_{i}\) 满足关系式 \(\mathop{\sum }\limits_{{i = 1}}^{{i = h}}{n}_{i}^{2} = g\) .
+
+(b) 若 \(s \in  \mathbf{G}\) 不等于 1，则有 \(\mathop{\sum }\limits_{{i = 1}}^{{i = h}}{n}_{i}{\chi }_{i}\left( s\right)  = 0\) .
+
+由推论 1，可得对所有 \(s \in  \mathrm{G}\) 都有 \({r}_{\mathrm{G}}\left( s\right)  = \sum {n}_{i}{\chi }_{i}\left( s\right)\) .取 \(s = 1\) 得到 (a)，取 \(s \neq  1\) 得到 (b).
+
+\section*{备注}
+
+(1) 上述结果可用于确定群 G 的不可约表示:设已构造出若干两两非同构的不可约表示，其次数为 \({n}_{1},\ldots ,{n}_{k}\) ；要使它们成为 \(G\) 的所有不可约表示(同构意义下)，充要条件是 \({n}_{1}^{2} + \cdots  + {n}_{k}^{2} = g\) .
+
+(2) 我们将在后文(第二部分 6.5)看到次数 \({n}_{i}\) 的另一条性质:它们整除 \(g\) 的阶数 \(\mathrm{G}\) .
+
+\section*{练习}
+
+2.7. 证明:若一切在所有 \(s \neq  1\) 上为零的 \(G\) 的特征，是正规表示的特征 \({r}_{\mathrm{G}}\) 的整数倍.
+
+\section*{2.5 不可约表示的个数}
+
+回忆(参见 2.1):若对所有 \(s,t \in  \mathrm{G}.\) 有 \(f\left( {{ts}{t}^{-1}}\right)  = f\left( s\right)\) ，则定义在 \(\mathbf{G}\) 上的函数 \(f\) 称为类函数.
+
+命题 6. 令 \(f\) 为定义在 \(\mathbf{G}\) 上的类函数，令 \(\rho  : \mathbf{G} \rightarrow  \mathbf{{GL}}\left( \mathbf{V}\right)\) 为 \(\mathbf{G}\) 的一个线性表示.令 \({\rho }_{f}\) 为将 \(\mathbf{V}\) 映到自身的线性映射，定义如下:
+
+\[
+{\rho }_{f} = \mathop{\sum }\limits_{{t \in  \mathrm{G}}}f\left( t\right) {\rho }_{t}
+\]
+
+若 \(\mathrm{V}\) 为次数为 \(n\) 、特征为 \(\chi\) 的不可约表示，则 \({\rho }_{f}\) 为比率为 \(\lambda\) 的相似变换，其给出为:
+
+\[
+\lambda  = \frac{1}{n}\mathop{\sum }\limits_{{t \in  \mathrm{G}}}f\left( t\right) \chi \left( t\right)  = \frac{g}{n}\left( {f \mid  {\chi }^{ * }}\right) .
+\]
+
+让我们计算 \({\rho }_{s}^{-1}{\rho }_{f}{\rho }_{s}\) .我们有:
+
+\[
+{\rho }_{s}^{-1}{\rho }_{f}{\rho }_{s} = \mathop{\sum }\limits_{{t \in  \mathrm{G}}}f\left( t\right) {\rho }_{s}^{-1}{\rho }_{t}{\rho }_{s} = \mathop{\sum }\limits_{{t \in  \mathrm{G}}}f\left( t\right) {\rho }_{{s}^{-1}{ts}}.
+\]
+
+取 \(u = {s}^{-1}{ts}\) 后，变为:
+
+\[
+{\rho }_{s}^{-1}{\rho }_{f}{\rho }_{s} = \mathop{\sum }\limits_{{u \in  \mathrm{G}}}f\left( {{su}{s}^{-1}}\right) {\rho }_{u} = \mathop{\sum }\limits_{{u \in  \mathrm{G}}}f\left( u\right) {\rho }_{u} = {\rho }_{f}.
+\]
+
+于是我们有 \({\rho }_{f}{\rho }_{s} = {\rho }_{s}{\rho }_{f}\) .由命题 4 的第二部分，这表明 \({\rho }_{f}\) 为一个比率为 \(\lambda\) 的相似变换. \(\lambda\) 的迹为 \({n\lambda }\) ； \({\rho }_{f}\) 的迹为 \(\mathop{\sum }\limits_{{t \in  \mathrm{G}}}f\left( t\right) \operatorname{Tr}\left( {\rho }_{t}\right) \; = \mathop{\sum }\limits_{{t \in  \mathrm{G}}}f\left( t\right) \chi \left( t\right)\) .因此 \(\lambda  = \left( {1/n}\right) \mathop{\sum }\limits_{{t \in  \mathrm{G}}}f\left( t\right) \chi \left( t\right)  = \left( {g/n}\right) \left( {f \mid  {\chi }^{ * }}\right)\) .
+
+我们现在引入类函数空间 \(H\) 在 \(G\) 上；不可约特征 \({\chi }_{1},\ldots ,{\chi }_{h}\) 属于 \(H\) .
+
+定理 6.字符 \({\chi }_{1},\ldots ,{\chi }_{h}\) 构成 \(\mathrm{H}\) 的一组正交归一基.
+
+定理3表明 \({\chi }_{i}\) 在 \(\mathrm{H}\) 中构成一组正交归一系.还需证明它们生成 \(\mathrm{H}\) ，为此只需说明每个与 \({\chi }_{i}^{ * }\) 正交的 \(\mathrm{H}\) 中的元素为零.设 \(f\) 为此类元素.对 \(G\) 的任一表示 \(\rho\) ，置 \({\rho }_{f} = \mathop{\sum }\limits_{{t \in  G}}f\left( t\right) {\rho }_{t}\) .由于 \(f\) 与 \({\chi }_{i}^{ * }\) 正交，上述命题6表明只要 \(\rho\) 不可约， \({\rho }_{f}\) 即为零；由直和分解我们得出 \({\rho }_{f}\) 始终为零.将此结论应用于正则表示R(参见2.4)并计算基向量 \({e}_{1}\) 在 \({\rho }_{f}\) 下的像，得
+
+\[
+{\rho }_{f}{e}_{1} = \mathop{\sum }\limits_{{t \in  \mathrm{G}}}f\left( t\right) {\rho }_{t}{e}_{1} = \mathop{\sum }\limits_{{t \in  \mathrm{G}}}f\left( t\right) {e}_{t}.
+\]
+
+由于 \({\rho }_{f}\) 为零，我们有 \({\rho }_{f}{e}_{1} = 0\) ，且上述公式表明对任意 \(t \in  \mathrm{G}\) 都有 \(f\left( t\right)  = 0\) ；因此 \(f = 0\) ，证明完毕.
+
+回想两元素 \(t\) 与 \({t}^{\prime }\) 属于 \(\mathrm{G}\) 若存在 \(s \in  \mathrm{G}\) 使得 \({t}^{\prime } = {st}{s}^{-1}\) ，则称其互为共轭；这是一种等价关系，将 \(\mathbf{G}\) 划分为若干类(亦称共轭类).
+
+定理7. \(\mathbf{G}\) 的不既约表示(到同构)数等于 \(\mathbf{G}\) 的共轭类数.
+
+设 \({C}_{1},\ldots ,{C}_{k}\) 为G的不重复类.说函数 \(f\) 在G上是类函数等价于说它在每个 \({\mathbb{C}}_{1},\ldots ,{\mathbb{C}}_{k}\) 上为常值；因此它由在 \({\mathbb{C}}_{i}\) 上的取值 \({\lambda }_{i}\) 决定，且这些取值可任意选择.于是类函数空间H的维数等于 \(k\) .另一方面，按定理6，该维数等于 \(G\) 的不既约表示(到同构)的数.由此得证.
+
+以下是定理6的另一个推论:
+
+命题7. 设 \(s \in  \mathrm{G}\) ，并设 \(c\left( s\right)\) 为 \(s\) 的共轭类中元素的个数.
+
+(a) 我们有 \(\mathop{\sum }\limits_{{i = 1}}^{{i = h}}{\chi }_{i}{\left( s\right) }^{ * }{\chi }_{i}\left( s\right)  = g/c\left( s\right)\) .
+
+(b) 若 \(t \in  \mathrm{G}\) 不与 \(s\) 共轭，则有 \(\mathop{\sum }\limits_{{i = 1}}^{{i = h}}{\chi }_{i}{\left( s\right) }^{ * }{\chi }_{i}\left( t\right)  = 0\) .(对 \(s = 1\) 而言，此得出命题5的系论2.)
+
+令 \({f}_{s}\) 为在 \(s\) 的类上取1、其余处取0的函数.由于它是类函数，按定理6可写成
+
+\[
+{f}_{s} = \mathop{\sum }\limits_{{i = 1}}^{{i = h}}{\lambda }_{i}{\chi }_{i},\;\text{ with }{\lambda }_{i} = \left( {{f}_{s} \mid  {\chi }_{i}}\right)  = \frac{c\left( s\right) }{g}{\chi }_{i}{\left( s\right) }^{ * }.
+\]
+
+于是对每个 \(t \in  \mathrm{G}\) ，我们有
+
+\[
+{f}_{s}\left( t\right)  = \frac{c\left( s\right) }{g}\mathop{\sum }\limits_{{i = 1}}^{{i = h}}{\chi }_{i}{\left( s\right) }^{ * }{\chi }_{i}\left( t\right) .
+\]
+
+若 \(t = s\) ，则得出(a)；若 \(t\) 不与 \(s\) 共轭，则得出(b).
+
+例.取 \(\mathrm{G}\) 为三字母置换群.我们有 \(g = 6\) ，且有三个共轭类:恒等元 1、三个互换和两个循环置换.令 \(t\) 为一个互换， \(c\) 为一个循环置换.我们有 \({t}^{2} = 1,{c}^{3} = 1,{tc} = {c}^{2}t\) ；因此仅有两个一次度的特征:单位特征 \({\chi }_{1}\) 和给出置换符号的特征 \({\chi }_{2}\) .定理 7 表明还存在另一个不可约特征 \(\theta\) ；若 \(n\) 为其次数，必有 \(1 + 1 + {n}^{2} = 6\) ，因此 \(n = 2\) .由 \({\chi }_{1} + {\chi }_{2} \; + {2\theta }\) 是 \(G\) 的正则表示的特征(参见命题 5)可推得 \(\theta\) 的取值.由此得到 \(G\) 的特征表:
+
+\begin{center}
+\adjustbox{width=1\textwidth}{
+\begin{tabular}{|c|c|c|c|}
+\hline
+\phantom{X} & 1 & \(t\) & \(c\) \\
+\cline{1-4}
+\({\chi}_{1}\) & 1 & 1 & 1 \\
+\cline{1-4}
+\({\chi}_{2}\) & 1 & -1 & 1 \\
+\cline{1-4}
+\(\theta\) & 2 & 0 & -1 \\
+\cline{1-4}
+\hline
+\end{tabular}
+}
+\end{center}
+
+我们通过让 \(\mathbf{G}\) 对满足方程 \(x + y \; + z = 0\) 的 \({\mathbb{C}}^{3}\) 的坐标进行置换来得到一个特征为 \(\theta\) 的不可约表示(参见例 2.6c)).
+
+\section{表示的规范分解}
+
+设 \(\rho  : G \rightarrow  {GL}\left( V\right)\) 为群 \(G\) 的线性表示.我们将定义 \(V\) 的一个比不可约表示分解“更粗”的直和分解，但该分解的优点是唯一.其构造如下:
+
+设 \({\chi }_{1},\ldots ,{\chi }_{h}\) 为 \(\mathrm{G}\) 的不可约表示 \({\mathrm{W}}_{1},\ldots ,{\mathrm{W}}_{h}\) 的不同特征标， \({n}_{1},\ldots ,{n}_{h}\) 为它们的次数.设 \(\mathrm{V} = {\mathrm{U}}_{1} \oplus  \cdots \; \oplus  {\mathrm{U}}_{m}\) 是 \(\mathrm{V}\) 分解为不可约表示的直和.对于 \(i = 1,\ldots ,h\) ，用 \({\mathrm{V}}_{i}\) 表示那些与 \({\mathrm{W}}_{i}\) 同构的 \({\mathrm{U}}_{1},\ldots ,{\mathrm{U}}_{m}\) 的直和.显然，我们有:
+
+\[
+\mathrm{V} = {\mathrm{V}}_{1} \oplus  \cdots  \oplus  {\mathrm{V}}_{h}
+\]
+
+(换言之，我们已将 V 分解为不可约表示的直和，并把同构的表示合并在一起.)
+
+这就是我们所说的规范分解.其性质如下:
+
+\begin{theorem}[]
+    (i) 分解 \(\mathrm{V} = {\mathrm{V}}_{1} \oplus  \cdots  \oplus  {\mathrm{V}}_{h}\) 不依赖于最初选定的将 \(\mathrm{V}\) 分解成不可约表示的方式.
+
+(ii) 与该分解相关的将 \(\mathbf{V}\) 投影到 \({\mathbf{V}}_{i}\) 的投影算子 \({p}_{i}\) 由下式给出:
+
+\[
+{p}_{i} = \frac{{n}_{i}}{g}\mathop{\sum }\limits_{{t \in  \mathrm{G}}}{\chi }_{i}{\left( t\right) }^{ * }{\rho }_{t}.
+\]
+\end{theorem}
+
+
+
+我们证明 (ii).断言 (i) 将随之成立，因为投影 \({p}_{i}\) 决定了 \({\mathrm{V}}_{i}\) .记
+
+\[
+{q}_{i} = \frac{{n}_{i}}{g}\mathop{\sum }\limits_{{t \in  \mathrm{G}}}{\chi }_{i}{\left( t\right) }^{ * }{\rho }_{t}.
+\]
+
+命题 6 表明，将 \({q}_{i}\) 限制到具有特征 \(\chi\) 且次数为 \(n\) 的不可约表示 \(W\) 上是比率为 \(\left( {{n}_{i}/n}\right) \left( {{\chi }_{i} \mid  \chi }\right)\) 的同比变换；因此当 \(\chi  \neq  {\chi }_{i}\) 时它为 0，当 \(\chi  = {\chi }_{i}\) 时它为 1.换言之， \({q}_{i}\) 在与 \({\mathbf{W}}_{i}\) 同构的不可约表示上是恒等，而在其他表示上为零.根据对 \({\mathbf{V}}_{i}\) 的定义，得出 \({q}_{i}\) 在 \({\mathbf{V}}_{i}\) 上是恒等，在 \({\mathbf{V}}_{j}\) 上为 0(对于 \(j \neq  i\) ).若将元素 \(\chi  \in  \mathbf{V}\) 分解为其分量 \({x}_{i} \in  {\mathrm{V}}_{i}\) :
+
+\[
+x = {x}_{1} + \cdots  + {x}_{h}
+\]
+
+于是我们有 \({q}_{i}\left( x\right)  = {q}_{i}\left( {x}_{1}\right)  + \cdots  + {q}_{i}\left( {x}_{h}\right)  = {x}_{i}\) .这意味着 \({q}_{i}\) 等于将 \(\mathrm{V}\) 投影到 \({\mathrm{V}}_{i}\) 的投影 \({p}_{i}\) .
+
+因此，一个表示的分解 \(\mathrm{V}\) 可以分两步完成.先确定典范分解 \({\mathrm{V}}_{1} \oplus  \cdots  \oplus  {\mathrm{V}}_{n}\) ；这可以用给出投影的公式 \({p}_{i}\) 轻易完成.接着，如有需要，选择将 \({V}_{i}\) 分解为若干个各同构于 \({\mathrm{W}}_{i}\) 的不可约表示的直和:
+
+\[
+{\mathbf{V}}_{i} = {\mathbf{W}}_{i} \oplus  \cdots  \oplus  {\mathbf{W}}_{i}.
+\]
+
+最后这一步分解通常有无穷多种方式可选(参见 2.7 节及下文例 2.8)；其随意性如同在向量空间中选取基.
+
+例.取 \(G\) 为两个元素的群 \(\{ 1,s\}\) 且具有 \({s}^{2} = 1\) .该群有两个度为 \(1,{\mathrm{\;W}}^{ + }\) 与 \({\mathrm{W}}^{ - }\) 的不可约表示，分别对应于 \({\rho }_{s} =  + 1\) 与 \({\rho }_{s} =  - 1\) .表示 \(V\) 的典范分解为 \(V = {V}^{ + } \oplus  {V}^{ - }\) ，其中 \({V}^{ + }\) (分别 \({V}^{ - }\) )由对称(分别反对称)元素 \(x \in  V\) 组成，即满足 \({\rho }_{s}x = x\) (分别 \({\rho }_{s}x =  - x\) ).相应的投影为:
+
+\[
+{p}^{ + }x = \frac{1}{2}\left( {x + {\rho }_{s}x}\right) ,\;{p}^{ - }x = \frac{1}{2}\left( {x - {\rho }_{s}x}\right) .
+\]
+
+将 \({\mathrm{V}}^{ + }\) 和 \({\mathrm{V}}^{ - }\) 分解为不可约分量，仅仅意味着把这些空间分解成若干直和的直线.
+
+\section*{习题}
+
+2.8. 设 \({\mathrm{H}}_{i}\) 为线性映射空间 \(h : {\mathrm{W}}_{i} \rightarrow  \mathrm{V}\) ，满足对所有 \(s \in  \mathbf{G}\) 有 \({\rho }_{s}h = h{\rho }_{s}\) .每个 \(h \in  {\mathrm{H}}_{i}\) 将 \({\mathrm{W}}_{i}\) 映到 \({\mathrm{V}}_{i}\) .
+
+(a) 证明 \({\mathrm{H}}_{i}\) 的维数等于 \({\mathrm{W}}_{i}\) 在 \(\mathrm{V}\) 中出现的次数，即 \(\dim {\mathrm{V}}_{i}/\dim {\mathrm{W}}_{i}\) [化约到 \(\mathrm{V} = {\mathrm{W}}_{i}\) 的情况并使用 Schur 引理].
+
+(b) 令 \(\mathrm{G}\) 通过在 \({\mathrm{H}}_{i}\) 上的平凡表示与在 \({\mathrm{W}}_{i}\) 上的给定表示的张量积作用于 \({\mathrm{H}}_{i} \otimes  {\mathrm{W}}_{i}\) .证明映射
+
+\[
+\mathrm{F} : {\mathrm{H}}_{i} \otimes  {\mathrm{W}}_{i} \rightarrow  {\mathrm{V}}_{i}
+\]
+
+由公式定义
+
+\[
+\mathrm{F}\left( {\sum {h}_{\alpha } \cdot  {w}_{\alpha }}\right)  = \sum {h}_{\alpha }\left( {w}_{\alpha }\right)
+\]
+
+是将 \({\mathrm{H}}_{i} \otimes  {\mathrm{W}}_{i}\) 同构到 \({\mathrm{V}}_{i}\) 的同构映射.[方法同上.]
+
+(c) 设 \(\left( {{h}_{1},\ldots ,{h}_{k}}\right)\) 为 \({\mathrm{H}}_{i}\) 的一组基，并构成 \(k\) 个 \({\mathrm{W}}_{i}\) 的直和记为 \({\mathrm{W}}_{i} \oplus  \cdots  \oplus  {\mathrm{W}}_{i}\) .由 \(\left( {{h}_{1},\ldots ,{h}_{k}}\right)\) 明显定义了从 \({\mathrm{W}}_{i} \oplus  \cdots  \oplus  {\mathrm{W}}_{i}\) 到 \({\mathrm{V}}_{i}\) 的线性映射 \(h\) ；证明它是表示的同构，且每一同构都可由此得到[可应用 \(\left( b\right)\) 或直接论证].特别地，要将 \({\mathrm{V}}_{i}\) 分解为与 \({\mathrm{W}}_{i}\) 同构的表示的直和，相当于为 \({\mathrm{H}}_{i}\) 选一组基.
+
+\section*{2.7 表示的显式分解}
+
+保持前一节的记号，并令
+
+\[
+\mathrm{V} = {\mathrm{V}}_{1} \oplus  \cdots  \oplus  {\mathrm{V}}_{h}
+\]
+
+为给定表示的典型分解.我们已见如何通过相应的投影(定理8)确定第 \(i\) 分量 \({V}_{i}\) .现给出一个将 \({V}_{i}\) 显式构造成与 \({W}_{i}\) 同构的子表示直和的方法.设 \({\mathrm{W}}_{i}\) 在基 \(\left( {{e}_{1},\ldots ,{e}_{n}}\right)\) 下以矩阵形式给出为 \(\left( {{r}_{\alpha \beta }\left( s\right) }\right)\) ；我们有 \({\chi }_{i}\left( s\right)  = \mathop{\sum }\limits_{\alpha }{r}_{\alpha \alpha }\left( s\right)\) 与 \(n = {n}_{i} = \dim {\mathrm{W}}_{i}\) .对每一对从1到 \(n\) 的整数 \(\alpha ,\beta\) ，令 \({p}_{\alpha \beta }\) 表示由下式在 \(\mathrm{V}\) 上定义的线性映射
+
+(*)
+\[
+{p}_{\alpha \beta } = \frac{n}{g}\mathop{\sum }\limits_{{t \in  \mathrm{G}}}{r}_{\beta \alpha }\left( {t}^{-1}\right) {\rho }_{t}.
+\]
+
+\section*{命题 8}
+
+(a) 映射 \({p}_{\alpha \alpha }\) 是一个投影；它在 \({\mathbf{V}}_{j},j \neq  i\) 上为零.其像 \({\mathbf{V}}_{i,\alpha }\) 包含于 \({\mathbf{V}}_{i}\) ，且对于所有 \(1 \leq  \alpha  \leq  n\) ， \({\mathbf{V}}_{i}\) 为这些 \({\mathbf{V}}_{i,\alpha }\) 的直和.我们有 \({p}_{i} = \mathop{\sum }\limits_{\alpha }{p}_{\alpha \alpha }\) .
+
+(b) 线性映射 \({p}_{\alpha \beta }\) 在 \({\mathrm{V}}_{j},j \neq  i\) 上为零，且对于所有 \(\gamma  \neq  \beta\) ，在那些 \({\mathrm{V}}_{i,\gamma }\) 上也为零；它把 \({\mathrm{V}}_{i,\beta }\) 同构到 \({\mathrm{V}}_{i,\alpha }\) .
+
+(c) 设 \({x}_{1}\) 为 \({\mathrm{V}}_{i,1}\) 中的元素 \(\neq  0\) ，并令 \({x}_{\alpha } = {p}_{\alpha 1}\left( {x}_{1}\right)  \in  {\mathrm{V}}_{i,\alpha }\) .那些 \({x}_{\alpha }\) 线性无关并生成在 \(\mathrm{G}\) 下不变且维数为 \(n\) 的向量子空间 \(\mathrm{W}\left( {x}_{1}\right)\) .对于每个 \(s \in  \mathrm{G}\) ，我们有
+
+\[
+{\rho }_{s}\left( {x}_{\alpha }\right)  = \mathop{\sum }\limits_{\beta }{r}_{\beta \alpha }\left( s\right) {x}_{\beta }
+\]
+
+(尤其， \(\mathrm{W}\left( {x}_{1}\right)\) 与 \({\mathrm{W}}_{i}\) 同构).
+
+(d) 如果 \(\left( {{x}_{1}^{\left( 1\right) },\ldots ,{x}_{1}^{\left( m\right) }}\right)\) 是 \({\mathbf{V}}_{i,1}\) 的一个基，则表示 \({\mathbf{V}}_{i}\) 是由在 \(c)\) 中定义的子表示 \(\mathrm{W}\left( {x}_{1}^{\left( 1\right) }\right) ,\ldots ,\mathrm{W}\left( {x}_{1}^{\left( m\right) }\right)\) 的直和.
+
+(因此选择 \({V}_{i,1}\) 的一组基给出 \({V}_{i}\) 分解为若干与 \({\mathrm{W}}_{i}\) 同构的表示的直和.)
+
+我们首先注意，上述公式 \(\left( *\right)\) 允许我们在任意 \(\mathbf{G}\) 的表示中定义 \({p}_{\alpha \beta }\) ，特别是在不可约表示 \({\mathbf{W}}_{j}\) 中.对于 \({\mathbf{W}}_{i}\) ，我们有
+
+\[
+{p}_{\alpha \beta }\left( {e}_{\gamma }\right)  = \frac{n}{g}\mathop{\sum }\limits_{{t \in  \mathrm{G}}}{r}_{\beta \alpha }\left( {t}^{-1}\right) {\rho }_{t}\left( {e}_{\gamma }\right)  = \frac{n}{g}\mathop{\sum }\limits_{\delta }\mathop{\sum }\limits_{{t \in  \mathrm{G}}}{r}_{\beta \alpha }\left( {t}^{-1}\right) {r}_{\delta \gamma }\left( t\right) {e}_{\delta }.
+\]
+
+由命题4 的推论3 我们得到
+
+\[
+{p}_{\alpha \beta }\left( {e}_{\gamma }\right)  = \left\{  \begin{array}{ll} {e}_{\alpha } & \text{ if }\gamma  = \beta \\  0 & \text{ otherwise }. \end{array}\right.
+\]
+
+由此可得 \(\mathop{\sum }\limits_{\alpha }{p}_{\alpha \alpha }\) 是 \({\mathbf{W}}_{i}\) 的恒等映射，以及如下公式
+
+\[
+{p}_{\alpha \beta } \circ  {p}_{\gamma \delta } = \left\{  \begin{array}{ll} {p}_{\alpha \delta } & \text{ if }\beta  = \gamma \\  0 & \text{ otherwise } \end{array}\right.
+\]
+
+\[
+{\rho }_{s} \circ  {p}_{\alpha \gamma } = \mathop{\sum }\limits_{\beta }{r}_{\beta \alpha }\left( s\right) {p}_{\beta \gamma }
+\]
+
+对于 带有 \(j \neq  i\) 的 \({\mathrm{W}}_{j}\) ，我们使用命题4 的推论2 并用相同论证证明所有 \({p}_{\alpha \beta }\) 都为零.
+
+完成此项后，我们将 V 分解为与 \({W}_{i}\) 同构的子表示的直和，并对这些表示中的每一个应用上述结论.断言 (a) 与 (b) 随之成立；此外，上述公式在 V 中仍然成立.在 (c) 的假设下，我们有
+
+\[
+{\rho }_{s}\left( {x}_{\alpha }\right)  = {\rho }_{s} \circ  {p}_{\alpha 1}\left( {x}_{1}\right)  = \mathop{\sum }\limits_{\beta }{r}_{\beta \alpha }\left( s\right) {p}_{\beta 1}\left( {x}_{1}\right)  = \mathop{\sum }\limits_{\beta }{r}_{\beta \alpha }\left( s\right) {x}_{\beta },
+\]
+
+这证明了 (c).最后 (d) 从 (a)、(b) 和 (c) 推出.
+
+\section*{练习}
+
+2.9. 设 \({\mathrm{H}}_{i}\) 为线性映射空间 \(h : {\mathrm{W}}_{i} \rightarrow  \mathrm{V}\) ，使得 \(h \circ  {\rho }_{s} = {\rho }_{s} \circ  h\) ，参见练习 2.8.证明映射 \(h \mapsto  h\left( {e}_{\alpha }\right)\) 是从 \({\mathrm{H}}_{i}\) 到 \({\mathrm{V}}_{i,\alpha }\) 的同构.
+
+2.10. 设 \(x \in  {\mathrm{V}}_{i}\) ，并设 \(\mathrm{V}\left( x\right)\) 是包含 \(x\) 的 \(\mathrm{V}\) 的最小子表示.设 \({x}_{1}^{\alpha }\) 是 \(x\) 在 \({p}_{1\alpha }\) 下的像；证明 \(\mathrm{V}\left( x\right)\) 是表示 \(\mathrm{W}\left( {x}_{1}^{\alpha }\right) ,\alpha  = 1,\ldots ,n\) 的和.由此推断 \(\mathrm{V}\left( x\right)\) 是至多 \(n\) 个同构于 \({\mathrm{W}}_{i}\) 的子表示的直和.

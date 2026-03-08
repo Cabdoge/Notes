@@ -1,0 +1,4 @@
+\contentsline {chapter}{\numberline {1}群表示}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}群表示的定义}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}子表示}{3}{section.1.2}%
+\contentsfinish 

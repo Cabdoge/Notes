@@ -1,0 +1,109 @@
+\chapter{群表示}
+
+\section{群表示的定义}
+
+\begin{definition}[群表示]
+    设$G$是一个群，$V$是域$\mathbb{F}$上的线性空间，则群的\bluebf{表示}是$G$到$GL(V)$的群同态$\setjot[-3]\begin{aligned}[t]
+    \rho\colon G &\to GL(V) \\
+    g &\mapsto \rho(g)
+    \end{aligned}$.称$V$的维数$\mathrm{dim}_{\mathbb{F}}\,V$为该表示的\bluebf{次数}，记为$\mathrm{deg}\,\rho$.
+\end{definition}
+
+为了使$\rho$是一个满足上述条件的群同态，我们首先要保证$\rho$将$G$中的元素映射到$GL(V)$.其次，$\rho$必须满足群同态保持运算的性质，即满足以下两个条件：
+\begin{enumerate}[label=(\roman*)]
+    \item $\forall\, g\in G,\rho(g)\in GL(V)$，即$\rho(g)$是$V$上的可逆线性变换.
+    \item $\forall\, g_1,g_2\in G,\rho(g_1\cdot g_2)=\rho(g_1)\cdot\rho(g_2)$.
+\end{enumerate}
+
+有时候，直接证明$\rho$将元素映为可逆线性变换较为复杂，因此上述的条件(i)也可以等价地替换为以下条件：
+\begin{enumerate}[label=(\roman*)]
+    \setcounter{enumi}{2}
+    \item $\rho(1)=1_V$，其中$1$是$G$中单位元，$1_V$是$V$上的恒等变换.
+\end{enumerate}
+
+下面我们可以证明条件$(i)$和$(iii)$是等价的.
+\begin{proof}[条件(i)和(iii)的等价性]\par
+    首先证明$(i)\Rightarrow(iii)$：由于$\rho$是群同态，我们有$\rho(1)=\rho(1\cdot 1)=\rho(1)\cdot\rho(1)$，即$\rho(1)^2=\rho(1)$.\par
+    又因为$\rho(1)\in GL(V)$，所以$\rho(1)$必须是恒等变换$1_V$.\par
+    接下来证明$(iii)\Rightarrow(i)$：对于任意$g\in G$，我们有$\rho(g)\cdot\rho(g^{-1})=\rho(g\cdot g^{-1})=\rho(1)=1_V$.\par
+    故$\rho(g)$是可逆的，因此$\rho(g)\in GL(V)$.
+\end{proof}
+
+除了使用线性变换的角度定义群表示，群表示的本质是群在向量空间上的线性作用，因此也可以从以下观点定义群表示：
+\begin{definition}[群作用观点的群表示]
+    设$G$是一个群，$V$是域$\mb{F}$上的线性空间，如果存在$G$在$V$上的线性作用，即存在映射$\setjot[-4]\begin{aligned}[t]
+    G\times V &\to V \\
+    (g,v) &\mapsto g\cdot v
+    \end{aligned}$满足以下条件：
+    \begin{enumerate}[label=(\roman*)]
+        \item $\forall\, g\in G,u,v\in V,g\cdot(v+w)=g\cdot v+g\cdot w$.
+        \item $\forall\, g\in G,a\in\mb{F},v\in V$，$g\cdot(av)=a(g\cdot v)$.
+        \item $\forall\, v\in V,\, 1\cdot v=v$.
+        \item $\forall\, g_1,g_2\in G,\, v\in V,\, (g_1g_2)\cdot v=g_1\cdot(g_2\cdot v)$.
+    \end{enumerate}
+    则称$V$是$G$的一个$\mb{F}-$表示.
+\end{definition}
+上述定义中的条件(i)和(ii)保证了$G$在$V$上的作用是线性的，条件(iii)和(iv)说明这是一个群作用.\par
+可以证明上面两个对于群表示的定义是相容的，只要有一个$G$在$V$上的线性作用，就可以定义$G$的表示为$g\to\rho(g)v\triangleq g\cdot v$.反之如果有群表示$\rho$，就可以定义$G$在$V$上的线性作用为$g\cdot v\triangleq \rho(g)v$.因此我们可以根据需要选择其中一个定义来研究群表示.
+
+\begin{instance}
+    \begin{enumerate}
+        \item 设$G$是一个群，$V$是域$\mb{F}$上的线性空间，则$\setjot[-8]\begin{aligned}[t]
+    \rho\colon G &\to GL(V) \\
+    g &\mapsto 1_V
+    \end{aligned}$.它将群$G$中的每个元素映射到$V$上的恒等变换，因此称之为\bluebf{平凡表示}.\par
+        \item 设$G$是一个有限群，$V=\mb{F}$，则$GL(V)\cong \mb{F}^*=\mb{F}\setminus\{0\}$.\par
+        由于$G$是有限群，其中任意一个元素$g$的阶数有限，即$\exists\, m\in\mb{N}$，使得$g^m=1$.\par
+        那么$\rho(g)^m=\rho(g^m)=\rho(1)=1_V$，从而$\rho(g)$的$m$次单位根.\par
+        因而群表示为$\setjot[-6]\begin{aligned}[t]
+            \rho:G &\to GL(V)\cong\mb{F}^*=\mb{F}\setminus\{0\} \\
+            g &\mapsto \rho(g)\triangleq \xi(\xi^m=1,m\,\text{为}\,g\,\text{的阶数})
+        \end{aligned}$.\par
+        由于$V$的维数是1，因此上述表示称为\bluebf{一次表示}.
+        \item 设$V$的基为$\{g\in G\}$，则$V=\left\{\sum_{i=1}^na_ig_i\right\}$.\par
+        考虑群$G$在$V$上的左正则作用，则群表示为$\setjot[-2]\begin{aligned}[t]
+            \rho:G&\to GL(V) \\
+            h&\mapsto\rho(h)\left(\sum_{i=1}^n{a_ig_i}\right)\triangleq \sum_{i=1}^na_i(hg_i)
+        \end{aligned}$\par
+        由于它源自于群$G$在$V$上的左正则作用，因此称之为\bluebf{正则表示}，它是一种特殊的置换表示.\par
+        如果取二阶循环群$S_2=\{(1),(12)\}$.那么$\rho((1))=1_V$.\par
+        而$\rho((12))(1)=(12)(1)=(12),\rho((12))(12)=(12)(12)=(1)$，故$\rho((12))=\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$.
+        \item 设群$G$作用在集合$S$上，线性空间$V$以$S$为基，则可以定义群表示$\setjot[-6]\begin{aligned}[t]
+            \rho:G&\to GL(V) \\
+            g&\mapsto\rho(g)(s)\triangleq g\cdot s\in S
+        \end{aligned}$\par
+        任取$g\in G$，$\rho(g)(s_1,s_2,\cdots,s_n)=(s_1,s_2,\cdots,s_n)M$，其中$M$是一个置换矩阵，因此该表示称为\bluebf{置换表示}.\par
+        如果取$G=S^3$，作用在$S=\{1,2,3\}$上，$V=\mb{F}\cdot S$.\par
+        那么置换表示(以(12)为例)为$\setjot[-2]\begin{aligned}[t]
+            \rho:G=S^3&\to GL(V) \\
+            (12)&\mapsto \rho((12))(S)=(S)\begin{pmatrix}
+                0 & 1 & 0 \\
+                1 & 0 & 0 \\
+                0 & 0 & 1
+            \end{pmatrix}
+        \end{aligned}$
+    \end{enumerate}
+
+\end{instance}
+
+
+\section{子表示}
+类似于研究线性空间的子空间、商空间，拓扑空间的子空间、商空间等，下一步要研究群表示的子表示、商表示等概念，以便于我们更好地理解群表示的结构.\par
+
+\begin{definition}[子表示]
+    设$\rho$是$G$在$V$上的表示$\rho:G\to GL(V)$，设$U\subseteq V$，若$\rho|_U:G\to GL(U)$是$G$在$U$上的表示，即$\forall\, g\in G,u\in U,\, \rho(g)u\in U$，则称$\rho|_U$是$G$在$V$上的\bluebf{子表示}.
+\end{definition}
+
+对于上述的定义，如果从群作用的角度来看，$\rho|_U$是子表示当且仅当$G$在$U$上的群作用是封闭的，即$G$在$U$上的群作用将$U$映射到$U$中.\par
+对于任意一个群$G$，向量空间$V$和上面的群作用$\rho$，总有$\rho|_V$和$\rho|_\varnothing$这两个子表示，它们是两个\bluebf{平凡子表示}，因为一般情况下当我们说子表示时，默认考虑非平凡的子表示.\par
+一个非平凡的子表示的构造方式是考虑一个群$G$的正则表示，定义$x\triangleq\sum_{g\in G}g,U\triangleq\mb{F}\cdot x$.那么就有$\rho(h)(x)\triangleq h\cdot x=x\in U$，这是因为$x$是$G$中所有元素之和，而$h$作用在$G$是对其中元素作置换，因此将所有元素之和置换后仍然是所有元素之和.因此$\rho|_U$是子表示.\par
+开始下一个内容之前，我们首先知道关于向量空间和其子空间，有以下特殊性质.
+\begin{theorem}[]
+    域$\mb{F}$上的线性空间$V$都可以分解成子空间$U$和其补空间$W$的直和.
+\end{theorem}
+上述定理的补空间可以使用商空间$V/U$来构造.一个自然的问题是：一个群表示能否分解成两个子表示的直和?\par
+很遗憾，由于子表示在子空间的基础上额外添加了表示的结构，上述问题无法对所有的群表示成立.但我们后续可以证明当$G$是有限群且$\mathrm{char}\,(\mb{F})\nmid |G|$时，上述问题成立，此时成$G$的表示是\bluebf{常表示}，否则称其为\bluebf{模表示}.\par
+有限群的表示论在上述两个类型的研究有本质的不同，前者结构相对优美，有更好的结果.而对于后者的研究则相对复杂.\par
+
+
+

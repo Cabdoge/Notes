@@ -1,0 +1,750 @@
+﻿% bookstyle.sty —— 综合排版样式包
+% ============================================================
+% 功能概述：
+%   本包为 ctexbook 文档类提供完整的排版方案，包括：
+%   - ElegantBook 风格的彩色封面（全宽图片 + 色条 + 标题信息 + Logo）
+%   - AJbook 风格的章节标题（tcolorbox 双栏灰色盒子 / 下划线节标题）
+%   - AJbook 风格的页眉（居中章节标记，外侧页码，无页眉线）
+%   - titletoc 自定义目录格式（紧凑间距，中文章号）
+%   - 紧凑的列表间距设置
+%
+% 使用方式：
+%   \documentclass[...]{ctexbook}
+%   \usepackage{bookstyle}
+%
+% 注意事项：
+%   - 必须与 ctexbook 配合使用（依赖 \ctexset 等命令）
+%   - 若同时使用 rainbow.sty，请先加载 rainbow.sty（它会预先载入 tcolorbox）
+%   - 本包会设置 geometry，请勿在主文档中重复调用 \geometry
+%   - titlesec 使用 explicit 模式，标题文本通过 #1 传入 Before-code
+%
+% 编码：UTF-8
+% ============================================================
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{bookstyle}[2026/03/04 v1.2 AJbook-style layout for ctexbook]
+
+%====================================================================
+%                          依赖宏包
+%====================================================================
+% etoolbox    ── 提供 \ifcsname 等条件判断工具，用于检测命令是否存在
+\RequirePackage{etoolbox}
+% xcolor      ── 颜色支持，定义 structurecolor、winered 等主题色
+\RequirePackage{xcolor}
+% graphicx    ── 图片插入（封面图片、Logo）
+\RequirePackage{graphicx}
+% setspace    ── 行距控制（封面中使用 \setstretch 调节行距）
+\RequirePackage{setspace}
+% fancyhdr    ── 自定义页眉页脚（AJbook 风格：居中标记 + 外侧页码）
+\RequirePackage{fancyhdr}
+% titlesec    ── 自定义章节标题格式
+%   选项说明：
+%     calcwidth       ── 允许 \titlewidth 计算标题宽度
+%     nobottomtitles  ── 防止标题出现在页面底部（自动移至下一页）
+%     explicit        ── 标题文本不自动排版，必须在 Before-code 中用 #1 手动引用
+%                        这使得我们可以将标题传入 \MakeChapBox 等自定义命令
+%     indentafter     ── 标题后的首段保持缩进（中文排版习惯）
+\RequirePackage[calcwidth,nobottomtitles,explicit,indentafter]{titlesec}
+% titletoc    ── 自定义目录条目格式（配合 \titlecontents 命令）
+\RequirePackage{titletoc}
+% appendix    ── 附录支持
+%   选项说明：
+%     title    ── 附录标题显示"附录 A"而非只显示"A"
+%     titletoc ── 目录中也使用附录格式
+%     header   ── 页眉中也使用附录格式
+\RequirePackage[title,titletoc,header]{appendix}
+% apptools    ── 提供 \IfAppendix 等附录判断工具（本包中未直接使用，但供用户文档使用）
+\RequirePackage{apptools}
+% calc        ── 允许在长度计算中使用 +、- 等算术运算
+\RequirePackage{calc}
+% zhnumber    ── 阿拉伯数字转中文数字（如 \zhnumber{3} → "三"），用于章号
+\RequirePackage{zhnumber}
+% xstring     ── 字符串操作（\IfSubStr 判断是否为附录字母，区分"第X章"与"附录 X"）
+\RequirePackage{xstring}
+% hyperref    ── 超链接支持（目录链接、交叉引用链接等），详细设置见下方
+\RequirePackage{hyperref}
+% geometry    ── 页面尺寸设置，详细参数见下方 \geometry 调用
+\RequirePackage{geometry}
+% tcolorbox   ── 彩色盒子（章标题盒子、节标题下划线盒子）
+%   若 rainbow.sty 已加载则此处不会重复加载（LaTeX 自动跳过已加载的包）
+\RequirePackage{tcolorbox}
+% skins 库    ── tcolorbox 的皮肤扩展，提供 bicolor（双色背景）等高级样式
+\tcbuselibrary{skins}
+
+
+
+%====================================================================
+%                          页面尺寸
+%====================================================================
+% top    = 2.5cm  ── 上边距（为页眉留出空间）
+% bottom = 2cm    ── 下边距
+% outer  = 2cm    ── 外侧边距（翻开书时靠外的一侧）
+% inner  = 2.5cm  ── 内侧边距（装订侧，略宽以预留装订余量）
+\geometry{top=2.5cm, bottom=2cm, outer=2cm, inner=2.5cm}
+
+%====================================================================
+%               ctexbook 章节编号覆盖（关键兼容性设置）
+%====================================================================
+% 问题背景：
+%   ctexbook 默认会将形如"第一章\hspace{.3em}"的中文格式写入 .toc 文件的
+%   \numberline 中。然而 titletoc 的 \titlecontents 期望 \thecontentslabel
+%   是纯数字（如 "1"），再由我们的 \AJchapterttl 转为中文显示。
+%   这两套机制冲突会导致目录条目显示错误（如出现重复的"第一章第一章"）。
+%
+% 解决方案：
+%   通过 \ctexset 将 chapter 的 name、number、aftername 全部覆盖为纯数字格式，
+%   并自定义 tocline 模板，使 .toc 文件中只写入阿拉伯数字。
+%   中文章号的显示完全交给 titletoc 的 \AJchapterttl 函数处理。
+%
+% 各键值说明：
+%   chapter/name      = {}          ── 清空章名前缀（默认是"第"和"章"包裹编号）
+%   chapter/number    = \arabic{..} ── 章号用阿拉伯数字
+%   chapter/aftername = {}          ── 清空章名后缀
+%   chapter/tocline   = ...         ── 自定义写入 .toc 的格式
+%     \protect\numberline{\arabic{#1}} ── 将纯数字章号写入 \numberline
+%     #2                               ── 章标题文本
+\ctexset{
+  chapter/name = {},
+  chapter/number = \arabic{chapter},
+  chapter/aftername = {},
+  chapter/tocline = {\protect\numberline{\arabic{#1}}#2},
+}
+
+%====================================================================
+%                          主题颜色
+%====================================================================
+% structurecolor ── 结构性元素颜色（蓝色调），可用于标题、框线等装饰
+%                   RGB(60,113,183) 是一种沉稳的学术蓝
+\definecolor{structurecolor}{RGB}{60,113,183}
+% winered        ── 酒红色，用于超链接颜色（linkcolor、citecolor、urlcolor）
+%                   rgb(0.5, 0, 0) 即暗红色
+\definecolor{winered}{rgb}{0.5,0,0}
+
+%====================================================================
+%                    字体命令（CJK 兼容性封装）
+%====================================================================
+% 以下命令会检测当前 TeX 引擎是否提供了对应的中文字体命令（如 \kaishu、\fangsong）。
+% 若可用则使用中文字体，否则回退到西文等效字体，保证在非 CJK 环境也能编译。
+%
+% \citshape ── 用于引用、注释等场合的斜体/楷书字体
+% \cnormal  ── 用于封面信息表等场合的正文字体
+% \cfs      ── 仿宋字体（常用于正式文书风格文本）
+\ifcsname kaishu\endcsname
+  \newcommand{\citshape}{\kaishu}   % CJK 环境：使用楷书
+  \newcommand{\cnormal}{\kaishu}    % CJK 环境：使用楷书
+\else
+  \newcommand{\citshape}{\itshape}  % 非 CJK 环境：回退到意大利斜体
+  \newcommand{\cnormal}{\normalfont}% 非 CJK 环境：回退到默认字体
+\fi
+\ifcsname fangsong\endcsname
+  \newcommand{\cfs}{\fangsong}      % CJK 环境：使用仿宋
+\else
+  \newcommand{\cfs}{\normalfont}    % 非 CJK 环境：回退到默认字体
+\fi
+
+%====================================================================
+%              标题专用黑体（伪粗体，仅用于章节标题）
+%====================================================================
+% 问题背景：
+%   SimHei（黑体）字体文件中没有原生粗体（Bold）字重。直接使用 \bfseries
+%   会触发 LaTeX 警告 "Font shape ... undefined"，且实际不会加粗。
+%
+% 解决方案：
+%   创建一个专用的 CJK 字体族 "titlehei"，开启 AutoFakeBold=3（通过
+%   多次叠印模拟粗体效果，数值越大越粗，3 为适中值）。
+%   \titleheiti 命令切换到此字体族。
+%
+% 使用位置：所有 \titleformat 的 Format 参数中（章、节、子节标题）
+% 不使用位置：页眉中使用普通 \heiti（不加粗，保持清秀）
+\setCJKfamilyfont{titlehei}{SimHei}[AutoFakeBold=3]
+\newcommand{\titleheiti}{\CJKfamily{titlehei}}
+
+%====================================================================
+%                        超链接设置（hyperref）
+%====================================================================
+% breaklinks        ── 允许链接跨行断开（长 URL 不会溢出边界）
+% unicode           ── 支持 Unicode 书签（中文目录书签不会乱码）
+% linktoc=all       ── 目录中编号和标题都可点击跳转
+% bookmarksnumbered ── PDF 书签显示章节编号
+% bookmarksopen     ── PDF 打开时自动展开书签树
+% colorlinks        ── 链接用颜色标识（而非方框）
+% linkcolor=winered ── 内部链接（交叉引用、目录）颜色：酒红
+% citecolor=winered ── 文献引用链接颜色：酒红
+% urlcolor=winered  ── 外部 URL 链接颜色：酒红
+% plainpages=false  ── 避免页码冲突（罗马/阿拉伯混用时需要）
+% pdfstartview=FitH ── PDF 打开时水平适配窗口宽度
+% pdfborder={0 0 0} ── 链接无边框
+% linktocpage       ── 目录中点击页码跳转（而非点击标题文字）
+\hypersetup{
+  breaklinks,
+  unicode,
+  linktoc=all,
+  bookmarksnumbered=true,
+  bookmarksopen=true,
+  colorlinks,
+  linkcolor=winered,
+  citecolor=winered,
+  urlcolor=winered,
+  plainpages=false,
+  pdfstartview=FitH,
+  pdfborder={0 0 0},
+  linktocpage
+}
+% 邮箱链接快捷命令：\email{user@example.com} → 可点击的 mailto 链接
+\newcommand\email[1]{\href{mailto:#1}{\nolinkurl{#1}}}
+
+%====================================================================
+%                    封面命令（供主文档 \maketitle 使用）
+%====================================================================
+% 以下命令用于在主文档的导言区设置封面信息。
+% 调用示例：
+%   \title{泛函分析教材翻译}
+%   \subtitle{Lecture Notes on Functional Analysis}
+%   \author{张三}
+%   \institute{某某大学}
+%   \date{2024年6月}
+%   \version{1.0}
+%   \cover{cover-image.jpg}       % 封面背景图片路径
+%   \logo{university-logo.png}    % 右下角 Logo 图片路径
+%   \extrainfo{本书为学习笔记}     % 封面底部附加信息
+%   \bioinfo{导师}{李四}           % 自定义信息条目（楷书标签 + 内容）
+
+% 初始化内建命令为空（\@title、\@author、\@date 是 LaTeX 内核命令）
+\global\let\@title\@empty
+\global\let\@author\@empty
+\global\let\@date\@empty
+% 定义各信息存取命令（\gdef 使定义全局生效，跨组可用）
+\newcommand{\subtitle}[1]{\gdef\@subtitle{#1}}
+\newcommand{\institute}[1]{\gdef\@institute{#1}}
+\newcommand{\version}[1]{\gdef\@version{#1}}
+\newcommand{\extrainfo}[1]{\gdef\@extrainfo{#1}}
+\newcommand{\cover}[1]{\gdef\@cover{#1}}
+\newcommand{\logo}[1]{\gdef\@logo{#1}}
+% \bioinfo{标签}{内容} ── 生成"标签：内容"格式的信息行
+\newcommand\bioinfo[2]{\gdef\@bioinfo{{\citshape #1}：#2}}
+
+% 封面信息表的标签文字（楷书样式）
+\newcommand{\authorname}{\citshape 作者：}
+\newcommand{\institutename}{\citshape 组织：}
+\newcommand{\datename}{\citshape 时间：}
+\newcommand{\versionname}{\citshape 版本：}
+
+% 封面色条颜色 ── 封面图片下方的窄色条，RGB(230,90,7) 为 ElegantBook 标志性的橙色
+\definecolor{coverlinecolor}{RGB}{230,90,7}
+
+% tikz ── 封面 Logo 定位需要 remember picture + overlay + pgfonlayer
+\RequirePackage{tikz}
+\usetikzlibrary{calc,backgrounds}
+% mwe  ── 提供 example-image 等占位图片（当用户未指定 \cover 时使用）
+\RequirePackage{mwe}
+
+%====================================================================
+%              封面排版（\maketitle）—— ElegantBook 风格
+%====================================================================
+% 封面布局自上而下依次为：
+%   ┌──────────────────────────────────┐
+%   │  全宽封面图片（\@cover）           │
+%   │──────────────────────────────────│  ← 橙色色条 (coverlinecolor)
+%   │                                  │
+%   │  标题（\@title）                  │  ← 左侧 parbox，粗体超大号
+%   │                                  │
+%   │  副标题（\@subtitle）             │
+%   │  作者 / 组织 / 日期 / 版本 表格    │  ← 左侧 minipage (0.67\linewidth)
+%   │                          [Logo]  │  ← 右侧 minipage (0.27\linewidth)
+%   │                                  │     Logo 通过 tikz overlay 定位到右下角
+%   │     附加信息（\@extrainfo）        │  ← 底部居中
+%   └──────────────────────────────────┘
+%
+% 技术细节：
+%   - \newgeometry{margin=0in}：封面页临时取消所有边距，实现全宽图片
+%   - \restoregeometry：封面结束后恢复正常边距
+%   - \pagenumbering{Alph}：封面用字母页码，避免与正文阿拉伯页码冲突
+%   - pageanchor=false：封面页禁用 hyperref 锚点，防止页码冲突警告
+\renewcommand*{\maketitle}{%
+\hypersetup{pageanchor=false}%              % 封面页禁用超链接锚点
+\pagenumbering{Alph}%                       % 使用字母页码，避免重复页码
+\begin{titlepage}
+  \newgeometry{margin = 0in}                % 临时取消边距 → 全宽布局
+  \parindent=0pt                            % 封面不缩进
+  % ---- 封面图片 ----
+  \ifcsname @cover\endcsname
+    \includegraphics[width=\linewidth]{\@cover}   % 用户指定的封面图
+  \else
+    \includegraphics[width=\linewidth]{example-image}  % 缺省占位图（来自 mwe 包）
+  \fi
+  % ---- 橙色色条（ElegantBook 标志性分隔线） ----
+  \setlength{\fboxsep}{0pt}                 % 消除 colorbox 内边距
+  \colorbox{coverlinecolor}{\makebox[\linewidth][c]{\shortstack[c]{\vspace{0.5in}}}}
+  % ↑ 创建一个全宽、高度 0.5in 的橙色窄条
+  \vfill
+  \vskip-2ex
+  % ---- 标题区域 ----
+  \hspace{2em}
+  \parbox{0.8\textwidth}{
+    \bfseries\Huge
+      \ifcsname @title\endcsname \@title \fi
+    \par}
+  \vfill
+  \vspace{-1.0cm}
+  % ---- 作者信息表格（左侧） + Logo（右侧） ----
+  \setstretch{2.5}                          % 信息表行距 2.5 倍
+  \hspace{2.5em}
+  \begin{minipage}[c]{0.67\linewidth}       % 左侧：副标题 + 信息表
+    {\color{darkgray}\bfseries\Large
+      \ifcsname @subtitle\endcsname\@subtitle\\[2ex]\fi}  % 副标题（深灰大号粗体）
+    \color{gray}\normalsize
+    {\renewcommand{\arraystretch}{0.618}    % 表格行距压缩为 0.618 倍（黄金比例）
+    \begin{tabular}{l}
+      \ifx\@author\empty\else\authorname\cnormal\@author\\ \fi
+      \ifcsname @institute\endcsname \institutename \cnormal\@institute\\ \fi
+      \ifx\@date\empty\else\datename\cnormal\@date \\ \fi
+      \ifcsname @version\endcsname \cnormal\versionname\@version\\ \fi
+      \ifcsname @bioinfo\endcsname \cnormal\@bioinfo\\ \fi
+    \end{tabular}}
+  \end{minipage}
+  \begin{minipage}[c]{0.27\linewidth}       % 右侧：空 minipage（Logo 通过 tikz 绝对定位）
+  \begin{tikzpicture}[remember picture,overlay]
+    \begin{pgfonlayer}{background}          % 在背景层放置 Logo，不遮挡文字
+      \node[opacity=0.8,                    % 轻微透明
+            anchor=south east,              % 锚点在右下角
+            outer sep=0pt,
+            inner sep=0pt] at ($(current page.south east) +(-0.8in,1.5in)$) {
+              % ↑ 定位到页面右下角，向左偏移 0.8in，向上偏移 1.5in
+              \ifcsname @logo\endcsname\includegraphics[width=4.2cm]{\@logo}\fi};
+    \end{pgfonlayer}
+  \end{tikzpicture}
+  \end{minipage}
+  % ---- 底部附加信息 ----
+  \vfill
+  \begin{center}
+    \setstretch{1.3}
+    \parbox[t]{0.7\textwidth}{\centering \citshape
+      \ifcsname @extrainfo\endcsname\@extrainfo\fi}
+  \end{center}
+  \vfill
+\end{titlepage}
+\restoregeometry                            % 恢复正常页面边距
+\thispagestyle{empty}%                      % 封面后的空白页不显示页眉页脚
+}
+
+%====================================================================
+%         章节标题辅助命令（源自 AJbook 的 titles-setup.tex）
+%====================================================================
+
+% \xchaptertitle ── 生成"第X章"格式的章名，用于页眉 \chaptermark
+%   \zhnumber{\arabic{chapter}} 将章号转为中文数字（如 chapter=3 → "三"）
+\newcommand{\xchaptertitle}{第\zhnumber{\arabic{chapter}}章}
+
+% \AJchapterttl{编号} ── 根据编号智能判断是正文章还是附录：
+%   - 若编号是大写字母（A-Z），则为附录 → 显示"附录 A"
+%   - 否则为正文章 → 显示"第X章"（X 为对应中文数字）
+%   用途：titletoc 的 \titlecontents 中格式化目录条目，
+%         以及 \MakeChapBox 中格式化章标题盒子左栏
+\providecommand{\AJchapterttl}[1]{%
+  \IfSubStr{ABCDEFGHIJKLMNOPQRSTUVWXYZ}{#1}{附录 #1}{第\zhnumber{#1}章}}
+
+% \BoxTtlwidth ── 临时长度变量，用于测量标题文本宽度
+%   在 \MakeChapBox 和 \MakeSectBox 中使用，以动态计算盒子尺寸或判断是否超宽
+\newlength{\BoxTtlwidth}
+
+%====================================================================
+%          章标题盒子 \MakeChapBox —— 双色 tcolorbox（AJbook 风格）
+%====================================================================
+% 视觉效果：
+%   ┌─────────┬──────────────────────────────┐
+%   │ 第一章   │         章标题文本            │
+%   │(白字灰底)│       (黑字浅灰底)            │
+%   └─────────┴──────────────────────────────┘
+%
+% 参数：
+%   #1 ── 章编号（阿拉伯数字或字母，由 \AJchapterttl 格式化）
+%   #2 ── 章标题文本
+%
+% tcolorbox 键值说明：
+%   enhanced jigsaw       ── 使用增强引擎，允许断页（jigsaw 不在断页处绘制边框）
+%   skin=bicolor          ── 双色皮肤：upper 区域用 colback，lower 区域用 colbacklower
+%   frame engine=path     ── 用路径绘制边框（配合 frame hidden 实际不画）
+%   sharp corners=all     ── 所有角为直角（无圆角）
+%   width=0.9\textwidth   ── 盒子宽度为文本区域的 90%
+%   top=4mm, bottom=4mm   ── 上下内边距
+%   sidebyside            ── 启用左右分栏模式（上半用 \tcblower 分隔）
+%   frame hidden          ── 隐藏边框线
+%   boxrule=0mm           ── 边框线宽度为 0
+%   lefthand width=...    ── 左栏宽度 = 章号文本测量宽度
+%   colupper=white        ── 左栏（upper）文字颜色：白色
+%   colback=gray!80       ── 左栏背景色：80% 灰度
+%   colbacklower=gray!10  ── 右栏背景色：10% 灰度（浅灰）
+%   sidebyside align=center ── 左右栏内容垂直居中对齐
+%   halign=center         ── 内容水平居中
+\newcommand{\MakeChapBox}[2]{%
+  \settowidth{\BoxTtlwidth}{\AJchapterttl{#1}}%  % 测量章号文本宽度
+  \begin{tcolorbox}[
+    enhanced jigsaw, skin=bicolor, frame engine=path,
+    sharp corners=all, width=0.9\textwidth,
+    top=4mm, bottom=4mm, sidebyside,
+    frame hidden, boxrule=0mm,
+    lefthand width=\BoxTtlwidth,
+    colupper=white, colback=gray!80, colbacklower=gray!10,
+    sidebyside align=center, halign=center]
+    \AJchapterttl{#1}       % 左栏：中文章号（白字灰底）
+    \tcblower
+    #2                       % 右栏：标题文本（黑字浅灰底）
+  \end{tcolorbox}%
+}
+
+%====================================================================
+%       无编号章标题盒子 \MakeChapBoxSingle —— 单色 tcolorbox
+%====================================================================
+% 用于无编号章（如"目录"、"参考文献"等由 \chapter* 生成的标题）
+% 视觉效果：单个浅灰色盒子，居中显示标题
+%
+% 参数：
+%   #1 ── 标题文本
+%
+% tcolorbox 键值说明：
+%   width=0.7\textwidth ── 比有编号章的盒子略窄（无左栏章号区域）
+%   colback=gray!10     ── 浅灰背景（与有编号章的右栏一致）
+\newcommand{\MakeChapBoxSingle}[1]{%
+  \begin{tcolorbox}[
+    enhanced, width=0.7\textwidth,
+    sharp corners=all,
+    top=4mm, bottom=4mm,
+    frame hidden, boxrule=0mm,
+    colback=gray!10, halign=center]
+    #1
+  \end{tcolorbox}%
+}
+
+%====================================================================
+%          节标题盒子 \MakeSectBox —— 底部下划线（AJbook 风格）
+%====================================================================
+% 视觉效果：
+%   1.2 节  节标题文本
+%   ───────────────────  ← 1pt 黑色下划线
+%
+% 使用 \newtcbox 而非 \newcommand + tcolorbox 环境，
+% 因为 \newtcbox 创建的是内联盒子（inline box），与 titlesec 的行内排版兼容。
+%
+% 键值说明：
+%   arc=0pt, outer arc=0pt      ── 无圆角
+%   before skip=0pt             ── 盒子前无额外间距（由 titlesec 控制）
+%   after skip=0.4em            ── 盒子后 0.4em 间距
+%   left skip=0pt, right skip=0pt ── 左右无额外间距
+%   top=0pt, left=0pt, ...      ── 所有内边距为 0（标题文字紧贴边界）
+%   bottom=1.5mm                ── 底部留 1.5mm 给下划线
+%   colback=white, colframe=white ── 背景和边框都透明（白色）
+%   boxsep=0pt                  ── 内容与边框之间无间距
+%   所有 rule=0pt               ── 隐藏所有边框线
+%   overlay={...}               ── 叠加层：画一条从左下到右下的 1pt 线段
+%     interior.south west → interior.south east：沿内容区域底边画线
+\newtcbox{\MakeSectBox}{
+  enhanced,
+  arc=0pt, outer arc=0pt,
+  before skip=0pt, after skip=0.4em,
+  left skip=0pt, right skip=0pt,
+  top=0pt, left=0pt, right=0pt, bottom=1.5mm,
+  sharp corners=all, valign=bottom,
+  colback=white, colframe=white,
+  boxsep=0pt, leftrule=0pt, rightrule=0pt,
+  toprule=0pt, bottomrule=0pt,
+  overlay={\draw[line width=1pt] (interior.south west) -- (interior.south east);}
+}
+
+%====================================================================
+%       章节标题格式（titlesec + explicit 模式）
+%====================================================================
+% titlesec 的 \titleformat 语法（explicit 模式）：
+%   \titleformat{命令}
+%     {Format}       ── 全局格式（字体、对齐等，应用于整个标题区域）
+%     {Label}        ── 编号标签格式（explicit 模式下通常留空，因为编号由 Before-code 处理）
+%     {Sep}          ── 编号与标题之间的间距（explicit 模式下通常为 0mm）
+%     {Before-code}  ── 标题排版代码（explicit 模式下 #1 代表标题文本）
+%     {After-code}   ── 标题后执行的代码（可选）
+%
+% \titlespacing* 语法：
+%   \titlespacing*{命令}{左缩进}{上方间距}{下方间距}
+%   带 * 号表示标题后的段落不缩进（我们用 indentafter 选项覆盖了此行为）
+%   间距值如 *4 表示 4 倍弹性间距（可压缩/拉伸）
+
+% ──────────── 章 (\chapter) ────────────
+% 有编号章：右对齐，titleheiti 伪粗体黑体，超大号
+%   Before-code 调用 \MakeChapBox 生成双色盒子
+\titleformat{name=\chapter}
+  {\filright\sffamily\titleheiti\bfseries\Huge}% Format：右对齐 + 无衬线 + 伪粗黑体 + 超大号
+  {}% Label：留空（编号由 \MakeChapBox 内部的 \AJchapterttl 生成）
+  {0mm}% Sep：编号与标题间距为 0（编号已整合进 \MakeChapBox）
+  {\MakeChapBox{\thechapter}{#1}}% Before-code：将章号和标题传入双色盒子
+  []% After-code：无
+
+% 无编号章（\chapter*）：居中对齐
+%   After-code 中处理目录条目和页眉标记
+%   \if@mainmatter 确保只在正文部分自动添加目录条目
+\titleformat{name=\chapter, numberless}
+  {\filcenter\sffamily\titleheiti\bfseries\Huge}% Format：居中 + 伪粗黑体
+  {}%
+  {0mm}%
+  {\MakeChapBoxSingle{#1}}% Before-code：单色盒子
+  [{\if@mainmatter
+      \addcontentsline{toc}{chapter}{#1}%   % 手动将标题加入目录
+      \markboth{#1}{}%                       % 设置页眉左标记
+    \fi}]
+
+% 章标题间距：左缩进 1pc，上方 *4 弹性间距，下方 1em
+\titlespacing*{name=\chapter}{1pc}{*4}{1em}
+
+% ──────────── 节 (\section) ────────────
+% 有编号节：右对齐，下划线盒子样式
+%   Before-code 先测量"编号 + 标题"的总宽度：
+%     - 若宽度 < \textwidth → 使用 \MakeSectBox 生成下划线盒子
+%     - 若超宽 → 回退到简单的 \underline 编号 + 标题（避免盒子溢出）
+%   \vskip-18pt 用于补偿 \MakeSectBox 产生的额外垂直间距
+\titleformat{name=\section}
+  {\filleft\normalfont\sffamily\titleheiti\bfseries}% Format：右对齐 + 伪粗黑体
+  {}% Label：留空
+  {0mm}% Sep：0
+  {\settowidth{\BoxTtlwidth}{\Huge \thesection \hspace{0.7em} \Large #1}%
+   \ifdim \BoxTtlwidth < \textwidth
+     \MakeSectBox{\Huge \thesection \hspace{0.7em} \Large #1}\vskip-18pt%
+   \else
+     \Huge \underline{\thesection} \hspace{0.7em} \Large #1%  % 超宽回退方案
+   \fi}%
+  []
+
+% 无编号节（\section*）
+\titleformat{name=\section, numberless}
+  {\filleft\normalfont\sffamily\titleheiti\bfseries}%
+  {}%
+  {0mm}%
+  {\settowidth{\BoxTtlwidth}{\Large #1}%
+   \ifdim \BoxTtlwidth < \textwidth
+     \MakeSectBox{\Large #1}\vskip-18pt%
+   \else
+     \Large #1%
+   \fi}%
+  []
+
+% 节标题间距：左缩进 1pc，上方 *1.3 弹性间距，下方 *1 弹性间距
+\titlespacing*{name=\section}{1pc}{*1.3}{*1}
+
+% ──────────── 子节 (\subsection) —— 行内样式（runin） ────────────
+% [runin] 格式：标题与正文在同一行，标题后直接接正文
+%   适合较短的子节标题，节省垂直空间
+\titleformat{name=\subsection}[runin]
+  {\filleft\normalfont\sffamily\titleheiti\bfseries}%
+  {\Large\thesubsection}% Label：大号编号（如 1.2.3）
+  {3mm}% Sep：编号与标题间距 3mm
+  {#1}% Before-code：直接输出标题文本
+  []
+
+\titleformat{name=\subsection, numberless}[runin]
+  {\filleft\normalfont\sffamily\titleheiti\bfseries}%
+  {}%
+  {0mm}%
+  {#1}%
+  []
+
+% 子节间距：无左缩进，上方 *1 弹性间距，下方 1em（runin 模式下为标题与正文的间距）
+\titlespacing*{name=\subsection}{0pt}{*1}{1em}
+
+% ──────────── 次子节 (\subsubsection) —— 行内样式（runin） ────────────
+\titleformat{name=\subsubsection}[runin]
+  {\filleft\normalfont\sffamily\titleheiti\bfseries}%
+  {\thesubsubsection}% Label：编号（如 1.2.3.4）
+  {3mm}%
+  {#1}%
+  []
+
+\titleformat{name=\subsubsection, numberless}[runin]
+  {\filleft\normalfont\sffamily\titleheiti\bfseries}%
+  {}%
+  {0mm}%
+  {#1}%
+  []
+
+\titlespacing*{name=\subsubsection}{0pt}{*1}{1em}
+
+% ──────────── 部分 (\part) ────────────
+% [display] 格式：编号和标题分两行显示
+%   \thepart 被重定义为中文数字（如"一"、"二"）
+%   Label 格式为"第X部分"
+\renewcommand{\thepart}{\zhnumber{\arabic{part}}}
+\titleformat{name=\part}[display]
+  {\filcenter\sffamily\titleheiti\bfseries\Huge}% Format：居中 + 伪粗黑体 + 超大号
+  {第{\thepart}部分}% Label："第一部分"、"第二部分"等
+  {1.5em}% Sep：编号行与标题行之间的间距
+  {#1}% Before-code：标题文本
+  []
+
+%====================================================================
+%              页眉页脚设置（fancyhdr）—— AJbook 风格
+%====================================================================
+% AJbook 风格页眉特点：
+%   - 偶数页（左页）：页眉居中显示章标记（如"第一章 Banach 空间"）
+%   - 奇数页（右页）：页眉居中显示节标记（如"§1.2 完备性"）
+%   - 页码始终在外侧（偶数页左，奇数页右）
+%   - 无页眉线、无页脚
+%
+% fancyhdr 位置代码说明：
+%   E = Even（偶数页）, O = Odd（奇数页）
+%   L = Left（左）,    C = Center（居中）, R = Right（右）
+%   组合示例：EC = 偶数页居中，OC = 奇数页居中，LE = 偶数页左侧，RO = 奇数页右侧
+
+\pagestyle{fancy}
+\fancyhf{}                                  % 清除所有默认页眉页脚
+\if@twoside
+  % ── 双面模式（twoside）──
+  \fancyhead[EC]{\footnotesize\heiti\nouppercase{\leftmark}\vspace{1mm}}
+  %   ↑ 偶数页居中：小号黑体章标记（\leftmark = 由 \chaptermark 设置）
+  %     \nouppercase 防止 LaTeX 自动将标记转为大写
+  %     \vspace{1mm} 将文字稍微下移，与页眉线（已关闭）的位置更协调
+  \fancyhead[OC]{\footnotesize\heiti\nouppercase{\rightmark}\vspace{1mm}}
+  %   ↑ 奇数页居中：小号黑体节标记（\rightmark = 由 \sectionmark 设置）
+  \fancyhead[LE,RO]{\footnotesize\thepage\vspace{1mm}}
+  %   ↑ 外侧页码：偶数页左 + 奇数页右
+\else
+  % ── 单面模式（oneside）──
+  \fancyhead[C]{\footnotesize\heiti\nouppercase{\rightmark}\vspace{1mm}}
+  \fancyhead[R]{\footnotesize\thepage\vspace{1mm}}
+\fi
+\renewcommand{\headrulewidth}{0pt}          % 取消页眉下方横线（AJbook 风格无线）
+\renewcommand{\footrulewidth}{0pt}          % 取消页脚上方横线
+
+% plain 页面样式（章首页自动使用 plain 样式）
+% 设为全空：章首页不显示任何页眉页脚
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \renewcommand{\footrulewidth}{0pt}%
+}
+
+% \chaptermark ── 定义章标记格式（写入 \leftmark）
+%   显示为"第X章  标题"（\xchaptertitle 生成中文章号）
+\renewcommand{\chaptermark}[1]{\markboth{\xchaptertitle\quad #1}{}}
+% \sectionmark ── 定义节标记格式（写入 \rightmark）
+%   显示为"§1.2  标题"（\S 生成 § 符号）
+\renewcommand{\sectionmark}[1]{\markright{\S\thesection\quad #1}}
+
+%====================================================================
+%               目录设置（titletoc + 自定义 \tableofcontents）
+%====================================================================
+
+% 自定义 \tableofcontents 命令
+% 主要修改：
+%   1. 目录页内的链接颜色改为黑色（linkcolor=black），阅读更舒适
+%   2. 目录结束后恢复为酒红色（linkcolor=winered）
+%   3. 目录页使用 empty 页面样式（无页眉页脚）
+\renewcommand\tableofcontents{%
+  \hypersetup{linktoc=all, linkcolor=black}%  % 目录内链接为黑色
+  \if@twocolumn
+    \@restonecoltrue\onecolumn
+  \else
+    \@restonecolfalse
+  \fi
+  \chapter*{\contentsname
+    \@mkboth{\MakeUppercase\contentsname}{\MakeUppercase\contentsname}}%
+  \thispagestyle{empty}%                      % 目录页无页眉页脚
+  \@starttoc{toc}%                            % 读取并排版 .toc 文件
+  \if@restonecol\twocolumn\fi
+  \hypersetup{linkcolor=winered}%             % 恢复正文链接颜色
+}
+
+% ──────────── 目录条目格式（\titlecontents） ────────────
+% \titlecontents 语法：
+%   \titlecontents{层级}
+%     [左缩进]                    ── 条目整体的左缩进量
+%     {条目前代码}                ── 每个条目之前执行的代码（如 \addvspace 调整间距）
+%     {有编号条目格式}             ── 有编号时的格式（\thecontentslabel = 编号）
+%     {无编号条目格式}             ── 无编号时的格式
+%     {填充 + 页码}               ── 条目与页码之间的填充（如点线 + 页码）
+
+% 章（chapter）目录条目
+%   左缩进 0pt，章号通过 \AJchapterttl 格式化为中文
+%   \addvspace{-5pt}：负间距使章条目更紧凑
+%   \titlerule*[.7pc]{.}：间距 0.7pc 的点线引导至页码
+\titlecontents{chapter}
+  [0pt]
+  {\addvspace{-5pt}\titleheiti}                                % 条目前：负间距 + 伪粗黑体
+  {\contentsmargin{0pt}\large\AJchapterttl{\thecontentslabel}\quad}  % 有编号："第一章  "
+  {\contentsmargin{0pt}\large}                                 % 无编号：直接大号字体
+  {\titlerule*[.7pc]{.}\contentspage}                          % 点线 + 页码
+
+% 节（section）目录条目
+%   左缩进 1.5em（相对于章条目缩进）
+\titlecontents{section}
+  [1.5em]
+  {\addvspace{-5pt}}                   % 条目前：负间距（紧凑排列）
+  {\thecontentslabel\quad}             % 有编号："1.2  "
+  {\thecontentslabel}                  % 无编号
+  {\titlerule*[.7pc]{.}\contentspage}
+
+% 子节（subsection）目录条目
+%   左缩进 3.9em，小号字体
+\titlecontents{subsection}
+  [3.9em]
+  {\addvspace{-5pt}\small}             % 条目前：负间距 + 小号字体
+  {\thecontentslabel\quad}             % 有编号："1.2.3  "
+  {\ (\thecontentspage)}               % 无编号：显示页码（带括号）
+  {\titlerule*[.7pc]{.}\contentspage}
+
+% 部分（part）目录条目
+%   左缩进 0cm，大号字体，中文"第X部分"格式
+\titlecontents{part}
+  [0cm]
+  {\addvspace{-0.5pc}}                 % 条目前：轻微负间距
+  {\contentsmargin{0pt}\large{第{\thecontentslabel}部分}\quad}  % "第一部分  "
+  {\large}
+  {\titlerule*[.7pc]{.}\contentspage}
+
+%====================================================================
+%                       附录页眉标记覆盖
+%====================================================================
+% 进入附录后，\chaptermark 和 \sectionmark 需要改为附录格式：
+%   - 章标记："附录 A  标题"（而非"第一章  标题"）
+%   - 节标记：不变（仍为"§A.1  标题"）
+% 注意：在 \g@addto@macro 内部，#1 必须写成 ##1（双井号转义）
+\g@addto@macro\appendix{%
+  \renewcommand{\chaptermark}[1]{\markboth{附录 \thechapter\quad ##1}{}}%
+  \renewcommand{\sectionmark}[1]{\markright{\S\thesection\quad ##1}}%
+}
+
+%====================================================================
+%              \cleardoublepage 重定义（双面模式空白页处理）
+%====================================================================
+% 在双面模式（twoside）下，\chapter 默认从奇数页（右页）开始。
+% 如果上一章结束在奇数页，则需要插入一个空白偶数页。
+% 此重定义确保该空白页使用 empty 样式（无页眉页脚），避免出现孤立页码。
+\renewcommand*{\cleardoublepage}{%
+  \clearpage
+  \if@twoside
+    \ifodd\c@page\else           % 如果当前是偶数页（即需要插入空白页）
+      \hbox{}%                    % 在页面放一个空盒子（触发页面生成）
+      \thispagestyle{empty}%      % 空白页不显示页眉页脚
+      \newpage
+      \if@twocolumn\hbox{}\newpage\fi  % 双栏模式下可能需要额外的空白页
+    \fi
+  \fi
+}
+
+%====================================================================
+%           列表间距设置（enumitem 的 \setlist）
+%====================================================================
+% enumitem 包的 \setlist 命令用于全局设置所有列表环境
+% （enumerate、itemize、description）的间距参数。
+%
+% 参数说明：
+%   itemsep    = 2pt  ── 相邻条目之间的垂直间距（默认值较大，此处压缩）
+%   parsep     = 0pt  ── 同一条目内段落之间的间距（设为 0 使段落紧凑）
+%   topsep     = 2pt  ── 列表整体与前后正文之间的间距
+%   partopsep  = 0pt  ── 如果列表前有空行，额外添加的间距（设为 0 取消）
+%
+% 注意：enumitem 包由 rainbow.sty 加载，此处直接使用其 \setlist 命令
+\setlist{
+  itemsep=2pt,
+  parsep=0pt,
+  topsep=2pt,
+  partopsep=0pt,
+}
+
+\endinput
+% ============================================================
+% bookstyle.sty 结束
+% ============================================================

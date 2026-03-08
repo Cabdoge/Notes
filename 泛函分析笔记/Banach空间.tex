@@ -1,0 +1,186 @@
+\chapter{Banach空间}
+
+\section{Banach空间的基本定义}
+
+
+\begin{definition}[范数]
+    设$X$是域$\mb{K}=\mb{R}$或$\mb{C}$上的线性空间，则$X$上的\bluebf{范数}是函数$\|\cdot\|\colon X\to[0,+\infty)$，满足：
+    \begin{enumerate}[label=(\roman*)]
+        \item $\|x\|=0\iff x=0$.
+        \item $\|\lambda x\|=|\lambda|\cdot\|x\|$，$\forall\,\lambda\in\mb{K}$，$x\in X$.
+        \item $\|x+y\|\leq\|x\|+\|y\|$，$\forall\, x,y\in X$.
+    \end{enumerate}
+\end{definition}
+其中这三条性质分别称为范数的非退化性、一次齐次性和三角不等式.范数衡量了线性空间中元素的大小.\par
+除了大小之外，为了研究收敛性、连续性等拓扑性质，我们需要为线性空间配备拓扑，其一的方式是为线性空间中的元素定义其距离.
+\begin{definition}[度量]
+    设$X$是一个拓扑空间，则$X$上的\bluebf{度量}是函数$\rho: X\times X\to[0,+\infty)$，满足：
+    \begin{enumerate}[label=(\roman*)]
+        \item $\rho(x,y)=0\iff x=y$.
+        \item $\rho(x,y)=\rho(y,x)$，$\forall\, x,y\in X$.
+        \item $\rho(x,z)\leq\rho(x,y)+\rho(y,z)$，$\forall\, x,y,z\in X$.
+    \end{enumerate}
+\end{definition}
+度量就导出了一个拓扑空间中的距离的概念.\par
+并且可以发现，由范数可以自然诱导出度量，因此任意赋范线性空间都是度量空间，其中$\rho(x,y):=\|x-y\|$.\par
+反之则不一定成立，因为一个度量空间未必是线性的.例如所有的黎曼曲面都是度量空间，但黎曼曲线显然大部分都是非线性的.但我们可以研究由范数诱导出的度量空间都会满足什么样的性质.
+
+\begin{remark}
+    对于范数诱导出的度量$\rho$，它满足以下几个性质：
+    \begin{itemize}
+        \item 平移不变性：$\rho(x+w,y+w)=\rho(x,y)$
+        \item 一次齐次性：$\rho(\lambda x,\lambda y)=|\lambda|\cdot\rho(x,y)$
+    \end{itemize}\par
+    前者让我们只需要考虑零点附近的性质就可以了解全局的性质，加上后者我们就只需要研究清除单位球就基本可以了解全局性质了，而关于单位球，有以下性质：
+    \begin{itemize}
+        \item 单位球是凸的：以后我们就记$\mb{B}_r(x)=\{y\in X:\rho(x,y)<r\},\mb{B}_r=\mb{B}_r(0),\mb{B}(x)=\mb{B}_1(x)$.\par
+        \begin{sproof}
+            给定$x,y\in\mb{B},\lambda\in(0,1)$，$\|\lambda x+(1-\lambda)y|\leq\|\lambda x\|+\|(1-\lambda)y\|=|\lambda|\|x\|+|1-\lambda|\|y\|<\lambda+1-\lambda=1$.\par
+            $\Rightarrow \lambda x+(1-\lambda)y\in\mb{B}$.
+        \end{sproof}
+    \end{itemize}\par
+    因此，当度量满足上述三个性质时，这个度量就和某个范数相容.\par
+\end{remark}
+
+
+赋予线性空间范数后，下面就可以研究上面的收敛性.\par
+
+\begin{definition}[Cauchy列]
+    设$X$是赋范线性空间，序列$\{x_n\}\subset X$是\bluebf{Cauchy列}$\iff \text{当}\, n,l\to\infty,\|x_n-x_l\|\to 0\iff \forall\,\varepsilon>0,\exists\, N\in\mb{N},\st\,\forall\, n,l>N,\|x_n-x_l\|<\varepsilon.$
+\end{definition}
+
+Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般的度量空间中Cauchy列未必收敛.例如在$(0,1)$中，序列$\{1-\frac{1}{n}\}$是Cauchy列，但它的极限点$1$不在$(0,1)$中.因此我们需要引入完备性的概念来保证Cauchy列的收敛性.
+
+\begin{definition}[完备性]
+    一个赋范线性空间$X$是\bluebf{完备的}当且仅当$X$中的每个Cauchy列都收敛.
+\end{definition}
+
+\begin{definition}[Banach空间]
+    一个完备赋范线性空间称为\bluebf{Banach空间}.
+\end{definition}
+下面我们就来看几个Banach空间的例子.
+\begin{instance}[$p-$范数]
+    设$X=\left(\mb{R}^d,\|\cdot\|_p\right),1\leq p\leq \infty$.对$\vv{x}=\left(x^1,x^2,\cdots,x^d\right)\in\mb{R}^d$，定义其范数为$\|\vv{x}\|_p:=\begin{cases}
+    \left(\sum_{i=1}^d|x^i|^p\right)^{\frac{1}{p}},&1\leq p<\infty\\
+    \max_{1\leq i\leq d}|x^i|,&p=\infty
+    \end{cases}$.\par
+    下证上述确为范数.\par
+    \begin{proof}
+        (i)(ii)显然.\par
+        (iii)当$p=\infty$时，显然得证.当$1\leq p<\infty$时，首先需要下列不等式.
+        \begin{lemma}[Hölder不等式]
+            $\left|\langle \vv{x},\vv{y}\rangle\right|=\left|\sum_{i=1}^d{x^iy^i}\right|\leq\|\vv{x}\|_p\cdot\|\vv{y}\|_q$，其中$1\leq p,q\leq\infty$满足$\frac{1}{p}+\frac{1}{q}=1$，称$p,q$\;\bluebf{Hölder共轭}.
+        \end{lemma}
+        \begin{sproof}
+            若$\vv{x}=0$或$\vv{y}=0$，易证.\par
+            否则不失一般性，设$\|\vv{x}\|_p=1=\|\vv{y}\|_q$.\par
+            注意到，若$a,b\geq 0$，$\frac{1}{p}+\frac{1}{q}=1(1\leq p,q\leq\infty)$，则$ab\leq\frac{a^p}{p}+\frac{b^q}{q}$.\par
+            因此$\left|\sum_{i=1}^d{x^iy^i}\right| \leq \sum_{i=1}^d\left(\frac{|x^i|^p}{p}+\frac{|y^i|^q}{q}\right) \xlongequal{\|\vv{x}\|_p=1=\|\vv{y}\|_q}\frac{1}{p}+\frac{1}{q}=1.$
+        \end{sproof}
+        下证三角不等式成立.\par
+        $\setjot[-2]\begin{aligned}[t]
+            \|\vv{x}+\vv{y}\|_p^p=\sum_{i=1}^d\|x^i+y^i\|^p &\leq \sum_{i=1}^d\left(|x^i|+|y^i|\right)^{p-1}\left(|x^i|+|y^i|\right) \\
+            &= \sum_{i=1}^d\left(|x^i|+|y^i|\right)^{p-1}|x^i|+\sum_{i=1}^d\left(|x^i|+|y^i|\right)^{p-1}|y^i| \\
+            &\leq \left(\sum_{i=1}^d\left(|x^i+y^i|^{p-1}\right)^q\right)^\frac{1}{q}\left(\left(\sum_{i=1}^d|x^i|^p\right)^\frac{1}{p}+\left(\sum_{i=1}^d|y^i|^p\right)^\frac{1}{p}\right) \\
+            &=\left(\sum_{i=1}^d|x^i+y^i|^p\right)^\frac{p-1}{p}\left(\|\vv{x}\|_p+\|\vv{y}\|_p\right) \\
+            &=\|\vv{x}+\vv{y}\|_p^{p-1}\left(\|\vv{x}\|_p+\|\vv{y}\|_p\right)
+        \end{aligned}$\par
+        移项得$\|\vv{x}+\vv{y}\|_p\leq \|\vv{x}\|_p+\|\vv{y}\|_p$.\par
+        由此$\left(\mb{R}^d,\|\cdot\|\right)$是赋范线性空间，$\forall\, p\in[1,\infty]$.
+    \end{proof}
+    记$\mb{S}_X=\{x\in X:\|x\|=1\}$.\par
+    当$d=2$时，我们可以画出不同$p$下的单位球的图像.\par
+    \begin{figure}[H]
+        \centering
+        \vspace{-1 em}
+        \includegraphics[width=0.45\textwidth]{fig/1.1.png}
+        \captionof{figure}{不同$p$下的单位球}
+    \end{figure}
+    可以发现，当$p\geq 1$时，单位球都是凸集，并且若$p\neq 1$或$\infty$，单位球是一致凸的.因此处理$p-$范数时，有时会单独讨论$p=1$或$\infty$的情况.\par
+    当$p<1$时，单位球不再是凸集，因为$p<1$时，对应定义的函数不再是范数.\par
+\end{instance}
+
+\begin{instance}[$\ell^p$空间]
+    设$1\leq p\leq \infty$，可以定义数列组成的空间$\ell^p$为$\{\{\alpha_j\}_{j\in\mb{N}}:\|\{\alpha_j\}\|_p<\infty\}=\left(\mb{R}^\infty,\|\cdot\|\right)$，并定义其范数为$\|x\|_p:=\begin{cases}
+        \left(\sum_{j=1}^\infty|\alpha_j|^p\right)^{\frac{1}{p}},&1\leq p<\infty\\
+        \sup_{j\in\mb{N}}|\alpha_j|,&p=\infty
+    \end{cases}$.\par
+    可以证明上述空间为一个赋范线性空间.\par
+\end{instance}
+
+\begin{instance}{连续函数空间}
+    设$K$为紧致Hausdorff空间，定义$C(K)=\{f:K\to\mb{R}:f\text{连续}\}$，并定义其范数为上极限范数$\|f\|=\sup_{x\in K}|f(x)|<\infty$.范数的有限性来自于紧集上的连续函数是有界的，因此上述空间为一个赋范线性空间.\par
+    下面证明它是完备的.
+    \begin{proof}
+        取$\{f_n\}\subset C(K)$为Cauchy列，则当$n,\ell\to\infty$时，$\|f_n-f_\ell\|=\sup_{x\in K}\left|f_n(x)-f_\ell(x)\right|\to 0$.\par
+        对任意固定的$x\in K$，$\{f_n(x)\}$是$\mb{R}$中的Cauchy列.\par
+        由于$\mb{R}$是完备的，因此$\exists\, f:K\to\mb{R},f_n(x)\to f(x)$.\par
+        由于上述范数下的收敛是一致收敛，$f_n$都连续，因此$f$也连续.\par
+        下证$f_n$一致收敛到$f$，则其在$C(K)$中收敛.\par
+        已知当$n,\ell\to\infty$时，$\|f_n-f_\ell\|=\sup_{x\in K}\left|f_n(x)-f_\ell(x)\right|\to 0$.\par
+        令$\ell\to\infty$，得当$n\to\infty,\left|f_n(x)-f(x)\right|\to 0$，进而当$n\to\infty,\|f_n-f\|\to 0$.\par
+        因此$\{f_n\}$在$C(K)$中收敛到$f$，$C(K)$是完备的.
+    \end{proof}
+    现在可以研究$C(K)$中单位球的性质.\par
+    令$K=[0,1],f_n=x^n$.则$\|f_n\|=\sup_{x\in[0,1]}|x^n|=1$，因此$\{f_n\}\subset\mb{S}_{C(K)}$.\par
+    但我们知道$f_n\to\chi_{1}$，而$\chi_{1}$不是连续函数，因此$\{f_n\}$在$C(K)$中没有收敛子列.\par
+    从而$C(K)$中的单位球不是紧集.\par
+\end{instance}
+从上面一个例子中可以看出，连续函数空间的单位球是一个有界闭集，但它不是紧集.但在实数域等有限维线性空间中，有界闭集都是紧集.因此我们可以得到以下结论：
+\begin{theorem}
+    设$X$是一个赋范线性空间，则有界闭集是紧集$\iff \dim X<\infty$.
+\end{theorem}
+这个定理预示着有限维线性空间的拓扑性质未必能推广到无限维线性空间之中，下一个例子同样展示了这点.\par
+\begin{instance}
+    设$X=C([0,1])$，$Y=\left\{[0,1]\,\text{上多项式}\right\}$，则$\overline{Y}=X\supsetneq Y$，因此$Y$不是闭集
+\end{instance}
+因此，对于无限维赋范空间而言，子空间未必是闭集，我们需要额外的条件.
+\begin{theorem}
+    设$(X,\|\cdot\|)$是一个Banach空间，设$Y\leq X$是一个线性子空间，则$(T,\|\cdot\|)$是Banach空间$\iff$ $Y$是闭集.
+\end{theorem}
+\begin{proof}
+    $\Rightarrow$：设$(Y,\|\cdot\|)$是Banach空间，取任意$\{y_n\}\subset Y,\st y_n\to x\in X$.\par
+    由于$\{y_n\}$收敛，则$\{y_n\}$是$Y$中的Cauchy列，因此$\{y_n\}\to y\in Y$.\par
+    由于极限的唯一性，$x=y\in Y$，因此$Y$是闭集.\par
+    $\Leftarrow$:设$Y$是闭集，取$\{y_n\}\subset Y$为一个Cauchy列.\par
+    因为$(X,\|\cdot\|)$是Banach空间，$y_n\to x\in X$.\par
+    又因为$\{y_n\}\subset Y$, $Y$是闭集，因此$x\in Y$，从而$(Y,\|\cdot\|)$是Banach空间.
+\end{proof}
+
+下面继续详细研究数列空间$\ell^p$.\par
+\begin{instance}
+    设$X=\ell^2$，$e_i=(0,\cdots,0,1,0,\cdots)$，其中$1$在第$i$个坐标.\par
+    $Z:=\mathrm{span}\,\{e_i:i\in\mb{N}\}=\left\{\sum_{i=1}^N\alpha_i e_i:N\in\mb{N},\alpha_i\in\mb{R}\right\}$.\par
+    考虑$x=\left(1,\frac{1}{2},\frac{1}{3},\frac{1}{4},\cdots\right)$，则$x\notin Z$.取$x_n=\left(1,\frac{1}{2},\cdots,\frac{1}{n},0,\cdots,0,\cdots\right)$，则$x_n\to x$，就有$x\in\overline{Z}$.\par
+    并且$\|x_n-x\|_{\ell^2}=\left\|\left(0,\cdots,0,\frac{1}{n+1},\frac{1}{n+2},\cdots\right)\right\|_{\ell^2}=\left(\sum_{j=n+1}^\infty\frac{1}{j^2}\right)^{\frac{1}{2}}\xlongrightarrow{n\to\infty}0$.\par
+    因此$\left(Z,\|\cdot\|_{\ell^2}\right)$不是Banach空间.\par
+    事实上，$Z=\left\{(\alpha_j):\exists\, N\in\mb{N},\st\,\alpha_j=0,\forall\,j\geq N\right\}$且$\overline{Z}=\ell^2$，这意味着$Z$是$\ell^2$中的一个稠密子集.\par
+    更进一步，可以证明$Z$上的任意范数均不完备.
+\end{instance}
+
+\begin{definition}[级数收敛]
+    $\sum_n{x_n}$在$X$中收敛当且仅当$S_n=\sum_{n=1}^N{x_n}$收敛.\par
+    $\sum_n{x_n}$在$X$中绝对收敛当且仅当$\sum_n\|x_n\|$收敛.\par
+\end{definition}
+下面可以证明以下结论.
+\begin{theorem}[]
+   设$(X,\|\cdot\|)$是赋范线性空间，则$(X,\|\cdot\|)$是Banach空间$\iff$ $X$中每个绝对收敛序列都收敛. 
+\end{theorem}
+\begin{proof}
+    $\Rightarrow$：设$X$是Banach空间，设$\sum\|x_n\|<\infty$，考虑$S_n=\sum_{i=1}^n{x_i}$.\par
+    $\|S_n-S_\ell\|=\|\sum_{j=\ell+1}^n{x_j}\|\leq\sum_{j=\ell+1}^n\|x_j\|\xlongrightarrow{n,\ell\to\infty} 0$.\par
+    因此$\{S_n\}$是Cauchy列，故收敛，因而$\sum_n{x_n}$收敛.\par
+    $\Leftarrow$：任取Cauchy列$\{y_n\}\subset X$，可取一个迅速收敛的子列$\{y_{n_k}\}\st\,\|y_{n_{k+1}}-y_{n_k}\|<2^{-k}$.\par
+    那么$\sum_k\left(y_{n_{k+1}}-y_{n_k}\right)$绝对收敛，因此由假设收敛.\par
+    故$y_{n_k}=y_{n_1}+\sum_{j=1}^{k-1}\left(y_{n_{j+1}}-y_{n_j}\right)$收敛.\par
+    \begin{claim*}
+        任意有收敛子列的Cauchy列也收敛.
+    \end{claim*}
+\end{proof}
+最终可以证明上面所定义的数列空间是完备的.
+\begin{theorem}[]
+    $\ell^p(\mb{R}),\ell^p(\mb{C})$是Banach空间，$\forall\, 1\leq p\leq \infty$.
+\end{theorem}
+
+
+

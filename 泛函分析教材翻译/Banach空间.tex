@@ -1,30 +1,29 @@
-\chapter{Banach空间}
+﻿\chapter{Banach空间}
 
 给定一个定义在实数域或复数域上的向量空间 \(X\) ，我们希望在 \(X\) 的点之间引入一个距离 \(d\left( {\cdot , \cdot  }\right)\) ，从而定义极限、收敛序列与级数，以及连续映射.
 
 由于 \(X\) 具有向量空间的代数结构，距离 \(d\) 应与此结构相容.因此，自然要求其满足以下性质:
-
-(p1) 距离 \(d\) 在平移下保持不变，即:对任意 \(x,y,z \in  X\) ，均有 \(d\left( {x,y}\right)  = \; d\left( {x + z,y + z}\right)\) .特别地， \(d\left( {x,y}\right)  = \; d\left( {x - y,0}\right)\) .
-
-(p2) 距离 \(d\) 是正齐次的，即:对任意标量 \(\lambda\) 及任意 \(x,y \in  X\) ，均有 \(d\left( {{\lambda x},{\lambda y}}\right)  = \; \left| \lambda \right| d\left( {x,y}\right)\) .
-
-(p3) 每个开球 \(B\left( {{x}_{0},r}\right)  \doteq  \left\{  {x \in  X;d\left( {x,{x}_{0}}\right)  < r}\right\}\) 均为凸集.
+\begin{enumerate}[label=(p\arabic*),leftmargin=4.5em]
+    \item 度量 \(d\) 在平移下保持不变，即:对任意 \(x,y,z \in  X\) ，均有 \(d\left( {x,y}\right)  = \; d\left( {x + z,y + z}\right)\) .特别地， \(d\left( {x,y}\right)  = \; d\left( {x - y,0}\right)\) .
+    \item 度量 \(d\) 是正齐次的，即:对任意标量 \(\lambda\) 及任意 \(x,y \in  X\) ，均有 \(d\left( {{\lambda x},{\lambda y}}\right)  = \; \left| \lambda \right| d\left( {x,y}\right)\) .
+    \item 每个开球 \(B\left( {{x}_{0},r}\right)  \doteq  \left\{  {x \in  X;d\left( {x,{x}_{0}}\right)  < r}\right\}\) 均为凸集.
+\end{enumerate}
 
 平移不变性意味着，一旦指定了函数 \(x \mapsto  \| x\|  = d\left( {x,0}\right)\) (即点 \(x\) 到原点的距离)，距离 \(d\left( {\cdot , \cdot  }\right)\) 便完全确定.我们称此为向量 \(x \in  X\) 的范数.它可作为整个理论的出发点.
 
 \section{基本定义}
 
 设 \(X\) 为数域 \(\mathbb{K}\) 上的(可能无限维)向量空间.我们总假设 \(\mathbb{K}\) 为实数域 \(\mathbb{R}\) 或复数域 \(\mathbb{C}\) . \(X\) 上的一个范数是指映射 \(x \mapsto  \| x\|\) : \(X\) → \(\mathbb{R}\) ，满足如下性质.
+\begin{enumerate}[label=(N\arabic*),leftmargin=4.5em]
+    \item 对每个 \(x \in  X\) ，有 \(\| x\|  \geq  0\) ，且等号成立当且仅当 \(x = 0\) .
+    \item 对每个 \(x \in  X\) 与 \(\lambda  \in  \mathbb{K}\) ，有 \(\| {\lambda x}\|  = \left| \lambda \right| \| x\|\) .
+    \item 对每个 \(x,y \in  X\) ，有 \(\| x + y\|  \leq  \| x\|  + \| y\|\) .
+\end{enumerate}
 
-(N1) 对每个 \(x \in  X\) ，有 \(\| x\|  \geq  0\) ，且等号成立当且仅当 \(x = 0\) .
+配备满足(N1)-(N3)的范数 \(\|  \cdot  \|\) 的向量空间 \(X\) 称为\allbf{赋范空间}.进而，该范数可确定 \(X\) 中元素之间的距离.
 
-(N2) 对每个 \(x \in  X\) 与 \(\lambda  \in  \mathbb{K}\) ，有 \(\| {\lambda x}\|  = \left| \lambda \right| \| x\|\) .
-
-(N3) 对每个 \(x,y \in  X\) ，有 \(\| x + y\|  \leq  \| x\|  + \| y\|\) .
-
-配备满足(N1)-(N3)的范数 \(\|  \cdot  \|\) 的向量空间 \(X\) 称为赋范空间.进而，该范数可确定 \(X\) 中元素之间的距离.
-
-引理2.1(由范数定义的距离).设 \(\|  \cdot  \|\) 为向量空间 \(X\) 上的一个范数.则
+\begin{lemma}[由范数定义的距离]
+设 \(\|  \cdot  \|\) 为向量空间 \(X\) 上的一个范数.则
 
 \begin{equation}\tag{2.1}
 d\left( {x,y}\right)  \doteq  \| x - y\|
@@ -32,7 +31,9 @@ d\left( {x,y}\right)  \doteq  \| x - y\|
 
 定义了 \(X\) 中点之间的距离.此外，该距离还具有前述(p1)-(p3)所陈述的平移不变性、正齐次性与凸性等附加性质.
 
-证明.1. 验证对所有 \(x,y,z \in  X\) ，距离的三个基本性质均成立:
+\end{lemma}
+\begin{proof}
+1. 验证对所有 \(x,y,z \in  X\) ，距离的三个基本性质均成立:
 
 (D1) 对所有 \(x,y \in  X\) ，有 \(d\left( {x,y}\right)  \geq  0\) ，且等号成立当且仅当 \(x = y\)
 
@@ -65,16 +66,17 @@ d\left( {{\lambda x},{\lambda y}}\right)  = \| \lambda \left( {x - y}\right) \| 
 \]
 
 因此 \({\theta x} + \left( {1 - \theta }\right) y \in  B\left( {0,r}\right)\) ，这表明开球 \(B\left( {0,r}\right)\) 是凸的.
+\end{proof}
 
-距离 \(d\left( {x,y}\right)  = \| x - y\|\) 在向量空间 \(X\) 上确定了一个拓扑.因此我们可讨论开集、闭集、收敛序列及连续映射.
-
+度量 \(d\left( {x,y}\right)  = \| x - y\|\) 在向量空间 \(X\) 上确定了一个拓扑.因此我们可讨论开集、闭集、收敛序列及连续映射.
+ 
 以下恒将中心在点 \(x\) 、半径为 \(r > 0\) 的开球与闭球分别记作
 
 \[
 B\left( {x,r}\right) \; \doteq  \;\{ y \in  X\;;\;\| y - x\|  < r\} ,\;\bar{B}\left( {x,r}\right) \; \doteq  \;\{ y \in  X\;;\;\| y - x\|  \leq  r\} .
 \]
 
-我们回顾:集合 \(V \subseteq  X\) 是开集，当且仅当对每个 \(x \in  V\) ，存在 \(r > 0\) 使得 \(B\left( {x,r}\right)  \subseteq  V\) ；集合 \(U \subseteq  X\) 是闭集，当且仅当其补集 \(X \smallsetminus  U\) 是开集.
+我们回顾:集合 \(V \subseteq  X\) 是开集，当且仅当对每个 \(x \in  V\) ，存在 \(r > 0\) 使得 \(B\left( {x,r}\right)  \subseteq  V\) ；集合 \(U \subseteq  X\) 是闭集，当且仅当其补集 \(X \setminus  U\) 是开集.
 
 序列 \({\left( {x}_{n}\right) }_{n \geq  1}\) 收敛于点 \(\bar{x} \in  X\) ，若
 
@@ -97,56 +99,60 @@ B\left( {x,r}\right) \; \doteq  \;\{ y \in  X\;;\;\| y - x\|  < r\} ,\;\bar{B}\l
 给定两个赋范空间 \(X,Y\) ，称映射 \(f : X \mapsto  Y\) 连续，若对每个 \(x \in  X\) 及 \(\varepsilon  > 0\) ，存在 \(\delta  > 0\) 使得
 
 \[
-\begin{Vmatrix}{f\left( {x}^{\prime }\right)  - f\left( x\right) }\end{Vmatrix} < \varepsilon \;\text{ whenever }{x}^{\prime } \in  X,\begin{Vmatrix}{{x}^{\prime } - x}\end{Vmatrix} < \delta .
+\begin{Vmatrix}{f\left( {x}^{\prime }\right)  - f\left( x\right) }\end{Vmatrix} < \varepsilon \;\text{当}\,{x}^{\prime } \in  X,\begin{Vmatrix}{{x}^{\prime } - x}\end{Vmatrix} < \delta .
 \]
 
 序列 \({\left( {x}_{n}\right) }_{n \geq  1}\) 是Cauchy列，若对每个 \(\varepsilon  > 0\) ，存在足够大的整数 \(N\) 使得
 
 \[
-\begin{Vmatrix}{{x}_{m} - {x}_{n}}\end{Vmatrix} \leq  \varepsilon \;\text{ whenever }m,n \geq  N.
+\begin{Vmatrix}{{x}_{m} - {x}_{n}}\end{Vmatrix} \leq  \varepsilon \;\text{当}\,m,n \geq  N.
 \]
 
 赋范空间 \(X\) 是完备的，若每个Cauchy列均收敛于某个极限点 \(\bar{x} \in  X\) .完备的赋范空间称为Banach空间.
 
 \begin{center}
 \includegraphics[width=1.0\textwidth]{images/bo_d6ik6nn7aajc739ct1l0_26_134_226_1220_369_0.jpg}
+\captionof{figure}{例2.3所述的 \({\mathbb{R}}^{2}\) 中单位球，其范数分别为 \(\|  \cdot  {\| }_{1}\) (左)、 \(\|  \cdot  {\| }_{2}\) (中)和 \(\|  \cdot  {\| }_{\infty }\) (右).}
 \end{center}
 \hspace*{3em} 
 
-图2.1.1. 例2.3所述的 \({\mathbb{R}}^{2}\) 中单位球，其范数分别为 \(\|  \cdot  {\| }_{1}\) (左)、 \(\|  \cdot  {\| }_{2}\) (中)和 \(\|  \cdot  {\| }_{\infty }\) (右).
 
-\section*{2.1.1. 赋范空间与Banach空间的例子.}
+\section{赋范空间与Banach空间的例子.}
 
-例2.2. 具有欧氏范数的有限维空间 \({\mathbb{R}}^{n} = \left\{  {x = \left( {{x}_{1},\ldots ,{x}_{n}}\right) ,{x}_{i}}\right. \; \left. { \in  \mathbb{R}}\right\}\)
+\begin{instance}
+具有欧氏范数的有限维空间 \({\mathbb{R}}^{n} = \left\{  {x = \left( {{x}_{1},\ldots ,{x}_{n}}\right) ,{x}_{i}}\right. \; \left. { \in  \mathbb{R}}\right\}\)
 
 \begin{equation}\tag{2.2}
 \| x{\| }_{2} \doteq  \sqrt{{x}_{1}^{2} + \cdots  + {x}_{n}^{2}}
 \end{equation}
-
 是实数域上的Banach空间.特别地，所有实数构成的域 \(\mathbb{R}\) 可视为一维Banach空间.此时，数 \(x \in  \mathbb{R}\) 的范数由其绝对值给出.
+\end{instance}
 
-例2.3. 在空间 \({\mathbb{R}}^{n}\) 上可考虑如下替代范数
+\begin{instance}
+    在空间 \({\mathbb{R}}^{n}\) 上可考虑如下替代范数
 
 \[
 \| x{\| }_{p} \doteq  {\left( {\left| {x}_{1}\right| }^{p} + \cdots  + {\left| {x}_{n}\right| }^{p}\right) }^{1/p},\;\| x{\| }_{\infty } \doteq  \mathop{\max }\limits_{{1 \leq  i \leq  n}}\left| {x}_{i}\right| .
 \]
 
 此处 \(1 \leq  p < \infty\) .这些范数中的每一个亦使 \({\mathbb{R}}^{n}\) 成为有限维Banach空间.
+\end{instance}
 
-例2.4. 对任意闭有界区间 \(\left\lbrack  {a,b}\right\rbrack\) ，所有连续函数 \(f : \left\lbrack  {a,b}\right\rbrack   \mapsto  \mathbb{R}\) 构成的空间 \({\mathcal{C}}^{0}\left( \left\lbrack  {a,b}\right\rbrack  \right)\) (赋予范数
+\begin{instance}
+    对任意闭有界区间 \(\left\lbrack  {a,b}\right\rbrack\) ，所有连续函数 \(f : \left\lbrack  {a,b}\right\rbrack   \mapsto  \mathbb{R}\) 构成的空间 \({\mathcal{C}}^{0}\left( \left\lbrack  {a,b}\right\rbrack  \right)\) (赋予范数
 
 \begin{equation}\tag{2.3}
 \| f{\| }_{{\mathcal{C}}^{0}} \doteq  \mathop{\max }\limits_{{x \in  \left\lbrack  {a,b}\right\rbrack  }}\left| {f\left( x\right) }\right| ,
 \end{equation}
-
 是Banach空间.
+\end{instance}
 
-例2.5. 设 \(\Omega\) 为 \({\mathbb{R}}^{n}\) 的开子集.对每个 \(1 \leq  p < \infty\) ，考虑所有勒贝格可测函数 \(f : \Omega  \mapsto  \mathbb{R}\) 构成的空间 \({\mathbf{L}}^{p}\left( \Omega \right)\) ，满足 \({\int }_{\Omega }{\left| f\left( x\right) \right| }^{p}{dx} < \infty\) .此空间在范数
+\begin{instance}
+    设 \(\Omega\) 为 \({\mathbb{R}}^{n}\) 的开子集.对每个 \(1 \leq  p < \infty\) ，考虑所有勒贝格可测函数 \(f : \Omega  \mapsto  \mathbb{R}\) 构成的空间 \({\mathbf{L}}^{p}\left( \Omega \right)\) ，满足 \({\int }_{\Omega }{\left| f\left( x\right) \right| }^{p}{dx} < \infty\) .此空间在范数
 
 \begin{equation}\tag{2.4}
 \| f{\| }_{{\mathbf{L}}^{p}} \doteq  {\left( {\int }_{\Omega }{\left| f\left( x\right) \right| }^{p}dx\right) }^{1/p}.
 \end{equation}
-
 下构成Banach空间.此处若两函数 \(f,\widetilde{f}\) 几乎处处相等(即 \(\operatorname{meas}\left( {\{ x \in  \Omega ;f\left( x\right)  \neq  \widetilde{f}\left( x\right) \} }\right)  = 0\) )，则视其为 \({\mathbf{L}}^{p}\left( \Omega \right)\) 中的同一元素.
 
 类似地，所有本质有界、可测函数 \(f : \Omega  \mapsto  \mathbb{R}\) 构成的空间 \({\mathbf{L}}^{\infty }\left( \Omega \right)\) 在范数
@@ -154,8 +160,10 @@ B\left( {x,r}\right) \; \doteq  \;\{ y \in  X\;;\;\| y - x\|  < r\} ,\;\bar{B}\l
 \begin{equation}\tag{2.5}
 \| f{\| }_{{\mathbf{L}}^{\infty }} \doteq  \underset{x \in  \Omega }{\operatorname{ess}\sup }\left| {f\left( x\right) }\right| .
 \end{equation}
+\end{instance}
 
-例2.6. 对固定 \(p \geq  1\) ，考虑所有实数序列构成的空间，其 \(p\) 次幂可求和:
+\begin{instance}
+    对固定 \(p \geq  1\) ，考虑所有实数序列构成的空间，其 \(p\) 次幂可求和:
 
 \begin{equation}\tag{2.6}
 {\ell }^{p} \doteq  \left\{  {\mathbf{x} = \left( {{x}_{1},{x}_{2},\ldots }\right) ;\mathop{\sum }\limits_{{k = 1}}^{\infty }{\left| {x}_{k}\right| }^{p} < \infty }\right\}
@@ -167,7 +175,9 @@ B\left( {x,r}\right) \; \doteq  \;\{ y \in  X\;;\;\| y - x\|  < r\} ,\;\bar{B}\l
 \| \mathbf{x}{\| }_{p} \doteq  {\left( \mathop{\sum }\limits_{{k = 1}}^{\infty }{\left| {x}_{k}\right| }^{p}\right) }^{1/p}
 \end{equation}
 
-例2.7. 所有有界实数序列构成的空间 \({\ell }^{\infty }\) (赋予范数
+\end{instance}
+\begin{instance}
+    所有有界实数序列构成的空间 \({\ell }^{\infty }\) (赋予范数
 
 \begin{equation}\tag{2.8}
 \| \mathbf{x}{\| }_{\infty } \doteq  \mathop{\sup }\limits_{{k \geq  1}}\left| {x}_{k}\right|
@@ -175,7 +185,10 @@ B\left( {x,r}\right) \; \doteq  \;\{ y \in  X\;;\;\| y - x\|  < r\} ,\;\bar{B}\l
 
 是Banach空间.在此空间中，可考虑子空间 \({c}_{0}\) ，即所有满足 \(k \rightarrow  \infty\) 时趋于零的序列 \({\left( {x}_{k}\right) }_{k \geq  1}\) 构成的子空间.该子空间在相同范数(2.8)下亦为Banach空间.
 
-注2.8. 在空间 \({\ell }^{p},1 \leq  p < \infty\) 中，考虑单位向量族(2.9)
+\end{instance}
+
+\begin{remark}
+    在空间 \({\ell }^{p},1 \leq  p < \infty\) 中，考虑单位向量族(2.9)
 
 \[
 {\mathbf{e}}_{1} = \left( {1,0,0,0,\ldots }\right) ,\;{\mathbf{e}}_{2} = \left( {0,1,0,0,\ldots }\right) ,\;{\mathbf{e}}_{3} = \left( {0,0,1,0,\ldots }\right) ,\;\ldots
@@ -186,7 +199,6 @@ B\left( {x,r}\right) \; \doteq  \;\{ y \in  X\;;\;\| y - x\|  < r\} ,\;\bar{B}\l
 \begin{equation}\tag{2.10}
 \operatorname{span}\left\{  {{\mathbf{e}}_{k};k \geq  1}\right\}   = \left\{  {\mathop{\sum }\limits_{{k = 1}}^{N}{\theta }_{k}{\mathbf{e}}_{k};N \geq  1,{\theta }_{k} \in  \mathbb{R}}\right\}
 \end{equation}
-
 并不等于整个空间 \({\ell }^{p}\) ，但构成 \({\ell }^{p}\) 的一个稠密子集.事实上，它由形如 \(x = \left( {{x}_{1},{x}_{2},\ldots ,{x}_{N},0,0,0,\ldots }\right)\) 且仅有有限个非零项的序列全体组成.
 
 集合 \(\left\{  {{\mathbf{e}}_{k};k \geq  1}\right\}\) 并非 \({\ell }^{p}\) 的代数基，但提供了一个拓扑基:即每个元素 \(\mathbf{x} = \left( {{x}_{1},{x}_{2},\ldots }\right)  \in  {\ell }^{p}\) 均可表为收敛级数
@@ -194,8 +206,10 @@ B\left( {x,r}\right) \; \doteq  \;\{ y \in  X\;;\;\| y - x\|  < r\} ,\;\bar{B}\l
 \[
 \mathbf{x} = \mathop{\sum }\limits_{{k = 1}}^{\infty }{x}_{k}{\mathbf{e}}_{k}
 \]
-
-注 2.9．在实数域或复数域上，绝对值 \(\left| \alpha \right|\) 刻画了数 \(\alpha\) 的大小.类似地，在向量空间 \(X\) 上，范数 \(\| f\|\) 可视为刻画元素 \(f \in  X\) 的大小.然而我们注意到，可在同一函数空间上采用不同的范数(从而得到不同的距离)，进而获得截然不同的收敛结果.下一例将对此加以说明.
+\end{remark}
+\begin{remark}
+    在实数域或复数域上，绝对值 \(\left| \alpha \right|\) 刻画了数 \(\alpha\) 的大小.类似地，在向量空间 \(X\) 上，范数 \(\| f\|\) 可视为刻画元素 \(f \in  X\) 的大小.然而我们注意到，可在同一函数空间上采用不同的范数(从而得到不同的距离)，进而获得截然不同的收敛结果.下一例将对此加以说明.
+\end{remark}
 
 例 2.10．设 \(X\) 为区间 \(\left\lbrack  {0,1}\right\rbrack\) 上所有多项式函数构成的空间.在 \(X\) 上可考虑如下两个范数
 
@@ -239,8 +253,10 @@ B\left( {x,r}\right) \; \doteq  \;\{ y \in  X\;;\;\| y - x\|  < r\} ,\;\bar{B}\l
 \begin{equation}\tag{2.12}
 \| \Lambda \|  \doteq  \mathop{\sup }\limits_{{\| x\|  \leq  1}}\| {\Lambda x}\|  < \infty .
 \end{equation}
-
-定理 2.11(有界算子的连续性)．线性算子 \(\Lambda  : X \mapsto  Y\) 有界当且仅当它连续.
+\begin{theorem}[有界算子的连续性]
+    线性算子 \(\Lambda  : X \mapsto  Y\) 有界当且仅当它连续.
+\end{theorem}
+定理 2.11()．
 
 证明:1. 若 \(\Lambda\) 连续，则特别地，它在原点处连续.因此存在 \(\delta  > 0\) ，使得 \(\| x\|  \leq  \delta\) 蕴含 \(\| {\Lambda x}\|  \leq  1\) .由线性性，这表明
 
@@ -481,7 +497,7 @@ B\left( {x,r}\right) \; \doteq  \;\{ y \in  X\;;\;\| y - x\|  < r\} ,\;\bar{B}\l
 
 (ii) \(\Rightarrow\) (i).假设闭单位球 \({B}_{1} \subset  X\) 是紧的，则其是列紧的，可用有限个以点 \({p}_{i},i = 1,\ldots ,n\) 为中心、半径为 \(1/2\) 的开球 \(B\left( {{p}_{i},1/2}\right)\) 覆盖.考虑有限维子空间 \(V = \operatorname{span}\left\{  {{p}_{1},\ldots ,{p}_{n}}\right\}\) (见图 2.3.1).注意 \(V\) 在 \(X\) 中是闭的，因为根据定理 2.20，每个有限维赋范空间都是完备的.
 
-我们断言 \(V = X\) ，从而 \(X\) 本身是有限维的.否则，可找到一点 \(x \in  X \smallsetminus  V\) .令 \(\rho  \doteq  d\left( {x,V}\right)  \doteq  \mathop{\inf }\limits_{{y \in  V}}\| y - x\|\) .注意到 \(\rho  > 0\) ，因为 \(V\) 是闭的.因此存在一点 \(v \in  V\) ，使得
+我们断言 \(V = X\) ，从而 \(X\) 本身是有限维的.否则，可找到一点 \(x \in  X \setminus  V\) .令 \(\rho  \doteq  d\left( {x,V}\right)  \doteq  \mathop{\inf }\limits_{{y \in  V}}\| y - x\|\) .注意到 \(\rho  > 0\) ，因为 \(V\) 是闭的.因此存在一点 \(v \in  V\) ，使得
 
 \begin{equation}\tag{2.18}
 \rho  \leq  \| x - v\|  \leq  \frac{3}{2}\rho .
@@ -1337,7 +1353,7 @@ x = u + v\;\text{ with }\;u \in  U,v \in  V.
 
 使 \({\mathcal{C}}^{m}\left( \Omega \right)\) 成为Fréchet空间.此处 \(\alpha  = \left( {{\alpha }_{1},\ldots ,{\alpha }_{n}}\right)\) 是长度为 \(\left| \alpha \right|  \doteq  {\alpha }_{1} + \cdots  + {\alpha }_{n}\) 的多重指标，且 \({D}^{\alpha }f \doteq  {\left( \frac{\partial }{\partial {x}_{1}}\right) }^{{\alpha }_{1}}\cdots {\left( \frac{\partial }{\partial {x}_{n}}\right) }^{{\alpha }_{n}}f\) .
 
-35. 设 \(Y\) 为Banach空间 \(X\) 的一个闭子空间，且假设 \({x}_{0} \in  X \smallsetminus  Y\) .证明存在一个有界线性泛函 \(\varphi  \in  {X}^{ * }\) ，使得 \(\| \varphi \|  \leq  1\) 且
+35. 设 \(Y\) 为Banach空间 \(X\) 的一个闭子空间，且假设 \({x}_{0} \in  X \setminus  Y\) .证明存在一个有界线性泛函 \(\varphi  \in  {X}^{ * }\) ，使得 \(\| \varphi \|  \leq  1\) 且
 
 \[
 \varphi \left( {x}_{0}\right)  = d\left( {{x}_{0},Y}\right)  = \mathop{\inf }\limits_{{y \in  Y}}\begin{Vmatrix}{{x}_{0} - y}\end{Vmatrix},\;\varphi \left( y\right)  = 0\text{ for all }y \in  Y.

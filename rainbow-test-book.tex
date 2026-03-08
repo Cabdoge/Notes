@@ -1,0 +1,297 @@
+﻿% rainbow-test-book.tex
+% rainbow.sty 兼容性测试 —— ctexbook 文档类
+% 验证所有环境在 book 类型（含 chapter 层级）下的编号与排版
+\documentclass[12pt,a4paper]{ctexbook}
+\usepackage{amsmath,amssymb}
+\usepackage{rainbow}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\title{\textbf{rainbow.sty\enspace book 类兼容性测试}}
+\author{测试文档}
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\mainmatter
+
+%% ============================================================
+%% 第一章：基本环境
+%% ============================================================
+\chapter{基本定理环境}
+
+\section{定义与定理}
+
+\begin{definition}[拓扑空间]
+设 $X$ 是一个非空集合，$\mathcal{T}\subseteq\mathcal{P}(X)$。
+若 $\mathcal{T}$ 满足：
+\begin{enumerate}
+  \item $\varnothing,\,X\in\mathcal{T}$；
+  \item $\mathcal{T}$ 中任意多个成员的并仍属于 $\mathcal{T}$；
+  \item $\mathcal{T}$ 中有限多个成员的交仍属于 $\mathcal{T}$，
+\end{enumerate}
+则称 $(X,\mathcal{T})$ 为\textbf{拓扑空间}。
+\end{definition}
+
+\begin{definition}[连续映射]
+设 $(X,\mathcal{T}_X)$ 和 $(Y,\mathcal{T}_Y)$ 是拓扑空间，映射 $f\colon X\to Y$。
+若对任意 $V\in\mathcal{T}_Y$，都有 $f^{-1}(V)\in\mathcal{T}_X$，
+则称 $f$ 是\textbf{连续}的。
+\end{definition}
+
+\begin{theorem}[Bolzano--Weierstrass]
+$\mathbb{R}^n$ 中的有界无穷子集必有聚点。
+\end{theorem}
+
+\begin{proof}
+利用闭区间套定理和逐次二分法即可证明。
+\end{proof}
+
+\begin{lemma}[Urysohn 引理]
+设 $X$ 是正规空间，$A,B$ 是 $X$ 中两个不相交的闭集，
+则存在连续函数 $f\colon X\to[0,1]$ 使得 $f|_A=0$，$f|_B=1$。
+\end{lemma}
+
+\begin{corollary}
+正规空间中，任意两个不相交闭集可以被连续函数分离。
+\end{corollary}
+
+\section{更多定理类环境}
+
+验证切换 section 后编号是否正确重置。
+
+\begin{theorem}[Heine--Borel]
+$\mathbb{R}^n$ 中的子集是紧致的，当且仅当它是有界闭集。
+\end{theorem}
+
+\begin{corollary}[有限覆盖]
+$[a,b]$ 上的每个开覆盖都有有限子覆盖。
+\end{corollary}
+
+\begin{axiom}[Zermelo 选择公理]
+设 $\{A_i\}_{i\in I}$ 是一族非空集合，则存在一个选择函数
+$f\colon I\to\bigcup_{i\in I}A_i$，使得对每个 $i\in I$，$f(i)\in A_i$。
+\end{axiom}
+
+\begin{postulate}[欧几里得第五公设]
+过直线外一点，有且仅有一条直线与已知直线平行。
+\end{postulate}
+
+\begin{proposition}[开映射性质]
+设 $f\colon X\to Y$ 是连续双射且 $X$ 紧致、$Y$ Hausdorff，则 $f$ 是同胚。
+\end{proposition}
+
+\begin{assumption}[有界性假设]
+假设对所有 $n\geq1$，存在常数 $C>0$ 使得 $\|x_n\|\leq C$。
+\end{assumption}
+
+\begin{property}[Banach 空间的完备性]
+Banach 空间中的每个 Cauchy 列都收敛。
+\end{property}
+
+\begin{conjecture}[Goldbach 猜想]
+每个大于 $2$ 的偶数都可以表示为两个素数之和。
+\end{conjecture}
+
+%% ============================================================
+%% 第二章：证明、断言与附加环境
+%% ============================================================
+\chapter{证明与附加环境}
+
+\section{proof 证明环境}
+
+\begin{theorem}[中值定理]
+设 $f$ 在 $[a,b]$ 上连续，在 $(a,b)$ 上可微，则存在 $c\in(a,b)$ 使得
+\[
+  f'(c) = \frac{f(b)-f(a)}{b-a}.
+\]
+\end{theorem}
+
+\begin{proof}
+令 $g(x)=f(x)-f(a)-\dfrac{f(b)-f(a)}{b-a}(x-a)$。
+则 $g(a)=g(b)=0$，由 Rolle 定理，存在 $c\in(a,b)$ 使得 $g'(c)=0$，
+即 $f'(c)=\dfrac{f(b)-f(a)}{b-a}$。
+\end{proof}
+
+\begin{proof}[另证]
+这是一个使用自定义标题的证明环境，标题为"另证"。
+利用 Cauchy 中值定理同样可以得到结论。
+\end{proof}
+
+\section{claim 断言环境}
+
+断言环境用于在证明过程中提出需要单独论证的子断言。
+
+\begin{theorem}[素数无穷]
+素数有无穷多个。
+\end{theorem}
+
+\begin{proof}
+假设素数只有有限个，设为 $p_1, p_2, \ldots, p_n$。
+
+\begin{claim}{$N = p_1 p_2 \cdots p_n + 1$ 不能被任何 $p_i$ 整除。}
+  对任意 $1\leq i\leq n$，有 $N \equiv 1 \pmod{p_i}$，即 $p_i \nmid N$。
+\end{claim}
+
+\begin{claim*}
+  $N > 1$，故 $N$ 必有素因子。
+\end{claim*}
+
+由断言 1，$N$ 的素因子不在 $\{p_1,\ldots,p_n\}$ 中，矛盾。
+\end{proof}
+
+\section{remark 与 example}
+
+\begin{remark}
+注记环境没有编号，使用灰色左边框。在 book 类下也应正常工作。
+\end{remark}
+
+\begin{example}
+考虑 $f(x)=x^2$ 在 $[0,1]$ 上的积分：
+\[
+  \int_0^1 x^2\,dx = \frac{1}{3}.
+\]
+\end{example}
+
+\section{instance 示例环境}
+
+\begin{instance}[度量空间]
+取 $X=\mathbb{R}^n$，定义 $d(x,y)=\|x-y\|_2$，
+则 $(X,d)$ 构成一个度量空间。
+\end{instance}
+
+\begin{instance}
+设 $X=C[0,1]$，定义 $d(f,g)=\sup_{x\in[0,1]}|f(x)-g(x)|$，
+则 $(X,d)$ 是一个完备度量空间。
+\end{instance}
+
+%% ============================================================
+%% 第三章：编号重置与跨章验证
+%% ============================================================
+\chapter{编号重置验证}
+
+进入新的 chapter 后，section 编号从 1 开始，所有环境编号也应重置。
+
+\section{新章节第一节}
+
+\begin{theorem}
+本节第一个定理，编号应为 3.1.1。
+\end{theorem}
+
+\begin{definition}
+本节第一个定义，编号应为 3.1.1。
+\end{definition}
+
+\begin{lemma}
+本节第一个引理，编号应为 3.1.1。
+\end{lemma}
+
+\begin{proposition}
+本节第一个命题，编号应为 3.1.1。
+\end{proposition}
+
+\begin{corollary}
+本节第一个推论，编号应为 3.1.1。
+\end{corollary}
+
+\section{同章第二节}
+
+\begin{theorem}[第二节定理]
+编号应为 3.2.1，验证 section 切换后计数器独立递增。
+\end{theorem}
+
+\begin{theorem}
+编号应为 3.2.2。
+\end{theorem}
+
+\begin{definition}
+编号应为 3.2.1。
+\end{definition}
+
+%% ============================================================
+%% 第四章：练习与提示类环境
+%% ============================================================
+\chapter{练习与提示}
+
+\section{exercise 练习}
+
+\exerciseline
+
+\begin{exercise}
+证明：若 $f$ 在 $[a,b]$ 上一致连续，则 $f$ 在 $[a,b]$ 上有界。
+\end{exercise}
+
+\begin{exercise}
+证明 Cauchy--Schwarz 不等式：
+\[
+  \left(\sum_{i=1}^n a_i b_i\right)^2
+  \leq \left(\sum_{i=1}^n a_i^2\right)\left(\sum_{i=1}^n b_i^2\right).
+\]
+\end{exercise}
+
+\begin{exercise}[(提示：用分部积分)]
+证明 $\displaystyle\int_0^1 \ln x\,dx = -1$。
+\end{exercise}
+
+\section{homework 习题环境}
+
+连续编号测试：
+
+\begin{homework}
+设 $f\colon[a,b]\to\mathbb{R}$ 连续，证明 $f$ 在 $[a,b]$ 上有界。
+\end{homework}
+
+\begin{homework}
+设 $\{a_n\}$ 是单调递增有上界的数列，证明 $\{a_n\}$ 收敛。
+\end{homework}
+
+\begin{homework}
+    
+计算下列极限：
+\begin{enumerate}
+  \item $\displaystyle\lim_{n\to\infty}\frac{n^2+1}{2n^2-3}$
+  \item $\displaystyle\lim_{n\to\infty}\left(1+\frac{1}{n}\right)^n$
+  \item $\displaystyle\lim_{x\to 0}\frac{\sin x}{x}$
+\end{enumerate}
+\end{homework}
+
+\begin{homework}
+设 $f$ 在 $[0,1]$ 上可积，且 $|f(x)|\leq M$，证明
+\[
+  \left|\int_0^1 f(x)\,dx\right| \leq M.
+\]
+\end{homework}
+
+手动重置编号测试（从第 10 题开始）：
+
+\begin{homework}[index=10]
+证明 $\sqrt{2}$ 是无理数。
+\end{homework}
+
+\begin{homework}
+设 $p$ 为素数，证明 $\sqrt{p}$ 是无理数。
+\end{homework}
+
+\section{提示类环境}
+
+\begin{important}
+这是 \texttt{important} 环境，在 book 类下应正常显示紫色左边框和图标。
+\end{important}
+
+\begin{warning}
+这是 \texttt{warning} 环境，黄色左边框。
+\end{warning}
+
+\begin{note}
+这是 \texttt{note} 环境，青色左边框。
+\end{note}
+
+\begin{attention}
+这是 \texttt{attention} 环境，蓝色左边框。
+\end{attention}
+
+\begin{caution}
+这是 \texttt{caution} 环境，红色左边框。
+\end{caution}
+
+\end{document}

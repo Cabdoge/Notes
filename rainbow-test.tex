@@ -1,0 +1,289 @@
+﻿% rainbow-test.tex
+% rainbow.sty 测试文档 —— 展示所有定理类环境
+\documentclass[12pt,a4paper]{ctexart}
+\usepackage{amsmath,amssymb}
+\usepackage{rainbow}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\title{\textbf{rainbow.sty 环境测试}}
+\author{测试文档}
+\date{\today}
+
+
+
+\setCJKfamilyfont{zhfs}{FangSong}[AutoFakeBold=2.5]
+\renewcommand{\fangsong}{\CJKfamily{zhfs}}
+\setCJKfamilyfont{zhkai}{KaiTi}[AutoFakeBold=2.5]
+\renewcommand{\kaishu}{\CJKfamily{zhkai}}
+\setCJKfamilyfont{zhsong}{SimSun}[AutoFakeBold=2.5]
+\renewcommand{\songti}{\CJKfamily{zhsong}}
+
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+%% ============================================================
+\section{基本定理环境}
+%% ============================================================
+
+\\begin{definition}[拓扑空间]
+设 $X$ 是一个非空集合，$\mathcal{T}\subseteq\mathcal{P}(X)$ 是 $X$ 的子集族。
+若 $\mathcal{T}$ 满足以下三个条件：
+\begin{enumerate}
+  \item $\varnothing,\,X\in\mathcal{T}$；
+  \item $\mathcal{T}$ 中任意多个成员的并仍属于 $\mathcal{T}$；
+  \item $\mathcal{T}$ 中有限多个成员的交仍属于 $\mathcal{T}$，
+\end{enumerate}
+则称 $\mathcal{T}$ 是 $X$ 上的一个\textbf{拓扑}，$(X,\mathcal{T})$ 称为\textbf{拓扑空间}。
+\end{definition}
+
+\\begin{definition}[连续映射]
+设 $(X,\mathcal{T}_X)$ 和 $(Y,\mathcal{T}_Y)$ 是拓扑空间，映射 $f\colon X\to Y$。
+若对任意 $V\in\mathcal{T}_Y$，都有 $f^{-1}(V)\in\mathcal{T}_X$，
+则称 $f$ 是\textbf{连续}的。
+\end{definition}
+
+\\begin{theorem}[Bolzano--Weierstrass]
+$\mathbb{R}^n$ 中的有界无穷子集必有聚点。
+\end{theorem}
+
+\begin{proof}
+利用闭区间套定理和逐次二分法即可证明。
+\end{proof}
+
+\\begin{lemma}[Urysohn 引理]
+设 $X$ 是正规空间，$A,B$ 是 $X$ 中两个不相交的闭集，
+则存在连续函数 $f\colon X\to[0,1]$ 使得
+$f|_A=0$，$f|_B=1$。
+\end{lemma}
+
+\\begin{corollary}
+正规空间中，任意两个不相交闭集可以被连续函数分离。
+\end{corollary}
+
+\\begin{theorem}[Heine--Borel]
+$\mathbb{R}^n$ 中的子集是紧致的，当且仅当它是有界闭集。
+\end{theorem}
+
+\\begin{corollary}[有限覆盖]
+$[a,b]$ 上的每个开覆盖都有有限子覆盖。
+\end{corollary}
+
+
+%% ============================================================
+\section{更多环境展示}
+%% ============================================================
+
+\\begin{axiom}[Zermelo 选择公理]
+设 $\{A_i\}_{i\in I}$ 是一族非空集合，则存在一个选择函数
+$f\colon I\to\bigcup_{i\in I}A_i$，使得对每个 $i\in I$，$f(i)\in A_i$。
+\end{axiom}
+
+\\begin{postulate}[欧几里得第五公设]
+过直线外一点，有且仅有一条直线与已知直线平行。
+\end{postulate}
+
+\\begin{proposition}[开映射性质]
+设 $f\colon X\to Y$ 是连续双射且 $X$ 紧致、$Y$ Hausdorff，
+则 $f$ 是同胚。
+\end{proposition}
+
+\begin{proof}
+1
+
+1
+
+只需证 $f$ 是闭映射。紧致空间中的闭集是紧致的，紧致集在连续映射下的像是紧致的，
+而 Hausdorff 空间中的紧致子集是闭的，因此 $f$ 将闭集映为闭集。 \par
+
+
+\end{proof}
+这是正文，这是正文，这是正文，这是正文，这是正文，这是正文，这是正文，这是正文，
+这是正文，这是正文，这是正文，这是正文，这是正文，这是正文，这是正文，这是正文，这是正文，这是正文，这是正文，
+
+\\begin{assumption}[有界性假设]
+假设对所有 $n\geq1$，存在常数 $C>0$ 使得 $\|x_n\|\leq C$。
+\end{assumption}
+
+\\begin{property}[Banach 空间的完备性]
+Banach 空间中的每个 Cauchy 列都收敛。
+\end{property}
+
+\\begin{conjecture}[Goldbach 猜想]
+每个大于 $2$ 的偶数都可以表示为两个素数之和。
+\end{conjecture}
+
+%% ============================================================
+\section{编号重置验证}
+%% ============================================================
+
+进入新的 section 后，所有计数器应当从 $1$ 重新开始。
+
+
+\\begin{theorem}
+本节第一个定理，编号应为 3.1。 \par
+
+\end{theorem}
+\\begin{definition}
+本节第一个定义，编号应为 3.1。
+\end{definition}
+
+\\begin{lemma}
+本节第一个引理，编号应为 3.1。
+\end{lemma}
+
+\\begin{proposition}
+本节第一个命题，编号应为 3.1。
+\end{proposition}
+
+\\begin{corollary}
+本节第一个推论，编号应为 3.1。
+\end{corollary}
+
+\\begin{theorem}[第二个定理]
+编号应为 3.2，验证定理计数器独立递增。
+\end{theorem}
+
+%% ============================================================
+\section{remark 和 example（无编号）}
+%% ============================================================
+
+\begin{remark}
+注记环境没有编号，使用灰色左边框。
+\end{remark}
+
+\begin{example}
+这是一个例子环境，同样没有编号。
+考虑 $f(x)=x^2$ 在 $[0,1]$ 上的积分：
+\[
+  \int_0^1 x^2\,dx = \frac{1}{3}.
+\]
+\end{example}
+
+%% ============================================================
+\section{proof 证明环境}
+%% ============================================================
+
+\\begin{theorem}[中值定理]
+设 $f$ 在 $[a,b]$ 上连续，在 $(a,b)$ 上可微，则存在 $c\in(a,b)$ 使得
+\[
+  f'(c) = \frac{f(b)-f(a)}{b-a}.
+\]
+\end{theorem}
+
+\begin{proof}
+令 $g(x) = f(x) - f(a) - \dfrac{f(b)-f(a)}{b-a}(x-a)$。
+则 $g(a) = g(b) = 0$，由 Rolle 定理，存在 $c\in(a,b)$ 使得 $g'(c)=0$，
+即 $f'(c) = \dfrac{f(b)-f(a)}{b-a}$。
+\end{proof}
+
+\begin{proof}[另证]
+这是一个使用自定义标题的证明环境，标题为"另证"。
+
+利用 Cauchy 中值定理同样可以得到结论。
+\end{proof}
+
+%% ============================================================
+\section{claim 断言环境}
+%% ============================================================
+
+断言环境用于在证明过程中提出需要单独论证的子断言。
+\texttt{claim} 用于需要证明的断言，\texttt{claim*} 用于无需证明的断言。
+编号在每个最外层 \texttt{proof} 环境开始时自动重置。
+
+\\begin{theorem}[素数无穷]
+素数有无穷多个。
+\end{theorem}
+
+\begin{proof}
+假设素数只有有限个，设为 $p_1, p_2, \ldots, p_n$。
+
+\begin{claim}{$N = p_1 p_2 \cdots p_n + 1$ 不能被任何 $p_i$ 整除。}
+  对任意 $1\leq i\leq n$，用 $p_i$ 去除 $N$，
+  有 $N = p_i \cdot (p_1 \cdots \hat{p}_i \cdots p_n) + 1$，
+  因此 $N$ 除以 $p_i$ 余 $1$，即 $p_i \nmid N$。
+\end{claim}\par
+\begin{claim*}
+  $N > 1$，故 $N$ 必有素因子。
+\end{claim*}
+
+由断言 1，$N$ 的素因子不在 $\{p_1, \ldots, p_n\}$ 中，
+这与假设"$p_1, \ldots, p_n$ 是全部素数"矛盾。
+因此素数有无穷多个。
+\end{proof}
+
+%% ============================================================
+\section{exercise 练习环境}
+%% ============================================================
+
+\exerciseline
+
+\begin{exercise}
+证明：若 $f$ 在 $[a,b]$ 上一致连续，则 $f$ 在 $[a,b]$ 上有界。
+\end{exercise}
+
+\begin{exercise}
+证明对任意实数 $a_1,\ldots,a_n$ 和 $b_1,\ldots,b_n$，有
+\[
+  \left(\sum_{i=1}^n a_i b_i\right)^2
+  \leq \left(\sum_{i=1}^n a_i^2\right)\left(\sum_{i=1}^n b_i^2\right).
+\]
+\end{exercise}
+
+\begin{exercise}
+计算 $\displaystyle\int_0^{\pi/2}\sin^2 x\,dx$。
+\end{exercise}
+
+\begin{exercise}[(提示：用分部积分)]
+证明 $\displaystyle\int_0^1 \ln x\,dx = -1$。
+\end{exercise}
+
+%% ============================================================
+\section{instance 示例环境}
+%% ============================================================
+
+\\begin{instance}[度量空间]
+取 $X=\mathbb{R}^n$，定义 $d(x,y)=\|x-y\|_2$，
+则 $(X,d)$ 构成一个度量空间。
+\end{instance}
+
+\\begin{instance}
+设 $X=C[0,1]$ 为 $[0,1]$ 上连续函数的全体，定义
+\[
+  d(f,g) = \sup_{x\in[0,1]}|f(x)-g(x)|,
+\]
+则 $(X,d)$ 是一个完备度量空间。
+\end{instance}
+
+%% ============================================================
+\section{提示类环境（无编号，带图标）}
+%% ============================================================
+
+\begin{important}
+定理 1.6.1 是平面几何中最基本也是最重要的定理之一，它连接了几何与代数。
+\end{important}
+
+\begin{warning}
+这个定理的两个条件缺一不可：
+\begin{itemize}
+  \item 函数必须是连续的
+  \item 定义域必须是闭区间
+\end{itemize}
+\end{warning}
+
+\begin{note}
+这个定理也被称为高斯基本定理，因为它是由高斯首次严格证明的。
+\end{note}
+
+\begin{attention}
+请记住数学证明既要严谨又要清晰。没有严谨性的清晰是不充分的，没有清晰性的严谨也是无效的。
+\end{attention}
+
+\begin{caution}
+在处理无穷级数时，一定要先检验其收敛性，再讨论其他性质。
+\end{caution}
+
+\end{document}

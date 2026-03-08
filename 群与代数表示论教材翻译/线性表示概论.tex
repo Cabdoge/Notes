@@ -1,0 +1,216 @@
+\chapter{线性表示概论}
+
+\section{定义}
+
+令 \(\mathbf{V}\) 为复数域 \(\mathbb{C}\) 上的向量空间，令 GL(V) 为把 V 映为自身的同构全体.GL(V) 的一个元素 \(a\) 按定义是将 \(V\) 映到 \(V\) 的线性映射，且具有逆映射 \({a}^{-1}\) ；此逆映射也是线性的.当 \(\mathrm{V}\) 有一个由 \(\left( {e}_{i}\right)\) 个元素构成的有限基 \(n\) 时，每一线性映射 \(a : \mathrm{V} \rightarrow  \mathrm{V}\) 由一阶为 \(n\) 的方阵 \(\left( {a}_{ij}\right)\) 决定.系数 \({a}_{ij}\) 为复数；它们由将像 \(a\left( {e}_{j}\right)\) 用基 \(\left( {e}_{i}\right)\) 表示得到:
+
+\[
+a\left( {e}_{j}\right)  = \mathop{\sum }\limits_{i}{a}_{ij}{e}_{i}.
+\]
+
+说 \(a\) 是同构等价于说 \(a\) 的行列式 \(\det \left( a\right)  = \det \left( {a}_{ij}\right)\) 不为零.故群 \(\mathbf{{GL}}\left( \mathrm{V}\right)\) 可识别为一切可逆方阵(阶为 \(n\) )所构成的群.
+
+假设现在 \(G\) 是一个有限群，恒等元为 1，运算为 \(\left( {s,t}\right)  \mapsto  {st}\) .在 \(\mathrm{V}\) 中 \(\mathrm{G}\) 的线性表示是一个同态映射 \(\rho\) ，将群 \(G\) 映到群 \({GL}\left( V\right)\) .换言之，我们将每个元素 \(s \in  \mathbf{G}\) 关联到 \(\rho \left( s\right)\) 的一个元素 \(\mathbf{{GL}}\left( \mathrm{V}\right)\) ，并满足等式
+
+\[
+\rho \left( {st}\right)  = \rho \left( s\right)  \cdot  \rho \left( t\right) \;\text{ for }s,t \in  \mathrm{G}.
+\]
+
+[我们也常写 \({\rho }_{s}\) 代替 \(\rho \left( s\right)\) .] 注意前述公式蕴含下列关系:
+
+\[
+\rho \left( 1\right)  = 1,\;\rho \left( {s}^{-1}\right)  = \rho {\left( s\right) }^{-1}.
+\]
+
+给定 \(\rho\) 时，我们说 \(\mathrm{V}\) 是 \(\mathrm{G}\) 的表示空间(或简略称为 G 的表示).下文中，我们只考虑 V 为有限维的情形.这并非严重的限制.事实上，对大多数应用，人们关心的是处理有限个元素 \({x}_{i}\) 属于 \(\mathbf{V}\) ，总能找到包含这些 \({x}_{i}\) 的有限维子表示(将在 1.3 中给出定义):只需取由这些 \({x}_{i}\) 的像 \({\rho }_{s}\left( {x}_{i}\right)\) 所生成的向量子空间.
+
+现假定 \(\mathbf{V}\) 为有限维，令其维数为 \(n\) ；我们也称 \(n\) 为所研究表示的次数.令 \(\left( {e}_{i}\right)\) 为 \(\mathbf{V}\) 的一基，令 \({\mathbf{R}}_{s}\) 为相对于该基的 \({\rho }_{s}\) 的矩阵.我们有
+
+\[
+\det \left( {\mathbf{R}}_{s}\right)  \neq  0,\;{\mathbf{R}}_{st} = {\mathbf{R}}_{s} \cdot  {\mathbf{R}}_{t}\;\text{ if }s,t \in  \mathbf{G}.
+\]
+
+若记矩阵 \({\mathbf{R}}_{s}\) 的系数为 \({r}_{ij}\left( s\right)\) ，则第二个公式变为
+
+\[
+{r}_{ik}\left( {st}\right)  = \mathop{\sum }\limits_{j}{r}_{ij}\left( s\right)  \cdot  {r}_{jk}\left( t\right) .
+\]
+
+反之，给定满足上述恒等式的可逆矩阵组 \({\mathbf{R}}_{s} = \left( {{r}_{ij}\left( s\right) }\right)\) ，则存在相应的线性表示 \(\rho\) ，将 \(\mathbf{G}\) 表示于 \(\mathbf{V}\) ；这就是所谓以“矩阵形式”给出表示的含义.
+
+设 \(\rho\) 与 \({\rho }^{\prime }\) 是同一群 \(\mathbf{G}\) 在向量空间 \(\mathrm{V}\) 与 \({\mathrm{V}}^{\prime }\) 中的两个表示.若存在线性同构 \(\tau  : \mathrm{V} \rightarrow  {\mathrm{V}}^{\prime }\) 将 \(\rho\) “变换”为 \({\rho }^{\prime }\) ，即满足恒等式，则称这两个表示相似(或同构).
+
+\[
+\tau  \circ  \rho \left( s\right)  = {\rho }^{\prime }\left( s\right)  \circ  \tau \;\text{ for all }s \in  \mathrm{G}.
+\]
+
+当 \(\rho\) 与 \({\rho }^{\prime }\) 分别以矩阵形式由 \({\mathrm{R}}_{s}\) 与 \({\mathrm{R}}_{s}^{\prime }\) 给出时，这意味着存在可逆矩阵 \(T\) 使得
+
+\[
+\mathrm{T} \cdot  {\mathbf{R}}_{s} = {\mathbf{R}}_{s}^{\prime } \cdot  \mathrm{T}\text{ , for all }s \in  \mathrm{G}\text{ , }
+\]
+
+也可写作 \({\mathbf{R}}_{s}^{\prime } = \mathbf{T} \cdot  {\mathbf{R}}_{s} \cdot  {\mathbf{T}}^{-1}\) .我们可以将两个这样的表示视为相同(通过让每个 \(x \in  \mathbf{V}\) 对应元素 \(\tau \left( x\right)  \in  {\mathbf{V}}^{\prime }\) )；特别地， \(\rho\) 与 \({\rho }^{\prime }\) 有相同的次数.
+
+\section{基本例子}
+
+(a) 群 \(G\) 的一次表示是群同态 \(\rho  : G \rightarrow  {C}^{ * }\) ，其中 \({C}^{ * }\) 表示非零复数的乘法群.由于 \(G\) 的每个元素都是有限阶， \(\rho\) 的取值 \(\rho \left( s\right)\) 为单位根；尤其，我们有 \(\left| {\rho \left( s\right) }\right|  = 1\) .
+
+若对所有 \(s \in  \mathbf{G}\) 取 \(\rho \left( s\right)  = 1\) ，则得到群 \(\mathbf{G}\) 的表示，称为平凡(或单位)表示.
+
+(b) 设 \(\mathbf{G}\) 的阶为 \(g\) ，取维数为 \(g\) 的向量空间 \(\mathbf{V}\) ，其基 \({\left( {e}_{t}\right) }_{t \in  \mathrm{G}}\) 以 \(\mathrm{G}\) 的元素 \(t\) 索引.对每个 \(s \in  \mathrm{G}\) ，令 \({\rho }_{s}\) 为将 \(\mathrm{V}\) 中的 \({e}_{t}\) 映为 \({e}_{st}\) 的线性映射；这定义了一个线性表示，称为 G 的正规表示，其次数等于 G 的阶.注意 \({e}_{s} = {\rho }_{s}\left( {e}_{1}\right)\) ；因此 \({e}_{1}\) 的像构成 \(\mathbf{V}\) 的一组基.反过来，若 \(\mathbf{W}\) 是包含向量 \(w\) 的 \(\mathbf{G}\) 的一个表示，且 \({\rho }_{s}\left( w\right) ,s \in  \mathrm{G}\) 构成 \(\mathrm{W}\) 的一组基，则 W 与正规表示同构(通过令 \(\tau \left( {e}_{s}\right)  = {\rho }_{s}\left( w\right)\) 定义同构 \(\tau  : \mathbf{V} \rightarrow  \mathbf{W}\) ).
+
+(c) 更一般地，设 G 在有限集 X 上作用.这意味着对每个 \(s \in  \mathbf{G}\) ，给定一个置换 \(x \mapsto  {sx}\) 于 \(\mathbf{X}\) ，且满足以下恒等式
+
+\[
+{1x} = x,s\left( {tx}\right)  = \left( {st}\right) x\;\text{ if }s,t \in  \mathrm{G},x \in  \mathrm{X}.
+\]
+
+令 \(\mathrm{V}\) 为一向量空间，其基 \({\left( {e}_{x}\right) }_{x \in  \mathrm{X}}\) 由 X 的元素索引.对 \(s \in  \mathrm{G}\) ，令 \({\rho }_{s}\) 为将 \({e}_{x}\) 送至 \({e}_{sx}\) 的 \(\mathrm{V}\) 上的线性映射；由此得到的 \(\mathbf{G}\) 的线性表示称为与 \(\mathbf{X}\) 相关的置换表示.
+
+\section{子表示}
+
+令 \(\rho  : \mathbf{G} \rightarrow  \mathbf{{GL}}\left( \mathbf{V}\right)\) 为一线性表示，且令 \(\mathbf{W}\) 为 \(\mathbf{V}\) 的向量子空间.若 \(\mathbf{W}\) 在 \(\mathbf{G}\) 的作用下不变(亦称“稳定”)，换言之，假设对任意 \(s \in  G\) ，由 \(x \in  W\) 可推出 \({\rho }_{s}x \in  W\) .则 \({\rho }_{s}\) 限制于 \(W\) 的映射 \({\rho }_{s}^{W}\) 是由 \(W\) 到自身的同构，且我们有 \({\rho }_{st}^{W} = {\rho }_{s}^{W} \cdot  {\rho }_{t}^{W}\) .因此 \({\rho }^{W} : G \rightarrow  {GL}\left( W\right)\) 是在 \(W;W\) 上的 \(G\) 的线性表示，称为 \(V\) 的一个子表示.
+\begin{instance}
+取 \(G\) 的正则表示为 \(V\) [参见 1.2 (b)]，并令 W 为由元素 \(x = \mathop{\sum }\limits_{{s \in  \mathrm{G}}}{e}_{s}\) 生成的 \(V\) 的一维子空间.对所有 \(s \in  \mathrm{G}\) ，我们有 \({\rho }_{s}x = x\) ；因此 \(\mathrm{W}\) 是 \(\mathrm{V}\) 的一个子表示，与平凡表示同构.(我们将在 2.4 中确定正则表示的所有子表示.)
+\end{instance}
+
+在继续之前，我们回顾线性代数中的一些概念.设 V 为向量空间，且 \(W\) 和 \({W}^{\prime }\) 是 \(V\) 的两个子空间.如果每一个 \(x \in  V\) 都可唯一地写成 \(x = w + {w}^{\prime }\) 的形式，其中 \(w \in  \mathrm{W}\) 与 \({w}^{\prime } \in  {\mathrm{W}}^{\prime }\) ，则称空间 \(V\) 为 \(W\) 与 \({W}^{\prime }\) 的直和；这相当于说 \(W\) 与 \({W}^{\prime }\) 的交 \(W \cap  {W}^{\prime }\) 为 0 且 \(\dim \left( V\right)  = \dim \left( W\right)  + \dim \left( {W}^{\prime }\right)\) .我们记为 \(V = W \oplus  {W}^{\prime }\) 并说 \({\mathbf{W}}^{\prime }\) 是 \(\mathbf{V}\) 中 \(\mathbf{W}\) 的补空间.将每个 \(x \in  \mathbf{V}\) 送到其分量 \(w \in  \mathbf{W}\) 的映射 \(p\) 称为与分解 \(\mathbf{V} = \mathbf{W} \oplus  {\mathbf{W}}^{\prime }\) 相关的从 \(\mathbf{V}\) 到 \(\mathbf{W}\) 的投影； \(p\) 的像是 \(\mathbf{W}\) ，且 \(p\left( x\right)  = x\) 对于 \(x \in  \mathrm{W}\) ；反之，若 \(p\) 是将 \(\mathrm{V}\) 映到自身的线性映射并满足这两个性质，则可验证 \(\mathbf{V}\) 是 \(\mathbf{W}\) 与 \(p\) 的核 \({\mathbf{W}}^{\prime }\) 的直和(满足 \(x\) 的 \({px} = 0\) 的集合).因此在从 \(\mathbf{V}\) 到 \(\mathbf{W}\) 的投影与 \(\mathbf{V}\) 中 \(\mathbf{W}\) 的补空间之间建立了一一对应关系.
+
+我们现在回到子表示:
+
+\begin{theorem}[]
+    设 \(\rho  : \mathbf{G} \rightarrow  \mathbf{{GL}}\left( \mathbf{V}\right)\) 是在 \(\mathbf{V}\) 中的关于 \(\mathbf{G}\) 的线性表示，且 W 是在 \(\mathbf{G}\) 下稳定的 \(\mathbf{V}\) 的向量子空间.则存在在 \(\mathrm{G}\) 下稳定的 \({\mathrm{W}}^{0}\) ，它是 \(\mathrm{W}\) 在 \(\mathrm{V}\) 中的一个补空间.
+\end{theorem}
+\begin{proof}
+取任意的 \({\mathrm{W}}^{\prime }\) 作为 \(\mathrm{V}\) 中 \(\mathrm{W}\) 的一个补，并令 \(p\) 为相应的从 \(\mathrm{V}\) 到 \(\mathrm{W}\) 的投影.对 \(\mathbf{G}\) 中元素的共轭作用取这些投影的平均，构成 \({p}^{0}\) :
+
+\[
+{p}^{0} = \frac{1}{g}\mathop{\sum }\limits_{{t \in  \mathrm{G}}}{\rho }_{t} \cdot  p \cdot  {\rho }_{t}^{-1}\;\left( {g\,\text{是}\,\mathrm{G}\,\text{的阶}}\right) .
+\]
+
+由于 \(p\) 将 V 映入 W 且 \({\rho }_{t}\) 保持 \(W\) ，我们看到 \({p}^{0}\) 将 \(V\) 映入 \(W\) ；我们对于 \(x \in  W\) 有 \({\rho }_{t}^{-1}x \in  W\) ，因此
+
+\[
+p \cdot  {\rho }_{t}^{-1}x = {\rho }_{t}^{-1}x,\;{\rho }_{t} \cdot  p \cdot  {\rho }_{t}^{-1}x = x,\;\text{ and }\;{p}^{0}x = x.
+\]
+
+因此 \({p}^{0}\) 是从 \(\mathrm{V}\) 到 \(\mathrm{W}\) 的一个投影，对应于某个 \(\mathrm{W}\) 的补 \({\mathrm{W}}^{0}\) .此外我们还有
+
+\[
+{\rho }_{s} \cdot  {p}^{0} = {p}^{0} \cdot  {\rho }_{s}\;\text{ for all }s \in  \mathrm{G}.
+\]
+
+确实，计算 \({\rho }_{s} \cdot  {p}^{0} \cdot  {\rho }_{s}^{-1}\) ，我们得到:
+
+\[
+{\rho }_{s} \cdot  {p}^{0} \cdot  {\rho }_{s}^{-1} = \frac{1}{g}\mathop{\sum }\limits_{{t \in  \mathrm{G}}}{\rho }_{s} \cdot  {\rho }_{t} \cdot  p \cdot  {\rho }_{t}^{-1} \cdot  {\rho }_{s}^{-1} = \frac{1}{g}\mathop{\sum }\limits_{{t \in  \mathrm{G}}}{\rho }_{st} \cdot  p \cdot  {\rho }_{st}^{-1} = {p}^{0}.
+\]
+
+如果现在 \(x \in  {\mathrm{W}}^{0}\) 和 \(s \in  \mathrm{G}\) 有 \({p}^{0}x = 0\) ，因此 \({p}^{0} \cdot  {\rho }_{s}x = {\rho }_{s} \cdot  {p}^{0}x \; = 0\) ，也就是 \({\rho }_{s}x \in  {\mathrm{W}}^{0}\) ，这表明 \({\mathrm{W}}^{0}\) 在 \(\mathrm{G}\) 下不变，从而完成证明.
+\end{proof}
+
+\begin{remark}
+设 \(\mathrm{V}\) 赋有满足通常条件的标量积 \(\left( {x \mid  y}\right)\) :在 \(x\) 上线性、在 \(y\) 上半线性，并且若 \(x \neq  0\) 则 \(\left( {x \mid  x}\right)  > 0\) .假设该标量积对 G 不变，即 \(\left( {{\rho }_{s}x \mid  {\rho }_{s}y}\right)  = \left( {x \mid  y}\right)\) ；通过将 \(\left( {x \mid  y}\right)\) 替换为 \(\mathop{\sum }\limits_{{t \in  \mathrm{G}}}\left( {{\rho }_{t}x \mid  {\rho }_{t}y}\right)\) ，我们总可化为此情形.在这些假设下， \(\mathrm{V}\) 中 \(\mathrm{W}\) 的正交补 \({\mathrm{W}}^{0}\) 是一个关于 \(\mathrm{W}\) 的补空间且在 \(\mathrm{G}\) 下不变；由此得到定理 1 的另一证明.注意，标量积 \(\left( {x \mid  y}\right)\) 的不变性意味着，若 \(\left( {e}_{i}\right)\) 是 \(\mathrm{V}\) 的一组标准正交基，则相对于此基， \({\rho }_{s}\) 的矩阵是酉矩阵.
+\end{remark}
+
+保持定理 1 的假设和记号，设 \(x \in  \mathbf{V}\) 并令 \(w\) 和 \({w}^{0}\) 为其在 \(\mathbf{W}\) 与 \({\mathbf{W}}^{0}\) 上的投影.我们有 \(x = w + {w}^{0}\) ，因此 \({\rho }_{s}x = {\rho }_{s}w + {\rho }_{x}{w}^{0}\) ，且由于 \(\mathbf{W}\) 与 \({\mathbf{W}}^{0}\) 在 \(\mathbf{G}\) 下不变，我们有 \({\rho }_{s}w \in  \widetilde{\mathbf{W}}\) 与 \({\rho }_{s}{w}^{0} \in  {\mathbf{W}}^{0}\) ；于是 \({\rho }_{s}w\) 与 \({\rho }_{s}{w}^{0}\) 是 \({\rho }_{s}x\) 的投影.由此可得表示 \(\mathbf{W}\) 与 \({\mathbf{W}}^{0}\) 决定表示 \(\mathbf{V}\) .
+
+我们称 \(V\) 是 \(W\) 与 \({W}^{0}\) 的直和，并记作 \(V = W \oplus  {W}^{0}\) . \(V\) 的元素被识别为一对 \(\left( {w,{w}^{0}}\right)\) ，其中 \(w \in  W\) 与 \({w}^{0} \in  {W}^{0}\) .若以矩阵形式给出 \(W\) 与 \({W}^{0}\) 为 \({R}_{s}\) ，则 \({R}_{s}^{0},W \oplus  {W}^{0}\) 以矩阵形式表示为
+
+\[
+\left( \begin{matrix} {\mathrm{R}}_{s} & 0 \\  0 & {\mathrm{R}}_{s}^{0} \end{matrix}\right) .
+\]
+
+任意有限个表示的直和以类似方式定义.
+
+\section{不可约表示}
+
+设 \(\rho  : G \rightarrow  {GL}\left( V\right)\) 为群 \(G\) 的线性表示.若 \(V\) 非 0 且 除 0 和 V 外没有向量子空间在 G 下不变，则称其为不可约或单表示.由定理 1，第二个条件等价于说 V 不能表示为两个表示的直和(当然不包括平凡分解 \(V = 0 \oplus  V\) ).次数为 1 的表示显然是不可约的.我们稍后(3.1)将看到每个非阿贝尔群至少有一个次数为 \(\geq  2\) 的不可约表示.
+
+不可约表示可用直和来构造其他表示:
+\begin{theorem}[]
+    每个表示都可表示为不可约表示的直和.
+\end{theorem}
+\begin{proof}
+    设 \(V\) 为群 \(G\) 的线性表示.我们对 \(\dim \left( V\right)\) 归纳.若 \(\dim \left( V\right)  = 0\) ，定理显然(0 是空族不可约表示的直和).设 \(\dim \left( V\right)  \geq  1\) .若 \(V\) 不可约，则无需证明.否则，由定理 1， \(V\) 可分解为直和 \({V}^{\prime } \oplus  {V}^{\prime \prime }\) ，且 \(\dim \left( {V}^{\prime }\right)  < \dim \left( V\right)\) 与 \(\dim \left( {V}^{\prime \prime }\right)  < \dim \left( V\right)\) 非零.由归纳假设 \({V}^{\prime }\) 与 \({V}^{\prime \prime }\) 分别为不可约表示的直和，因此 V 亦然.
+\end{proof}
+\begin{remark}
+设 \(\mathbf{V}\) 为一个表示，且设 \(\mathbf{V} = {\mathbf{W}}_{1} \oplus  \cdots  \oplus  {\mathbf{W}}_{k}\) 为将 \(\mathrm{V}\) 分解为若干不可约表示直和的一个分解.我们可以问这个分解是否唯一.当所有 \({\rho }_{s}\) 都等于 1 的情形表明一般情况下并非如此(在这种情况下 \({\mathbf{W}}_{i}\) 是一维子空间，我们对一个向量空间分解为若干一维子空间有大量不同的分解).尽管如此，我们将在 2.3 中看到，和给定不可约表示同构的 \({\mathrm{W}}_{i}\) 的个数不依赖于所选的分解.
+\end{remark}
+
+\section{两个表示的张量积}
+
+除了具有加法形式性质的直和运算外，还有一种“乘法”:张量积，有时称为Kronecker乘积.其定义如下:
+
+首先，设 \({V}_{1}\) 与 \({V}_{2}\) 为两个向量空间.若有一空间 \(W\) 以及将 \({V}_{1} \times  {V}_{2}\) 映入 \(W\) 的映射 \(\left( {{x}_{1},{x}_{2}}\right)  \mapsto  {x}_{1} \cdot  {x}_{2}\) ，并满足下列两条，则称 \(W\) 为 \({V}_{1}\) 与 \({V}_{2}\) 的张量积:
+
+(i) 对变量 \({x}_{1}\) 与 \({x}_{2}\) 中的各自分量， \({x}_{1} \cdot  {x}_{2}\) 在每一项上都是线性的.
+
+(ii) 若 \(\left( {e}_{{i}_{1}}\right)\) 为 \({V}_{1}\) 的一组基，且 \(\left( {e}_{{i}_{2}}\right)\) 为 \({V}_{2}\) 的一组基，则各乘积 \({e}_{{i}_{1}} \cdot  {e}_{{i}_{2}}\) 构成 \(\mathbf{W}\) 的一组基.
+
+容易证明这样的空间存在且唯一(同构意义下)；记作 \({V}_{1} \otimes  {V}_{2}\) .条件 (ii) 表明
+
+\[
+\dim \left( {{\mathrm{V}}_{1} \otimes  {\mathrm{V}}_{2}}\right)  = \dim \left( {\mathrm{V}}_{1}\right)  \cdot  \dim \left( {\mathrm{V}}_{2}\right) .
+\]
+
+现在令 \({\rho }^{1} : G \rightarrow  {GL}\left( {V}_{1}\right)\) 和 \({\rho }^{2} : G \rightarrow  {GL}\left( {V}_{2}\right)\) 为群 G 的两个线性表示.对 \(s \in  G\) ，通过下列条件在 \({GL}\left( {{V}_{1} \otimes  {V}_{2}}\right)\) 中定义元素 \({\rho }_{s}\) :
+
+\[
+{\rho }_{s}\left( {{x}_{1} \cdot  {x}_{2}}\right)  = {\rho }_{s}^{1}\left( {x}_{1}\right)  \cdot  {\rho }_{s}^{2}\left( {x}_{2}\right) \;\text{ for }{x}_{1} \in  {\mathrm{V}}_{1},{x}_{2} \in  {\mathrm{V}}_{2}.
+\]
+
+[ \({\rho }_{s}\) 的存在性与唯一性由条件 (i) 与 (ii) 易得.] 我们写作:
+
+\[
+{\rho }_{s} = {\rho }_{s}^{1} \otimes  {\rho }_{s}^{2}
+\]
+
+这些 \({\rho }_{s}\) 在 \({\mathrm{V}}_{1} \otimes  {\mathrm{V}}_{2}\) 中给出一个 \(\mathrm{G}\) 的线性表示，称为所给表示的张量积.
+
+该定义的矩阵表述如下:令 \(\left( {e}_{{i}_{1}}\right)\) 为 \({V}_{1}\) 的一组基，令 \({r}_{{i}_{1}{j}_{1}}\left( s\right)\) 为相对于此基的 \({\rho }_{s}^{1}\) 的矩阵，并以同样方式定义 \(\left( {e}_{{i}_{2}}\right)\) 与 \({r}_{{i}_{2}{j}_{2}}\left( s\right)\) .公式:
+
+\[
+{\rho }_{s}^{1}\left( {e}_{{j}_{1}}\right)  = \mathop{\sum }\limits_{{i}_{1}}{r}_{{i}_{1}{j}_{1}}\left( s\right)  \cdot  {e}_{{i}_{1}},\;{\rho }_{s}^{2}\left( {e}_{{j}_{2}}\right)  = \mathop{\sum }\limits_{{i}_{2}}{r}_{{i}_{2}{j}_{2}}\left( s\right)  \cdot  {e}_{{i}_{2}}
+\]
+
+蕴含:
+
+\[
+{\rho }_{s}\left( {{e}_{{j}_{1}} \cdot  {e}_{{j}_{2}}}\right)  = \mathop{\sum }\limits_{{{i}_{1},{i}_{2}}}{r}_{{i}_{1}{j}_{1}}\left( s\right)  \cdot  {r}_{{i}_{2}{j}_{2}}\left( s\right)  \cdot  {e}_{{i}_{1}} \cdot  {e}_{{i}_{2}}.
+\]
+
+因此 \({\rho }_{s}\) 的矩阵为 \(\left( {{r}_{{i}_{1}{j}_{1}}\left( s\right)  \cdot  {r}_{{i}_{2}{j}_{2}}\left( s\right) }\right)\) ；它是 \({\rho }_{s}^{1}\) 与 \({\rho }_{s}^{2}\) 矩阵的张量积.
+
+两个不可约表示的张量积通常不再不可约.它可以分解为不可约表示的直和，可通过特征理论确定(参见 2.3).
+
+在量子化学中，张量积常如下出现: \({V}_{1}\) 与 \({V}_{2}\) 是在 \(G\) 下保持的不函数空间，分别以 \(\left( {\phi }_{{i}_{1}}\right)\) 与 \(\left( {\psi }_{{i}_{2}}\right)\) 为基， \({V}_{1} \otimes  {V}_{2}\) 为由乘积 \({\phi }_{{i}_{1}} \cdot  {\psi }_{{i}_{2}}\) 生成的向量空间，且这些乘积线性无关.最后一条条件至关重要.以下为满足该条件的两个特例:
+
+(1) \(\phi\) 只依赖于某些变量 \(\left( {x,{x}^{\prime },\ldots }\right)\) 而 \(\psi\) 依赖于与前者无关的变量 \(\left( {y,{y}^{\prime },\ldots }\right)\) .
+
+(2) 空间 \({V}_{1}\) (或 \({V}_{2}\) )有以单个函数 \(\phi\) 为基，该函数在任何区域内不恒为零；则 \({V}_{1}\) 的维数为 1.
+
+\section*{1.6 对称平方与交错平方}
+
+假设表示 \({V}_{1}\) 与 \({V}_{2}\) 同于相同的表示 \(\mathbf{V}\) ，因此 \({\mathbf{V}}_{1} \otimes  {\mathbf{V}}_{2} = \mathbf{V} \otimes  \mathbf{V}\) .若 \(\left( {e}_{i}\right)\) 为 \(\mathbf{V}\) 的一组基，令 \(\theta\) 为 \(\mathbf{V} \otimes  \mathbf{V}\) 的自同构，使得
+
+\[
+\theta \left( {{e}_{i} \cdot  {e}_{j}}\right)  = {e}_{j} \cdot  {e}_{i}\;\text{ for all pairs }\left( {i,j}\right) .
+\]
+
+由此可得 \(\theta \left( {x \cdot  y}\right)  = y \cdot  x\) 对于 \(x,y \in  \mathrm{V}\) ，因此 \(\theta\) 独立于所选基 \(\left( {e}_{i}\right)\) ；此外 \({\theta }^{2} = 1\) .空间 \(\mathbf{V} \otimes  \mathbf{V}\) 随即分解为直和
+
+\[
+\mathrm{V} \otimes  \mathrm{V} = {\mathbf{{Sym}}}^{2}\left( \mathrm{\;V}\right)  \oplus  {\mathbf{{Alt}}}^{2}\left( \mathrm{\;V}\right)
+\]
+
+其中 \({\operatorname{Sym}}^{2}\left( \mathrm{\;V}\right)\) 是满足 \(\theta \left( z\right)  = z\) 的元素 \(z \in  \mathrm{V} \otimes  \mathrm{V}\) 的集合， \({\operatorname{Alt}}^{2}\left( \mathrm{\;V}\right)\) 是满足 \(\theta \left( z\right)  =  - z\) 的元素 \(z \in  \mathrm{V} \otimes  \mathrm{V}\) 的集合.元素 \({\left( {e}_{i} \cdot  {e}_{j} + {e}_{j} \cdot  {e}_{i}\right) }_{i \leq  j}\) 构成 \({\operatorname{Sym}}^{2}\left( \mathrm{\;V}\right)\) 的一组基，元素 \({\left( {e}_{i} \cdot  {e}_{j} - {e}_{j} \cdot  {e}_{i}\right) }_{i < j}\) 构成 \({\operatorname{Alt}}^{2}\left( \mathrm{\;V}\right)\) 的一组基.我们有
+
+\[
+\dim {\mathbf{{Sym}}}^{2}\left( \mathrm{\;V}\right)  = \frac{n\left( {n + 1}\right) }{2},\;\dim {\mathbf{{Alt}}}^{2}\left( \mathrm{\;V}\right)  = \frac{n\left( {n - 1}\right) }{2}
+\]
+
+若 \(\dim \mathrm{V} = n\) .
+
+子空间 \({\operatorname{Sym}}^{2}\left( \mathrm{V}\right)\) 与 \({\operatorname{Alt}}^{2}\left( \mathrm{V}\right)\) 在 \(\mathrm{G}\) 下不变，因而分别给出所给表示的对称平方和交替平方表示.
