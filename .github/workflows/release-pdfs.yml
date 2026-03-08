@@ -70,15 +70,18 @@ jobs:
           fi
 
       - name: "Publish/Update GitHub Release (tag: latest)"
-        uses: softprops/action-gh-release@v2
+        uses: ncipollo/release-action@v1
         with:
-          tag_name: latest
+          tag: latest
           name: latest
+          allowUpdates: true
+          replacesArtifacts: true
+          removeArtifacts: true
+          artifacts: |
+            pdfs.zip
+            dist/**/*.pdf
           body: |
             Auto-updated PDFs from repository push.
             Commit: ${{ github.sha }}
-          files: |
-            pdfs.zip
-            assets/*.pdf
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
