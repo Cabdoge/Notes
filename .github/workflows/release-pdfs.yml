@@ -44,7 +44,7 @@ jobs:
           cd ..
           ls -lah pdfs.zip
 
-      - name: Publish/Update GitHub Release (tag: latest)
+      - name: Publish/Update GitHub Release (tag:latest)
         uses: softprops/action-gh-release@v2
         with:
           tag_name: latest
