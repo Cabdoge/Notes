@@ -53,7 +53,7 @@ jobs:
             cp -f "$f" "assets/$out"
           done < <(find dist -type f -name '*.pdf' -print0)
 
-      - name: Publish/Update GitHub Release (Using Native API)
+      - name: Publish/Update GitHub Release
         shell: bash
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -62,52 +62,38 @@ jobs:
           gh release delete latest --cleanup-tag -y || true
           git push --delete origin latest || true
           
-          echo "等待 5 秒，让 GitHub 后端同步删除状态..."
+          echo "等待 5 秒..."
           sleep 5
           
-          echo "2. 创建一个【空】的 Release..."
+          echo "2. 创建空 Release..."
           gh release create latest \
             --title "latest" \
             --notes "Auto-updated PDFs from repository push. Commit: ${{ github.sha }}"
             
-          echo "获取新 Release 的 ID..."
-          REL_ID=$(gh api repos/${{ github.repository }}/releases/tags/latest --jq '.id')
-          
-          echo "等待 5 秒，让上传服务器同步新 ID (避开 404 坑)..."
+          echo "等待 5 秒..."
           sleep 5
           
-          echo "3. 开始使用 curl 逐个上传附件 (绕过 gh CLI 中文乱码 Bug)..."
+          echo "3. 开始逐个上传附件 (使用 Label 机制绕过 GitHub 中文限制)..."
+          gh release upload latest pdfs.zip
           
-          # 上传压缩包
-          curl -sS -o /dev/null -X POST \
-            -H "Authorization: Bearer $GH_TOKEN" \
-            -H "Content-Type: application/zip" \
-            -H "X-GitHub-Api-Version: 2022-11-28" \
-            --data-binary @"pdfs.zip" \
-            "https://uploads.github.com/repos/${{ github.repository }}/releases/$REL_ID/assets?name=pdfs.zip"
-          
-          # 循环上传中文 PDF
+          count=1
           for file in assets/*.pdf; do
-            filename=$(basename "$file")
-            echo "正在上传: $filename"
+            # 提取原有的中文文件名
+            original_name=$(basename "$file")
             
-            # 核心魔法：使用 jq 对中文文件名进行标准的 URL 编码 (转成 %E5%8A%A8... 格式)
-            encoded_name=$(jq -rn --arg x "$filename" '$x|@uri')
+            # 过滤掉原名中的 '#' 防止破坏 CLI 的 label 语法
+            safe_label="${original_name//#/_}"
             
-            # 直接调用底层 API 上传，彻底保留中文名
-            HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" -L -X POST \
-              -H "Authorization: Bearer $GH_TOKEN" \
-              -H "Content-Type: application/pdf" \
-              -H "X-GitHub-Api-Version: 2022-11-28" \
-              --data-binary @"$file" \
-              "https://uploads.github.com/repos/${{ github.repository }}/releases/$REL_ID/assets?name=$encoded_name")
-              
-            if [ "$HTTP_STATUS" -ne 201 ]; then
-              echo "❌ 上传失败: $filename (HTTP 状态码: $HTTP_STATUS)"
-              exit 1
-            else
-              echo "✅ 上传成功: $filename"
-            fi
+            # 强制生成纯英文物理文件名，彻底杜绝 422 冲突
+            ascii_name="doc_${count}.pdf"
+            mv "$file" "assets/$ascii_name"
+            
+            echo "正在上传: $safe_label (底层物理名: $ascii_name)"
+            
+            # 使用官方语法: 物理路径#显示标签
+            gh release upload latest "assets/$ascii_name#$safe_label"
+            
+            count=$((count+1))
           done
           
-          echo "🎉 所有文件原生中文名上传完毕！"
+          echo "🎉 所有文件均已利用 Label 伪装上传完毕！"
