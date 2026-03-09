@@ -74,8 +74,28 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          echo "1. 清理旧版本与标签..."
           gh release delete latest --cleanup-tag -y || true
+          git push --delete origin latest || true
+          
+          echo "等待 5 秒，让 GitHub 后端同步删除状态..."
           sleep 5
-          gh release create latest pdfs.zip assets/*.pdf \
+          
+          echo "2. 创建一个【空】的 Release..."
+          gh release create latest \
             --title "latest" \
             --notes "Auto-updated PDFs from repository push. Commit: ${{ github.sha }}"
+            
+          echo "等待 5 秒，让 GitHub 上传服务器识别新生成的 Release ID..."
+          sleep 5
+          
+          echo "3. 开始逐个上传附件..."
+          gh release upload latest pdfs.zip
+          
+          # 使用 for 循环逐个单线程上传 PDF，避免并发请求引发 404 或拦截
+          for file in assets/*.pdf; do
+            echo "正在上传: $file"
+            gh release upload latest "$file"
+          done
+          
+          echo "所有文件上传完毕！"
