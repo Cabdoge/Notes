@@ -69,19 +69,20 @@ jobs:
             exit 1
           fi
 
+      - name: Clear old release
+        shell: bash
+        run: gh release delete latest --cleanup-tag -y || true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: "Publish/Update GitHub Release (tag: latest)"
-        uses: ncipollo/release-action@v1
+        uses: softprops/action-gh-release@v2
         with:
-          tag: latest
+          tag_name: latest
           name: latest
-          allowUpdates: true
-          replacesArtifacts: true
-          removeArtifacts: true
-          artifacts: |
+          files: |
             pdfs.zip
-            dist/**/*.pdf
+            assets/*.pdf
           body: |
             Auto-updated PDFs from repository push.
             Commit: ${{ github.sha }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
