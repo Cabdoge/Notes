@@ -69,20 +69,13 @@ jobs:
             exit 1
           fi
 
-      - name: Clear old release
+      - name: Publish/Update GitHub Release
         shell: bash
-        run: gh release delete latest --cleanup-tag -y || true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: "Publish/Update GitHub Release (tag: latest)"
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: latest
-          name: latest
-          files: |
-            pdfs.zip
-            assets/*.pdf
-          body: |
-            Auto-updated PDFs from repository push.
-            Commit: ${{ github.sha }}
+        run: |
+          gh release delete latest --cleanup-tag -y || true
+          sleep 5
+          gh release create latest pdfs.zip assets/*.pdf \
+            --title "latest" \
+            --notes "Auto-updated PDFs from repository push. Commit: ${{ github.sha }}"
