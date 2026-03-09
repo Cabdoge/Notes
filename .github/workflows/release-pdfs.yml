@@ -26,9 +26,6 @@ jobs:
           mkdir -p dist
           rsync -av --prune-empty-dirs --include='*/' --include='*.pdf' --exclude='*' ./ dist/ || true
 
-          echo "Found PDFs:"
-          find dist -type f -name '*.pdf' -print || true
-
           if ! find dist -type f -name '*.pdf' | grep -q .; then
             echo "No PDFs found. Nothing to release."
             exit 1
@@ -41,7 +38,6 @@ jobs:
           cd dist
           zip -r ../pdfs.zip .
           cd ..
-          ls -lah pdfs.zip
 
       - name: Prepare uniquely-named single-file assets
         shell: bash
@@ -50,26 +46,14 @@ jobs:
           rm -rf assets
           mkdir -p assets
 
-          # For each pdf under dist/, create a uniquely named copy in assets/
-          # Name rule: replace '/' with '__' to encode path into filename.
+          # 展平目录并把 '/' 替换为 '__'
           while IFS= read -r -d '' f; do
-            rel="${f#dist/}"          # relative path inside dist
-            out="${rel//\//__}"       # encode path separators
+            rel="${f#dist/}"
+            out="${rel//\//__}"
             cp -f "$f" "assets/$out"
           done < <(find dist -type f -name '*.pdf' -print0)
 
-          echo "Prepared assets:"
-          ls -lah assets | sed -n '1,200p'
-
-          # Safety check: ensure no duplicate names in assets/
-          dup="$(ls assets | sort | uniq -d || true)"
-          if [ -n "$dup" ]; then
-            echo "ERROR: duplicate asset names still exist:"
-            echo "$dup"
-            exit 1
-          fi
-
-      - name: Publish/Update GitHub Release
+      - name: Publish/Update GitHub Release (Using Native API)
         shell: bash
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -86,16 +70,44 @@ jobs:
             --title "latest" \
             --notes "Auto-updated PDFs from repository push. Commit: ${{ github.sha }}"
             
-          echo "等待 5 秒，让 GitHub 上传服务器识别新生成的 Release ID..."
+          echo "获取新 Release 的 ID..."
+          REL_ID=$(gh api repos/${{ github.repository }}/releases/tags/latest --jq '.id')
+          
+          echo "等待 5 秒，让上传服务器同步新 ID (避开 404 坑)..."
           sleep 5
           
-          echo "3. 开始逐个上传附件..."
-          gh release upload latest pdfs.zip
+          echo "3. 开始使用 curl 逐个上传附件 (绕过 gh CLI 中文乱码 Bug)..."
           
-          # 使用 for 循环逐个单线程上传 PDF，避免并发请求引发 404 或拦截
+          # 上传压缩包
+          curl -sS -o /dev/null -X POST \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Content-Type: application/zip" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            --data-binary @"pdfs.zip" \
+            "https://uploads.github.com/repos/${{ github.repository }}/releases/$REL_ID/assets?name=pdfs.zip"
+          
+          # 循环上传中文 PDF
           for file in assets/*.pdf; do
-            echo "正在上传: $file"
-            gh release upload latest "$file"
+            filename=$(basename "$file")
+            echo "正在上传: $filename"
+            
+            # 核心魔法：使用 jq 对中文文件名进行标准的 URL 编码 (转成 %E5%8A%A8... 格式)
+            encoded_name=$(jq -rn --arg x "$filename" '$x|@uri')
+            
+            # 直接调用底层 API 上传，彻底保留中文名
+            HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" -L -X POST \
+              -H "Authorization: Bearer $GH_TOKEN" \
+              -H "Content-Type: application/pdf" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              --data-binary @"$file" \
+              "https://uploads.github.com/repos/${{ github.repository }}/releases/$REL_ID/assets?name=$encoded_name")
+              
+            if [ "$HTTP_STATUS" -ne 201 ]; then
+              echo "❌ 上传失败: $filename (HTTP 状态码: $HTTP_STATUS)"
+              exit 1
+            else
+              echo "✅ 上传成功: $filename"
+            fi
           done
           
-          echo "所有文件上传完毕！"
+          echo "🎉 所有文件原生中文名上传完毕！"
