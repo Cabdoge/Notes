@@ -58,7 +58,9 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
 \begin{definition}[Banach空间]
     一个完备赋范线性空间称为\bluebf{Banach空间}.
 \end{definition}
-下面我们就来看几个Banach空间的例子.
+
+\section{Banach空间的例子}
+
 \begin{instance}[$p-$范数]
     设$X=\left(\mb{R}^d,\|\cdot\|_p\right),1\leq p\leq \infty$.对$\vv{x}=\left(x^1,x^2,\cdots,x^d\right)\in\mb{R}^d$，定义其范数为$\|\vv{x}\|_p:=\begin{cases}
     \left(\sum_{i=1}^d|x^i|^p\right)^{\frac{1}{p}},&1\leq p<\infty\\
@@ -108,14 +110,14 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
     可以证明上述空间为一个赋范线性空间.\par
 \end{instance}
 
-\begin{instance}{连续函数空间}
+\begin{instance}[连续函数空间]
     设$K$为紧致Hausdorff空间，定义$C(K)=\{f:K\to\mb{R}:f\text{连续}\}$，并定义其范数为上极限范数$\|f\|=\sup_{x\in K}|f(x)|<\infty$.范数的有限性来自于紧集上的连续函数是有界的，因此上述空间为一个赋范线性空间.\par
     下面证明它是完备的.
     \begin{proof}
         取$\{f_n\}\subset C(K)$为Cauchy列，则当$n,\ell\to\infty$时，$\|f_n-f_\ell\|=\sup_{x\in K}\left|f_n(x)-f_\ell(x)\right|\to 0$.\par
         对任意固定的$x\in K$，$\{f_n(x)\}$是$\mb{R}$中的Cauchy列.\par
         由于$\mb{R}$是完备的，因此$\exists\, f:K\to\mb{R},f_n(x)\to f(x)$.\par
-        由于上述范数下的收敛是一致收敛，$f_n$都连续，因此$f$也连续.\par
+        由于上述极限为一致极限，$f_n$都连续，因此$f$也连续.\par
         下证$f_n$一致收敛到$f$，则其在$C(K)$中收敛.\par
         已知当$n,\ell\to\infty$时，$\|f_n-f_\ell\|=\sup_{x\in K}\left|f_n(x)-f_\ell(x)\right|\to 0$.\par
         令$\ell\to\infty$，得当$n\to\infty,\left|f_n(x)-f(x)\right|\to 0$，进而当$n\to\infty,\|f_n-f\|\to 0$.\par
@@ -181,6 +183,24 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
 \begin{theorem}[]
     $\ell^p(\mb{R}),\ell^p(\mb{C})$是Banach空间，$\forall\, 1\leq p\leq \infty$.
 \end{theorem}
+\begin{proof}
+    \begin{enumerate}[label=(\roman*)]
+        \item \textbf{\boldmath$p=\infty$}\par
+        取$\{x_n\}$是$\ell^\infty$中Cauchy列，其中$x_n=\{x_n^{(i)}\}_{i\in\mb{N}}$.\par
+        则当$n,k\to\infty$时，$\|x_n-x_k\|_{\ell^\infty}=\sup_{i\in\mb{N}}\left|x_n^{(i)}-x_k^{(i)}\right|\to 0$.\par
+        对每个固定的$i\in\mb{N}$，$\{x_n^{(i)}\}_{n\in\mb{N}}$是$\mb{K}=\mb{R}$或$\mb{C}$下的Cauchy列，因而收敛.\par
+        因此当$n\to\infty$，$x_n^{(i)}\to y^{(i)}$.\par
+        \begin{claim}{$y=\{y^{(i)}\}$是$\ell^\infty$范数下$\{x_n\}$的极限}
+            $\setjot[-2]\begin{aligned}[t]
+                \|x_n-y\|_{\ell^\infty} &=\sup_{i\in\mb{N}}\left|x_n^{(i)}-y^{(i)}\right|=\sup_{i\in\mb{N}}\left|x_n^{(i)}-\lim_{k\to\infty}x_k^{(i)}\right| \\
+                &=\sup_{i\in\mb{N}}\lim_{k\to\infty}\left|x_n^{(i)}-x_k^{(i)}\right|\\
+                &\to 0,\;\text{当}\, n\to\infty
+            \end{aligned}$\par
+        \end{claim}
+        又可知$y\in \ell^\infty$，故$\ell^\infty$是Banach空间.
+    \end{enumerate}
+\end{proof}
 
 
+\section{线性算子}
 

@@ -528,7 +528,7 @@
 % ──────────── 子节 (\subsection) —— 行内样式（runin） ────────────
 % [runin] 格式：标题与正文在同一行，标题后直接接正文
 %   适合较短的子节标题，节省垂直空间
-\titleformat{name=\subsection}[runin]
+\titleformat{name=\subsection}
   {\filleft\normalfont\sffamily\titleheiti\bfseries}%
   {\Large\thesubsection}% Label：大号编号（如 1.2.3）
   {3mm}% Sep：编号与标题间距 3mm
@@ -543,7 +543,7 @@
   []
 
 % 子节间距：无左缩进，上方 *1 弹性间距，下方 1em（runin 模式下为标题与正文的间距）
-\titlespacing*{name=\subsection}{0pt}{*1}{1em}
+\titlespacing*{name=\subsection}{0pt}{*1}{*1}
 
 % ──────────── 次子节 (\subsubsection) —— 行内样式（runin） ────────────
 \titleformat{name=\subsubsection}[runin]

@@ -83,11 +83,10 @@
             \end{pmatrix}
         \end{aligned}$
     \end{enumerate}
-
 \end{instance}
 
 
-\section{子表示}
+\section{子表示，商表示和表示同态}
 类似于研究线性空间的子空间、商空间，拓扑空间的子空间、商空间等，下一步要研究群表示的子表示、商表示等概念，以便于我们更好地理解群表示的结构.\par
 
 \begin{definition}[子表示]
@@ -95,15 +94,179 @@
 \end{definition}
 
 对于上述的定义，如果从群作用的角度来看，$\rho|_U$是子表示当且仅当$G$在$U$上的群作用是封闭的，即$G$在$U$上的群作用将$U$映射到$U$中.\par
-对于任意一个群$G$，向量空间$V$和上面的群作用$\rho$，总有$\rho|_V$和$\rho|_\varnothing$这两个子表示，它们是两个\bluebf{平凡子表示}，因为一般情况下当我们说子表示时，默认考虑非平凡的子表示.\par
+对于任意一个群$G$，向量空间$V$和上面的群作用$\rho$，总有$\rho|_V$和$\rho|_\varnothing$这两个子表示，它们是两个\bluebf{平凡子表示}，因此在后续研究过程中的一般情况下当我们说子表示时，默认考虑非平凡的子表示.\par
 一个非平凡的子表示的构造方式是考虑一个群$G$的正则表示，定义$x\triangleq\sum_{g\in G}g,U\triangleq\mb{F}\cdot x$.那么就有$\rho(h)(x)\triangleq h\cdot x=x\in U$，这是因为$x$是$G$中所有元素之和，而$h$作用在$G$是对其中元素作置换，因此将所有元素之和置换后仍然是所有元素之和.因此$\rho|_U$是子表示.\par
-开始下一个内容之前，我们首先知道关于向量空间和其子空间，有以下特殊性质.
+
+除此之外，我们可以定义商表示.
+\begin{definition}[商表示]
+    设$(\rho,V)$是群$G$的表示，$U\subseteq V$，则$G$的\bluebf{商表示}$\setjot[-2]\begin{aligned}[t]
+        \rho_{U/V}:G&\to GL(V/U) \\
+        g&\mapsto \rho_{V/U}(g):V/U\to V/U
+    \end{aligned}$定义为$\forall\, g\in G,x+U\in V/U,g(x+U):=gx+U$.
+\end{definition}
+
+设$(V,\rho)$为$G$的表示以及$U\subseteq V$，设$(\eta_1,\cdots,\eta_k)$是$U$的一组基，则$\rho|_U(g)(\eta_1,\cdots,\eta_k)=(\eta_1,\cdots,\eta_k)R_{U}$.将上述的基扩充为$V$上的基$(\eta_1,\cdots,\eta_k,\eta_{k+1},\cdots,\eta_n)$，并且考虑$\rho$的商表示$\rho_{V/U}$，那么类似地有$\rho_{V/U}(g)(\eta_{k+1}+U,\cdots,\eta_n+U)=(\eta_{k+1},\cdots,\eta_n)R_{V/U}$.\par
+那么$\rho(g)$对应的矩阵就是一个分块准对角矩阵，即$\rho(g)(\eta_1,\cdots,\eta_n)=(\eta_1,\cdots,\eta_n)\begin{pmatrix}
+    R_U & 0 \\
+    0 & R_{V/U}
+\end{pmatrix}$.\par
+一般地，表示的分解可以推广到有限个的情形.如果表示可以分解为若干个表示的直和$V=U_1\oplus U_2\oplus\cdots\oplus U_k$，那么$\rho(g)=\begin{pmatrix}
+    R_{U_1} & 0 & \cdots & 0 \\
+    0 & R_{U_2} & \cdots & 0 \\
+    \vdots & \vdots & \ddots & \vdots \\
+    0 & 0 & \cdots & R_{U_k}
+\end{pmatrix}$\par
+
+这自然引出了一个问题，如果我们有一个群表示和一个子表示，那么这个群表示能否分解为该子表示和其补子表示的直和.抛去表示，我们首先知道关于向量空间和其子空间，有以下特殊性质.
 \begin{theorem}[]
     域$\mb{F}$上的线性空间$V$都可以分解成子空间$U$和其补空间$W$的直和.
 \end{theorem}
-上述定理的补空间可以使用商空间$V/U$来构造.一个自然的问题是：一个群表示能否分解成两个子表示的直和?\par
-很遗憾，由于子表示在子空间的基础上额外添加了表示的结构，上述问题无法对所有的群表示成立.但我们后续可以证明当$G$是有限群且$\mathrm{char}\,(\mb{F})\nmid |G|$时，上述问题成立，此时成$G$的表示是\bluebf{常表示}，否则称其为\bluebf{模表示}.\par
+上述定理的补空间可以使用商空间$V/U$来构造.但表示的结构要求每一个子空间都要对$G$的作用封闭，因此很遗憾，上述问题无法对所有的群表示成立.于是我们退而求其次一个群表示满足什么条件时可以分解，让我们先通过一个例子寻找什么样的群表示可以做到这一点.
+\begin{instance}
+    设$G=S^3,V=\mb{F}\{1,2,3\}$，考虑$G$在$V$上的置换表示$\setjot[-6]\begin{aligned}[t]
+    \rho:G&\to GL(V)&& \\
+    g &\mapsto \rho(g):\setjot[-6]\begin{aligned}[t]
+    V&\to V \\
+    k&\mapsto g\cdot k,\forall\, k\in\{1,2,3\}
+    \end{aligned}
+    \end{aligned}$ \par
+    取$W=\mb{F}\{1+2+3\}$，则$(W,\rho|_W)$为子表示.问题是是否存在子空间$U$，使得$V=W\oplus U$，并且$\rho|_U$是子补表示.\par
+    先取$W$的补子空间，一种方式是直接取$W$的正交补空间$U=W^\perp=\left\{x\in V|\langle x,1+2+3\rangle=0\right\}$，其中$\langle i,j\rangle =\delta_{ij}$.\par
+    由于$x\in V,x=a\cdot 1+b\cdot 2+c\cdot 3,a,b,c\in\mb{F}$.\par
+    那么$\langle x,1+2+3\rangle=a+b+c=0\Rightarrow U=\{a\cdot 1+b\cdot 2+c\cdot 3:a+b+c=0,a,b,c\}$.\par
+    $\forall\,g\in S^3,u\in U,g\cdot u=g(a\cdot 1+b\cdot 2+c\cdot 3)=a\cdot g(1)+b\cdot g(2)+c\cdot g(3)\in U$.\par
+    进而可以看出$\rho|_U$也是$\rho$的子表示，所以$V=W\oplus U$作为表示也是直和.
+\end{instance}
+上述例题告诉我们对于对称群$G=S_n$和它在$\mb{C}$上的表示$\rho:G\to GL(V)$，若$W\subseteq V$为子表示，则$\exists\, \text{子表示}\, U,\st V=W\oplus U$.更进一步地我们有以下结论
+\begin{theorem}[]
+    设$(\rho,V)$是$\mb{C}$上的群表示，$W\subseteq V$是其子表示，则$\exists\, \text{子表示}\, U\subseteq V$，使得$V=W\oplus U$.
+\end{theorem}
+\begin{proof}
+    设$p:V\to W$是$V$到$W$的投影，定义$p'\triangleq \frac{1}{|G|}\sum_{g\in G}\rho(g)p\rho(g^{-1})$.\par
+    \begin{enumerate}[label=(\roman*)]
+        \item \textbf{\boldmath $p'$是投影}\par
+        $\forall\, v\in v,\rho(g^{-1})(v)\in V,p\rho(g^{-1})(v)\in W,\rho(g)p\rho(g^{-1})(v)\in W$.\par
+        $\forall\, \in W$，$p'(x)=\frac{1}{|G|}\sum_{g\in G}\rho(g)p\rho(g^{-1})(x)\xlongequal{\rho(g^{-1})(x)\in W}\frac{1}{|G|}\sum_{g\in G}\rho(g)\rho(g^{-1})(x)=\frac{1}{|G|}\sum_{g\in G}x=x$.\par
+        \item \textbf{\boldmath $\ker p'$是子表示，即$\forall\, x\in\ker p',\rho(g)(x)\in\ker p'$}\par
+        $\setjot[-2]\begin{aligned}[t]
+            p'(\rho(g)(x)) &=\frac{1}{|G|}\sum_{h\in G}\rho(h)p\rho(h^{-1})(\rho(g)(x)) =\frac{1}{|G|}\sum_{h\in G}\rho(h)p\rho(h^{-1}g)(x) \\
+            &=\frac{1}{|G|}\rho(g)\sum_{h\in G}\rho(g^{-1}h)p\rho(h^{-1}g)(x) \\
+            &=\frac{1}{|G|}\rho(g)\sum_{h'\in G}\rho(h')p\rho(h'^{-1})(x) \\
+            &=\rho(g)p'(x)=0
+        \end{aligned}$ \par
+        $\Rightarrow \rho(g)(x)\in\ker p'$
+    \end{enumerate}
+\end{proof}\par
+由此我们就完成了证明，证明的核心在于利用原先的投影$p$构造了一个新的投影$p'$，使得$p'$满足$\rho(g)p'=p'\rho(g)$，从而保证了$\ker p'$是子表示.而在上述证明过程中，数域为$\mb{C}$的要求主要体现在，在$\mb{C}$中，不论群$G$的阶是多少，它总不为域下的零，因此可以作为分母，保证了$p'$定义的合理性.\par
+因此对于上述问题，当$G$是有限群且$\mathrm{char}\,(\mb{F})\nmid |G|$时，证明依旧成立，它在后续被我们称为Maschke定理.此时称$G$的表示是\bluebf{常表示}，否则称其为\bluebf{模表示}.\par
 有限群的表示论在上述两个类型的研究有本质的不同，前者结构相对优美，有更好的结果.而对于后者的研究则相对复杂.\par
+在开始下一个环节之前，补充一些对称群的相关知识.\par
+对于对称群$S_n$，其生成元为对换$(i,i+1)=s_i,1\leq i\leq n-1$，并且满足如下三条生成关系：
+(i)$s_i^2=1$\hspace{2em}(ii)$s_is_j=s_js_i,|i-j|>1$\hspace{2em}(iii)$s_is_{i+1}s_i=s_{i+1}s_is_{i+1}$ \par
+因此在后续研究对称群时，实际上只需要考虑对称群的生成元以及它们之间的关系即可.\par
+在了解完表示的子表示和商表示后，现在要讨论的是表示之间有何关系.
+\begin{definition}[表示同态，$G-$模同态]
+    设$(\rho_1,V_1),(\rho_2,V_2)$是$G$的两个表示，如果线性映射$f:V_1\to V_2$使得下述交换图成立 \par
+    \begin{center}
+    \begin{tikzcd}[labels={font=\normalsize}]
+V_1 \arrow[dd, "\rho_1(g)"'] \arrow[rr, "f"] &  & V_2 \arrow[dd, "\rho_2(g)"] \\
+                                             &  &                             \\
+V_1 \arrow[rr, "f"]                          &  & V_2                        
+\end{tikzcd}
+    \end{center}
+    即$\forall\, g\in G,f\rho_1(g)=\rho_2(g)f$，则称$f$是\bluebf{表示同态}或\bluebf{$G-$模同态}.
+\end{definition}
+\begin{definition}[表示同构]
+    设$(\rho_1,V_1),(\rho_2,V_2)$是两个表示，$f:V_1\to V_2$是表示同态，如果$f$是双射，则称$f$是\bluebf{表示同构}，称\bluebf{$(\rho_1,V_1)\cong(\rho_2,V_2)$}.
+\end{definition}
+\begin{instance}
+    设$G$是群，$V$的基为$\{g\in G\}$，定义$\rho':G\to GL(V),\exists\, w\in W,\st \{\rho'(g)(w)|g\in G\}$是$W$的基，则$(\rho,W)\cong(\rho_{\mathrm{reg}},V_{\mathrm{reg}})$\par
+    注意到正则表示中的基元素可写作$\rho_\mathrm{reg}(1)g$，取$\setjot[-6]\begin{aligned}[t]
+        f:V_\mathrm{reg}&\to W \\
+        \rho_\mathrm{reg}(1)g&\mapsto \rho'(g)(w)
+    \end{aligned} $作为线性空间的同构.\par
+    那么$\rho'(g)f(h)=\rho'(g)f\left(\rho_\mathrm{reg}(1)(h)\right)=\rho'(g)\rho'(h)(w)=\rho'(gh)(w)$.\par
+    $f\rho_\mathrm{reg}(g)(h)=f(gh)=f(\rho_{\mathrm{reg}}(1)(gh))=\rho'(gh)(w)$.\par
+    因此$f\rho_\mathrm{reg}(g)=\rho'(g)f$，$f$是表示同态，又$f$是$V_1\to V_2$的同构，因此$f$是表示同构.
+\end{instance}
 
+表示同态有以下两个符合直觉的重要性质：
+\begin{property}[表示同态]
+    设$(\rho_1,V_1),(\rho_2,V_2)$是$G$的两个表示，$f:(\rho_1,V_1)\to(\rho_2,V_2)$为表示同态
+    \begin{enumerate}
+        \item $\ker f\triangleq \{v\in V_1|f(v)=0\}$是$V_1$的子表示
+        \item $\im f \triangleq \{f(v)|v\in V_1\}$是$V_2$的子表示
+    \end{enumerate}
+\end{property}
+\begin{proof}
+    \begin{enumerate}
+        \item $\forall\, x\in \ker f,f\rho_1(g)(x)=\rho_2(g)f(x)=\rho_2(g)(0)=0$，所以$\rho_1(g)(x)\in \ker f$
+        \item $\forall\, y\in \im f,y=f(x)$，则$\rho_2(g)(y)=\rho_2(g)f(x)=f\rho_1(g)(x)\in \im f$
+    \end{enumerate}
+\end{proof}
+
+下面一个引理是我们后面常用的引理.
+\begin{lemma}[]
+    设$(\rho_1,V_1),(\rho_2,V_2),(\rho_3,V_3)$是$G$的表示，$f:V_1\to V_2,g:V_2\to V_3$为表示同态，若$\ker f\subseteq \ker g$，则$\exists\, !h:\im f\to V_3,\st g=hf$.
+    \begin{center}
+        \begin{tikzcd}[labels={font=\normalsize}]
+V_1 \arrow[rr, "f"] \arrow[dd, "g"'] &  & {\mathrm{Im}\, f} \arrow[lldd, "{\exists\, !h}", dashed] \\
+                                     &  &                                                          \\
+V_3                                  &  &                                                         
+\end{tikzcd}
+    \end{center}
+\end{lemma}
+\begin{proof}
+    定义$\setjot[-4]\begin{aligned}[t]
+        h:\im f&\to V_3 \\
+        f(a)&\mapsto h(f(a))\triangleq g(a)
+    \end{aligned}$\par
+    若$f(a)=0\Rightarrow a\in\ker f\subseteq \ker g$，则$h(f(a))=g(a)=0$，故$h$良定.\par
+    下证唯一性.\par
+    若$\exists\, h_1\neq h_2$均满足$h_1f=h_2f=g$.\par
+    则$\exists\, a\in \im f,\st h_1(a)\neq h_2(a)$，但由于$a\in \im f,a=f(b)\Rightarrow h_1f(b)\neq h_2f(b)$，与$h_1f=h_2f$矛盾，从而唯一.
+\end{proof}
+
+记$\Hom_G(V_1,V_2)=\left\{f:V_1\to V_2,f\,\text{为表示同态}\right\}$，$\Hom_F(V_1,V_2)=\left\{f:X_1\to V_2,f\,\text{为线性映射}\right\}$，则二者都是线性空间，自然可以定义群$G$在上面的表示，特别地由于$\Hom_G(V_1,V_2)\subseteq \Hom_F(V_1,V_2)$，我们只需要在$\Hom_F(V_1,V_2)$上定义表示即可.\par
+\begin{definition}[]
+    定义$G$在$W=\Hom_F(V_1,V_2)$上的表示为$\setjot[-2]\begin{aligned}[t]
+        \rho(g):W&\to W \\
+        f &\mapsto \rho(g)f: \begin{aligned}
+            V_1 &\to V_2 \\
+            v_1&\mapsto\rho(g)f(v_1)\triangleq \rho_2(g)\left(f\left(\rho_1(g^{-1})(v_1)\right)\right)
+        \end{aligned} 
+    \end{aligned}$
+\end{definition}
+为了保证定义的合理性，我们要验证$\rho$确实是一个群表示，即满足$\rho(g_1g_2)=\rho(g_1)\rho(g_2)$.\par
+$\rho(gh)(f)(v_1)\triangleq \rho_2(gh)\left(f\left(\rho_1(h^{-1}g^{-1})\right)(v_1)\right)$.\par
+$\rho(g)\rho(h)(f)(v_1)\triangleq \rho(g)\left(\rho_2(h)\left(f\left(\rho_1(h^{-1})\right)(v_1)\right)\right)$，其中$\rho_2(h)\left(f\left(\rho_1(h^{-1})\right)\right)$是$V_1\to V_2$的线性映射，因此有$\rho(g)\left(\rho_2(h)\left(f\left(\rho_1(h^{-1})\right)(v_1)\right)\right)=\rho_2(g)\rho_2(h)\left(f\left(\rho_1(h^{-1})\rho_2(g^{-1})\right)(v_1)\right)$.\par
+因此上述定义下的$(\rho,W)$确实是一个群表示.
+
+
+\section{表示的直和}
+
+在上一节中我们已经证明了什么样的表示可以分解为其子表示和补子表示的直和，现在来正式定义表示的直和.
+
+\begin{definition}[表示的直和]
+    设$(\rho_i,V_i),i=1,2,\cdots,s$均为$G$的表示，$V=V_1\oplus V_2\oplus\cdots\oplus V_s$，则$G$在$V$上的表示为
+    \[\setjot[-2]\begin{aligned}[t]
+        \rho:G&\to GL(V) \\
+        g&\mapsto \rho(g):\setjot[-2]\begin{aligned}[t]
+            V_1 &\to V_2 \\
+            \rho(g)(v_1,\cdots,v_s)&\triangleq \left(\rho_1(v_1),\rho_2(v_2),\cdots,\rho_s(v_s)\right)
+        \end{aligned}
+    \end{aligned}\]
+\end{definition}
+
+上述对表示直和的定义是自然的，表示的直和就是将多个表示的向量空间进行直和，并且定义群作用为在每个分量上分别作用.\par
+下面一个定理说明了一个线性空间的直和什么时候成为表示的直和.
+\begin{theorem}[]
+    设$V$和$V_i,i=1,2,\cdots,s$均是群$G$的表示，则$V$是表示$V_i$的直和，即$V=V_1\oplus V_2\oplus\cdots \oplus V_s$$\iff$$V$有子表示$V_i',i=1,2,\cdots,s$，且满足
+    \begin{enumerate}[label=(\roman*)]
+        \item $V_i'\cong V_i,\forall\, i$
+        \item $V=V_1'+V_2'+\cdots+V_s'$
+        \item $V_i'\cap \left(V_{i+1}'+\cdots+V_s'\right)=0,1\leq i\leq s-1$
+    \end{enumerate}
+\end{theorem}
 
 

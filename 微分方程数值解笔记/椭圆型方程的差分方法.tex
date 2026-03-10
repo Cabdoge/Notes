@@ -1,0 +1,147 @@
+\chapter{椭圆型方程的差分方法}
+
+\section{一个典型例子}
+
+\begin{instance}
+    如图所示，给定一个各向同性均匀的金属杆，其侧面绝热，有热源作用，求热平衡时的温度分布. \par
+    \begin{figure}[H]
+        \centering
+        \vspace{-1.5 em}
+        \includegraphics[width=0.4\textwidth]{fig/1.1.png}
+        \captionof{figure}{热传导示意图}
+        \vspace{-1 em}
+    \end{figure}
+    我们的目标是对其数学建模.
+    \begin{enumerate}[label=Step \arabic*., leftmargin=4em]
+        \item \textbf{符号引进}\par
+        $u(x)$：$x$时刻的温度 \\
+        $S$：截面面积 \\ 
+        $k$：热传导系数 \\
+        $f(x)$：热源密度
+        \item \textbf{建立微分方程方程模型}
+        \begin{enumerate}[label=(\arabic*), leftmargin=2em]
+            \item 热物理的基本假设 \par
+            Fourier热传导定律：$\d Q=-k\partial_nu\d S\d t$
+            \begin{figure}[H]
+                \centering
+                \vspace{-1.5 em}
+                \includegraphics[width=0.2\textwidth]{fig/1.2.png}
+                \captionof{figure}{}
+                \vspace{-1 em}
+            \end{figure}
+            \item 使用微元法建模 \par
+            在单位时间，考虑微元$[x,x+\Delta x]$的热量变化.\par
+            产生的热量为$\Delta Q=f(x)\Delta x S$，流出的热量为$\Delta Q'=-ku'(x+\Delta x)S+ku'(x)S$\par
+            由能量守恒定律，$\Delta Q=\Delta Q'$，即$f(x)\Delta x S=-(ku')(x+\Delta x)S+(ku')(x)S$\par
+            $\Rightarrow \frac{(ku')(x+\Delta x)-(ku')(x)}{\Delta x}=f(x)$\par
+            令$\Delta x\to 0$，$-(ku')'(x)=f(x),0<x<1$\par
+            除此之外，对于边界无法使用微元法，因此需要引入边界条件.
+            \begin{subequations}
+            \begin{empheq}[left=\empheqlbrace]{align}
+                &-(ku')'(x)=f(x),0<x<1\\
+                &u(0)=u(1)=0
+            \end{empheq}
+            \end{subequations}
+        \end{enumerate}
+    \end{enumerate}\par
+    问题是能否得到(1.1a)-(1.1b)的显式解？\par
+    为了方便计算，设$k(x)=k=1$，则上述方程可以简化为
+    \begin{subequations}
+            \begin{empheq}[left=\empheqlbrace]{align}
+                &-u''(x)=f(x),0<x<1\\
+                &u(0)=u(1)=0
+            \end{empheq}
+    \end{subequations}\par
+    对第一个式子作积分，可得$u'(x)=u'(0)-\int_0^xf(s)\d s$.\par
+    再作积分可得$u(x)=u(0)+\int_0^x\left(u'(0)-\int_0^sf(t)\d t\right)\d s$.\par
+    由$u(0)=0$，$u(x)=u'(0)x-\int_0^x\int_0^s f(t)\d t\d s=u'(0)x-\int_0^x(x-s)f(s)\d s$.\par
+    由$u(1)=0$知$u'(0)=\int_0^1(1-s)f(s)\d s$.\par
+    令$\chi_{[0,x]}(s)=\begin{cases}
+    1,0\leq s\leq x \\
+    0,x<s\leq 1
+    \end{cases}$，那么$u(x)=\int_0^1\left((1-s)x-\chi_{[0,x]}(s)(x-s)\right)f(s)\d s$.\par
+    再记$K(x,s)=(1-s)x-\chi_{[0,x]}(s)(x-s)=\begin{cases}
+    (1-x)s,0\leq s\leq x \\
+    (1-s)x, x<s\leq 1
+    \end{cases}$，则$u(x)=\int_0^1K(x,s)f(s)\d s$.\par
+    由此我们得到了问题的显式解.\par
+\end{instance}
+\begin{note}
+        上面给出的$K(x,s)$被称为Green函数，它满足$\begin{cases}
+            -K_x''(x,s)=\delta(x-s),0<x<1\\
+            K(0,s)=K(1,s)=0
+        \end{cases}$
+\end{note}
+
+接下来使用有限差分方程方法求解上述问题.\par
+    \begin{enumerate}[label=Step \arabic*., leftmargin=4em]
+        \item 将$[0,1]$$N$等分，得格点$x_0=0<x_1<\cdots<x_N=1$，其中$x_i=ih,h=\frac{1}{N}$.
+        \item 计算$\{u(x_i)\}_{i=0}^N$，下面需要建立差分方程模型.\par
+        \begin{subequations}
+        \begin{itemize}
+            \item 当$x=0,1$时，
+            \begin{gather}
+                u(0)=0\\[-4pt]
+                u(1)=0
+            \end{gather}
+            \item 当$x=x_i,1\leq i\leq N-1$，$-u''(x_i)=f_i=f(x_i)$.\par
+            但二阶导数依旧无法直接计算，因此需要使用差商近似求导.\par
+            以$x_i$为中心，使用二阶中心差商近似二阶导数，即$u''(x_i)\approx \frac{u_{i+1}-2u_i+u_{i-1}}{h^2}$.\par
+            因此
+            \begin{equation}
+                -\frac{u_{i+1}-2u_i+u_{i-1}}{h^2}=f_i
+            \end{equation}
+            上述的(1.3a)-(1.3c)就是完整的有限差分法，因此可以得到近似解$u_i\approx u(x_i),0\leq i\leq N$
+        \end{itemize}        
+    \end{subequations}
+    \end{enumerate}\par
+最终我们得到的差分方程模型为
+\begin{subequations}
+\begin{empheq}[left=\empheqlbrace]{align}
+    &-\frac{u_{i+1}-2u_i+u_{i-1}}{h^2}=f_i,1\leq i\leq N-1\\
+    &u_0=u_N=0
+\end{empheq}
+\end{subequations}
+
+\subsection*{数值方法合理性分析}
+下面开始研究(4a)-(4b).\par
+当$i=1$时，$-\frac{u_2-2u_1+u_0}{h^2}=f_1$.当$i=N$时，$-\frac{u_{N}-2u_{N-1}+u_{N-2}}{h^2}=f_{N-1}$.\par
+因此可知$\begin{cases}
+    -\frac{u_2-2u_1+u_0}{h^2}=f_1\\
+    -\frac{u_{i-1}-2u_i+u_{i+1}}{h^2}=f_i,2\leq i\leq N-2\\
+    -\frac{u_{N}-2u_{N-1}+u_{N-2}}{h^2}=f_{N-1}
+\end{cases}$.
+上述方程可以写成矩阵形式
+\begin{equation}
+A_{N-1}\vv{u}=\vv{f}
+\end{equation}
+，其中$A_{N-1}=-\frac{1}{h^2}\begin{bmatrix}
+    2 & -1 & 0 & \cdots & 0 \\
+    -1 & 2 & -1 & \cdots & 0 \\
+    0 & -1 & 2 & \cdots & 0 \\
+    \vdots & \vdots & \vdots & \ddots & \vdots \\
+    0 & 0 & 0 & \cdots & 2
+\end{bmatrix},\vv{u}=[u_1,u_2,\ldots,u_{N-1}]^T,\vv{f}=[f_1,f_2,\ldots,f_{N-1}]^T$\par
+(1.5)存在唯一解当且仅当$A_{N-1}$可逆，针对这一点，有以下方法可以证明
+\begin{enumerate}
+    \item 不可约对角占有矩阵可逆
+    \item 利用递推求其行列式，行列式不为零
+    \item $A_{N-1}$为对称阵，因此行列式等于特征值之和
+\end{enumerate}
+
+除了可解性外，另外一个指标是方法的截断误差.\par
+设$u(x)$是微分方程的充分光滑解，取$u_i=u(x_i)$，考查$R_i=-\frac{u(x_{i+1})-2u(x_i)+u(x_{i-1})}{h^2}-f(x_i)$的大小，由Talor展开知
+\begin{proposition}[二阶导数的二阶中心差商逼近公式]
+    $u''(x_i)=\frac{u(x_{i+1})-2u(x_i)+u(x_{i-1})}{h^2}-\frac{1}{12}h^2u^{(4)}(\xi_i),x_{i-1}\leq \xi_i\leq x_{i+1}$
+\end{proposition}
+因此
+\begin{equation}
+R_i=-\frac{1}{12}h^2u^{(4)}(\xi_i)
+\end{equation}
+这表明当$h\to 0$时，$R_i\to 0$，故该方法是相容的，且截断误差关于$h$是二阶的.\par
+下面的问题是
+
+
+
+
+

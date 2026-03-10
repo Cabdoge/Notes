@@ -1,4 +1,4 @@
-\documentclass[11pt,a4paper,openany,twoside,leqno]{ctexbook}
+\documentclass[11pt,a4paper,openany,twoside]{ctexbook}
 
 %================ 核心：rainbow 环境 ================
 \usepackage{rainbow}
@@ -11,6 +11,7 @@
 %================ 页面布局 ================
 \usepackage{geometry}
 
+\usepackage{empheq} % 用于公式分组
 
 %================ 行距 ================
 \usepackage{setspace}
@@ -22,7 +23,7 @@
 
 %================ 缩小公式上下间距 ================
 \AtBeginDocument{
-  \abovedisplayskip=2pt
+  \abovedisplayskip=0pt
   \belowdisplayskip=5pt
   \abovedisplayshortskip=-7pt
   \belowdisplayshortskip=5pt
@@ -72,7 +73,8 @@
 \newcommand{\z}{\text}
 \renewcommand{\a}{\alpha}
 \renewcommand{\b}{\beta}
-\renewcommand{\d}{\delta}
+\let\d\relax
+\newcommand{\d}{\mathop{}\!\mathrm{d}}
 \newcommand{\D}{\Delta}
 \renewcommand{\l}{\lambda}
 \newcommand{\m}{\mu}
@@ -90,8 +92,6 @@
 \newcommand{\setjot}[1][0]{\setlength{\jot}{#1 pt}}
 \newcommand{\mcal}[1]{\mathcal{#1}}
 \newcommand{\mbb}[1]{\mathbb{#1}}
-\DeclareMathOperator{\im}{Im}
-\DeclareMathOperator{\Hom}{Hom}
 
 %================ 定端同伦符号 ================
 \usepackage{accents}
@@ -124,6 +124,18 @@
 \setcounter{secnumdepth}{2}
 \setcounter{tocdepth}{2}
 
+%================ 消除 subsection 前的换页鼓励 ================
+% beforeskip 为正值时使用 \addvspace，不会插入负惩罚鼓励换页
+\ctexset{
+  subsection/beforeskip = {3.5ex plus 1ex minus .2ex}
+}
+
+%================ subsection 前检查剩余空间（机制二）================
+% 若页面剩余空间不足 5 行，则整体移到下一页，避免孤立标题
+\usepackage{needspace}
+\usepackage{etoolbox}
+\pretocmd{\subsection}{\needspace{-1\baselineskip}}{}{}
+
 %================ enumerate 第二级样式 ================
 \setlist[enumerate,2]{label=(\arabic*), leftmargin=2em}
 
@@ -138,13 +150,15 @@
 }
 \makeatother
 
+\allowdisplaybreaks
+
 \raggedbottom
 
 
 \begin{document}
 
 
-\title{群与代数表示论笔记}
+\title{微分方程数值解笔记}
 \date{}
 \maketitle
 \setcounter{page}{1}
@@ -158,7 +172,6 @@
 \ForceRightPage
 \mainmatter
 
-\input{群表示.tex}
-
+\input{椭圆型方程的差分方法.tex}
 
 \end{document}

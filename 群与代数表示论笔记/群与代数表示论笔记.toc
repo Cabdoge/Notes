@@ -1,4 +1,5 @@
 \contentsline {chapter}{\numberline {1}群表示}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}群表示的定义}{1}{section.1.1}%
-\contentsline {section}{\numberline {1.2}子表示}{3}{section.1.2}%
+\contentsline {section}{\numberline {1.2}子表示，商表示和表示同态}{3}{section.1.2}%
+\contentsline {section}{\numberline {1.3}表示的直和}{7}{section.1.3}%
 \contentsfinish 
