@@ -87,15 +87,13 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
             &=\left(\sum_{i=1}^d|x^i+y^i|^p\right)^\frac{p-1}{p}\left(\|\vv{x}\|_p+\|\vv{y}\|_p\right) \\
             &=\|\vv{x}+\vv{y}\|_p^{p-1}\left(\|\vv{x}\|_p+\|\vv{y}\|_p\right)
         \end{aligned}$\par
-        移项得$\|\vv{x}+\vv{y}\|_p\leq \|\vv{x}\|_p+\|\vv{y}\|_p$.\par
-        由此$\left(\mb{R}^d,\|\cdot\|\right)$是赋范线性空间，$\forall\, p\in[1,\infty]$.
-    \end{proof}
-    记$\mb{S}_X=\{x\in X:\|x\|=1\}$.\par
-    当$d=2$时，我们可以画出不同$p$下的单位球的图像.\par
+        移项得$\|\vv{x}+\vv{y}\|_p\leq \|\vv{x}\|_p+\|\vv{y}\|_p$.
+    \end{proof}\par
+    记$\mb{S}_X=\{x\in X:\|x\|=1\}$为单位球.当$d=2$时，我们可以画出不同$p$下的单位球的图像.\par
     \begin{figure}[H]
         \centering
         \vspace{-1 em}
-        \includegraphics[width=0.45\textwidth]{fig/1.1.png}
+        \includegraphics[width=0.4\textwidth]{fig/1.1.png}
         \captionof{figure}{不同$p$下的单位球}
     \end{figure}
     可以发现，当$p\geq 1$时，单位球都是凸集，并且若$p\neq 1$或$\infty$，单位球是一致凸的.因此处理$p-$范数时，有时会单独讨论$p=1$或$\infty$的情况.\par
@@ -180,7 +178,7 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
     \end{claim*}
 \end{proof}
 最终可以证明上面所定义的数列空间是完备的.
-\begin{theorem}[]
+\begin{theorem}[Riesz-Fischer]
     $\ell^p(\mb{R}),\ell^p(\mb{C})$是Banach空间，$\forall\, 1\leq p\leq \infty$.
 \end{theorem}
 \begin{proof}
@@ -193,14 +191,205 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
         \begin{claim}{$y=\{y^{(i)}\}$是$\ell^\infty$范数下$\{x_n\}$的极限}
             $\setjot[-2]\begin{aligned}[t]
                 \|x_n-y\|_{\ell^\infty} &=\sup_{i\in\mb{N}}\left|x_n^{(i)}-y^{(i)}\right|=\sup_{i\in\mb{N}}\left|x_n^{(i)}-\lim_{k\to\infty}x_k^{(i)}\right| \\
-                &=\sup_{i\in\mb{N}}\lim_{k\to\infty}\left|x_n^{(i)}-x_k^{(i)}\right|\\
-                &\to 0,\;\text{当}\, n\to\infty
+                &=\sup_{i\in\mb{N}}\lim_{k\to\infty}\left|x_n^{(i)}-x_k^{(i)}\right|\to 0,\;\text{当}\, n\to\infty
             \end{aligned}$\par
         \end{claim}
         又可知$y\in \ell^\infty$，故$\ell^\infty$是Banach空间.
+        \item \textbf{\boldmath$1\leq p<\infty$}\par
+        设$\{x_n\}\subset \ell^p$是Cauchy列，其中$x_n=\{x_n^{(i)}\}_{i\in\mb{N}}$.\par
+        则$\forall\,\varepsilon>0,\exists\, N\in\mb{N},\st\forall\, n,k\geq N,\|x_n-x_k\|_{\ell^p}^p=\sum_{i=1}^\infty\left|x_n^{(i)}-x_k^{(i)}\right|^p<\varepsilon$.\par
+        和$\ell^\infty$的情形相同，当$n\to\infty$时，有$x_n^{(i)}\to y^{(i)}$.\par
+        那么对任意$M\in\mb{N}$，有$\sum_{i=1}^M \left|x_n^{(i)}-y^{(i)}\right|^p=\lim_{k\to\infty}\sum_{i=1}^M\left|x_k^{(i)}-y^{(i)}\right|^p\leq\varepsilon$.\par
+        因此对于足够大的$n$，$\sum_{i=1}^\infty \left|x_n^{(i)}-y^{(i)}\right|\leq\varepsilon$，此处$\varepsilon>0$是任意的.\par
+        所以$x_n\to y=\{y^{(i)}\}_{i\in\mb{N}}$在$\ell^p$中收敛.
     \end{enumerate}
 \end{proof}
 
 
 \section{线性算子}
+
+赋范线性空间的另一研究方向是赋范线性空间之间的线性算子，其中更关注于有界线性算子.\par
+\begin{definition}[有界线性算子]
+    设$X,Y$是赋范线性空间，线性算子$T:X\to Y$是\bluebf{有界的}当且仅当它满足以下任意条件：
+    \begin{enumerate}[label=(\roman*)]
+        \item $\exists\, M>0,\st\forall\, x\in X.\|Tx\|_Y\leq M\|x\|_X$.
+        \item $\|T\tilde{x}\|_Y\leq M,\forall\,\tilde{x}\in\mb{S}_X$
+        \item $\|T\tilde{x}\|_Y\l  eq M,\forall\,\tilde{x}\in\mb{B}^X$
+        \item $T\left(\overline{\mb{B}_1^X(0)}\right)\subseteq \overline{\mb{B}_M^Y(0)}$
+    \end{enumerate}
+\end{definition}
+上述四个条件虽然是彼此之间等价的，但它们分别从不同的角度描述了有界线性算子.第一个条件是从纯粹分析的角度描述，它给出了范数的估计.而到第四个条件则是从拓扑的角度出发，描述了单位球在映射下的像所满足的条件.由于泛函分析有强烈的拓扑背景，因此在分析和拓扑的视角中相互切换是学习泛函分析的重要技巧.\par
+\begin{definition}[算子代数]
+    设$X,Y$是赋范线性空间，线性算子$T:X\to Y$的\bluebf{算子代数}定义为
+    \[\|T\|_{X\to Y}=\|T\|:=\inf\{M>0:\|Tx\|_Y\leq M\|x\|_X,\forall\, x\in X\}\]
+    $T$是有界线性算子当且仅当$\|T\|_{X\to Y}<\infty$.
+\end{definition}
+我们记$\mcal{L}(X,Y):=\{T:X\to Y\,\text{线性算子}\}$为$X\to Y$的所有的线性算子，$\mcal{B}(X,Y):=\{T\in\mcal{L}(X,Y):\|T\|<\infty\}$为$X\to Y$的所有的有界线性算子.可以证明$\left(\mcal{B}(X,Y),\|\cdot\|_{X\to Y}\right)$是一个赋范线性空间.自然地，我们想知道$\mcal{B}(X,Y)$何时是一个Banach空间.
+
+\begin{definition}[]
+    设$X,Y$是赋范线性空间，则$\mcal{B}(X,Y)$是Banach空间$\iff$ $Y$是Banach空间.
+\end{definition}
+\begin{proof}
+    设$\{T_n\}\subset \mcal{B}(X,Y)$是Cauchy列，则当$n,\ell\to\infty$时，$\|T_n-T_\ell\|\to 0$.\par
+    对$\forall\, x\in X$，$\|T_n x-T_\ell x\leq \|T_n-T_\ell\|\|x\|$，所以$\{T_n x\}$是$Y$中的Cauchy列.\par
+    因此$T_n x\to Tx$，其中$T:X\to Y$是算子.\par
+    有$T_n$的线性性可知，$T$是线性算子，下证$T\in\mcal{B}(X,Y)$.\par
+    由于$\{T_n\}$为Cauchy列，$\exists\, N\in\mb{N},\st\,\forall\, n\geq N,\|T_n-T_{N_0}\|\leq 1$.\par
+    因此$\setjot[-2]\begin{aligned}[t]
+        \|Tx\| &\leq \|T_{N_0}x\|+\lim_{n\to\infty}\|T_n x-T_{N_0} x\| \\
+        &\leq \|T_{N_0}x\|+1\cdot\|x\| \\
+        &\leq \left(\|T_{N_0}\|+1\right)\|x\|,\forall\, x\in X
+    \end{aligned}$\par
+    即$\|T\|\leq \|T_{N_0}\|+1<\infty$.\par
+    $\|T_n-T\|=\sup\left\{\|T_n x-Tx\|:x\in X,\|x\|\leq 1\right\}=\sup_{\|x\|\leq 1}\lim_{k\to\infty}\|T_n x-T_k x\|\xlongequal{n\to \infty}0$
+\end{proof}
+
+可以观察到，若$\{T_n\}\subset\mcal{B}(X,Y)$，$T_n$在范数下收敛到$T$，则$\|T_n\|\to\|T\|$以及$\forall\, x\in X,T_n x\to Tx$.\par
+但对于后者，其逆命题并不成立，即$\forall\, x\in X,T_n x\to Tx$并不意味着$T_n$在范数下收敛到$T$.例如设$X=Y=\ell^2,e_i=(0,\cdots,0,1,0,\cdots)$，其中$1$在第$i$个坐标，定义$T_n e_i=\begin{cases}
+    e_i,&i\neq n\\
+    2e_n,&i=n
+\end{cases}$，则$\forall\, x\in X,T_n x\to x$，但$\|T_n-I\|=\sup_{\|x\|\leq 1}\|T_n x-x\|\geq \|T_n e_n-e_n\|=\|e_n\|=1$，因此$T_n$在范数下不收敛到$I$.这表明前者的条件比后者更强，我们有时也称前者为\bluebf{强范数收敛}.\par
+下面一个定理表明在线性算子的前提下，有界和连续是等价的.\par
+\begin{theorem}[]
+    设$X,Y$是赋范线性空间，$Y\in\mcal{L}(X,Y)$，则$T$连续$\iff$$T$有界.
+\end{theorem}
+\begin{proof}
+    \begin{claim*}
+        $T$连续当且仅当$T$在$x=0$处连续
+    \end{claim*}
+    $\Rightarrow$：设$T$在$x=0$处连续，则$\forall\,\varepsilon>0,\exists\, \delta>0,\st\,\forall\,\|x\|<\delta,\|Tx\|<\varepsilon$.\par
+    令$\tilde{x}=\frac{x}{\delta}$，那么$\forall\, \|\tilde{x}\|\geq 1,\|T\tilde{x}\|\leq\frac{\varepsilon}{\delta}$\par
+    $\Rightarrow \|T\|\leq \frac{\varepsilon}{\delta}$.\par
+    $\Leftarrow$：设$T$有界，则$\forall\, \|x\|\leq 1,\|Tx\|\leq M$.\par
+    则$\forall\, \varepsilon>0$，令$\delta=\frac{\varepsilon}{M}$，那么$\forall\,\|x\|<\delta,\|Tx\|\leq\varepsilon$，故$T$连续.
+\end{proof}\par
+
+容易想到，有界线性算子之间的复合仍旧是有界线性算子.
+\begin{definition}[]
+    设$X,Y,Z$是赋范线性空间，若$T\in\mcal{B}(X,Y),S\in\mcal{B}(Y,Z)$，则$ST\equiv S\circ T\in\mcal{B}(X,Z)$.
+\end{definition}
+\begin{proof}
+    $\setjot[-2]\begin{aligned}[t]
+        \|ST\|_{X\to Z} &=\sup\left\{\|S(Tx)\|_Z:\forall\, x\in X,\|x\|\leq 1\right\} \\
+        &\leq \sup\left\{\|S\|_{Y\to Z}\|Tx\|_Y:\forall\, x\in X,\|x\|\leq 1\right\} \\
+        &=\|S\|_{Y\to Z}\sup\left\{\|Tx\|_Y:\forall\, x\in X,\|x\|\leq 1\right\} \\
+        &=\|S\|_{Y\to Z}\|T\|_{X\to Y}
+    \end{aligned}$\par
+    即$\|ST\|\leq \|S\|\|T\|$.
+\end{proof}
+特别地，如果$X=Y$，则记$\mcal{B}(X,X)=\mcal{B}(X)$，并且可以定义其中的乘法$\setjot[-6]\begin{aligned}[t]
+    \mcal{B}(X)\times\mcal{B}(X) &\to\mcal{B}(X) \\
+    (T,S) &\mapsto S\circ T
+\end{aligned}$，并且满足$\|ST\|\leq \|S\|\|T\|$.如果$X$为一个Banach空间，则$\mcal{B}(X)$也是一个Banach空间且在上方有乘法，称为\bluebf{Banach代数}.\par
+\begin{instance}
+    $n$阶矩阵是一个Banach代数.\par
+    $\left(C[0,1],\|\cdot\|_\mathrm{sup}\right)$，$(fg)(x)=f(x)g(x)$是一个Banach代数.
+\end{instance}
+\begin{instance}[有界线性算子]
+    \begin{enumerate}[label=(\arabic*)]
+        \item $A\in Mat(n\times k;\mathbb{R})\cong \mcal{L}(\mathbb{R}^k,\mathbb{R}^n)$
+        \item $\setjot[-6]\begin{aligned}[t]
+            \Lambda:\ell^p &\to\ell^p \\
+            (x_1,x_2,\cdots) &\mapsto (\lambda_1 x_1,\lambda_2 x_2,\cdots)
+        \end{aligned} $\par
+        \begin{claim*}
+            $\Lambda$是有界线性算子$\iff$ $\{\lambda_j\}\in\ell^\infty$.
+        \end{claim*}
+        并且，如果考虑$\setjot[-6]\begin{aligned}[t]
+            \ell^\infty &\xrightarrow{\Phi} \mcal{B}(\ell^p) \\ 
+            \{\lambda_j\}&\mapsto \Lambda
+        \end{aligned}$，那么$\Phi$是等距同构，即$\|\Phi\left(\{\lambda_j\}\right)\|_{\mcal{B}(\ell^\infty)}=\|\{\lambda_j\}\|_{\ell^\infty}$.
+        \begin{proof}
+            $"\leq "$：$\setjot[-2]\begin{aligned}[t]
+                \|\Phi\left(\{\lambda_j\}\right)\|_{\mcal{B}(\ell^p)}&=\sup\left\{\left(\sum_{j=1}^\infty|\lambda_jx_j|^p\right)^\frac{1}{p}:\left(\sum_j^\infty|x_j|^p\right)^\frac{1}{p}\leq 1\right\}\\
+                &\leq\sup\left\{(\sup_j|\lambda_j|)\left(\sum_j^\infty|x_j|^p\right)^\frac{1}{p}:\left(\sum_j^\infty|x_j|^p\right)^\frac{1}{p}\leq 1\right\} \\
+                &=\|\{\lambda_j\}\|_{\ell^\infty}
+            \end{aligned}$ \par
+            $"\geq "$：要证$\forall\,\varepsilon>0,\|{\lambda_j}\|_{\ell^\infty}\leq \|\Phi\left({\lambda_j}\right)\|_{\mcal{B}(\ell^p)}+\varepsilon$.\par
+            取$j_0\in\mb{N}$满足$|\lambda_{j_0}|\geq \|\{\lambda_j\}\|_{\ell^\infty}-\varepsilon$.\par
+            则$\setjot[-2]\begin{aligned}[t]
+                \|\Phi\left(\{\lambda_j\}\right)\|_{\mcal{B}(\ell^p)}&=\sup\left\{\|\Lambda x\|_{\ell^p}:x\in\ell^p,\|x\|_{\ell^p}\leq 1\right\} \\
+                &\geq \|\Lambda e_{j_0}\|_{\ell^p},e_{j_0}=(0,\ldots,1,\ldots,0) \\
+                &=|\lambda_{j_0}|\geq \|\{\lambda_j\}\|_{\ell^\infty}-\varepsilon
+            \end{aligned}$\par
+        \end{proof}
+        \item 设$X=\ell^p,1\leq p\leq \infty$，定义左右位移算子分别为$L:X\to X,L(x_1,x_2,x_3,\cdots)=(x_2,x_3,\cdots),R:X\to X,R(x_1,x_2,x_3,\cdots)=(0,x_1,x_2,\cdots)$.\par
+        则$\|L\|=1=\|R\|$，并且$LR=\mathrm{Id}_X\neq RL$，这表明有界线性算子可能并不存在逆算子，而要区分左逆和右逆.\par
+        本例中的原因是$R$是单射，$R$是满射，因此$RL$不单不满，必然不是恒等映射.\par
+        但是我们可以发现$\dim (X/\ran R)=1,\dim\ker L=1$，被称为\bluebf{Fredholm算子}，它是泛函分析中可逆算子的推广.
+        \item 设$\setjot[-2]\begin{aligned}[t]
+            I:C[0,1]&\to C[0,1] \\ 
+            f&\mapsto F(x)=\int_0^x{f(y)\d y}
+        \end{aligned}$\par
+        则$\forall\, x\in[0,1],\left|\int_0^xf(y)\d y\right|\leq\int_0^x|f(y)|\d y\leq \left(\int_0^x 1\d y\right)\|f\|_{C[0,1]}=x\|f\|_{C[0,1]}$.\par
+        故$\|F\|_{C[0,1]}\leq \|f\|_{C[0,1]}$，从而$I\in\mcal{B}\left(C[0,1]\right)$的算子范数为$\|I\|=1$(在$f=1$时取等).
+    \end{enumerate}
+    下面再看几个数列空间的例子，记$C:=\left\{{\alpha_j}\in\mb{C}\,\text{或}\,\mb{C}:\,\text{当}\,j\to\infty,\alpha_j\,\text{收敛}\right\}$.$C_0:=\left\{{\alpha_j}\in C:\lim_{j\to\infty}\alpha_j=0\right\}$，它是$\|\cdot\|_{\ell^\infty}$下的Banach空间.$C_{00}:=\left\{{\alpha_j}\in C:\,\text{有限项}\,\alpha_j\,\text{非零}\right\}$.
+    \begin{enumerate}[label=(\arabic*),resume]
+        \item 设$X=\left(C_{00},\|\cdot\|_{\ell^\infty}\right)$.\par
+        考虑$\setjot[-2]\begin{aligned}[t]
+            T:X&\to X \\
+            (a_1,a_2,a_3,\cdots) &\mapsto \left(a_1,\frac{a_2}{2},\frac{a_3}{3},\cdots\right)
+        \end{aligned}$\par
+        由于$T$收缩，$T\in\mcal{B}(X)$且$\|T\|=1$.\par
+        $T$明显是一个双射，但$T^{-1}\in\mcal{L}(X)$，且$T^{-1}(b_1,b_2,b_3,\cdots)=(b_1,2b_2,3b_3,\cdots)$，因此$\|T^-1\|=\infty$，故$T^{-1}\notin\mcal{B}(X)$.
+    \end{enumerate}
+\end{instance}
+上述的最后两例表明，有界线性算子不一定存在逆算子，并且即使其存在逆算子，其逆算子也未必是一个可逆线性算子，关于这一点，有以下定理阐述.
+\begin{theorem}[]
+    设$X$是Banach空间，$T\in\mcal{B}(X)$是双射，则$T^{-1}\in\mcal{B}(X)$.
+\end{theorem}
+
+从上述定理中也可以看出，$(C_{00},\|\cdot\|)$不是一个Banach空间.\par
+接下来更深入的研究有界线性算子的可逆性.在线性空间中，我们定义过特征值的概念，若$\lambda$为特征值，则$\exists\, v\neq 0,\st Tv=\lambda v\iff \ker(\lambda I-T)\neq\{0\}\Rightarrow \lambda I-T$可逆.注意在有限维线性空间中，最后一个箭头是双向的，逆命题成立，但在无限维线性空间中，逆命题不成立.因此我们需要一个新的概念来描述有界线性算子的可逆性.
+\begin{definition}[谱]
+    设$X$是Banach空间，$T\in\mcal{B}(X)$，$T$的\bluebf{谱}是$\sigma(T)=\Spec(T):=\{\lambda\in\mb{C}:\lambda I-T\,\text{不可逆}\}$.
+\end{definition}
+谱的一个重要性质是
+\begin{theorem}[]
+    $\sigma(T)$是$\mb{C}$中的非空紧集.
+\end{theorem}
+这个定理的证明需要后续学习的工具，我们目前可以证明$\sigma(T)$一定是一个闭集.\par
+定义$\Aut(X):=\{T\in\mcal{B}(X):T^{-1}\,\text{存在}\}$.回到有限维线性空间的情形举例.对$\Aut(\mb{R}^d)=GL(\mb{R}^d)$.由于行列式是连续的，因此行列式等于零的集合是一个闭集，从而$\Aut(\mb{R}^d)$是一个开集.对于一般的Banach空间，我们也可以证明$\Aut(X)$是$\mcal{B}(X)$中的开集，从而$\sigma(T)$是$\mb{C}$中的闭集.\par
+\begin{theorem}[]
+    $\Aut(X)$是$\mcal{B}(X)$的开集.
+\end{theorem}
+\begin{proof}
+    \begin{enumerate}[label=Step \arabic*.,leftmargin=4em]
+        \item $\mb{B}_1(\mathrm{Id}_X)\subset \Aut(X)$，即$\forall\, T\in\mcal{B}(X)$满足$\|T\|< 1$，$I-T$可逆.\par
+        \begin{claim}{$(I-T)^{-1}=\sum_{k=0}^{\infty}T^k$}
+            $\sum_{k=0}^\infty\|T^k\|\leq \sum_{k=0}^\infty \|T\|^k<\infty$.\par
+            所以$\sum T^k$在$\mcal{B}(X)$中绝对收敛，故$\sum T^k$收敛.\par
+            令$S=\sum_{k=0}^\infty T^k\in\mcal{B}(X)$，则当$n\to\infty$，$S_n=\sum_{k=0}^nT^k\to S$.\par
+            由于$S_n$只有有限项，因此$S_n(I-T)=(I-T)S_n=T^0-T^{n+1}\xlongrightarrow{n\to\infty}I$.\par
+            再令$n\to\infty$，有$S(I-T)=(I-T)S=I$，因此$S=(I-T)^{-1}$.
+        \end{claim}
+        \item 取任意$T\in\Aut(X)$.\par
+        当$\|T^{-1}S\|<1$时，$T-S=T(I-T^{-1}S)$可逆，即$\|S\|<\|T^{-1}\|^{-1}$.\par
+        则$\exists\, \delta=\|T^{-1}\|^{-1},\st\forall\, S\in\mcal{B}(X),\|S\|<\delta,T-S\in \Aut(X)$
+    \end{enumerate}\par
+    这说明$\forall\, T\in\Aut(X),\exists\,\mb{B}_\delta(T)\subset \Aut(X)$，从而$\Aut(X)$是开集.
+\end{proof}
+类似的想法，定义预解集的概念.
+\begin{definition}[预解集]
+    设$X$是Banach空间，$T\in\mcal{B}(X)$，则$\rho(T):=\{\lambda\in\mb{C}:\lambda I-T\in\Aut(X)\}$称为$T$的\bluebf{预解集}.
+\end{definition}
+由定理1.8，可以证明预解集也是一个开集，从而$\sigma(T)$是$\mb{C}$中的闭集\par
+\begin{corollary}[]
+    $\rho(T)$是$\mcal{B}(X)$中的开集，$\sigma(T)$是$\mb{C}$中的闭集.
+\end{corollary}
+\begin{proof}
+    定义$\setjot[-6]\begin{aligned}[t]
+        f:\mb{C} &\to \mcal{B}(X) \\
+        \lambda &\mapsto \lambda I-T
+    \end{aligned}$，显然$f$是一个连续映射.\par
+    由于$\Aut(X)$是$\mcal{B}(X)$中的开集，所以$\rho(T)=f^{-1}(\Aut(X))$是$\mb{C}$中的开集.\par
+    可以看出$\sigma(T)$是$\rho(T)$的补集，因此取补得到$\sigma(T)$是$\mb{C}$中的闭集.
+\end{proof}
+
+
+
+
+
+
 

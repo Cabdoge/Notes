@@ -22,9 +22,9 @@
 
 %================ 缩小公式上下间距 ================
 \AtBeginDocument{
-  \abovedisplayskip=-7pt
+  \abovedisplayskip=2pt
   \belowdisplayskip=5pt
-  \abovedisplayshortskip=-7pt
+  \abovedisplayshortskip=2pt
   \belowdisplayshortskip=5pt
 }
 
@@ -72,7 +72,7 @@
 \newcommand{\z}{\text}
 \renewcommand{\a}{\alpha}
 \renewcommand{\b}{\beta}
-\renewcommand{\d}{\delta}
+\renewcommand{\d}{\mathop{}\!\mathrm{d}}
 \newcommand{\D}{\Delta}
 \renewcommand{\l}{\lambda}
 \newcommand{\m}{\mu}
@@ -90,6 +90,9 @@
 \newcommand{\setjot}[1][0]{\setlength{\jot}{#1 pt}}
 \newcommand{\mcal}[1]{\mathcal{#1}}
 \newcommand{\mbb}[1]{\mathbb{#1}}
+\DeclareMathOperator{\ran}{ran}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Aut}{Aut}
 
 %================ 定端同伦符号 ================
 \usepackage{accents}

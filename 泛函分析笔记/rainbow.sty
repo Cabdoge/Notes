@@ -256,6 +256,7 @@
   \nointerlineskip               % 阻止行间距 glue
   \vspace{-5pt}%                   % ← 手动控制底部间距（替代失灵的 skipbelow）
   \end{adjustwidth}%
+  \par
 }
 
 %================ 附加：solution 环境 ================
@@ -493,7 +494,7 @@
 % claim：带证明体的断言盒子（左侧细竖线）。编号显示为 Claim n. <内容>
 % 盒子左边框与上一行“C”字对齐。
 % 可自定义参数：左内边距、竖线颜色与宽度；用户可在导言区重定义
-\providecommand{\claimBoxLeft}{25pt}
+\providecommand{\claimBoxLeft}{0pt}
 \NewDocumentEnvironment{claim}{m +b}{%
   \refstepcounter{claim}% 允许 \label 引用
   \par{\bfseries\boldmath{断言~\theclaim.}\;\kaishu #1}\par
