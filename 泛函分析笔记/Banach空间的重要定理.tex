@@ -1,0 +1,171 @@
+\chapter{Banach空间的重要定理}
+
+
+\section{超限归纳法与 Zorn 引理}
+
+在正式介绍诸多定理之前，由于要讨论无限维赋范线性空间的性质，因此需要引入一些集合论的工具，以便处理无限的情景.
+
+\begin{definition}[偏序关系]
+    设 $S$ 是一个集合，$\lesssim$ 是 $S$ 上的偏序关系，即满足：
+    \begin{itemize}
+        \item 自反性：$x \lesssim x$.
+        \item 传递性：$x \lesssim y, y \lesssim z \Rightarrow x \lesssim z$.
+        \item 反对称性：$x \lesssim y, y \lesssim x \Rightarrow x = y$.
+    \end{itemize}
+\end{definition}
+
+集合 $T \subseteq S$ 是\bluebf{链}（全序集），若 $\forall\, x, y \in T$，要么 $x \lesssim y$，要么 $y \lesssim x$.\par
+集合 $B \subseteq (S, \lesssim)$ 有\bluebf{上界} $u \in S$，若 $\forall\, x \in B, x \lesssim u$.\par
+称 $m \in S$ 为\bluebf{极大元}，若 $\forall\, y \in S, m \lesssim y \Rightarrow m = y$.\par
+
+基于以上定义，我们可以引入 Zorn 引理，它可以用来证明很多集合的存在性问题.
+\begin{lemma}[Zorn 引理]
+    设 $(S, \lesssim)$ 是一个偏序集，若 $S$ 的每个链都有上界，则 $S$ 中存在极大元.
+\end{lemma}
+
+\begin{remark}
+    事实上：Zorn 引理 $\iff$ 选择公理 $\iff$ 良序原理 $\iff$ Tychonoff 定理.\par
+    Zorn 引理 $\Rightarrow$ Hahn-Banach 定理.\par
+    Gödel 在 1938 年证明了选择公理独立于 ZF 公理体系.\par
+\end{remark}
+
+在Zorn引理的框架下，可以证明很多有意思的结论，例如Hamel证明了以下两个结论：
+\begin{enumerate}[label=(\arabic*),leftmargin=2em]
+    \item  $\mb{R}$ 有 $\mb{Q}$ 上的基；
+    \item  $\exists\, f \colon \mb{R} \to \mb{R}$，满足 $f(x+y)=f(x)+f(y)$，但 $f(x) \neq cx, \forall\, c$.
+\end{enumerate}\par
+上面的第一个结论就是Hamel基的最初始形态，而Hausdorff才真正证明了Hamel基的存在性.
+
+\begin{theorem}[Hausdorff, 1932]
+    每个非零线性空间都有一组Hamel基.
+\end{theorem}
+
+\begin{proof}
+    令 $\mcal{S}$ 是 $V$ 中所有线性无关子集的集合族.定义 $\mcal{S}$ 上的偏序$\lesssim$为$L \lesssim L' \iff L \subseteq L'$.\par
+    设 $\mcal{C}=\{L_\alpha\}_{\alpha \in I}$ 是 $\mcal{S}$ 的一个全序子集，则 $L = \bigcup_{\alpha\in I} L_\alpha$ 是 $\mcal{S}$ 的一个上界.\par
+    为了说明 $L \in \mcal{S}$，任取 $\{v_1, \dots, v_n\} \in L$，则 $\forall\, i \in \{1, \dots, n\}, \exists\, \alpha_i \in I$, s.t. $v_i \in L_{\alpha_i}$.\par
+    由于 $\mcal{C}=\{L_\alpha\}_{\alpha \in I}$ 是全序集，因此 $\exists\, j \in \{1, \dots, n\},\st L_{\alpha_j}\gtrsim L_{\alpha_i}, \forall\, i \in \{1, \dots, n\}$.\par
+    $\Rightarrow \{v_1, \dots, v_n\} \in L_{\alpha_j}$.由 $L_{\alpha_j}$ 线性无关知 $v_1, \dots, v_n$ 线性无关.\par
+    因此 $L$ 线性无关，故 $L \in \mcal{S}$.\par
+    由 Zorn 引理，存在极大元 $\mcal{B} \in \mcal{S}$，且 $\mcal{B}$ 线性无关.\par
+    下证 $V = \mathrm{span}(B)$.\par
+    反证，若不然，则 $\exists\, v \in V \setminus \span(\mcal{B})$，考虑 $B \cup \{v\}$.\par
+    取 $\{v_1, \dots, v_n\} \subset B \cup \{v\},\st \sum_{i=1}^n c_i v_i = 0$.\par
+    \begin{itemize}
+        \item 若所有的 $v_i$ 均在 $\mcal{B}$ 中，由于 $\mcal{B} \in \mcal{S}$，则所有的 $c_i$ 均为 $0$.
+        \item 若其中一个 $v_i$（不妨设为 $v_1$）为 $v$，则 $c_1 v + \sum_{j=2}^n c_j v_j = 0 \Rightarrow v = \sum_{j=2}^n -\frac{c_j}{c_1} v_j \Rightarrow v \in \mathrm{span}(B)$，矛盾！
+    \end{itemize}
+\end{proof}
+
+下面可以利用Hamel基简单证明 Hamel 的第 2 个结论：\par
+将 $\mb{R}$ 视为 $\mb{Q}$ 上的向量空间，则 $\{1, \sqrt{2}\}$ 线性无关.\par
+通过上述定理，可将 $\{1, \sqrt{2}\}$ 延拓为一个 Hamel 基 $\{e_i\}_{i \in I}$，s.t. $e_1 = 1, e_2 = \sqrt{2}$.\par
+定义 $f(1) = \sqrt{2}, f(\sqrt{2}) = 1, f(e_i) = e_i, \forall\, e_i \neq 1, \sqrt{2}$.\par
+利用 $\mb{Q}-\!$线性关系将 $f$ 延拓为 $f \colon \mb{R} \to \mb{R}$.\par
+
+接下来简单介绍序数的概念.
+\begin{instance}
+    $\{0, 1, 2, \dots, 12\}$ 的序数为 $13$.\par
+    $\mb{N}$ 的序数为 $\omega$.\par
+    $\mb{Z}$ 的序数为 $\omega + \omega$.
+\end{instance}
+
+\begin{definition}
+    设$P, Q$是序数为$\alpha, \beta$ 的良序集，则定义其序数的序关系为$\alpha < \beta \iff P$ 是 $Q$ 前面的片断$\iff$对某个$b\in\mb{Q}$，$\exists\, \text{同构}\,\Phi:P \to \{x \in Q :x < b\}$.
+\end{definition}
+
+因此对于序数，同构是保序的双射.所有的序数构成的集合也是一个良序集.\par
+由上述定义，定义$\mb{N}$ 的序数为 $\omega = \aleph_0$，$\mb{R}$ 的序数为 $2^{\aleph_0} = \aleph_1$.著名的关于$\aleph_0$和$\aleph_1$的命题是
+\begin{assumption}[连续统假设, CH]
+    不存在序数在 $\aleph_0$ 与 $\aleph_1$ 之间的集合.
+\end{assumption}
+Gödel 在 1938 年证明了连续统假设在 ZFC 中不可证.Cohen 在 1963 年更进一步证明了连续统假设独立于 ZFC.因此关于连续统假设，我们无法得知它的真值.\par
+基于序数理论，我们可以推广自然数中的数学归纳法为序数中的有超限归纳法：若 $[(\forall\, \beta < \alpha) P(\beta)] \to P(\alpha)$，则 $P(\alpha), \forall\, \alpha$.
+
+在超限归纳法的框架下，可以证明下述定理.
+\begin{theorem}
+    $\exists\, A \subseteq \mb{R}$，使得 $A$ 与 $\mb{R} \setminus A$ 与 $\mb{R}$ 中每个不可数闭集相交于至少一点.
+\end{theorem}
+\begin{proof}
+    存在 $\aleph_1$ 个不同的不可数闭集，设为 $\{F_\alpha \colon \alpha < \aleph_1\}$是上述集合的集合族，则其上良序.\par
+    每个 $F_\alpha$ 的基数为 $\aleph_1$.\par
+    设 $x_\alpha, y_\alpha$ 是 $F_\alpha$ 中任意两点.在第 $\alpha$ 步，可以取 $x_\alpha \neq y_\alpha$，使得它们和任意 $x_\beta, y_\beta, \beta < \alpha$ 不相等.\par
+    设 $\mcal{A} = \{x_\alpha \colon \alpha < \aleph_1\}$.由构造可知，$A \cap F_\alpha \neq \varnothing, \forall\, \alpha$.\par
+    但 $\mb{R} \setminus A$ 包含了所有的 $y_\alpha, \forall\, \alpha < \aleph_1, y_\alpha \in F_\alpha \Rightarrow (\mb{R} \setminus A) \cap F_\alpha \neq \varnothing, \forall\, \alpha$.
+\end{proof}
+
+
+
+
+\section{Hahn-Banach 定理}
+
+
+设$X$是一个向量空间，$X^*=\mcal{L}\left(X,\mb{K}=\mb{R}\,\text{或}\,\mb{C}\right)$为其代数对偶.若$X$是一个赋范线性空间，则$X^*=\mcal{B}(X,\mb{K})$.一个重要的观察是，若$Y\leq X$，$f\in X^*$，则$\|f|_Y\|_{Y^*}\leq\|f\|_{X^*}$.\par
+我们知道，在线性空间中，若有一个子空间上的函数，可以通过将子空间上的基底扩展为整个空间的基底来将函数延拓到整个空间.自然地，当整个空间被赋予范数后，若$Y< X$，且有一个$f\in Y^*$，还能否将$f$延拓到$F\in X^*$，即$F|_Y=f$.\par
+在这个问题中，我们主要聚焦于次线性泛函这一特殊的函数.\par
+\begin{definition}[次线性泛函]
+    设$X$是一个实线性空间，称$P:X\to\mb{R}$是一个次线性泛函，如果其满足：
+    \begin{enumerate}[label=(\roman*)]
+        \item $\forall\, x,y\in X,P(x+y)\leq P(x)+P(y)$
+        \item $\forall\, x\in X,\lambda\geq 0,P(\lambda x)=\lambda P(x)$
+    \end{enumerate}
+\end{definition}
+我们之前定义的范数、半范数实际都是一种次线性泛函.在次线性泛函的框架下，关于上述问题，分析学家给出的解答是：
+
+
+
+\begin{theorem}[Hahn-Banach 延拓定理]
+    设 $X$ 是实线性空间，$Y \leq X$ 是子空间，$p \colon X \to \mb{R}$ 是次线性泛函.若 $f \in Y^*$ 满足 $\forall\, x \in Y,f(x) \leq p(x)$，则存在 $F \in X^*$ 使得 $F|_Y = f$ 且 $\forall\, x \in X,F(x) \leq p(x)$.
+\end{theorem}
+\begin{proof}
+    首先，考虑 $x_0 \notin Y$，将 $f \in Y^*$ 延拓到 $\tilde{f} \in (\langle x_0 \rangle \oplus Y)^*$，其中 $\langle x_0 \rangle = \mathrm{span}\{x_0\}$.\par
+    $\tilde{f}(y + \alpha x_0) = \tilde{f}(y) + \alpha \tilde{f}(x_0) = f(y) + \alpha \tilde{f}(x_0)$，因此只需定义 $\tilde{f}(x_0)$.\par
+    由于 $f(y) + \alpha \tilde{f}(x_0) = \tilde{f}(y + \alpha x_0) \leq p(y + \alpha x_0)$：
+    \begin{itemize}
+        \item 若 $\alpha = 0$，则 $f(y) \leq p(y)$，已成立.
+        \item 若 $\alpha > 0$，则$\setjot[-2]\begin{aligned}[t]
+            &\tilde{f}(x_0) \leq \frac{p(y + \alpha x_0) - f(y)}{\alpha} = p\left(\frac{y}{\alpha} + x_0\right) - f\left(\frac{y}{\alpha}\right), \forall\, y \in Y, \alpha > 0 \\
+            &\Longleftrightarrow\tilde{f}(x_0) \leq p(y' + x_0) - f(y'), \forall\, y' \in Y
+        \end{aligned}$
+        \item 若 $\alpha < 0$，则$\setjot[-2]\begin{aligned}[t]
+            &\tilde{f}(x_0) \geq \frac{p(y - (-\alpha) x_0) + f(y)}{-\alpha} = -p\left(\frac{y}{-\alpha} - x_0\right) + f\left(\frac{y}{-\alpha}\right), \forall\, y \in Y, \alpha < 0  \\
+            &\Longleftrightarrow \tilde{f}(x_0) \geq f(y'') - p(y'' - x_0), \forall\, y'' \in Y
+        \end{aligned} $.
+    \end{itemize}\par
+    综合以上，即需满足 $\sup_{\tilde{y} \in Y} [f(\tilde{y}) - p(\tilde{y} - x_0)] \leq \tilde{f}(x_0) \leq \inf_{y \in Y} [p(y + x_0) - f(y)]$.\par
+    即 $\forall\, y,\tilde{y} \in Y, f(\tilde{y}) - p(\tilde{y} - x_0) \leq p(y + x_0) - f(y)$.\par
+    但 $p(y + x_0) + p(\tilde{y} - x_0) - f(y) - f(\tilde{y}) \geq p(y + \tilde{y}) - f(y + \tilde{y}) \geq 0$，故可以定义这样的 $\tilde{f}(x_0)$.\par
+    因此可以作一步延拓 $\tilde{f} \in \left(\langle x_0 \rangle \oplus Y\right)^*,\st \tilde{f}|_Y = f$.\par
+    对任意余维数，定义 $\mcal{G} = \left\{\left(\widetilde{Y}, \tilde{f}\right) : Y \leq \widetilde{Y} \leq X, \tilde{f} \in (\widetilde{Y})^*, \text{s.t. } \tilde{f} \leq p, \tilde{f}\text{ 是 }\,f\text{ 的延拓}\right\}$.\par
+    定义其上的偏序为：$(\widetilde{Y}_1, \tilde{f}_1) \lesssim (\widetilde{Y}_2, \tilde{f}_2) \iff \widetilde{Y}_1 \leq \widetilde{Y}_2, \tilde{f}_2|_{\widetilde{Y}_1} = \tilde{f}_1$.\par
+    设 $\mcal{C}=\left\{(\widetilde{Y}_\alpha, \tilde{f}_\alpha)\right\}_{\alpha \in I}$ 是 $\mcal{G}$ 的全序子集.\par
+    则 $\widetilde{Y} = \bigcup_{\alpha \in I} \widetilde{Y}_\alpha, \tilde{f} \in (\widetilde{Y})^*,\st \tilde{f}(y) = f_\alpha(y), y \in Y_\alpha$ 为$\mcal{C}$的一个上界.\par
+    因此，由 Zorn 引理，$\mcal{G}$ 有极大元 $(\widetilde{Y}_*, \tilde{f}_*)$.\par
+    下证 $\widetilde{Y}_* = X$.\par
+    反证，若 $\exists\, x_* \in X \setminus \widetilde{Y}_*$.\par
+    考虑$\widetilde{Y}_*\oplus \langle x_*\rangle$，由前述一步延拓，$\exists\, \tilde{f} \in (\widetilde{Y}_* \oplus \langle x_* \rangle)^*,\st\tilde{f}|_{\widetilde{Y}_*} = \tilde{f}_*$.\par
+    但 $(\widetilde{Y}_*, \tilde{f}_*) \lnsim(\widetilde{Y}_* \oplus \langle x_* \rangle, \tilde{f})$，$\left(\widetilde{Y}_*,\tilde{f}_*\right)$最大矛盾.
+\end{proof}
+
+由Hahn-Banach定理，就可以把子空间上的实线性泛函保范地延拓到整个空间上.
+\begin{corollary}
+    设 $X$ 是实赋范线性空间，$Y \leq X, f \in Y^* = \mcal{B}(Y, \mb{R})$，则 $\exists\, F \in X^*,\st F|_Y = f$ 且 $\|F\| = \|f\|$.
+\end{corollary}
+\begin{proof}
+    设 $p(x) := \|f\|_{Y^*} \|x\|_X$ 是一个范数$(f \neq 0)$.\par
+    注意到我们有 $f(y) \leq p(y)$.\par
+    由 Hahn-Banach 定理，$\exists\, F \in X^*$, s.t. $F|_Y = f, F(x) \leq p(x) = \|f\| \|x\|$.\par
+    $F(-x) = -F(x) \leq \|f\| \|-x\| \Rightarrow F(x) \geq -\|f\| \|x\|$.\par
+    故 $|F(x)| \leq \|f\| \|x\| \Rightarrow \|F\| \leq \|f\|$.\par
+    又 $\|F\| \geq \|f\|$ 显然，因此 $\|F\| = \|f\|$.
+\end{proof}
+
+\begin{remark}
+    注意：Hahn-Banach 延拓仅作用在 $F \colon X \to \mb{R}$ 上，而不是对其它赋范线性空间 $F \colon X \to Z$.
+\end{remark}
+
+\begin{theorem}[Philips, 1948]
+    不存在 $\ell^\infty \to c_0$ 的有界线性投影.
+\end{theorem}
+等价地，$\mathrm{Id} \colon c_0 \to c_0$ 不可被延拓为 $\ell^\infty \to c_0$ 的有界线性算子.这就说明了Hahn-Banach定理对其无效.\par
+事实上：设 $X$ 是一个 Banach 空间，如果 $\forall$ 闭子空间 $Y \leq X$，所有的投影 $X \to Y$ 都有界，则 $X$ 同构于 Hilbert 空间 (J. Lindenstrauss - Tzafriri).

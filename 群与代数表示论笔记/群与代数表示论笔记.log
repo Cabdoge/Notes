@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.9)  17 MAR 2026 14:05
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.9)  24 MAR 2026 10:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1551,7 +1551,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
 
-[11])
+[11]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1560,21 +1560,63 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
 
-[12] (./群与代数表示论笔记.aux)
+[12]
+Package mdframed Info: mdframed works in twoside mode on input line 518.
+Package mdframed Info: mdframed works in twoside mode on input line 560.
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.84526pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.84526pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
+
+[13]
+Package mdframed Info: Not enough space on this page on input line 566.
+
+Overfull \hbox (18.49321pt too wide) in paragraph at lines 581--582
+[]\TU/STSong(0)/m/n/10.95 由 于 $\OML/cmm/m/it/10.95 V[]\OT1/cmr/m/n/10.95 /\OML/cmm/m/it/10.95 V[]$ \TU/STSong(0)/m/n/10.95 可 能 重 复，|  我 们 可 以 统 计 其 出 现 的 重 数 $\OML/cmm/m/it/10.95 d[]$\TU/STSong(0)/m/n/10.95 ，|  并 把 所 有 的 重 数 记 成 一 列 $\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 d[]; d[]; [] ; d[]\OT1/cmr/m/n/10.95 )$\TU/STSong(0)/m/n/10.95 ，|
+ []
+
+
+Overfull \hbox (12.26302pt too wide) in paragraph at lines 593--594
+[]\TU/STSong(0)/m/n/10.95 而 $\OML/cmm/m/it/10.95 ^^Z\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 g\OT1/cmr/m/n/10.95 )(\OML/cmm/m/it/10.95 g[]; [] ; g[]\OT1/cmr/m/n/10.95 ) = (\OML/cmm/m/it/10.95 g[]; [] ; g[]\OT1/cmr/m/n/10.95 ) []$\TU/lmr/m/n/10.95 . \TU/STSong(0)/m/n/10.95 其 特 征 多 项 式 $[] \OT1/cmr/m/n/10.95 =
+ []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.84526pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.84526pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
+
+[14])
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.84526pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.84526pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
+
+[15] (./群与代数表示论笔记.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2022/07/14>
  ***********
 Package rerunfilecheck Info: File `群与代数表示论笔记.out' has not changed.
-(rerunfilecheck)             Checksum: EB4ACEA68964480166096127BA71A495;742.
+(rerunfilecheck)             Checksum: 697C8315CFF4416AFC35FAB8017AB49A;866.
  ) 
 Here is how much of TeX's memory you used:
- 38046 strings out of 473832
- 848311 string characters out of 5729481
- 1373865 words of memory out of 5000000
- 60378 multiletter control sequences out of 15000+600000
+ 38064 strings out of 473832
+ 848656 string characters out of 5729481
+ 1373911 words of memory out of 5000000
+ 60396 multiletter control sequences out of 15000+600000
  577152 words of font info for 158 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  131i,20n,135p,1243b,1414s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on 群与代数表示论笔记.pdf (15 pages).
+Output written on 群与代数表示论笔记.pdf (18 pages).

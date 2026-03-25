@@ -389,8 +389,112 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
 
 在这一节的最后，引入泛函的概念.
 \begin{definition}[有界线性泛函]
-    设$X$是Banach空间，记$X^*=\mcal{B}(X,\mb{R})$或$\mcal{B}(X,\mb{C})$
+    设$X$是Banach空间，记$X^*=\mcal{B}(X,\mb{R})$或$\mcal{B}(X,\mb{C})$，则$X^*$中的元素称为$X$上的\bluebf{有界线性泛函}.
 \end{definition}
+这里的$X^*$和线性代数中的对偶空间的概念相同，对有限维线性空间，$V\cong \mb{R}^d\cong V^*$.但当推广到无限维空间时，通常而言，$X^*\not\cong X$，且$X^*$会比$X$大得多.\par
+
+\section{有限维赋范空间与半范数}
+
+继续上一节末尾的话题，对于有限维线性空间而言，如果两个空间的维数相同，那么这两个空间是同构的且都同构与$\mb{R}^d$，因此从这一角度，它们几乎是相同的，故我们只需要研究$\mb{R}^d$即可.问题是，对于配备了范数的赋范线性空间而言，是否也存在类似的分类结果呢?首先需要定义何为赋范线性空间的同构.\par
+\begin{definition}[赋范线性空间的同构]
+   设$(X,\|\cdot\|_X)$和$(Y,\|\cdot\|_Y)$是赋范线性空间，则$X$与$Y$\bluebf{同构}当且仅当存在线性空间上的同构$B:X\to Y,\st \|B\|,\|B^{-1}\|<\infty$.
+\end{definition}
+相比单纯线性空间的同构，赋范线性空间的同构要求同构映射和其逆映射是有界的.下面就可以说明即使是赋范线性空间，维数相同时也一定同构.
+\begin{theorem}[]
+    设$(X,\|\cdot\|_X)$是赋范线性空间，且$\dim X=d<\infty$，则$X$与$\mb{R}^d$同构.
+\end{theorem}
+\begin{proof}
+    任取$V$的一组基$\{e_1,e_2,\cdots,e_d\}$.\par
+    考虑$\setjot[-6]\begin{aligned}[t]
+        \Lambda:\mb{R}^d &\to V \\
+        \lambda=\left(\lambda^1,\lambda^2,\cdots,\lambda^d\right) &\mapsto \sum_{i=1}^d{\lambda^i e_i}
+    \end{aligned}$.显然$\Lambda$是线性空间上的同构，下证$\Lambda$和$\Lambda^{-1}$均有界.\par
+    $\|\Lambda\lambda\|=\left\|\sum_{i=1}^d\lambda^i e_i\right\|\leq\sum_{i=1}^d\|\lambda^i\|\|e_i\|\leq\|\lambda\|_{\mb{R}^d}\sum_{i=1}^d\|e_i\|$，因此$\Lambda$有界.\par
+    使用反证法证明$\Lambda^{-1}$有界，假设$\Lambda^{-1}$无界，则$\exists\, \{x_n\}\subset V,\st \|x_n\|=1,\|\Lambda^{-1}x_n\|\to\infty$.\par
+    考虑$a_n=\frac{\Lambda^{-1}x_n}{\|\Lambda^{-1}x_n\|}$，则$\forall\, n\in\mb{N},\|a_n\|=1$.\par
+    由于$\mb{R}^d$中的单位球是紧的，可以取子列$\{a_{a_k}\},\st a_{n_k}\to a_\infty\in\mb{R}^d$且$\|a_\infty\|=1$.\par
+    但$\Lambda a_\infty=\lim_{\k\to\infty}\Lambda a_{n_k}=\lim_{k\to\infty}\Lambda\left(\frac{\Lambda^{-1}x_{n_k}}{\|\Lambda^{-1}x_{n_k}\|}\right)=\lim_{k\to\infty}\frac{x_{n_k}}{\|\Lambda^{-1}x_{n_k}\|}=0$.\par
+    $\Rightarrow a_\infty=0$，与$\|a_\infty\|=1$矛盾.
+\end{proof}
+在上述证明中，我们并没证明对$\mb{R}^d$中的任意范数都成立，而是只选取了$\mb{R}^d$中的无穷范数，这背后的原因是$\mb{R}^d$从根本上只有一种范数，这需要引入范数等价的概念.
+\begin{definition}[范数的等价]
+    设$\|\cdot\|_1,\|\cdot\|_2$是$X$上的范数，称$X_1$与$X_2$\,\bluebf{等价}$\iff\exists\,0<c<C<\infty,\st\forall\, x\in X,\,c\|x\|_1\leq \|x\|_2\leq C\|x\|_1$.
+\end{definition}
+\begin{corollary}[有限维赋范空间范数的等价性]
+   $\mb{R}^d$上的所有范数均等价. 
+\end{corollary}
+\begin{proof}
+    设$\Lambda:\left(\mb{R}^d,\|\cdot\|_1\right)\to\left(\mb{R}^d,\|\cdot\|_2\right)$是线性同构，则$\|\Lambda\|<\infty,\|\Lambda^{-1}\|<\infty$.\par
+    有$\|\Lambda x\|_2\leq\|\Lambda\|\|x\|_1\leq\|\Lambda^{-1}\|\|\Lambda\|\|x\|_2$
+\end{proof}
+
+下一个定理要研究Heine-Borel性质.在$\mb{R}^d$中，Heine-Borel定理表明一个集合是紧的当且仅当它是闭的且有界的.但是这个性质无法推广到无限维空间，为此，有以下定理.
+\begin{theorem}[]
+    设$(X,\|\cdot\|)$是赋范线性空间，则有界闭集是紧集$\iff\dim X<\infty$.
+\end{theorem}
+上述定理有直接的证明方式，但在此处我们先引入半范数的概念，利用半范数来证明上述定理.
+\begin{definition}[半范数]
+    若$\|\cdot\|:X\to [0,\infty)$满足：
+    \begin{enumerate}[label=(\roman*)]
+        \item $\|\lambda x\|=|\lambda|\|x\|$
+        \item $\|x+y\|\leq \|x\|+\|y\|$
+        \item $\|x\|\geq 0$，但可能存在$x\neq 0,\st \|x\|=0$
+    \end{enumerate}
+    则称$\|\cdot\|$为$X$上的\bluebf{半范数}.
+\end{definition}
+相较于范数，半范数允许非零向量的半范数为零.那么如果能将半范数为零但是本身不是零的向量从整个空间中去除，剩余的空间和半范数就会构成一个范数.\par
+严谨来说，记$\mcal{N}:=\left\{x\in X:\|x\|=0\right\}\leq X$，可以定义商空间$X/\mcal{N}=\left\{[x]=x+\mcal{N}:x\in X\right\}$.则$[x]=[y]\iff x-y\in\mcal{N}$.\par
+定义商空间上的范数为$\big\|[x]\big\|_{X/\mcal{N}}\equiv\|x+\mcal{N}\|_{X/\mcal{N}}$.上述定义是良定的，因为若$x+\mcal{N}=y+\mcal{N}$，则$\exists\, n\in\mcal{N},\st x=y+n$，则$\|x\|=\|y+n\|\leq \|y\|+\|n\|=\|y\|=\|x-n\|\leq\|x\|+\|-n\|=\|x\|$，因此$\|x\|=\|y\|$.那么$\left(X/\mcal{N},\|\cdot\|_{X/\mcal{N}}\right)$是一个赋范线性空间.\par
+利用商空间定义范数的一个经典例子是$L^p$空间.
+\begin{instance}[$L^p$空间]
+    $1\leq p\leq\infty$，$\left(L^P\left(\Omega\subset\mb{R}^n\right),\|\cdot\|_{L^p}\right)$，定义$\|f\|_{L^p}:=\begin{cases}
+    \left(\int_\Omega|f(x)|^p\d x\right)^\frac{1}{p},&1\leq p<\infty\\
+    \mathrm{ess}\sup_{x\in\Omega}|f(x)|,&p=\infty
+    \end{cases}$\par
+    取$\Omega=(0,1)\subset\mb{R}$，考虑$\chi_{\mb{Q}\cap(0,1)}=\begin{cases}
+    1,&x\in\mb{Q}\cap(0,1)\\
+    0,&x\in(0,1)\setminus\mb{Q}
+    \end{cases}$，则$\int\chi_{\mb{Q}\cap(0,1)}^p\d m=0$，但$\chi_{\mb{Q}\cap(0,1)}\neq 0$.\par
+    因此$\|\cdot\|_{L^p}$只是一个半范数.\par
+    为了使其成为范数，应当商掉几乎处处为零的可测函数，定义$\big\|[f]\big\|_{L^p}:=\|\tilde{f}\|_{L^p}$，其中$\tilde{f}$是$[f]=f+\mcal{N}$的代表元.\par
+    习惯上，我们仍旧记$\big\|[f]\big\|_{L^p}$为$\|f\|_{L^p}$，并且$[f]$也记为$f$，因此在实际使用中，我们并不区分函数和函数的等价类.
+\end{instance}
+自然地，我们想知道一个Banach空间的商空间及其商范数是否还是一个Banach空间，因此有以下定理.
+\begin{theorem}[]
+    设$(X,\|\cdot\|)$是Banach空间，设$Y\leq X$是一个闭子空间，则$X/Y$是商范数下的Banach空间，其中范数为$\big\|[x]\big\|_{X/Y}=\inf \left\{\|x+y\|:y\in Y\right\}=\inf\left\{\|x-y\|:y\in Y\right\}$.
+\end{theorem}
+\begin{proof}
+    注意到$\big\|[x]\big\|_{X/Y}=\dist(x,Y)$，故$\big\|[x]\big\|_{X/Y}=0\iff \dist(x,Y)=0\iff x\in\overline{Y}\xLeftrightarrow{Y\,\text{是闭子空间}} x\in Y\iff [x]=0$，因此$\|\cdot\|_{X/Y}$是范数.\par
+    设$\{[x_n]\}\subset X/Y$是Cauchy列，取子列$\left\{\left[x_{n_k}\right]\right\},\st \left\|\left[x_{n_{k+1}}\right]-\left[x_{n_k}\right]\right\|<2^{-k}$.\par
+    $\Rightarrow \inf\left\{\left\|x_{n_{k+1}}-x_{n_k}-y\right\|:y\in Y\right\}<2^{-k}$\par
+    $\Rightarrow \forall\, k,\exists\, w_{n_k}\in\left[x_{n_k}\right],\st \left\|w_{n_{k+1}}-w_{n_k}\right\|\leq 2^{-k}$\par 
+    则$\{w_{n_k}\}$是$X$中的Cauchy列，因此$w_{n_k}\to w\in X$.\par
+    由$\left\|\left[x_{n_k}\right]-[w]\right\|\leq \left\|w_{n_k}-w\right\|\to 0$知$\left[x_{n_k}\right]\to [w]$在$X/Y$中.\par
+\end{proof}
+
+另外一个有意思的结论是.在线性空间中，我们总有$X\cong Y\oplus (X/Y)$.但是存在Banach空间$X$，使得$X\not\cong Y\oplus (X/Y)$，这是由Corson Trans在1961年得出的结论.\par
+于是我们可以证明下述重要的引理.
+\begin{lemma}[Riesz引理]
+    设$X$是赋范线性空间，$Y\leq X$是一个闭子空间，且$Y\neq X$，则$\forall\, \varepsilon>0,\exists\, x\in X,\st \|x\|=1$，$\dist(x,Y)\geq 1-\varepsilon$.
+\end{lemma}
+\begin{proof}
+    考虑$X/Y$，由于$Y\neq X$，所以$X/Y\neq \{0\}$，因此$\exists\, [y]\in X/Y,\st \|[y]\|_{X/Y}=d>0$.\par
+    那么可以取得$\lambda$，使得$[\tilde{z}]=[\lambda y]$，且$1\geq \left\|\left[\tilde{z}\right]\right\|\geq 1-\varepsilon$.\par
+    选取$\left[\tilde{z}\right]$的代表元$z$，使得$\|z\|\leq 1$并令$x=\frac{z}{\|z\|}$.\par
+    则$\dist \left(x,Y\right)=\frac{\dist(z,Y)}{\|z\|}=\frac{\left\|\left[\tilde{z}\right]\right\|_{X/Y}}{\|z\|}\geq 1-\varepsilon$.\par
+    则上述的$x$就是满足条件的向量.
+\end{proof}
+基于上述引理，若$\dim X=\infty$，则可取$x_1,x_2,\cdots\in X,\st \|x_j\|=1,\dist\left(x_j,\span\{x_1,\cdots,x_{j-1}\} \right)\geq 0.99$，因此$\{x_j\}\subset \mb{S}_X$没有收敛子列.\par
+\begin{corollary}[]
+    设$X$是赋范线性空间.若$\dim X=\infty$，则有界闭集不是紧集.
+\end{corollary}
+从而就可以证明只有有限维线性空间才具有Heine-Borel性质.\par
+本节最终的内容是在半范数下，线性空间未必是一个赋范线性空间，如果我们不想改变原空间的大小，那它至少具有怎样的性质呢?\par
+例如对于$\left(C(K),\|\cdot\|_{\mathrm{sup}}\right)$，若$K$是紧致度量空间，那么$C(K)$是Banach空间.若$K$是一个开集，例如$K=(0,1)$，则$C((0,1))$不是赋范线性空间，但我们可以不断取紧集$K_1\subset K_2\subset K_3\subset\cdots\subset \Omega$，使得$\Omega=\bigcup_{i=1}^\infty K_i$.\par
+那么在每一个$K_i$上，都可以定义一个半范数$\|f\|_{i}=\sup_{x\in K_i}|f(x)|$.\par
+如果在$C(\Omega)$上，$\forall\, f(x)\neq 0,\exists\, i,\st \|f_i\|\neq 0$，那么称$\left\{\|\cdot\|_i\right\}_{i\in\mb{N}}$是$C(\Omega)$上的一族分离点的半范数，即$\forall\, f,g\in C(\Omega),\exists\, i,\st \|f\|_i\neq\|g\|_i$.\par
+因此就可以定义其距离为$\rho(f,g)=\sum_{i=1}^{\infty}\frac{1}{2^i}\frac{\|f-g\|_i}{1+\|f-g\|_i}$，由此$C(\Omega)$是一个度量空间，将其称为\,\bluebf{Fréchet空间}.
+
 
 
 
