@@ -104,7 +104,7 @@
 \end{subequations}
 
 \subsection*{a. 离散后问题之解是否唯一}
-下面开始研究(4a)-(4b).\par
+下面开始研究(1.4a)-(1.4b).\par
 当$i=1$时，$-\frac{u_2-2u_1+u_0}{h^2}=f_1$.当$i=N$时，$-\frac{u_{N}-2u_{N-1}+u_{N-2}}{h^2}=f_{N-1}$.\par
 因此可知$\begin{cases}
     -\frac{u_2-2u_1+u_0}{h^2}=f_1\\
@@ -131,10 +131,25 @@ A_{N-1}\vv{u}=\vv{f}
 
 \subsection*{b. 局部可靠性}
 除了可解性外，另外一个指标是方法的截断误差.\par
-设$u(x)$是微分方程的充分光滑解，取$u_i=u(x_i)$，考查$R_i=-\frac{u(x_{i+1})-2u(x_i)+u(x_{i-1})}{h^2}-f(x_i)$的大小，由Talor展开知
+\begin{definition}[截断误差]
+    将微分方程的精确解代入有限差分方程后所得到的残差，称为该差分格式的\colorbf{局部截断误差}.
+\end{definition}
+设$u(x)$是微分方程的充分光滑解，将其代入差分算子后即可得到上述差分方法的截断误差$R_i=-\frac{u(x_{i+1})-2u(x_i)+u(x_{i-1})}{h^2}-f(x_i)$，由Taylor展开知
 \begin{proposition}[二阶导数的二阶中心差商逼近公式]
     $u''(x_i)=\frac{u(x_{i+1})-2u(x_i)+u(x_{i-1})}{h^2}-\frac{1}{12}h^2u^{(4)}(\xi_i),x_{i-1}\leq \xi_i\leq x_{i+1}$
 \end{proposition}
+\begin{proof}
+    由 Taylor 展开可知：
+    \begin{align*}
+        &u(x_{i+1}) = u(x_i) + h u'(x_i) + \frac{h^2}{2} u''(x_i) + \frac{h^3}{6} u'''(x_i) + \frac{h^4}{24} u^{(4)}(\eta_+), \quad \eta_+ \in (x_i, x_{i+1}) \\
+        &u(x_{i-1}) = u(x_i) - h u'(x_i) + \frac{h^2}{2} u''(x_i) - \frac{h^3}{6} u'''(x_i) + \frac{h^4}{24} u^{(4)}(\eta_-), \quad \eta_- \in (x_{i-1}, x_i)
+    \end{align*}
+    两式相加得：
+    \[ u(x_{i+1}) + u(x_{i-1}) = 2u(x_i) + h^2 u''(x_i) + \frac{h^4}{24} [u^{(4)}(\eta_+) + u^{(4)}(\eta_-)] \]
+    假设 $u$ 的四阶导数连续，由介值定理存在 $\xi_i \in (x_{i-1}, x_{i+1})$ 使得：
+    \[ \frac{u^{(4)}(\eta_+) + u^{(4)}(\eta_-)}{2} = u^{(4)}(\xi_i) \]
+    代入上式并整理即得所需公式.
+\end{proof}
 因此
 \begin{equation}
 R_i=-\frac{1}{12}h^2u^{(4)}(\xi_i)
@@ -254,11 +269,15 @@ $E^*$的连续化情形是一个二阶常微分方程$\begin{cases}
 
 \section{求解线性代数方程组的迭代法}
 
-给定线性代数方程组：$\boldsymbol{A}\boldsymbol{x} = \boldsymbol{b}$，式中 $\boldsymbol{A}$ 为非奇异矩阵.\par
-将 $\boldsymbol{A}$ 作矩阵分裂可得${\color{red} \boldsymbol{A} = \boldsymbol{M} - \boldsymbol{N}}$，式中 $\boldsymbol{M}$ 是非奇异矩阵.\par
+给定线性代数方程组：
+\[\boldsymbol{A}\boldsymbol{x} = \boldsymbol{b},\,\text{其中}\;\bm{A}\;\text{为非奇异矩阵}.\]
+
+将 $\boldsymbol{A}$ 作矩阵分裂可得
+\[{\color{red} \boldsymbol{A} = \boldsymbol{M} - \boldsymbol{N}},\,\text{其中}\;\boldsymbol{M}\;\text{是非奇异矩阵}.\]
+
 那么上述线性代数方程组可以转化为$\boldsymbol{M}\boldsymbol{x} = \boldsymbol{N}\boldsymbol{x} + \boldsymbol{b}$.\par
 从而得到如下迭代法：$\boldsymbol{M}\boldsymbol{x}_{k+1} = \boldsymbol{N}\boldsymbol{x}_k + \boldsymbol{b}$，即
-\begin{equation}
+\begin{equation}\label{matrix_iteration}
     \boldsymbol{x}_{k+1} = \boldsymbol{M}^{-1}\boldsymbol{N}\boldsymbol{x}_k + \boldsymbol{M}^{-1}\boldsymbol{b} = \boldsymbol{S}\boldsymbol{x}_k + \boldsymbol{M}^{-1}\boldsymbol{b}.
 \end{equation}
 其中$x_0$是我们的初始猜测.\par
@@ -266,24 +285,24 @@ $E^*$的连续化情形是一个二阶常微分方程$\begin{cases}
 除此之外，还必须保证迭代法的收敛性，即 $\boldsymbol{S} = \boldsymbol{M}^{-1}\boldsymbol{N}$ 的谱半径 $\rho(\boldsymbol{S}) < 1$.\par
 
 
-基于 (1.14) 还可得阻尼迭代法 (Damped Iterative Method):
-\begin{equation}
+基于(\ref{matrix_iteration})还可得阻尼迭代法 (Damped Iterative Method):
+\begin{equation}\label{damped}
     \left\{\begin{aligned}
         &\widetilde{\boldsymbol{x}}_{k+1} = \boldsymbol{M}^{-1}\boldsymbol{N}\boldsymbol{x}_k + \boldsymbol{M}^{-1}\boldsymbol{b}, \\
         &\boldsymbol{x}_{k+1} = \omega\widetilde{\boldsymbol{x}}_{k+1} + (1 - \omega)\boldsymbol{x}_k = [\omega\boldsymbol{M}^{-1}\boldsymbol{N} + (1 - \omega)\boldsymbol{I}]\boldsymbol{x}_k + \omega\boldsymbol{M}^{-1}\boldsymbol{b},
     \end{aligned}\right.
 \end{equation}
 式中 $\omega$ 是阻尼参数，而 $\boldsymbol{I}$表示单位矩阵.阻尼迭代法就是将计算后的结果和原先的结果作组合得到下一步迭代的初始值.\par
-(1.14) 和 (1.15) 都可视为基于矩阵分裂的迭代法.\par
+(\ref{matrix_iteration})和(\ref{damped})都可视为基于矩阵分裂的迭代法.\par
 关于 $\boldsymbol{M}$ 的常用选取导出的迭代方法包括:
 \begin{enumerate}
-    \item 在 (1.14) 中取
+    \item 在(\ref{matrix_iteration})中取
     \begin{equation*}
         {\color{red} \boldsymbol{M} = \boldsymbol{D} = \text{diag}(a_{11}, a_{22}, \cdots, a_{nn}) }
     \end{equation*}
     即得 Jacobi 迭代法.
     
-    \item 在 (1.14) 中取
+    \item 在(\ref{matrix_iteration})中取
     \begin{equation*}
         {\color{red} \boldsymbol{M} = \boldsymbol{L} = 
         \begin{bmatrix}
@@ -296,7 +315,7 @@ $E^*$的连续化情形是一个二阶常微分方程$\begin{cases}
     \end{equation*}
     即得 Gauss-Seidel 迭代法.
     
-    \item 在 (1.15) 中同上选取 $\boldsymbol{M}$ 即得 SOR 迭代法.
+    \item 在(\ref{damped})中同上选取 $\boldsymbol{M}$ 即得 SOR 迭代法.
 \end{enumerate}
 
 \section{二维 Poisson 方程的差分方法}
@@ -683,8 +702,7 @@ $\bm{A}=\frac{1}{h^2}=\frac{1}{h^2}(2\bm{I}-\bm{H}_I),\bm{B}=\frac{1}{k^2}=\frac
 
 记 $P_1 = \sqrt{2h}P, P_2 = \sqrt{2k}Q$，由于$\frac{I+1}{2}=\frac{1}{2h},\frac{J+1}{2}=\frac{1}{2k}$，易知它们均为正交阵, 且成立
 \[ A = P_1 \Lambda_1 P_1^T, \quad B = P_2 \Lambda_2 P_2^T, \]
-式中,
-\[ \Lambda_1 = \mathrm{diag}(\lambda_1, \cdots, \lambda_I), \quad \Lambda_2 = \mathrm{diag}(\mu_1, \cdots, \mu_J). \]
+式中，$\bm{\Lambda}_1 = \mathrm{diag}(\lambda_1, \cdots, \lambda_I), \quad \bm{\Lambda}_2 = \mathrm{diag}(\mu_1, \cdots, \mu_J)$.\par
 于是矩阵方程可重写为
 \[ \bm{P}_1 \bm{\Lambda}_1 \bm{P}_1^T \bm{U} + \bm{U} \bm{P}_2 \bm{\Lambda}_2 \bm{P}_2^T = \bm{F}.\]\par
 在方程两边同时左乘 $\bm{P}_1^T$，右乘 $\bm{P}_2$，得到$\bm{\Lambda}_1\left(\bm{P}_1^T\bm{U}\bm{P}_2\right)+\left(\bm{P}_1^T\bm{U}\bm{P}_2\right)\bm{\Lambda}_2=\bm{P}_1^T \bm{F} \bm{P}_2$.\par
@@ -726,9 +744,7 @@ $\bm{U}_1\in\mb{R}^{I\times J}$，考查上式中$(i,j)$元素，则有$\left(\l
     \item 使用快速 DST 计算矩阵 $V = PFQ$; 在 MATLAB 中可写成: \\
     \texttt{V = dst(dst(F)')';}
     
-    \item 计算矩阵 $W = [w_{ij}]$, 
-    \[ w_{ij} = \frac{4v_{ij}}{(\lambda_i + \mu_j)(I+1)(J+1)}. \]
-    
+    \item 计算矩阵 $W = [w_{ij}]$, $w_{ij} = \frac{4v_{ij}}{(\lambda_i + \mu_j)(I+1)(J+1)}.$
     \item 使用快速 DST 计算矩阵 $U = PWQ$; 在 MATLAB 中可写成: \\
     \texttt{U = dst(dst(W)')';}
 \end{enumerate}
@@ -767,11 +783,11 @@ $\bm{U}_1\in\mb{R}^{I\times J}$，考查上式中$(i,j)$元素，则有$\left(\l
 \[ \delta_x^2 u_i = \frac{u_{i-1} - 2u_i + u_{i+1}}{h^2}, \quad u_i = u(x_i). \]
 则由 Taylor 展开知存在常数 $\xi_i, \eta_i \in (x_{i-1}, x_{i+1})$, 使得
 \begin{equation}
-    \delta_x^2 u_i = u''(x_i) + \frac{1}{12}h^2 u^{(4)}(x_i) + \frac{2}{6!}h^4 u^{(6)}(\xi_i), \tag{3.1}
+    \delta_x^2 u_i = u''(x_i) + \frac{1}{12}h^2 u^{(4)}(x_i) + \frac{2}{6!}h^4 u^{(6)}(\xi_i), 
 \end{equation}
 以及
 \begin{equation}
-    \delta_x^2 v_i = v''(x_i) + \frac{1}{12}h^2 v^{(4)}(\eta_i). \tag{3.2}
+    \delta_x^2 v_i = v''(x_i) + \frac{1}{12}h^2 v^{(4)}(\eta_i). 
 \end{equation}\par
 这表明，上述差分方程是二阶的，那么能否用三点值构造出精度更高的格式?\par
 第一个思路是既然$u''(x)\approx \alpha_{-1}u_{i-1}+\alpha_0u_i+\alpha_1u_{i+1}$，那么能否通过调整$\alpha$的值得到更好的结果.但可以证明，中心差分格式已经是最优的结果了.\par
@@ -789,11 +805,11 @@ $\bm{U}_1\in\mb{R}^{I\times J}$，考查上式中$(i,j)$元素，则有$\left(\l
 \end{equation}
 即
 \begin{equation}
-    \mathcal{W}_x v_i = \frac{1}{12}(v_{i-1} + 10v_i + v_{i+1}), \tag{3.3}
+    \mathcal{W}_x v_i = \frac{1}{12}(v_{i-1} + 10v_i + v_{i+1}), 
 \end{equation}
 则
 \begin{equation}
-    \mathcal{W}_x u''(x_i) = \delta_x^2 u_i + \rho_i(h), \tag{3.4}
+    \mathcal{W}_x u''(x_i) = \delta_x^2 u_i + \rho_i(h), 
 \end{equation}
 式中 $\rho_i(h) = h^4 \left( \frac{1}{144}u^{(6)}(\eta_i) - \frac{1}{360}u^{(6)}(\xi_i) \right) = O(h^4).$
 
@@ -814,7 +830,7 @@ $\bm{U}_1\in\mb{R}^{I\times J}$，考查上式中$(i,j)$元素，则有$\left(\l
 
 以上方法写成矩阵形式为
 \begin{equation}
-    AU = BF + G, \tag{3.5}
+    AU = BF + G, 
 \end{equation}
 式中 $A, B$ 为 $N \times N$ 的矩阵, 具体形式为
 \[ A = -\frac{1}{h^2} \begin{bmatrix}
@@ -848,7 +864,7 @@ B = \frac{1}{12} \begin{bmatrix}
 \[ w_j = \frac{1}{\lambda_j} \left( v_j \mu_j + 2/(N+1) \langle \bm{G}, \bm{p}_j \rangle \right). \]
 注意到 $\bm{G}$ 的表达式, 可推得
 \begin{equation}
-    \langle \bm{G}, \bm{p}_j \rangle = G_1 \sin(\theta_j) + G_N \sin(N\theta_j), \tag{3.6}
+    \langle \bm{G}, \bm{p}_j \rangle = G_1 \sin(\theta_j) + G_N \sin(N\theta_j), 
 \end{equation}
 式中 $G_1$ 和 $G_N$ 分别为向量 $\bm{G}$ 的第 $1$ 和 $N$ 个分量, 进而获得解 $U$.
 
@@ -871,14 +887,13 @@ B = \frac{1}{12} \begin{bmatrix}
     \item 对 $\bm{w}$ 求离散正弦变换，获得解 $\bm{U}$：\texttt{U = dst(w)}.
 \end{enumerate}
 
-% --- 图片 image_c7e006.png 内容 ---
-\subsection*{例 3.1}
-考虑问题
+\begin{instance}
+    考虑问题
 \begin{equation*}
     \begin{cases} 
     -u''(x) = 6e^{-x^2}(1-2x^2), & -1 < x < 1, \\ 
     u(-1) = 3e^{-1}, \quad u(1) = 3e^{-1}, 
-    \end{cases} \tag{例 3.1} 
+    \end{cases} 
 \end{equation*}
 精确解为 $u(x) = 3e^{-x^2}$.
 
@@ -901,3 +916,4 @@ B = \frac{1}{12} \begin{bmatrix}
         \hline
     \end{tabular}
 \end{table}
+\end{instance}

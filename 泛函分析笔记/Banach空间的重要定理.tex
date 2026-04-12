@@ -100,7 +100,7 @@ Gödel 在 1938 年证明了连续统假设在 ZFC 中不可证.Cohen 在 1963 �
 \section{Hahn-Banach 定理}
 
 
-设$X$是一个向量空间，$X^*=\mcal{L}\left(X,\mb{K}=\mb{R}\,\text{或}\,\mb{C}\right)$为其代数对偶.若$X$是一个赋范线性空间，则$X^*=\mcal{B}(X,\mb{K})$.一个重要的观察是，若$Y\leq X$，$f\in X^*$，则$\|f|_Y\|_{Y^*}\leq\|f\|_{X^*}$.\par
+设$X$是一个向量空间，$X'=\mcal{L}\left(X,\mb{K}=\mb{R}\,\text{或}\,\mb{C}\right)$为其代数对偶.若$X$是一个赋范线性空间，则$X^*=\mcal{B}(X,\mb{K})$.一个重要的观察是，若$Y\leq X$，$f\in X^*$，则$\|f|_Y\|_{Y^*}\leq\|f\|_{X^*}$.\par
 我们知道，在线性空间中，若有一个子空间上的函数，可以通过将子空间上的基底扩展为整个空间的基底来将函数延拓到整个空间.自然地，当整个空间被赋予范数后，若$Y< X$，且有一个$f\in Y^*$，还能否将$f$延拓到$F\in X^*$，即$F|_Y=f$.\par
 在这个问题中，我们主要聚焦于次线性泛函这一特殊的函数.\par
 \begin{definition}[次线性泛函]
@@ -115,7 +115,7 @@ Gödel 在 1938 年证明了连续统假设在 ZFC 中不可证.Cohen 在 1963 �
 
 
 \begin{theorem}[Hahn-Banach 延拓定理]
-    设 $X$ 是实线性空间，$Y \leq X$ 是子空间，$p \colon X \to \mb{R}$ 是次线性泛函.若 $f \in Y^*$ 满足 $\forall\, x \in Y,f(x) \leq p(x)$，则存在 $F \in X^*$ 使得 $F|_Y = f$ 且 $\forall\, x \in X,F(x) \leq p(x)$.
+    设 $X$ 是实线性空间，$Y \leq X$ 是子空间，$p \colon X \to \mb{R}$ 是次线性泛函.若 $f \in Y'$ 满足 $\forall\, x \in Y,f(x) \leq p(x)$，则存在 $F \in X'$ 使得 $F|_Y = f$ 且 $\forall\, x \in X,F(x) \leq p(x)$.
 \end{theorem}
 \begin{proof}
     首先，考虑 $x_0 \notin Y$，将 $f \in Y^*$ 延拓到 $\tilde{f} \in (\langle x_0 \rangle \oplus Y)^*$，其中 $\langle x_0 \rangle = \mathrm{span}\{x_0\}$.\par
@@ -168,4 +168,227 @@ Gödel 在 1938 年证明了连续统假设在 ZFC 中不可证.Cohen 在 1963 �
     不存在 $\ell^\infty \to c_0$ 的有界线性投影.
 \end{theorem}
 等价地，$\mathrm{Id} \colon c_0 \to c_0$ 不可被延拓为 $\ell^\infty \to c_0$ 的有界线性算子.这就说明了Hahn-Banach定理对其无效.\par
-事实上：设 $X$ 是一个 Banach 空间，如果 $\forall$ 闭子空间 $Y \leq X$，所有的投影 $X \to Y$ 都有界，则 $X$ 同构于 Hilbert 空间 (J. Lindenstrauss - Tzafriri).
+事实上：设 $X$ 是一个 Banach 空间，如果 $\forall$ 闭子空间 $Y \leq X$，所有的投影 $X \to Y$ 都有界，则 $X$ 同构于 Hilbert 空间 (J. Lindenstrauss - Tzafriri).\par
+
+上述 Hahn-Banach 定理对复数域依旧成立，但需要将次线性泛函加强为半范数.
+
+\begin{theorem}[复 Hahn-Banach 延拓定理]
+    设 $X$ 为复线性空间，$Y \leq X$ 是子空间且 $p\colon X \to \mb{R}$ 是半范数，若 $f \in Y^*$ 满足 $|f(x)| \leq p(x)$，则 $\exists\, F \in X^*$，$\st F|_Y = f$，$F \leq p$.
+\end{theorem}
+
+下面来看更多 Hahn-Banach 定理的应用.
+
+\begin{instance}
+    1. 设 $X$ 是 $\mb{R}$ 上的赋范线性空间，则 $\forall\, x_0 \in X \setminus \{0\}$，$\exists\, f \in X^*$ $\st \|x_0\| = f(x_0)$，$\|f\|_{X^*} = 1$，称 $f$ 是 $X$ 的\bluebf{范数泛函}.
+
+    \begin{proof}
+        在 $\langle x_0 \rangle = \mathrm{span}\{x_0\}$ 上定义 $f$：$f(\lambda x_0) = \lambda \|x_0\|$.
+        通过 Hahn-Banach 定理将其延拓至 $X^*$ 上.
+    \end{proof}
+    \noindent
+    2. 设 $X$ 是非零赋范线性空间.\par
+    \begin{enumerate}[label=(\arabic*),leftmargin=2em]
+        \item $X$上线性泛函的范数可以等价地定义如下：$\forall\,f \in X^*$，$\|f\|_{X^*} = \sup \{|f(x)|: x \in X, \|x\|_X = 1\}$.
+        \item 对偶地，也可以利用有界线性泛函定义$X$中元素的范数：$\forall\, x \in X$，$\|x\|_X = \sup \{|f(x)|: f \in X^*, \|f\|_{X^*} = 1\}$.
+    \end{enumerate}
+
+    \begin{proof}
+        对(2)：\par
+        “$\geq$” 若 $f \in X^*$，$\|f\|_{X^*} = 1$，则 $|f(x)| \leq \|f\|_{X^*} \|x\|_X = \|x\|_X$.\par
+        “$\leq$” 由 (1) 中范数泛函知可达到.
+    \end{proof}
+\end{instance}
+对上述的第2个例子，不自然的点是，$X$中的元素可以使用$X^*$定义，但$X^*$也是用$X$定义而非再对$X^*$求对偶.在其余Banach空间，这种性质未必成立，我们必须研究二次对偶.
+
+\begin{definition}[二次对偶]
+    赋范线性空间 $X$ 的\greenbf{二次对偶}为 $X^{**} = (X^*)^*$.
+\end{definition}
+
+一般地，$X \lneqq  X^{**}$，但 $X$ 可以自然嵌入 $X^{**}$.
+
+\begin{definition}[典范等距嵌入]
+    设 $X$ 是赋范线性空间，$\setjot[-0]\begin{aligned}[t]
+        J = J_X: X &\to X^{**} = (X^*)^* \\
+        x &\mapsto (J(x))(f) = f(x),\forall\, f \in X^*
+    \end{aligned} $ 为\greenbf{典范等距嵌入}.\par
+\end{definition}
+事实上，我们可以证明$J_X$是单射，且它是等距的，即 $\|J(x)\|_{X^{**}} = \|x\|_X$.但是上述嵌入通常显然不是满射，即 $X \lneqq X^{**}$.
+\begin{attention}
+    即使有$X\cong X^{**}$，我们依旧无法得到$J_X$是满射，因此$J_X$不是等距同构，上述结论由 James 在 1940s 得到.他构造了一个使得二次对偶$J^{**}$和$J$同构的空间，但$J_X$的余维数为1，这个空间被称作 \bluebf{James空间}.
+\end{attention}
+
+由以上的讨论可知$J_X$的满射性质是十分特殊的，因此需要特别强调满足该性质的空间.
+\begin{definition}[自反空间]
+    如果 $J_X$ 是满射，则称 $X$ 是一个\bluebf{自反 Banach 空间}.
+\end{definition}
+
+\begin{instance}
+    $(L^p)^*$ 自反 $\iff 1 < p < \infty$.\par
+    事实上 $(L^p)^* \cong L^q$，其中 $\frac{1}{p} + \frac{1}{q} = 1$.
+\end{instance}
+
+\begin{instance}
+    设 $X$ 是赋范线性空间，则 $X^* = \mcal{B}(X, \mb{R})$ 在 $X$ 上分离点，即 $\forall\, x \neq y \in X$，$\exists\, f \in X^*$，$\st f(x) \neq f(y)$.
+
+    \begin{proof}
+        取 $f$ 为 $x-y$ 的范数泛函.
+    \end{proof}
+
+\end{instance}
+从这个例子中可以看出$X^*$中的元素极为丰富.\par
+另外，从几何层面来看，若 $X$ 有限维，则 $\ker f$是 $X$ 中的超平面，它将这两个点分到超平面的上下半空间.上述结论在无穷维依旧成立，此处的超平面定义为余维数为1的子空间.
+
+\begin{lemma}[]
+    设 $X$ 是赋范线性空间，$f \in X^* \setminus \{0\}$，则 $\forall\, x_0 \in X \setminus \ker f$，$X = \mathrm{span}(\ker f \cup \{x_0\})$.
+\end{lemma}
+
+\begin{proof}
+    $\forall\, x \in X$，$x - \frac{f(x)}{f(x_0)} x_0 \in \ker f$.\par
+    因此$\forall\, x\in X,\exists\, y\in\ker f,\st x=y+\lambda x_0$.其中$\lambda=\frac{f(x)}{f(x_0)}$.\par
+    故$X = \mathrm{span}(\ker f \cup \{x_0\})$.\par
+    那么$\mathrm{codim}(\ker f) := \dim (X / \ker f) = 1$，因此若 $f \in X^* \setminus \{0\}$，$\ker f$ 始终是一个超平面.
+\end{proof}
+
+进一步，$X^*$ 分离点和闭子空间.\par
+\begin{lemma}
+设 $X$ 是 Banach 空间，设 $\{0\} \neq Y \lneq X$ 是闭子空间，$x_0 \in X \setminus Y$。则 $\exists\, f \in X^*$，$\st \|f\| = 1$，$f|_Y = 0$，$f(x_0) = \mathrm{dist}(x_0, Y) > 0$.
+\end{lemma}
+\begin{proof}
+    令 $\delta = \mathrm{dist}(x_0, Y) > 0$.\par
+    定义$\setjot[-4]\begin{aligned}[t]
+        g\colon Y \oplus \langle x_0 \rangle &\to \mb{R}\\
+        (y + \lambda x_0) &\mapsto \lambda \delta,\forall\, y \in Y, \lambda \in \mb{R}
+    \end{aligned}$\par
+    而后利用 Hahn-Banach 定理将其延拓至 $f$.\par
+    下证 $\|g\|_{Z^*} = 1$.\par
+    \fbox{$\|g\|_{Z^*} \leq 1$}: $\forall\, \lambda \in \mb{R}$，$\forall\, y \in Y$，$\setjot[-2]\begin{aligned}[t]
+        |g(y + \lambda x_0)| &= |\lambda| \delta = |\lambda| \inf \left\{\left\|x_0 + \tilde{y}\right\| : \tilde{y} \in Y\right\}\\ 
+        &= |\lambda| \inf \left\{\left\|x_0 + \frac{y}{\lambda}\right\| : \tilde{y} \in Y\right\} \\
+        &\leq \|\lambda x_0 + y\|
+    \end{aligned}$. \par
+    \fbox{$\|g\|_{Z^*} \geq 1$}: 即证 $\forall\, \varepsilon > 0$，$\|g\|_{Z^*} \geq 1 - \varepsilon$.\par
+    $\forall\, \varepsilon > 0$，要找到 $z \in Z \setminus \{0\}$，$\st |g(z)| \geq (1 - \varepsilon)\|z\|$.\par
+    事实上，可找到 $y \in Y$，使得 $\|x_0 - y\| < \delta + \eta$，$\eta > 0$.\par
+    $\frac{|g(x_0 - y)|}{\|x_0 - y\|} = \frac{\delta}{\|x_0 - y\|} > \frac{\delta}{\delta + \eta} \geq 1 - \varepsilon \Rightarrow \eta = \eta(\varepsilon) = \frac{\delta \varepsilon}{1 - \varepsilon}$.\par
+    故 $x_0 - y$ 即为所要的 $z$.
+\end{proof}
+
+上述定理证明利用了留一个$\varepsilon-\!\!$空间的思想.如果直接证明不等号较为困难，则可以先证明它和相差$\varepsilon$的不等式成立，然后令$\varepsilon\to 0$.\par
+在此基础上，线性泛函可以分离点，可以分离一个点与闭子空间，也可以分离两个凸集.\par
+进一步地，引入 Hahn-Banach 分离定理：
+
+\begin{theorem}[Hahn-Banach 分离定理]
+    设 $X$ 是 $\mb{R}$ 上的赋范线性空间，设 $A, B \subset X$ 是非空不交凸集，则：
+    \begin{enumerate}[label=(\arabic*),leftmargin=2em]
+        \item 若 $A$ 是开集，$\exists\, f \in X^*$，$\lambda \in \mb{R}$，$\st f(a) < \lambda \leq f(b)$，$\forall\, a \in A, b \in B$.
+        \item 若 $A$ 是紧集，$B$ 是闭集，$\exists\, g \in X^*$，$c_1, c_2 \in \mb{R}$，$\st g(a) \leq c_1 < c_2 \leq g(b)$，$\forall\, a \in A, b \in B$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{definition}[吸收集]
+    设 $X$ 是 赋范线性空间，$A \subset X$ 是\greenbf{吸收的} $\iff \forall\, x \in X, \exists\, t > 0, \st\, x \in tA$.
+\end{definition}
+
+上述的一个等价描述是 $\bigcup_{t > 0} tA = X$.
+
+\begin{definition}[平衡集]
+    设 $X$ 是 $\mb{R}$ 或 $\mb{C}$ 上的赋范线性空间，$B \subseteq X$ 是\greenbf{平衡的} $\iff \forall\, \lambda \in \mb{F}, \st\, |\lambda| \leq 1$, $\lambda B \subset B$.
+\end{definition}
+
+下面考虑吸收的，平衡的 $X$ 的凸集 $B$ 应该具有怎样的性质，最直观的感受是它应当类似于单位球.
+
+\begin{definition}[Minkowski 泛函]
+    设 $X$ 是赋范线性空间，$A \subset X$ 是吸收集，定义 $\mu_A\colon X \to [0, \infty)$, $x \mapsto \inf \{t > 0 : x \in tA\}$，称为 \bluebf{Minkowski 泛函}.
+\end{definition}
+
+\begin{proposition}[]
+    设 $p$ 是 $X$ 上的半范数，则 $\mcal{B} = \{p < 1\}$ 是 $0$ 的吸收的、平衡的凸邻域，且 $\mu_{\mcal{B}} = p$.
+\end{proposition}
+
+\begin{proof}
+    \fbox{$\mcal{B}$ 是平衡的.}\par
+    $x \in \mcal{B} \Rightarrow p(x) < 1 \Rightarrow p(\lambda x) = |\lambda| p(x) < |\lambda| \leq 1$, $\forall\, |\lambda| \leq 1$.\par
+    即 $\lambda x \in \mcal{B}$，故 $\mcal{B}$ 是平衡集.\par
+    
+    \fbox{$\mcal{B}$ 是凸集.}\par
+    $\forall\, x, y \in \mcal{B}$，$\theta \in (0, 1)$，$p(\theta x + (1-\theta)y) \leq \theta p(x) + (1-\theta)p(y) < \theta + 1 - \theta = 1$.\par
+    $\Rightarrow \theta x + (1-\theta)y \in \mcal{B}$，故 $\mcal{B}$ 是凸集.\par
+
+    \fbox{$\mcal{B}$ 是吸收的.}\par
+    $\forall\, x \in X$，取 $s > p(x)$，则 $p\left(\frac{x}{s}\right) = \frac{1}{s} p(x) < 1 \Rightarrow \frac{x}{s} \in \mcal{B} $.\par
+    $\Rightarrow x \in s\mcal{B}$，故 $\mcal{B}$ 是吸收的.\par
+
+    \fbox{$\mu_{\mcal{B}} = p$}.\par
+    由 $\mcal{B}$ 吸收可知 $\mu_{\mcal{B}} \leq p$.下证 $a > \mu_{\mcal{B}}(x) \Rightarrow a > p(x)$.\par
+    证明其逆否命题：若 $a \leq p(x)$，则 $p\left(\frac{x}{a}\right) \geq 1 \Rightarrow x \notin a\mcal{B} \Rightarrow a \leq \mu_{\mcal{B}}(x)$.
+\end{proof}
+
+从一定角度来看，研究 $\mu_{\mcal{B}}$ 和 研究半范数 $p$ 是相同的.
+
+\begin{proposition}[]
+    若 $\mcal{A} \subset X$ 是吸收凸集，则 $\mu_\mcal{A}$ 是次线性泛函.\par
+    若 $\mcal{A}$ 还是平衡的，则 $\mu_\mcal{A}$ 是半范数.
+\end{proposition}
+
+\begin{proof}
+    证明 $\mu_\mcal{A}$ 满足三角不等式.\par
+    $\forall\, x, y \in \mcal{A}$, $\epsilon > 0$，令 $t = \mu_\mcal{A}(x) + \varepsilon$, $s = \mu_\mcal{A}(y) + \varepsilon \Rightarrow x \in t\mcal{A}$, $y \in s\mcal{A}$.($\mcal{A}$是凸集)\par
+    则 $\frac{x+y}{t+s} = \frac{t}{t+s} \cdot \frac{x}{t} + \frac{s}{t+s} \cdot \frac{y}{s} \in \frac{t}{t+s} \mcal{A} + \frac{s}{t+s} \mcal{A} \subset \mcal{A}$.\par
+    $\Rightarrow \mu_\mcal{A}\left(\frac{x+y}{t+s}\right) \leq 1 \Rightarrow \mu_\mcal{A}(x+y) \leq \mu_\mcal{A}(x) + \mu_\mcal{A}(y) + 2\varepsilon$，令 $\varepsilon \to 0$ 即可.
+\end{proof}
+
+\begin{proof}[证明(Hahn-Banach 分离定理)]\par
+    \hspace{-1.6 em}(1) 任取 $a_0 \in A, b_0 \in B$，令 $x_0 = b_0 - a_0$，由于 $A \cap B = \varnothing$，$x_0 \neq 0$.\par
+    \begin{claim}{$\Omega = A - B + x_0 = (A - a_0) + (B - b_0)$ 是 $0$ 的凸开集，$\st x_0 \notin \Omega$.}
+        \begin{itemize}
+        \item $0 \in \Omega$.
+        \item $\Omega = A - B + x_0 = \bigcup_{b \in B} A - (b - x_0)$ 为开集的并，故 $\Omega$ 为开集.
+        \item 类似地，易证 $\Omega$ 是凸集.
+        \item 若 $x_0 \in \Omega$，则 $0 \in A - B$，从而 $A \cap B \neq \varnothing$，故 $x_0 \notin \Omega$.
+    \end{itemize}
+    \end{claim}
+    
+    因此，$\Omega$ 是吸收集，则 $\mu_\Omega$ 是次线性泛函且 $\mu_\Omega(x_0) \geq 1$.\par
+    构造 $f_0\colon \langle x_0 \rangle \to \mb{R}, f_0(\lambda x_0) = \lambda$.\par
+    则 $f_0 \in \langle x_0 \rangle^*$ 且 $f_0(x_0) = 1 \leq \mu_\Omega(x_0)$.\par
+    由 Hahn-Banach 延拓定理，$\exists\, f \in X^*$，$\st f|_{\langle x_0 \rangle} = f_0$ 且在 $X$ 上 $f \leq \mu_\Omega$.\par
+    显然，$\forall\, x \in X$，$f(x) = -f(-x) \geq -\mu_\Omega(-x)$.\par
+    因此，$\|f\| = \sup \{|f(x)|: \|x\| \leq 1\} \leq \sup \{\mu_\Omega(x): \|x\| \leq 1\} \leq \frac{1}{r}$（若设 $B_r(0) \subset \Omega$）.\par
+    $\Rightarrow f \in X^*$.\par
+    任取 $a \in A, b \in B$，$f(a) - f(b) = f(a-b+x_0) - 1 \leq \mu_\Omega(a-b+x_0) - 1$.\par
+    因为 $a-b+x_0 \in \Omega$，$\mu_\Omega(a-b+x_0) < 1$，所以 $f(a) - f(b) < 0$.\par
+    $\Rightarrow f(a) < \lambda \equiv \sup_A f \leq f(b)$.\par
+    \hspace{-1.6 em}(2) $A$ 紧，$B$ 闭，$A \cap B = \varnothing$.\par
+    此时，$\delta = \mathrm{dist}(A, B) > 0$，构造 $\widetilde{A} = \left\{x \in X: \mathrm{dist}(x, A) < \frac{\delta}{2}\right\}$.\par
+    则 $\widetilde{A}$ 是开集且 $\widetilde{A} \cap B = \varnothing$.\par
+    应用 (1) 的结论即可.
+\end{proof}
+
+\section{Baire 纲定理}
+
+下面进入一个和Hahn-Banach定理的表述似乎完全不同的定理.设 $X$ 是一个非空完备度量空间，我们想讨论下拓扑和测度意义下的集合大小.\par
+\begin{center}
+\begin{tabular}{|c|c|c|}
+    \hline
+    & 大 & 小 \\
+    \hline
+    拓扑 & 剩余集 & 贫乏集 \\
+    & (第二纲集) & (第一纲集) \\
+    \hline
+    测度 & 全测集 & 零测集 \\
+    \hline
+\end{tabular}
+\end{center}
+在测度意义下，零测集是小的集合.与之相对的，其补集全测集是最大的集合.那么在拓扑意义下，该如何进行分类.Baire在其博士论文给出了详尽的分类.
+
+\begin{definition}[无处稠密，第一纲集，第二纲集]
+    \begin{enumerate}[label=(\arabic*)]
+        \item 设 $E \subset X$，如果 $\overline{E}$ 没有内点，称 $E$ \greenbf{无处稠密}.
+        \item 称 $E$ 是\greenbf{贫乏集}或\greenbf{第一纲集}，当且仅当 $E = \bigcup_{i=1}^\infty N_i$，$N_i$ 无处稠密.
+        \item $E \subset X$ 是\greenbf{剩余集}，当且仅当 $X \setminus E$ 是第一纲集.
+        \item $E \subset X$ 是\greenbf{第二纲集}，当且仅当 $E$ 不是第一纲集.
+    \end{enumerate}
+\end{definition}
+
+为了直观展示拓扑和测度两个角度下集合的大小可能会发生变化.可以考虑$\mb{Q}$和Cantor集$\mcal{C}$.\par
+$\mb{Q}$是$\mb{R}$的稠密子集，因此$\overline{\mb{Q}}=\mb{R}$是第二纲集.$\mcal{C}$是闭集，因此$\overline{\mcal{C}}=\mcal{C}$，而$\mcal{C}$没有内点，因此$\mcal{C}$无处稠密，是第一纲集.但从测度意义上看，$\mb{Q}$可数，$\mcal{C}$不可数.这表明Baire纲是一个拓扑概念，和数量无关.

@@ -5,4 +5,8 @@
 \contentsline {section}{\numberline {1.4}特殊的表示}{9}{section.1.4}%
 \contentsline {section}{\numberline {1.5}表示的张量积}{10}{section.1.5}%
 \contentsline {section}{\numberline {1.6}表示的可约性}{12}{section.1.6}%
+\contentsline {section}{\numberline {1.7}对称平方和交错平方}{15}{section.1.7}%
+\contentsline {chapter}{\numberline {2}特征标理论}{17}{chapter.2}%
+\contentsline {section}{\numberline {2.1}特征标}{17}{section.2.1}%
+\contentsline {section}{\numberline {2.2}特征标的正交关系}{20}{section.2.2}%
 \contentsfinish 

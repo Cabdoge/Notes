@@ -1,0 +1,233 @@
+\chapter{特征标理论}
+
+\section{特征标}
+
+
+\begin{definition}[特征标]
+    设$(\rho,V)$是群$G$的表示，则其\greenbf{特征标}为函数
+    $\setjot[-2]\begin{aligned}[t]
+        \chi_\rho:G&\to \mathbb{F} \\
+        g&\mapsto \chi_\rho(g)\triangleq \tr(\rho(g))=\tr(R_g)
+    \end{aligned}$\par
+    定义特征标的\greenbf{次数}为$\mathrm{deg}\,\chi\triangleq\dim V=\mathrm{deg}\,\rho$.\par
+    若$\rho$不可约，其称其特征标为\greenbf{不可约特征标}.
+\end{definition}
+
+下面看一些特征标的例子.\par
+\begin{instance}
+    (1) 考虑单位表示$\setjot[-6]\begin{aligned}[t]
+        \rho:G&\to GL(V)\cong \mathbb{F}^* \\
+        g&\mapsto 1_V
+    \end{aligned}$，则$\chi_\rho(g)=\tr(1_V)=1$\par
+    (2) 对于正则表示，$\mathbb{F}G=V$，则$g=1$时，$\rho(g)$为单位矩阵，$g\neq 1$时，$\rho(g)$为置换矩阵.\par
+    因此$\chi(g)=\begin{cases}
+    n,& g=1 \\
+    0,& g\neq 1
+    \end{cases}$\par
+    (3) 设$G=\langle g\rangle, o(g)=p$，则$\mathbb{Q}G=(\mathbb{Q}\sum g^i)\oplus U$，其中$U=\mathbb{Q}(g-1)+\mathbb{Q}(g^2-g)+\cdots+\mathbb{Q}(g^{p-1}-g^{p-2})$\par
+    考虑$U$的特征标$\chi_U(g)$.\par
+    若$g=1$，$1(g-1,g^2-g,\cdots,g^{p-1}-g^{p-2})=(g-1,\cdots,g^{p-1}-g^{p-2})\cdot I_{p-1}$.\par
+    若$g\neq 1$，$g(g-1,\cdots,g^{p-1}-g^{p-2})=(g-1,\cdots,g^{p-1}-g^{p-2})\begin{pmatrix}
+    0 & 0 & \cdots & -1 \\
+    1 & 0 & \cdots & -1 \\
+    \vdots & \ddots & \ddots & \vdots \\
+    0 & \cdots & 1 & -1
+    \end{pmatrix}$\par
+    因此$\chi_U(g)=\begin{cases}
+    p-1,& g=1 \\
+    -1,& g\neq 1
+    \end{cases}$
+\end{instance}
+
+下面看特征标所满足的一些性质.\par
+
+\begin{property}[]
+    \begin{enumerate}
+        \item[$1^\circ$] $\chi(1)=\mathrm{deg}\,\rho$
+        \item[$2^\circ$] $(\rho_1,V_1)\cong(\rho_2,V_2)\Rightarrow \chi_1=\chi_2$
+        \item[$3^\circ$] $\chi(g)=\chi(g_1^{-1}gg_1)$，特别地$\chi(uv)=\chi(vu)$，即$\chi$是$G$上的类函数.
+    \end{enumerate}
+\end{property}
+
+\begin{proof}
+    \begin{enumerate}
+        \item[$1^\circ$] $\chi(1)=\tr(\rho(1))=\tr(1_V)=\dim V=\mathrm{deg}\,\rho$
+        \item[$2^\circ$] 由于$(\rho_1,V_1)\cong(\rho_2,V_2)$，则存在$G-\!$模同态$f$，使得$\rho_2(g)f=f\rho_1(g)\Rightarrow \rho_1(g)=f^{-1}\rho_2(g)f$\par
+        故$\chi_1(g)=\tr(\rho_1(g))=\tr(f^{-1}\rho_2(g)f)=\tr(\rho_2(g))=\chi_2(g)$.
+        \item[$3^\circ$] $\chi(g_1^{-1}gg_1)=\tr(\rho(g_1^{-1}gg_1))=\tr(\rho(g_1)^{-1}\rho(g)\rho(g_1))=\tr(\rho(g))=\chi(g)$.
+    \end{enumerate}
+\end{proof}
+
+在上述性质中，引入了类函数的概念，现在正式定义类函数.
+\begin{definition}[类函数]
+    设$f:G\to \mathbb{F}$，若$f$在$G$的同一共轭类上取值相等，或等价地，$\forall\, g,h\in G, f(gh)=f(hg)$，则称$f$是\greenbf{类函数}.
+\end{definition}
+特征标无疑是一种特殊的类函数，问题是其他的类函数和特征标之间是否存在某种关系，或者更直接地说，能否使用特征标函数表示其余类函数.这一问题留待后续进一步讨论.\par
+
+\begin{property}[]
+    \begin{enumerate}
+        \item[$4^\circ$] 设$(U,\rho_U)$为$(V,\rho)$子表示，$(V/U,\rho_{V/U})$为商表示，则$\chi=\chi_U+\chi_{V/U}$.\par
+        特别地，若$(V,\rho)=(V_1,\rho_1)\oplus(V_2,\rho_2)$，则$\chi=\chi_1+\chi_2$.
+        \item[$5^\circ$] $\chi_{\rho_1\otimes\rho_2}=\chi_{\rho_1}\cdot \chi_{\rho_2}$
+        \item[$6^\circ$] $\chi_{\rho_1\#\rho_2}(g_1,g_2)=\chi_1(g_1)\cdot\chi_2(g_2)$
+        \item[$7^\circ$] $\chi_{\rho^*}(g)=\chi_\rho(g^{-1})$
+    \end{enumerate}
+\end{property}
+
+\begin{proof}
+    \begin{enumerate}
+        \item[$4^\circ$] 取$U$的基$\{u_1,u_2,\cdots,u_s\}$并扩充为$V$的基$\{u_1,\cdots,u_s,v_{s+1},\cdots,v_n\}$.\par
+        则$\rho(g)=\begin{pmatrix}
+        \rho_U(g) & * \\
+        0 & \rho_{V/U}(g)
+        \end{pmatrix}\Rightarrow \chi=\chi_U+\chi_{V/U}$.
+        \item[$5^\circ$] 取$V_1,V_2$的基$\{u_i\}_{i=1}^s,\{v_j\}_{j=1}^t$，则$\{u_i\otimes v_j\}$为$\rho_1\otimes\rho_2$的基.\par
+        设$\rho_1(g)=(a_{ij})_{s\times s},\rho_2(g)=(b_{ij})_{t\times t}=B$\par
+        $\chi_{\rho_1\otimes\rho_2}(g)=\tr((\rho_1\otimes\rho_2)(g))=(\sum_{i=1}^s a_{ii})\cdot \tr B=\tr(\rho_1(g))\tr(\rho_2(g))=\chi_1(g)\chi_2(g)$.
+        \item[$6^\circ$] 类似$5^\circ$可证.
+        \item[$7^\circ$] $\chi_{\rho^*}(g)=\tr(\rho^*(g))=\tr(\rho(g^{-1})^T)=\tr(\rho(g^{-1}))=\chi_\rho(g^{-1})$.
+    \end{enumerate}
+\end{proof}
+
+\begin{property}[]
+    \begin{enumerate}
+        \item[$8^\circ$]设$N\vartriangleleft G$，$\pi:G\to G/N$为自然同态，$(\rho,V)$是$G/N$上表示，则其通过$\pi$的提升所得$G$的表示$(\rho'=\rho\circ\pi,V)$的特征标为$\chi_{\rho'}=\chi_\rho\circ\pi$.
+        \item[$9^\circ$] 若$g\in G$且$o(g)=n$，则$\chi_\rho(g)=\sum_{i=1}^{\mathrm{deg}\,\rho}\xi_i$，$\xi_i^n=1$.
+    \end{enumerate}
+\end{property}
+
+\begin{proof}
+    $8^\circ\;\; \chi_{\rho'}(g)=\tr(\rho(\pi(g)))=\chi_\rho(\pi(g))$.
+\end{proof}
+
+关于之前提到的对称平方和交错平方，其特征标满足如下关系：
+\begin{theorem}[对称平方和交错平方的特征标]
+    设$\chi$为$V$的特征标，$\chi_\sigma,\chi_\alpha$分别为$\mathrm{Sym}^2(V)$和$\mathrm{Alt}^2(V)$的特征标，则$\chi_\sigma(g)=\frac{1}{2}(\chi(g)^2+\chi(g^2))$，\par
+    $\chi_\alpha(g)=\frac{1}{2}(\chi(g)^2-\chi(g^2))$.
+\end{theorem}
+
+\begin{proof}
+    设$G$在$V$上的表示为$\rho$.对于固定的$g\in G$，可以选取$V$的一组基$\{e_1, e_2, \cdots, e_n\}$，使得$\rho(g)$在此基下为上三角矩阵，设其对角线元素（即特征值）为$\lambda_1, \lambda_2, \cdots, \lambda_n$.\par
+    此时$\chi(g) = \tr(\rho(g)) = \sum_{i=1}^n \lambda_i$。同时对$g^2$，有$\chi(g^2) = \tr(\rho(g)^2) = \sum_{i=1}^n \lambda_i^2$。\par
+    在张量积空间$V\otimes V$中，$\{e_i \otimes e_j\}_{1\leq i,j \leq n}$构成了它的$n^2$个基.\par
+    对于对称平方$\mathrm{Sym}^2(V)$，其基可分为：完全由相同向量构成的张量$\{e_i\otimes e_i\}$;以及由不同向量对称组合而成的$\{e_i\otimes e_j + e_j\otimes e_i\}$，为了不重复设$i<j$.\par
+    对$e_i\otimes e_i$，$g(e_i\otimes e_i)=g(e_i)\otimes g(e_i)=\lambda_i^2(e_i\otimes e_i)$.\par
+    对$e_i\otimes e_j + e_j\otimes e_i$，$g(e_i\otimes e_j+e_j\otimes e_i) = \lambda_i\lambda_j(e_i\otimes e_j+e_j\otimes e_i)$.\par
+    因此，$\setjot[-2]\begin{aligned}[t]
+        \chi_{\mathrm{Sym}^2(V)}(g) &= \tr\left(\rho_{\mathrm{Sym}^2(V)}(g)\right) \\
+        &= \sum_{1\leq i \leq j \leq n} \lambda_i\lambda_j \\
+        &= \frac{1}{2}\left( \left(\sum_{i=1}^n \lambda_i\right)^2 + \sum_{i=1}^n \lambda_i^2 \right) \\
+        &= \frac{1}{2}(\chi(g)^2 + \chi(g^2)).
+    \end{aligned}$\par
+    同理，对于$\mathrm{Alt}^2(V)$，其基仅由交错组合构成：$\{e_i \otimes e_j - e_j \otimes e_i\}_{1\leq i < j \leq n}$.\par
+    所以$\setjot[-2]\begin{aligned}[t]
+        \chi_{\mathrm{Alt}^2(V)}(g) &= \tr\left(\rho_{\mathrm{Alt}^2(V)}(g)\right) \\
+        &= \sum_{1\leq i < j \leq n} \lambda_i\lambda_j \\
+        &= \frac{1}{2}\left( \left(\sum_{i=1}^n \lambda_i\right)^2 - \sum_{i=1}^n \lambda_i^2 \right) \\
+        &= \frac{1}{2}(\chi(g)^2 - \chi(g^2)).
+    \end{aligned}$\par
+\end{proof}
+
+\section{特征标的正交关系}
+
+特征标有两个重要的正交关系.\par
+
+\begin{definition}[特征标函数的内积]
+    设$(\rho_1,V_1),(\rho_2,V_2)$为$G$的表示，其特征标为$\chi_1,\chi_2$，则定义其\greenbf{内积}$(\chi_1,\chi_2)\triangleq \frac{1}{|G|}\sum_{g\in G}\chi_1(g)\chi_2(g^{-1})$.
+\end{definition}
+
+\begin{definition}[特征标的正交]
+    若$(\chi_1,\chi_2)=0$，则称$\chi_1$和$\chi_2$\greenbf{正交}.
+\end{definition}
+
+我们的目标是研究$V_1\cong V_2\Rightarrow \chi_1=\chi_2$的逆命题，由此得到重要的第一正交关系.\par
+
+\begin{theorem}[第一正交关系]
+    设$\mathrm{char}\,\mathbb{F}\nmid |G|$，$(\rho_1,V_1),(\rho_2,V_2)$是$G$的两个不可约表示，其特征标分别为$\chi_1,\chi_2$.\par
+    则$(\chi_1,\chi_2)=\begin{cases}
+    (\dim_\mathbb{F} \Hom_G(V_1,V_1))\cdot 1_\mathbb{F}, & \rho_1\cong \rho_2 \\
+    0, & \rho_1\not\cong \rho_2
+    \end{cases}$\par
+    特别地，若$\mathbb{F}$是$G$的分裂域，则$(\chi_1,\chi_2)=\begin{cases}
+    1_\mathbb{F}, & \rho_1\cong \rho_2 \\
+    0, & \rho_1\not\cong \rho_2
+    \end{cases}$
+\end{theorem}
+
+可以观察到上述结果和Schur引理类似，因此需要思考如何将$(\chi_1,\chi_2)=\frac{1}{|G|}\sum_{g\in G}\chi_1(g)\chi_2(g^{-1})$和$\Hom_G(V_1,V_2)$联系起来.\par
+首先可以思考若$\mathbb{F}$是$G$的分裂域，$\Hom_G(V_1,V_1)$如何表示.\par
+
+$\forall\, f\in \Hom_G(V_1,V_1)$，由于$V_1$不可约，$\ker f=0$，又$\mathrm{Im}\, f=V_1$，从而$f$是同构，即$f$可逆.\par
+那么$\Hom_G(V_1,V_1)\cong \bigoplus_{\dim\Hom_G(V_1,V_1)} 1$.\par
+记$\inv_G(V)=\{v\in V\mid g\cdot v=v,\forall\, g\in G\}$，则有以下2个引理.\par
+
+\begin{lemma}[]
+    $\Hom_G(V_1,V_2)=\inv_G(\Hom_\mathbb{F}(V_1,V_2))\triangleq \{f\in \Hom_\mathbb{F}(V_1,V_2)\mid g\cdot f=f\}$
+\end{lemma}
+
+\begin{proof}
+    $\forall\, f\in \Hom_G(V_1,V_2),\forall\, v\in V_1, g\cdot f(v)=gf(g^{-1}\cdot v)=gg^{-1}f(v)=f(v)$\par
+    故$\Hom_G(V_1,V_2)\subseteq \inv_G(\Hom_\mathbb{F}(V_1,V_2))$.\par
+    $\forall\, f\in \inv_G(\Hom_\mathbb{F}(V_1,V_2))$，则$g\cdot f(v)=gf(g^{-1}v)=f(v)\Rightarrow gf(v)=f(gv)$.\par
+    故$\inv_G(\Hom_\mathbb{F}(V_1,V_2))\subseteq \Hom_G(V_1,V_2)$.
+\end{proof}
+
+\begin{lemma}[]
+    $\frac{1}{|G|}\sum_{g\in G}\chi_V(g)=\frac{1}{|G|}\sum_{g\in G}\chi_{\inv_G(V)}(g)$
+\end{lemma}
+
+\begin{proof}
+    记$z\triangleq\frac{1}{|G|}\sum_{g\in G}\rho(g)$，则$z^2=\frac{1}{|G|}\sum_{g\in G}\rho(g)z=\frac{1}{|G|}\sum_{g\in G}z=z$，则$z$的特征值为$0$或$1$.\par
+    设$V_0,V_1$为特征值为0或1的子空间，那么$\chi_z=\tr(z_{V_1})=\tr\left(\frac{1}{|G|}\sum_{g\in G}\rho(g)\right)=\frac{1}{|G|}\sum_{g\in G}\chi_V(g)$.\par
+    下证$V_1=\inv_G(V)$，显然$V_1\supseteq \inv_G(V)$.\par
+    反之，设$v\in V_1$，即$z(v)=v$，则$g\cdot v=g\cdot z(v)=(\rho(g)\cdot z)(v)=z(v)=v$，故$V_1\subseteq \inv_G(V)$
+\end{proof}
+
+\begin{proof}[证明(第一正交关系)]\par
+    $\setjot[-2]\begin{aligned}[t]
+    (\chi_1,\chi_2) &= \frac{1}{|G|}\sum_{g\in G}\chi_1(g^{-1})\chi_2(g)=\frac{1}{|G|}\sum_{g\in G}\chi_{V_1^*}(g)\chi_{V_2}(g)=\frac{1}{|G|}\sum_{g\in G}\chi_{V_1^*\otimes V_2}(g) \\
+    &= \frac{1}{|G|}\sum_{g\in G}\chi_{\Hom_\mathbb{F}(V_1,V_2)}(g) =\frac{1}{|G|}\sum_{g\in G}\chi_{\inv_G(\Hom_\mathbb{F}(V_1,V_2))}(g) \\
+    &= \frac{1}{|G|}\sum_{g\in G}\chi_{\Hom_G(V_1,V_2)}(g)
+    \end{aligned}$\par
+    若$\rho_1\not\cong\rho_2$，由Schur引理知$\Hom_G(V_1,V_2)=0$，从而$(\chi_1,\chi_2)=0$.\par
+    若$\rho_1\cong\rho_2$，则$\Hom_G(V_1,V_2)=\bigoplus_{\dim_\mathbb{F}\Hom_G(V_1,V_1)} 1_V$，故$(\chi_1,\chi_2)=(\dim_\mathbb{F}\Hom_G(V_1,V_1))\cdot 1_\mathbb{F}$
+\end{proof}
+
+利用第一正交关系，可以解决群表示的若干基本问题.\par
+
+\begin{theorem}[不可约分解的重数]
+    \wideline
+    设$\mathrm{char}\,\mathbb{F}\nmid |G|$，$V=n_1V_1\oplus n_2V_2\oplus\cdots\oplus n_sV_s$，其中$V_i$不可约，且$V_i\not\cong V_j(i\neq j)$，则$n_i=\frac{(\chi,\chi_i)}{\dim_\mathbb{F}\Hom_G(V_i,V_i)}$.\par
+    特别地，若$\mathbb{F}$是$G$的分裂域，则$n_i=(\chi,\chi_i)$
+\end{theorem}
+
+\begin{proof}
+    $(\chi,\chi_i)=\left(\sum_{j=1}^s n_j\chi_j,\chi_i\right)=\sum_{j=1}^s n_j(\chi_j,\chi_i)=\sum_{j=1}^s n_j\cdot \delta_{ji}\dim\Hom_G(V_i,V_i)=n_i\dim\Hom_G(V_i,V_i)$
+\end{proof}
+
+\begin{theorem}[]
+    若$\mathrm{char}\,\mathbb{F}\nmid |G|$，则$\rho_1\cong\rho_2\iff \chi_1=\chi_2$.
+\end{theorem}
+
+\begin{proof}
+    $\Rightarrow$ 由特征标性质可得.\par
+    $\Leftarrow$ 设$V_1,V_2$的不可约分解为$V_1=\bigoplus n_iV_i,V_2=\bigoplus n_i'V_i$\par
+    由于$\chi_1=\chi_2$，$ (\chi_1,\chi_i)=(\chi_2,\chi_i)$，即$n_i=n_i'$\par
+    故$V_1\cong V_2$.
+\end{proof}
+
+但是在模表示论中，上述结论不一定成立.\par
+
+\begin{instance}
+    设$p=\mathrm{char}\,\mathbb{F}\mid |G|$，令$V_1=\mathbb{F}^p,\rho_1(g)=1_{V_1}$，$V_2=\mathbb{F}^{2p},\rho_2(g)=1_{V_2}$.\par
+    则$\chi_1=\chi_2=0$但$V_1\not\cong V_2$.
+\end{instance}
+
+\begin{theorem}[不可约表示判别法]
+    设$\mathrm{char}\,\mathbb{F}\nmid |G|$且$\mathbb{F}$为$G$的分裂域，设$\chi$是$\rho$的特征标，则$\rho$不可约$\iff (\chi,\chi)=1$.
+\end{theorem}
+\begin{proof}
+    设$V=\bigoplus_{i=1}^s n_iV_i$，$V_i$不可约，且$V_i\ncong V_j(i\neq j)$，$\chi_i$为$\rho_i$的特征标，则$\chi=\sum_{i=1}^s n_i\chi_i$.\par
+    于是$(\chi,\chi)=\sum_{i=1}^sn_i^2 1_\mb{F}$.\par
+    由于$\mathrm{char}\,\mathbb{F}\nmid |G|$，则$(\chi,\chi)=1\iff n_i=1,s=1 \iff \rho$不可约.
+\end{proof}

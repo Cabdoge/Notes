@@ -29,6 +29,13 @@
 \renewcommand{\heiti}{\CJKfamily{zhhei}}
 
 
+%================ 定义彩色加粗命令 ================
+\newcommand{\allbf}[1]{\boldmath\bfseries{#1}\unboldmath\normalfont}
+\newcommand{\bluebf}[1]{\textcolor{rbStructureBlue}{\allbf{#1}}}
+\newcommand{\greenbf}[1]{\textcolor{rbDefinitionColor}{\allbf{#1}}}
+
+
+
 %================ 调控行距 ================
 \newcommand{\wideline}{\setlength{\lineskip}{\dimexpr\baselineskip-\ccwd\relax}\setlength{\lineskiplimit}{2.5pt}}
 

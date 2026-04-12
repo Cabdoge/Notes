@@ -48,10 +48,7 @@
 \usepackage{faktor}        % 商集符号
 \usepackage{extarrows}     % 额外长度自适应箭标
 
-%================ 蓝色加粗 / 常用简写 ================
-\definecolor{titleblue}{HTML}{3498DB}
-\newcommand{\allbf}[1]{\boldmath\bfseries{#1}\unboldmath\normalfont}
-\newcommand{\bluebf}[1]{\textcolor{rbStructureBlue}{\allbf{#1}}}
+
 
 %================ 向量 ================
 \usepackage[f]{esvect}
@@ -93,6 +90,10 @@
 \DeclareMathOperator{\im}{Im}
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\inv}{Inv}
+
+\newcommand{\ghomo}{$G-\!\!$模同态}
 
 %================ 定端同伦符号 ================
 \usepackage{accents}
@@ -161,5 +162,6 @@
 
 \input{群表示.tex}
 
+\input{特征标理论.tex}
 
 \end{document}
