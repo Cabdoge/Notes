@@ -1,0 +1,155 @@
+\chapter{发展方程的差分方法}
+
+\section*{目录}
+\begin{enumerate}
+    \item 差分方法的构造步骤
+    \item 差分格式的截断误差和相容性
+    \item 有限体积法
+    \item 差分格式的收敛性和稳定性
+\end{enumerate}
+
+\section{差分方法的构造步骤}
+
+何为发展方程 (\textbf{evolution equations})？和时间 $t$ 有关的偏微分方程. 典型的发展方程是抛物型方程和双曲型方程.
+
+\begin{instance}[若干实例]
+    \begin{itemize}
+        \item 对流方程:
+        \[u_t + a u_x = 0.\]
+        
+        \item 弦振动方程:
+        \[u_{tt} = a^2 u_{xx}.\]
+        
+        \item 热传导方程:
+        \[u_t = a u_{xx}.\]
+        
+        \item Black-Scholes 方程:
+        \[\partial_t V + \frac{1}{2}\sigma^2 S^2 \partial_{SS} V + r S \partial_S V - r V = 0.\]
+    \end{itemize}
+\end{instance}
+
+\subsection*{差分方法构造要点}
+\begin{itemize}
+    \item 对解域进行规则网格剖分得到网格点 (内格点和边界点);
+    \item 在网格点上离散化微分方程或定解条件来得到差分方程.
+\end{itemize}
+
+{\color{red}对于初值问题}
+\begin{equation*}
+    \begin{cases} 
+    u_t = u_{xx}, \\ 
+    t = 0, u = u_0(x),
+    \end{cases}
+\end{equation*}
+其解域为
+\[\Omega = \{(x, t) : -\infty < x < +\infty, 0 < t < +\infty\}.\]
+
+\textbf{网格剖分:}
+\begin{itemize}
+    \item $h = \Delta x : x$ 方向等距剖分步长，得格点集: $x_j = jh, j = 0, \pm 1, \pm 2, \cdots$;
+    \item $\tau : t$ 方向等距剖分步长，得格点集: $t_n = n\tau, n = 0, 1, 2, \cdots$.
+\end{itemize}
+对这两格点集做 Cartesian 积而得 $\Omega$ 的网格剖分格点集:
+\[{\color{red} \Omega_{h,\tau} = \{(x_j, t_n) : x_j = jh, t_n = n\tau, j = 0, \pm 1, \pm 2, \cdots, n = 0, 1, 2, \cdots\}.}\]
+
+{\color{red}对于初边值问题}
+\begin{equation}
+    \begin{cases} 
+    u_t = u_{xx}, \ t > 0, \ a < x < b, \\ 
+    t = 0, \ u = u_0(x), \\
+    x = a, \ u = u_a(t); \ x = b, \ u = u_b(t),
+    \end{cases} \label{eq:ibpv}
+\end{equation}
+其解域为
+\[\Omega = \{(x, t) : a < x < b, 0 < t < +\infty\}.\]
+与上例类似，可得网格剖分格点集 $\Omega_{h,\tau}$，但此时要求存在某一正整数 $J$ 使得 $Jh = b - a$，换言之，网格剖分应保证边值线为网格线. 即
+\[{\color{red} \Omega_{h,\tau} = \{(x_j, t_n) : x_j = a + jh, t_n = n\tau, j = 0, 1, 2, \cdots, J, n = 0, 1, 2, \cdots\}.}\]
+
+\begin{figure}[H]
+    \centering
+    % 占位符图片，表示网格剖分
+    \captionof{figure}{初边值问题网格剖分示意图}
+\end{figure}
+
+\subsection*{微分方程的离散}
+
+以对流方程的初值问题
+\begin{equation}
+    \begin{cases} 
+    u_t + a u_x = 0, \\ 
+    t = 0, \ u = u_0(x)
+    \end{cases} \label{eq:convection_ivp}
+\end{equation}
+为例 ($a > 0$ 为常数)，说明如何用数值微分法建立差分格式.\par
+
+\bluebf{步1：模型的来源.} \par
+为了清晰阐述问题 \eqref{eq:convection_ivp} 的物理背景，以下从流体力学的角度进行数学建模，导出该模型.
+
+\begin{instance}[典型示例]
+    设流体在某一无穷长均匀直管中流动，以直管方向为 $x$ 向建立坐标系. 又该流体在 $t$ 时刻 $x$ 位置的流速为 $a=a(x,t)$，相应的质量线密度为 $\rho(x,t)$. 建立 $\rho(x,t)$ 应满足的数学模型.
+\end{instance}
+
+\bluebf{微元法} \par
+\begin{figure}[H]
+    \centering
+    % 占位符图片，表示管流微元
+    \captionof{figure}{流管微元示意图}
+\end{figure}
+
+考察空间微元 $[x, x+\Delta x]$ 中的流体从时刻 $t$ 变化到时刻 $t+\Delta t$ 时质量的变化情况.
+\begin{itemize}
+    \item 流体质量的增量 $\Delta m = \rho(x, t+\Delta t)\Delta x - \rho(x, t)\Delta x$;
+    \item 流体质量的流入 $\Delta m' = \rho(x, t)a(x,t)\Delta t - \rho(x+\Delta x, t)a(x+\Delta x, t)\Delta t$.
+\end{itemize}
+故由质量守恒定律知 $\Delta m = \Delta m'$，可得
+\[ \rho(x, t+\Delta t)\Delta x - \rho(x, t)\Delta x = \rho(x, t)a(x,t)\Delta t - \rho(x+\Delta x, t)a(x+\Delta x, t)\Delta t, \]
+即
+\[ \frac{\rho(x, t+\Delta t) - \rho(x, t)}{\Delta t} + \frac{(a\rho)(x+\Delta x, t) - (a\rho)(x, t)}{\Delta x} = 0 \implies {\color{red} \rho_t + (a\rho)_x = 0.} \]
+
+\bluebf{步2：获得问题 \eqref{eq:convection_ivp} 的精确解.} \par
+\begin{itemize}
+    \item \bluebf{特征线方法.} 设沿时空曲线 $L: x = x(t)$ 上质量守恒 (该曲线称之为特征线)，则由
+    \[ \frac{\mathrm{d}}{\mathrm{d}t} u(x, t) = u_t + u_x \frac{\mathrm{d}x}{\mathrm{d}t} = 0, \]
+    知它应满足
+    \[ \frac{\mathrm{d}x}{\mathrm{d}t} = a, \]
+    即
+    \[ x = at + x_0, \]
+    式中，$x_0$ 为特征线和 $x$ 轴交点的横坐标. 所以，
+    \begin{equation}
+        u(x, t) = u(x_0, 0) = u_0(x_0) = u_0(x - at). \label{eq:exact_sol}
+    \end{equation}
+    
+    \item \bluebf{物理直观法.} 由问题 \eqref{eq:convection_ivp} 的物理意义知，$t$ 时刻 $x$ 处的物质是由 $0$ 时刻 $x-at$ 处的物质，经时间 $t$ 流动过来的，故立知结果 \eqref{eq:exact_sol}.
+\end{itemize}
+
+\bluebf{步3：用数值微分方法建立差分方程.} \par
+\begin{itemize}
+    \item 设解域已按上一节的方法剖分好，网格点为 $(x_j, t_n)$. 对于初值格点直接赋值值得差分方程.
+    \item 在内部网格点 $(x_j, t_n) \ (n > 0)$ 上，解满足对流方程
+    \begin{equation}
+        (u_t + a u_x)(x_j, t_n) = 0, \quad j = 0, \pm 1, \pm 2, \cdots \label{eq:grid_eq}
+    \end{equation}
+\end{itemize}
+
+用数值微分代替 $u$ 在网格点的偏导数值，可有
+\begin{itemize}
+    \item $u_t$ 的近似:
+    \[ \begin{cases} 
+    t_{-1}: & \frac{u(x_j, t_{n+1}) - u(x_j, t_n)}{\tau}, \\[6pt]
+    t_{-2}: & \frac{u(x_j, t_n) - u(x_j, t_{n-1})}{\tau}, \\[6pt]
+    t_{-3}: & \frac{u(x_j, t_{n+1}) - u(x_j, t_{n-1})}{2\tau};
+    \end{cases} \]
+    
+    \item $u_x$ 的近似:
+    \[ \begin{cases} 
+    x_{-1}: & \frac{u(x_{j+1}, t_n) - u(x_j, t_n)}{h}, \\[6pt]
+    x_{-2}: & \frac{u(x_j, t_n) - u(x_{j-1}, t_n)}{h}, \\[6pt]
+    x_{-3}: & \frac{u(x_{j+1}, t_n) - u(x_{j-1}, t_n)}{2h}.
+    \end{cases} \]
+    
+    \item 将 $u_t$ 和 $u_x$ 的以上任一近似代入方程 \eqref{eq:grid_eq}，都可以得到一个近似等式，进而得到一个约束方程 (差分方程)，这就是构造差分格式的数值微分方法.
+\end{itemize}
+
+\begin{note}[小节]
+    该方法的优点是简单直观，便于掌握，但要注意的是究竟能否构成一个有效的数值求解方法，还要进行深入的理论分析和数值模拟验证. 如果了解微分方程的物理背景，将有助于构造合理的差分格式.
+\end{note}
