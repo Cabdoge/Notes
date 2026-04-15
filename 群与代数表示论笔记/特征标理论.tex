@@ -231,3 +231,186 @@ $\forall\, f\in \Hom_G(V_1,V_1)$，由于$V_1$不可约，$\ker f=0$，又$\math
     于是$(\chi,\chi)=\sum_{i=1}^sn_i^2 1_\mb{F}$.\par
     由于$\mathrm{char}\,\mathbb{F}\nmid |G|$，则$(\chi,\chi)=1\iff n_i=1,s=1 \iff \rho$不可约.
 \end{proof}
+
+\section{分裂域上不可约特征标}
+
+如果将$G$的所有类函数组成的线性空间记为$\cf_{\mathbb{F}}(G)$，这一节的出发点是：特征标作为$\cf_{\mathbb{F}}(G)$的元素，它们有什么关联.本节基本基于分裂域上不可约常特征标的性质来讨论这一问题.\par
+
+首先考虑$\cf_{\mathbb{F}}(G)$的维数.
+
+\begin{lemma}[]
+    $\dim \cf_{\mathbb{F}}(G) = s$，$s$为$G$的共轭类的个数.
+\end{lemma}
+
+\begin{proof}
+    设$G$有$s$个共轭类$C_1,C_2,\cdots,C_s$.\par
+    定义$\setjot[-8]\begin{aligned}[t]
+        \varphi_i\colon G &\to \mathbb{F} \\
+        g &\mapsto \varphi_i(C_j)=\delta_{ij}
+    \end{aligned} $.\par
+    若$k_1\varphi_1+k_2\varphi_2+\cdots+k_s\varphi_s=0$，则$(k_1\varphi_1+\cdots+k_s\varphi_s)(C_i)=k_i\varphi_i(C_i)=k_i=0$.\par
+    故$\{\varphi_i\}_{i=1}^s$线性无关.\par
+    $\forall f\in \cf_{\mathbb{F}}(G)$，有$f=\sum_{i=1}^s f(C_i)\varphi_i$.故$\{\varphi_i\}_{i=1}^s$是$\cf_{\mathbb{F}}(G)$的一组基，从而$\dim \cf_{\mathbb{F}}(G)=s$.
+\end{proof}
+
+\begin{definition}[]
+    设$(\rho,V)$是$G$的表示，$f\in \cf_{\mathbb{F}}(G)$，定义$\rho_f = \frac{1}{|G|}\sum_{g\in G}f(g)\rho(g)$.
+\end{definition}
+
+上述定义的$\rho_f$是一个$V\to V$的线性变换，它满足以下几个性质.
+
+\begin{property}[]
+    \begin{enumerate}
+        \item $\rho_f$是\ghomo，即$\rho_f\cdot\rho(g)=\rho(g)\cdot\rho_f$.
+        \item $\rho_{f_1+f_2}=\rho_{f_1}+\rho_{f_2}$.
+        \item $\rho_{cf}=c\rho_f$，$\forall c\in \mathbb{F}$.
+        \item $(\rho_1\oplus\rho_2)_f=(\rho_1)_f\oplus(\rho_2)_f$.
+    \end{enumerate}
+\end{property}
+
+\begin{proof}
+    (1)$\setjot[-2]\begin{aligned}[t]
+        \rho(g)\rho_f\rho(g)^{-1} &= \rho(g)\left(\frac{1}{|G|}\sum_{h\in G}f(h)\rho(h)\right)\rho(g^{-1})=\frac{1}{|G|}\sum_{h\in G}f(h)\rho(ghg^{-1})\\
+        &=\frac{1}{|G|}\sum_{h\in G}f(g^{-1}hg)\rho(h)=\rho_f
+    \end{aligned}$\par
+    $\Rightarrow \rho_f\rho(g)=\rho(g)\rho_f$.\par
+    (2)(3)(4)代入即可证明.
+\end{proof}
+
+上述$\rho_f$对任意表示均有定义，特别地，在不可约表示上$\rho_f$可以具体写出.
+
+\begin{lemma}[]
+    设$\mathrm{char}\,\mathbb{F}\nmid |G|$且$\mathbb{F}$为$G$的分裂域. 设$(\rho,V)$是$G$的不可约表示，则$\rho_f = \frac{(f,\chi^*)}{n}\cdot 1_V$，其中$\chi^*$是反轭表示$(\rho^*,V^*)$的特征标，$n=\dim V$.\par
+    特别地，有$\mathrm{char}\,\mathbb{F}\nmid n$.
+\end{lemma}
+
+\begin{proof}
+    由于$\rho_f$是$V\to V$的\ghomo 且$V$不可约，由Schur引理，$\rho_f = \lambda_f\cdot 1_V$.\par
+    则$\setjot[-2]\begin{aligned}[t]
+         n\cdot \lambda_f &= \tr\rho_f = \tr\left(\frac{1}{|G|}\sum_{g\in G}f(g)\rho(g)\right) = \frac{1}{|G|}\sum_{g\in G}f(g)\tr\rho(g) \\
+         &= \frac{1}{|G|}\sum_{g\in G}f(g)\chi(g) = \frac{1}{|G|}\sum_{g\in G}f(g)\chi^*(g^{-1})\\ 
+         &= (f,\chi^*)
+    \end{aligned}$.\par
+    $\Rightarrow \lambda_f = \frac{(f,\chi^*)}{n}$.\par
+    取$f=\chi^*$，则$n\lambda_f = (\chi^*,\chi^*) = 1$，从而$\mathrm{char}\,\mathbb{F}\nmid n$.
+\end{proof}
+
+\begin{lemma}[]
+    设$\mathrm{char}\,\mathbb{F}\nmid |G|$，$\mathbb{F}$是$G$的分裂域，$f\in \cf_{\mathbb{F}}(G)$，若$\forall \chi_i \in \mathrm{Irr}(G)$，$(f,\chi_i^*)=0$，则$f=0$.
+\end{lemma}
+
+\begin{proof}
+    由于正则表示可以分解为不可约表示的直和，设$\mathbb{F}G = \bigoplus m_i\rho_i$，其中$\rho_i$不可约.\par
+    故$(\rho_{\mathrm{reg}})_f = \sum m_i(\rho_i)_f = \sum m_i\frac{(f,\chi_i^*)}{n_i}1_{V_i} = 0$.\par
+    则$(\rho_{\mathrm{reg}})_f(1) = \frac{1}{|G|}\sum_{g\in G}f(g)\rho_{\mathrm{reg}}(g)(1) = \frac{1}{|G|}\sum_{g\in G}f(g)g = 0$.\par
+    只有$f(g)=0$，故$f=0$.
+\end{proof}
+
+下面可以证明本节的核心定理.
+
+\begin{theorem}[]
+    设$\mathrm{char}\,\mathbb{F}\nmid |G|$且$\mathbb{F}$为$G$的分裂域，则有限群$G$的所有互不等价的表示的特征标是$\cf_{\mathbb{F}}(G)$的一组基，且$\forall f\in \cf_{\mathbb{F}}(G)$，有$f=\sum_{\chi_i\in \Irr(G)}(f,\chi_i)\chi_i$.\par
+    特别地，$G$的不可约表示个数等于$G$的共轭类的个数.
+\end{theorem}
+
+\begin{proof}
+    先证$\forall\,\varphi \in cf_{\mathbb{F}}(G)$，$\varphi = \sum a_i\chi_i$.\par
+    由引理，需要考察$\forall\, j$，$\left(\varphi-\sum a_i\chi_i, \chi_j^*\right) = 0$.\par
+    $\setjot[-2]\begin{aligned}[t]
+    \left(\varphi-\sum a_i\chi_i, \chi_j^*\right) &= (\varphi,\chi_j^*) - \sum a_i(\chi_i,\chi_j^*) \\
+    &\xlongequal{\text{若}\chi_j^*=\chi_k} (\varphi,\chi_k) - a_j(\chi_k, \chi_k) \\
+    &= (\varphi,\chi_k) - a_k = 0
+    \end{aligned}$\par
+    $\Rightarrow a_k = (\varphi,\chi_k)$.\par
+    因此$\varphi = \sum (\varphi,\chi_i)\chi_i$.\par
+    再证$\{\chi_i\}_{i=1}^s$线性无关.\par
+    设$\sum a_i\chi_i = 0$，则$\forall j$，$\left(\sum a_i\chi_i,\chi_j\right) = 0$.\par
+    即$a_j(\chi_j,\chi_j) = a_j = 0$，故线性无关.\par
+    因此$\mathrm{Irr}(G)$是$cf_{\mathbb{F}}(G)$的一组基.\par
+    结合$\dim cf_{\mathbb{F}}(G) = s$可知$|\mathrm{Irr}(G)|=s$.
+\end{proof}
+
+使用上述结论，可以构造出直和分解的投影.
+
+\begin{theorem}[]
+    若$W \cong \bigoplus W_i$，$W_i=m_i V_i,V_i\in\Irr_{\mathbb{F}}(G)$则$P_i = \frac{n_i}{|G|}\sum_{g\in G}\chi_i^*(g)\rho(g)$是$W_i$上的投影，且$P_i|_{W_i}=\mathrm{id}$，$P_i|_{W_j}=0 (i\neq j)$，其中$n_i = \dim V_i$.
+\end{theorem}
+
+\begin{proof}
+    $P_i= \frac{n_i}{|G|}\sum_{g\in G}\chi_i^*(g)\rho(g)=\frac{1}{|G|}\sum_{g\in G}n_i\chi_i^*(g)\rho(g)$.\par
+    取$f=n_i\chi_i^*$，则$P_i=\rho_f$.\par
+    考察$P_i$在不可约表示$V_j$上的限制：
+    $P_i|_{V_j} = \frac{(n_i\chi_i^*,\chi_j^*)}{\dim V_j}\cdot 1_{V_j} = \frac{n_i}{n_j}(\chi_i^*,\chi_j^*)\cdot 1_{V_j}$.\par
+    由第一正交关系，$(\chi_i^*,\chi_j^*) = (\chi_i,\chi_j) = \delta_{ij}$.\par
+    因此，若$j=i$，则$P_i|_{V_i} = \frac{n_i}{n_i}\cdot 1\cdot 1_{V_i} = \mathrm{id}_{V_i}$；若$j\neq i$，则$P_i|_{V_j} = 0$.\par
+    由于$W_j$均同构于若干个$V_j$的直和，故有$P_i|_{W_i} = \mathrm{id}_{W_i}$，且对$j\neq i$有$P_i|_{W_j} = 0$.\par
+\end{proof}
+
+\section{特征标表}
+
+设$\{C_1,C_2,\cdots,C_s\}$为$G$的所有共轭类，$\{\chi_1,\chi_2,\cdots,\chi_s\}$为$G$的所有不可约特征标.\par
+可将如下表格称为$G$的特征标表.
+
+\begin{center}
+    \begin{tabular}{c|cccc}
+                 & $C_1$         & $C_2$         & $\cdots$ & $C_s$         \\ \hline
+        $\chi_1$ & $\chi_1(C_1)$ & $\chi_1(C_2)$ & $\cdots$ & $\chi_1(C_s)$ \\
+        $\chi_2$ & $\chi_2(C_1)$ & $\chi_2(C_2)$ & $\cdots$ & $\chi_2(C_s)$ \\
+        $\vdots$ & $\vdots$      & $\vdots$      & $\ddots$ & $\vdots$      \\
+        $\chi_s$ & $\chi_s(C_1)$ & $\chi_s(C_2)$ & $\cdots$ & $\chi_s(C_s)$ 
+    \end{tabular}
+\end{center}\par
+
+有了特征标表，在分裂域上第一正交关系可重写为：
+\[ \delta_{ij} = (\chi_i,\chi_j) = \frac{1}{|G|}\sum_{g\in G}\chi_i(g)\chi_j(g^{-1}) \xlongequal{\text{按共轭类求和}} \frac{1}{|G|}\sum_{k=1}^s |C_k|\chi_i(C_k)\chi_j(C_k^{-1}) \]
+
+特别地，在$\mathbb{C}$上，$X=(\chi_i(C_k))_{s\times s}$，$\overline{X} = (\overline{\chi_i(C_k)})_{s\times s} = (\chi_i(C_k^{-1}))_{s\times s}$，$A=\diag(|C_1|,\cdots,|C_s|)$.\par
+则$XA\overline{X}^T=|G|E_s \Rightarrow \frac{1}{|G|}XA\overline{X}^T = E$.\par
+由于矩阵逆的交换，则$\overline{X}^T X A\frac{1}{|G|}=E$，展开后得到第二正交关系.
+
+\begin{theorem}[第二正交关系]
+    $\frac{1}{|G|}\sum_{i=1}^s |C_j|\chi_i(C_j)\chi_i(C_k^{-1}) = \delta_{jk}$，$1\leqslant j,k\leqslant s$.
+\end{theorem}
+
+第一、第二正交关系实际反映了特征标表行和列的关系，因此又称其为行和列正交关系.第一和第二正交关系都可以帮助我们计算特征标表.但一般表示的特征标表较难计算，下面以简单的对称群为例.
+
+\begin{instance}
+    计算$S_2$的特征标表.\par
+    取$\chi_1$为单位表示，则有$\chi_1(1)=\chi_1(12)=1$.\par
+    又有$\mathbb{F}G \cong \bigoplus n_iV_i$得$|G| = \sum \dim^2 V_i$，从而$\chi_2$是$1$维的.\par
+    同$\chi_2(1)=1$，又$\rho((12)^2)=\mathrm{id}$，故$\chi_2^2(12)=1 \Rightarrow \chi_2(12)=-1$ (不为平凡表示).\par
+    因此特征标表为：
+    \begin{center}
+        \begin{tabular}{c|cc}
+                     & $(1)$ & $(12)$ \\ \hline
+            $\chi_1$ & $1$   & $1$    \\
+            $\chi_2$ & $1$   & $-1$   
+        \end{tabular}
+    \end{center}
+\end{instance}
+
+\begin{instance}
+    计算$S_3$的特征标表.\par
+    类似$S_2$，$\chi_1,\chi_2$分别为单位表示与符号表示.\par
+    且可推得$\chi_3$是二维的，因此$\chi_3(1)=2$.\par
+    设$\chi_3(12)=x, \chi_3(123)=y$，$S_3$的三个共轭类$\{(1)\}, \{(12)\}, \{(123)\}$包含的元素个数分别为$1,3,2$.\par
+    使用第一正交关系$(\chi_1,\chi_3)=0$与$(\chi_2,\chi_3)=0$，可列出方程组：
+    \[ \begin{cases}
+        \frac{1}{6}(1\cdot 1\cdot 2 + 3\cdot 1\cdot x + 2\cdot 1\cdot y) = 0 \\[7pt]
+        \frac{1}{6}(1\cdot 1\cdot 2 + 3\cdot (-1)\cdot x + 2\cdot 1\cdot y) = 0
+    \end{cases} \Rightarrow \begin{cases}
+        2 + 3x + 2y = 0 \\
+        2 - 3x + 2y = 0
+    \end{cases} \]\par
+    解得$x=0, y=-1$，即$\chi_3(12)=0, \chi_3(123)=-1$.\par
+    故特征标表为：
+    \begin{center}
+        \begin{tabular}{c|ccc}
+                     & $(1)$ & $(12)$ & $(123)$ \\ \hline
+            $\chi_1$ & $1$   & $1$    & $1$     \\
+            $\chi_2$ & $1$   & $-1$   & $1$     \\
+            $\chi_3$ & $2$   & $0$    & $-1$
+        \end{tabular}
+    \end{center}
+\end{instance}
+

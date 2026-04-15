@@ -104,7 +104,7 @@ Gödel 在 1938 年证明了连续统假设在 ZFC 中不可证.Cohen 在 1963 �
 我们知道，在线性空间中，若有一个子空间上的函数，可以通过将子空间上的基底扩展为整个空间的基底来将函数延拓到整个空间.自然地，当整个空间被赋予范数后，若$Y< X$，且有一个$f\in Y^*$，还能否将$f$延拓到$F\in X^*$，即$F|_Y=f$.\par
 在这个问题中，我们主要聚焦于次线性泛函这一特殊的函数.\par
 \begin{definition}[次线性泛函]
-    设$X$是一个实线性空间，称$P:X\to\mb{R}$是一个次线性泛函，如果其满足：
+    设$X$是一个实线性空间，称$P:X\to\mb{R}$是一个\colorbf{次线性泛函}，如果其满足：
     \begin{enumerate}[label=(\roman*)]
         \item $\forall\, x,y\in X,P(x+y)\leq P(x)+P(y)$
         \item $\forall\, x\in X,\lambda\geq 0,P(\lambda x)=\lambda P(x)$
@@ -201,7 +201,7 @@ Gödel 在 1938 年证明了连续统假设在 ZFC 中不可证.Cohen 在 1963 �
 对上述的第2个例子，不自然的点是，$X$中的元素可以使用$X^*$定义，但$X^*$也是用$X$定义而非再对$X^*$求对偶.在其余Banach空间，这种性质未必成立，我们必须研究二次对偶.
 
 \begin{definition}[二次对偶]
-    赋范线性空间 $X$ 的\greenbf{二次对偶}为 $X^{**} = (X^*)^*$.
+    赋范线性空间 $X$ 的\colorbf{二次对偶}为 $X^{**} = (X^*)^*$.
 \end{definition}
 
 一般地，$X \lneqq  X^{**}$，但 $X$ 可以自然嵌入 $X^{**}$.
@@ -210,7 +210,7 @@ Gödel 在 1938 年证明了连续统假设在 ZFC 中不可证.Cohen 在 1963 �
     设 $X$ 是赋范线性空间，$\setjot[-0]\begin{aligned}[t]
         J = J_X: X &\to X^{**} = (X^*)^* \\
         x &\mapsto (J(x))(f) = f(x),\forall\, f \in X^*
-    \end{aligned} $ 为\greenbf{典范等距嵌入}.\par
+    \end{aligned} $ 为\colorbf{典范等距嵌入}.\par
 \end{definition}
 事实上，我们可以证明$J_X$是单射，且它是等距的，即 $\|J(x)\|_{X^{**}} = \|x\|_X$.但是上述嵌入通常显然不是满射，即 $X \lneqq X^{**}$.
 \begin{attention}
@@ -219,7 +219,7 @@ Gödel 在 1938 年证明了连续统假设在 ZFC 中不可证.Cohen 在 1963 �
 
 由以上的讨论可知$J_X$的满射性质是十分特殊的，因此需要特别强调满足该性质的空间.
 \begin{definition}[自反空间]
-    如果 $J_X$ 是满射，则称 $X$ 是一个\bluebf{自反 Banach 空间}.
+    如果 $J_X$ 是满射，则称 $X$ 是一个\colorbf{自反 Banach 空间}.
 \end{definition}
 
 \begin{instance}
@@ -286,19 +286,19 @@ Gödel 在 1938 年证明了连续统假设在 ZFC 中不可证.Cohen 在 1963 �
 \end{theorem}
 
 \begin{definition}[吸收集]
-    设 $X$ 是 赋范线性空间，$A \subset X$ 是\greenbf{吸收的} $\iff \forall\, x \in X, \exists\, t > 0, \st\, x \in tA$.
+    设 $X$ 是 赋范线性空间，$A \subset X$ 是\colorbf{吸收的} $\iff \forall\, x \in X, \exists\, t > 0, \st\, x \in tA$.
 \end{definition}
 
 上述的一个等价描述是 $\bigcup_{t > 0} tA = X$.
 
 \begin{definition}[平衡集]
-    设 $X$ 是 $\mb{R}$ 或 $\mb{C}$ 上的赋范线性空间，$B \subseteq X$ 是\greenbf{平衡的} $\iff \forall\, \lambda \in \mb{F}, \st\, |\lambda| \leq 1$, $\lambda B \subset B$.
+    设 $X$ 是 $\mb{R}$ 或 $\mb{C}$ 上的赋范线性空间，$B \subseteq X$ 是\colorbf{平衡的} $\iff \forall\, \lambda \in \mb{F}, \st\, |\lambda| \leq 1$, $\lambda B \subset B$.
 \end{definition}
 
 下面考虑吸收的，平衡的 $X$ 的凸集 $B$ 应该具有怎样的性质，最直观的感受是它应当类似于单位球.
 
 \begin{definition}[Minkowski 泛函]
-    设 $X$ 是赋范线性空间，$A \subset X$ 是吸收集，定义 $\mu_A\colon X \to [0, \infty)$, $x \mapsto \inf \{t > 0 : x \in tA\}$，称为 \bluebf{Minkowski 泛函}.
+    设 $X$ 是赋范线性空间，$A \subset X$ 是吸收集，定义 $\mu_A\colon X \to [0, \infty)$, $x \mapsto \inf \{t > 0 : x \in tA\}$，称为 \colorbf{Minkowski 泛函}.
 \end{definition}
 
 \begin{proposition}[]
@@ -373,7 +373,7 @@ Gödel 在 1938 年证明了连续统假设在 ZFC 中不可证.Cohen 在 1963 �
     & 大 & 小 \\
     \hline
     拓扑 & 剩余集 & 贫乏集 \\
-    & (第二纲集) & (第一纲集) \\
+    &  & (第一纲集) \\
     \hline
     测度 & 全测集 & 零测集 \\
     \hline
@@ -383,12 +383,169 @@ Gödel 在 1938 年证明了连续统假设在 ZFC 中不可证.Cohen 在 1963 �
 
 \begin{definition}[无处稠密，第一纲集，第二纲集]
     \begin{enumerate}[label=(\arabic*)]
-        \item 设 $E \subset X$，如果 $\overline{E}$ 没有内点，称 $E$ \greenbf{无处稠密}.
-        \item 称 $E$ 是\greenbf{贫乏集}或\greenbf{第一纲集}，当且仅当 $E = \bigcup_{i=1}^\infty N_i$，$N_i$ 无处稠密.
-        \item $E \subset X$ 是\greenbf{剩余集}，当且仅当 $X \setminus E$ 是第一纲集.
-        \item $E \subset X$ 是\greenbf{第二纲集}，当且仅当 $E$ 不是第一纲集.
+        \item 设 $E \subset X$，如果 $\overline{E}$ 没有内点，称 $E$ \colorbf{无处稠密}.
+        \item 称 $E$ 是\colorbf{贫乏集}或\colorbf{第一纲集}，当且仅当 $E = \bigcup_{i=1}^\infty N_i$，$N_i$ 无处稠密.
+        \item $E \subset X$ 是\colorbf{剩余集}，当且仅当 $X \setminus E$ 是第一纲集.
+        \item $E \subset X$ 是\colorbf{第二纲集}，当且仅当 $E$ 不是第一纲集.
     \end{enumerate}
 \end{definition}
 
 为了直观展示拓扑和测度两个角度下集合的大小可能会发生变化.可以考虑$\mb{Q}$和Cantor集$\mcal{C}$.\par
 $\mb{Q}$是$\mb{R}$的稠密子集，因此$\overline{\mb{Q}}=\mb{R}$是第二纲集.$\mcal{C}$是闭集，因此$\overline{\mcal{C}}=\mcal{C}$，而$\mcal{C}$没有内点，因此$\mcal{C}$无处稠密，是第一纲集.但从测度意义上看，$\mb{Q}$可数，$\mcal{C}$不可数.这表明Baire纲是一个拓扑概念，和数量无关.
+
+\begin{instance}
+    考虑$\mb{Q}$，它是第一纲集，这是由于$\mb{Q}$是单点的可数并.
+    $\mcal{C}$是无处稠密集，更是第一纲集.
+\end{instance}
+
+假设 $(X, P)$ 是概率测度空间，我们有两种方式定义一个概率很大的事件：
+\begin{enumerate}[label=(\arabic*),leftmargin=2em]
+    \item 一个典型事件是剩余集.
+    \item 一个必然事件有 $P(E) = 1$.
+\end{enumerate}
+注意：它们通常从本质上不同.
+
+\begin{instance}
+    考虑 $X = [0, 1]^2$，设 $\{U_n\}_{n \in \mb{N}}$ 为布朗运动的轨道，$E = \bigcup_{n=1}^\infty U_n$ 是第一纲集，但 $P(X \setminus E) = 0$.
+\end{instance}
+
+\begin{lemma}
+    $X \setminus \mathring{A} = \overline{X \setminus A}$，$X \setminus \overline{B} = \mathrm{int}(X \setminus B)$.
+\end{lemma}
+\begin{proof}
+    \fbox{$X \setminus \mathring{A} \subseteq \overline{X \setminus A}$} $\forall\, x \in X \setminus \mathring{A}$，则 $\forall\, \varepsilon > 0$，$\exists\, y_\varepsilon \in B_\varepsilon(x) \setminus A$.\par
+    则 $x$ 是 $y_\varepsilon$ 的一个聚点 $\Rightarrow x \in \overline{A^c} = \overline{X \setminus A}$.\par
+    \fbox{$X \setminus \mathring{A} \supseteq \overline{X \setminus A}$} 设 $z \in \overline{X \setminus A}$，则 $\exists\, \{z_j\} \subset X \setminus A$，$\st z_j \to z$.\par
+    则 $\forall\, \varepsilon > 0$，$B_\varepsilon(z)$ 包含某个 $z_j$，因此 $z \notin \mathring{A}$.
+\end{proof}
+
+下面介绍一些第一纲集和剩余集的性质.
+\begin{property}
+    \begin{enumerate}[label=(\arabic*),leftmargin=2em]
+        \item 若 $E \subset X$ 是第一纲集，$F \subset E$，则 $F$ 是第一纲集.
+        \item 第一纲集的可数并是第一纲集.
+        \item 剩余集的可数交是剩余集.
+        \item 稠密开集的可数交是剩余集.
+    \end{enumerate}
+\end{property}
+
+
+
+\begin{proof}[证明 (性质 (4))]
+    设 $\{\mathcal{O}_n\}_{n=1}^\infty$ 是 $X$ 中稠密开集.\par
+    要证 $X \setminus \bigcap_{n=1}^\infty \mathcal{O}_n = \bigcup_{n=1}^\infty (X \setminus \mathcal{O}_n)$ 是第一纲集.\par
+    下证 $X \setminus \mathcal{O}_n$ 无处稠密.\par
+    由于 $\mathcal{O}_n$ 开，故 $\mathrm{int}(\overline{X \setminus \mathcal{O}_n}) = \mathrm{int}(X \setminus \mathcal{O}_n) = X \setminus \overline{\mathcal{O}_n} \xlongequal{\text{稠密}} X \setminus X = \varnothing$.
+\end{proof}
+
+\begin{theorem}[Baire 纲定理]
+    设 $X$ 是非空完备度量空间，$\{\mathcal{O}_n\}_{n=1}^\infty$ 是 $X$ 中一列稠密开集，则 $\bigcap_{n=1}^\infty \mathcal{O}_n$ 稠密.
+\end{theorem}
+\begin{proof}
+    只需证明 $\forall$ 开球 $B_0 = \mathbb{B}_{\varepsilon}(x)$，$\bigcap_{n=1}^\infty \mathcal{O}_n \cap B_0 \neq \varnothing$.\par
+    由于 $\mathcal{O}_1$ 是稠密开集，$\exists\, \delta_1 > 0, x_1 \in X$，$\st \overline{\mathbb{B}_{\delta_1}(x_1)} \subset B_0 \cap \mathcal{O}_1$.\par
+    设 $B_1 = \mathbb{B}_{\delta_1}(x_1)$，它在 $B_0 \cap \mathcal{O}_1$ 内部.\par
+    类似地，$\exists\, B_2 = \mathbb{B}_{\delta_2}(x_2)$，$\st \overline{\mathbb{B}_{\delta_2}(x_2)} \subset B_1 \cap \mathcal{O}_2 \subset B_0 \cap \mathcal{O}_1$.\par
+    以此类推，可取 $\{B_j\}$，$\st \overline{B_j} \subset \overline{B_{j-1}} \cap \mathcal{O}_j$，$\forall\, j \in \mb{N}$，且要求 $\mathrm{rad}(B_j) < \frac{1}{j}$.\par
+    因此有 $\overline{B_0} \supset \overline{B_1} \supset \overline{B_2} \supset \cdots$.\par
+    则 $\{x_j\}$ 构成 Cauchy 列，因此收敛到 $x_* \in X$.\par
+    于是 $x_* \in \bigcap_{n=1}^\infty \mathcal{O}_n \cap B_0$.
+\end{proof}
+
+
+下面的推论更直观地展示了剩余集的结构，它表明剩余集包含一个稠密的 $G_\delta$ 集.因此，剩余集是非常大的集合.
+\begin{corollary}
+    设 $X$ 是非空完备度量空间，则 $E \subset X$ 是剩余集当且仅当 $E$ 包含一个稠密的 $G_\delta$ 集.
+\end{corollary}
+\begin{proof}
+    “$\Longleftarrow$” 设 $E \supset \bigcap_{n=1}^\infty \mathcal{O}_n$，其中 $\bigcap_{n=1}^\infty \mathcal{O}_n$ 稠密，$\mathcal{O}_n$ 为稠密开集.\par
+    由性质 (4)，$\bigcap_{n=1}^\infty \mathcal{O}_n$ 是剩余集，从而 $E$ 是剩余集.\par
+    “$\Longrightarrow$” 设 $E \subset X$ 是剩余集，则 $X \setminus E = \bigcup_{n=1}^\infty M_n$，其中 $M_n$ 无处稠密.\par
+    因此 $E = X \setminus \bigcup_{n=1}^\infty M_n = \bigcap_{n=1}^\infty (X \setminus M_n) \supset \bigcap_{n=1}^\infty (X \setminus \overline{M_n})$.\par
+    \begin{claim}{$X \setminus \overline{M_n}$ 稠密.}
+    事实上，$\overline{X \setminus \overline{M_n}} = X \setminus \mathrm{int}(\overline{M_n}) = X \setminus \varnothing = X$，故 $X \setminus \overline{M_n}$ 稠密.
+    \end{claim}\par
+    由 Baire 纲定理，$\bigcap_{n=1}^\infty (X \setminus \overline{M_n})$ 稠密.
+\end{proof}
+
+另一个推论表明，无处稠密集的闭包没有内部，而作为它的可数并，第一纲集没有内部，因此第一纲集是非常小的集合(至少不能包含任意区间).
+\begin{corollary}
+    设 $X$ 是非空完备度量空间，则 $X$ 中任意第一纲集没有内部.
+\end{corollary}
+\begin{proof}
+    若 $M = \bigcup_{n=1}^\infty E_n$，$E_n$ 无处稠密，则 $X \setminus M = \bigcap_{n=1}^\infty (X \setminus E_n)$.\par
+    $E_n$ 无处稠密 $\Rightarrow X \setminus E_n$ 是剩余集 $\Rightarrow X \setminus E_n$ 包含稠密 $G_\delta$ 集.\par
+    则 $\bigcap_{n=1}^\infty (X \setminus E_n)$ 仍包含一个稠密 $G_\delta$ 集，因此$X\setminus M $稠密.\par
+    $\Rightarrow \overline{X \setminus M} = X \Rightarrow \mathring{M} = \varnothing$.
+\end{proof}
+
+\begin{theorem}
+    设 $X = C([0, 1])$ 并配备最大模范数，则处处不可导的函数构成剩余集.
+\end{theorem}
+\begin{proof}
+    $\setjot[-2]\begin{aligned}[t]
+        D &= \{f \in C([0, 1]) : f \text{在某处可导}\}\\
+        &\subset \bigcup_{M=1}^\infty \bigcup_{n=1}^\infty \left\{f \in C([0, 1]) : \exists\, x \in [0, 1], \forall\, y \in [0, 1], \st 0 < |x - y| < \frac{1}{n}, \left|\frac{f(x) - f(y)}{x - y}\right| \leq M\right\} \\
+        &\triangleq \bigcup_{M,n=1}^\infty D_{n, M}
+    \end{aligned} $.\par
+    下证 $\forall\, n, M \in \mb{N}$，$D_{n, M}$ 无处稠密.\par
+    对 $f \in D_{n, M}$，对 $f$ 增加高频小幅振荡，可得 $\tilde{f} \notin D_{n, M}$.
+\end{proof}
+\subsection*{Banach-Mazur 游戏}
+为了更直观地刻画剩余集和第一纲集，可以使用 Banach-Mazur 游戏.\par
+规则：给定 $A \subset \mb{R}$.\par
+玩家 (I) 选择闭区间 $I_1$.\par
+玩家 (II) 选择闭区间 $I_2 \subset I_1$.\par
+玩家 (I) 选择闭区间 $I_3 \subset I_2$.\par
+$\cdots$\par
+两个玩家交替选择了一个区间套 $I_1 \supset I_2 \supset I_3 \supset \cdots$.\par
+若 $\bigcap_{n=1}^\infty I_n \cap A \neq \varnothing$，则 (I) 获胜，否则 (II) 获胜.\par
+\begin{remark}
+    从上面的规则中可以看出，若 $A$ 包含区间，则玩家 (I) 有必胜策略.\par
+\end{remark}
+
+\begin{corollary}
+    包含区间的集合不是第一纲集.
+\end{corollary}
+
+玩家 (II) 的必胜策略是指，$\forall\, n \in \mb{N}$，$\exists$ 映射函数 $f_n$，$\st I_{2n} = f_n(I_1, \cdots, I_{n-1})$ 满足 $I_{2n} \subset I_{2n-1} \subset \cdots$.
+
+
+\begin{theorem}
+    玩家 (II) 有必胜策略当且仅当 $A$ 是第一纲集.
+\end{theorem}
+
+\begin{proof}
+    “$\Longleftarrow$” $A = \bigcup_{n=1}^\infty A_n$，$A_n$ 无处稠密，则 $\mathbb{R}\setminus\overline{A_n}=\mathrm{int}(\mb{R} \setminus A_n) \neq \varnothing$.\par
+    因此，(II)总能选 $I_{2n} \subset \mathrm{int}(\mb{R} \setminus A_n)$.\par
+    “$\Longrightarrow$” 假设 (II) 有必胜策略.\par
+    Step 1: 选取闭区间 $\tilde{I}_1, \tilde{I}_2, \tilde{I}_3, \cdots$，$\st J_i = f_1(\tilde{I}_i)$ 两两不交，且 $\bigsqcup_i J_i$ 稠密.\par
+    $\Rightarrow A_1 := \mb{R} \setminus \bigcup_i J_i$ 无处稠密.\par
+    Step 2: 在 $J_i$ 中选取 $\tilde{I}_{i1}, \tilde{I}_{i2}, \tilde{I}_{i3}, \cdots$，$\st J_{ij} = f_2(\tilde{I}_i, \tilde{J}_i, \tilde{I}_{ij})$ 两两不交，且 $\bigsqcup_j J_{ij}$ 在 $J_i$ 中稠密.\par
+    $\Rightarrow A_2 := \mb{R} \setminus \bigcup_{i,j} J_{ij}$ 无处稠密.\par
+    以此类推形成 $J_i, J_{ij}, J_{ijk}, \cdots $\par
+    \begin{claim}{$A \subseteq \bigcup_{n=1}^\infty A_n$.}
+    反证，设 $x \in A \setminus \bigcup_{n=1}^\infty A_n$.\par
+    则 $x \notin A_1 \Rightarrow \exists\, i, \st x \in J_i$.\par
+    $x \notin A_2 \Rightarrow \exists\, j, \st x \in J_{ij}$.\par
+    $\cdots$\par
+    那么 $x$ 落在某个玩家 (II) 必胜策略生成的区间套中.\par
+    $\Rightarrow x \notin A$，矛盾.
+    \end{claim}
+
+    因此 $A$ 为第一纲集.
+\end{proof}
+
+我们证明了玩家 (II) 有必胜策略 $\iff A$ 是第一纲集.\par
+同理玩家 (I) 有必胜策略 $\iff \exists$ 区间 $I, \st I \cap (\mb{R} \setminus A)$ 是第一纲集.\par
+\begin{remark}
+    $\exists\, A \subset \mb{R}, \st$ (1) $A$ 不是第一纲集. (2) $\forall$ 区间 $I$, $I \setminus A$ 不是第一纲集.\par
+此时 (I), (II) 均无必胜策略.\par
+
+\end{remark}
+
+回忆 Bernstein 集 $A$，$A$ 会和任意不可数闭集有交点. 
+若 $A \cap [0, 1]$ 是第一纲集，则 $[0, 1] \setminus A$ 是剩余集.\par
+$\Rightarrow [0, 1] \setminus A$ 包含 Cantor 集. \par
+$\Rightarrow$ 但 $A \cap \mcal{C} \neq \varnothing$. \par
+类似地，$[0, 1] \setminus A$ 也是第一纲集.

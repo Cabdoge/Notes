@@ -30,10 +30,27 @@
 
 
 %================ 定义彩色加粗命令 ================
-\newcommand{\allbf}[1]{\boldmath\bfseries{#1}\unboldmath\normalfont}
-\newcommand{\bluebf}[1]{\textcolor{rbStructureBlue}{\allbf{#1}}}
-\newcommand{\greenbf}[1]{\textcolor{rbDefinitionColor}{\allbf{#1}}}
+\definecolor{rbStructureColor}{RGB}{60,113,183}   
 
+\newcommand{\allbf}[1]{\boldmath\bfseries{#1}\unboldmath\normalfont}
+\colorlet{colorbf}{rbStructureColor}
+\newcommand{\bluebf}[1]{\textcolor{rbStructureColor}{\allbf{#1}}}
+\newcommand{\colorbf}[1]{\textcolor{colorbf}{\allbf{#1}}}
+\BeforeBeginEnvironment{theorem}{\colorlet{colorbf}{rbTheoremColor}}
+\BeforeBeginEnvironment{lemma}{\colorlet{colorbf}{rbLemmaColor}}
+\BeforeBeginEnvironment{corollary}{\colorlet{colorbf}{rbCorollaryColor}}
+\BeforeBeginEnvironment{definition}{\colorlet{colorbf}{rbDefinitionColor}}
+\BeforeBeginEnvironment{axiom}{\colorlet{colorbf}{rbAxiomColor}}
+\BeforeBeginEnvironment{postulate}{\colorlet{colorbf}{rbPostulateColor}}
+\BeforeBeginEnvironment{proposition}{\colorlet{colorbf}{rbPropositionColor}}
+\BeforeBeginEnvironment{assumption}{\colorlet{colorbf}{rbAssumptionColor}}
+\BeforeBeginEnvironment{property}{\colorlet{colorbf}{rbPropertyColor}}
+\BeforeBeginEnvironment{conjecture}{\colorlet{colorbf}{rbConjectureColor}}
+\BeforeBeginEnvironment{important}{\colorlet{colorbf}{rbImportantColor}}
+\BeforeBeginEnvironment{warning}{\colorlet{colorbf}{rbWarningColor}}
+\BeforeBeginEnvironment{note}{\colorlet{colorbf}{rbNoteColor}}
+\BeforeBeginEnvironment{attention}{\colorlet{colorbf}{rbAttentionColor}}
+\BeforeBeginEnvironment{caution}{\colorlet{colorbf}{rbCautionColor}}
 
 
 
@@ -229,43 +246,27 @@
 
 %================ 附加：proof 环境 ================
 % 仿照 elegantbook 的 proof 样式，使用 tcolorbox 实现带左侧色条的证明环境
-\definecolor{rbProofColor}{RGB}{255,134,24}           % orange
+\definecolor{rbProofColor}{RGB}{199,79,109}           % 梅红
 \definecolor{rbProofBar}{RGB}{255,225,197}          % 左侧装饰条颜色
-
 \RequirePackage{mdframed}
 
 % 先清除可能已有的 proof 定义（兼容 amsthm）
 \@ifundefined{proof}{}{\let\proof\relax\let\endproof\relax}
 
-\mdfdefinestyle{rbProofStyle}{%
-  hidealllines=true,
-  leftline=true,
-  linewidth=3pt,
-  linecolor=rbProofBar,
-  leftmargin=0pt,
-  innerleftmargin=4pt,
-  innerrightmargin=0pt,
-  innertopmargin=2pt,
-  innerbottommargin=2pt,
-  skipabove=5pt,
-  skipbelow=0pt,            % mdframed 的 skipbelow 不可靠，设 0 后用手动 \vspace
-}
+\newlength{\belowsep}
+\setlength{\belowsep}{5pt}  % 定义环境底部修饰线与内容之间的距离（可调整）
 
 \newenvironment{proof}[1][证明]{%
-  \par\vspace{-\parskip}%
-  \begin{adjustwidth}{-2pt}{0pt}%  ← 整体左移 0.5pt（色条随之突出）
-  \vspace{3pt}%
-  \begin{mdframed}[style=rbProofStyle]%
-  \hspace{-2.5pt}\fangsong\noindent{\bfseries\color{rbProofColor} #1 \hspace{-5.9pt}} %
-  \setlength{\parindent}{2em}%
-  \wideline
+  \par\noindent{\heiti\bfseries\color{rbProofColor}%
+    \hspace{-2pt}#1\hspace{-3.4pt}%
+  }\enspace\fangsong\ignorespaces
 }{%
-  \hfill$\square$\par\end{mdframed}%
-  \nointerlineskip               % 阻止行间距 glue
-  \vspace{-5pt}%                   % ← 手动控制底部间距（替代失灵的 skipbelow）
-  \end{adjustwidth}%
-  \par
+  \hfill{\color{rbProofColor}$\blacksquare$}\par
+  \par\vspace{-\parskip}\nointerlineskip\vspace{\belowsep}%
+  \noindent{\color{rbProofColor!50}\rule{4em}{2pt}}\par
+  \ignorespacesafterend
 }
+
 
 %================ 附加：solution 环境 ================
 % 使用 mdframed 实现带左侧色条的解答环境（兼容 wrapfigure）
@@ -306,8 +307,6 @@
 \definecolor{rbInstanceColor}{RGB}{120, 189, 39}       % green variant
 \definecolor{rbInstanceBar}{RGB}{197,237,213}       % 左侧装饰条颜色（浅绿）
 
-\newlength{\belowsep}
-\setlength{\belowsep}{5pt}  % 定义实例环境标题与内容之间的距离（可调整）
 
 \newcounter{rbinstance}[chapter]
 \renewcommand{\therbinstance}{\thechapter.\arabic{rbinstance}}
@@ -512,7 +511,7 @@
     \setlength{\parindent}{2em}%
     \wideline
     #2
-    \hfill$\Box$\quad\par
+    \hfill{\color{rbProofColor}$\blacksquare$}\quad\par
   \end{adjustwidth}%
 }{% end claim
 }

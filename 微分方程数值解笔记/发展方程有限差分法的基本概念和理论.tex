@@ -176,7 +176,7 @@
     直观上，$u_j^n$ 应该为 $u(x_j, t_n)$ 的近似值.
 \end{instance}
 
-式 \eqref{eq:1.5} 称为逼近对流方程$u_t + a u_x = 0$的有限差分方程，或简称为{\color{red}差分方程}.
+式 \eqref{eq:1.5} 称为逼近对流方程$u_t + a u_x = 0$的有限差分方程，或简称为\bluebf{差分方程}.
 
 
 差分方程 \eqref{eq:1.5} 可重写为迭代方程的形式
@@ -188,7 +188,7 @@
     u_j^0 = u_0(x_j), \quad j = 0, \pm 1, \pm 2, \cdots \label{eq:1.8}
 \end{equation}
 就可以按时间方向逐层推进，算出各层的值.\par
-式 \eqref{eq:1.7}-\eqref{eq:1.8} 合在一起构成求解问题 \eqref{eq:convection_ivp} 的一个{\color{red}差分格式}，我们称其为\bluebf{显式格式}.\par
+式 \eqref{eq:1.7}-\eqref{eq:1.8} 合在一起构成求解问题 \eqref{eq:convection_ivp} 的一个差分格式，我们称其为\bluebf{显式格式}.\par
 类似地，如果选取$t_{-1}$和$x_{-2}$组合形成约束方程，那么所得到的迭代方程为
 $u_j^{n+1}=(1-a\lambda)u_j^n+a\lambda u_{j-1}^n$，这同样是一个显式格式.\par
 如果选取$t_{-1}$和$x_{-1}$形成约束方程，得到的迭代方程为
@@ -235,9 +235,9 @@ u_j^{n-1}=(1-a\lambda)u_j^n+a\lambda u_{j+1}^n.
 \end{instance}
 
 \begin{definition}[截断误差]
-    设 $u(x, t)$ 是微分方程 \eqref{eq:2.1} 的充分光滑解. 如果取 ${\color{red} u_j^n = u(x_j, t_n) }$，可得到
+    设 $u(x, t)$ 是微分方程 \eqref{eq:2.1} 的充分光滑解. 如果取 \colorbf{$u_j^n = u(x_j, t_n)$}，可得到
     \[ L_h u_j^n = O(\tau^p + h^q), \]
-    式中 $p$ 和 $q$ 为正常数，则称格式关于 $t, x$ 方向的截断误差分别为 $p$ 和 $q$ 阶的. 如果 $p = q$，则称格式是 $p$ 阶的.
+    式中 $p$ 和 $q$ 为正常数，则称格式关于 $t, x$ 方向的\colorbf{截断误差}分别为 $p$ 和 $q$ 阶的. 如果 $p = q$，则称格式是 $p$ 阶的.
 \end{definition}
 
 \begin{remark}
@@ -296,8 +296,7 @@ u_j^{n-1}=(1-a\lambda)u_j^n+a\lambda u_{j+1}^n.
 
 \begin{instance}[Lax-Wendorff 格式]
     最终，我们所得到的差分格式称为\bluebf{Lax-Wendorff 格式}，其迭代方程为
-    \[ u_j^{n+1} = u_j^n - \frac{a\lambda}{2} (u_{j+1}^n - u_{j-1}^n) + \frac{a^2\lambda^2}{2} (u_{j+1}^n - 2u_j^n + u_{j-1}^n). \]
-
+    \bluebf{\[ u_j^{n+1} = u_j^n - \frac{a\lambda}{2} (u_{j+1}^n - u_{j-1}^n) + \frac{a^2\lambda^2}{2} (u_{j+1}^n - 2u_j^n + u_{j-1}^n). \]}\par
     由 Taylor 展开知
 \begin{align*}
     u(x_j, t_{n+1}) &= u + u_t \tau + \frac{1}{2} \tau^2 u_{tt} + O\left(\tau^3\right), \\
@@ -325,7 +324,7 @@ u_j^{n-1}=(1-a\lambda)u_j^n+a\lambda u_{j+1}^n.
 
 \section{有限体积法}
 
-有限体积法 (\textbf{Finite volume method}) 又称为控制体积法或积分插值法.
+有限体积法 (\textbf{Finite volume method}) 又称为控制体积法或积分插值法，其核心内核是物理定律的守恒律.\par
 
 \begin{note}[基本思路]
 \begin{itemize}
@@ -333,22 +332,19 @@ u_j^{n-1}=(1-a\lambda)u_j^n+a\lambda u_{j+1}^n.
     \item 将待解的微分方程在每一个控制体积积分，通过假设解在积分区域符合一定的变化规律 (插值函数)，进而获得解在网格点上相应的差分方程.
 \end{itemize}
 \end{note}
+例如对于$Lu=f$，对于点$p$，找到一个$\omega_p$，使$\int_{\omega_p}(Lu-f)\d v=0$，对其使用Stokes定理，即让$\int_{\omega_p}(Lu-f)^{\tilde{}} \d S=0$.由上可见，导出的差分方法自动保持了解应满足的积分守恒性 (物理守恒律).
 
-
-
-\subsection*{优点}
-导出的差分方法自动保持了解应满足的积分守恒性 (物理守恒律).
-
+\begin{instance}[对流方程的有限体积法]
+    
+仍以对流方程的初值问题 \eqref{eq:convection_ivp} 为例 ($a > 0$ 为常数)，说明如何用有限体积法建立差分格式
 \begin{figure}[H]
     \centering
-    % 占位符图片，表示有限体积法的网格和控制体积
+    \includegraphics[width=0.5\textwidth]{fig/2.4.png}
     \captionof{figure}{有限体积法网格和控制体积示意图}
 \end{figure}
-
-仍以对流方程的初值问题 \eqref{eq:convection_ivp} 为例 ($a > 0$ 为常数)，说明如何用有限体积法建立差分格式，即考虑方程 \eqref{eq:1.6}. 取覆盖时空点 $(x_j, t_n)$ 的控制体积为
-\[ {\color{red} \omega = \{(x, t) : \ x_j - h/2 < x < x_j + h/2, \ t_n - \tau/2 < t < t_n + \tau/2\}. } \]
-
-将微分方程 \eqref{eq:1.6} 在 $\omega$ 上积分，并由 Green 公式有
+\noindent\allbf{Step 1：控制体积分}\quad 考虑方程 \eqref{eq:convection_ivp}. 取覆盖时空点 $(x_j, t_n)$ 的控制体积为
+\[ {\color{red} \omega = \{(x, t) : \ x_j - h/2 < x < x_j + h/2, \ t_n - \tau/2 < t < t_n + \tau/2\}. } \]\par
+将微分方程 \eqref{eq:convection_ivp} 在 $\omega$ 上积分，并由 Green 公式有
 \begin{equation}
     {\color{red} \int_\omega [u_t + au_x]\mathrm{d}x\mathrm{d}t = \int_{\partial\omega} au\mathrm{d}t - u\mathrm{d}x = 0, } \label{eq:3.1}
 \end{equation}
@@ -358,7 +354,7 @@ u_j^{n-1}=(1-a\lambda)u_j^n+a\lambda u_{j+1}^n.
 \begin{equation}
     -u_1 h + a u_2 \tau + u_3 h - a u_4 \tau = 0. \label{eq:3.2}
 \end{equation}
-注意解 $u$ 的线平均值精确满足关系式 \eqref{eq:3.2}. \par
+\noindent\allbf{Step 2：插值逼近得差分方程}\quad 注意解 $u$ 的线平均值精确满足关系式 \eqref{eq:3.2}. \par
 现在假设 $u$ 在以 $(x_j, t_n)$ 为顶点的四个子矩形组成的大矩形上是双线性函数分布的，于是成立
 \begin{align*}
     &u_1 = \frac{1}{2}\left(u_j^n + u_j^{n-1}\right), \quad u_2 = \frac{1}{2}\left(u_j^n + u_{j+1}^n\right), \\
@@ -366,26 +362,52 @@ u_j^{n-1}=(1-a\lambda)u_j^n+a\lambda u_{j+1}^n.
 \end{align*}
 将这些结果代入到 \eqref{eq:3.2} 即得
 \[ {\color{red} \frac{u_j^{n+1} - u_j^{n-1}}{2\tau} + a \frac{u_{j+1}^n - u_{j-1}^n}{2h} = 0. } \]
-该格式称之为{\color{red}蛙跳格式}.
+该格式称之为\bluebf{蛙跳格式}，它也是对$u_t,u_x$使用中心差商近似所得到的结果
+\end{instance}
 
 \begin{note}
     有限体积法可用以构造求解守恒律方程的 ENO 和 WENO 格式.
 \end{note}
 
+\begin{instance}[求解Poisson方程的有限体积法]
+    现在我们要使用有限体积方法求解Poisson方程$\Delta u=0$的差分格式.\par
+    \noindent\allbf{Step 1}\quad 采用结构化矩形网格，节点$P$代表主节点，其相邻节点为$E,W,N,S$，控制界面为$e,w,n,s$，网格间距为$\Delta x,\Delta y$.\par
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\textwidth]{fig/2.5.png}
+        \captionof{figure}{求解Poisson方程的有限体积法网格示意图}
+    \end{figure}
+    \noindent\allbf{Step 2}\quad 获得积分守恒方程，在控制体积$CV_p$上积分方程：
+    \[\int_{CV_p}\Delta u\d V=0\Rightarrow \oint_{\partial CV_p} \partial_{\bf{n}} u\d S=0\]
+    \noindent\allbf{Step 3}\quad 通量离散与方程组装，将积分分解为四个界面通量之和，\bluebf{以中心差分近似界面梯度}，例如东界面：
+    \[J_e=\left(\frac{\partial u}{\partial x}\right)_e\approx \frac{u_E-u_P}{\delta x_{PE}}\]
+    同理处理其他界面，代入积分方程，假设网格均匀，整理得：
+    \[a_Pu_P=a_Eu_E+a_Wu_W+a_Nu_N+a_Su_S\]
+    其中，$a_E=a_W=\frac{\Delta y}{\Delta x}, \ a_N=a_S=\frac{\Delta x}{\Delta y},a_P=a_E+a_W+a_N+a_S$.
+    对每个内部节点列出此方程，结合边界条件，即可形成并求解线性方程组，最终得到的格式就是五点差分格式.
+\end{instance}
+
 \section{差分格式的收敛性和稳定性}
 
 \begin{definition}[逐点收敛性]
-    设 $u_j^n$ 是由差分格式 \eqref{eq:2.2} 所得数值解，如果对任一解域中的点 $(x,t)$，网格点列满足 $\lim_{j\to\infty} x_j = x, \ \lim_{n\to\infty} t_n = t$ 时，可以推得
+    设 $u_j^n$ 是由差分格式$L_hu_j^n=0$所得数值解，如果对任一解域中的点 $(x,t)$，网格点列满足 $\lim_{j\to\infty} x_j = x, \ \lim_{n\to\infty} t_n = t$ 时，可以推得
     \[ \lim_{j,n \to \infty} (u_j^n - u(x,t)) = 0, \]
-    则称差分格式 \eqref{eq:2.2} 是\colorbf{逐点收敛的}.
+    则称差分格式$L_hu_j^n=0$是\colorbf{逐点收敛的}.
 \end{definition}
 
 由于格点列满足条件 $\lim_{j\to\infty} x_j = x, \ \lim_{n\to\infty} t_n = t$，而根据定义 $x_j = jh, \ t_n = n\tau$，因此 $\tau, h \to 0$. 于是，逐点收敛性的定义可等价表示为，如果 $\lim_{\tau \to 0} x_j = x, \ \lim_{h \to 0} t_n = t$ 时，可以推得
 \[ \lim_{h, \tau \to 0} (u_j^n - u(x,t)) = 0. \]
-
-现在来讨论求解对流方程 \eqref{eq:convection_ivp} 的差分格式 \eqref{eq:1.5} 的逐点收敛性. \par
-{\color{blue} 步 1.} 由格式定义并使用恒等算子 $I: I u_j^n = u_j^n$ 与位移算子 $E: E u_j^n = u_{j+1}^n$，可知
-\[ u_j^{n+1} = \{(1 + a\lambda)I - a\lambda E\}u_j^n = \{(1 + a\lambda)I - a\lambda E\}^n u_j^0. \]
+\begin{instance}[对流方程向前差分格式的逐点收敛性]
+    现在来讨论求解对流方程$\begin{cases} 
+    u_t + a u_x = 0, \\ 
+    t = 0, \ u = u_0(x)
+    \end{cases}$的差分格式$\frac{u_j^{n+1} - u_j^n}{\tau} + a \frac{u_{j+1}^n - u_j^n}{h} = 0$的逐点收敛性. \par
+\noindent\bluebf{步 1.} 由格式定义并使用恒等算子 $I: I u_j^n = u_j^n$ 与位移算子 $E: E u_j^n = u_{j+1}^n$，可知
+\[ u_j^{n+1} = ((1 + a\lambda)I - a\lambda E)u_j^n = \left((1 + a\lambda)I - a\lambda E\right)^n u_j^0. \]
+这种结构让我们联想到二项式定理，但我们并为可知二项式定理是否对算子生效，有以下结果：
+\begin{theorem}[算子的二项式定理]
+    如果$AB=BA$，则$(A+B)^n=\sum_{k=0}^n\mathrm{C}_n^m A^{n-m}B^m.$
+\end{theorem}
 所以，
 \begin{equation}
     \begin{aligned}
@@ -394,15 +416,16 @@ u_j^{n-1}=(1-a\lambda)u_j^n+a\lambda u_{j+1}^n.
     \end{aligned} \label{eq:4.1}
 \end{equation}
 
-{\color{blue} 步 2.} 取
+\noindent\bluebf{步 2.} 取
 \[ u_0(x) = f(x) = \begin{cases}
     0, & x < -1, \\
-    6x^5 + 15x^4 + 10x^3 + 1, & -1 \le x < 0, \\
-    1, & 0 \le x.
+    6x^5 + 15x^4 + 10x^3 + 1, & -1 \leq x < 0, \\
+    1, & x \geq 0.
 \end{cases} \]
-选取 $t_n = t$ 使得 $at \ge 1$，则由 \eqref{eq:exact_sol} 有 $u(0, t_n) = f(-at) = 0$，而由表达式 \eqref{eq:4.1} 可得 $u_0^n = 1$，因此差分格式 \eqref{eq:1.5} 不逐点收敛.
-
-现在再来研究如下差分格式的逐点收敛性.
+选取 $t_n = t$ 使得 $at \geq 1$，则由 \eqref{eq:exact_sol} 有 $u(0, t_n) = f(-at) = 0$，而由表达式 \eqref{eq:4.1} 可得 $u_0^n = 1$，因此差分格式 \eqref{eq:1.5} 不逐点收敛.
+\end{instance}
+\begin{instance}[对流方程$u_x$向后差分格式的逐点收敛性]
+    现在再来研究如下差分格式的逐点收敛性.
 \begin{equation}
     {\color{red}
     \begin{cases}
@@ -411,90 +434,92 @@ u_j^{n-1}=(1-a\lambda)u_j^n+a\lambda u_{j+1}^n.
     \end{cases}
     } \label{eq:4.2}
 \end{equation}
-式中常数 $a > 0$，并设初始函数 $f \in C^2(-\infty, +\infty)$ 且存在常数 $M > 0$ 使得
-\begin{equation}
-    |f''(x)| \le M, \quad -\infty < x < +\infty. \label{eq:4.3}
-\end{equation}
-
+\noindent\bluebf{Step 1.$u_j^n$的显示表达式}
 由 \eqref{eq:4.2} 经直接计算知
 \[ u_j^{n+1} = (1 - a\lambda)u_j^n + a\lambda u_{j-1}^n = [(1 - a\lambda)I + a\lambda E^{-1}]u_j^n, \]
-从而有
-\[ u_j^n = [(1 - a\lambda)I + a\lambda E^{-1}]^n u_j^0. \]
+从而有$u_j^n = [(1 - a\lambda)I + a\lambda E^{-1}]^n u_j^0.$\par
 所以，
 \begin{equation}
     {\color{red}
     \begin{aligned}
-        u_j^n &= \sum_{m=0}^n C_n^m (1 - a\lambda)^{n-m} (a\lambda)^m u_{j-m}^0 \\
-        &= \sum_{m=0}^n C_n^m (1 - a\lambda)^{n-m} (a\lambda)^m f((j-m)h).
+        u_j^n &= \sum_{m=0}^n \mathrm{C}_n^m (1 - a\lambda)^{n-m} (a\lambda)^m u_{j-m}^0 \\
+        &= \sum_{m=0}^n \mathrm{C}_n^m (1 - a\lambda)^{n-m} (a\lambda)^m f((j-m)h).
     \end{aligned}
     } \label{eq:4.4}
 \end{equation}
-
+\noindent\bluebf{Step 2.收敛性分析}
 如令 $x = x_j, \ t = t_n$，则由对流方程精确解的表达式知
 \[ u(x_j, t_n) = f(x_j - a t_n) = f(x - at). \]
-则由 \eqref{eq:4.4} 和泰勒展开有
+问题是：$\lim_{h\to 0}u_j^n=u(x,t)=f(x-at)$是否成立.首先需要以下两个假设：
+\begin{enumerate}[(1)]
+    \item $f \in C^2(-\infty, +\infty)$ 且存在常数 $M > 0$ 使得$\sup_{x \in \mathbb{R}} |f''(x)| \leq M$
+    \item $0<a\lambda\leq 1$
+\end{enumerate}
+
+
+首先由 \eqref{eq:4.4} 和泰勒展开有
 \begin{equation}
-    \begin{aligned}
-        {\color{red} u_j^n} &= \sum_{m=0}^n C_n^m (1 - a\lambda)^{n-m} (a\lambda)^m \{ f(x - at) + f'(x - at)(at - mh) \\
+    \setjot[-2]\begin{aligned}
+        {\color{red} u_j^n} &= \sum_{m=0}^n \mathrm{C}_n^m (1 - a\lambda)^{n-m} (a\lambda)^m \{ f(x - at) + f'(x - at)(at - mh) \\
         &\quad + \frac{1}{2} f''(\xi_m)(at - mh)^2 \} \\
-        &= f(x - at) \sum_{m=0}^n C_n^m (1 - a\lambda)^{n-m} (a\lambda)^m \\
-        &\quad + f'(x - at) \sum_{m=0}^n C_n^m (1 - a\lambda)^{n-m} (a\lambda)^m (at - mh) \\
-        &\quad + \frac{1}{2} \sum_{m=0}^n f''(\xi_m) C_n^m (1 - a\lambda)^{n-m} (a\lambda)^m (at - mh)^2 \\
+        &= f(x - at) \sum_{m=0}^n \mathrm{C}_n^m (1 - a\lambda)^{n-m} (a\lambda)^m \\
+        &\quad + f'(x - at) \sum_{m=0}^n \mathrm{C}_n^m (1 - a\lambda)^{n-m} (a\lambda)^m (at - mh) \\
+        &\quad + \frac{1}{2} \sum_{m=0}^n f''(\xi_m) \mathrm{C}_n^m (1 - a\lambda)^{n-m} (a\lambda)^m (at - mh)^2 \\
         &= {\color{red} : f(x - at) + f'(x - at)\{\mathrm{I}\} + \{\mathrm{II}\} },
     \end{aligned} \label{eq:4.5}
 \end{equation}
 式中，$\xi_m$ 为 Taylor 展开中值.
 
-\begin{instance}[两个基本恒等式]
+\begin{important}[两个基本恒等式]
     \begin{equation}
-        \sum_{m=0}^n C_n^m (1 - p)^{n-m} p^m m = np, \label{eq:4.6}
+        \sum_{m=0}^n \mathrm{C}_n^m (1 - p)^{n-m} p^m m = np, \label{eq:4.6}
     \end{equation}
     \begin{equation}
-        \sum_{m=0}^n C_n^m (1 - p)^{n-m} p^m m^2 = np + n(n - 1) p^2. \label{eq:4.7}
+        \sum_{m=0}^n \mathrm{C}_n^m (1 - p)^{n-m} p^m m^2 = np + n(n - 1) p^2. \label{eq:4.7}
     \end{equation}
-\end{instance}
+\end{important}
+借助以上两个恒等式，我们可以对 \eqref{eq:4.5} 中的 $\mathrm{I}$ 和 $\mathrm{II}$ 进行估计.
 
-\subsection*{$\mathrm{I}$ 和 $\mathrm{II}$ 的估计}
-
-{\color{blue} 步 1：$\mathrm{I}$ 的估计.} 由 \eqref{eq:4.6} 可知
+\bluebf{步 1：$\mathrm{I}$ 的估计.} 由 \eqref{eq:4.6} 可知
 \begin{equation}
-    \begin{aligned}
-        \mathrm{I} &= \sum_{m=0}^n C_n^m (1 - a\lambda)^{n-m} (a\lambda)^m (at - mh) \\
-        &= at - h \sum_{m=0}^n C_n^m (1 - a\lambda)^{n-m} (a\lambda)^m m \\
+    \setjot[-2]\begin{aligned}
+        \mathrm{I} &= \sum_{m=0}^n \mathrm{C}_n^m (1 - a\lambda)^{n-m} (a\lambda)^m (at - mh) \\
+        &= at - h \sum_{m=0}^n \mathrm{C}_n^m (1 - a\lambda)^{n-m} (a\lambda)^m m \\
         &= at - a\lambda nh = 0,
     \end{aligned} \label{eq:4.8}
 \end{equation}
 
-{\color{blue} 步 2：$\mathrm{II}$ 估计.} 由 \eqref{eq:4.6} 和 \eqref{eq:4.7} 可知
+\noindent\bluebf{步 2：$\mathrm{II}$ 估计.} 由 \eqref{eq:4.6} 和 \eqref{eq:4.7} 可知
 \begin{equation}
-    \begin{aligned}
-        \sum_{m=0}^n C_n^m (1 - a\lambda)^{n-m} (a\lambda)^m (at - mh)^2 
-        &= (at)^2 - 2ath \sum_{m=0}^n C_n^m (1 - a\lambda)^{n-m} (a\lambda)^m m \\
-        &\quad + h^2 \sum_{m=0}^n C_n^m (1 - a\lambda)^{n-m} (a\lambda)^m m^2 \\
-        &= hat(1 - a\lambda).
+    \setjot[-2]\begin{aligned}
+        \sum_{m=0}^n \mathrm{C}_n^m (1 - a\lambda)^{n-m} (a\lambda)^m (at - mh)^2 
+        &= (at)^2 - 2ath \sum_{m=0}^n \mathrm{C}_n^m (1 - a\lambda)^{n-m} (a\lambda)^m m \\
+        &\quad + h^2 \sum_{m=0}^n \mathrm{C}_n^m (1 - a\lambda)^{n-m} (a\lambda)^m m^2 \\
+        &= \hat{(1 - a\lambda)}.
     \end{aligned} \label{eq:4.9}
 \end{equation}
 
-假设 $0 < a\lambda \le 1$. 由 \eqref{eq:4.3} 和 \eqref{eq:4.9} 易知
+假设 $0 < a\lambda \leq 1$. 由$\sup_{x \in \mathbb{R}} |f''(x)| \leq M$和 \eqref{eq:4.9} 易知
 \begin{equation}
-    \begin{aligned}
-        |\mathrm{II}| &\le \frac{M}{2} \sum_{m=0}^n C_n^m (1 - a\lambda)^{n-m} (a\lambda)^m (at - mh)^2 \\
-        &\le \frac{M}{2} hat(1 - a\lambda).
+    \setjot[-2]\begin{aligned}
+        |\mathrm{II}| &\leq \frac{M}{2} \sum_{m=0}^n C_n^m (1 - a\lambda)^{n-m} (a\lambda)^m (at - mh)^2 \\
+        &\leq \frac{M}{2} \hat{(1 - a\lambda)}.
     \end{aligned} \label{eq:4.10}
 \end{equation}
 
 联立 \eqref{eq:4.5}、\eqref{eq:4.8} 和 \eqref{eq:4.10} 可得
 \[ \lim_{h \to 0} u_j^n = f(x - at). \]
 
-换言之，{\color{red} 当 $0 < a\lambda \le 1$ 时}，差分格式 \eqref{eq:4.2} 是收敛的，且收敛阶恰为一阶.
+换言之，{\color{red} 当 $0 < a\lambda \leq 1$ 时}，差分格式 \eqref{eq:4.2} 是收敛的，且收敛阶恰为一阶.
 
 \begin{remark}
     当 $a\lambda > 1$ 时，该格式是不收敛的.
 \end{remark}
+\end{instance}
 
 \subsection*{差分格式的稳定性}
 
-以格式 \eqref{eq:1.5} 为例展开讨论. 首先，它可重写为
+以格式 \eqref{eq:1.5}$\frac{u_j^{n+1} - u_j^n}{\tau} + a \frac{u_{j+1}^n - u_j^n}{h} = 0$为例展开讨论. 首先，它可重写为
 \begin{equation}
     \begin{cases}
         u_j^{n+1} = u_j^n - a\lambda(u_{j+1}^n - u_j^n), \\
@@ -509,9 +534,11 @@ u_j^{n-1}=(1-a\lambda)u_j^n+a\lambda u_{j+1}^n.
         \tilde{u}_j^0 = \tilde{f}_j = f_j + \varepsilon_j,
     \end{cases} \label{eq:4.12}
 \end{equation}
-式中，$\varepsilon_j$ 表示舍入误差或测量误差. 这里，为简化讨论忽略了逐层计算中产生的舍入误差.
+式中，$\varepsilon_j$ 表示舍入误差或测量误差. 这里，为简化讨论忽略了逐层计算中产生的舍入误差.如果一个方法在计算时一些微小的误差都会使整个结果偏差巨大，那么这个方法得到的结果就并不稳定.因此，差分格式的稳定性是一个差分格式能否应用的重要标准.\par
 
-令 $\varepsilon_j^n = \tilde{u}_j^n - u_j^n$，则由 \eqref{eq:4.11} 和 \eqref{eq:4.12} 立知
+
+
+令 $\varepsilon_j^n = \tilde{u}_j^n - u_j^n$，则由 $\eqref{eq:4.12}-\eqref{eq:4.11}$ 立知
 \[ {\color{red}
 \begin{cases}
     \varepsilon_j^{n+1} = \varepsilon_j^n - a\lambda(\varepsilon_{j+1}^n - \varepsilon_j^n), \\
@@ -519,20 +546,18 @@ u_j^{n-1}=(1-a\lambda)u_j^n+a\lambda u_{j+1}^n.
 \end{cases}
 } \]
 
-所以，
-\begin{align*}
+所以，$\setjot[-2]\begin{aligned}[t]
     \varepsilon_j^n &= [(1 + a\lambda)I - a\lambda E]^n \varepsilon_j^0 \\
     &= \sum_{m=0}^n C_n^m (1 + a\lambda)^{n-m} (-a\lambda)^m \varepsilon_{j+m}^0 \\
     &= \sum_{m=0}^n C_n^m (1 + a\lambda)^{n-m} (-a\lambda)^m \varepsilon_{j+m}.
-\end{align*}
+\end{aligned}$\par
 {\color{red} 如果取 $\varepsilon_m = (-1)^m \varepsilon \ (\varepsilon > 0 \text{ 为常数})$}，则有
 \[ \varepsilon_j^n = \sum_{m=0}^n C_n^m (1 + a\lambda)^{n-m} (-a\lambda)^m (-1)^{j+m} \varepsilon = (-1)^j (1 + 2a\lambda)^n \varepsilon, \]
-即得
-\[ {\color{red} |\varepsilon_j^n| = (1 + 2a\lambda)^n \varepsilon.} \]
+即得${\color{red} |\varepsilon_j^n| = (1 + 2a\lambda)^n \varepsilon.}$\par
 
-\begin{instance}[结论]
+\begin{conclusion}
     对于固定的网格比 $\lambda$ 和 $a > 0$，差分格式实际计算带来的误差随时间网格层数 $n$ 的增加呈指数函数增加. 这样一来，计算解和差分格式精确解尽管初始时刻只有大小为 $\varepsilon$ 的偏差，但随着时间方向计算的不断递进，两者误差将变得非常巨大，计算解完全不能逼近差分格式精确解. 因此，可以认为该差分格式是不稳定的.
-\end{instance}
+\end{conclusion}
 
 再来看差分格式 \eqref{eq:4.2} 的稳定性情况. 同前分析，设 $\varepsilon_j^n$ 为 $(j,n)$ 处计算解与差分格式精确解间的误差，则有
 \begin{equation*}
@@ -543,8 +568,7 @@ u_j^{n-1}=(1-a\lambda)u_j^n+a\lambda u_{j+1}^n.
 \end{equation*}
 进而得
 \[ \varepsilon_j^n = \sum_{m=0}^n C_n^m (1 - a\lambda)^{n-m} (a\lambda)^m \varepsilon_{j-m}. \]
-因此，{\color{red} 当 $0 < a\lambda \le 1$ 时}，成立
-\[ {\color{red} \max_{-\infty < j < +\infty} |\varepsilon_j^n| \le \max_{-\infty < j < +\infty} |\varepsilon_j|.} \]
+因此，{\color{red} 当 $0 < a\lambda \leq 1$ 时}，成立${\color{red} \max_{-\infty < j < +\infty} |\varepsilon_j^n| \leq \max_{-\infty < j < +\infty} |\varepsilon_j|.}$\par
 这样一来，随着时间方向计算的不断推进，计算解和差分格式精确解的误差总是能被它们在初始时刻的误差所控制. 因此，可以认为该差分格式在满足前面给定条件时是稳定的.
 
 下面来讨论一般差分格式的稳定性. 设差分格式为
@@ -561,26 +585,29 @@ u_j^{n-1}=(1-a\lambda)u_j^n+a\lambda u_{j+1}^n.
 \end{equation}
 
 \begin{remark}
-    误差方程和差分方程是一样的，在讨论稳定性时，不妨直接讨论差分方程就可以了. 若对于非线性差分格式，就要区别对待.
+    对于线性差分格式，误差方程和差分方程是一样的，在讨论稳定性时，不妨直接讨论差分方程就可以了. 若对于非线性差分格式，就要区别对待.
 \end{remark}
 
 记 $\bm{\varepsilon}^n = \{\varepsilon_j^n\}_{j=-\infty}^{+\infty}$，并引入范数 $\| \cdot \|$ 以度量误差. 常用的范数包括：
 \[ \|\bm{\varepsilon}^n\|_h = \left( h \sum_{j=-\infty}^{+\infty} (\varepsilon_j^n)^2 \right)^{1/2}, \quad \|\bm{\varepsilon}^n\|_\infty = \max_{-\infty < j < +\infty} |\varepsilon_j^n|. \]
 
 \begin{definition}[稳定性]
-    对任意给定的实数 $T > 0$，存在正数 $\tau_0 > 0$ 及 $K > 0$ 使得对任意满足 $0 < \tau \le \tau_0, \ n\tau \le T$ 的实数 $\tau$ 和非负整数 $n$ 成立
+    对任意给定的实数 $T > 0$，存在正数 $\tau_0 > 0$ 及 $K > 0$ 使得对任意满足 $0 < \tau \leq \tau_0, \ n\tau \leq T$ 的实数 $\tau$ 和非负整数 $n$ 成立
     \begin{equation}
-        \|\bm{\varepsilon}^n\| \le K \|\bm{\varepsilon}^0\|, \label{eq:4.16}
+        \|\bm{\varepsilon}^n\| \leq K \|\bm{\varepsilon}^0\|, \label{eq:4.16}
     \end{equation}
     则称差分格式 \eqref{eq:4.13} 在范数 $\| \cdot \|$ 的意义下是稳定的.
 \end{definition}
-
+\begin{remark}
+    $\tau_0$可依赖于$T$，$K$可依赖于$T,\tau_0$，因此又称为\bluebf{零稳定性}.\par
+    稳定性和范数的选取相关.
+\end{remark}
 注意到关系式 \eqref{eq:4.15}，如记
 \[ \|S_h^n\| = \sup_{\|v\|=1} \|S_h^n v\|, \]
 则以上稳定性定义中的要求 \eqref{eq:4.16} 等价于如下约束条件：
-\[ \|S_h^n\| \le K. \]
+\[ \|S_h^n\| \leq K. \]
 
-\subsection*{Lax 等价性定理}
+\subsection*{Lax 等价性定理}如果添加上适定性条件，那么差分方程的稳定性分析和收敛性判断会更加方便.
 
 \begin{definition}[适定性]
     若初 (边) 值问题存在唯一解，并且连续依赖原始资料 (如非齐次项，初始条件，边界条件等)，则称该初 (边) 值问题是\colorbf{适定的}.
@@ -595,17 +622,17 @@ u_j^{n-1}=(1-a\lambda)u_j^n+a\lambda u_{j+1}^n.
 \subsection{Fourier 变换回顾}
 
 设 $u(x) \in L^2(\mb{R})$，这里 $L^2(\mb{R})$ 表示由直线 $\mb{R}$ 上平方可积函数全体组成之集合. 则其 Fourier 变换定义为
-\begin{equation}
+\begin{equation*}
     \widehat{u}(k) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{+\infty} u(x) \mathrm{e}^{-\mathrm{i}kx} \d x, 
-\end{equation}
+\end{equation*}
 式中 $\mathrm{i} = \sqrt{-1}$.
 
 相应的逆变换为
-\begin{equation}
+\begin{equation*}
     u(x) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{+\infty} \widehat{u}(k) \mathrm{e}^{\mathrm{i}kx} \d k. 
-\end{equation}
+\end{equation*}
 
-\begin{instance}[基本性质]
+\begin{property}[Fourier 变换的基本性质]
     \begin{itemize}
         \item Fourier 变换是一个线性运算，换言之，设 $u, v \in L^2(\mb{R})$ 而 $a$ 为任一复数，则成立
         \begin{equation}
@@ -616,10 +643,21 @@ u_j^{n-1}=(1-a\lambda)u_j^n+a\lambda u_{j+1}^n.
         \begin{equation}
             \|u\|_{L^2(\mb{R})} = \|\widehat{u}\|_{L^2(\mb{R})}. \label{eq:parseval}
         \end{equation}
-    \end{itemize}
-\end{instance}
 
-Fourier 变换还有一些其他重要性质，{\color{red} 例如能将函数求导转化为乘子运算}，因此可以用来获得微分方程显式解和研究微分方程正则性等，因为后文不涉及这些性质，在此不一一介绍.
+        \item Fourier变换能将函数求导转化为乘子运算，即
+        \begin{equation}
+            \widehat{D^m u'}(k) = k^m \widehat{u}(k), D=\frac{1}{\mathrm{i}}\partial_x \label{eq:fourier_derivative}
+        \end{equation}
+    \end{itemize}
+\end{property}
+第三个性质可以帮我我们求解部分数学物理方程.例如对于方程$\begin{cases}
+    u_t=au_{xx}=-a D_x^2 u, \\
+    t=0, u=u_0(x)
+\end{cases}$.\par
+对其作 Fourier 变换得$\begin{cases}
+    \widehat{u}_t(k,t)=-a k^2 \widehat{u}(k,t), \\
+    t=0, \widehat{u}=\widehat{u}_0(k).
+\end{cases}$，则在固定的$k$上，它是一个常微分方程，从而可以得到其解为$\widehat{u}(k,t)=\widehat{u_0}(k)\mathrm{e}^{-ak^2t}$.
 
 \subsection{用 Fourier 变换研究差分格式稳定性}
 
@@ -635,11 +673,11 @@ Fourier 变换还有一些其他重要性质，{\color{red} 例如能将函数�
     \end{cases} \label{eq:fourier_diff}
 \end{equation}
 
-\bluebf{步1：离散问题连续化.} 将仅在时空格点上成立的差分格式 \eqref{eq:fourier_diff} 沿空间方向延拓定义到整个实数轴上. 为此令
+\noindent\bluebf{步1：离散问题连续化.} 在$t=t_h$处，将仅在时空格点上成立的差分格式 \eqref{eq:fourier_diff} 沿空间方向延拓定义到整个实数轴上，即将函数值向左右各延伸半个步长，形成阶梯函数.为此令
 \begin{equation}
     \begin{cases}
-        u^n(x) = u_j^n, \quad (j - 1/2)h \le x < (j + 1/2)h, \\
-        u^0(x) = u_0(x_j), \quad (j - 1/2)h \le x < (j + 1/2)h.
+        u^n(x) = u_j^n, \quad (j - 1/2)h \leq x < (j + 1/2)h, \\
+        u^0(x) = u_0(x_j), \quad (j - 1/2)h \leq x < (j + 1/2)h.
     \end{cases}
 \end{equation}
 
@@ -651,7 +689,7 @@ Fourier 变换还有一些其他重要性质，{\color{red} 例如能将函数�
     {\color{red} \|u^n(x)\|_{L^2(\mb{R})}^2 = \sum_{j=-\infty}^{+\infty} \int_{(j-1/2)h}^{(j+1/2)h} (u_j^n)^2 \d x = \|u^n\|_h^2.} \label{eq:fourier_norm}
 \end{equation}
 
-\bluebf{步2：差分方程在频域空间的描述.} 对 $u^n(x)$ 作 Fourier 变换得 $\widehat{u}^n(k)$，再由 \eqref{eq:fourier_u_np1} 和性质 \eqref{eq:fourier_linear} 易知
+\noindent\bluebf{步2：差分方程在频域空间的描述.} 对 $u^n(x)$ 作 Fourier 变换得 $\widehat{u}^n(k)$，再由 \eqref{eq:fourier_u_np1} 和性质 \eqref{eq:fourier_linear} 易知
 \begin{equation*}
     \widehat{u}^{n+1}(k) = \widehat{u}^n(k) - a\lambda \left( \widehat{u^n(x+h)}(k) - \widehat{u}^n(k) \right),
 \end{equation*}
@@ -664,29 +702,26 @@ Fourier 变换还有一些其他重要性质，{\color{red} 例如能将函数�
 \begin{equation*}
     \widehat{u}^{n+1}(k) = G(\tau, k)\widehat{u}^n(k),
 \end{equation*}
-式中，$G(\tau, k) = 1 + a\lambda - a\lambda \mathrm{e}^{\mathrm{i}kh}$ 称为差分格式 \eqref{eq:fourier_diff} 的增长因子. 于是
+式中，$G(\tau, k) = 1 + a\lambda - a\lambda \mathrm{e}^{\mathrm{i}kh}$ 称为差分格式 \eqref{eq:fourier_diff} 的\bluebf{增长因子}. 于是
 \begin{equation*}
     \boxed{ {\color{red} \widehat{u}^n(k) = G(\tau, k)^n \widehat{u}^0(k).} }
 \end{equation*}
 
-\bluebf{步3：稳定性分析.} 根据稳定性定义知，若格式 \eqref{eq:fourier_diff} 是稳定的，由 Parseval 恒等式 \eqref{eq:parseval} 和 \eqref{eq:fourier_norm} 知，对任意 $T > 0$，存在 $\tau_0$ 和 $K > 0$，当 $0 < \tau \le \tau_0, \ 0 \le n\tau \le T$ 时成立
+\noindent\bluebf{步3：稳定性分析.} 根据稳定性定义知，若格式 \eqref{eq:fourier_diff} 是稳定的，由 Parseval 恒等式 \eqref{eq:parseval} 和 \eqref{eq:fourier_norm} 知，对任意 $T > 0$，存在 $\tau_0$ 和 $K > 0$，当 $0 < \tau \leq \tau_0, \ 0 \leq n\tau \leq T$ 时成立
 \begin{equation}
-    \|G(\tau, k)^n \widehat{u}^0(k)\|_{L^2(\mb{R})} \le K \|\widehat{u}^0(k)\|_{L^2(\mb{R})}. \label{eq:fourier_stab_cond}
+    \|G(\tau, k)^n \widehat{u}^0(k)\|_{L^2(\mb{R})} \leq K \|\widehat{u}^0(k)\|_{L^2(\mb{R})}. \label{eq:fourier_stab_cond}
 \end{equation}
-
-\begin{instance}[辅助结果]
-    对于任一 $\mb{R}$ 上的连续有界函数 $g$，成立
-    \begin{equation*}
-        \sup_{v \in L^2(\mb{R})} \frac{\|gv\|_{L^2(\mb{R})}}{\|v\|_{L^2(\mb{R})}} = \sup_{k \in \mb{R}} |g(k)|.
-    \end{equation*}
-\end{instance}
-
-故知 \eqref{eq:fourier_stab_cond} 实即
+移项后即知 \eqref{eq:fourier_stab_cond} 实即
 \begin{equation}
-    {\color{red} \sup_{k \in \mb{R}} |G(\tau, k)^n| \le K.} 
+    {\color{red} \sup_{k \in \mb{R}} |G(\tau, k)^n| \leq K.} 
 \end{equation}
-
-\subsection{一般化}
+而$G=(1+a\lambda)-a\lambda\eu^{\iu kh}=(1+a\lambda-a\lambda\cos kh)-\iu a\lambda\sin kh$.\par
+故$\setjot[-2]\begin{aligned}[t]
+        |G|^2 &= (1 + a\lambda - a\lambda \cos kh)^2 + (a\lambda \sin kh)^2 \\
+        &= (1 + a\lambda)^2 + (a\lambda)^2 - 2a\lambda(1 + a\lambda)\cos kh.
+\end{aligned}$\par
+因此\[\sup_{k}|G^2|=(1+2a\lambda)^2,\sup_k|G^n|=(1+2a\lambda)^n\to\infty,n\to\infty\]
+从而差分格式 \eqref{eq:fourier_diff} 不稳定.\par
 
 不难验证，以上研究差分格式稳定性的 Fourier 方法可以推广到一般情形. 事实上，给定一个常系数微分方程 (组) 初值问题
 \begin{equation}
@@ -698,17 +733,17 @@ Fourier 变换还有一些其他重要性质，{\color{red} 例如能将函数�
 式中 $\bm{A}$ 为 $p$ 阶常系数矩阵，则有以下定理：
 
 \begin{theorem}[判别差分格式稳定性的 Fourier 方法]
-    设求解问题 \eqref{eq:fourier_general} 的差分格式对应的增长矩阵为 $\bm{G}(\tau, k)$，那么该格式在范数 $\|\cdot\|_h$ 的意义下稳定的充要条件是：{\color{red} 对任意 $T > 0$，存在正常数 $\tau_0$ 和 $K$，当 $0 < \tau \le \tau_0, \ n\tau \le T$ 时成立}
-    \begin{equation}\label{eq:fourier_stab_theorem_cond}
-        {\color{red} \sup_{k} \|\bm{G}^n(\tau, k)\|_2 \le K,}
-    \end{equation}
-    {\color{red} 式中 $\|\cdot\|_2$ 表示矩阵 $2$ 范数.}
+    设求解问题 \eqref{eq:fourier_general} 的差分格式对应的增长矩阵为 $\bm{G}(\tau, k)$，那么该格式在范数 $\|\cdot\|_h$ 的意义下稳定的充要条件是：{对任意 $T > 0$，存在正常数 $\tau_0$ 和 $K$，当 $0 < \tau \leq \tau_0, \ n\tau \leq T$ 时成立}
+    \colorbf{\begin{equation}\label{eq:fourier_stab_theorem_cond}
+        \sup_{k} \|\bm{G}^n(\tau, k)\|_2 \leq K,
+    \end{equation}}
+    {式中 $\|\cdot\|_2$ 表示矩阵 $2$ 范数.}
 \end{theorem}
 
 \begin{itemize}
-    \item 在后文中如果没有特别指出，则差分格式的稳定性都是在范数 $\|\cdot\|_h$ 的意义下讨论的。
-    \item 为了使用以上结果判别差分格式的稳定性，关键是得到相应的增长矩阵 $\bm{G}(\tau, k)$。
-    实际上，通过差分格式稳定性的 Fourier 级数分析方法可知，如设 $\bm{u}_j^n = \bm{v}^n \mathrm{e}^{\mathrm{i} j k h}$，将其代入差分方程而得关系式 $\bm{v}^{n+1} = \bm{G}(\tau, k)\bm{v}^n$，则 $\bm{G}(\tau, k)$ 就是该差分格式对应的增长矩阵。如果增长矩阵的阶为 $1$，则称之为增长因子。
+    \item 在后文中如果没有特别指出，则差分格式的稳定性都是在范数 $\|\cdot\|_h$ 的意义下讨论的.
+    \item 为了使用以上结果判别差分格式的稳定性，关键是得到相应的增长矩阵 $\bm{G}(\tau, k)$.
+    实际上，通过差分格式稳定性的 Fourier 级数分析方法可知，如设 $\bm{u}_j^n = \bm{v}^n \mathrm{e}^{\mathrm{i} j k h}$，将其代入差分方程而得关系式 $\bm{v}^{n+1} = \bm{G}(\tau, k)\bm{v}^n$，则 $\bm{G}(\tau, k)$ 就是该差分格式对应的增长矩阵.如果增长矩阵的阶为 $1$，则称之为增长因子.
 \end{itemize}
 
 对于差分格式 \eqref{eq:1.7}，如取 $kh = \frac{2m\pi+\pi}{2}$，则知
@@ -716,24 +751,27 @@ Fourier 变换还有一些其他重要性质，{\color{red} 例如能将函数�
     |G(\tau,k)| &= \sqrt{(1+a\lambda)^2 + (a\lambda)^2 - 2a\lambda(1+a\lambda)\cos kh} \\
     &= \sqrt{(1+a\lambda)^2 + (a\lambda)^2} > 1,
 \end{align*}
-因此不稳定。
+因此不稳定.
 
 \begin{instance}
     考察求解对流方程 \eqref{eq:convection_ivp} 的以下差分格式的稳定性：
     \begin{equation}
         \frac{u_j^{n+1} - u_j^n}{\tau} + a \frac{u_{j+1}^n - u_{j-1}^n}{2h} = 0. \label{eq:ex1.1_diff}
     \end{equation}
-
+    \noindent\bluebf{Step 1：写出递归关系}
     首先，格式 \eqref{eq:ex1.1_diff} 可重写为
-    \[ u_j^{n+1} = u_j^n - \frac{a\lambda}{2}(u_{j+1}^n - u_{j-1}^n). \]
-    记 $u_j^n = v^n \mathrm{e}^{\mathrm{i} j k h}$，代入上式有
+    \[ u_j^{n+1} = u_j^n - \frac{a\lambda}{2}(u_{j+1}^n - u_{j-1}^n),\lambda=\frac{\tau}{h}\]
+    这是一个二层显示格式.\par
+    \noindent\bluebf{Step 2：求解增长因子}
+    记 \bluebf{$u_j^n = v^n \mathrm{e}^{\mathrm{i} j k h}=v^n\eu^{\iu x_j h}$}，代入上式有
     \[ v^{n+1} = \left[ 1 - \frac{a\lambda}{2} \left( \mathrm{e}^{\mathrm{i} k h} - \mathrm{e}^{-\mathrm{i} k h} \right) \right] v^n, \]
     故得
     \begin{align*}
-        & G(\tau,k) = 1 - \frac{a\lambda}{2} \left( \mathrm{e}^{\mathrm{i} k h} - \mathrm{e}^{-\mathrm{i} k h} \right) = 1 - \mathrm{i} a\lambda \sin(kh), \\
-        & \sup_{k} |G(\tau,k)|^n = (1+a^2\lambda^2)^{n/2},
+        G(\tau,k) = 1 - \frac{a\lambda}{2} \left( \mathrm{e}^{\mathrm{i} k h} - \mathrm{e}^{-\mathrm{i} k h} \right) = 1 - \mathrm{i} a\lambda \sin(kh)
     \end{align*}
-    于是稳定性条件 \eqref{eq:fourier_stab_theorem_cond} 不满足，该格式不稳定。
+    \noindent\bluebf{Step 3：稳定性分析}\;$|G|^2=1+(a\lambda)^2\sin^2 (kh)$.\par
+    因此$\sup_k|G^n|^2=\left(1+(a\lambda)^2\right)^n\to \infty,n\to\infty$.\par
+    于是稳定性条件 \eqref{eq:fourier_stab_theorem_cond} 不满足，该格式不稳定.
 \end{instance}
 
 \begin{instance}
@@ -741,68 +779,78 @@ Fourier 变换还有一些其他重要性质，{\color{red} 例如能将函数�
     \begin{equation}
         \frac{u_j^n - u_j^{n-1}}{\tau} + a \frac{u_j^n - u_{j-1}^n}{h} = 0. \label{eq:ex1.2_diff}
     \end{equation}
-    与上例类似，可以求得
+    可以将其重写为
+    \[(1+a\lambda)u_j^n-a\lambda u_{j-1}^n=u_j^{n-1}\]
+    它是一个二阶隐式格式.令$u_j^n=v_n\eu^{\iu jkh}$，代入后可求得
     \[ G(\tau,k) = \frac{1}{1+a\lambda - \mathrm{e}^{-\mathrm{i}kh}}, \]
     所以，
-    \[ |G(\tau,k)|^2 = \frac{1}{(1+a\lambda)^2 + (a\lambda)^2 - 2a\lambda(1+a\lambda)\cos kh} \le 1, \]
-    故差分格式 \eqref{eq:ex1.2_diff} 满足稳定性条件 \eqref{eq:fourier_stab_theorem_cond}，该格式无条件稳定。
+    \[ |G(\tau,k)|^2 = \frac{1}{(1+a\lambda)^2 + (a\lambda)^2 - 2a\lambda(1+a\lambda)\cos kh} \leq 1, \]
+    故差分格式 \eqref{eq:ex1.2_diff} 满足稳定性条件 \eqref{eq:fourier_stab_theorem_cond}，该格式无条件稳定.
 \end{instance}
 
 \section{Von-Neumann 条件与差分格式稳定性分析初步}
 
 \begin{definition}[Von-Neumann 条件]
-    称增长矩阵 $\bm{G}(\tau,k)$ 满足 Von-Neumann 条件，系指存在 $\tau_0>0$ 和 $M>0$，使当 $0<\tau \le \tau_0$ 时，成立
-    \begin{equation}
-        {\color{red} \sup_{k} |\lambda_j(\tau,k)| \le 1 + M\tau, \quad 1 \le j \le p, } \label{eq:von_neumann_cond}
-    \end{equation}
-    式中，$\lambda_j(\tau,k) = \lambda_j(\bm{G}(\tau,k))$ 表示增长矩阵 $\bm{G}(\tau,k)$ 的第 $j$ 个特征值。
+    称增长矩阵 $\bm{G}(\tau,k)$ 满足\colorbf{Von-Neumann 条件}，系指存在 $\tau_0>0$ 和 $M>0$，使当 $0<\tau \leq \tau_0$ 时，成立
+    \colorbf{\begin{equation}
+        \sup_{k} |\lambda_j(\tau,k)| \leq 1 + M\tau, \quad 1 \leq j \leq p, \label{eq:von_neumann_cond}
+    \end{equation}}
+    式中，$\lambda_j(\tau,k) = \lambda_j(\bm{G}(\tau,k))$ 表示增长矩阵 $\bm{G}(\tau,k)$ 的第 $j$ 个特征值.
 \end{definition}
-
+\begin{note}
+    由于增长矩阵的特征值往往是常数，因此最终的结果大多还是证明sup小于等于1即可
+\end{note}
 \begin{theorem}
-    设 $\bm{G}(\tau,k)$ 是求解某一问题的某一差分格式的增长矩阵，则 Von-Neumann 条件 \eqref{eq:von_neumann_cond} 是该格式在范数 $\|\cdot\|_h$ 的意义下稳定的必要条件。另一方面，如果增长矩阵酉相似于对角阵，则 Von-Neumann 条件也是它在范数 $\|\cdot\|_h$ 的意义下稳定的充分条件。
+    设 $\bm{G}(\tau,k)$ 是求解某一问题的某一差分格式的增长矩阵，则 Von-Neumann 条件 \eqref{eq:von_neumann_cond} 是该格式在范数 $\|\cdot\|_h$ 的意义下稳定的必要条件.\par
+    另一方面，如果$\bm{G}=\bm{S\Lambda S}^{-1}$，其中$\bm{\Lambda}=\diag(\lambda_1,\cdots,\lambda_p),\|\bm{S}\|_2+\|\bm{S}\|_2\leq M<\infty$，则 Von-Neumann 条件也是它在范数 $\|\cdot\|_h$ 的意义下稳定的充分条件.
 \end{theorem}
 
 \begin{proof}
-    由 Fourier 稳定性判别准则知，对任一 $T>0$，存在 $\tau_0$ 和 $K>0$，使当 $0 < \tau \le \tau_0, \ 0 \le n\tau \le T$ 时成立 \eqref{eq:fourier_stab_theorem_cond}。由 $n\tau \le T$ 知 $n \le T/\tau$。在条件 \eqref{eq:fourier_stab_theorem_cond} 中特取 $n^* = [T/\tau]$，这里对于一个实数 $a$，$ [a]$ 表示不超过 $a$ 的最大整数。于是有
-    \[ |\lambda_j(\tau,k)|^{n^*} \le \rho(\bm{G}^{n^*}(\tau,k)) \le \|\bm{G}^{n^*}(\tau,k)\|_2 \le K, \]
-    式中 $\rho(\cdot)$ 表示矩阵的谱半径。
+    由 Fourier 稳定性判别准则知，对任一 $T>0$，存在 $\tau_0$ 和 $K>0$，使当 $0 < \tau \leq \tau_0, \ 0 \leq n\tau \leq T$ 时成立 \eqref{eq:fourier_stab_theorem_cond}.由 $n\tau \leq T$ 知 $n \leq T/\tau$.在条件 \eqref{eq:fourier_stab_theorem_cond} 中特取 $n^* = [T/\tau]$，这里对于一个实数 $a$，$ [a]$ 表示不超过 $a$ 的最大整数.于是有
+    \[ |\lambda_j(\tau,k)|^{n^*} \leq \rho(\bm{G}^{n^*}(\tau,k)) \leq \|\bm{G}^{n^*}(\tau,k)\|_2 \leq K, \]
+    式中 $\rho(\cdot)$ 表示矩阵的谱半径.
     
-    不妨设 $\tau \le T/2$，则由以上估计知
-    \[ |\lambda_j(\tau,k)| \le K^{\frac{1}{[T/\tau]}} \le K^{\frac{1}{T/\tau - 1}} = K^{\frac{\tau}{T-\tau}} \le K^{\frac{2\tau}{T}} = \mathrm{e}^{\frac{2\tau}{T}\ln K} \le 1+M\tau, \]
-    式中 $M$ 仅与 $\tau_0, K$ 和 $T$ 有关。因此，
-    \[ \sup_{k}|\lambda_j(\tau,k)| \le 1 + M\tau, \quad j=1,2,\cdots,p. \]
-    故知 Von-Neumann 条件是差分格式在范数 $\|\cdot\|_h$ 意义下稳定的必要条件。
+    不妨设 $\tau \leq T/2$，则由以上估计知
+    \[ |\lambda_j(\tau,k)| \leq K^{\frac{1}{[T/\tau]}} \leq K^{\frac{1}{T/\tau - 1}} = K^{\frac{\tau}{T-\tau}} \leq K^{\frac{2\tau}{T}} = \mathrm{e}^{\frac{2\tau}{T}\ln K} \leq 1+M\tau, \]
+    式中 $M$ 仅与 $\tau_0, K$ 和 $T$ 有关.因此，
+    \[ \sup_{k}|\lambda_j(\tau,k)| \leq 1 + M\tau, \quad j=1,2,\cdots,p. \]
+    故知 Von-Neumann 条件是差分格式在范数 $\|\cdot\|_h$ 意义下稳定的必要条件.
 
     另一方面，如果增长矩阵酉相似于对角阵，于是存在一个酉矩阵族 $\bm{U} \in \mathbb{C}^{p \times p}$ 使得
     \[ \bm{G} = \bm{U}^{\mathrm{H}}\mathrm{diag}(\lambda_1,\lambda_2,\cdots,\lambda_p)\bm{U}, \quad \bm{U}^{\mathrm{H}}\bm{U} = \bm{U}\bm{U}^{\mathrm{H}} = \bm{I}, \]
     从而有
     \[ \bm{G}^n = \bm{U}^{\mathrm{H}}\mathrm{diag}(\lambda_1^n,\lambda_2^n,\cdots,\lambda_p^n)\bm{U}. \]
     因此，根据矩阵 $2$ 范数的酉变换不变性、Von-Neumann 条件和不等式
-    \[ 1+x \le \mathrm{e}^x, \quad 0 \le x, \]
-    可知，当 $0 \le n\tau \le T$ 时
-    \[ \sup_k \|\bm{G}^n\|_2 = \sup_k \max_{1 \le j \le p} |\lambda_j(\tau,k)|^n \le (1+M\tau)^n \le \mathrm{e}^{Mn\tau} \le \mathrm{e}^{MT}. \]
-    于是条件 \eqref{eq:fourier_stab_theorem_cond} 得以满足，故由 Fourier 稳定性判别准则知差分格式在范数 $\|\cdot\|_h$ 的意义下是稳定的。
+    \[ 1+x \leq \mathrm{e}^x, \quad 0 \leq x, \]
+    可知，当 $0 \leq n\tau \leq T$ 时
+    \[ \sup_k \|\bm{G}^n\|_2 = \sup_k \max_{1 \leq j \leq p} |\lambda_j(\tau,k)|^n \leq (1+M\tau)^n \leq \mathrm{e}^{Mn\tau} \leq \mathrm{e}^{MT}. \]
+    于是条件 \eqref{eq:fourier_stab_theorem_cond} 得以满足，故由 Fourier 稳定性判别准则知差分格式在范数 $\|\cdot\|_h$ 的意义下是稳定的.
 \end{proof}
 
+\section{多层差分格式稳定性分析}
+
+首先看一个例子.
 \begin{instance}
     考察求解抛物型方程初值问题 $u_t = a u_{xx}$ 的如下差分方法的稳定性：
     \begin{equation}
         \frac{u_j^{n+1} - u_j^{n-1}}{2\tau} = a\frac{u_{j+1}^n - 2u_j^n + u_{j-1}^n}{h^2}. \label{eq:ex2.1_diff}
     \end{equation}
-    首先令 $u_j^n = v^n\mathrm{e}^{\mathrm{i} j k h}$，将其代入差分方程 \eqref{eq:ex2.1_diff} 并经简单计算可得
+    \noindent\bluebf{Step 1：写出递归关系}\;\;$u_j^{n+1}=u_{j}^{n-1}+2a\lambda\left(u_{j+1}^n-2u_j^n+u_{j-1}^n\right),\lambda=\frac{\tau}{h^2}$.\par
+    \noindent\bluebf{Step 2：求解增长矩阵} 首先令 $u_j^n = v^n\mathrm{e}^{\mathrm{i} j k h}$，将其代入差分方程 \eqref{eq:ex2.1_diff} 并经简单计算可得
     \[ v^{n+1} = v^{n-1} - 8a\lambda \sin^2\frac{kh}{2} v^n. \]
     再令 $\bm{v}^n = [v^n, v^{n-1}]^{\mathrm{T}}$，则上式可表示为
     \[ \bm{v}^{n+1} = \begin{bmatrix} -8a\lambda\sin^2\frac{kh}{2} & 1 \\ 1 & 0 \end{bmatrix} \bm{v}^n =: \bm{G}(\tau,k)\bm{v}^n. \]
-    由此可得增长矩阵，故知
+    \noindent\bluebf{Step 3：稳定性分析} 计算$\bm{G}$的特征方程
+    \[\mu^2+8a\lambda\sin^2\frac{kh}{2\mu-1}=0\]
+    则知 $\bm{G}$ 的两个特征值为
     \begin{align*}
         & \mu_{\pm}(\tau,k) = -4a\lambda\sin^2\frac{kh}{2} \pm \left( 1 + 16a^2\lambda^2\sin^4\frac{kh}{2} \right)^{1/2}, \\
         & \sup_k |\mu_{-}(\tau,k)| = 4a\lambda + (1+16a^2\lambda^2)^{1/2} > 1 + 4a\lambda.
     \end{align*}
-    故差分格式 \eqref{eq:ex2.1_diff} 不稳定。
+    故差分格式 \eqref{eq:ex2.1_diff} 不稳定.
 \end{instance}
 
-\section{多层差分格式稳定性分析}
-
+以下引理可以帮我们快捷的判断二阶矩阵的特征值是否满足 Von-Neumann 条件.
 \begin{lemma}\label{lem:3.1}
     设 $b, c$ 为实常数，则二次方程
     \begin{equation}
@@ -810,12 +858,12 @@ Fourier 变换还有一些其他重要性质，{\color{red} 例如能将函数�
     \end{equation}
     的两根按其模均小于或等于 $1$ 的充要条件是
     \begin{equation}
-        |b| \le 1 - c, \quad |c| \le 1. \label{eq:lem3.1_2}
+        |b| \leq 1 - c, \quad |c| \leq 1. \label{eq:lem3.1_2}
     \end{equation}
 \end{lemma}
 
 \begin{theorem}\label{thm:3.2}
-    设求解问题 \eqref{eq:1.9} 的差分格式对应的{\color{red}增长因子为二阶矩阵} $\bm{G}(\tau, k) = \bm{G}(\sigma)$，式中 $\sigma = kh$，且 $\bm{G}(\sigma)$ 是以 $T_0$ 为周期的连续函数. 若对任意的 $\sigma \in \mb{R}$，下列条件之一成立：
+    设求解问题 \eqref{eq:1.9} 的差分格式对应的\colorbf{增长因子为二阶矩阵} $\bm{G}(\tau, k) = \bm{G}(\sigma)$，式中 $\sigma = kh$，且 $\bm{G}(\sigma)$ 是以 $T_0$ 为周期的连续函数. 若对任意的 $\sigma \in \mb{R}$，下列条件之一成立：
     \begin{enumerate}[(1)]
         \item $\bm{G}(\sigma)$ 有两个不同的特征值 $\mu_1(\sigma)$ 和 $\mu_2(\sigma)$，
         \item $\rho(\bm{G}(\sigma)) < 1$，
@@ -871,9 +919,9 @@ Fourier 变换还有一些其他重要性质，{\color{red} 例如能将函数�
     \begin{equation*}
         \mu^2 - \left(\frac{2\alpha}{1+\alpha} \cos kh \right) \mu - \frac{1-\alpha}{1+\alpha} = 0.
     \end{equation*}
-    容易验证该方程满足条件 \eqref{eq:lem3.1_2}，故由引理 \ref{lem:3.1} 可知其根成立 $|\mu_i| \le 1, \, i = 1, 2$. 而由 Vieta 定理知，当其两根相等时成立
+    容易验证该方程满足条件 \eqref{eq:lem3.1_2}，故由引理 \ref{lem:3.1} 可知其根成立 $|\mu_i| \leq 1, \, i = 1, 2$. 而由 Vieta 定理知，当其两根相等时成立
     \begin{equation*}
-        |\mu_1| = |\mu_2| = \frac{\alpha}{1+\alpha} |\cos kh| \le \frac{\alpha}{1+\alpha} < 1.
+        |\mu_1| = |\mu_2| = \frac{\alpha}{1+\alpha} |\cos kh| \leq \frac{\alpha}{1+\alpha} < 1.
     \end{equation*}
     故由定理 \ref{thm:3.2} 可知该差分格式是无条件稳定的.
 \end{instance}
@@ -926,13 +974,13 @@ Fourier 变换还有一些其他重要性质，{\color{red} 例如能将函数�
     \bm{u}^n = \bm{A}^n \bm{u}^0.
 \end{equation*}
 
-因此，仿照初值问题差分格式的稳定性定义可知，差分格式 \eqref{eq:matrix_diff} 是稳定的，当且仅当对任意给定的实数 $T > 0$，存在正数 $\tau_0 > 0$ 及 $K > 0$ 使得对任意满足 $0 < \tau \le \tau_0, \, n\tau \le T$ 的实数 $\tau$ 和非负整数 $n$ 成立
+因此，仿照初值问题差分格式的稳定性定义可知，差分格式 \eqref{eq:matrix_diff} 是稳定的，当且仅当对任意给定的实数 $T > 0$，存在正数 $\tau_0 > 0$ 及 $K > 0$ 使得对任意满足 $0 < \tau \leq \tau_0, \, n\tau \leq T$ 的实数 $\tau$ 和非负整数 $n$ 成立
 \begin{equation*}
-    \|\bm{u}^n\|_2 \le K \|\bm{u}^0\|_2,
+    \|\bm{u}^n\|_2 \leq K \|\bm{u}^0\|_2,
 \end{equation*}
 或等价地，成立
 \begin{equation}
-    \|\bm{A}^n\|_2 \le K. \label{eq:matrix_norm}
+    \|\bm{A}^n\|_2 \leq K. \label{eq:matrix_norm}
 \end{equation}
 
 因为 $\bm{A}$ 是对称矩阵，所以 $\|\bm{A}^n\|_2 = \rho(\bm{A})^n$. 而
@@ -941,41 +989,41 @@ Fourier 变换还有一些其他重要性质，{\color{red} 例如能将函数�
 \end{equation*}
 $\bm{H}_{J-1}$ 的特征值为
 \begin{equation*}
-    \lambda_j(\bm{H}_{J-1}) = 2\cos \frac{j}{J}\pi, \quad 1 \le j \le J-1,
+    \lambda_j(\bm{H}_{J-1}) = 2\cos \frac{j}{J}\pi, \quad 1 \leq j \leq J-1,
 \end{equation*}
 故知 $\bm{A}$ 的特征值为
 \begin{equation*}
-    \lambda_j(\bm{A}) = (1 - 2a\lambda) + 2a\lambda \cos \frac{j}{J}\pi = 1 - 4a\lambda \sin^2 \frac{j\pi}{2J}, \quad 1 \le j \le J-1.
+    \lambda_j(\bm{A}) = (1 - 2a\lambda) + 2a\lambda \cos \frac{j}{J}\pi = 1 - 4a\lambda \sin^2 \frac{j\pi}{2J}, \quad 1 \leq j \leq J-1.
 \end{equation*}
 于是 \eqref{eq:matrix_norm} 实即
 \begin{equation*}
-    -1 \le 1 - 4a\lambda \sin^2 \frac{j\pi}{2J} \le 1, \quad 1 \le j \le J-1,
+    -1 \leq 1 - 4a\lambda \sin^2 \frac{j\pi}{2J} \leq 1, \quad 1 \leq j \leq J-1,
 \end{equation*}
 即
 \begin{equation*}
-    2a\lambda \le \frac{1}{\sin^2 \frac{j\pi}{2J}}, \quad 1 \le j \le J-1.
+    2a\lambda \leq \frac{1}{\sin^2 \frac{j\pi}{2J}}, \quad 1 \leq j \leq J-1.
 \end{equation*}
 考虑到以上结果要对任意自然数 $J$ 成立，于是差分格式 \eqref{eq:matrix_diff} 稳定的充要条件是
 \begin{equation*}
-    a\lambda \le 1/2.
+    a\lambda \leq 1/2.
 \end{equation*}
 
 \subsection{最大模方法}
 
-用最大模方法研究差分格式稳定性的关键就是使用最大模范数度量每一时间层上的误差. 仍以上面的差分格式为例来说明该方法的基本思路. 首先，对任意向量 $\bm{v} \in \mb{R}^{J-1}$，定义其最大模范数为 $\|\bm{v}\|_\infty = \max_{1 \le j \le J-1} |v_j|$，则由格式 \eqref{eq:matrix_diff} 的差分方程知
+用最大模方法研究差分格式稳定性的关键就是使用最大模范数度量每一时间层上的误差. 仍以上面的差分格式为例来说明该方法的基本思路. 首先，对任意向量 $\bm{v} \in \mb{R}^{J-1}$，定义其最大模范数为 $\|\bm{v}\|_\infty = \max_{1 \leq j \leq J-1} |v_j|$，则由格式 \eqref{eq:matrix_diff} 的差分方程知
 \begin{equation*}
-    u_j^{n+1} = a\lambda u_{j+1}^n + (1 - 2a\lambda) u_j^n + a\lambda u_{j-1}^n, \quad 1 \le j \le J-1.
+    u_j^{n+1} = a\lambda u_{j+1}^n + (1 - 2a\lambda) u_j^n + a\lambda u_{j-1}^n, \quad 1 \leq j \leq J-1.
 \end{equation*}
 利用三角不等式可得
 \begin{equation*}
-    |u_j^{n+1}| \le \left[2a\lambda + |1 - 2a\lambda|\right] \|\bm{u}^n\|_\infty, \quad 1 \le j \le J-1,
+    |u_j^{n+1}| \leq \left[2a\lambda + |1 - 2a\lambda|\right] \|\bm{u}^n\|_\infty, \quad 1 \leq j \leq J-1,
 \end{equation*}
 即
 \begin{equation*}
-    {\color{red} \|\bm{u}^{n+1}\|_\infty \le \left[2a\lambda + |1 - 2a\lambda|\right] \|\bm{u}^n\|_\infty.}
+    {\color{red} \|\bm{u}^{n+1}\|_\infty \leq \left[2a\lambda + |1 - 2a\lambda|\right] \|\bm{u}^n\|_\infty.}
 \end{equation*}
-于是当 $a\lambda \le 1/2$ 时，成立
+于是当 $a\lambda \leq 1/2$ 时，成立
 \begin{equation*}
-    \|\bm{u}^n\|_\infty \le \|\bm{u}^{n-1}\|_\infty \le \cdots \le \|\bm{u}^0\|_\infty.
+    \|\bm{u}^n\|_\infty \leq \|\bm{u}^{n-1}\|_\infty \leq \cdots \leq \|\bm{u}^0\|_\infty.
 \end{equation*}
-换言之，当 $a\lambda \le 1/2$ 时差分格式 \eqref{eq:matrix_diff} 在最大模意义下稳定.
+换言之，当 $a\lambda \leq 1/2$ 时差分格式 \eqref{eq:matrix_diff} 在最大模意义下稳定.

@@ -4,7 +4,7 @@
 
 
 \begin{definition}[范数]
-    设$X$是域$\mb{K}=\mb{R}$或$\mb{C}$上的线性空间，则$X$上的\bluebf{范数}是函数$\|\cdot\|\colon X\to[0,+\infty)$，满足：
+    设$X$是域$\mb{K}=\mb{R}$或$\mb{C}$上的线性空间，则$X$上的\colorbf{范数}是函数$\|\cdot\|\colon X\to[0,+\infty)$，满足：
     \begin{enumerate}[label=(\roman*)]
         \item $\|x\|=0\iff x=0$.
         \item $\|\lambda x\|=|\lambda|\cdot\|x\|$，$\forall\,\lambda\in\mb{K}$，$x\in X$.
@@ -14,7 +14,7 @@
 其中这三条性质分别称为范数的非退化性、一次齐次性和三角不等式.范数衡量了线性空间中元素的大小.\par
 除了大小之外，为了研究收敛性、连续性等拓扑性质，我们需要为线性空间配备拓扑，其一的方式是为线性空间中的元素定义其距离.
 \begin{definition}[度量]
-    设$X$是一个拓扑空间，则$X$上的\bluebf{度量}是函数$\rho: X\times X\to[0,+\infty)$，满足：
+    设$X$是一个拓扑空间，则$X$上的\colorbf{度量}是函数$\rho: X\times X\to[0,+\infty)$，满足：
     \begin{enumerate}[label=(\roman*)]
         \item $\rho(x,y)=0\iff x=y$.
         \item $\rho(x,y)=\rho(y,x)$，$\forall\, x,y\in X$.
@@ -46,17 +46,17 @@
 赋予线性空间范数后，下面就可以研究上面的收敛性.\par
 
 \begin{definition}[Cauchy列]
-    设$X$是赋范线性空间，序列$\{x_n\}\subset X$是\bluebf{Cauchy列}$\iff \text{当}\, n,l\to\infty,\|x_n-x_l\|\to 0\iff \forall\,\varepsilon>0,\exists\, N\in\mb{N},\st\,\forall\, n,l>N,\|x_n-x_l\|<\varepsilon.$
+    设$X$是赋范线性空间，序列$\{x_n\}\subset X$是\colorbf{Cauchy列}$\iff \text{当}\, n,l\to\infty,\|x_n-x_l\|\to 0\iff \forall\,\varepsilon>0,\exists\, N\in\mb{N},\st\,\forall\, n,l>N,\|x_n-x_l\|<\varepsilon.$
 \end{definition}
 
 Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般的度量空间中Cauchy列未必收敛.例如在$(0,1)$中，序列$\{1-\frac{1}{n}\}$是Cauchy列，但它的极限点$1$不在$(0,1)$中.因此我们需要引入完备性的概念来保证Cauchy列的收敛性.
 
 \begin{definition}[完备性]
-    一个赋范线性空间$X$是\bluebf{完备的}当且仅当$X$中的每个Cauchy列都收敛.
+    一个赋范线性空间$X$是\colorbf{完备的}当且仅当$X$中的每个Cauchy列都收敛.
 \end{definition}
 
 \begin{definition}[Banach空间]
-    一个完备赋范线性空间称为\bluebf{Banach空间}.
+    一个完备赋范线性空间称为\colorbf{Banach空间}.
 \end{definition}
 
 \section{Banach空间的例子}
@@ -71,7 +71,7 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
         (i)(ii)显然.\par
         (iii)当$p=\infty$时，显然得证.当$1\leq p<\infty$时，首先需要下列不等式.
         \begin{lemma}[Hölder不等式]
-            $\left|\langle \vv{x},\vv{y}\rangle\right|=\left|\sum_{i=1}^d{x^iy^i}\right|\leq\|\vv{x}\|_p\cdot\|\vv{y}\|_q$，其中$1\leq p,q\leq\infty$满足$\frac{1}{p}+\frac{1}{q}=1$，称$p,q$\;\bluebf{Hölder共轭}.
+            $\left|\langle \vv{x},\vv{y}\rangle\right|=\left|\sum_{i=1}^d{x^iy^i}\right|\leq\|\vv{x}\|_p\cdot\|\vv{y}\|_q$，其中$1\leq p,q\leq\infty$满足$\frac{1}{p}+\frac{1}{q}=1$，称$p,q$\;\colorbf{Hölder共轭}.
         \end{lemma}
         \begin{sproof}
             若$\vv{x}=0$或$\vv{y}=0$，易证.\par
@@ -220,7 +220,7 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
 \end{definition}
 上述四个条件虽然是彼此之间等价的，但它们分别从不同的角度描述了有界线性算子.第一个条件是从纯粹分析的角度描述，它给出了范数的估计.而到第四个条件则是从拓扑的角度出发，描述了单位球在映射下的像所满足的条件.由于泛函分析有强烈的拓扑背景，因此在分析和拓扑的视角中相互切换是学习泛函分析的重要技巧.\par
 \begin{definition}[算子代数]
-    设$X,Y$是赋范线性空间，线性算子$T:X\to Y$的\bluebf{算子代数}定义为
+    设$X,Y$是赋范线性空间，线性算子$T:X\to Y$的\colorbf{算子代数}定义为
     \[\|T\|_{X\to Y}=\|T\|:=\inf\{M>0:\|Tx\|_Y\leq M\|x\|_X,\forall\, x\in X\}\]
     $T$是有界线性算子当且仅当$\|T\|_{X\to Y}<\infty$.
 \end{definition}
@@ -343,7 +343,7 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
 从上述定理中也可以看出，$(C_{00},\|\cdot\|)$不是一个Banach空间.\par
 接下来更深入的研究有界线性算子的可逆性.在线性空间中，我们定义过特征值的概念，若$\lambda$为特征值，则$\exists\, v\neq 0,\st Tv=\lambda v\iff \ker(\lambda I-T)\neq\{0\}\Rightarrow \lambda I-T$可逆.注意在有限维线性空间中，最后一个箭头是双向的，逆命题成立，但在无限维线性空间中，逆命题不成立.因此我们需要一个新的概念来描述有界线性算子的可逆性.
 \begin{definition}[谱]
-    设$X$是Banach空间，$T\in\mcal{B}(X)$，$T$的\bluebf{谱}是$\sigma(T)=\Spec(T):=\{\lambda\in\mb{C}:\lambda I-T\,\text{不可逆}\}$.
+    设$X$是Banach空间，$T\in\mcal{B}(X)$，$T$的\colorbf{谱}是$\sigma(T)=\Spec(T):=\{\lambda\in\mb{C}:\lambda I-T\,\text{不可逆}\}$.
 \end{definition}
 谱的一个重要性质是
 \begin{theorem}[]
@@ -372,7 +372,7 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
 \end{proof}
 类似的想法，定义预解集的概念.
 \begin{definition}[预解集]
-    设$X$是Banach空间，$T\in\mcal{B}(X)$，则$\rho(T):=\{\lambda\in\mb{C}:\lambda I-T\in\Aut(X)\}$称为$T$的\bluebf{预解集}.
+    设$X$是Banach空间，$T\in\mcal{B}(X)$，则$\rho(T):=\{\lambda\in\mb{C}:\lambda I-T\in\Aut(X)\}$称为$T$的\colorbf{预解集}.
 \end{definition}
 由定理1.8，可以证明预解集也是一个开集，从而$\sigma(T)$是$\mb{C}$中的闭集\par
 \begin{corollary}[]
@@ -389,7 +389,7 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
 
 在这一节的最后，引入泛函的概念.
 \begin{definition}[有界线性泛函]
-    设$X$是Banach空间，记$X^*=\mcal{B}(X,\mb{R})$或$\mcal{B}(X,\mb{C})$，则$X^*$中的元素称为$X$上的\bluebf{有界线性泛函}.
+    设$X$是Banach空间，记$X^*=\mcal{B}(X,\mb{R})$或$\mcal{B}(X,\mb{C})$，则$X^*$中的元素称为$X$上的\colorbf{有界线性泛函}.
 \end{definition}
 这里的$X^*$和线性代数中的对偶空间的概念相同，对有限维线性空间，$V\cong \mb{R}^d\cong V^*$.但当推广到无限维空间时，通常而言，$X^*\not\cong X$，且$X^*$会比$X$大得多.\par
 
@@ -397,7 +397,7 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
 
 继续上一节末尾的话题，对于有限维线性空间而言，如果两个空间的维数相同，那么这两个空间是同构的且都同构与$\mb{R}^d$，因此从这一角度，它们几乎是相同的，故我们只需要研究$\mb{R}^d$即可.问题是，对于配备了范数的赋范线性空间而言，是否也存在类似的分类结果呢?首先需要定义何为赋范线性空间的同构.\par
 \begin{definition}[赋范线性空间的同构]
-   设$(X,\|\cdot\|_X)$和$(Y,\|\cdot\|_Y)$是赋范线性空间，则$X$与$Y$\bluebf{同构}当且仅当存在线性空间上的同构$B:X\to Y,\st \|B\|,\|B^{-1}\|<\infty$.
+   设$(X,\|\cdot\|_X)$和$(Y,\|\cdot\|_Y)$是赋范线性空间，则$X$与$Y$\colorbf{同构}当且仅当存在线性空间上的同构$B:X\to Y,\st \|B\|,\|B^{-1}\|<\infty$.
 \end{definition}
 相比单纯线性空间的同构，赋范线性空间的同构要求同构映射和其逆映射是有界的.下面就可以说明即使是赋范线性空间，维数相同时也一定同构.
 \begin{theorem}[]
@@ -418,7 +418,7 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
 \end{proof}
 在上述证明中，我们并没证明对$\mb{R}^d$中的任意范数都成立，而是只选取了$\mb{R}^d$中的无穷范数，这背后的原因是$\mb{R}^d$从根本上只有一种范数，这需要引入范数等价的概念.
 \begin{definition}[范数的等价]
-    设$\|\cdot\|_1,\|\cdot\|_2$是$X$上的范数，称$X_1$与$X_2$\,\bluebf{等价}$\iff\exists\,0<c<C<\infty,\st\forall\, x\in X,\,c\|x\|_1\leq \|x\|_2\leq C\|x\|_1$.
+    设$\|\cdot\|_1,\|\cdot\|_2$是$X$上的范数，称$X_1$与$X_2$\,\colorbf{等价}$\iff\exists\,0<c<C<\infty,\st\forall\, x\in X,\,c\|x\|_1\leq \|x\|_2\leq C\|x\|_1$.
 \end{definition}
 \begin{corollary}[有限维赋范空间范数的等价性]
    $\mb{R}^d$上的所有范数均等价. 
@@ -440,7 +440,7 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
         \item $\|x+y\|\leq \|x\|+\|y\|$
         \item $\|x\|\geq 0$，但可能存在$x\neq 0,\st \|x\|=0$
     \end{enumerate}
-    则称$\|\cdot\|$为$X$上的\bluebf{半范数}.
+    则称$\|\cdot\|$为$X$上的\colorbf{半范数}.
 \end{definition}
 相较于范数，半范数允许非零向量的半范数为零.那么如果能将半范数为零但是本身不是零的向量从整个空间中去除，剩余的空间和半范数就会构成一个范数.\par
 严谨来说，记$\mcal{N}:=\left\{x\in X:\|x\|=0\right\}\leq X$，可以定义商空间$X/\mcal{N}=\left\{[x]=x+\mcal{N}:x\in X\right\}$.则$[x]=[y]\iff x-y\in\mcal{N}$.\par
