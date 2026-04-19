@@ -1,9 +1,9 @@
 % rainbow.sty
 % Typst theorion/rainbow 主题的 LaTeX 移植版
 % 提供带彩色左边框的定理类环境
-% 编码：UTF-8
+% 编码：UTF-8)
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{rainbow}[2026/03/04 v1.0 Rainbow theorem environments (tcolorbox)]
+\ProvidesPackage{rainbow}[2026/03/04 (1.0)Rainbow theorem environments (tcolorbox)]
 
 %================ 依赖宏包 ================
 \RequirePackage{xcolor}
@@ -19,14 +19,42 @@
 
 %================ 伪粗体设置 ================
 % 覆盖 ctex 默认的字体映射，使仿宋和楷体的粗体使用伪粗体而非替换为黑体
-\setCJKfamilyfont{zhfs}{FangSong}[AutoFakeBold=2.5]
+\setCJKfamilyfont{zhfs}{FangSong}[AutoFakeBold=5]
 \renewcommand{\fangsong}{\CJKfamily{zhfs}}
 \setCJKfamilyfont{zhkai}{KaiTi}[AutoFakeBold=2.5]
 \renewcommand{\kaishu}{\CJKfamily{zhkai}}
 \setCJKfamilyfont{zhsong}{SimSun}[AutoFakeBold=2.5]
 \renewcommand{\songti}{\CJKfamily{zhsong}}
-\setCJKfamilyfont{zhhei}{SimHei}[AutoFakeBold=1]
+\setCJKfamilyfont{zhhei}{SimHei}[AutoFakeBold=2.5]
 \renewcommand{\heiti}{\CJKfamily{zhhei}}
+
+
+%================ 结构性颜色定义 ================
+
+\definecolor{rbStructureColor}{RGB}{60,113,183}      % green (main)，用于 exercise 分隔标题等
+
+%================ 加粗字体命令 ================
+
+\newcommand{\allbf}[1]{\boldmath\bfseries{#1}\unboldmath\normalfont}
+\colorlet{colorbf}{rbStructureColor}
+\newcommand{\bluebf}[1]{\textcolor{rbStructureColor}{\allbf{#1}}}
+\newcommand{\colorbf}[1]{\textcolor{colorbf}{\allbf{#1}}}
+\BeforeBeginEnvironment{theorem}{\colorlet{colorbf}{rbTheoremColor}}
+\BeforeBeginEnvironment{lemma}{\colorlet{colorbf}{rbLemmaColor}}
+\BeforeBeginEnvironment{corollary}{\colorlet{colorbf}{rbCorollaryColor}}
+\BeforeBeginEnvironment{definition}{\colorlet{colorbf}{rbDefinitionColor}}
+\BeforeBeginEnvironment{axiom}{\colorlet{colorbf}{rbAxiomColor}}
+\BeforeBeginEnvironment{postulate}{\colorlet{colorbf}{rbPostulateColor}}
+\BeforeBeginEnvironment{proposition}{\colorlet{colorbf}{rbPropositionColor}}
+\BeforeBeginEnvironment{assumption}{\colorlet{colorbf}{rbAssumptionColor}}
+\BeforeBeginEnvironment{property}{\colorlet{colorbf}{rbPropertyColor}}
+\BeforeBeginEnvironment{conjecture}{\colorlet{colorbf}{rbConjectureColor}}
+\BeforeBeginEnvironment{important}{\colorlet{colorbf}{rbImportantColor}}
+\BeforeBeginEnvironment{warning}{\colorlet{colorbf}{rbWarningColor}}
+\BeforeBeginEnvironment{note}{\colorlet{colorbf}{rbNoteColor}}
+\BeforeBeginEnvironment{attention}{\colorlet{colorbf}{rbAttentionColor}}
+\BeforeBeginEnvironment{caution}{\colorlet{colorbf}{rbCautionColor}}
+
 
 
 %================ 调控行距 ================
@@ -47,8 +75,6 @@
 \definecolor{rbStructureColor}{RGB}{60,113,183}      % green (main)，用于 exercise 分隔标题等
 
 %================ 独立计数器（每个环境各自编号，均按 chapter 重置） ================
-\newcounter{rbcounter}[chapter]
-\renewcommand{\therbcounter}{\thechapter.\arabic{rbcounter}}
 \newcounter{rbtheorem}[chapter]
 \renewcommand{\therbtheorem}{\thechapter.\arabic{rbtheorem}}
 
@@ -82,7 +108,7 @@
 %================ 定义各环境 ================
 
 % ---- theorem 定理 ----
-\newtcolorbox[use counter=rbcounter]{theorem}[1][]{%
+\newtcolorbox[use counter=rbtheorem]{theorem}[1][]{%
   enhanced, breakable, blanker, colback=white,
   borderline west={3pt}{-1pt}{rbTheoremColor!50},
   left=.66em, right=0pt, top=.66em, bottom=.66em,
@@ -90,13 +116,13 @@
   fonttitle=\heiti\bfseries\color{rbTheoremColor},
   fontupper=\kaishu,
   attach title to upper={\par\vspace{.3em}},
-  title={定理~\thechapter.\therbcounter%
+  title={定理~\thechapter.\therbtheorem%
     \ifx\\#1\\\else~(#1)\fi
   },
 }
 
 % ---- lemma 引理 ----
-\newtcolorbox[use counter=rbcounter]{lemma}[1][]{%
+\newtcolorbox[use counter=rblemma]{lemma}[1][]{%
   enhanced, breakable, blanker, colback=white,
   borderline west={3pt}{-1pt}{rbLemmaColor!50},
   left=.66em, right=0pt, top=.66em, bottom=.66em,
@@ -104,13 +130,13 @@
   fonttitle=\heiti\bfseries\color{rbLemmaColor},
   fontupper=\kaishu,
   attach title to upper={\par\vspace{.3em}},
-  title={引理~\thechapter.\therbcounter%
+  title={引理~\thechapter.\therblemma%
     \ifx\\#1\\\else~(#1)\fi
   },
 }
 
 % ---- corollary 推论 ----
-\newtcolorbox[use counter=rbcounter]{corollary}[1][]{%
+\newtcolorbox[use counter=rbcorollary]{corollary}[1][]{%
   enhanced, breakable, blanker, colback=white,
   borderline west={3pt}{-1pt}{rbCorollaryColor!50},
   left=.66em, right=0pt, top=.66em, bottom=.66em,
@@ -118,13 +144,13 @@
   fonttitle=\heiti\bfseries\color{rbCorollaryColor},
   fontupper=\kaishu,
   attach title to upper={\par\vspace{.3em}},
-  title={推论~\thechapter.\therbcounter%
+  title={推论~\thechapter.\therbcorollary%
     \ifx\\#1\\\else~(#1)\fi
   },
 }
 
 % ---- definition 定义 ----
-\newtcolorbox[use counter=rbcounter]{definition}[1][]{%
+\newtcolorbox[use counter=rbdefinition]{definition}[1][]{%
   enhanced, breakable, blanker, colback=white,
   borderline west={3pt}{-1pt}{rbDefinitionColor!50},
   left=.66em, right=0pt, top=.66em, bottom=.66em,
@@ -132,13 +158,13 @@
   fonttitle=\heiti\bfseries\color{rbDefinitionColor},
   fontupper=\kaishu,
   attach title to upper={\par\vspace{.3em}},
-  title={定义~\thechapter.\therbcounter%
+  title={定义~\thechapter.\therbdefinition%
     \ifx\\#1\\\else~(#1)\fi
   },
 }
 
 % ---- axiom 公理 ----
-\newtcolorbox[use counter=rbcounter]{axiom}[1][]{%
+\newtcolorbox[use counter=rbaxiom]{axiom}[1][]{%
   enhanced, breakable, blanker, colback=white,
   borderline west={3pt}{-1pt}{rbAxiomColor!50},
   left=.66em, right=0pt, top=.66em, bottom=.66em,
@@ -146,13 +172,13 @@
   fonttitle=\heiti\bfseries\color{rbAxiomColor},
   fontupper=\kaishu,
   attach title to upper={\par\vspace{.3em}},
-  title={公理~\thechapter.\therbcounter%
+  title={公理~\thechapter.\therbaxiom%
     \ifx\\#1\\\else~(#1)\fi
   },
 }
 
 % ---- postulate 公设 ----
-\newtcolorbox[use counter=rbcounter]{postulate}[1][]{%
+\newtcolorbox[use counter=rbpostulate]{postulate}[1][]{%
   enhanced, breakable, blanker, colback=white,
   borderline west={3pt}{-1pt}{rbPostulateColor!50},
   left=.66em, right=0pt, top=.66em, bottom=.66em,
@@ -160,13 +186,13 @@
   fonttitle=\heiti\bfseries\color{rbPostulateColor},
   fontupper=\kaishu,
   attach title to upper={\par\vspace{.3em}},
-  title={公设~\thechapter.\therbcounter%
+  title={公设~\thechapter.\therbpostulate%
     \ifx\\#1\\\else~(#1)\fi
   },
 }
 
 % ---- proposition 命题 ----
-\newtcolorbox[use counter=rbcounter]{proposition}[1][]{%
+\newtcolorbox[use counter=rbproposition]{proposition}[1][]{%
   enhanced, breakable, blanker, colback=white,
   borderline west={3pt}{-1pt}{rbPropositionColor!50},
   left=0.66em, right=0pt, top=.66em, bottom=.66em,
@@ -174,13 +200,13 @@
   fonttitle=\heiti\bfseries\color{rbPropositionColor},
   fontupper=\kaishu,
   attach title to upper={\par\vspace{.3em}},
-  title={命题~\thechapter.\therbcounter%
+  title={命题~\thechapter.\therbproposition%
     \ifx\\#1\\\else~(#1)\fi
   },
 }
 
 % ---- assumption 假设 ----
-\newtcolorbox[use counter=rbcounter]{assumption}[1][]{%
+\newtcolorbox[use counter=rbassumption]{assumption}[1][]{%
   enhanced, breakable, blanker, colback=white,
   borderline west={3pt}{-1pt}{rbAssumptionColor!50},
   left=.66em, right=0pt, top=.66em, bottom=.66em,
@@ -188,13 +214,13 @@
   fonttitle=\heiti\bfseries\color{rbAssumptionColor},
   fontupper=\kaishu,
   attach title to upper={\par\vspace{.3em}},
-  title={假设~\thechapter.\therbcounter%
+  title={假设~\thechapter.\therbassumption%
     \ifx\\#1\\\else~(#1)\fi
   },
 }
 
 % ---- property 性质 ----
-\newtcolorbox[use counter=rbcounter]{property}[1][]{%
+\newtcolorbox[use counter=rbproperty]{property}[1][]{%
   enhanced, breakable, blanker, colback=white,
   borderline west={3pt}{-1pt}{rbPropertyColor!50},
   left=.66em, right=0pt, top=.66em, bottom=.66em,
@@ -202,13 +228,13 @@
   fonttitle=\heiti\bfseries\color{rbPropertyColor},
   fontupper=\kaishu,
   attach title to upper={\par\vspace{.3em}},
-  title={性质~\thechapter.\therbcounter%
+  title={性质~\thechapter.\therbproperty%
     \ifx\\#1\\\else~(#1)\fi
   },
 }
 
 % ---- conjecture 猜想 ----
-\newtcolorbox[use counter=rbcounter]{conjecture}[1][]{%
+\newtcolorbox[use counter=rbconjecture]{conjecture}[1][]{%
   enhanced, breakable, blanker, colback=white,
   borderline west={3pt}{-1pt}{rbConjectureColor!50},
   left=0.66em, right=0pt, top=.66em, bottom=.66em,
@@ -216,39 +242,71 @@
   fonttitle=\heiti\bfseries\color{rbConjectureColor},
   fontupper=\kaishu,
   attach title to upper={\par\vspace{.3em}},
-  title={猜想~\thechapter.\therbcounter%
+  title={猜想~\thechapter.\therbconjecture%
     \ifx\\#1\\\else~(#1)\fi
   },
 }
 
 %================ 附加：proof 环境 ================
 % 仿照 elegantbook 的 proof 样式，使用 tcolorbox 实现带左侧色条的证明环境
-\definecolor{rbProofColor}{RGB}{255,134,24}           % orange
+\definecolor{rbProofColor}{RGB}{199,79,109}           % 梅红
 \definecolor{rbProofBar}{RGB}{255,225,197}          % 左侧装饰条颜色
+\RequirePackage{mdframed}
 
 % 先清除可能已有的 proof 定义（兼容 amsthm）
 \@ifundefined{proof}{}{\let\proof\relax\let\endproof\relax}
 
-\newtcolorbox{proof}[1][证明]{%
-  breakable, enhanced,
-  colback=white, colframe=white,
-  arc=0pt, leftrule=0pt, rightrule=0pt, toprule=0pt, bottomrule=0pt, titlerule=0pt,
-  before skip=5pt, after skip=5pt,
-  boxsep=3pt, left=2pt, right=0pt, top=0pt, bottom=0pt,
-  overlay={%
-    \fill[rbProofBar]
-      ([yshift=-1pt,xshift=-2pt]interior.north west) rectangle
-      ([yshift=0pt,xshift=1pt]interior.south west);
-  },
-  before upper={\hspace{-2.5pt}\fangsong\noindent{\bfseries\color{rbProofColor} #1 \hspace{-5.9pt}} %
-      \setlength{\parindent}{2em}% 盒内默认首行缩进
-      \wideline
-  },
-  after upper={\hfill$\square$\par},
+\newlength{\belowsep}
+\setlength{\belowsep}{5pt}  % 定义环境底部修饰线与内容之间的距离（可调整）
+
+\newenvironment{proof}[1][证明]{%
+  \par\noindent{\heiti\bfseries\color{rbProofColor}%
+    \hspace{-2pt}#1\hspace{-3.4pt}%
+  }\enspace\fangsong\ignorespaces
+}{%
+  \hfill{\color{rbProofColor}$\blacksquare$}\par
+  \par\vspace{-\parskip}\nointerlineskip\vspace{\belowsep}%
+  \noindent{\color{rbProofColor!50}\rule{4em}{2pt}}\par
+  \ignorespacesafterend
+}
+
+
+%================ 附加：solution 环境 ================
+% 使用 mdframed 实现带左侧色条的解答环境（兼容 wrapfigure）
+\definecolor{rbSolutionColor}{RGB}{12, 167, 169}           % teal
+\definecolor{rbSolutionBar}{RGB}{171, 235, 198}          % 左侧装饰条颜色
+
+\RequirePackage{mdframed}
+\mdfdefinestyle{rbSolutionStyle}{%
+  hidealllines=true,
+  leftline=true,
+  linewidth=3pt,
+  linecolor=rbSolutionColor!50,
+  leftmargin=0pt,
+  innerleftmargin=6pt,
+  innerrightmargin=0pt,
+  innertopmargin=2pt,
+  innerbottommargin=2pt,
+  skipabove=5pt,
+  skipbelow=5pt,
+}
+
+\newenvironment{solution}[1][解]{%
+  \par\vspace{-\parskip}%
+  \begin{adjustwidth}{-1pt}{0pt}%  ← 整体左移 0.5pt（色条随之突出）
+  \vspace{3pt}%
+  \begin{mdframed}[style=rbSolutionStyle]%
+  \hspace{-0.1pt}\fangsong\noindent{\bfseries\color{rbSolutionColor} #1 \hspace{3.2pt}} %
+  \setlength{\parindent}{2em}%
+  \wideline
+}{%
+  \par\end{mdframed}%
+  \nointerlineskip               % 阻止行间距 glue
+  \vspace{-5pt}%                   % ← 手动控制底部间距（替代失灵的 skipbelow）
+  \end{adjustwidth}%
 }
 
 %================ 附加：instance 示例（带编号，按 chapter 重置）================
-
 \definecolor{rbInstanceColor}{RGB}{120, 189, 39}       % green variant
 \definecolor{rbInstanceBar}{RGB}{197,237,213}       % 左侧装饰条颜色（浅绿）
 
@@ -256,13 +314,14 @@
 \renewcommand{\therbinstance}{\thechapter.\arabic{rbinstance}}
 
 \newenvironment{instance}[1][]{%
-  \refstepcounter{rbcounter}%
+  \refstepcounter{rbinstance}%
   \par\noindent{\heiti\bfseries\color{rbInstanceColor}%
-    例~\thechapter.\therbcounter%
+    例~\therbinstance%
     \ifx\\#1\\\else~(#1)\fi
   }\enspace\ignorespaces
 }{%
-  \par\vspace{-.75em}\noindent{\color{rbInstanceColor!50}\rule{4em}{2pt}}\par
+  \par\vspace{-\parskip}\nointerlineskip\vspace{\belowsep}%
+  \noindent{\color{rbInstanceColor!50}\rule{4em}{2pt}}\par
   \ignorespacesafterend
 }
 
@@ -294,25 +353,36 @@
 
 
 %================ 附加：remark / example（无编号，灰色边框）================
-% remark：无左竖线，标题与正文首行紧跟
+\newcounter{rbremarkcounter}[chapter]
+\renewcommand{\therbremarkcounter}{\thechapter.\arabic{rbremarkcounter}}
 \newenvironment{remark}[1][]{%
-  \refstepcounter{rbcounter}%
+  \refstepcounter{rbremarkcounter}%
   \par\noindent{\heiti\bfseries\color{rbNoteColor}%
-    注~\thechapter.\therbcounter%
+    注~\therbremarkcounter%
     \ifx\\#1\\\else~(#1)\fi
   }\enspace\kaishu\ignorespaces
 }{%
-  \par\ignorespacesafterend
+  \par\vspace{-\parskip}\nointerlineskip\vspace{\belowsep}%
+  \noindent{\color{rbNoteColor!50}\rule{4em}{2pt}}\par
+  \ignorespacesafterend
 }
-\newtcolorbox{example}[1][]{%
-  enhanced, breakable, blanker, colback=white,
-  borderline west={3pt}{-1pt}{gray!60},
-  left=.66em, right=0pt, top=.66em, bottom=.66em,
-  before skip=.5em, after skip=.5em,
-  fonttitle=\bfseries\color{gray!60},
-  attach title to upper={\par\vspace{.3em}},
-  title={例},
-  #1,
+
+\definecolor{rbExampleColor}{RGB}{120, 189, 39}       % green variant
+\definecolor{rbExampleBar}{RGB}{197,237,213}       % 左侧装饰条颜色（浅绿）
+
+\newcounter{rbexample}[chapter]
+\renewcommand{\therbexample}{\thechapter.\arabic{rbexample}}
+
+\newenvironment{example}[1][]{%
+  \refstepcounter{rbexample}%
+  \par\noindent{\heiti\bfseries\color{rbExampleColor}%
+    例题~\therbexample%
+    \ifx\\#1\\\else~(#1)\fi
+  }\enspace\ignorespaces
+}{%
+  \par\vspace{-\parskip}\nointerlineskip\vspace{\belowsep}%
+  \noindent{\color{rbExampleColor!50}\rule{4em}{2pt}}\par
+  \ignorespacesafterend
 }
 
 %================ 附加：admonition 提示类环境（无编号，带图标）================
@@ -323,16 +393,48 @@
 \definecolor{rbAttentionColor}{RGB}{0,90,200}      % 蓝色
 \definecolor{rbCautionColor}{RGB}{200,0,0}         % 红色
 
+\newcommand{\attentionicon}{%
+\begin{tikzpicture}[baseline={([yshift=-0.85ex]current bounding box.center)}, color=rbAttentionColor]
+  \def\R{0.66em}
+  % 外侧断开的圆环
+  \draw[line width=0.10em, line cap=round] (3:\R) arc (3:-290:\R);
+  % 缺口处的 3 个小圆点
+  \fill (20:\R) circle (0.065em);
+  \fill (38:\R) circle (0.065em);
+  \fill (56:\R) circle (0.065em);
+  % 中间的感叹号柱子
+  \draw[line width=0.10em, line cap=round] (0, -0.15em) -- (0, 0.42em);
+  % 感叹号底部的小圆点
+  \fill (0, -0.35em) circle (0.065em);
+\end{tikzpicture}%
+}
+\newcommand{\importanticon}{%
+\begin{tikzpicture}[yscale=-1,scale=0.015,baseline={([yshift=-0.75ex]current bounding box.center)}]
+\filldraw[rbImportantColor, draw=rbImportantColor, line width=0.2pt] svg {M733.7 455c1-1.1 2.6-1.9 2.8-3.9-1.1-0.3-2-0.7-3-0.8-47.4-9.1-94.7-18.2-142.1-27.2-3.5-0.7-5.7-2-7.5-5.4-15.8-29.1-31.8-58.1-47.7-87.1-7.8-14.3-15.7-28.5-24-43.6-1.4 2.3-2.2 3.7-3 5.2-23 41.8-46 83.7-68.9 125.5-1.5 2.8-3.2 4.6-6.6 5.2-40.5 7.7-81 15.5-121.5 23.3-8.2 1.6-16.4 3.2-25.3 5 5 5.4 9.4 10.1 13.8 14.9 29.6 31.7 59.1 63.3 88.7 95 1.5 1.6 2.6 3 2.2 5.6-5.6 43.4-11 86.9-16.4 130.3-0.8 6.3-1.5 12.7-2.3 19.8 2.4-1.1 4.1-1.8 5.7-2.5 43-20.3 86.1-40.5 129-60.9 3.2-1.5 5.7-1.5 8.8 0 38.4 18.3 77 36.4 115.5 54.5 6.1 2.9 12.3 5.7 18.4 8.5 1-1.4 0.6-2.6 0.5-3.7-6-48.2-12-96.5-18.1-144.7-0.4-3.2 0.2-5.2 2.4-7.5 32.9-35.1 65.7-70.3 98.6-105.5z m-127.5 76.3c-12.7 12.6-16.7 27.1-14 44.6 3.5 22.5 5.9 45.2 8.7 67.8 0.1 1.1 0 2.3 0 3.5-1.9 0.4-3.2-0.8-4.6-1.5-21.4-10-42.8-19.9-64-30.2-13.7-6.6-27-6.6-40.7 0.1-21.1 10.3-42.4 20-63.6 30-1.5 0.7-3 1.3-5.3 2.3 1.3-10.7 2.5-20.7 3.7-30.7 2.1-16.8 4.6-33.6 6.2-50.5 1.2-12.6-3.6-23.4-12.3-32.6-16.5-17.5-32.8-35-49.1-52.6-1.1-1.2-2.2-2.4-3.8-4.3 10.8-2.1 21-4.2 31.2-6.1 15.8-3.1 31.7-5.9 47.5-9.2 12.4-2.6 21.7-9.7 27.8-20.9 11.6-21.1 23.2-42.3 34.8-63.4 0.9-1.6 1.8-3.2 3.2-5.7 6.6 12 12.8 23.2 18.9 34.4 5.8 10.6 11.9 21.2 17.5 32 7.3 14.3 18.8 22.1 34.6 24.8 23.3 4.1 46.4 8.8 69.6 13.3 1.1 0.2 2.2 0.6 3.9 1.1-5.4 5.8-10.4 11.2-15.5 16.7-11.4 12.4-22.6 25.2-34.7 37.1zM632.8 120.6c34.7 10.7 67.4 25.7 98 45.2 6.2 4 12.7 5.9 19.9 3.5 8.2-2.7 13-8.7 13.9-17.2 1-9.2-3.5-15.8-11.2-20.7-98.8-61.5-205.7-82.6-320.2-63-89.5 15.4-167.5 55.1-232.8 118.3-91.6 89-137 198-139.1 325.3 0.3 19.9 1.3 39.7 4 59.4C72.6 625.6 89 677 115 725.2c11.7 21.7 25.1 42.4 40.2 61.9 5.4 7.1 12.8 9.6 21.3 7.7 8-1.8 13.1-7.1 15.1-15.1 1.9-7.6-1-13.8-5.5-19.9C115.5 665 89.6 559 108.5 442.6c13.4-82.3 50.1-153.6 107.7-213.8C323.8 116.5 484.1 75 632.8 120.6zM924 329.3c-13.2-29.8-29.5-57.8-48.8-84-5.9-8-14.1-10.8-22.7-8.6-12.7 3.4-20.1 19.4-9.5 34.3 71.7 100.2 94.6 211.2 68.5 331.3-37.1 170.3-181.7 298.4-355.2 316.9-52.8 5.6-104.7 1.3-155.8-13-34.8-9.8-67.6-24.1-98.6-42.6-5.1-3.1-10.4-5.3-16.5-4.1-9 1.8-15.1 8-16.7 17-1.6 8.4 2.5 16.4 11.1 21.6 74.1 44.3 154.4 65.8 240.7 64.3 54-0.9 106.1-11.1 156.3-30.9 173-68.4 285.5-233.5 285.9-424.8-0.3-5.9-0.7-17-1.4-28.2-3.6-51.9-16.3-101.6-37.3-149.2z};
+\end{tikzpicture}%
+}%
+
+\newcommand{\noteicon}{%
+\begin{tikzpicture}[yscale=-1,scale=0.013,baseline={([yshift=-0.75ex]current bounding box.center)}]
+\fill[rbNoteColor] svg {M375.466667 722.5344V819.2h273.066666v-96.6656a341.4016 341.4016 0 1 0-273.066666 0z m-68.266667 41.847467a409.6 409.6 0 1 1 409.6 0V887.466667H307.2v-123.0848zM341.333333 955.733333h341.333334a34.133333 34.133333 0 1 1 0 68.266667h-341.333334a34.133333 34.133333 0 1 1 0-68.266667z};
+\end{tikzpicture}%
+}%
+
+\newcommand{\warningicon}{%
+\begin{tikzpicture}[yscale=-1,scale=0.013,baseline={([yshift=-0.75ex]current bounding box.center)}]
+\fill[rbWarningColor] svg {M249.992533 861.3888a27.306667 27.306667 0 0 1-17.885866-6.144A439.227733 439.227733 0 0 1 439.9104 83.012267a27.306667 27.306667 0 0 1 8.874667 53.521066 384.6144 384.6144 0 0 0-181.4528 676.522667 27.306667 27.306667 0 0 1-17.339734 48.3328zM579.584 949.998933a27.306667 27.306667 0 0 1-4.369067-54.613333 384.6144 384.6144 0 0 0 181.4528-675.84A27.306667 27.306667 0 0 1 791.893333 177.493333a439.227733 439.227733 0 0 1-207.803733 772.096zM407.278933 926.788267a27.306667 27.306667 0 0 1-27.306666-30.72l44.373333-354.986667-171.485867-2.048a27.306667 27.306667 0 0 1-20.0704-45.4656l365.909334-409.6a27.306667 27.306667 0 0 1 47.5136 21.572267l-44.373334 354.986666 171.485867 2.048a27.306667 27.306667 0 0 1 20.0704 45.4656l-365.909333 409.6a27.306667 27.306667 0 0 1-20.206934 9.147734zM314.026667 484.829867l141.994666 1.774933a27.306667 27.306667 0 0 1 27.306667 30.72l-38.0928 298.5984 267.741867-300.373333-141.994667-1.774934a27.306667 27.306667 0 0 1-27.306667-30.72l37.2736-298.5984z};
+\end{tikzpicture}%
+}%
+
 % ---- important 重要 ----
-\newtcolorbox{important}[1][]{%
+\newtcolorbox{important}[1][重要]{%
   enhanced, breakable, blanker, colback=white,
   borderline west={3pt}{-1pt}{rbImportantColor!50},
   left=.66em, right=0pt, top=.66em, bottom=.66em,
   before skip=.5em, after skip=.5em,
   fonttitle=\bfseries\color{rbImportantColor},
   attach title to upper={\par\vspace{.3em}},
-  title={$\boldsymbol{!}$\enspace 重要},
-  #1,
+  title={\importanticon\enspace #1},
 }
 
 % ---- warning 警告 ----
@@ -343,20 +445,19 @@
   before skip=.5em, after skip=.5em,
   fonttitle=\bfseries\color{rbWarningColor},
   attach title to upper={\par\vspace{.3em}},
-  title={$\triangle$\enspace 警告},
+  title={\warningicon\enspace 警告},
   #1,
 }
 
 % ---- note 注解 ----
-\newtcolorbox{note}[1][]{%
+\newtcolorbox{note}[1][注解]{%
   enhanced, breakable, blanker, colback=white,
   borderline west={3pt}{-1pt}{rbNoteColor!50},
   left=.66em, right=0pt, top=.66em, bottom=.66em,
   before skip=.5em, after skip=.5em,
   fonttitle=\bfseries\color{rbNoteColor},
   attach title to upper={\par\vspace{.3em}},
-  title={$\square$\enspace 注解},
-  #1,
+  title={\noteicon\enspace #1},
 }
 
 % ---- attention 注意 ----
@@ -367,7 +468,7 @@
   before skip=.5em, after skip=.5em,
   fonttitle=\bfseries\color{rbAttentionColor},
   attach title to upper={\par\vspace{.3em}},
-  title={$\oplus$\enspace 注意},
+  title={\attentionicon\enspace 注意},
   #1,
 }
 
@@ -411,7 +512,22 @@
   \ifnum\value{claim@proofdepth}=1 \setcounter{claim}{0}\fi
 }
 \AtEndEnvironment{proof}{\addtocounter{claim@proofdepth}{-1}}
-\let\claimproof\proof
+% sproof：可在 proof 内部单独使用的简单证明环境
+% 样式与 claim 内嵌的证明部分一致（缩进 + "证明" 标头 + 仿宋体 + □ 结尾）
+% 可选参数 #1 为标头文字，默认"证明"
+% 用法：
+%   \begin{claim*}断言内容\end{claim*}
+%   \begin{sproof}
+%     证明内容...
+%   \end{claimproof}
+\NewDocumentEnvironment{sproof}{O{证明}}{%
+    \par\noindent{\color{rbProofColor}\bfseries \fangsong #1}\hspace{-3.6pt}%
+    \fangsong%
+    \setlength{\parindent}{2em}%
+    \wideline
+}{%
+    \hfill{\color{rbProofColor}$\blacksquare$}\quad\par
+}
 % 版式：粗体“Claim n.” 后接断言内容，允许 \label/\ref 使用（通过 \refstepcounter）
 % 两个独立环境：claim（期望随后有 proof），claim*（不期望 proof）
 % 二者共享同一计数器，并且都会显示编号。
@@ -428,7 +544,7 @@
     \setlength{\parindent}{2em}%
     \wideline
     #2
-    \hfill$\Box$\quad\par
+    \hfill{\color{rbProofColor}$\blacksquare$}\quad\par
   \end{adjustwidth}%
 }{% end claim
 }
@@ -447,38 +563,34 @@
 %   \begin{homework}[index=5] ... \end{homework} % 从第 5 题开始
 \RequirePackage{xparse}
 \RequirePackage{keyval}
-\RequirePackage{enumitem}
+\RequirePackage[shortlabels]{enumitem}
 
 \newcounter{rbhomework}
-\newcommand{\therbhomeworklabel}{\arabic{rbhomework}.}
+\newcommand{\therbhomeworklabel}{\textbf{\arabic{rbhomework}.}}
 \define@key{rbhomework}{index}{\setcounter{rbhomework}{\numexpr#1-1\relax}}
 
 \newlength{\rbhomeworklabelleftpad}
 \newlength{\rbhomeworklabelsep}
-\setlength{\rbhomeworklabelleftpad}{0.75em}
+\setlength{\rbhomeworklabelleftpad}{0em} % 修改为0em使标号左对齐
 \setlength{\rbhomeworklabelsep}{0.75em}
 
 \newlength{\rbhomework@labelwidth}
 \newcommand{\rbhomework@calcwidth}{%
-  \settowidth{\rbhomework@labelwidth}{%
-    \hspace*{\rbhomeworklabelleftpad}\therbhomeworklabel\hspace{\rbhomeworklabelsep}%
-  }%
+  \settowidth{\rbhomework@labelwidth}{\therbhomeworklabel\hspace{\rbhomeworklabelsep}}%
 }
 \newcommand{\rbhomework@labbox}{%
-  \makebox[\rbhomework@labelwidth][l]{%
-    \hspace*{\rbhomeworklabelleftpad}\therbhomeworklabel\hspace{\rbhomeworklabelsep}%
-  }%
+  \makebox[\rbhomework@labelwidth][l]{\therbhomeworklabel\hfill}% 齐平、左对齐
 }
 
-\NewDocumentEnvironment{homework}{O{}}{%
+\NewDocumentEnvironment{rbhw}{O{}}{%
   \setkeys{rbhomework}{#1}%
   \refstepcounter{rbhomework}%
   \rbhomework@calcwidth
   \begin{list}{}{%
     \labelwidth=\rbhomework@labelwidth
-    \leftmargin=\rbhomework@labelwidth
+    \leftmargin=0pt
     \labelsep=0pt
-    \itemindent=0pt
+    \itemindent=\rbhomework@labelwidth
     \parsep=0pt
     \itemsep=0pt
     \topsep=.5\baselineskip

@@ -6,77 +6,68 @@
 
 \section{线性方程}
 
-设 \(A\) 为一个 \(n \times  n\) 矩阵.给定向量 \(\mathbf{b} \in  {\mathbb{R}}^{n}\) ，线性代数中的一个基本问题是求向量 \(\mathbf{x} \in  {\mathbb{R}}^{n}\) ，使得
-
+设 $A$ 为一个 $n \times  n$ 矩阵.给定向量 $\bm{b} \in  {\mathbb{R}}^{n}$ ，线性代数中的一个基本问题是求向量 $\bm{x} \in  {\mathbb{R}}^{n}$ ，使得
 \begin{equation}\tag{1.1}
-A\mathbf{x} = \mathbf{b}.
+A\bm{x} = \bm{b}.
 \end{equation}
 
 
-在线性偏微分方程理论中，相应问题如下:考虑一个有界开集 \(\Omega  \subset  {\mathbb{R}}^{n}\) ，以及形如
-
+在线性偏微分方程理论中，相应问题如下:考虑一个有界开集 $\Omega  \subset  {\mathbb{R}}^{n}$ ，以及形如
 \begin{equation}\tag{1.2}
 {Lu} \doteq   - \mathop{\sum }\limits_{{i,j = 1}}^{n}{\left( {a}^{ij}\left( x\right) {u}_{{x}_{i}}\right) }_{{x}_{j}} + \mathop{\sum }\limits_{{i = 1}}^{n}{b}^{i}\left( x\right) {u}_{{x}_{i}} + c\left( x\right) u.
 \end{equation}
 
-的线性偏微分算子.给定函数 \(f : \Omega  \mapsto  \mathbb{R}\) ，求函数 \(u\) ，使其在 \(\Omega\) 的边界上为零，且满足
-
+的线性偏微分算子.给定函数 $f : \Omega  \mapsto  \mathbb{R}$ ，求函数 $u$ ，使其在 $\Omega$ 的边界上为零，且满足
 \begin{equation}\tag{1.3}
 {Lu} = f.
 \end{equation}
 
-问题(1.1)与(1.3)之间存在本质差异.矩阵 \(A\) 在有限维空间 \({\mathbb{R}}^{n}\) 上诱导一个连续线性变换；而微分算子 \(L\) 则可视为无限维空间 \({\mathbf{L}}^{2}\left( \Omega \right)\) 上的无界(因而不连续)线性算子.特别地， \(L\) 的定义域并非整个空间 \({\mathbf{L}}^{2}\left( \Omega \right)\) ，而仅为其中某个适当的子空间.
+问题(1.1)与(1.3)之间存在本质差异.矩阵 $A$ 在有限维空间 ${\mathbb{R}}^{n}$ 上诱导一个连续线性变换；而微分算子 $L$ 则可视为无限维空间 $L^2\left( \Omega \right)$ 上的无界(因而不连续)线性算子.特别地， $L$ 的定义域并非整个空间 $L^2\left( \Omega \right)$ ，而仅为其中某个适当的子空间.
 
 尽管存在这些差异，但由于问题(1.1)与(1.3)均为线性问题，故线性代数中诸多方法亦可适用于(1.3).
 
 \subsection*{(I):正定性}\par
 
-假设矩阵 \(A\) 严格正定，即存在常数 \(\beta  > 0\) 使得
-
+假设矩阵 $A$ 严格正定，即存在常数 $\beta  > 0$ 使得
 \[
 \langle {Ax},x\rangle  \geq  \beta {\left| x\right| }^{2},\forall x \in  {\mathbb{R}}^{n}.
 \]
 
-则 \(A\) 可逆，且对任意 \(\mathbf{b} \in  {\mathbb{R}}^{n}\) ，方程(1.1)均有唯一解.
+则 $A$ 可逆，且对任意 $\bm{b} \in  {\mathbb{R}}^{n}$ ，方程(1.1)均有唯一解.
 
-该结论对椭圆型偏微分方程具有直接对应形式.即假设算子 \(L\) 严格正定，其含义为(经形式分部积分后)
-
+该结论对椭圆型偏微分方程具有直接对应形式.即假设算子 $L$ 严格正定，其含义为(经形式分部积分后)
 \begin{equation}\tag{1.4}
 \begin{aligned}
-\langle {Lu},u{\rangle }_{{\mathbf{L}}^{2}} &= {\int }_{\Omega }\left( {\mathop{\sum }\limits_{{i,j = 1}}^{n}{a}^{ij}\left( x\right) {u}_{{x}_{i}}{u}_{{x}_{j}} + \mathop{\sum }\limits_{{i = 1}}^{n}{b}^{i}\left( x\right) {u}_{{x}_{i}}u + \mathrm{c}\left( x\right) {u}^{2}}\right) {dx} \\
+\langle {Lu},u{\rangle }_{L^2} &= {\int }_{\Omega }\left( {\mathop{\sum }\limits_{{i,j = 1}}^{n}{a}^{ij}\left( x\right) {u}_{{x}_{i}}{u}_{{x}_{j}} + \mathop{\sum }\limits_{{i = 1}}^{n}{b}^{i}\left( x\right) {u}_{{x}_{i}}u + \mathrm{c}\left( x\right) {u}^{2}}\right) {dx} \\
 &\geq  \beta \| u{\| }_{{H}_{0}^{1}\left( \Omega \right) }^{2}
 \end{aligned}
 \end{equation}
 
-对某个常数 \(\beta  > 0\) 及所有 \(u \in  {H}_{0}^{1}\left( \Omega \right)\) 成立.此处 \({H}_{0}^{1}\left( \Omega \right)\) 是定义在 \(\Omega\) 边界上取零值、且满足
-
+对某个常数 $\beta  > 0$ 及所有 $u \in  {H}_{0}^{1}\left( \Omega \right)$ 成立.此处 ${H}_{0}^{1}\left( \Omega \right)$ 是定义在 $\Omega$ 边界上取零值、且满足
 \[
 \| u{\| }_{{H}_{0}^{1}\left( \Omega \right) } \doteq  {\left( {\int }_{\Omega }{\left| u\right| }^{2}dx + {\int }_{\Omega }{\left| \nabla u\right| }^{2}dx\right) }^{1/2} < \infty ;
 \]
-的函数空间；精确的定义见第8章.若(1.4)成立，则可证问题(1.3)对任意给定 \(f \in  {\mathbf{L}}^{2}\left( \Omega \right)\) 均存在唯一解 \(u \in  {H}_{0}^{1}\left( \Omega \right)\) .
+的函数空间；精确的定义见第8章.若(1.4)成立，则可证问题(1.3)对任意给定 $f \in  L^2\left( \Omega \right)$ 均存在唯一解 $u \in  {H}_{0}^{1}\left( \Omega \right)$ .
 
-为使不等式(1.4)成立，一个关键假设是算子 \(L\) 应为椭圆型.即在每一点 \(x \in  \Omega\) 处， \(n \times  n\) 阶矩阵 \(\left( {{a}^{ij}\left( x\right) }\right)\) 均须严格正定.
+为使不等式(1.4)成立，一个关键假设是算子 $L$ 应为椭圆型.即在每一点 $x \in  \Omega$ 处， $n \times  n$ 阶矩阵 $\left( {{a}^{ij}\left( x\right) }\right)$ 均须严格正定.
 
 \subsection*{(II):Fredholm择一性}\par
 
-线性代数中一个著名判据指出:方程(1.1)对任意给定 \(\mathbf{b} \in  {\mathbb{R}}^{n}\) 均有唯一解，当且仅当齐次方程
-
+线性代数中一个著名判据指出:方程(1.1)对任意给定 $\bm{b} \in  {\mathbb{R}}^{n}$ 均有唯一解，当且仅当齐次方程
 \[
-A\mathbf{x} = 0
+A\bm{x} = 0
 \]
 
-仅有零解 \(\mathbf{x} = 0\) .显然，这成立当且仅当矩阵 \(A\) 可逆.
+仅有零解 $\bm{x} = 0$ .显然，这成立当且仅当矩阵 $A$ 可逆.
 
-一般而言，无限维空间 \(X\) 上的连续线性算子并不具备此性质.事实上，可构造出单射但非满射(或反之)的有界线性算子 \(\Lambda  : X \mapsto  X\) .
+一般而言，无限维空间 $X$ 上的连续线性算子并不具备此性质.事实上，可构造出单射但非满射(或反之)的有界线性算子 $\Lambda  : X \mapsto  X$ .
 
-然而，有限维理论可推广至一类重要算子，即形如 \(\Lambda  = I - K\) 的算子，其中 \(I\) 为恒等算子， \(K\) 为紧算子.若 \(\Lambda\) 属于此类，则仍可证明等价性
-
+然而，有限维理论可推广至一类重要算子，即形如 $\Lambda  = I - K$ 的算子，其中 $I$ 为恒等算子， $K$ 为紧算子.若 $\Lambda$ 属于此类，则仍可证明等价性
 \[
-\Lambda \text{ is one-to-one } \Leftrightarrow  \Lambda \text{ is onto. }
+\Lambda \text{是单射} \Leftrightarrow  \Lambda \text{是满射. }
 \]
 
-由此理论的一个应用可知:对线性椭圆型算子，方程(1.3)对任意 \(f \in  {\mathbf{L}}^{2}\left( \Omega \right)\) 均有唯一解 \(u \in  {H}_{0}^{1}\left( \Omega \right)\) ，当且仅当齐次方程
-
+由此理论的一个应用可知:对线性椭圆型算子，方程(1.3)对任意 $f \in  L^2\left( \Omega \right)$ 均有唯一解 $u \in  {H}_{0}^{1}\left( \Omega \right)$ ，当且仅当齐次方程
 \[
 {Lu} = 0
 \]
@@ -85,98 +76,83 @@ A\mathbf{x} = 0
 
 \subsection*{(III):对角化}\par
 
-若能在 \({\mathbb{R}}^{n}\) 中找到由 \(A\) 的特征向量构成的一组基 \(\left\{  {{\mathbf{v}}_{1},\ldots ,{\mathbf{v}}_{n}}\right\}\) ，则系统(1.1)在此基下呈对角形式，从而易于求解.
+若能在 ${\mathbb{R}}^{n}$ 中找到由 $A$ 的特征向量构成的一组基 $\left\{  {{\bm{v}}_{1},\ldots ,{\bm{v}}_{n}}\right\}$ ，则系统(1.1)在此基下呈对角形式，从而易于求解.
 
-对于具有重特征值的一般矩阵 \(A\) ，众所周知，这样的特征向量基未必存在.这方面的一个肯定结果如下:若 \(n \times  n\) 矩阵 \(A\) 为对称矩阵，则可在欧氏空间 \({\mathbb{R}}^{n}\) 中找到一组由 \(A\) 的特征向量构成的标准正交基 \(\left\{  {{\mathbf{v}}_{1},\ldots ,{\mathbf{v}}_{n}}\right\}\) .即:
-
+对于具有重特征值的一般矩阵 $A$ ，众所周知，这样的特征向量基未必存在.这方面的一个肯定结果如下:若 $n \times  n$ 矩阵 $A$ 为对称矩阵，则可在欧氏空间 ${\mathbb{R}}^{n}$ 中找到一组由 $A$ 的特征向量构成的标准正交基 $\left\{  {{\bm{v}}_{1},\ldots ,{\bm{v}}_{n}}\right\}$ .即:
 \[
-\left( {{\mathbf{v}}_{i},{\mathbf{v}}_{j}}\right)  = \left\{  \begin{array}{ll} 1 & \text{ if }i = j, \\  0 & \text{ if }i \neq  j, \end{array}\right. \;A{\mathbf{v}}_{k} = {\lambda }_{k}{\mathbf{v}}_{k}.
+\left( {{\bm{v}}_{i},{\bm{v}}_{j}}\right)  = \left\{  \begin{array}{ll} 1 & \text{ if }i = j, \\  0 & \text{ if }i \neq  j, \end{array}\right. \;A{\bm{v}}_{k} = {\lambda }_{k}{\bm{v}}_{k}.
 \]
 
-此处 \({\lambda }_{1},\ldots ,{\lambda }_{n} \in  \mathbb{R}\) 为对应的特征值.现可通过计算 \(\mathbf{x}\) 在该标准正交基下的系数 \({c}_{1},\ldots ,{c}_{n}\) ，求得(1.1)的解:
-
+此处 ${\lambda }_{1},\ldots ,{\lambda }_{n} \in  \mathbb{R}$ 为对应的特征值.现可通过计算 $\bm{x}$ 在该标准正交基下的系数 ${c}_{1},\ldots ,{c}_{n}$ ，求得(1.1)的解:
 \[
-\mathbf{x} = \mathop{\sum }\limits_{{k = 1}}^{n}{c}_{k}{\mathbf{v}}_{k},\;A\mathbf{x} = \mathop{\sum }\limits_{{k = 1}}^{n}{\lambda }_{k}{c}_{k}{\mathbf{v}}_{k} = \mathbf{b} = \mathop{\sum }\limits_{{k = 1}}^{n}\left\langle  {\mathbf{b},{\mathbf{v}}_{k}}\right\rangle  {\mathbf{v}}_{k}.
+\bm{x} = \mathop{\sum }\limits_{{k = 1}}^{n}{c}_{k}{\bm{v}}_{k},\;A\bm{x} = \mathop{\sum }\limits_{{k = 1}}^{n}{\lambda }_{k}{c}_{k}{\bm{v}}_{k} = \bm{b} = \mathop{\sum }\limits_{{k = 1}}^{n}\left\langle  {\bm{b},{\bm{v}}_{k}}\right\rangle  {\bm{v}}_{k}.
 \]
 
-注意，得益于特征向量基，问题得以解耦:无需求解一个含 \(n\) 个方程、 \(n\) 个未知量的大系统，而只需分别求解 \(n\) 个标量方程，每个对应一个系数 \({c}_{k}\) .若所有特征值 \({\lambda }_{k}\) 均非零，则可得到显式公式:
-
+注意，得益于特征向量基，问题得以解耦:无需求解一个含 $n$ 个方程、 $n$ 个未知量的大系统，而只需分别求解 $n$ 个标量方程，每个对应一个系数 ${c}_{k}$ .若所有特征值 ${\lambda }_{k}$ 均非零，则可得到显式公式:
 \begin{equation}\tag{1.5}
-\mathbf{x} = \mathop{\sum }\limits_{{k = 1}}^{n}\frac{1}{{\lambda }_{k}}\left\langle  {\mathbf{b},{\mathbf{v}}_{k}}\right\rangle  {\mathbf{v}}_{k}.
+\bm{x} = \mathop{\sum }\limits_{{k = 1}}^{n}\frac{1}{{\lambda }_{k}}\left\langle  {\bm{b},{\bm{v}}_{k}}\right\rangle  {\bm{v}}_{k}.
 \end{equation}
 
-在分析(1.2)中的椭圆型算子 \(L\) 时，只要满足 \({a}^{ij} = {a}^{ji}\) 和 \({b}^{i}\left( x\right)  = 0\) ，即可采用相同方法.事实上，这些条件使该算子具有“对称性”.此时可在空间 \({\mathbf{L}}^{2}\left( \Omega \right)\) 中找到一组可数的标准正交基 \(\left\{  {{\phi }_{1},{\phi }_{2},\ldots }\right\}\) ，其元素为函数 \({\phi }_{k} \in  {H}_{0}^{1}\left( \Omega \right)\) ，使得
-
+在分析(1.2)中的椭圆型算子 $L$ 时，只要满足 ${a}^{ij} = {a}^{ji}$ 和 ${b}^{i}\left( x\right)  = 0$ ，即可采用相同方法.事实上，这些条件使该算子具有“对称性”.此时可在空间 $L^2\left( \Omega \right)$ 中找到一组可数的标准正交基 $\left\{  {{\phi }_{1},{\phi }_{2},\ldots }\right\}$ ，其元素为函数 ${\phi }_{k} \in  {H}_{0}^{1}\left( \Omega \right)$ ，使得
 \begin{equation}\tag{1.6}
-{\left\langle  {\phi }_{i},{\phi }_{j}\right\rangle  }_{{\mathbf{L}}^{2}} = \left\{  \begin{array}{ll} 1 & \text{ if }i = j, \\  0 & \text{ if }i \neq  j, \end{array}\right. \;L{\phi }_{k} = {\lambda }_{k}{\phi }_{k},
+{\left\langle  {\phi }_{i},{\phi }_{j}\right\rangle  }_{L^2} = \left\{  \begin{array}{ll} 1 & \text{ if }i = j, \\  0 & \text{ if }i \neq  j, \end{array}\right. \;L{\phi }_{k} = {\lambda }_{k}{\phi }_{k},
 \end{equation}
 
-其中 \({\lambda }_{k} \rightarrow   + \infty\) 为一适当选取的实特征值序列.若假设对所有 \(k\) 均有 \({\lambda }_{k} \neq  0\) ，则(1.3)的唯一解可显式写为:
-
+其中 ${\lambda }_{k} \rightarrow   + \infty$ 为一适当选取的实特征值序列.若假设对所有 $k$ 均有 ${\lambda }_{k} \neq  0$ ，则(1.3)的唯一解可显式写为:
 \begin{equation}\tag{1.7}
-u = \mathop{\sum }\limits_{{k = 1}}^{\infty }\frac{1}{{\lambda }_{k}}{\left\langle  f,{\phi }_{k}\right\rangle  }_{{\mathbf{L}}^{2}}{\phi }_{k}.
+u = \mathop{\sum }\limits_{{k = 1}}^{\infty }\frac{1}{{\lambda }_{k}}{\left\langle  f,{\phi }_{k}\right\rangle  }_{L^2}{\phi }_{k}.
 \end{equation}
 
-注意公式(1.5)与(1.7)之间的高度相似性.本质上，只需将 \({\mathbb{R}}^{n}\) 上的欧氏内积替换为 \({\mathbf{L}}^{2}\left( \Omega \right)\) 上的内积即可.
+注意公式(1.5)与(1.7)之间的高度相似性.本质上，只需将 ${\mathbb{R}}^{n}$ 上的欧氏内积替换为 $L^2\left( \Omega \right)$ 上的内积即可.
 
 \section{演化方程}
 
-设 \(A\) 为一个 \(n \times  n\) 矩阵.对给定初态 \(\mathbf{b} \in  {\mathbb{R}}^{n}\) ，考虑柯西问题:
-
+设 $A$ 为一个 $n \times  n$ 矩阵.对给定初态 $\bm{b} \in  {\mathbb{R}}^{n}$ ，考虑柯西问题:
 \begin{equation}\tag{1.8}
-\frac{d}{dt}\mathbf{x}\left( t\right)  = A\mathbf{x}\left( t\right) ,\;\mathbf{x}\left( 0\right)  = \mathbf{b}.
+\frac{d}{dt}\bm{x}\left( t\right)  = A\bm{x}\left( t\right) ,\;\bm{x}\left( 0\right)  = \bm{b}.
 \end{equation}
 
 根据线性常微分方程理论，该问题存在唯一解:
-
 \begin{equation}\tag{1.9}
-\mathbf{x}\left( t\right)  = {e}^{tA}\mathbf{b},
+\bm{x}\left( t\right)  = {e}^{tA}\bm{b},
 \end{equation}
 
 其中
-
 \begin{equation}\tag{1.10}
 {e}^{tA} = \mathop{\sum }\limits_{{k = 0}}^{\infty }\frac{{t}^{k}{A}^{k}}{k!}
 \end{equation}
 
-注意，(1.10)式右端被定义为一个收敛的 \(n \times  n\) 矩阵级数；此处 \({A}^{0} = I\) 为单位矩阵.矩阵族 \(\left\{  {{e}^{tA};t \in  \mathbb{R}}\right\}\) 具有“群性质”，即:
-
+注意，(1.10)式右端被定义为一个收敛的 $n \times  n$ 矩阵级数；此处 ${A}^{0} = I$ 为单位矩阵.矩阵族 $\left\{  {{e}^{tA};t \in  \mathbb{R}}\right\}$ 具有“群性质”，即:
 \[
 {e}^{0A} = I,\;{e}^{tA}{e}^{sA} = {e}^{\left( {t + s}\right) A}\;\text{ for all }t,s \in  \mathbb{R}.
 \]
 
-若 \(A\) 为对称矩阵，则它存在一组标准正交特征向量基 \(\left\{  {{\mathbf{v}}_{1},\ldots ,{\mathbf{v}}_{n}}\right\}\) ，对应特征值为 \({\lambda }_{1},\ldots ,{\lambda }_{n}\) .此时，解(1.9)可更显式地写为:
-
+若 $A$ 为对称矩阵，则它存在一组标准正交特征向量基 $\left\{  {{\bm{v}}_{1},\ldots ,{\bm{v}}_{n}}\right\}$ ，对应特征值为 ${\lambda }_{1},\ldots ,{\lambda }_{n}$ .此时，解(1.9)可更显式地写为:
 \[
-{e}^{tA}\mathbf{b} = \mathop{\sum }\limits_{{k = 1}}^{n}{e}^{t{\lambda }_{k}}\left\langle  {\mathbf{b},{\mathbf{v}}_{k}}\right\rangle  {\mathbf{v}}_{k}.
+{e}^{tA}\bm{b} = \mathop{\sum }\limits_{{k = 1}}^{n}{e}^{t{\lambda }_{k}}\left\langle  {\bm{b},{\bm{v}}_{k}}\right\rangle  {\bm{v}}_{k}.
 \]
 
 线性半群理论将上述结果推广至无穷维空间中的无界线性算子.特别地，它适用于如下形式的抛物型演化方程:
-
 \begin{equation}\tag{1.11}
-\frac{d}{dt}u\left( t\right)  =  - {Lu}\left( t\right) ,\;u\left( 0\right)  = g \in  {\mathbf{L}}^{2}\left( \Omega \right) ,\;u = 0\text{ on }\partial \Omega ,
+\frac{d}{dt}u\left( t\right)  =  - {Lu}\left( t\right) ,\;u\left( 0\right)  = g \in  L^2\left( \Omega \right) ,\;u = 0\text{ on }\partial \Omega ,
 \end{equation}
 
-其中 \(L\) 是 (1.2) 式中的偏微分算子， \(\partial \Omega\) 表示 \(\Omega\) 的边界.当 \({a}^{ij} = {a}^{ji}\) 且 \({b}^{i}\left( x\right)  = 0\) 时，椭圆算子 \(L\) 是对称的，其解可沿 (1.6) 式中考虑的空间 \({\mathbf{L}}^{2}\left( \Omega \right)\) 的标准正交基 \(\left\{  {{\phi }_{1},{\phi }_{2},\ldots }\right\}\) 分解.由此得到如下表示
-
+其中 $L$ 是 (1.2) 式中的偏微分算子， $\partial \Omega$ 表示 $\Omega$ 的边界.当 ${a}^{ij} = {a}^{ji}$ 且 ${b}^{i}\left( x\right)  = 0$ 时，椭圆算子 $L$ 是对称的，其解可沿 (1.6) 式中考虑的空间 $L^2\left( \Omega \right)$ 的标准正交基 $\left\{  {{\phi }_{1},{\phi }_{2},\ldots }\right\}$ 分解.由此得到如下表示
 \begin{equation}\tag{1.12}
-u\left( t\right)  = {S}_{t}g \doteq  \mathop{\sum }\limits_{{k = 1}}^{\infty }{e}^{-t{\lambda }_{k}}{\left\langle  g,{\phi }_{k}\right\rangle  }_{{\mathbf{L}}^{2}}{\phi }_{k},\;t \geq  0.
+u\left( t\right)  = {S}_{t}g \doteq  \mathop{\sum }\limits_{{k = 1}}^{\infty }{e}^{-t{\lambda }_{k}}{\left\langle  g,{\phi }_{k}\right\rangle  }_{L^2}{\phi }_{k},\;t \geq  0.
 \end{equation}
 
-注意，算子 \(L\) 是无界的(其特征值满足 \({\lambda }_{k} \rightarrow   + \infty\) ，当 \(k \rightarrow  \infty\) 时).然而，(1.12) 式中的算子 \({S}_{t}\) 对每个 \(t \geq  0\) 均有界(但对 \(t < 0\) 不成立).线性算子族 \(\left\{  {{S}_{t};t \geq  0}\right\}\) 称为线性半群，因其具有半群性质
-
+注意，算子 $L$ 是无界的(其特征值满足 ${\lambda }_{k} \rightarrow   + \infty$ ，当 $k \rightarrow  \infty$ 时).然而，(1.12) 式中的算子 ${S}_{t}$ 对每个 $t \geq  0$ 均有界(但对 $t < 0$ 不成立).线性算子族 $\left\{  {{S}_{t};t \geq  0}\right\}$ 称为线性半群，因其具有半群性质
 \[
 {S}_{0} = I,\;{S}_{t} \circ  {S}_{s} = {S}_{t + s}\;\text{ for all }s,t \geq  0.
 \]
 
-直观上，可将 \({S}_{t}\) 视为指数型算子: \({S}_{t} \doteq  {e}^{-{Lt}}\) .但由于 \(L\) 是无界的，须注意类似 (1.10) 式的指数公式不再成立.当显式公式 (1.12) 不可用时，必须借助其他近似方法构造算子 \({S}_{t}\) .在有限维情形下，矩阵 \(A\) 的指数可通过下式复原
-
+直观上，可将 ${S}_{t}$ 视为指数型算子: ${S}_{t} \doteq  {e}^{-{Lt}}$ .但由于 $L$ 是无界的，须注意类似 (1.10) 式的指数公式不再成立.当显式公式 (1.12) 不可用时，必须借助其他近似方法构造算子 ${S}_{t}$ .在有限维情形下，矩阵 $A$ 的指数可通过下式复原
 \begin{equation}\tag{1.13}
 {e}^{tA} = \mathop{\lim }\limits_{{n \rightarrow  \infty }}{\left( I - \frac{t}{n}A\right) }^{-n}
 \end{equation}
 
 也可通过下式复原
-
 \begin{equation}\tag{1.14}
 {e}^{tA} = \mathop{\lim }\limits_{{\lambda  \rightarrow  \infty }}{e}^{t{A}_{\lambda }},\;{A}_{\lambda } \doteq  A{\left( I - {\lambda }^{-1}A\right) }^{-1}.
 \end{equation}
@@ -184,7 +160,6 @@ u\left( t\right)  = {S}_{t}g \doteq  \mathop{\sum }\limits_{{k = 1}}^{\infty }{e
 值得注意的是，两个公式 (1.13)-(1.14) 对一大类无穷维空间上的无界算子仍保持有效性.
 
 双曲型初值问题
-
 \begin{equation}\tag{1.15}
 {u}_{tt} + {Lu} = 0,\;\begin{cases} u\left( 0\right) &  = g, \\  {u}_{t}\left( 0\right) &  = h, \end{cases}\;u = 0\text{ on }\partial \Omega ,
 \end{equation}
@@ -192,53 +167,45 @@ u\left( t\right)  = {S}_{t}g \doteq  \mathop{\sum }\limits_{{k = 1}}^{\infty }{e
 亦可用类似方法处理.
 
 (1.15) 式的有限维对应形式是二阶线性方程组
-
 \begin{equation}\tag{1.16}
-\frac{{d}^{2}}{d{t}^{2}}\mathbf{x}\left( t\right)  + A\mathbf{x}\left( t\right)  = 0,\;\mathbf{x}\left( 0\right)  = \mathbf{a},\;\frac{d}{dt}\mathbf{x}\left( 0\right)  = \mathbf{b}.
+\frac{{d}^{2}}{d{t}^{2}}\bm{x}\left( t\right)  + A\bm{x}\left( t\right)  = 0,\;\bm{x}\left( 0\right)  = \bm{a},\;\frac{d}{dt}\bm{x}\left( 0\right)  = \bm{b}.
 \end{equation}
 
-此处 \(\mathbf{x},\mathbf{a},\mathbf{b} \in  {\mathbb{R}}^{n}\) 和 \(A\) 是一个 \(n \times  n\) 矩阵.用上点号表示时间导数，并令 \(\mathbf{y} \doteq  \dot{\mathbf{x}},\left( {1.16}\right)\) ，则可将 (1.15) 式写成一阶系统:
-
+此处 $\bm{x},\bm{a},\bm{b} \in  {\mathbb{R}}^{n}$ 和 $A$ 是一个 $n \times  n$ 矩阵.用上点号表示时间导数，并令 $\bm{y} \doteq  \dot{\bm{x}},\left( {1.16}\right)$ ，则可将 (1.15) 式写成一阶系统:
 \begin{equation}\tag{1.17}
-\left( \begin{array}{l} \dot{\mathbf{x}} \\  \dot{\mathbf{y}} \end{array}\right)  = \left( \begin{matrix} 0 & I \\   - A & 0 \end{matrix}\right) \left( \begin{array}{l} \mathbf{x} \\  \mathbf{y} \end{array}\right) ,\;\left( \begin{array}{l} \mathbf{x}\left( 0\right) \\  \mathbf{y}\left( 0\right)  \end{array}\right)  = \left( \begin{array}{l} \mathbf{a} \\  \mathbf{b} \end{array}\right) .
+\left( \begin{array}{l} \dot{\bm{x}} \\  \dot{\bm{y}} \end{array}\right)  = \left( \begin{matrix} 0 & I \\   - A & 0 \end{matrix}\right) \left( \begin{array}{l} \bm{x} \\  \bm{y} \end{array}\right) ,\;\left( \begin{array}{l} \bm{x}\left( 0\right) \\  \bm{y}\left( 0\right)  \end{array}\right)  = \left( \begin{array}{l} \bm{a} \\  \bm{b} \end{array}\right) .
 \end{equation}
 
-因此，适用于一阶线性常微分方程的结果亦可在此应用.若 \(A\) 对称，则它具有一组标准正交特征向量基 \(\left\{  {{\mathbf{v}}_{1},\ldots ,{\mathbf{v}}_{n}}\right\}\) ，对应特征值为 \({\lambda }_{1},\ldots ,{\lambda }_{n}\) .此时，(1.16) 式的解可表为
-
+因此，适用于一阶线性常微分方程的结果亦可在此应用.若 $A$ 对称，则它具有一组标准正交特征向量基 $\left\{  {{\bm{v}}_{1},\ldots ,{\bm{v}}_{n}}\right\}$ ，对应特征值为 ${\lambda }_{1},\ldots ,{\lambda }_{n}$ .此时，(1.16) 式的解可表为
 \begin{equation}\tag{1.18}
-\mathbf{x}\left( t\right)  = \mathop{\sum }\limits_{{k = 1}}^{n}{c}_{k}\left( t\right) {\mathbf{v}}_{k}.
+\bm{x}\left( t\right)  = \mathop{\sum }\limits_{{k = 1}}^{n}{c}_{k}\left( t\right) {\bm{v}}_{k}.
 \end{equation}
 
-每个系数 \({c}_{k}\left( \cdot \right)\) 均可独立计算，即求解如下二阶标量常微分方程
-
+每个系数 ${c}_{k}\left( \cdot \right)$ 均可独立计算，即求解如下二阶标量常微分方程
 \[
-\frac{{d}^{2}}{d{t}^{2}}{c}_{k}\left( t\right)  + {\lambda }_{k}{c}_{k}\left( t\right)  = 0,\;{c}_{k}\left( 0\right)  = \left\langle  {\mathbf{a},{v}_{k}}\right\rangle  ,\;\frac{d}{dt}{c}_{k}\left( 0\right)  = \left\langle  {\mathbf{b},{v}_{k}}\right\rangle  .
+\frac{{d}^{2}}{d{t}^{2}}{c}_{k}\left( t\right)  + {\lambda }_{k}{c}_{k}\left( t\right)  = 0,\;{c}_{k}\left( 0\right)  = \left\langle  {\bm{a},{v}_{k}}\right\rangle  ,\;\frac{d}{dt}{c}_{k}\left( 0\right)  = \left\langle  {\bm{b},{v}_{k}}\right\rangle  .
 \]
 
-回到问题 (1.15)，若椭圆算子 \(L\) 对称，则解仍可沿 (1.6) 式中考虑的空间 \({\mathbf{L}}^{2}\left( \Omega \right)\) 的标准正交基 \(\left\{  {{\phi }_{1},{\phi }_{2},\ldots }\right\}\) 分解.由此得到完全类似的表示
-
+回到问题 (1.15)，若椭圆算子 $L$ 对称，则解仍可沿 (1.6) 式中考虑的空间 $L^2\left( \Omega \right)$ 的标准正交基 $\left\{  {{\phi }_{1},{\phi }_{2},\ldots }\right\}$ 分解.由此得到完全类似的表示
 \begin{equation}\tag{1.19}
 u\left( t\right)  = \mathop{\sum }\limits_{{k = 1}}^{\infty }{c}_{k}\left( t\right) {\phi }_{k}\;t \geq  0,
 \end{equation}
 
-其中每个函数 \({c}_{k}\) 由如下方程确定
-
+其中每个函数 ${c}_{k}$ 由如下方程确定
 \[
-\frac{{d}^{2}}{d{t}^{2}}{c}_{k}\left( t\right)  + {\lambda }_{k}{c}_{k}\left( t\right)  = 0,\;{c}_{k}\left( 0\right)  = {\left\langle  g,{\phi }_{k}\right\rangle  }_{{\mathbf{L}}^{2}},\;\frac{d}{dt}{c}_{k}\left( 0\right)  = {\left\langle  h,{\phi }_{k}\right\rangle  }_{{\mathbf{L}}^{2}}.
+\frac{{d}^{2}}{d{t}^{2}}{c}_{k}\left( t\right)  + {\lambda }_{k}{c}_{k}\left( t\right)  = 0,\;{c}_{k}\left( 0\right)  = {\left\langle  g,{\phi }_{k}\right\rangle  }_{L^2},\;\frac{d}{dt}{c}_{k}\left( 0\right)  = {\left\langle  h,{\phi }_{k}\right\rangle  }_{L^2}.
 \]
 
 \section{函数空间}
 
-在泛函分析中，一个核心思想是将函数 \(f : {\mathbb{R}}^{n} \mapsto  \mathbb{R}\) 视为抽象向量空间中的点.关于函数的全部信息被浓缩为一个单一数值 \(\| f\|\) ，我们称之为 \(f\) 的范数.通常，范数衡量 \(f\) 及其直至某阶 \(k\) 的偏导数的“大小”.仅依赖这一概念并结合向量空间结构，竟能获得如此众多的结果，实属惊人.这正是泛函分析方法广获成功的原因所在.
+在泛函分析中，一个核心思想是将函数 $f : {\mathbb{R}}^{n} \mapsto  \mathbb{R}$ 视为抽象向量空间中的点.关于函数的全部信息被浓缩为一个单一数值 $\| f\|$ ，我们称之为 $f$ 的范数.通常，范数衡量 $f$ 及其直至某阶 $k$ 的偏导数的“大小”.仅依赖这一概念并结合向量空间结构，竟能获得如此众多的结果，实属惊人.这正是泛函分析方法广获成功的原因所在.
 
-将泛函分析应用于积分方程或微分方程时，需建立函数空间理论.在此方向上，自然考虑函数空间 \({\mathcal{C}}^{k}\) ，即所有直至 \(k\) 阶偏导数均有界且连续的函数构成的空间.函数 \(f \in  {\mathcal{C}}^{k}\left( {\mathbb{R}}^{n}\right)\) 的“大小”由如下范数刻画
-
+将泛函分析应用于积分方程或微分方程时，需建立函数空间理论.在此方向上，自然考虑函数空间 ${\mathcal{C}}^{k}$ ，即所有直至 $k$ 阶偏导数均有界且连续的函数构成的空间.函数 $f \in  {\mathcal{C}}^{k}\left( {\mathbb{R}}^{n}\right)$ 的“大小”由如下范数刻画
 \[
 \| f{\| }_{{\mathcal{C}}^{k}} \doteq  \mathop{\max }\limits_{{{\alpha }_{1} + \cdots  + {\alpha }_{n} \leq  k}}\mathop{\sup }\limits_{{x \in  {\mathbb{R}}^{n}}}\left| {{\partial }_{{x}_{1}}^{{\alpha }_{1}}\cdots {\partial }_{{x}_{n}}^{{\alpha }_{n}}f\left( x\right) }\right| .
 \]
 
-然而，空间 \({\mathcal{C}}^{k}\) 并不总适用于偏微分方程的研究.事实上，基于物理或几何考虑，人们往往无法给出解及其导数的最大值估计，而只能给出其 \({\mathbf{L}}^{p}\) 范数的估计，其中 \(p \geq  1\) 为某给定值.这促使人们引入S o b lev空间 \({W}^{k,p}\) ，它包含所有直至 \(k\) 阶导数均属于 \({\mathbf{L}}^{p}\) 的函数.此时，函数 \(f \in  {W}^{k,p}\left( {\mathbb{R}}^{n}\right)\) 的“大小”由如下范数刻画
-
+然而，空间 ${\mathcal{C}}^{k}$ 并不总适用于偏微分方程的研究.事实上，基于物理或几何考虑，人们往往无法给出解及其导数的最大值估计，而只能给出其 ${L}^{p}$ 范数的估计，其中 $p \geq  1$ 为某给定值.这促使人们引入Soblev空间 ${W}^{k,p}$ ，它包含所有直至 $k$ 阶导数均属于 ${L}^{p}$ 的函数.此时，函数 $f \in  {W}^{k,p}\left( {\mathbb{R}}^{n}\right)$ 的“大小”由如下范数刻画
 \[
 \| f{\| }_{{W}^{k,p}} \doteq  {\left( \mathop{\sum }\limits_{{{\alpha }_{1} + \cdots  + {\alpha }_{n} \leq  k}}{\int }_{{\mathbb{R}}^{n}}{\left| {\partial }_{{x}_{1}}^{{\alpha }_{1}}\cdots {\partial }_{{x}_{n}}^{{\alpha }_{n}}f\left( x\right) \right| }^{p}dx\right) }^{1/p}
 \]
@@ -249,25 +216,25 @@ u\left( t\right)  = \mathop{\sum }\limits_{{k = 1}}^{\infty }{c}_{k}\left( t\rig
 
 求解方程时，若无法给出解的显式表达式，一种常用方法依赖于以下三个步骤:
 
-(i) 构造一列近似解 \({\left( {u}_{n}\right) }_{n \geq  1}\) .
+(i) 构造一列近似解 ${\left( {u}_{n}\right) }_{n \geq  1}$ .
 
-(ii) 提取一列收敛子列 \({u}_{{n}_{j}} \rightarrow  \bar{u}\) .
+(ii) 提取一列收敛子列 ${u}_{{n}_{j}} \rightarrow  \bar{u}$ .
 
-(iii) 证明该极限 \(\bar{u}\) 是原方程的解.
+(iii) 证明该极限 $\bar{u}$ 是原方程的解.
 
-当进行到第(ii)步时，会遇到Euclid空间 \({\mathbb{R}}^{N}\) 与抽象函数空间之间的一个重要差异:即在 \({\mathbb{R}}^{N}\) 中，所有闭有界集都是紧的；换言之，在 \({\mathbb{R}}^{N}\) 中Bolzano-Weierstrass定理成立:
+当进行到第(ii)步时，会遇到Euclid空间 ${\mathbb{R}}^{N}$ 与抽象函数空间之间的一个重要差异:即在 ${\mathbb{R}}^{N}$ 中，所有闭有界集都是紧的；换言之，在 ${\mathbb{R}}^{N}$ 中Bolzano-Weierstrass定理成立:
 
 \begin{itemize}\relax
-\item\relax 对任意有界序列 \({\left( {u}_{n}\right) }_{n \geq  1}\) ，均可提取出一个收敛子列.
+\item\relax 对任意有界序列 ${\left( {u}_{n}\right) }_{n \geq  1}$ ，均可提取出一个收敛子列.
 \end{itemize}
 
-如第2章所证(见定理2.22)，这一关键性质在任一有限维赋范空间中均成立，但在任一无限维赋范空间中均不成立.在函数空间中，仅证明近似解序列有界(即对某个常数 \(C\) 及所有 \(n \geq  1\) 满足 \(\|{u}_{n}\| \leq  C\) )并不能保证存在收敛子列.为克服这一根本困难，可采用两种主要途径.
+如第2章所证(见定理2.22)，这一关键性质在任一有限维赋范空间中均成立，但在任一无限维赋范空间中均不成立.在函数空间中，仅证明近似解序列有界(即对某个常数 $C$ 及所有 $n \geq  1$ 满足 $\|{u}_{n}\| \leq  C$ )并不能保证存在收敛子列.为克服这一根本困难，可采用两种主要途径.
 
 (i) 引入一种更弱的收敛概念，证明每个有界序列(即使在无限维空间中)均存在一个在此弱意义下收敛的子列.
 
 朝此方向的一个关键结果是Banach-Alaoglu定理，该定理将在第2章末尾给出证明；Hilbert空间中的弱收敛则在第5章中讨论.
 
-(ii) 考虑两个不同的范数，记为 \(\| u{\| }_{\text{ weak }} \leq  \| u{\| }_{\text{ strong }}\) ，并满足如下性质:若序列 \({\left( {u}_{n}\right) }_{n \geq  1}\) 在强范数下有界(即 \({\|{u}_{n}\|}_{\text{ strong }} \leq  C\) )，则存在一个子列在弱范数下收敛: \({\|{u}_{{n}_{j}} - \bar{u}\|}_{\text{ weak }} \rightarrow  0\) ，其中极限为某个 \(\bar{u}\) .第3章证明的Ascoli定理及第8章证明的雷利希-孔德拉绍夫紧嵌入定理，分别提供了可实施该方法的不同场景.
+(ii) 考虑两个不同的范数，记为 $\| u{\| }_{\text{ weak }} \leq  \| u{\| }_{\text{ strong }}$ ，并满足如下性质:若序列 ${\left( {u}_{n}\right) }_{n \geq  1}$ 在强范数下有界(即 ${\|{u}_{n}\|}_{\text{ strong }} \leq  C$ )，则存在一个子列在弱范数下收敛: ${\|{u}_{{n}_{j}} - \bar{u}\|}_{\text{ weak }} \rightarrow  0$ ，其中极限为某个 $\bar{u}$ .第3章证明的Ascoli定理及第8章证明的雷利希-孔德拉绍夫紧嵌入定理，分别提供了可实施该方法的不同场景.
 
 偏微分方程分析的很大一部分最终依赖于先验估计的推导.问题本身的性质决定了所能期望的先验界类型，从而也决定了解所在的具体函数空间.这正解释了当前文献中出现多种函数空间的原因.
 

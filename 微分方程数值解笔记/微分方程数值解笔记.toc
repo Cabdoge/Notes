@@ -7,25 +7,25 @@
 \contentsline {subsection}{\numberline {1.4.2}存在唯一性}{9}{subsection.1.4.2}%
 \contentsline {subsection}{\numberline {1.4.3}收敛性}{10}{subsection.1.4.3}%
 \contentsline {section}{\numberline {1.5}离散后线性方程组基本求解方法}{12}{section.1.5}%
-\contentsline {section}{\numberline {1.6}求解五点差分格式的快速 DST 方法}{13}{section.1.6}%
+\contentsline {section}{\numberline {1.6}求解五点差分格式的快速 DST 方法}{12}{section.1.6}%
 \contentsline {subsection}{\numberline {1.6.1}求解方法}{13}{subsection.1.6.1}%
 \contentsline {subsection}{\numberline {1.6.2}DST 算法}{15}{subsection.1.6.2}%
-\contentsline {subsection}{\numberline {1.6.3}各类算法计算时间的比较}{16}{subsection.1.6.3}%
+\contentsline {subsection}{\numberline {1.6.3}各类算法计算时间的比较}{15}{subsection.1.6.3}%
 \contentsline {section}{\numberline {1.7}两点边值问题的紧致差分格式}{16}{section.1.7}%
-\contentsline {chapter}{\numberline {2}发展方程有限差分法的基本概念和理论}{20}{chapter.2}%
-\contentsline {section}{\numberline {2.1}差分方法的构造步骤}{20}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}网格剖分得格点}{21}{subsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.1.2}构造差分格式}{21}{subsection.2.1.2}%
-\contentsline {section}{\numberline {2.2}差分格式的截断误差和相容性}{24}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}构造差分格式的待定系数法}{25}{subsection.2.2.1}%
-\contentsline {section}{\numberline {2.3}有限体积法}{26}{section.2.3}%
-\contentsline {section}{\numberline {2.4}差分格式的收敛性和稳定性}{28}{section.2.4}%
-\contentsline {section}{\numberline {2.5}判别差分格式稳定性的 Fourier 方法}{33}{section.2.5}%
-\contentsline {subsection}{\numberline {2.5.1}Fourier 变换回顾}{33}{subsection.2.5.1}%
-\contentsline {subsection}{\numberline {2.5.2}用 Fourier 变换研究差分格式稳定性}{34}{subsection.2.5.2}%
-\contentsline {section}{\numberline {2.6}Von-Neumann 条件与差分格式稳定性分析初步}{36}{section.2.6}%
-\contentsline {section}{\numberline {2.7}多层差分格式稳定性分析}{37}{section.2.7}%
-\contentsline {section}{\numberline {2.8}差分格式稳定性的其他研究方法}{39}{section.2.8}%
-\contentsline {subsection}{\numberline {2.8.1}矩阵分析方法}{39}{subsection.2.8.1}%
-\contentsline {subsection}{\numberline {2.8.2}最大模方法}{40}{subsection.2.8.2}%
+\contentsline {chapter}{\numberline {2}发展方程有限差分法的基本概念和理论}{19}{chapter.2}%
+\contentsline {section}{\numberline {2.1}差分方法的构造步骤}{19}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}网格剖分得格点}{20}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}构造差分格式}{20}{subsection.2.1.2}%
+\contentsline {section}{\numberline {2.2}差分格式的截断误差和相容性}{23}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}构造差分格式的待定系数法}{24}{subsection.2.2.1}%
+\contentsline {section}{\numberline {2.3}有限体积法}{25}{section.2.3}%
+\contentsline {section}{\numberline {2.4}差分格式的收敛性和稳定性}{27}{section.2.4}%
+\contentsline {section}{\numberline {2.5}判别差分格式稳定性的 Fourier 方法}{32}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Fourier 变换回顾}{32}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}用 Fourier 变换研究差分格式稳定性}{33}{subsection.2.5.2}%
+\contentsline {section}{\numberline {2.6}Von-Neumann 条件与差分格式稳定性分析初步}{35}{section.2.6}%
+\contentsline {section}{\numberline {2.7}多层差分格式稳定性分析}{36}{section.2.7}%
+\contentsline {section}{\numberline {2.8}差分格式稳定性的其他研究方法}{38}{section.2.8}%
+\contentsline {subsection}{\numberline {2.8.1}矩阵分析方法}{38}{subsection.2.8.1}%
+\contentsline {subsection}{\numberline {2.8.2}最大模方法}{39}{subsection.2.8.2}%
 \contentsfinish 

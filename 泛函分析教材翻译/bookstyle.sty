@@ -76,10 +76,10 @@
 %                          页面尺寸
 %====================================================================
 % top    = 2.5cm  ── 上边距（为页眉留出空间）
-% bottom = 2cm    ── 下边距
+% bottom = 1.8cm  ── 下边距
 % outer  = 2cm    ── 外侧边距（翻开书时靠外的一侧）
 % inner  = 2.5cm  ── 内侧边距（装订侧，略宽以预留装订余量）
-\geometry{top=2.5cm, bottom=2cm, outer=2cm, inner=2.5cm}
+\geometry{top=2.5cm, bottom=1.8cm, outer=2cm, inner=2.5cm}
 
 %====================================================================
 %               ctexbook 章节编号覆盖（关键兼容性设置）
@@ -528,7 +528,7 @@
 % ──────────── 子节 (\subsection) —— 行内样式（runin） ────────────
 % [runin] 格式：标题与正文在同一行，标题后直接接正文
 %   适合较短的子节标题，节省垂直空间
-\titleformat{name=\subsection}[runin]
+\titleformat{name=\subsection}
   {\filleft\normalfont\sffamily\titleheiti\bfseries}%
   {\Large\thesubsection}% Label：大号编号（如 1.2.3）
   {3mm}% Sep：编号与标题间距 3mm
@@ -702,8 +702,9 @@
 %   - 节标记：不变（仍为"§A.1  标题"）
 % 注意：在 \g@addto@macro 内部，#1 必须写成 ##1（双井号转义）
 \g@addto@macro\appendix{%
-  \renewcommand{\chaptermark}[1]{\markboth{附录 \thechapter\quad ##1}{}}%
-  \renewcommand{\sectionmark}[1]{\markright{\S\thesection\quad ##1}}%
+  \ctexset{chapter/number=\Alph{chapter}, chapter/tocline={\protect\numberline{\Alph{#1}}#2}}%
+  \renewcommand{\chaptermark}[1]{\markboth{附录 \thechapter\quad #1}{}}%
+  \renewcommand{\sectionmark}[1]{\markright{\S\thesection\quad #1}}%
 }
 
 %====================================================================
