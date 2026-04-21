@@ -78,7 +78,7 @@
         \item 将$[0,1]$$N$等分，得格点$x_0=0<x_1<\cdots<x_N=1$，其中$x_i=ih,h=\frac{1}{N}$.
         \item 计算$\{u(x_i)\}_{i=0}^N$，下面需要建立差分方程模型.\par
         \begin{subequations}
-        \begin{itemize}
+        \begin{itemize}[leftmargin=0em]
             \item 当$x=0,1$时，
             \begin{gather}
                 u(0)=0\\[-4pt]
@@ -270,13 +270,19 @@ $E^*$的连续化情形是一个二阶常微分方程$\begin{cases}
 \section{求解线性代数方程组的迭代法}
 
 给定线性代数方程组：
-\[\boldsymbol{A}\boldsymbol{x} = \boldsymbol{b},\,\text{其中}\;\bm{A}\;\text{为非奇异矩阵}.\]
+\[\boldsymbol{A}\boldsymbol{x} = \boldsymbol{b}
+\]
+其中$\bm{A}$为非奇异矩阵.
 
 将 $\boldsymbol{A}$ 作矩阵分裂可得
-\[{\color{red} \boldsymbol{A} = \boldsymbol{M} - \boldsymbol{N}},\,\text{其中}\;\boldsymbol{M}\;\text{是非奇异矩阵}.\]
+\[{\color{red} \boldsymbol{A} = \boldsymbol{M} - \boldsymbol{N}},\]
+其中$\boldsymbol{M}$是非奇异矩阵.
 
-那么上述线性代数方程组可以转化为$\boldsymbol{M}\boldsymbol{x} = \boldsymbol{N}\boldsymbol{x} + \boldsymbol{b}$.\par
-从而得到如下迭代法：$\boldsymbol{M}\boldsymbol{x}_{k+1} = \boldsymbol{N}\boldsymbol{x}_k + \boldsymbol{b}$，即
+那么上述线性代数方程组可以转化为
+\[\boldsymbol{M}\boldsymbol{x} = \boldsymbol{N}\boldsymbol{x} + \boldsymbol{b}\]\par
+从而得到如下迭代法：
+\[\boldsymbol{M}\boldsymbol{x}_{k+1} = \boldsymbol{N}\boldsymbol{x}_k + \boldsymbol{b},\]
+即
 \begin{equation}\label{matrix_iteration}
     \boldsymbol{x}_{k+1} = \boldsymbol{M}^{-1}\boldsymbol{N}\boldsymbol{x}_k + \boldsymbol{M}^{-1}\boldsymbol{b} = \boldsymbol{S}\boldsymbol{x}_k + \boldsymbol{M}^{-1}\boldsymbol{b}.
 \end{equation}
@@ -337,11 +343,22 @@ $E^*$的连续化情形是一个二阶常微分方程$\begin{cases}
 \end{equation*}
 所得网格点为 $(x_i, y_j)$，式中 $x_i = ih$, $y_j = jk$, $0 \leq i \leq I+1, 0 \leq j \leq J+1$.\par
 
-\begin{figure}[H]
+\begin{minipage}{0.49\textwidth}
+    \begin{figure}[H]
     \centering
-    \includegraphics[width=0.45\textwidth]{fig/1.3.png}
+    \includegraphics[width=0.8\textwidth]{fig/1.3.png}
     \captionof{figure}{二维网格示意图}
 \end{figure}
+\end{minipage}
+\begin{minipage}{0.49\textwidth}
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{fig/1.4.png}
+    \captionof{figure}{五点差分格式节点示意图}
+\end{figure}
+\end{minipage}
+
+
 
 将相应的内点集和边界点集分别记为
 \begin{align*}
@@ -370,11 +387,7 @@ $E^*$的连续化情形是一个二阶常微分方程$\begin{cases}
     \end{aligned}\right.}
 \end{equation}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.35\textwidth]{fig/1.4.png}
-    \captionof{figure}{五点差分格式节点示意图}
-\end{figure}
+
 
 \section{五点差分格式的性质}
 
@@ -403,12 +416,9 @@ $E^*$的连续化情形是一个二阶常微分方程$\begin{cases}
 类似可知，
 \begin{align*}
     u(x_i, y_j \pm k) =& u(x_i, y_j) \pm k u_y(x_i, y_j) + \frac{1}{2}k^2 u_{yy}(x_i, y_j) \\
-    &\pm \frac{1}{3!}k^3 u_{yyy}(x_i, y_j) + \frac{1}{4!}k^4 u_{yyyy}(x_i, y_j + \eta_{\pm} k), \quad |\eta_{\pm}| < 1.
+    &\pm \frac{1}{3!}k^3 u_{yyy}(x_i, y_j) + \frac{1}{4!}k^4 u_{yyyy}(x_i, y_j + \eta_{\pm} k), \quad |\eta_{\pm}| < 1.\\
+    \mathrm{I}_2 = u_{yy}(x_i, y_j) &+ \frac{1}{12}h^2 u_{yyyy}(x_i, y_j + \eta k), \quad |\eta| < 1. 
 \end{align*}
-
-\begin{equation*}
-    \mathrm{I}_2 = u_{yy}(x_i, y_j) + \frac{1}{12}h^2 u_{yyyy}(x_i, y_j + \eta k), \quad |\eta| < 1. 
-\end{equation*}
 
 所以，差分格式 (\ref{five-point}) 的截断误差为
 \begin{equation}
@@ -543,7 +553,7 @@ $E^*$的连续化情形是一个二阶常微分方程$\begin{cases}
 \begin{equation*}
     \max_{\Omega_h} |u_{ij}| \leq \max_{\partial\Omega_h} |u_{ij}| + \frac{1}{2}a^2 \max_{\Omega_h} |\Delta_h u_{ij}|.
 \end{equation*}\par
-初次之外，若选取$\phi(x,y) = \frac{1}{4}(x^2 + y^2 - x - y), (x,y) \in \bar{\Omega} = [0, a] \times [0, b]$，且设 $a = b = 1$，则有 $\Delta_h \phi_{ij} = 1$，且成立
+除此之外，若选取$\phi(x,y) = \frac{1}{4}(x^2 + y^2 - x - y), (x,y) \in \bar{\Omega} = [0, a] \times [0, b]$，且设 $a = b = 1$，则有 $\Delta_h \phi_{ij} = 1$，且成立
 \begin{equation*}
     \max_{\Omega_h} |u_{ij}| \leq \max_{\partial\Omega_h} |u_{ij}| + \frac{1}{8} \max_{\Omega_h} |\Delta_h u_{ij}|.
 \end{equation*}
@@ -551,8 +561,7 @@ $E^*$的连续化情形是一个二阶常微分方程$\begin{cases}
 由截断误差定义可知$\begin{cases}
 \Delta_h u(x_i,y_j)= f_{ij} +R_{ij}\\
 u_{x_i,y_j} = \alpha_{ij}
-\end{cases}$\par
-$\Rightarrow \begin{cases}
+\end{cases}\Rightarrow \begin{cases}
     \Delta_h (u(x_i,y_j)-u_{ij})= R_{ij} \\
     u{x_i,y_j}-u_{i,j}=0
 \end{cases}$\par
@@ -588,7 +597,6 @@ u_{ij} = \alpha_{i,j}.
     u_{ij}^{new} = \frac{1}{4} \{u_{i+1,j}^{old} + u_{i-1,j}^{old} + u_{i,j+1}^{old} + u_{i,j-1}^{old}\} - \frac{1}{4} h^2 f_{ij}, \\
     u_{ij}^{new} = u_{ij}^{old} = \alpha_{i,j}.
     \end{cases}\]
-
     \item \bluebf{Gauss-Seidel 迭代法}
     计算顺序：从左到右，从下到上.
     \[\begin{cases}
@@ -648,8 +656,7 @@ f_{I1} & f_{I2} & \cdots & f_{IJ}
 \subsection{求解方法}
 
 
-\noindent\textbf{方法一}\par
-将未知矩阵拉直获得列向量，形成线性方程组
+\noindent\textbf{方法一：}将未知矩阵拉直获得列向量，形成线性方程组
     \[ (I \otimes A + B \otimes I)\vv{X} = \vv{F}, \]
     式中，$\vv{\cdot}$ 是矩阵的按列拉直运算而 $\otimes$ 表示矩阵的 \bluebf{Kronecker 积} 运算.
 \begin{definition}[Kronecker 张量积]
@@ -678,7 +685,7 @@ $\bm{A}=\frac{1}{h^2}=\frac{1}{h^2}(2\bm{I}-\bm{H}_I),\bm{B}=\frac{1}{k^2}=\frac
 \end{bmatrix}_{N \times N}. \]\par
 对于$\bm{H}_N$，其特征根为：$\lambda = \lambda_k = 2 \cos \theta_k, \quad 1 \leq k \leq N$.\par
 相应的特征向量为：$\vv{y}^{(k)} = [\sin(\theta_k), \sin(2\theta_k), \cdots, \sin(N\theta_k)]^T$，其中$\theta_k = \frac{k\pi}{N+1}, 1 \leq k \leq N$.\par
-由线性代数的知识，若$A=f(B)$，其中$f$是多项式函数，且$\lambda$为$B$的特征值，那么$f(\lambda)$是$A$的特征值.\par
+我们知道，若$A=f(B)$，其中$f$是多项式，且$\lambda$为$B$的特征值，那么$f(\lambda)$是$A$的特征值.\par
 因此就可以计算矩阵 $A$ 与 $B$的特征值：
 \begin{itemize}
     \item \bluebf{矩阵 $A$ 的特征值}为：$\lambda_i = \frac{4}{h^2} \sin^2 \frac{i\pi}{2(I+1)}, \quad 1 \leq i \leq I$.\par

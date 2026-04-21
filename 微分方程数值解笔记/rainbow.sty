@@ -256,35 +256,30 @@
 \RequirePackage{mdframed}
 
 % 先清除可能已有的 proof 定义（兼容 amsthm）
+%对amsthm的环境修改，颜色改正，添加了下划装饰条，兼容 wrapfigure
+\definecolor{rbProofColor}{RGB}{199,79,109}           % 梅红
+\definecolor{rbProofBar}{RGB}{255,225,197}          % 左侧装饰条颜色
+\RequirePackage{mdframed}
+\RequirePackage{amsthm}
+
+% 先清除可能已有的 proof 定义（兼容 amsthm）
 \@ifundefined{proof}{}{\let\proof\relax\let\endproof\relax}
 
-\mdfdefinestyle{rbProofStyle}{%
-  hidealllines=true,
-  leftline=true,
-  linewidth=3pt,
-  linecolor=rbProofBar,
-  leftmargin=0pt,
-  innerleftmargin=4pt,
-  innerrightmargin=0pt,
-  innertopmargin=2pt,
-  innerbottommargin=2pt,
-  skipabove=5pt,
-  skipbelow=0pt,            % mdframed 的 skipbelow 不可靠，设 0 后用手动 \vspace
-}
+\newlength{\belowsep}
+\setlength{\belowsep}{5pt plus 2pt minus 4pt}  % 定义弹性间距，允许在分页较紧时压缩其大小
 
 \newenvironment{proof}[1][证明]{%
-  \par\vspace{-\parskip}%
-  \begin{adjustwidth}{-2pt}{0pt}%  ← 整体左移 0.5pt（色条随之突出）
-  \vspace{3pt}%
-  \begin{mdframed}[style=rbProofStyle]%
-  \hspace{-2.5pt}\fangsong\noindent{\bfseries\color{rbProofColor} #1 \hspace{-5.9pt}} %
-  \setlength{\parindent}{2em}%
-  \wideline
+  \pushQED{\qed}%
+  \renewcommand{\qedsymbol}{{\color{rbProofColor}$\blacksquare$}}%
+  \par\noindent{\heiti\bfseries\color{rbProofColor}%
+    \hspace{-2pt}#1\hspace{-3.4pt}%
+  }\enspace\fangsong\ignorespaces
 }{%
-  \hfill$\square$\par\end{mdframed}%
-  \nointerlineskip               % 阻止行间距 glue
-  \vspace{-5pt}%                   % ← 手动控制底部间距（替代失灵的 skipbelow）
-  \end{adjustwidth}%
+  \popQED\par
+  \vspace{-\parskip}\nointerlineskip
+  \nobreak\vspace{\belowsep}% 插入弹性间距并禁止在此换页
+  \noindent{\color{rbProofColor!50}\rule{4em}{2pt}}\par
+  \ignorespacesafterend
 }
 
 %================ 附加：solution 环境 ================
@@ -326,8 +321,6 @@
 \definecolor{rbInstanceColor}{RGB}{120, 189, 39}       % green variant
 \definecolor{rbInstanceBar}{RGB}{197,237,213}       % 左侧装饰条颜色（浅绿）
 
-\newlength{\belowsep}
-\setlength{\belowsep}{5pt}  % 定义实例环境标题与内容之间的距离（可调整）
 
 \newcounter{rbinstance}[chapter]
 \renewcommand{\therbinstance}{\thechapter.\arabic{rbinstance}}

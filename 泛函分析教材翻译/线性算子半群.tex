@@ -163,7 +163,6 @@ A = \left( \begin{matrix} {\lambda }_{1} & & 0 \\  \vdots & & \vdots \\  0 & & {
 \[
 {\lambda }_{k} = {\alpha }_{k} + i{\beta }_{k},\;{\alpha }_{k} \leq  \omega \;\forall\,k \geq  1,
 \]
-
 对某个常数 $\omega  \in  \mathbb{R}$ 成立.则
 \begin{equation}\tag{7.11}\label{eq:exp-bound-semigroup}
 \left| {e}^{t{\lambda }_{k}}\right|  = \left| {e}^{t{\alpha }_{k}}\right|  \leq  {e}^{t\omega }\;\forall\,t \geq  0.
@@ -204,7 +203,7 @@ A = \left( \begin{matrix} {\lambda }_{1} & & 0 \\  \vdots & & \vdots \\  0 & & {
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=1.0\textwidth]{images/bo_d6ik6nn7aajc739ct1l0_132_122_1026_1232_463_0.jpg}
+\includegraphics[width=0.9\textwidth]{images/bo_d6ik6nn7aajc739ct1l0_132_122_1026_1232_463_0.jpg}
 \caption{左:当算子 $A$ (见\eqref{eq:diagonal-operator-l1}式)的所有特征值 ${\lambda }_{k}$ 的实部满足 $\operatorname{Re}\left( {\lambda }_{k}\right)  \leq  \omega$ 时，则对每个 $t \geq  0$ ，指数算子均有界: $\norm{e}^{tA} \leq  {e}^{t\omega }$ .中:若所有特征值 ${\lambda }_{k}$ 满足 $\operatorname{Re}\left( {\lambda }_{k}\right)  \in  \left(  {-\omega ,\omega }\right)$ ，则对每个 $t \in  \mathbb{R}$ ，指数算子均有界: $\norm{e}^{tA} \leq  {e}^{\left| t\right| \omega }$ .右:若所有特征值 ${\lambda }_{k}$ 位于复平面中一个张角为 $\overline{\theta } < \pi /2$ 的扇形内，则对每个 $t > 0$ ，算子 $A{e}^{tA}$ 同样有界.}
 \label{fig:spectrum-regions}
 \end{figure}
@@ -216,7 +215,6 @@ A = \left( \begin{matrix} {\lambda }_{1} & & 0 \\  \vdots & & \vdots \\  0 & & {
 \begin{equation}\tag{7.14}\label{eq:evolution-equation}
 \frac{\d}{\d t}u\left( t\right)  = {Au}\left( t\right) ,\;u\left( 0\right)  = \bar{u} \in  X.
 \end{equation}
-
 当$t \geq  0$ ，我们希望将解表示为$u\left( t\right)  = {e}^{tA}\bar{u}$ ，其中 $\left\{  {{e}^{tA};t \geq  0}\right\}$ 是一族线性算子.
 
 \begin{instance}\label{ins:transport-equation}
@@ -689,17 +687,18 @@ u = {\widetilde{R}}_{\lambda }\left( {{\lambda I} - A}\right) u = {\widetilde{R}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.75\textwidth]{images/bo_d6ik6nn7aajc739ct1l0_143_164_1407_1153_511_0.jpg}
+\includegraphics[width=0.73\textwidth]{images/bo_d6ik6nn7aajc739ct1l0_143_164_1407_1153_511_0.jpg}
 \captionof{figure}{证明逼近序列 ${e}^{t{A}_{\lambda }}$ 当 $\lambda  \rightarrow  \infty$ 时的收敛性.差值 $\norm{{e}^{t{A}_{\lambda }}u - {e}^{t{A}_{\mu }}u}$ 可通过曲线 $s \mapsto  {e}^{\left( {t - s}\right) {A}_{\mu }}{e}^{s{A}_{\lambda }}u$ 的长度估计，其中 $s \in  \left(  {0,t}\right)$ .}
 \label{fig:Alambda-convergence}
 \end{figure}
 
-利用三角不等式，我们进一步证明:对任意 $v \in  X$ ，该极限在 $t$ 取遍有界区间时一致成立.
+\vspace{-0.5 em}
+利用三角不等式，可以进一步证明:对任意 $v \in  X$，该极限在 $t$ 取遍有界区间时一致成立.
 
 事实上，给定 $\varepsilon  > 0$ ，选取满足 $\| u - v\|  \leq  \varepsilon$ 的 $u \in  \operatorname{Dom}\left( A\right)$ .则
 {\setjot[-2]\begin{align*}
     &\quad\limsup_{{\lambda ,\mu  \rightarrow  \infty }}\norm{{e}^{t{A}_{\lambda }}v - {e}^{t{A}_{\mu }}v}\\
-    &\leq  \limsup_{{\lambda  \rightarrow  \infty }}\norm{{e}^{t{A}_{\lambda }}v - {e}^{t{A}_{\lambda }}u} + \limsup_{{\lambda ,\mu  \rightarrow  \infty }}\norm{{e}^{t{A}_{\lambda }}u - {e}^{t{A}_{\mu }}u}\\
+    &\leq  \limsup_{{\lambda  \rightarrow  \infty }}\norm{{e}^{t{A}_{\lambda }}v - {e}^{t{A}_{\lambda }}u} + \limsup_{{\lambda ,\mu  \rightarrow  \infty }}\norm{{e}^{t{A}_{\lambda }}u - {e}^{t{A}_{\mu }}u}\\ 
     &\quad+\limsup_{{\mu  \rightarrow  \infty }}\norm{{e}^{t{A}_{\mu }}u - {e}^{t{A}_{\mu }}v}\\
     &\leq  2\limsup_{{\lambda  \rightarrow  \infty }}\norm{e}^{t{A}_{\lambda }}\norm{v - u} \leq  2{e}^{2\omega t}\varepsilon
 \end{align*}}
@@ -728,7 +727,7 @@ u = {\widetilde{R}}_{\lambda }\left( {{\lambda I} - A}\right) u = {\widetilde{R}
 
 这证明了 $\norm{S}_{t} \leq  {e}^{t\omega }$ ，即该半群为类型 $\omega$ .
 
-\noindent 6．尚需证明线性算子 $A$ 确为该半群的生成元.为此，记 $B$ 为半群 $\left\{  {{S}_{t};t \geq  0}\right\}$ 的生成元.据前述分析，已知 $B$ 是定义在 $\operatorname{Dom}\left( B\right)$ (在 $X$ 中稠密)上的线性闭算子.需证 $B = A$ .
+\noindent 6．尚需证明线性算子 $A$ 确为该半群的生成元.为此，记 $B$ 为半群 $\left\{  {{S}_{t};t \geq  0}\right\}$ 的生成元.据前述，已知 $B$ 是定义在 $\operatorname{Dom}\left( B\right)$ (在 $X$ 中稠密)上的线性闭算子.需证 $B = A$ .
 
 由于 ${A}_{\lambda }$ 是半群 $\left\{  {{e}^{t{A}_{\lambda }};t \geq  0}\right\}$ 的生成元，故对任意 $\lambda  > \omega$ ，有
 \begin{equation}\tag{7.34}\label{eq:exp-Alambda-difference}
@@ -822,7 +821,7 @@ w\left( t\right)  = \begin{cases} \lambda {e}^{-{\lambda t}} & \text{ if }t \geq
 
 现固定 $T > 0$ ，并令 ${\lambda }_{n} \doteq  n/T$ .对每个 $n \geq  1$ ，定义
 \begin{equation}\tag{7.38}\label{eq:Wn-def}
-{W}_{n}\left( t\right)  = \left\{  \begin{aligned} \frac{{\left( n/T\right) }^{n}}{\left( {n - 1}\right) !}{t}^{n - 1}{e}^{-\left( {n/T}\right) t} & & \text{ if }t \geq  0, \\  0 & & \text{ if }t < 0. \end{aligned}\right.
+{W}_{n}\left( t\right)  = \begin{cases} \frac{{\left( n/T\right) }^{n}}{\left( {n - 1}\right) !}{t}^{n - 1}{e}^{-\left( {n/T}\right) t}, & t \geq  0, \\  0, &t < 0. \end{cases}
 \end{equation}
 
 证明图\ref{fig:Wn-weights}中绘制的 ${W}_{n}\left( \cdot \right)$ 是一个均值为 $n/{\lambda }_{n} = T$ 、方差为 $n/{\left( n/T\right) }^{2} = {T}^{2}/n$ 的概率测度的密度函数.特别地，对每个 $\varepsilon  > 0$ ，有
@@ -832,7 +831,7 @@ w\left( t\right)  = \begin{cases} \lambda {e}^{-{\lambda t}} & \text{ if }t \geq
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.8\textwidth]{images/bo_d6ik6nn7aajc739ct1l0_147_261_663_916_703_0.jpg}
+\includegraphics[width=0.7\textwidth]{images/bo_d6ik6nn7aajc739ct1l0_147_261_663_916_703_0.jpg}
 \captionof{figure}{由式\eqref{eq:Wn-def}定义的权函数 ${W}_{n}$ 的图像.此处 $T = 4$ ，而 $n = 1,2,{10},{100}$ .所有这些概率分布的平均值均为4，而其方差 $\left( { = {16}/n}\right)$ 随 $n \rightarrow  \infty$ 趋于零.}
 \label{fig:Wn-weights}
 \end{figure}
@@ -919,7 +918,7 @@ u\left( t\right)  = {S}_{t}\bar{u} + {\int }_{0}^{t}{S}_{t - s}f\left( {s,u\left
 \begin{rbhw}
 在空间 ${L}^{1}\left( \mathbb{R}\right)$ 上，考虑定义域为 ${Au} = \frac{\partial }{\partial x}u$ 的算子
 
-$\operatorname{Dom}\left( A\right)  = \left\{  {u \in  {L}^{1}\left( \mathbb{R}\right) ;u\text{ is absolutely continuous, }{u}_{x} \in  {L}^{1}\left( \mathbb{R}\right) }\right\}$ .
+$\operatorname{Dom}\left( A\right)  = \left\{  {u \in  {L}^{1}\left( \mathbb{R}\right) ;u\;\text{绝对连续，且 }\;{u}_{x} \in  {L}^{1}\left( \mathbb{R}\right) }\right\}$ .
 
 (i) 描述由 $A$ 生成的半群 $\left\{  {{S}_{t};t \geq  0}\right\}$ .
 

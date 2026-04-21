@@ -413,4 +413,207 @@ $\forall\, f\in \Hom_G(V_1,V_1)$，由于$V_1$不可约，$\ker f=0$，又$\math
         \end{tabular}
     \end{center}
 \end{instance}
+\begin{instance}
+    计算$S_4$的特征标表.\par
+    $\chi_1, \chi_2$分别为单位表示和符号表示.\par
+    有$S_4$到$S_3$的典范同态: $S_4 \to S_3 \cong S_4/K$，其中$K = \{(1), (12)(34), (13)(24), (14)(23)\}$.通过$\pi$可将$S_3$的$\chi_3$提升到$S_4$上的$\chi_3$.\par
+    因为$\pi((12)(34))=(1)$，$\pi((1234))=(13)$，故$\chi_3((12)(34))=2, \chi_3((1234))=0$.\par
+    根据$\sum \deg \chi_i^2 = 24$得$\deg \chi_4^2 + \deg \chi_5^2 = 18$，则$\deg \chi_4 = \deg \chi_5 = 3$.\par
+    利用第一正交关系可得到$\chi_4=(3,\pm 1,0,-1,\mp 1)$.\par
+    再利用线性特征标与不可约特征标的积为不可约特征标，可得$\chi_5 = (3, \mp 1, 0, -1, \pm 1)$($\chi_2$为线性特征标).\par
+    由于$\chi_4,\chi_5$仅有符号不同，对其任作排序即可得到$S_4$的特征标表为
+    \begin{center}
+        \begin{tabular}{c|ccccc}
+                     & $(1)$ & $(12)$ & $(123)$ & $(12)(34)$ & $(1234)$ \\ \hline
+            $\chi_1$ & $1$   & $1$    & $1$     & $1$        & $1$      \\
+            $\chi_2$ & $1$   & $-1$   & $1$     & $1$        & $-1$     \\
+            $\chi_3$ & $2$   & $0$    & $-1$    & $2$        & $0$      \\
+            $\chi_4$ & $3$   & $1$    & $0$     & $-1$       & $-1$     \\
+            $\chi_5$ & $3$   & $-1$   & $0$     & $-1$       & $1$
+        \end{tabular}
+    \end{center}
+\end{instance}
+
+\begin{instance}
+    循环群的特征标表，$C_n = \langle r \rangle$，其中$r^n = 1$.\par
+    由于$\rho(r^n) = \rho(1) = \mathrm{Id}$，故$\rho(r) = \eu^{\tfrac{\iu 2\pi h}{n}}, \quad 0 \leqslant h \leqslant n-1$.\par
+    从而$\rho(r^k) = (\rho(r))^k = \eu^{\tfrac{\iu 2\pi h k}{n}}, \quad 0 \leqslant h \leqslant n-1$.\par
+    以$n=3$为例，特征标表为
+    \begin{center}
+        \begin{tabular}{c|ccc}
+                     & $1$ & $r$ & $r^2$ \\ \hline
+            $\chi_1$ & $1$ & $1$ & $1$ \\
+            $\chi_2$ & $1$ & $\eu^{\tfrac{\iu 2\pi}{3}}$ & $\eu^{\tfrac{\iu 4\pi}{3}}$ \\
+            $\chi_3$ & $1$ & $\eu^{\tfrac{\iu 4\pi}{3}}$ & $\eu^{\tfrac{\iu 2\pi}{3}}$
+        \end{tabular}
+    \end{center}
+\end{instance}
+
+\begin{instance}
+    二面体群$D_n = \langle a, b \mid a^n = b^2 = (ba)^2 = 1 \rangle$的特征标表.\par
+    事实上，$D_n = \{a^k, ba^k \mid 0 \leqslant k \leqslant n-1\}$，也即$D_n$中只有这两类元素，其原因在于$\setjot[-2]\begin{aligned}[t]
+        a^k b &= a^{k-1} a b = a^{k-1} b^{-1} a^{-1}=a^{k-1}ba^{-1} \\
+        &= a^{k-2} a b a^{-1} = a^{k-2} b a^{-2} \\
+        &=\cdots \\
+        &= b a^{-k}
+    \end{aligned}$.\par
+    \begin{enumerate}
+        \item[①] 若$n=2m$，则$D_n$的共轭类为$1, a^m, b, ab, a^k\ (1 \leqslant k \leqslant m-1)$.\par
+        先考虑$D_n$的所有一维表示，首先有单位表示.\par
+        除此之外，$\rho(a^n) = 1, \rho(b^2) = 1$，则有$\rho(a) = \pm 1, \rho(b) = \pm 1$，这样可以得到包括单位表示在内的$4$个一维表示.\par
+        $|D_n| = \sum \deg^2 \chi_i = 2n = 4m \Rightarrow D_n$还有$m-1$个二维表示.\par
+        仍有$\rho(a^n) = \rho(a^{2m}) = I_2 \Rightarrow \rho(a) = \begin{pmatrix} \omega^l & 0 \\ 0 & \omega^{-l} \end{pmatrix}, \omega = \eu^{\tfrac{2\pi \iu}{n}},\ 1 \leqslant l \leqslant m-1$.\par
+        $\rho(b^2) = I_2 \Rightarrow \rho(b) = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$.\par
+        因此生成了其余$m-1$个表示，从而特征标表为
+        \begin{center}
+            \begin{tabular}{c|ccccc}
+                                                     & $1$ & $a^m$      & $b$  & $ab$ & $a^k\ (1 \leqslant k \leqslant m-1)$ \\ \hline
+                $\chi_1$                             & $1$ & $1$        & $1$  & $1$  & $1$                                \\
+                $\chi_2$                             & $1$ & $1$        & $-1$ & $-1$ & $1$                                \\
+                $\chi_3$                             & $1$ & $(-1)^m$   & $1$  & $-1$ & $(-1)^k$                           \\
+                $\chi_4$                             & $1$ & $(-1)^m$   & $-1$ & $1$  & $(-1)^k$                           \\
+                $\chi_{l+4}\ (1 \leqslant l \leqslant m-1)$ & $2$ & $2(-1)^l$  & $0$  & $0$  & $2\cos\frac{2lk\pi}{n}$
+            \end{tabular}
+        \end{center}
+        \item[②] 若$n=2m+1$，则$D_n$的共轭类为$1, b, a^k\ (1 \leqslant k \leqslant m)$.\par
+        类似分析可得，$D_n$的特征标表为
+        \begin{center}
+            \begin{tabular}{c|ccc}
+                                                     & $1$ & $b$  & $a^k\ (1 \leqslant k \leqslant m)$ \\ \hline
+                $\chi_1$                             & $1$ & $1$  & $1$                              \\
+                $\chi_2$                             & $1$ & $-1$ & $1$                              \\
+                $\chi_{l+2}\ (1 \leqslant l \leqslant m)$ & $2$ & $0$  & $2\cos\frac{2lk\pi}{n}$
+            \end{tabular}
+        \end{center}
+    \end{enumerate}
+\end{instance}
+
+\section{从特征标表读群的结构}
+
+\subsection*{正规子群}\textcolor{white}{1}
+
+\begin{definition}[特征标的核]
+    定义$\ker \chi = \{g \in G \mid \chi(g) = \chi(1)\}$为$\chi$的\greenbf{核}，且有$\ker \chi = \ker \rho$.
+\end{definition}
+
+\begin{lemma}[]
+    设$\{\chi_i\}_{i=1}^s = \mathrm{Irr}_{\mathbb{F}} G$，且$\chi = \sum_{i=1}^s n_i \chi_i$，则$\ker \chi = \bigcap_{n_i>0} \ker \chi_i$.
+\end{lemma}
+
+\begin{proof}
+    $ \forall g \in \ker \chi $，则$\rho(g) = \mathrm{id}_V$，则$\rho_i(g) = \mathrm{id}_{V_i}$，从而$g \in \ker \chi_i$.\par
+    故$\ker \chi \subseteq \bigcap_{n_i>0} \ker \chi_i$.\par
+    若$g \in \ker \chi_i, \forall i$，则$\chi(g) = \sum n_i \chi_i(g) = \sum n_i \chi_i(1) = \chi(1)$，则$g \in \ker \chi$.\par
+    故$\ker \chi \supseteq \bigcap_{n_i>0} \ker \chi_i$.
+\end{proof}
+
+\begin{theorem}[]
+    设$N \triangleleft G$，则$N = \bigcap_{\substack{\chi \in \mathrm{Irr}_{\mathbb{F}} G\\ N \subseteq \ker \chi}} \ker \chi$.
+\end{theorem}
+
+\begin{proof}
+    对$\forall \rho \in \mathrm{Irr}_{\mathbb{F}} G/N$，有表示的提升$G \xrightarrow{\pi} G/N \xrightarrow{\rho} \mathrm{GL}(V)$，$\pi$为典范同态.\par
+    由于$\ker (\rho \circ \pi) = \pi^{-1} \circ \ker (\rho) = \pi^{-1}(1) = N$，$\pi^{-1}$表示原像.\par
+    又$\ker (\rho \circ \pi) = \ker (\chi_{\rho} \circ \pi)$.\par
+    故$N = \ker (\rho_{\text{reg}} \circ \pi) = \bigcap_i \ker (\chi_i \circ \pi) = \bigcap_{\chi \in \mathrm{Irr}_{\mathbb{F}} G, N \subseteq \ker \chi} \ker \chi$.
+\end{proof}
+
+根据这个定理可以从特征标表看出正规子群.
+
+\begin{instance}
+    $S_3$特征标表为
+    \begin{center}
+        \begin{tabular}{c|cccc}
+            & $(1)$   & $(12)$   & $(123)$ &    \\ 
+            \cline{1-4}
+            $\chi_1$ & \fbox{$1$} & \fbox{$1$} & \fbox{$1$}  & $\to S_3$\\
+            $\chi_2$ & \fbox{$1$} & $-1$               & \fbox{$1$} &  $\to A_3$\\
+            $\chi_3$ & \fbox{$2$} & $0$                & $-1$      &   $\to \{1\}$
+        \end{tabular}
+    \end{center}
+    与$\chi_i(1)$相同的共轭类组成一个正规子群，因此$S_3$的正规子群为$S_3, A_3, \{1\}$.
+\end{instance}
+
+\begin{theorem}[]
+    $G$是单群当且仅当$\ker \chi = \{1\}, \forall \chi \in \mathrm{Irr}_{\mathbb{F}} G$且$\chi$不是单位特征标.
+\end{theorem}
+
+除此之外，商群的特征标可以直接从原特征标中找到.
+
+\begin{instance}
+    考虑$A_4$的特征标表
+    \begin{center}
+        \begin{tabular}{c|cccc}
+                     & $(1)$ & $(123)$    & $(132)$    & $(12)(34)$ \\ \hline
+            $\chi_1$ & $1$   & $1$        & $1$        & $1$        \\
+            $\chi_2$ & $1$   & $\omega$   & $\omega^2$ & $1$        \\
+            $\chi_3$ & $1$   & $\omega^2$ & $\omega$   & $1$        \\
+            $\chi_4$ & $3$   & $0$        & $0$        & $-1$
+        \end{tabular}
+    \end{center}
+    将特征标表的每一行对应$A_4$的正规子群，那么$\chi_1$对应$A_4$，$\chi_2, \chi_3$对应$K_4$，$\chi_4$对应$\{1\}$.\par
+    现在计算$C_3 = A_4 / K_4$的特征标表，其来源于$\chi_1,\chi_2,\chi_3$这三行.\par
+    发现$(1)$与$(12)(34)$的列相同，将其合并即可得到$C_3$特征标表.
+    \begin{center}
+        \begin{tabular}{c|ccc}
+                     & $1$ & $g$        & $g^2$      \\ \hline
+            $\chi_1$ & $1$ & $1$        & $1$        \\
+            $\chi_2$ & $1$ & $\omega$   & $\omega^2$ \\
+            $\chi_3$ & $1$ & $\omega^2$ & $\omega$
+        \end{tabular}
+    \end{center}
+\end{instance}
+
+\section{诱导表示}
+
+设$G$是群，$H \leqslant G$，问题是能否使用$H$的表示刻画$G$的表示？\par
+若不论表示，仅从群的角度出发，有$G = \dot{\bigcup}_{g \in R} gH$，下面为其添加表示的结构.\par
+设$\rho: G \to \mathrm{GL}(V)$是$G$的表示，则$\rho|_H: H \to \mathrm{GL}(W)$为$H$的表示，$W$为$V$的子空间.考虑$\rho(g)W$，首先作陪集分解，则$\exists\, h \in H, g_i \in R, \st\ g = g_i h$，从而$\rho(g)W = \rho(g_i)\rho(h)W = \rho(g_i)W$.\par
+因此$\forall g \in G$，$\rho(g)W$的结果只取决于$g$位于哪个左陪集中.\par
+
+现在，将其左陪集中的代表元提取出来，有$\sum_{g_i \in R} \rho(g_i)W$是$V$的子空间，同时$\sum_{g_i \in R} \rho(g_i)W$也是$(\rho, V)$的子表示，但它是否是$V$ 的真子表示尚未可知.\par
+
+\begin{definition}[诱导表示]
+    设$(\rho, V)$是群$G$的表示，$(\rho_H, W)$为其子群$H$的表示，记$R$为$H$的左陪集的代表元集.
+    且$V = \bigoplus_{g_i \in R} \rho(g_i)W$，则称$(\rho, V)$是$(\rho_H, W)$的\greenbf{诱导表示}.
+\end{definition}
+
+下面考虑上述的和是否是直和，计算其维数. $\dim V = \sum_{g_i \in R} \dim \rho(g_i)W = \sum_{g_i \in R} \dim W = \frac{|G|}{|H|} \dim W$.\par
+因此两侧相等，故$V = \bigoplus_{g_i \in R} \rho(g_i)W$，因而$\forall x \in V$，$x$都能唯一写成$x = \sum_{g_i \in R} x_i, x_i \in \rho(g_i)W$.\par
+
+\begin{instance}
+    对于正则表示$\mathbb{F}G$，它的基是$\{g \in G\}$，对于$\mathbb{F}H$，它的基是$\{h \in H\}$.\par
+    考虑左陪集分解$G = \dot{\bigcup}_{g_i \in R} g_i H$，则$V = \mathbb{F}G = \bigoplus_{g_i \in R} g_i \cdot W$，因此$\mathbb{F}G$由$\mathbb{F}H$诱导.
+\end{instance}
+
+\begin{instance}
+    设$G$和$H \leqslant G$的表示为$(\rho, V)$和$(\rho_H, W)$，其中$V, W$的基为以$G, H$元素为指标，即$\{e_g \mid g \in G\}, \{e_h \mid h \in H\}$.\par
+    如上例类似，同样得$(\rho, V)$是$(\rho_H, W)$的诱导表示.
+\end{instance}
+
+\begin{property}[直和和诱导可交换]
+    设$\rho_1, \rho_2$分别为$\theta_1$和$\theta_2$的诱导表示，则$\rho_1 \oplus \rho_2$是$\theta_1 \oplus \theta_2$的诱导表示.
+\end{property}
+
+\begin{proof}
+    $V_1 = \bigoplus_{g_i \in R} \rho_1(g_i) W_1,\ V_2 = \bigoplus_{g_i \in R} \rho_2(g_i) W_2$，则$V_1 \oplus V_2 = (\bigoplus_{g_i \in R} \rho_1(g_i) W_1) \oplus (\bigoplus_{g_i \in R} \rho_2(g_i) W_2) = \bigoplus_{g_i \in R} \rho(g_i) (W_1 \oplus W_2)$.
+\end{proof}
+
+\begin{instance}
+    设$(V, \rho)$是$(W, \theta)$的诱导表示，$W_1 \leqslant W$且$\rho_H(W_1) = W_1$，记$V_1 = \bigoplus_{g_i \in R} \rho(g_i) W_1$.\par
+    有$\rho(g)V_1 = \bigoplus_{g_i \in R} \rho(g\rho(g_i)) W_1 = \bigoplus_{g_i \in R} \rho(g \cdot g_i) W_1 = V_1$，因此$(V_1, \rho)$是$G$的表示且$V_1$由$W_1$诱导.
+\end{instance} 
+
+\begin{theorem}[]
+    设$H \leqslant G, (W, \theta)$为$H$的表示，则在同构意义下存在唯一的$G$的表示$(V, \rho)$，使得$(V, \rho)$是$(W, \theta)$的诱导表示.
+\end{theorem}
+
+\begin{proof}
+    (1) 存在性.\par
+    只需证不可约表示满足上述性质即可.\par
+    由于不可约表示一定是正则表示的直和项，即不可约表示是正则表示的子表示.\par
+    由上例可得不可约表示具有诱导表示.\par
+    (2) 唯一性.\par
+    设$V_1, V_2$均由$W$诱导，下证$V_1 \cong V_2$。只需寻找\ghomo $F: V_1 \to V_2$.
+\end{proof}
 

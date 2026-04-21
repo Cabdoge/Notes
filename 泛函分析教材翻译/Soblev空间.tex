@@ -524,7 +524,7 @@ v\left( x\right)  = \mathop{\lim }\limits_{{h \rightarrow  0}}\frac{\widetilde{u
 设 $\Omega = (a,b)$ 为一开区间.由推论\ref{cor:absolute-continuity}可知，空间 ${W}^{1,p}\left( {( a,b) }\right)$ 的每个元素几乎处处等于某个绝对连续函数 $f : (a,b) \mapsto  \mathbb{R}$ ，且该函数的导数为 ${f}^{\prime } \in  {L}^{p}\left( {( a,b) }\right)$ .\par
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.4\textwidth]{images/bo_d6ik6nn7aajc739ct1l0_166_479_682_522_708_0.jpg}
+\includegraphics[width=0.35\textwidth]{images/bo_d6ik6nn7aajc739ct1l0_166_479_682_522_708_0.jpg}
 \caption{对某些 $p,n$ 取值，函数 $u \in  {W}^{1,p}\left( {\mathbb{R}}^{n}\right)$ 可能不连续或无界.}
 \label{fig:W1p-discontinuous}
 \end{figure}
@@ -597,7 +597,7 @@ Soblev空间中其一重要问题是:能否用函数一阶导数的范数来估�
 \]
 
 分部积分得
-{\begin{align*}
+{\setjot[-2]\begin{align*}
     \| u{\| }_{{L}^{2}}^{2} &= {\int }_{{\mathbb{R}}^{n}}{u}^{2}\left( x\right) {\d x} = {\int }_{{\mathbb{R}}^{n - 1}}{\int }_{a}^{b}1 \cdot  \left( {{\int }_{a}^{{x}_{1}}{2u}{u}_{{x}_{1}}\left( {t,{x}^{\prime }}\right) {\d t}}\right) \d x_{1}\d x^{\prime }\\
     &= {\int }_{{\mathbb{R}}^{n - 1}}{\int }_{a}^{b}\left( {b - {x}_{1}}\right) {2u}{u}_{{x}_{1}}\left( {{x}_{1},{x}^{\prime }}\right) \d x_{1}\d x^{\prime } \leq  2\left( {b - a}\right) {\int }_{{\mathbb{R}}^{n}}\left| u\right| \left| {u}_{{x}_{1}}\right| {\d x}\\
     &\leq  2\left( {b - a}\right) \| u{\| }_{{L}^{2}}{\norm{u}_{{x}_{1}}}_{{L}^{2}}
@@ -608,7 +608,7 @@ Soblev空间中其一重要问题是:能否用函数一阶导数的范数来估�
 
 \noindent 2. 现考虑任意 $u \in  {H}_{0}^{1}\left( \Omega \right)$ .由假设，存在函数列 ${u}_{n} \in  {\mathcal{C}}_{c}^{\infty }\left( \Omega \right)$，使得 ${\norm{u}_{n} - u}_{{H}^{1}} \rightarrow  0$.由前一步可知
 \[
-\| u{\| }_{{L}^{2}} = \mathop{\lim }\limits_{{n \rightarrow  \infty }}{\norm{u}_{n}}_{{L}^{2}} \leq  \mathop{\lim }\limits_{{n \rightarrow  \infty }}2\left( {b - a}\right) {\norm{D_{{x}_{1}}{u}_{n}}}_{{L}^{2}} = 2\left( {b - a}\right) {\norm{D_{{x}_{1}}u}}_{{L}^{2}}.
+\| u{\| }_{{L}^{2}} = \mathop{\lim }\limits_{{n \rightarrow  \infty }}{\norm{u}_{n}}_{{L}^{2}} \leq  \mathop{\lim }\limits_{{n \rightarrow  \infty }}2\left( {b - a}\right) {\norm{D_{{x}_{1}}{u}_{n}}}_{{L}^{2}} = 2\left( {b - a}\right) {\norm{D_{{x}_{1}}u}}_{{L}^{2}}.\qedhere
 \]
 \end{proof}
 

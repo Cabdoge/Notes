@@ -23,10 +23,10 @@
 
 %================ 缩小公式上下间距 ================
 \AtBeginDocument{
-  \abovedisplayskip=1pt
-  \belowdisplayskip=3pt
-  \abovedisplayshortskip=-7pt
-  \belowdisplayshortskip=5pt
+  \abovedisplayskip=4pt plus 1pt minus 1pt
+  \belowdisplayskip=4pt plus 1pt minus 1pt
+  \abovedisplayshortskip=0pt plus 3pt
+  \belowdisplayshortskip=3pt plus 1pt minus 1pt 
 }
 
 %================ 图形与绘图 ================
@@ -49,6 +49,7 @@
 \usepackage{faktor}        % 商集符号
 \usepackage{extarrows}     % 额外长度自适应箭标
 \usepackage{booktabs}        % 表格线条
+\usepackage{physics}
 
 %================ 蓝色加粗 / 常用简写 ================
 \definecolor{titleblue}{HTML}{3498DB}
@@ -178,5 +179,7 @@
 \input{椭圆型方程的差分方法.tex}
 
 \input{发展方程有限差分法的基本概念和理论.tex}
+
+\input{双曲型方程的差分方法.tex}
 
 \end{document}

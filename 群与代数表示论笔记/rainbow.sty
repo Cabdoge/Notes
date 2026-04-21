@@ -227,24 +227,28 @@
 }
 
 %================ 附加：proof 环境 ================
-% 仿照 elegantbook 的 proof 样式，使用 tcolorbox 实现带左侧色条的证明环境
+%对amsthm的环境修改，颜色改正，添加了下划装饰条，兼容 wrapfigure
 \definecolor{rbProofColor}{RGB}{199,79,109}           % 梅红
 \definecolor{rbProofBar}{RGB}{255,225,197}          % 左侧装饰条颜色
 \RequirePackage{mdframed}
+\RequirePackage{amsthm}
 
 % 先清除可能已有的 proof 定义（兼容 amsthm）
 \@ifundefined{proof}{}{\let\proof\relax\let\endproof\relax}
 
 \newlength{\belowsep}
-\setlength{\belowsep}{5pt}  % 定义环境底部修饰线与内容之间的距离（可调整）
+\setlength{\belowsep}{5pt plus 2pt minus 4pt}  % 定义弹性间距，允许在分页较紧时压缩其大小
 
 \newenvironment{proof}[1][证明]{%
+  \pushQED{\qed}%
+  \renewcommand{\qedsymbol}{{\color{rbProofColor}$\blacksquare$}}%
   \par\noindent{\heiti\bfseries\color{rbProofColor}%
     \hspace{-2pt}#1\hspace{-3.4pt}%
   }\enspace\fangsong\ignorespaces
 }{%
-  \hfill{\color{rbProofColor}$\blacksquare$}\par
-  \par\vspace{-\parskip}\nointerlineskip\vspace{\belowsep}%
+  \popQED\par
+  \vspace{-\parskip}\nointerlineskip
+  \nobreak\vspace{\belowsep}% 插入弹性间距并禁止在此换页
   \noindent{\color{rbProofColor!50}\rule{4em}{2pt}}\par
   \ignorespacesafterend
 }

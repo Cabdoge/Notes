@@ -549,3 +549,143 @@ $\cdots$\par
 $\Rightarrow [0, 1] \setminus A$ 包含 Cantor 集. \par
 $\Rightarrow$ 但 $A \cap \mcal{C} \neq \varnothing$. \par
 类似地，$[0, 1] \setminus A$ 也是第一纲集.
+
+\begin{instance}
+    $\mathbb{Q} = \{q_i\}_{i\in\mathbb{N}}$，令 $I_{ij} = \left(q_i - \frac{1}{2^{i+j}}, q_i + \frac{1}{2^{i+j}}\right)$，$G_j = \bigcup_{i=1}^\infty I_{ij}$，$B = \bigcap_{j=1}^\infty G_j$.\par
+    则 $|G_j| \leq \sum_{i=1}^\infty |I_{ij}| \leq \sum_{i=1}^\infty 2 \cdot \frac{1}{2^{i+j}} = 2^{-j+1}$.\par
+    因此 $|B| = 0$.\par
+    此外，$B$ 是 $G_\delta$ 集，且 $\mathbb{Q} \subseteq B$，故 $B$ 是稠密的，进而 $B$ 是剩余集.
+\end{instance}
+
+\begin{corollary}
+    $\mathbb{R} = A \cup B, A \cap B = \varnothing$，其中 $B$ 是零测的剩余集，$A$ 是第一纲的全测集.
+\end{corollary}
+
+一个简单的观察，设 $X$ 是一个非空无孤立点的完备度量空间（或非空 Banach 空间），则 $X$ 不是 $X$ 中的第一纲集，即
+\begin{lemma}
+    完备度量空间是第二纲集.
+\end{lemma}
+
+基于这一观察，可以得到下述定理：
+
+\begin{theorem}
+    设 $X$ 是一个无穷维 Banach 空间，则其任意 Hamel 基均不可数.
+\end{theorem}
+\begin{proof}
+    假设 $X$ 有一组可数 Hamel 基 $\{e_i\}_{i\in\mathbb{N}}$，即 $X = \mathrm{span}\{e_i\}$.\par
+    等价地，$X = \bigcup_{i=1}^\infty V_i$，其中 $V_i = \mathrm{span}\{e_1, \dots, e_i\}$.\par
+    基于上述观察，$\exists\, i \in \mathbb{N}$，$V_i = \overline{V_i}$ 有非空内部，则存在开球 $\mathbb{B}_r(x_0) \subset V_i$.\par
+    $\Rightarrow V_i \supseteq \mathbb{B}_r(x_0) - \mathbb{B}_r(x_0) \supseteq \mathbb{B}_{2r}(0)$.\par
+    由于 $V_i$ 是向量空间，$V_i \supseteq \bigcup_{\lambda>0} \lambda \mathbb{B}_{2r}(0) = X$.\par
+    得出 $X = V_i = \mathrm{span}\{e_1, \dots, e_i\}$ 是有限维的，矛盾.
+\end{proof}
+
+\begin{corollary}
+    $c_{00}$ 为由有限项非零的数列构成的空间，不存在任何范数使 $c_{00}$ 为 Banach 空间.
+\end{corollary}
+\begin{proof}
+    $e_i = (0, 0, \dots, \underbrace{1}_{\text{第 } i \text{ 项}}, 0, \dots)$ 构成 $c_{00}$ 的 Hamel 基.\par
+    但 $e_i$ 可数，因而 $c_{00}$ 不能被赋予使之成为 Banach 空间的范数.
+\end{proof}
+
+进一步地，还可以使用上述性质研究函数的特点.我们可以轻易构造出在 $\mathbb{R} \setminus \mathbb{Q}$ 上连续，在 $\mathbb{Q}$ 上间断的函数.但反过来并不成立.
+
+\begin{theorem}
+    不存在 $f \colon \mathbb{R} \to \mathbb{R}$ 恰好在 $\mathbb{Q}$ 上连续.\par
+    更一般地，若 $X, Y$ 是度量空间，$f \colon X \to Y$，则 $C_f = \{x \in X : f \text{ 在 } x \text{ 处连续}\}$ 是 $G_\delta$ 集.
+\end{theorem}
+\begin{proof}
+    若一般结论成立，对应到 $\mathbb{R}$ 上的函数，则 $C_f = \mathbb{Q}$ 为稠密 $G_\delta$ 集，因而 $\mathbb{Q}$ 为剩余集，矛盾.\par
+    下证一般结论成立.\par
+    定义振幅函数 $\mathrm{Osc} f(x) = \lim_{r \to 0} \mathrm{diam}[f(\mathbb{B}_r(x))]$.\par
+    则 $x \in C_f \iff \mathrm{Osc} f(x) = 0$，那么 $C_f = \bigcap_{n=1}^\infty \left\{\mathrm{Osc} f < \frac{1}{n}\right\}$.\par
+    断言：$\forall\, M > 0$，$\{\mathrm{Osc} f < M\}$ 是 $X$ 中开集.\par
+    事实上，若 $x \in X$ 满足 $\mathrm{Osc} f(x) < M$，$\exists\, r > 0,\st \mathrm{diam} f[\mathbb{B}_{r}(x)] < M$.\par
+    则 $\forall\, y \in \mathbb{B}_{\frac{r}{2}}(x)$，$\mathbb{B}_{\frac{r}{2}}(y) \subset \mathbb{B}_{r}(x)$，有 $\mathrm{diam} f[\mathbb{B}_{\frac{r}{2}}(y)] \leq \mathrm{diam} f[\mathbb{B}_{r}(x)] < M$.\par
+    从而 $\mathrm{Osc} f(y) < M \Rightarrow \mathbb{B}_{\frac{r}{2}}(x) \subseteq \{\mathrm{Osc} f < M\}$.故 $\{\mathrm{Osc} f < M\}$ 是开集.断言成立.
+\end{proof}
+
+另外一个定理反应了实空间中函数的部分刚性.
+
+\begin{theorem}
+    设 $f \in C^\infty(\mathbb{R})$ 且 $\forall\, x \in \mathbb{R}$, $\exists\, n \in \mathbb{N}$, s.t. $f^{(n)}(x) = 0$，则 $f$ 是多项式函数.
+\end{theorem}
+\begin{proof}
+    设 $\Omega = \bigcup\{(a, b) \subset \mathbb{R}: f|_{(a,b)} \text{ 是多项式}\}$，下证 $\Omega = \mathbb{R}$.\par
+    由定义可知 $\Omega$ 是开集，故写作互不相交的开区间并$\Omega = \bigsqcup _j (a_j, b_j)$.\par
+    \begin{claim}{$\overline{\Omega} = \mathbb{R}$.}
+        只需验证 $\forall\, c < d$, $[c, d] \cap \Omega \neq \varnothing$.\par
+    实际上，由假设，$ [c, d] = \bigcup_{n=1}^\infty ([c, d] \cap E_n),\mathbb{R}=\bigcup_{n=0}^\infty E_n$，其中 $E_n = \{x \in \mathbb{R}: f^{(n)}(x) = 0\}$.\par
+    因此完备度量空间$[c,d]$可写作$F_\sigma$集，由 Baire 纲定理，$\exists\, n \in \mathbb{N}$, s.t. $[c, d] \cap E_n$ 有非空内部.\par
+    也即，$\exists\, e < \hat{f},\st (e, \hat{f}) \subseteq [c, d] \cap E_n$，故$\forall\, x \in (e, \hat{f})$, $f^{(n)}(x) = 0$.\par
+    由于$n$不依赖于$x$，$f$ 是 $(e, \hat{f})$ 上多项式 $\Rightarrow (e, \hat{f}) \subseteq \Omega \cap [c, d]$.
+    \end{claim}
+
+    下证 $X = \mathbb{R} \setminus \Omega = \varnothing$.\par
+    注意到 $X$ 在 $\mathbb{R}$ 中闭，因而$X$是完备度量空间.\par
+    由于 $\overline{\Omega}=\mathbb{R}$，若 $X \neq \varnothing$，则 $X$ 中无孤立点，即对任意 $x \in X$，总存在序列 $x_i \in X \setminus \{x\}$ 使得 $x_i \to x$.\par
+    由 $f$ 的假设，$X = \bigcup_{n=1}^\infty (X \cap E_n)$.\par
+    由Baire 纲定理，$\exists\, n' \in \mathbb{N}$, s.t. $X \cap E_{n'}$ 在 $X$ 中有非空相对内部.\par
+    即存在开区间 $(g, h)\subset X\cap E_{n'},\st \forall\, x \in X \cap (g, h)$, $f^{(n')}(x) = 0$.\par
+    不失一般性，可取 $\{x_i\} \subset X \cap (g, h)$，满足 $x_i \neq x$ 且 $x_i \to x$.\par
+    则 $f^{(n'+1)}(x) = \lim_{i\to\infty} \frac{f^{(n')}(x_i) - f^{(n')}(x)}{x_i - x} = 0$.\par
+    由此归纳可得，$\forall\, m \geq n'$，在 $X \cap (g, h)$ 上 $f^{(m)} \equiv 0$.\par
+    \begin{claim}{在 $(g, h) \cap \Omega$ 上，$f^{(n')} \equiv 0$.}
+        由于 $\overline{\Omega} = \mathbb{R}$，只需证明$\forall\, i\in\mb{N}$，若$(a_i,b_i)\cap (g,h)=\varnothing$，则在$(a_i,b_i)$上，$f^(n')\equiv 0$.\par
+    由于 $(g, h) \cap X \neq \varnothing$，$(g, h)$ 不可能完全包含在任何一个使得 $(a_i, b_i)$ 成为连通分支的完整区间中，所以 $(g, h)$ 一定包含 $(a_i, b_i)$ 的至少一个端点.\par
+    不失一般性，设 $a_i \in (g, h)$，则 $a_i \in X \cap (g, h)$，因此 $\forall\, m \geq n'$，$f^{(m)}(a_i) = 0$.\par
+    若 $f$ 在 $(a_i, b_i)$ 上是 $r$ 阶多项式，假设 $r \ge n'$，则 $f^{(r)}(a_i) \neq 0$，导致矛盾.故 $r < n'$.\par
+    进而在 $(a_i, b_i)$ 上，$f^{(n')} \equiv 0$.
+    \end{claim}
+
+    结合 $X \cap (g,h)$ 上和 $\Omega \cap (g,h)$ 上的结论，在 $(g, h)$ 上恒有 $f^{(n')} \equiv 0$.\par
+    从而 $f$ 是 $(g, h)$ 上的至多 $n'-1$ 次多项式，导致 $(g, h) \subseteq \Omega$.\par
+    这与 $(g, h) \cap X \neq \varnothing$ 既而 $X = \mathbb{R} \setminus \Omega$ 矛盾. 故 $X$ 必为空集.
+\end{proof}
+
+\section{开映射定理与逆算子定理}
+
+\begin{theorem}[逆算子定理]
+    设 $X, Y$ 是 Banach 空间，$T \in \mcal{B}(X,Y)$.若 $T$ 是双射，则 $T^{-1} \in \mcal{B}(Y,X)$.
+\end{theorem}
+它是开映射定理的直接推论.
+
+\begin{theorem}[开映射定理]
+    设 $X, Y$ 是 Banach 空间，$T \in \mcal{B}(X,Y)$.若 $T$ 是满射，则 $T$ 是开映射.
+\end{theorem}
+\begin{proof}
+    $T$ 是满射 $\iff Y = T(X) = T\left(\bigcup_{n=1}^\infty \mathbb{B}_n^X(0)\right) = \bigcup_{n=1}^\infty {T(\mathbb{B}_n^X(0))}$.\par
+    由于 $Y$ 是 Banach 空间，由 Baire 纲定理，$\exists\, n_0 \in \mathbb{N},\st \overline{T(\mathbb{B}_{n_0}^X(0))}$ 有非空内部.\par
+    亦即，$\exists\, y_0 \in Y, \rho_0 > 0,\st \mathbb{B}_{\rho_0}^Y(y_0) \subseteq \overline{T(\mathbb{B}_{n_0}^X(0))}$.\par
+    由于等式右边集合对称，有 $\mathbb{B}_{\rho_0}^Y(-y_0) \subseteq \overline{T(\mathbb{B}_{n_0}^X(0))}$.\par
+    又因为等式右边是凸集，$\mathbb{B}_{\rho_0}^Y(0) \subseteq \frac{1}{2} \mathbb{B}_{\rho_0}^Y(y_0) + \frac{1}{2} \mathbb{B}_{\rho_0}^Y(-y_0) \subseteq \overline{T(\mathbb{B}_{n_0}^X(0))}$.\par
+    假设我们已经证明了更强的结论：$\mathbb{B}_{\rho_0}^Y(0) \subseteq T(\mathbb{B}_{n_0}^X(0))$.\par
+    那么任取 $X$ 中开集 $U$ 以及 $y \in T(U)$，则存在 $x \in U$ 使得 $y = Tx$.\par
+    由于 $U$ 是开集，故存在 $r > 0$ 使得 $\mathbb{B}_r^X(x) = x + \mathbb{B}_r^X(0) \subseteq U$.\par
+    利用$T$ 的线性和更强的结论，我们有 $T(\mathbb{B}_r^X(0)) = \frac{r}{n_0} T(\mathbb{B}_{n_0}^X(0)) \supseteq \frac{r}{n_0} \mathbb{B}_{\rho_0}^Y(0) = \mathbb{B}_{\frac{r\rho_0}{n_0}}^Y(0)$.\par
+    所以 $T(U) \supseteq T(\mathbb{B}_r^X(x)) = Tx + T(\mathbb{B}_r^X(0)) \supseteq y + \mathbb{B}_{\frac{r\rho_0}{n_0}}^Y(0) = \mathbb{B}_{\frac{r\rho_0}{n_0}}^Y(y)$，这说明 $T(U)$ 包含 $y$ 的一个邻域，故 $T(U)$ 是开集，即 $T$ 是开映射.
+\end{proof}
+
+\begin{lemma}[Banach]
+    若 $\forall\, y \in \mathbb{B}_1^Y(0)$，$\dist(y, T(\mathbb{B}_c^X(0))) < \varepsilon$，则 $\mathbb{B}_1^Y(0) \subseteq T\left(\mathbb{B}_{\frac{c}{1-\varepsilon}}^X(0)\right)$.
+\end{lemma}
+\begin{proof}
+    任取 $y \in \mathbb{B}_1^Y(0)$，目标是找到 $z \in X$ 使得 $y = Tz$ 且 $\|z\| < \frac{c}{1-\varepsilon}$.\par
+    由于 $\forall\, y \in \mathbb{B}_1^Y(0)$，$\dist(y, T(\mathbb{B}_c^X(0))) < \varepsilon$，存在 $x_0 \in \mathbb{B}_c^X(0)$，s.t. $\|y - Tx_0\| < \varepsilon$.\par
+    则 $\frac{y - Tx_0}{\varepsilon} \in \mathbb{B}_1^Y(0)$，因此$\exists\, \tilde{x}_1 \in \mathbb{B}_c^X(0)$，s.t. $\left\|\frac{y - Tx_0}{\varepsilon} - Tx_1\right\| < \varepsilon$.\par
+    记 $x_1 = \varepsilon x_1 \in \mathbb{B}_{\varepsilon c}^X(0)$，则 $\|y - T(x_0 + x_1)\| < \varepsilon^2$.\par
+    以此类推，可取到 $x_j \in \mathbb{B}_{\varepsilon^j c}^X(0),\st \left\|y - T\left(\sum_{i=0}^j x_i\right)\right\| < \varepsilon^{j+1}$.\par
+    由于 $X$ 是 Banach 空间，$\sum x_i\to z\in X,\st y= Tz$.\par
+    由$\|z\|=\sum_{j=1}^\infty\|x_j\|=\sum_{j=1}^\infty \varepsilon^j c < \frac{c}{1-\varepsilon}$可知引理成立
+\end{proof}
+
+下面的推论将帮助我们补全开映射定理中空缺的部分.
+\begin{corollary}
+    若 $T(\mathbb{B}_{n_0}^Y(0))$包含$\mathbb{B}_1^Y(0)$的一个稠密子集，则它包含整个$\mathbb{B}_1^Y(0)$.
+\end{corollary}
+\begin{proof}
+    条件等价于 $\forall\, \varepsilon > 0$，$\mathbb{B}_{1}^Y(0) \subseteq T(\mathbb{B}_{n_0}^X(0)) + \mathbb{B}_{\varepsilon}^Y(0)$且$\mathrm{dist}(y, T(\mathbb{B}_{n_0}^X(0))) < \varepsilon$.\par
+    由前述引理，$\forall\,\varepsilon\in(0,1),\mathbb{B}_{1}^Y(0) \subseteq T\left(\mathbb{B}_{\frac{n_0}{1-\varepsilon}}^X(0)\right)$.\par
+    利用线性性可得，$\forall\, \varepsilon \in (0, 1)$，$\mathbb{B}_{(1-\varepsilon)}^Y(0) \subseteq T(\mathbb{B}_{n_0}^X(0))$.\par
+    从而 $\mathbb{B}_{1}^Y(0) = \bigcup_{\varepsilon \in (0, 1)} \mathbb{B}_{1-\varepsilon}^Y(0) \subseteq T(\mathbb{B}_{n_0}^X(0))$.
+\end{proof}
