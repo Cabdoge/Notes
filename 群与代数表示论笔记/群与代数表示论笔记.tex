@@ -7,6 +7,7 @@
 %================ 数学 ================
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{physics}
 
 %================ 页面布局 ================
 \usepackage{geometry}
@@ -22,10 +23,10 @@
 
 %================ 缩小公式上下间距 ================
 \AtBeginDocument{
-  \abovedisplayskip=2pt
-  \belowdisplayskip=5pt
-  \abovedisplayshortskip=-7pt
-  \belowdisplayshortskip=5pt
+  \abovedisplayskip=4pt plus 1pt minus 1.5pt
+  \belowdisplayskip=4pt plus 1pt minus 1.5pt
+  \abovedisplayshortskip=0pt plus 3pt
+  \belowdisplayshortskip=3pt plus 1pt minus 1pt 
 }
 
 %================ 图形与绘图 ================
@@ -92,7 +93,6 @@
 \DeclareMathOperator{\im}{Im}
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\End}{End}
-\DeclareMathOperator{\tr}{tr}
 \DeclareMathOperator{\inv}{Inv}
 \DeclareMathOperator{\Irr}{Irr}
 \DeclareMathOperator{\cf}{cf}
@@ -169,5 +169,7 @@
 \input{群表示.tex}
 
 \input{特征标理论.tex}
+
+\input{代数表示.tex}
 
 \end{document}

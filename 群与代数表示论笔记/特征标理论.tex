@@ -4,13 +4,13 @@
 
 
 \begin{definition}[特征标]
-    设$(\rho,V)$是群$G$的表示，则其\greenbf{特征标}为函数
+    设$(\rho,V)$是群$G$的表示，则其\colorbf{特征标}为函数
     $\setjot[-2]\begin{aligned}[t]
         \chi_\rho:G&\to \mathbb{F} \\
         g&\mapsto \chi_\rho(g)\triangleq \tr(\rho(g))=\tr(R_g)
     \end{aligned}$\par
-    定义特征标的\greenbf{次数}为$\mathrm{deg}\,\chi\triangleq\dim V=\mathrm{deg}\,\rho$.\par
-    若$\rho$不可约，其称其特征标为\greenbf{不可约特征标}.
+    定义特征标的\colorbf{次数}为$\mathrm{deg}\,\chi\triangleq\dim V=\mathrm{deg}\,\rho$.\par
+    若$\rho$不可约，其称其特征标为\colorbf{不可约特征标}.
 \end{definition}
 
 下面看一些特征标的例子.\par
@@ -60,7 +60,7 @@
 
 在上述性质中，引入了类函数的概念，现在正式定义类函数.
 \begin{definition}[类函数]
-    设$f:G\to \mathbb{F}$，若$f$在$G$的同一共轭类上取值相等，或等价地，$\forall\, g,h\in G, f(gh)=f(hg)$，则称$f$是\greenbf{类函数}.
+    设$f:G\to \mathbb{F}$，若$f$在$G$的同一共轭类上取值相等，或等价地，$\forall\, g,h\in G, f(gh)=f(hg)$，则称$f$是\colorbf{类函数}.
 \end{definition}
 特征标无疑是一种特殊的类函数，问题是其他的类函数和特征标之间是否存在某种关系，或者更直接地说，能否使用特征标函数表示其余类函数.这一问题留待后续进一步讨论.\par
 
@@ -133,11 +133,11 @@
 特征标有两个重要的正交关系.\par
 
 \begin{definition}[特征标函数的内积]
-    设$(\rho_1,V_1),(\rho_2,V_2)$为$G$的表示，其特征标为$\chi_1,\chi_2$，则定义其\greenbf{内积}$(\chi_1,\chi_2)\triangleq \frac{1}{|G|}\sum_{g\in G}\chi_1(g)\chi_2(g^{-1})$.
+    设$(\rho_1,V_1),(\rho_2,V_2)$为$G$的表示，其特征标为$\chi_1,\chi_2$，则定义其\colorbf{内积}$(\chi_1,\chi_2)\triangleq \frac{1}{|G|}\sum_{g\in G}\chi_1(g)\chi_2(g^{-1})$.
 \end{definition}
 
 \begin{definition}[特征标的正交]
-    若$(\chi_1,\chi_2)=0$，则称$\chi_1$和$\chi_2$\greenbf{正交}.
+    若$(\chi_1,\chi_2)=0$，则称$\chi_1$和$\chi_2$\colorbf{正交}.
 \end{definition}
 
 我们的目标是研究$V_1\cong V_2\Rightarrow \chi_1=\chi_2$的逆命题，由此得到重要的第一正交关系.\par
@@ -493,7 +493,7 @@ $\forall\, f\in \Hom_G(V_1,V_1)$，由于$V_1$不可约，$\ker f=0$，又$\math
 \subsection*{正规子群}\textcolor{white}{1}
 
 \begin{definition}[特征标的核]
-    定义$\ker \chi = \{g \in G \mid \chi(g) = \chi(1)\}$为$\chi$的\greenbf{核}，且有$\ker \chi = \ker \rho$.
+    定义$\ker \chi = \{g \in G \mid \chi(g) = \chi(1)\}$为$\chi$的\colorbf{核}，且有$\ker \chi = \ker \rho$.
 \end{definition}
 
 \begin{lemma}[]
@@ -564,6 +564,158 @@ $\forall\, f\in \Hom_G(V_1,V_1)$，由于$V_1$不可约，$\ker f=0$，又$\math
     \end{center}
 \end{instance}
 
+\subsection*{换位子群}{\textcolor{white}{1}}
+
+\begin{definition}[换位子群]
+    设$G$是群，则其\colorbf{换位子群}定义为$G'= \qty{g^{-1}h^{-1}gh \mid g, h \in G}$.
+\end{definition}
+
+\begin{property}[]
+    \begin{enumerate}
+        \item $G' \triangleleft G$
+        \item $G/G'$是Abel群
+        \item 若$G/N$为Abel群，则$G' \leqslant N$
+        \item $G'$为特征子群.
+    \end{enumerate}
+\end{property}
+
+\begin{proof}
+    \begin{enumerate}
+        \item $\forall\, g^{-1}h^{-1}gh\in G'$以及$a \in G$，有$a^{-1}g^{-1}h^{-1}gha = (a^{-1}ga)^{-1}(a^{-1}ha)^{-1}(a^{-1}ga)(a^{-1}ha).$\par
+        故$G' \triangleleft G$.
+        \item $\forall\,xG', yG' \in G/G'$，由于$x^{-1}y^{-1}xy \in G'$，故$(xG')^{-1}(yG')^{-1}(xG')(yG') = x^{-1}y^{-1}xy G' = G'$.\par
+        这说明$xG' yG' = yG' xG'$，故$G/G'$是Abel群.
+        \item $\forall g,h \in G$，因为$G/N$是Abel群，故$(gN)(hN) = (hN)(gN)$，即$ghN = hgN$.\par
+        这等价于$g^{-1}h^{-1}gh \in N$，故$G' \leqslant N$.
+        \item $\forall\, \sigma \in \mathrm{Aut}(G),g^{-1}h^{-1}gh \in G'$，有
+        $\sigma([g, h]) = \sigma(g^{-1}h^{-1}gh) = \sigma(g)^{-1}\sigma(h)^{-1}\sigma(g)\sigma(h) \in G'$.\par
+        因此$\sigma(G') \leqslant G'$. 同理$\sigma^{-1}(G') \leqslant G'$，故$\sigma(G') = G'$，即$G'$是特征子群.\qedhere
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem}[]
+    $G' = \bigcap_{\substack{\chi \in \mathrm{Irr} G\\ G' \leqslant \ker \chi}} \ker \chi = \bigcap_{\substack{\chi \in \mathrm{Irr} G \\ \chi(1)=1}} \ker \chi$.
+\end{theorem}
+
+\begin{proof}
+    \fbox{$\subseteq$}首先，$\ker \chi \triangleleft G$，若$\chi(1)=1$，则$\dim \chi = 1$.\par
+    由群同构基本定理$G/\ker \rho \cong \mathrm{Im} \rho \leqslant \mathbb{C}^*$.\par
+    由于$\mathrm{Im} \rho$是Abel群，故$G/\ker \rho$ 为Abel群，得$G' \leqslant \ker \rho = \ker \chi$.\par
+    \fbox{$\supseteq$} 考虑表示的提升$G \xrightarrow{\pi} G/G' \xrightarrow{\rho} \mathrm{GL}(V)$.\par
+    $\{\chi \in \mathrm{Irr} G \mid G' \leqslant \ker \chi\} = \mathrm{Irr}(G/G')$.
+    由于$G/G'$为Abel群，其特征标为$1$维.
+\end{proof}
+
+\subsection*{中心}{\textcolor{white}{1}}
+
+\begin{definition}[特征标的中心]
+    $Z(\chi) = \{g \in G \mid |\chi(g)| = \chi(1)\} = \{g \in G \mid \rho(g) = \omega \cdot I_V, \omega\text{为单位根}\}$.
+\end{definition}
+
+\begin{proposition}[]
+    $Z(G) = \bigcap_{\chi \in \mathrm{Irr} G} Z(\chi)$
+\end{proposition}
+
+\begin{proof}
+    \fbox{$\subseteq$} $\forall\, g \in Z(G), \in G,$ 有$gh=hg$.\par
+    则$\rho_g \rho_h = \rho_{gh} = \rho_{hg} = \rho_h \rho_g, \forall g \in Z(G), h \in G$.\par
+    由Schur引理，$\rho(g) = \omega \cdot I_V$，其中$\omega$为单位根，故$g \in \bigcap_{\chi \in \mathrm{Irr} G} Z(\chi)$.
+    
+    \fbox{$\supseteq$} 设$g \in \bigcap_{\chi \in \mathrm{Irr} G} Z(\chi)$.
+    $\forall \rho \in \mathrm{Irr} G, g \in Z(\chi)$, $\rho(g) = \omega \cdot \mathrm{id}_V$.\par
+    则$\rho_{ghg^{-1}h^{-1}} = \rho(g) \rho(h) \rho(g)^{-1} \rho(h)^{-1} = \mathrm{id}_V$.\par
+    故$ghg^{-1}h^{-1} = 1 \implies g \in Z(G)$.
+\end{proof}
+
+\section{整性定理}
+
+本节旨在利用代数整数等概念，推导不可约复表示的维数.
+
+\begin{definition}[代数整数]
+    复数$\alpha$称为\colorbf{代数整数}，当且仅当$\alpha$是某个首一多项式的根.
+\end{definition}
+
+\begin{lemma}[]
+    若$\alpha$是代数整数且为有理数，则$\alpha$是整数.
+\end{lemma}
+
+\begin{proof}
+    设$\alpha = \frac{p}{q}$，对应首一多项式为$f(x) = x^n + \dots + a_0$.\par
+    有$q \mid 1$且$p \mid a_0$，故$q=1$.
+\end{proof}
+
+\begin{proposition}[]
+    $\alpha$为代数整数 $ \iff $ $\alpha$为整系数矩阵的特征值.
+\end{proposition}
+
+\begin{proof}
+    $\impliedby$ 显然成立，因为特征多项式是首一的.\par
+    $\implies$ 若$\alpha$是$f(x) = x^n + a_{n-1} x^{n-1} + \dots + a_0$的根，
+    则$\begin{pmatrix} 0 & & & -a_0 \\ 1 & 0 & & -a_1 \\ & \ddots & \ddots & \vdots \\ & & 1 & -a_{n-1} \end{pmatrix}$对应的特征值即包含$\alpha$. (其特征多项式即为$f(x)$)
+\end{proof}
+
+\begin{theorem}[]
+    代数整数构成$\mathbb{C}$的子环.
+\end{theorem}
+
+\begin{proof}
+    设$\alpha, \beta$为代数整数且$A^{n \times n}, B^{m \times m}$为对应矩阵.\par
+    考虑$A \otimes I_m + I_n \otimes B$与$A \otimes B$，其特征值分别为$\alpha+\beta$与$\alpha\beta$.
+    故代数整数构成环.
+\end{proof}
+
+\begin{lemma}[]
+    $\chi(g)$为代数整数.
+\end{lemma}
+
+\begin{theorem}[]
+    设$\chi$是不可约特征标，则$\frac{|C_g| \chi(g)}{\chi(1)}$是代数整数. (这里$|C_g|$代表共轭类的元素个数，即$[G:C_G(g)]$)
+\end{theorem}
+
+\begin{proof}
+    定义$\varphi = \sum_{h \in C_g} \rho(h)$.\par
+    $\forall g' \in G, \rho(g')^{-1} \varphi \rho(g') = \sum_{h \in C_g} \rho(g'^{-1} h g') = \varphi$，因此$\varphi \in \mathrm{Hom}_G(V, V)$.\par
+    由Schur引理，$\varphi(x) = \lambda x, \lambda \in \mathbb{C}^*$.\par
+    因此$\tr\varphi = \lambda \dim_{\mathbb{C}} V = \lambda \chi(1)$.
+    又$\tr \varphi = \sum_{h \in C_g} \chi(h) = |C_g| \chi(g)$.
+    $\implies \lambda = \frac{|C_g| \chi(g)}{\chi(1)}$.\par
+    在正则表示上，定义$\psi=\sum_{h\in C_g}\rho_{\mathrm{reg}}(h)$，则$\psi|_V=\varphi$.\par
+    由于$\lambda$是$\psi$的特征值，加之$\psi$为整系数矩阵，故$\lambda$是代数整数.
+\end{proof}
+
+\begin{corollary}[]
+    若$\rho$不可约，则$\deg \rho \mid |G|$.
+\end{corollary}
+
+\begin{proof}
+    由第一正交关系，$|G| = \sum_{i} |C_{g_i}| \chi(g_i) \overline{\chi(g_i)}$.
+    因此 $\frac{|G|}{\chi(1)} = \sum_{i} \frac{|C_{g_i}| \chi(g_i)}{\chi(1)} \overline{\chi(g_i)} \in \mathbb{Q}$.
+    
+    由于$\frac{|G|}{\chi(1)}$为代数整数且为有理数，故$\frac{|G|}{\chi(1)} \in \mathbb{Z} \implies \chi(1) = \deg \rho \mid |G|$.
+\end{proof}
+
+\begin{theorem}[]
+    $\chi(1) \mid \frac{|G|}{|Z(G)|}$
+\end{theorem}
+
+\begin{proof}
+    任取$g \in Z(G)$，$\rho(g): V \to V$为$G$模同态.
+    任取$g' \in G$，有$\rho(g') \rho(g) \rho(g')^{-1} = \rho(g' g g'^{-1}) = \rho(g)$.
+    由Schur引理，$\forall g \in Z(G)$，$\exists \lambda \in \mathbb{C}^* \st \rho(g) = \lambda(g) \cdot I_V$.\par
+    考虑群$G \times G$在向量空间$V \otimes V^*$上的表示$\Phi$.\par
+    由于$\rho$是$G$的不可约表示，其对应的中心代数$\mathrm{End}_G(V) \cong \mathbb{C}$，从而$\Phi$也是$G \times G$的不可约表示，且$\dim(V \otimes V^*) = \chi(1)^2$.
+    
+    设$D = \{(z, z) \mid z \in Z(G)\} \leqslant G \times G$.
+    对于任意的$(z, z) \in D$，我们有$\Phi(z, z) = \lambda(z) I_V \otimes \lambda(z)^{-1} I_{V^*} = I_{V \otimes V^*}$.
+    这说明$D \leqslant \ker \Phi$.
+    因此$\Phi$可以自然地诱导为商群$(G \times G)/D$上不可约表示.
+    
+    根据不可约表示的维数整除群的阶（即$\deg \Phi \mid |(G \times G)/D|$），我们有：
+    \[ \chi(1)^2 \mid \frac{|G \times G|}{|D|} = \frac{|G|^2}{|Z(G)|} \]
+    即$\frac{|G|^2}{|Z(G)|\chi(1)^2}$为整数，又因为$\frac{|G|}{\chi(1)}$在之前的推论中被证明为代数整数且为有理数，进而可知为整数.
+    结合整数性质可进一步导出（通过与Galois共轭类相关的推广或直接使用特征标在中心上的关系），$\chi(1) \mid \frac{|G|}{|Z(G)|}$ 成立.
+\end{proof}
+
 \section{诱导表示}
 
 设$G$是群，$H \leqslant G$，问题是能否使用$H$的表示刻画$G$的表示？\par
@@ -575,7 +727,7 @@ $\forall\, f\in \Hom_G(V_1,V_1)$，由于$V_1$不可约，$\ker f=0$，又$\math
 
 \begin{definition}[诱导表示]
     设$(\rho, V)$是群$G$的表示，$(\rho_H, W)$为其子群$H$的表示，记$R$为$H$的左陪集的代表元集.
-    且$V = \bigoplus_{g_i \in R} \rho(g_i)W$，则称$(\rho, V)$是$(\rho_H, W)$的\greenbf{诱导表示}.
+    且$V = \bigoplus_{g_i \in R} \rho(g_i)W$，则称$(\rho, V)$是$(\rho_H, W)$的\colorbf{诱导表示}.
 \end{definition}
 
 下面考虑上述的和是否是直和，计算其维数. $\dim V = \sum_{g_i \in R} \dim \rho(g_i)W = \sum_{g_i \in R} \dim W = \frac{|G|}{|H|} \dim W$.\par

@@ -1,0 +1,189 @@
+\chapter{Young表}
+
+为了研究对称群的表示，我们需要引入一些组合对象来帮助我们理解和构造这些表示.其中，Young表是一个非常重要的工具.本文均基于常表示论的基础展开.
+
+\section{分拆}
+
+由于不可约特征标的个数和对称群的共轭类数相同，我们首先需要研究对称群的共轭类，为此，我们需要引入分拆的概念.
+\begin{definition}[分拆]
+    设$n$为正整数，若存在正整数组$\lambda=(\lambda_1,\lambda_2,\ldots,\lambda_k),\lambda_1\geq\lambda_2\geq\cdots\geq\lambda_k$满足$|\lambda|\triangleq\sum_{i=1}^k\lambda_i=n$，则称$\lambda$是$n$的一个分拆，记作$\lambda\dashv n$.\par
+    记$\rho(n)$为正整数$n$的分拆的个数.
+\end{definition}
+
+下面，我们可以证明对称群$S_n$的共轭类和$n$的分拆有密切的关系.
+
+\begin{theorem}[$S_n$的共轭类数]{\label{thm:conjugacy_classes_of_Sn}}
+    设$S_n$为$n$阶对称群，则两个置换共轭当且仅当它们具有相同的轮换类型.特别地，$S_n$的共轭类的个数等于整数$n$的分划数$\rho(n)$，
+\end{theorem}
+\begin{proof}
+    (i)设$\sigma\in S_n$，则其可以唯一的分解为若干个不相交轮换的乘积.\par
+    设$\sigma$可以分解为$k$个不相交的轮换，它们的长度分别为$\lambda_1,\lambda_2,\ldots,\lambda_k$，则
+    \begin{equation*}
+        \lambda_1+\lambda_2+\cdots+\lambda_k=n.
+    \end{equation*}
+    将其从大到小排列，得到一个分拆$\lambda\dashv n$.\par
+    (ii)取另一个$\tau\in S_n$，则$\tau\sigma\tau^{-1}$即是将$\tau$作用在$\sigma$轮换中的每一个元素.\par
+    即若$\sigma$包含轮换$(a_1\; a_2\;\ldots\; a_m)$，$\tau\sigma\tau^{-1}$包含轮换$(\tau(a_1)\;\tau(a_2)\;\ldots\;\tau(a_m))$.\par
+    因此共轭变换不改变轮换的长度，从而两个共轭的置换具有相同的轮换类型.\par
+    (iii)反过来，设$\sigma,\tau\in S_n$具有相同的轮换类型，则$\sigma$和$\tau$都可以分解为长度相同的轮换的乘积，
+    \begin{gather*}
+        \sigma=(a_{11}\; a_{12}\;\ldots\; a_{1\lambda_1})(a_{21}\; a_{22}\;\ldots\; a_{2\lambda_2})\cdots(a_{k1}\; a_{k2}\;\ldots\; a_{k\lambda_k}),\\
+        \tau=(b_{11}\; b_{12}\;\ldots\; b_{1\lambda_1})(b_{21}\; b_{22}\;\ldots\; b_{2\lambda_2})\cdots(b_{k1}\; b_{k2}\;\ldots\; b_{k\lambda_k}).
+    \end{gather*}
+    那么我们总可以构造出置换$\pi$使得$\pi(a_{ij})=b_{ij}$，从而$\tau=\pi\sigma\pi^{-1}$.\par
+    因此具有相同轮换类型的置换共轭.\par
+    综上所述，两个置换共轭当且仅当它们具有相同的轮换类型.特别地，就有$S_n$的共轭类数等于整数$n$的分拆数$\rho(n)$.
+\end{proof}
+
+
+\section{Young表}
+
+由定理\ref{thm:conjugacy_classes_of_Sn}，我们知道$S_n$的共轭类数等于$n$的分拆数$\rho(n)$，而不可约表示的个数也等于共轭类数，因此我们可以通过研究$n$的分拆来研究$S_n$的不可约表示.为此，我们引入Young表.
+
+\begin{definition}[Young图]
+    设$\lambda=(\lambda_1,\lambda_2,\ldots,\lambda_k)\dashv n$，则$\lambda$的Young图是由$n$个方格组成的图形，其中第$i$行有$\lambda_i$个方格.
+\end{definition}
+
+\begin{example}
+    对于$S_4$，共有5个分拆$(4,0,0,0),(3,1,0,0),(2,2,0,0),(2,1,1,0),(1,1,1,1)$，对应的Young图分别为
+    \begin{equation*}
+        \ydiagram{4}\qquad \ydiagram{3,1}\qquad \ydiagram{2,2}\qquad \ydiagram{2,1,1}\qquad \ydiagram{1,1,1,1}.
+    \end{equation*}
+\end{example}
+
+\begin{definition}[Young表]
+    设$\lambda\dashv n$，则$\lambda$的Young表是在其Young图的$n$个方格中填入$1$到$n$得到的，记为$t$.称原来的Young表为$t$的形状，记作$\sh t$.
+\end{definition}
+
+\begin{example}
+    对于$S_4$，以下均为分拆$(3,1,0,0)$的Young表
+    \begin{equation*}
+        \ytableaushort{123,4}\qquad \ytableaushort{124,3}\qquad \ytableaushort{132,4}\qquad \ytableaushort{134,2}\qquad \ytableaushort{142,3}\qquad \ytableaushort{143,2}
+    \end{equation*}
+    简单计算可知，分拆$(3,1,0,0)$的Young表共有$4! =24$个.
+\end{example}
+
+特别地，在所有的Young表中，可以定义一种特殊的Young表，称为标准Young表.
+\begin{definition}[标准Young表]
+    设$\lambda\dashv n$且$\sh t=n$，若$t$的每一行数字严格递增，每一列数字严格递增，则称$t$是$\lambda$的一个标准Young表.
+\end{definition}
+
+\begin{example}
+    对于$S_4$，以下均为分拆$(3,1,0,0)$的标准Young表
+    \begin{equation*}
+        \ytableaushort{123,4}\qquad \ytableaushort{124,3}\qquad \ytableaushort{134,2}.
+    \end{equation*}
+    简单计算可知，分拆$(3,1,0,0)$的标准Young表共有$3$个.
+\end{example}
+相较于Young表，标准Young表的个数不至依赖于$n$，还需要考虑Young表的形状.关于标准Young表的个数，我们先不加证明地给出下述公式
+\begin{theorem}[钩长公式]
+    设$\lambda\dashv n$，则$\lambda$的标准Young表的个数由下式给出：
+    \begin{equation*}
+        f^\lambda = \frac{n!}{\prod_{(i,j)\in\lambda} h_{i,j}},
+    \end{equation*}
+    其中$h_{i,j}$为Young图中第$i$行第$j$列方格的钩长，即该方格正下方、正右方的方格连同自身所构成的方格总数.
+\end{theorem}
+
+
+\section{Young子群}
+
+\begin{definition}[Young子群]
+    设$\lambda=(\lambda_1,\ldots,\lambda_k)\dashv n$，则对应的$S_n$的Young子群为
+    \begin{equation*}
+        S_\lambda= S_{\{1,2,\ldots,\lambda_1\}} \times S_{\{\lambda_1+1,\ldots,\lambda_1+\lambda_2\}} \times \cdots \times S_{n-\lambda_k+1,n-\lambda_k+2,\ldots,n}.
+    \end{equation*}
+\end{definition}
+一般而言，$S_{(\lambda_1,\lambda_2,\ldots,\lambda_l)}\cong S_{\lambda_1}\times S_{\lambda_2}\times\cdots\times S_{\lambda_k}$作为群是同构的.
+
+在给定了分拆$\lambda$和一个固定的Young表$t$后，我们可以定义保持其行或列中元素在各自的行或列中置换的子群.任意置换$\pi$对形状为$\lambda\dashv n$的Young表的作用如下：
+\begin{equation*}
+    \pi t=(\pi(t_{i,j}))
+\end{equation*}
+
+
+\begin{definition}[行群与列群]
+    设$t$为一个Young表，定义$t$的\textbf{行群}为
+    \begin{equation*}
+        R_t = \{ \sigma \in S_n \mid \sigma\;\text{保持每行元素不变}\}.
+    \end{equation*}
+    同理，定义$t$的\textbf{列群}为
+    \begin{equation*}
+        C_t = \{ \sigma \in S_n \mid \sigma\;\text{保持每列元素不变} \}.
+    \end{equation*}
+\end{definition}
+
+事实上，行群和列群都是Young子群.
+\begin{lemma}[]
+    若$\sh t=\lambda\dashv n$，则
+    \begin{gather*}
+        R_t= S_{R_1}\times S_{R_2}\times \cdots\times S_{R_\ell}\\
+        C_t= S_{C_1}\times S_{C_2}\times\cdots\times S_{C_k}
+    \end{gather*}
+    其中$R_i,C_j$为Young表第$i$行和第$j$列.
+\end{lemma}
+
+
+\section{Young对称化子}
+
+通过分别对行群和列群求和，我们可以构造出群代数$\mathbb{C}[S_n]$中的特定元素.
+
+\begin{definition}[Young对称化子]
+    对于给定的Young表$t$，定义群代数$\mathbb{C}[S_n]$中的行堆成化子和列反对成化子分别为
+    \begin{equation*}
+        a_t = \sum_{\sigma \in R_t} \sigma, \qquad b_t = \sum_{\tau \in C_t} \mathrm{sgn}(\tau) \tau.
+    \end{equation*}
+    定义对应的Young对称化子为 
+    \begin{equation*}
+        c_t = a_t b_t.
+    \end{equation*}
+\end{definition}
+
+Young对称化子在群代数$\mathbb{C}[S_n]$中具有重要的性质，特别是当它满足特定的关系时，可以用来构造不可约表示.
+
+\begin{lemma}[von Neumann引理]{\label{lem:von_neumann}}
+    对于任意$\sigma\in R_t,\tau\in C_t$，有
+    \begin{equation*}
+        \sigma c_t \tau = \mathrm{sgn}(\tau) c_t.
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    根据定义 $c_t = a_t b_t$，我们有 $\sigma c_t \tau = \sigma a_t b_t \tau$.
+    
+    因为 $R_t$ 是一个群，当 $x$ 遍历 $R_t$ 时，$\sigma x$ 也遍历 $R_t$，所以
+    \begin{equation*}
+        \sigma a_t = \sum_{x \in R_t} \sigma x = \sum_{x' \in R_t} x' = a_t.
+    \end{equation*}
+    
+    同理，因为 $C_t$ 是一个群，当 $y$ 遍历 $C_t$ 时，$y\tau$ 也遍历 $C_t$，且 $\mathrm{sgn}(\tau) = \mathrm{sgn}(\tau^{-1})$，所以
+    \begin{equation*}
+        b_t \tau = \sum_{y \in C_t} \mathrm{sgn}(y) y \tau = \mathrm{sgn}(\tau) \sum_{y \in C_t} \mathrm{sgn}(y\tau) y\tau = \mathrm{sgn}(\tau) b_t.
+    \end{equation*}
+    
+    联立两式即可得到 $\sigma c_t \tau = (\sigma a_t) (b_t \tau) = a_t (\mathrm{sgn}(\tau) b_t) = \mathrm{sgn}(\tau) c_t$.
+\end{proof}
+这表明$c_t$继承了行对称性和列反对称性.
+
+\begin{theorem}[$c_t$是本质幂等元]
+    Young对称化子在$\mathbb{C}[S_n]$中是一个本质幂等元，即存在常数$\gamma\neq 0$，使得
+    \begin{equation*}
+        c_t^2=\gamma c_t
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    由引理\ref{lem:von_neumann}，如果群代数$\mathbb{C}[S_n]$中的某个元素 $x$ 满足对所有的 $\sigma \in R_t$ 和 $\tau \in C_t$ 都有 $\sigma x \tau = \mathrm{sgn}(\tau) x$，那么 $x$ 必定是 $c_t$ 的一个标量倍.
+    
+    对于 $c_t^2 = c_t \cdot c_t$，我们来考察它左乘 $\sigma \in R_t$ 和右乘 $\tau \in C_t$ 的效果：
+    \begin{equation*}
+        \sigma c_t^2 \tau = (\sigma c_t) (c_t \tau).
+    \end{equation*}
+    由 Young 对称化子的吸收性质可知，$\sigma c_t = c_t$ 以及 $c_t \tau = \mathrm{sgn}(\tau) c_t$.将其代入上式，得到：
+    \begin{equation*}
+        \sigma c_t^2 \tau = c_t (\mathrm{sgn}(\tau)c_t) = \mathrm{sgn}(\tau) c_t^2.
+    \end{equation*}
+    
+    既然 $c_t^2$ 也满足该吸收性质，由 von Neumann 引理可直接得到 $c_t^2$ 必须是 $c_t$ 的标量倍.因此存在常数 $\gamma$，使得
+    \begin{equation*}
+        c_t^2 = \gamma c_t. \qedhere
+    \end{equation*}
+\end{proof}
+事实上，进一步通过分析置换群代数和其左正则表示可以证明$\gamma = \frac{n!}{\dim(S^\lambda)}$，从而$c_t$是真正的幂等元.

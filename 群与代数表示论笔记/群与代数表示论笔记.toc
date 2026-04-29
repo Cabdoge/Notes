@@ -12,5 +12,8 @@
 \contentsline {section}{\numberline {2.3}分裂域上不可约特征标}{22}{section.2.3}%
 \contentsline {section}{\numberline {2.4}特征标表}{24}{section.2.4}%
 \contentsline {section}{\numberline {2.5}从特征标表读群的结构}{27}{section.2.5}%
-\contentsline {section}{\numberline {2.6}诱导表示}{28}{section.2.6}%
+\contentsline {section}{\numberline {2.6}整性定理}{30}{section.2.6}%
+\contentsline {section}{\numberline {2.7}诱导表示}{31}{section.2.7}%
+\contentsline {chapter}{\numberline {3}代数表示}{33}{chapter.3}%
+\contentsline {section}{\numberline {3.1}代数与模}{33}{section.3.1}%
 \contentsfinish 

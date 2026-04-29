@@ -1,12 +1,19 @@
 \documentclass{sjtureport}
 
-
+\usepackage{amsmath,amsthm}
 \usepackage{bm}
 \usepackage{physics}
+\usepackage{ytableau}
 
 %================ 页面布局 ================
 \usepackage{geometry}
 
+\geometry{
+    %left=3cm,
+    %right=3cm,
+    %top=3.54cm,
+    bottom=3cm,
+}
 
 %================ 行距 ================
 \usepackage{setspace}
@@ -16,17 +23,38 @@
 \setlength{\lineskip}{\baselineskip-\ccwd}
 \setlength{\lineskiplimit}{2.5pt}
 
-\newtheorem{theorem}{\indent 定理}[chapter]
-\newtheorem{lemma}[theorem]{\indent 引理}
-\newtheorem{proposition}[theorem]{\indent 命题}
-\newtheorem{corollary}[theorem]{\indent 推论}
-\newtheorem{definition}{\indent 定义}[chapter]
-\newtheorem{example}{\indent 例}[chapter]
-\newtheorem{remark}{\indent 注}[chapter]
-\newenvironment{solution}{\begin{proof}[\indent\bf 解]}{\end{proof}}
-\renewcommand{\proofname}{\indent\bf 证明}
+\newtheorem{theorem}{定理}[chapter]
+\newtheorem{lemma}[theorem]{引理}
+\newtheorem{proposition}[theorem]{命题}
+\newtheorem{corollary}[theorem]{推论}
+\newtheorem{definition}{定义}[chapter]
+\newtheorem{example}{例}[chapter]
+\newtheorem{remark}{注}[chapter]
+\newenvironment{solution}{\begin{proof}[\bf 解]}{\end{proof}}
+\renewcommand{\proofname}{\bf 证明}
 %\renewcommand{\qedsymbol}{$\blacksquare$}
 
+%================ 缩小公式上下间距 ================
+\AtBeginDocument{
+  \abovedisplayskip=5pt plus 1pt minus 1.5pt
+  \belowdisplayskip=5pt plus 1pt minus 1.5pt
+  \abovedisplayshortskip=0pt plus 3pt
+  \belowdisplayshortskip=4pt plus 1pt minus 1.5pt 
+}
+
+\renewcommand{\arraystretch}{1}
+\newcommand{\tabloid}[1]{
+    \renewcommand{\arraystretch}{1.1} % 稍微撑开一点行距，比较美观
+    \begin{array}{l}
+        \hline
+        #1 \\
+        \hline
+    \end{array}
+}
+
+\everymath{\displaystyle}
+
+\DeclareMathOperator{\sh}{sh}
 
 \title{对称群的表示与特征标理论}
 \author{庞逸天}
@@ -43,30 +71,516 @@
 \begin{table}
     \centering
     \renewcommand{\arraystretch}{1.25}
-    \begin{tabular}{c|c}
+    \begin{tabular}{cl}
         \hline
         \textbf{符号} & \textbf{说明} \\
+        $\lambda \dashv n$ & $\lambda$是$n$的一个分拆 \\
+        $\rho(n)$ & $n$的分拆的个数 \\
+        $S_n$ & $n$阶对称群 \\
+        $\sh t$ & Young表$t$的形状 \\
+        $\mathrm{span}$ & 张成的子空间 \\
+        $R_t$ & Young表$t$的行群 \\
+        $C_t$ & Young表$t$的列群 \\
+        $a_t$ & Young表$t$的行对称化子 \\
+        $b_t$ & Young表$t$的列反对称化子 \\
+        $\{t\}$ & Young表$t$的行等价报 \\
+        $M^\lambda$ & 分拆$\lambda$对应的置换模 \\
+        $e_t$ & Young表$t$的多重表 \\
+        $S^\lambda$ & 分拆$\lambda$对应的Specht模 \\
         \hline
     \end{tabular}
 \end{table}
 
-\chapter{引言}
 
+\input{Young表.tex}
 
-\chapter{Young表}
-
-\section{Ferrers图与Young表}
-
-\section{}
 
 \chapter{对称群的不可约表示}
 
+本章将使用Young表和Young对称化子来构造对称群$S_n$的不可约表示，称为Specht模.通过分析Specht模的结构，我们可以证明它们确实给出了$S_n$的所有不可约表示.但由于直接分析最终的结论较为复杂，本章将依次施加对称性以达到最终目的.
+
+\section{置换模}
+
+
+首先，我们只考虑行对称的情况，为此需要定义行等价.
+
+\begin{definition}[行等价]
+    设$\sh t_1=\sh t_2=\lambda\dashv n$，则称Young表$t_1,t_2$是行等价的，当且仅当它们的每一行拥有相同的元素，记作$t_1\sim t_2$.
+\end{definition}
+
+在等价关系下，可以研究其等价类.
+\begin{definition}[行等价报]
+    记$\{t\}=\{t_1|t_1\sim t\}$为所有行等价Young表的等价类，称其为行等价报或$\lambda-\!$报，其中$\sh t=\lambda\dashv n$.
+\end{definition}
+
+\begin{example}
+    若$t=\ytableaushort{12,3}$，则
+    \begin{equation*}
+        \{t\} = \qty{\ytableaushort{12,3},\ytableaushort{21,3}}=\begin{array}{ll}
+            \hline
+            1 & 2 \\
+            \hline
+            3 \\
+            \cline{1-1}
+        \end{array}
+    \end{equation*}
+\end{example}
+
+\begin{lemma}[行等价报中元素个数]
+    若$\sh t=\lambda=(\lambda_1,\ldots,\lambda_k)\dashv n$，则$\{t\}$中的元素个数为
+    \begin{equation*}
+        \lambda !\triangleq \lambda_1!\lambda_2!\cdots\lambda_k!.
+    \end{equation*}
+    特别地，$\lambda-\!$报的个数为$\dfrac{n!}{\lambda!}$
+\end{lemma}
+\begin{proof}
+    对于形状为$\lambda=(\lambda_1,\ldots,\lambda_k)$的Young表$t$，其第$i$行含有$\lambda_i$个元素，对这些元素在其所在行内进行全排列共有$\lambda_i!$种方式. 由于各行的排列相互独立，因此与$t$行等价的Young表总数为
+    \begin{equation*}
+        \lambda_1!\lambda_2!\cdots\lambda_k! = \lambda!.
+    \end{equation*}
+    
+    另一方面，形状为$\lambda$的Young图共有$n!$种不同的填法（即共有$n!$个形状为$\lambda$的Young表），并且$\lambda-\!$报中恰好包含$\lambda!$个元素. 因此$\lambda-\!$报的总数为
+    \begin{equation*}
+        \frac{n!}{\lambda!}.
+    \end{equation*}
+\end{proof}
+
+
+\begin{definition}[置换模]
+    设$\lambda\dashv n$，定义对应于$\lambda$的置换模为
+    \begin{equation*}
+        M^\lambda\triangleq \mathbb{C}\qty{{t_1},{t_2},\cdots,{t_k}},
+    \end{equation*}
+    其中，$\{t_1\},\ldots,\{t_k\}$是所有形状为$\lambda$的$\lambda-\!$报.
+\end{definition}
+
+由于我们可以自然地将$S_n$作用在$\{t\}$上，因此置换模实际上是$S_n-\!$模. 
+
+从表示论的角度来看，置换模本质上是一个诱导表示. 由于行群$R_t$中的元素保持$\{t\}$不变，它在生成元$\{t\}$上的作用是平凡的. $S_n$在$\lambda-\!$报的集合上进行传递置换作用，其稳定子群正好是$R_t$.\par 
+因此，置换模$M^\lambda$同构于行群$R_t$的平凡表示诱导到$S_n$上的表示，即
+\begin{equation*}
+    M^\lambda \cong \mathrm{Ind}_{R_t}^{S_n}(1).
+\end{equation*}
+
+\begin{example}
+    \begin{enumerate}[label=(\arabic*)]
+        \item 若$\lambda=(n)$，则
+        \begin{equation*}
+            M^{(n)}=\mathbb{C}\qty{\begin{array}{l}
+            \hline
+            12\cdots n\\
+            \hline\end{array}},
+        \end{equation*}
+        它是$S_n$的平凡表示.
+        \item 若$\lambda=(1,1,\ldots,1)$，则
+        \begin{equation*}
+            M^{(1,1,\ldots,1)}=\mathbb{C}\qty{\begin{array}{l}
+            \hline
+            1\\
+            \hline
+            2\\
+            \hline
+            \vdots\\
+            \hline
+            n\\
+            \hline\end{array}}\cong \mathbb{C}{S_n},
+        \end{equation*}
+        它是$S_n$的正则表示.
+    \end{enumerate}
+        
+\end{example}
+
+
+\section{Specht模}
+$M^\lambda$仍然可约，甚至于可以是正则表示包含所有的不可约表示，这表明该空间依旧较大.为此，我们可以在$\lambda-\!$报的基础上施加列反对称性，在这个空间中切出较小的一块.
+
+\begin{definition}[多项表]
+    设$t$是一个Young表，则其多项表定义为列反对称化子作用在$\{t\}$上的结果，即
+    \begin{equation*}
+    e_t = b_t \{t\} = \sum_{\tau \in C_t} \mathrm{sgn}(\tau)\tau \{t\}.
+    \end{equation*}    
+\end{definition}
+
+\begin{definition}[Specht模]
+    设$\lambda\dashv n$，则定义Specht模$S^\lambda$为
+    \begin{equation*}
+        S^\lambda = \mathrm{span}_\mathbb{C}\{e_t \mid \sh t = \lambda\}.
+    \end{equation*}
+\end{definition}
+
+另外，从群代数$\mathbb{C}[S_n]$的角度来看，Specht模也可以等价地看作是由群代数中生成的左理想，即其等价定义为：
+\begin{theorem}[Specht模的等价定义]
+    Specht模$S^\lambda$同构于由$c_t$生成的群代数$\mathbb{C}[S_n]$中的左理想：
+\begin{equation*}
+    S^\lambda \cong \mathbb{C}[S_n]c_t.
+\end{equation*}
+\end{theorem}
+\begin{proof}
+    定义$\mathbb{C}[S_n]-\!$模同态
+    \begin{equation*}
+        \begin{aligned}
+            \varphi: \mathbb{C}[S_n] &\to M^\lambda \\[-5pt]
+            \quad x &\mapsto x\{t\}.
+        \end{aligned}
+    \end{equation*}
+    显然$\varphi$是满射. 对于行对称化子$a_t=\sum_{\pi\in R_t}\pi$，由于$R_t$中所有元素均保持$\{t\}$不变，因此在$M^\lambda$中有$a_t\{t\} = |R_t|\{t\}$. 考虑群代数中的左理想$\mathbb{C}[S_n]a_t$，容易验证$\varphi$对其限制给出了$\mathbb{C}[S_n]a_t$与$M^\lambda$之间的$\mathbb{C}[S_n]-\!$模同构，且有基本对应关系$\{t\} \leftrightarrow \frac{1}{|R_t|}a_t$. 
+    
+    在此同构映射下，多项表$e_t$的像满足：
+    \begin{equation*}
+        e_t = b_t\{t\} \longleftrightarrow b_t\qty(\frac{1}{|R_t|}a_t) = \frac{1}{|R_t|}b_t a_t = \frac{1}{|R_t|}c_t.
+    \end{equation*}
+    由于Specht模$S^\lambda$作为$M^\lambda$的子模是由多项表$e_t$生成的，即$S^\lambda = \mathbb{C}[S_n]e_t$，因此在上述同构下自然有$S^\lambda \cong \mathbb{C}[S_n]c_t$.
+\end{proof}
+
+
+
+\begin{theorem}
+    对于每一个分拆$\lambda \dashv n$，Specht模$S^\lambda$给出了对称群$S_n$的一个不可约表示. 且不同的分拆给出同构意义下不同的不可约表示.
+\end{theorem}
+
+
+\section{$M^\lambda$和$S^\lambda$的结构与性质}
+
+本节将聚焦于分析置换模和Specht模的结构，为最终证明Specht模的不可约性和不同分拆对应不同不可约表示做准备.
+
+\begin{lemma}[$M^\lambda$上的内积]
+    定义$M^\lambda$上的内积为
+    \begin{equation*}
+        \langle \{t_1\},\{t_2\}\rangle=\delta_{\{t_1\},\{t_2\}}=\begin{cases}
+            1, &\{t_1\}=\{t_2\},\\
+            0, &\{t_1\}\neq \{t_2\}.
+        \end{cases}
+    \end{equation*}
+    并且该内积是$S_n-\!$不变的.
+\end{lemma}
+\begin{proof}
+    由于$M^\lambda$是以所有的$\lambda-\!$报作为基张成的向量空间，上述等式实际上是将这组基定义为标准正交基，并共轭双线性地扩展到整个$M^\lambda$空间上，这自然满足内积的正定性、对称性等要求. 
+    
+    此外，对任意$\pi \in S_n$，$\pi\{t_1\}=\pi\{t_2\} \iff \{t_1\}=\{t_2\}$，因此对于任意基底有：
+    \begin{equation*}
+        \langle \pi \{t_1\},\pi \{t_2\}\rangle = \delta_{\pi \{t_1\},\pi \{t_2\}} = \delta_{\{t_1\},\{t_2\}} = \langle \{t_1\},\{t_2\}\rangle.
+    \end{equation*}
+    这表明群$S_n$的表示作用保持内积不变，即该内积为$S_n-\!$不变内积.
+\end{proof}
+
+更特别地，该内积有以下伴随关系和自伴随关系：
+\begin{lemma}[伴随关系]
+    对于任意$\pi\in S_n$，有以下伴随关系：
+    \begin{equation*}
+        \langle \pi\{t_1\}, \{t_2\}\rangle = \langle \{t_1\},\pi^{-1}\{t_2\}\rangle.
+    \end{equation*}
+    特别地，列反对称化子是自伴的，即
+    \begin{equation*}
+        \langle b_t\{t_1\}, \{t_2\}\rangle = \langle \{t_1\},b_t\{t_2\}\rangle.
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    由内积的$S_n-\!$不变性可直接得到第一式：
+    \begin{equation*}
+        \langle \pi\{t_1\}, \{t_2\}\rangle = \langle \pi^{-1}(\pi\{t_1\}), \pi^{-1}\{t_2\}\rangle = \langle \{t_1\}, \pi^{-1}\{t_2\}\rangle.
+    \end{equation*}
+    
+    对于列反对称化子$b_t = \sum_{\tau \in C_t} \mathrm{sgn}(\tau)\tau$，利用上述伴随关系可得：
+    \begin{equation*}
+        \langle b_t\{t_1\}, \{t_2\}\rangle = \sum_{\tau \in C_t} \mathrm{sgn}(\tau) \langle \tau\{t_1\}, \{t_2\}\rangle = \sum_{\tau \in C_t} \mathrm{sgn}(\tau) \langle \{t_1\}, \tau^{-1}\{t_2\}\rangle.
+    \end{equation*}
+    由于当$\tau$遍历$C_t$时，$\tau^{-1}$也恰好遍历$C_t$，且$\mathrm{sgn}(\tau) = \mathrm{sgn}(\tau^{-1})$，因此
+    \begin{equation*}
+        \sum_{\tau \in C_t} \mathrm{sgn}(\tau) \langle \{t_1\}, \tau^{-1}\{t_2\}\rangle = \langle \{t_1\}, \sum_{\tau \in C_t} \mathrm{sgn}(\tau^{-1})\tau^{-1}\{t_2\}\rangle = \langle \{t_1\}, b_t\{t_2\}\rangle. \qedhere
+    \end{equation*}
+\end{proof}
+
+下一个引理是纯组合学上的，它连接了杨表的“形状”与群代数的“计算”.
+
+\begin{lemma}[多项表的极值性]{\label{lem:extremality}}
+    设$\sh t=\lambda\dashv n$，$\{t'\}\in M^\lambda$，考虑列反对称化子$b_t$在$\{t'\}$上的作用，则有以下择一性：
+    \begin{enumerate}
+        \item 若$t$中有两个在同一列的数字出现在$t'$的同一行中，则$b_t\{t'\} = 0$；
+        \item 否则，$b_t\{t'\} =\pm e_t$.
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    (1) 设$x,y$是$t$中同一列的两个数字，且它们同时出现在$t'$的同一行中.\par
+    考虑对换$(x,y)$，由于$x,y$在$t$的同一列，有$(x,y) \in C_t$. 又由于$x,y$在$t'$的同一行，故$(x,y)\{t'\} = \{t'\}$. \par
+    考虑子群$\{\mathrm{id}, (x,y)\}$对列群$C_t$作左陪集分解，记其左陪集代表元系为$H$，则$C_t = H \cup H(x,y)$. 此时，
+    \begin{equation*}
+        b_t\{t'\} = \sum_{\tau \in H} \qty[ \mathrm{sgn}(\tau)\tau \{t'\} + \mathrm{sgn}(\tau(x,y))\tau(x,y) \{t'\} ].
+    \end{equation*}
+    因为$\mathrm{sgn}(\tau(x,y)) = -\mathrm{sgn}(\tau)$且$(x,y)\{t'\}=\{t'\}$，所以方括号内每一项均为0，从而$b_t\{t'\} = 0$.
+    
+    (2) 假设条件(1)不成立，即$t'$的任一行中没有任何两个数字属于$t$的同一列. 这意味着$t'$第一行的各数字必然分属$t$的不同列.\par
+    由于$t'$与$t$具有相同的形状$\lambda$，必然存在一个列群中的置换$\tau_1 \in C_t$，把$t'$第一行的所有数字移入$t$的第一行.\par
+    对剩下的行依次重复此推理，可知存在某个列置换$\tau \in C_t$，使得$\tau$将$t'$每一行的内容移到了$t$对应的行中，即满足$\tau\{t'\} = \{t\}$.
+    因此，$\{t'\} = \tau^{-1}\{t\}$.\par
+    进而有，
+    \begin{equation*}
+        b_t\{t'\} = b_t (\tau^{-1}\{t\}) = (b_t\tau^{-1})\{t\} = \mathrm{sgn}(\tau)b_t\{t\} = \mathrm{sgn}(\tau)e_t = \pm e_t. \qedhere
+    \end{equation*}
+\end{proof}
+
+\begin{corollary}{\label{cor:extremality}}
+    设$\lambda\dashv n$，则$\forall\, \{t\}\in M^\lambda$，存在复数$c\in \mathbb{C}$，使得$b_t\{t\}=c \cdot e_t$.
+\end{corollary}
+\begin{proof}
+    对$M^\lambda$中的任意元素$\{t\}$，其可写作$\{t\}=c_1\{t_1\} + c_2\{t_2\} + \cdots + c_k\{t_k\}$，其中$\{t_1\}$为$\sh t_i=\lambda$的互不等价的$\lambda-\!$报.\par
+    由$b_t$的线性线性质与引理\ref{lem:extremality}，
+    \begin{equation*}
+        b_t\{t\} = c_1 b_t\{t_1\} + c_2 b_t\{t_2\} + \cdots + c_k b_t\{t_k\}=c_1' e_t + c_2' e_t + \cdots + c_k' e_t 
+    \end{equation*}
+    其中$c_i'\in {-1,0,1}$，故推论自然成立.
+\end{proof}
+
+\section{子模定理和Specht模的不可约性}
+
+\begin{theorem}[子模定理]
+    设$U$为$M^\lambda$的子模，对于任意的$\lambda \dashv n$，要么$S^\lambda \subseteq U$，要么$U\subseteq \qty(S^\lambda)^{\perp}$.
+\end{theorem}
+\begin{proof}
+    假设$U \not\subseteq (S^\lambda)^\perp$，我们需要证明这必然导致$S^\lambda \subseteq U$.
+    
+    因为$U$不在$S^\lambda$的正交补中，所以必定存在某个$u \in U$和某个多项表$e_t \in S^\lambda$，使得它们的内积不为零：$\langle u, e_t \rangle \neq 0$. 
+    
+    展开$e_t = b_t\{t\}$，并利用列反对称化子$b_t$的自伴随性质，可得：
+    \begin{equation*}
+        0 \neq \langle u, e_t \rangle = \langle u, b_t\{t\} \rangle = \langle b_t u, \{t\} \rangle.
+    \end{equation*}
+    因此向量$b_tu$不是零向量.
+    
+    由推论{\ref{cor:extremality}}，$b_tu = c \cdot e_t$. 由于它不是零向量，那么标量$c \neq 0$.
+    
+    回到代数结构：因为$u \in U$，且$U$是一个$S_n-\!$子模，而$b_t \in \mathbb{C}[S_n]$，所以$b_tu \in U$.
+    
+    既然$b_tu \in U$且$b_tu = c \cdot e_t$（其中$c \neq 0$），这意味着$e_t \in U$.
+    
+    那么对所有$\pi \in S_n$均有$\pi e_t \in U$，即所有的多项表都被包含在$U$中. \par
+    因$S^\lambda$由所有多项表张成，这就意味着整个Specht模必定包含于$U$，从而必然有$S^\lambda \subseteq U$.
+\end{proof}
+
+我们终于可以介绍本章的核心定理.
+\begin{theorem}[Specht模的不可约性]
+    对于任意整数分拆$\lambda \dashv n$，Specht模$S^\lambda$是对称群$S_n$的一个不可约表示.
+\end{theorem}
+\begin{proof}
+    设$W$是$S^\lambda$的任意一个子模. 我们需要证明$W=\{0\}$或$W=S^\lambda$.
+    
+    因为$W \subseteq S^\lambda \subset M^\lambda$，$W$自然也是$M^\lambda$的子模. 
+    对$W$应用子模定理，只有两种可能：
+    \begin{itemize}
+        \item \textbf{情况 A}：$S^\lambda \subseteq W$. 既然$W$本来就是$S^\lambda$的子集，这直接意味着$W = S^\lambda$.
+        \item \textbf{情况 B}：$W \subseteq (S^\lambda)^\perp$. 这同时意味着$W$里面的向量既在$S^\lambda$里，又在$S^\lambda$的正交补里.\par
+        在复数域上，内积是正定的，一个空间与自己正交补的交集只有零向量，即
+    \begin{equation*}
+        W \subseteq S^\lambda \cap (S^\lambda)^\perp = \{0\}.
+    \end{equation*}
+    因此，$W = \{0\}$.
+    \end{itemize}
+    
+    
+    
+    综上所述，$S^\lambda$除了自身和零空间外，没有非平凡子模. 故$S^\lambda$是不可约的.
+    
+    接下来证明不同的分拆对应不同的不可约表示. 假设存在不同的分拆 $\lambda \neq \mu$ 使得 $S^\lambda \cong S^\mu$. 不失一般性，假设在字典序（或优势序）下 $\lambda \not\unrhd \mu$. 
+    对于形状为 $\lambda$ 的 Young 表 $t$，由于 $t'$ 是形状为 $\mu$ 的 Young 表，根据 $\lambda \not\unrhd \mu$ 的组合性质，$t$ 中必然存在两个处于同一列的元素，它们出现在 $t'$ 的同一行中. 
+    由多项表的极值性引理可知，列反对称化子 $b_t$ 对 $M^\mu$ 中任一基元素作用均为 $0$，即 $b_t M^\mu = 0$. 由于 $S^\mu \subseteq M^\mu$，故 $b_t S^\mu = 0$.
+    另一方面，在 $S^\lambda$ 中，有 $b_t e_t = |C_t| e_t \neq 0$. 
+    若存在同构映射 $\phi: S^\lambda \to S^\mu$，则：
+    \begin{equation*}
+        0 \neq \phi(|C_t| e_t) = \phi(b_t e_t) = b_t \phi(e_t) \in b_t S^\mu = 0,
+    \end{equation*}
+    得出矛盾. 因此 $S^\lambda$ 与 $S^\mu$ 不可能同构.
+\end{proof}
+
+但目前还未知这样的$S^\lambda$是否是一一的，即是否存在两个不同的分拆会得到相同的不可约表示，为了需要引入支配序
+
+
+\begin{definition}[支配序]
+    设$\lambda,\mu\dashv n$，如果对于任意的正整数$k\geq 1$，满足：
+    \begin{equation*}
+        \sum_{i=1}^k\lambda_i\geq \sum_{i=1}^k\mu_i
+    \end{equation*}
+    其中，若$\lambda_j,\mu_j$不存在，则视为0，那么称$\lambda$支配$\mu$，记作$\lambda \rhd \mu$.
+\end{definition}
+支配序是分拆之间的一种偏序关系，在直观上若$\lambda\rhd \mu$，那么$\lambda$的Young图会比$\mu$的Young图更扁更短.但需要注意，存在两个分拆是不可比的，例如$(3,3)$和$(4,1,1)$.
+
+在支配序的基础上，可以证明以下重要的引理.
+
+\begin{lemma}[]
+    设$\lambda,\mu\dashv n$，若存在非零的$S_n-\!\!$模同态$\phi:S^\lambda\to M^\mu$，则$\lambda\rhd \mu$.
+\end{lemma}
+\begin{proof}
+    由于 $\phi$ 是非零同态，且 $S^\lambda$ 由多项表 $e_t$ 生成，必然存在某个形状为 $\lambda$ 的Young表 $t$，使得 $\phi(e_t) \neq 0$.
+    
+    利用多项表的定义 $e_t = b_t\{t\}$ 以及 $\phi$ 是 $S_n-\!$模同态，我们有：
+    \begin{equation*}
+        0 \neq \phi(e_t) = \phi(b_t\{t\}) = b_t\phi(\{t\}).
+    \end{equation*}
+    
+    我们知道 $\phi(\{t\})$ 是置换模 $M^\mu$ 中的元素，因此它可以写成$\mu-\!\!$报$\{s\}$ 的线性组合：
+    \begin{equation*}
+        \phi(\{t\}) = \sum c_s\{s\}.
+    \end{equation*}
+    
+    既然 $b_t\phi(\{t\}) \neq 0$，那么展开后，必然存在至少一个$\mu-\!\!$报$\{s\}$，使得 $b_t\{s\} \neq 0$.
+    
+    由引理\ref{lem:extremality}，如果 $b_t\{s\} \neq 0$，那么 $t$ 中位于同一列的任意两个数字，绝不可能出现在 $s$ 的同一行中.
+    
+    下面利用抽屉原理进行证明：考察 $s$ 的第1行，它有 $\mu_1$ 个元素. 根据上述结论，这 $\mu_1$ 个元素必须来自 $t$ 的不同列. 由于 $t$ 总共只有 $\lambda_1$ 列，所以必然有 $\mu_1 \leq \lambda_1$.
+    
+    更一般地，考察 $s$ 的前 $k$ 行，共有 $\sum_{i=1}^k \mu_i$ 个元素. 它们在 $t$ 的每一列中最多只能各占 $1$ 个位置. 因此，前 $k$ 行的元素总数不能超过 $t$ 的前 $k$ 行所能容纳的元素总数，即
+    \begin{equation*}
+        \sum_{i=1}^k \mu_i \leq \sum_{i=1}^k \lambda_i.
+    \end{equation*}
+    
+    这就严格证明了 $\lambda \rhd \mu$.
+\end{proof}
+
+最后，我们就可以证明不同分拆对应的不可约表示不同.
+
+\begin{theorem}[]
+    设$\lambda,\mu\dashv n$且$\lambda\neq \mu$，则$S^\lambda\ncong S^\mu$.
+\end{theorem}
+\begin{proof}
+    应用反证法：假设存在$S_n-\!$模同构 $\theta: S^\lambda \xrightarrow{\sim} S^\mu$.
+    
+    因为 $S^\mu$是置换模 $M^\mu$ 的子模，所以 $\theta$ 自然也可以看作是从 $S^\lambda$ 到 $M^\mu$ 的非零同态.
+    
+    根据前述引理，这蕴含了 $\lambda \rhd \mu$.
+    
+    同理，既然 $\theta$ 是同构，它的逆映射 $\theta^{-1}: S^\mu \xrightarrow{\sim} S^\lambda$ 也是非零同态，自然也可看作是到 $M^\lambda$ 的非零同态，这蕴含了 $\mu \rhd \lambda$.
+    
+    支配序满足反对称性. 既然 $\lambda \rhd \mu$ 且 $\mu \rhd \lambda$，必然有 $\lambda = \mu$.
+    
+    这与 $\lambda \neq \mu$ 矛盾.
+\end{proof}
+
+最终，由于$S_n$的不可约表示的个数等于分拆的个数，且$S_n$的Specht模的个数等于分拆的个数，我们就可以得知每一个分拆$\lambda\dashv n$都对应着一个唯一的不可约表示$S^\lambda$，从而完成了对称群不可约表示的分类.
+
+\section{维数定理}
+
+本章的最后一个问题，既然我们已经找到了所有的$S_n$的不可约表示，为了方便特征标的计算，需要知道它们各自的维数.这等价于其对应的Specht模的维数.\par
+我们知道Specht模是由形状为$\lambda$的多项表生成的，因此想研究其维数就需要研究形状为$\lambda$的多项表之间的关系.
+
+\begin{definition}[$\lambda-\!$报的字典序]
+    对于两个不同的$\lambda-\!$报 $\{t\}$ 和 $\{s\}$，我们比较元素 $1, 2, \dots, n$ 在它们中所在的行号.找到最大的那个所在行号不同的元素 $k$.如果 $k$ 在 $\{t\}$ 中的行号小于它在 $\{s\}$ 中的行号，则称$\{t\} \rhd \{s\}$
+\end{definition}
+一个观察是对于任何杨表 $t$，在多项表 $e_t = \sum_{\tau \in C_t} \mathrm{sgn}(\tau)\tau \{t\}$ 的所有展开项中，$\{t\}$ 本身总是唯一的序最大项.这是因为列群中的非平凡置换必然会把某些元素移到更低的行.
+
+
+\begin{lemma}[标准多项表线性无关]
+    所有标准杨表生成的多项表必然线性无关.
+\end{lemma}
+\begin{proof}
+    假设存在一组互不相同的标准杨表 $t_1, t_2, \dots, t_m$ 和不全为零的常数 $c_i$，使得：
+    \begin{equation*}
+        \sum_{i=1}^m c_i e_{t_i} = 0.
+    \end{equation*}
+    在所有系数 $c_i \neq 0$ 的项中，选出使得$\lambda-\!$报 $\{t_k\}$ 在字典序下达到极大的一项.\par
+    我们将和式展开为所有形式为 $\{t\}$ 的$\lambda-\!$报的线性组合. 对于等式左侧经过展开后，$\{t_k\}$ 的系数贡献，我们逐项进行分析：\par
+    首先，由于 $e_{t_k} = \sum_{\tau \in C_{t_k}} \mathrm{sgn}(\tau)\tau \{t_k\}$，其中 $\{t_k\}$ 始终是 $e_{t_k}$ 展开式中唯一的序最大项.\par
+    因此，在 $e_{t_k}$ 中，$\{t_k\}$ 的系数仅仅是 $1$（对应于 $\tau = \mathrm{id}$ 的情况）.\par
+    其次，对于任意 $j \neq k$（且 $c_j \neq 0$），我们要说明 $e_{t_j}$ 的展开式中不可能出现 $\{t_k\}$：如果 $e_{t_j}$ 中包含 $\{t_k\}$ 项，则必然存在列群中的置换 $\tau \in C_{t_j}$ 使得 $\tau \{t_j\} = \{t_k\}$. \par
+    根据对于字典序的观察，展开项的序总是小于等于原项，这要求 $\{t_k\} = \tau \{t_j\} \unlhd \{t_j\}$. 由于第一步选择 $\{t_k\}$ 时取的是所有非零项中的极大元，必须同时有 $\{t_j\} \unlhd \{t_k\}$，于是只有当 $\{t_k\} = \{t_j\}$ 时等号才成立.\par
+    然而，$t_k$ 和 $t_j$ 都是标准杨表，它们的每一行内部必然已经全部按严格递增且从左向右排列. 如果 $\{t_k\} = \{t_j\}$，在它们同时满足升序排列的前提下，意味着必然有 $t_k = t_j$. 这与 $t_i$ 互不相同的假设直接矛盾.\par
+    因此，对于所有的 $j \neq k$ ，$e_{t_j}$ 根本无法产生 $\{t_k\}$ 项来与 $c_k e_{t_k}$ 产生的 $\{t_k\}$ 相抵消. 这就导致了整个左边求和式展开后，$\{t_k\}$ 的总系数恰好是不等于0的 $c_k$.\par
+    这与等式右边为 $0$ 矛盾.\par
+    因此，所有标准多项表必然线性无关.
+\end{proof}
+
+\begin{definition}[Garnir元]
+    设Young表 $t$ 中相邻的第 $i$ 列和第 $i+1$ 列，选定第 $i$ 列中第 $k$ 行及其下方的元素组成集合 $A$，第 $i+1$ 列中第 $k$ 行及其上方的元素组成集合 $B$. 若选取使得 $|A \cup B|$ 严格大于 $t$ 的第 $i$ 列的长度，则定义基于该选取的 Garnir 元为：
+    \begin{equation*}
+        G_{A,B} = \sum_{\sigma \in S_{A \cup B}} \mathrm{sgn}(\sigma) \sigma.
+    \end{equation*}
+\end{definition}
+
+基本的组合事实是：由于抽屉原理，$A \cup B$ 中的元素个数超过了第 $i$ 列最多能容纳的元素总数，因而对 $A \cup B$ 的任何排列，都会导致至少有两个同在集合内的元素落在 $t$ 的同一行中. 回顾多项表的极值性条件，这直接导致代数推论：$G_{A,B} \{t\} = 0$.
+
+\begin{lemma}[多项表分解定理]
+    任何非标准的多项表都可以被标准多项表线性表出.
+\end{lemma}
+\begin{proof}
+    由于对多项表施加列内元素的置换仅会改变其符号，我们不妨假设Young表 $t$ 的每一列内部已经从上至下严格递增排列.\par
+    若 $t$ 并非标准Young表，则必然存在相邻的第 $i$ 列与第 $i+1$ 列，在某一行 $k$ 出现违背行递增的“逆序”，即 $t$ 中该位置有 $(k, i) > (k, i+1)$.\par
+    按 Garnir 元定义的构造方式，选取第 $i$ 列的下半部分集合 $A$（从第 $k$ 行到底部）与第 $i+1$ 列的上半部分集合 $B$（从顶部到第 $k$ 行）. 此时 $|A \cup B|$ 恰好等于第 $i$ 列长度加 1，且构成的 Garnir 元必满足 $G_{A,B}\{t\} = 0$.\par
+    
+    选取左陪集分解 $S_{A \cup B} = \bigcup_{d \in D} d (S_A \times S_B)$，并约定代表元集合 $D$ 包含单位元 $\mathrm{id}$.\par
+    由于 $S_A \times S_B$ 仅在 $A$ 和 $B$ 的各自列内部署换置换，它是 $t$ 的列群$C_t$ 的子群. 所以在等式 $G_{A,B}\{t\} = 0$ 两端左乘 $C_t$ 的多项表列反对称化子 $b_t$，展开提取出 $d = \mathrm{id}$ 的主项，可得到所谓的 Garnir 关系：
+    \begin{equation*}
+        e_t = -\sum_{d \in D \setminus \{\mathrm{id}\}} \mathrm{sgn}(d) b_t \qty(d\{t\}).
+    \end{equation*}
+    
+    对于任意的 $d \neq \mathrm{id}$，它必然在置换作用中将原在 $B$ 中的较小元素提换到了位于其左侧第 $i$ 列的原 $A$ 的元素位置上，利用多项表的构造性质化简后，所有右侧不为 $0$ 的相伴Young表 $s$，在字典序上严格大于给定的Young表 $t$，即满足 $\{s\} \rhd \{t\}$. 于是，
+    \begin{equation*}
+        e_t = \sum_{\{s\} \rhd \{t\}} c_s e_s.
+    \end{equation*}
+    
+    既然每次应用 Garnir 关系，都能将一个非标准的多项表表示为若干个“具有更大字典序”的多项表的线性组合，而由排列的有限性得知，这种字典序具有绝对上界.\par
+    因此，递归进行上述平整操作，过程必然在有限步内终止. 而终止的唯一条件便是等式右端展开所获得的多项表全部为标准多项表. 这完成了定理的证明.
+\end{proof}
+
+\begin{theorem}[维数定理]
+    Specht模$S^\lambda$的基为$\qty{e_t|\sh t=\lambda,t\,\text{为标准Young表}}$.\par
+    特别地，$\dim S^\lambda=f^\lambda$
+\end{theorem}
+\begin{proof}
+    根据前面证明的两个引理，标准多项表线性无关，并且所有多项表（从而整个 $S^\lambda$）均可由标准多项表生成.因此，标准多项表的集合就是 $S^\lambda$ 的一组基.故其维数 $\dim S^\lambda$ 就等于形状为 $\lambda$ 的标准Young表的个数 $f^\lambda$.
+\end{proof}
+
+
 \chapter{对称群的特征标}
 
+在上一章我们已经找出了所有$S_n$的不可约表示，那么理论上就可以通过求矩阵的迹计算它们的特征标.然而，$S^\lambda$的维数关于$n$呈阶乘级变化，因此需要寻找一种不依赖于具体矩阵的计算路径.
 
+\section{Frobenius公式}
 
-\begin{theorem}[1]
-    设$G$是一个群
+Frobenius公式提供了一种由对称多项式直接计算不可约特征标的方法.
+
+\begin{definition}[Schur多项式与幂和对称多项式]
+    (待补充)
+\end{definition}
+
+\begin{theorem}[Frobenius特征标公式]
+    设$\chi^\lambda$表示$\lambda$对应的不可约特征标，共轭类$\mu$对应的组合通过对称多项式建立起显式关系... (待补充具体公式表达)
 \end{theorem}
+
+
+\section{边缘带表}
+
+为了得到更便于组合计算的特征标公式，我们需要引入边缘带表的概念.
+
+\begin{definition}[边缘带与边缘带表]
+    (待补充: 连通且不含$2 \times 2$方块的子图结构)
+\end{definition}
+
+这为Murnaghan-Nakayama公式的递推奠定了基础.
+
+
+\section{Murnaghan-Nakayama公式}
+
+它将特征标的计算转化为更直观的杨表上的组合操作.
+
+\begin{theorem}[Murnaghan-Nakayama法则]
+    通过移除边缘带的方法，可以将特征标$\chi^\lambda_\mu$用更小阶数的特征标给出递归计算关系式：
+    (待补充具体法则及公式)
+\end{theorem}
+
+
+\section{钩长公式}
+
+Specht模维数（也就是标准Young表的个数）的显式计算可以通过钩长(Hook length)来实现.
+
+\begin{definition}[钩与钩长]
+    对于Young图的某一个方格$(i, j)$，定义它的钩长$h_{i,j}$为该方格正下方、正右方的方格连同自身所构成的方格总数.
+\end{definition}
+
+\begin{theorem}[Frame-Robinson-Thrall钩长公式]
+    形状为$\lambda$的标准Young表的个数由下式给出：
+    \begin{equation*}
+        \dim S^\lambda = \frac{n!}{\prod_{(i,j) \in \lambda} h_{i,j}}.
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    (待补充)
+\end{proof}
 
 \end{document}

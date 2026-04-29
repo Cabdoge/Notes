@@ -6,32 +6,66 @@
 \begin{equation}\label{eq:convection-3.1}
     u_t + a u_x = 0
 \end{equation}
-初值问题的数值求解，式中 $a$ 为给定常数，不妨设 $a > 0$.
+初值问题的数值求解，式中 $a$ 为给定常数，不妨设 $a > 0$.利用特征线方法，可以得出其精确解为
+\begin{equation*}
+    u(x,t) = u_0(x - at).
+\end{equation*}
 
 \noindent\allbf{1.迎风格式.}
-\begin{equation}
+\begin{equation}\label{eq:upwind-c3}
     \frac{u_j^{n+1} - u_j^n}{\tau} + a \frac{u_j^n - u_{j-1}^n}{h} = 0.
 \end{equation}
 
 截断误差为 $O(\tau + h)$；稳定的充要条件是 $a\lambda \leq 1$.
 
 \noindent\allbf{2.Lax-Friedrichs 格式.}
-\begin{equation}
-    \frac{u_j^{n+1} - \frac{1}{2}(u_{j-1}^n + u_{j+1}^n)}{\tau} + a \frac{u_{j+1}^n - u_{j-1}^n}{2 h} = 0.
+\begin{equation}\label{eq:lax-friedrichs-c3}
+    \frac{u_j^{n+1} - \tfrac{1}{2}(u_{j-1}^n + u_{j+1}^n)}{\tau} + a \frac{u_{j+1}^n - u_{j-1}^n}{2 h} = 0.
 \end{equation}
 
 截断误差为
 \begin{equation*}
     \frac{\tau}{2}u_{tt} - \frac{h^2}{2\tau}u_{xx} + O(h^2 + \frac{h^4}{\tau}) = O(\tau + \frac{h^2}{\tau} + h^2).
 \end{equation*}
-网格比 $\lambda$ 通常取为常数，所以截断误差仍为 $O(\tau + h)$. 该格式稳定的充要条件是 $a\lambda \leq 1$.
+网格比 $\lambda$ 通常取为常数，所以截断误差仍为 $O(\tau + h)$.\par
+该格式便于推广至变系数的情形，甚至于非线性偏微分方程.此外，对于方程组情形该格式也可生效.\par
+考虑
+\begin{equation*}
+    u_j^{n+1}-\frac{1}{2}\qty(u_{j+1}^n+u_{j-1}^n)+\frac{1}{2}a\lambda\qty(u_{j+1}^n-u_{j-1}^n)=0
+\end{equation*}
+进一步化简并令$u^{n}=v^n\eu^{\iu jkh}$，则
+\begin{equation*}
+    v^{n+1}=\frac{1}{2}\qty((1-a\lambda)\eu^{\iu kh}+(1+a\lambda)\eu^{-\iu kj})v^n
+\end{equation*}
+
+那么增长因子为$G=\cos kh-\iu a\lambda\sin kh,|G|^2=\cos^2 kh+(a\lambda)^2\sin^ kh$.\par
+我们需要
+\begin{equation*}
+    \sup_k |G|^2=\max(1,(a\lambda)^2)\geq 1
+\end{equation*}
+即得到稳定性条件为$a\lambda\leq 1$.
+
 
 \noindent\allbf{3.Lax-Wendroff 格式.}
-\begin{equation}\label{eq:lax-wendroff}
+\begin{equation}\label{eq:lax-wendroff-c3}
     u_j^{n+1} = u_j^n - \frac{a\lambda}{2}(u_{j+1}^n - u_{j-1}^n) + \frac{a^2\lambda^2}{2}(u_{j+1}^n - 2u_j^n + u_{j-1}^n).
 \end{equation}
 
-截断误差为 $O(\tau^2 + h^2)$；稳定性条件为 $a\lambda \leq 1$.
+截断误差为 $O(\tau^2 + h^2)$；稳定性条件为 $a\lambda \leq 1$.\par
+对于该格式，除了待定系数法之外，还有另一种推导方式.\par
+首先考虑连续的情形$u_j^{n+1}=u(x_j,t_{n+1})=u(x_j,t_n+\tau)$.简记$x_j=x,t_n-t$，对后式作Taylor展开可得
+\begin{equation*}
+    u(x,t+\tau)=u+\tau u_t+\frac{1}{2}\tau^2 u_{tt}+O(\tau^3). 
+\end{equation*}
+其中$u_t=-au_x,u_{tt}=a^2u_{xx}$，我们再用中心差商对$u_x,u_{xx}$作近似，即
+\begin{equation*}
+    u_x\approx \frac{u_{j+1}-u_{j-1}}{h},u_{xx}\approx \frac{u_{j+1}-2u_j+u_{j-1}}{h^2}.
+\end{equation*}
+\begin{note}
+    处理离散问题时，不至可以直接使用离散的角度求解；也可以现将离散问题连续化，利用连续的工具对问题做分析后，再离散化得到离散的结论.这种方法的好处在于我们拥有更多连续的工具可以使用.
+\end{note}
+
+最后将上述两式代入Taylor展开式中，即可得到Lax-Wendroff格式\eqref{eq:lax-wendroff-c3}.
 
 \noindent\allbf{4.蛙跳格式.}
 \begin{equation}
@@ -40,12 +74,40 @@
 
 截断误差为 $O(\tau^2 + h^2)$；\textcolor{red}{稳定的充要条件是 $a\lambda < 1$.}
 
-\noindent\allbf{4.Crank-Nicolson 格式.}
+\noindent\allbf{5.Crank-Nicolson 格式.}
 \begin{equation}
     \frac{u_j^{n+1} - u_j^n}{\tau} + \frac{a}{2}\left( \frac{u_{j+1}^{n+1} - u_{j-1}^{n+1}}{2h} + \frac{u_{j+1}^n - u_{j-1}^n}{2h} \right) = 0.
 \end{equation}
 
-CN 格式与 Lax-Wendroff 格式一样，也是一个二阶精度格式. 该格式是无条件稳定的隐式格式.
+上述格式的来源是，我们想考虑时间层$n+\frac{1}{2}$，空间层$j$的格点.关于时间差商，我们使用中心差商
+\begin{equation*}
+    u^{n+1/2}_j\approx \frac{u_j^{n+1}+u_j^n}{2}.
+\end{equation*}
+关于空间差商，同样考虑先关于时间求平均，然后使用空间上的中心差商，即
+\begin{equation*}
+    u^{n+1/2}_{j}\approx \frac{1}{2}\qty(u^{n+1}_{j} + u^{n}_{j})\approx \frac{1}{4h}\qty(u^{n+1}_{j+1} - u^{n+1}_{j-1} + u^{n}_{j+1} - u^{n}_{j-1}).
+\end{equation*}
+代入后即可得到 Crank-Nicolson 格式.\par
+
+CN 格式与 Lax-Wendroff 格式一样，也是一个二阶精度格式. 该格式是无条件稳定的隐式格式.\par
+
+该格式具有一定的推广性，事实上对于形如$u_t+Lu=0$，均可以用类似的想法构造出一个二阶精度的无条件稳定的隐式格式.
+
+\begin{instance}
+    对于热传导方程$u_t=a u_{xx}$，我们可以构造如下的 Crank-Nicolson 格式.
+    \begin{equation*}
+        \frac{u^{n+1}_j-u^n_j}{\tau}=\frac{a}{2}\qty(\delta^2_x u^{n+1}_j+\delta^2_x u^n_j),
+    \end{equation*}
+    其中$\delta_x^2u_j=\frac{u_{j+1}-2u_j+u_{j-1}}{h^2}$.
+\end{instance}
+
+更进一步，如果我们不让$u_j^{n+1}$和$u_j^n$的系数相同，而是假设有一个$\theta$满足
+\begin{equation*}
+    \frac{u_j^{n+1} - u_j^n}{\tau} + a\left((1-\theta) \frac{u_{j+1}^{n+1} - u_{j-1}^{n+1}}{2h} + \theta\frac{u_{j+1}^n - u_{j-1}^n}{2h} \right) = 0.
+\end{equation*}
+能否找到使格式精度最高的$\theta$呢？事实是，通过Taylor展开可以分析出，当$\theta=\frac{1}{2}$，即为 Crank-Nicolson 格式时，格式的精度最高，为二阶精度.
+
+
 
 \section{CFL 条件}
 
@@ -57,36 +119,37 @@ CN 格式与 Lax-Wendroff 格式一样，也是一个二阶精度格式. 该格�
 \begin{center}
     \begin{tikzpicture}[scale=0.8, >=stealth]
         % Grid
-        \draw[step=1cm, black, thin] (-0.15,-0.15) grid (9.5,3.5);
+        \draw[xstep=1cm, ystep=0.65cm, black, thin] (-0.15,-0.15) grid (9.5,3.5);
         \draw[->, thick] (-0.5,0) -- (10,0) node[below] {$x$};
         \draw[->, thick] (0,-0.5) -- (0,4) node[left] {$t$};
         
         % Labels
-        \node[left] at (0,3) {$n+1$};
-        \node[left] at (0,2) {$n$};
-        \node[left] at (0,1) {$n-1$};
-        \node[below] at (0,0) {$O$};
+        \node[left] at (0,3.25) {$n+1$};
+        \node[left] at (0,2.6) {$n$};
+        \node[left] at (0,1.95) {$n-1$};
+        \node[below] at (-0.3,0) {$O$};
         
-        \node[below] at (1,0) {$D'$};
-        \node[below] at (2,0) {$j-n$};
-        \node[below] at (4,0) {$D$};
-        \node[below] at (5,0) {$j-1$};
-        \node[below] at (6,0) {$j$};
-        \node[below] at (7,0) {$j+1$};
+        \node[below] at (0.3,0) {$D'$};
+        \node[below] at (1.2,0) {$j-n$};
+        \node[below] at (2.5,0) {$D$};
+        \node[below] at (4,0) {$j-1$};
+        \node[below] at (5,0) {$j$};
+        \node[below] at (6,0) {$j+1$};
         \node[below] at (9,0) {$j+n$};
         
         % Point P
-        \fill (6,2) circle (2pt) node[above right] {$P$};
+        \fill (5,2.6) circle (2pt) node[above right] {$P$};
         
         % Lines
-        \draw[thick] (6,2) -- (2,0);
-        \draw[thick] (6,2) -- (9,0);
-        \draw[thick, dashed] (6,2) -- (1,0);
-        \draw[thick] (6,2) -- (4,0);
+        \draw[thick] (5,2.6) -- (2.5,0);
+        \draw[thick] (5,2.6) -- (1,0);
+        \draw[thick, dashed] (5,2.6) -- (0.3,0);
+        \draw[thick] (5,2.6) -- (9,0);
     \end{tikzpicture}
+    \captionof{figure}{Lax-Wendroff 格式的依赖区域.}
 \end{center}
 
-根据格式\eqref{eq:lax-wendroff}的定义知，为了确定 $u_j^n$，要用到格点函数值 $u_{j-1}^{n-1}$, $u_j^{n-1}$ 和 $u_{j+1}^{n-1}$；而为了得到这三个值, 又须用到 $u_{j-2}^{n-2}, u_{j-1}^{n-2}, \cdots, u_{j+2}^{n-2}$. 一直递推下去，为了确定 $u_j^n$，须用到初值 $u_0(x)$ 在区间 $[x_{j-n}, x_{j+n}]$ 上的所有格点值. 称\textcolor{red}{区间 $[x_{j-n}, x_{j+n}]$ 上的所有格点为差分格式解在点 $P(x_j, t_n)$ 处的依赖区域}.
+根据格式\eqref{eq:lax-wendroff-c3}的定义知，为了确定 $u_j^n$，要用到格点函数值 $u_{j-1}^{n-1}$, $u_j^{n-1}$ 和 $u_{j+1}^{n-1}$；而为了得到这三个值, 又须用到 $u_{j-2}^{n-2}, u_{j-1}^{n-2}, \cdots, u_{j+2}^{n-2}$. 一直递推下去，为了确定 $u_j^n$，须用到初值 $u_0(x)$ 在区间 $[x_{j-n}, x_{j+n}]$ 上的所有格点值. 称\textcolor{red}{区间 $[x_{j-n}, x_{j+n}]$ 上的所有格点为差分格式解在点 $P(x_j, t_n)$ 处的依赖区域}.
 
 由对流方程的精确解表达式 $u(x, t) = u_0(x - at)$ 可知，$D = x_j - at_n$ 为 $(x_j, t_n)$ 处精确解的依赖区域. \textcolor{red}{Courant-Friedrichs-Levy 条件 (CFL 条件) 就是要求 $D \in [x_{j-n}, x_{j+n}]$.}
 
@@ -96,31 +159,62 @@ Lax-Wendroff 格式稳定应满足
 \end{equation*}
 即 $a\lambda \leq 1$, 和前面得到的稳定性结果一致.
 
-注记：
-\begin{itemize}
+\begin{note}
+    \begin{itemize}
     \item CFL 条件仅是一个描述性条件, 不能作为严格的稳定性判别准则来使用.
     \item 只需验证两层间的 CFL 条件是否满足即可.
+    例如对于Lax-Wendroff 格式, 只需验证 $x_{j-1} \leq x_j - a\tau \leq x_{j+1}$，即 $a\tau\leq h \Leftrightarrow a\lambda \leq 1$ 即可.
 \end{itemize}
+\end{note}
+
 
 \section{用特征线法构造差分格式}
 
 特征线是研究双曲型方程定性理论的重要工具. 实际上, 它对构造双曲型方程的差分格式也很有帮助.
 
-\textbf{Step 1:} 确定特征线方程. 对流方程 (1.1) 的特征线为
+\noindent\textbf{Step 1:} 确定特征线方程. 对流方程 \eqref{eq:convection-3.1} 的特征线为
 \begin{equation}
     L: \frac{\mathrm{d}x}{\mathrm{d}t} = a \implies x = at + x_0.
 \end{equation}
 沿特征线 $L$, 解 $u$ 恒为常数.
 
-\textbf{Step 2:} 利用守恒性和插值方法构造差分格式. 记 $Q$ 为过点 $P=(x_j, t_{n+1})$ 的特征线与 $t=t_n$ 的交点, 则 $u(P)=u(Q)$. 如果 $Q$ 恰为网格节点, 则已获得差分格式. 如果它不是格点, 可通过给定在 $n$ 时间层上的格点函数值, 经插值方法得到 $u$ 在 $Q$ 点的近似值, 进而获得差分格式.
+\noindent\textbf{Step 2:} 利用守恒性和插值方法构造差分格式. 记 $Q$ 为过点 $P=(x_j, t_{n+1})$ 的特征线与 $t=t_n$ 的交点, 则 $u(P)=u(Q)$. 如果 $Q$ 恰为网格节点, 则已获得差分格式. 如果它不是格点, 可通过给定在 $n$ 时间层上的格点函数值, 经插值方法得到 $u$ 在 $Q$ 点的近似值, 进而获得差分格式.
 
 \subsection*{若干具体应用}
 
-\textbf{情形 1.} 对固定的 $n$, 考虑时间层 $t_n$. 把该层的直线看成 $x$ 轴, $u(x, t_n)$ 看成 $x$ 的函数, 记为 $u^n(x)$. 简单的计算知点 $Q$ 的 $x$-坐标为 $x_j - a\tau$. 当 $a>0$ 时, 迎风格式用到的是 $x_{j-1}$ (对应点 $B$) 和 $x_j$ (对应点 $C$) 处的函数值. 为此, 以这两点的格点函数值作线性插值, 相应的插值函数为
+\textbf{情形 1.} 对固定的 $n$, 考虑时间层 $t_n$. 把该层的直线看成 $x$ 轴, $u(x, t_n)$ 看成 $x$ 的函数, 记为 $u^n(x)$. 简单的计算知点 $Q$的横坐标为 $x_j - a\tau$. 
+\begin{enumerate}[法 1]
+    \item 通过物理意义可知，$x_Q=x_j-a\tau$
+    \item 由三角函数，$\tan\angle CPQ=k_{PQ}=a$.又$\tan\angle CPQ=\frac{|CP|}{|CQ|}=\frac{\tau}{|CQ|}$，故$|CQ|=a\tau$，从而$x_Q=x_j-a\tau$.
+    \item 由方程$x_j-at_{n+1}=x_Q-at_n$，得$x_Q=x_j-a(t_{n+1}-t_n)=x_j-a\tau$.
+\end{enumerate}
+\begin{center}
+    \begin{tikzpicture}[scale=0.9,x=2cm, y=1.5cm]
+        \draw[thick] (-0.2, 0) -- (4.2, 0) node[left, pos=0] {$n$};
+        \draw[thick] (-0.2, 1) -- (4.2, 1) node[left, pos=0] {$n+1$};
+        
+        \foreach \i/\text in {0/j-2, 1/j-1, 2/j, 3/j+1, 4/j+2} {
+            \draw[thick] (\i, -0.2) -- (\i, 1.2);
+            \node[below] at (\i, -0.3) {\text};
+        }
+        
+        \node[below right, inner sep=3pt] at (0, 0) {$A$};
+        \node[below right, inner sep=3pt] at (1, 0) {$B$};
+        \node[below right, inner sep=3pt] at (2, 0) {$C$};
+        \node[below right, inner sep=3pt] at (3, 0) {$D$};
+        
+        \node[above right, inner sep=3pt] at (2, 1) {$P$};
+        \coordinate (Q) at (1.4, 0);
+        \node[below right, inner sep=3pt] at (Q) {$Q$};
+        
+        \draw[thick] (2, 1) -- (Q);
+    \end{tikzpicture}
+\end{center}
+以$x_{j-1}$ (对应点 $B$) 和 $x_j$ (对应点 $C$)作线性插值, 相应的插值函数为
 \begin{equation}
-    L_1 u^n(x) = \frac{x_j - x}{h} u_{j-1}^n + \frac{x - x_{j-1}}{h} u_j^n.
+    u^n(x) = \frac{x_j - x}{h} u_{j-1}^n + \frac{x - x_{j-1}}{h} u_j^n.
 \end{equation}
-把 $Q$ 点 $x$-坐标代入有
+把 $Q$ 点横坐标代入有
 \begin{equation*}
     \begin{aligned}
         u^n(Q) &= u^n(x_j - a\tau) \\
@@ -134,17 +228,35 @@ Lax-Wendroff 格式稳定应满足
 \end{equation}
 它恰为前面介绍的迎风格式.
 
-\textbf{情形 2.} 如果以三点的格点函数值作二次插值, 则仿照上述推导可得 Lax-Wendroff 格式.
-
-\textbf{情形 3.} 如果以两点的格点函数值作线性插值, 则仿照上述推导可得 Lax-Friedrichs 格式.
-
-\textbf{情形 4.} 如果以三点的格点函数值作二次插值, 则得如下 Beam-Warming 格式:
+\noindent\textbf{情形 2.} 如果以$B,C,D$三点的格点函数值作二次插值, 则仿照上述推导可得 Lax-Wendroff 格式.\par
+\noindent\textbf{情形 3.} 如果以$B,D$两点的格点函数值作线性插值, 则仿照上述推导可得 Lax-Friedrichs 格式.\par
+\noindent\textbf{情形 4.} 如果以$A,B,C$三点的格点函数值作二次插值, 则得如下 Beam-Warming 格式:
 \begin{equation}
     u_j^{n+1} = u_j^n - a\lambda(u_j^n - u_{j-1}^n) - \frac{a\lambda}{2}(1-a\lambda)(u_j^n - 2u_{j-1}^n + u_{j-2}^n).
 \end{equation}
-该格式又称为二阶迎风格式. 该格式的稳定性条件为 $a\lambda \leq 2$.
+该格式又称为二阶迎风格式. 该格式的稳定性条件为 $a\lambda \leq 2$.\par
+\noindent\textbf{情形 5. p阶迎风格式} \par
+\noindent\textbf{Step 1. 向后Newton插值.} 我们需要知道Newton插值$N_hu(x_Q)$的大小.\par
+记$u(x_Q)=u(x-\alpha h)=E^{-\alpha}u(x)$，$\nabla  u_j=u_j-u_{j-1}$，则
+\begin{equation*}
+    \nabla = I-E^{-1},E^{-1}=I-\nabla
+\end{equation*}
+那么代入上式即得
+\begin{equation*}
+    u(x_Q)=(I-\nabla)^\alpha u(x)=\sum_{k=0}^\infty \binom{\alpha}{k}(-1)^k \nabla^k u(x).
+\end{equation*}
+\noindent\textbf{Step 2. 截断 }特别地，如果考虑Newton插值，则其取值正好等于上述展开在$p$处的截断，即
+\begin{equation*}
+    N_hu(x_Q)=u_j-\mathrm{C}_\alpha^1\nabla u_j+\mathrm{C}_\alpha^2\nabla^2 u_j-\cdots + (-1)^p \mathrm{C}_\alpha^p \nabla^p u_j.
+\end{equation*}
+其中$\alpha=a\lambda$.\par
 
-\textbf{情形 5.} 如果以点 $Q$ 所在的空间网格区间端点作线性插值来获得 $u(Q)$ 的近似值, 则可导出如下修正的迎风格式:
+通过CFL条件可知$p$阶迎风格式的稳定性为$a\lambda\leq p$.'
+
+
+
+
+\noindent\textbf{情形 6.} 如果以点 $Q$ 所在的空间网格区间端点作线性插值来获得 $u(Q)$ 的近似值, 则可导出如下修正的迎风格式:
 \begin{equation}
     u_j^{n+1} = \{a\lambda\} u_{j-[a\lambda]-1}^n + (1-\{a\lambda\}) u_{j-[a\lambda]}^n,
 \end{equation}

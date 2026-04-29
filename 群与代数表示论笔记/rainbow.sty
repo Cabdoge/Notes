@@ -28,11 +28,31 @@
 \setCJKfamilyfont{zhhei}{SimHei}[AutoFakeBold=2.5]
 \renewcommand{\heiti}{\CJKfamily{zhhei}}
 
+%================ 结构性颜色定义 ================
 
-%================ 定义彩色加粗命令 ================
+\definecolor{rbStructureColor}{RGB}{60,113,183}      % green (main)，用于 exercise 分隔标题等
+
+%================ 加粗字体命令 ================
+
 \newcommand{\allbf}[1]{\boldmath\bfseries{#1}\unboldmath\normalfont}
-\newcommand{\bluebf}[1]{\textcolor{rbStructureBlue}{\allbf{#1}}}
-\newcommand{\greenbf}[1]{\textcolor{rbDefinitionColor}{\allbf{#1}}}
+\colorlet{colorbf}{rbStructureColor}
+\newcommand{\bluebf}[1]{\textcolor{rbStructureColor}{\allbf{#1}}}
+\newcommand{\colorbf}[1]{\textcolor{colorbf}{\allbf{#1}}}
+\BeforeBeginEnvironment{theorem}{\colorlet{colorbf}{rbTheoremColor}}
+\BeforeBeginEnvironment{lemma}{\colorlet{colorbf}{rbLemmaColor}}
+\BeforeBeginEnvironment{corollary}{\colorlet{colorbf}{rbCorollaryColor}}
+\BeforeBeginEnvironment{definition}{\colorlet{colorbf}{rbDefinitionColor}}
+\BeforeBeginEnvironment{axiom}{\colorlet{colorbf}{rbAxiomColor}}
+\BeforeBeginEnvironment{postulate}{\colorlet{colorbf}{rbPostulateColor}}
+\BeforeBeginEnvironment{proposition}{\colorlet{colorbf}{rbPropositionColor}}
+\BeforeBeginEnvironment{assumption}{\colorlet{colorbf}{rbAssumptionColor}}
+\BeforeBeginEnvironment{property}{\colorlet{colorbf}{rbPropertyColor}}
+\BeforeBeginEnvironment{conjecture}{\colorlet{colorbf}{rbConjectureColor}}
+\BeforeBeginEnvironment{important}{\colorlet{colorbf}{rbImportantColor}}
+\BeforeBeginEnvironment{warning}{\colorlet{colorbf}{rbWarningColor}}
+\BeforeBeginEnvironment{note}{\colorlet{colorbf}{rbNoteColor}}
+\BeforeBeginEnvironment{attention}{\colorlet{colorbf}{rbAttentionColor}}
+\BeforeBeginEnvironment{caution}{\colorlet{colorbf}{rbCautionColor}}
 
 
 
@@ -134,7 +154,7 @@
   borderline west={3pt}{-1pt}{rbDefinitionColor!50},
   left=.66em, right=0pt, top=.66em, bottom=.66em,
   before skip=.5em, after skip=.5em,
-  fonttitle=\heiti\bfseries\color{rbDefinitionColor},
+  fonttitle=\heiti\boldmath\bfseries\color{rbDefinitionColor},
   fontupper=\kaishu,
   attach title to upper={\par\vspace{.3em}},
   title={定义~\thechapter.\therbdefinition%

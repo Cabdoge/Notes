@@ -689,3 +689,177 @@ $\Rightarrow$ 但 $A \cap \mcal{C} \neq \varnothing$. \par
     利用线性性可得，$\forall\, \varepsilon \in (0, 1)$，$\mathbb{B}_{(1-\varepsilon)}^Y(0) \subseteq T(\mathbb{B}_{n_0}^X(0))$.\par
     从而 $\mathbb{B}_{1}^Y(0) = \bigcup_{\varepsilon \in (0, 1)} \mathbb{B}_{1-\varepsilon}^Y(0) \subseteq T(\mathbb{B}_{n_0}^X(0))$.
 \end{proof}
+\begin{remark}
+    在开映射定理中，我们要求 $X, Y$ 都是 Banach 空间，但二者参与证明的方式不同.
+\end{remark}
+
+若 $X, Y$ 是 Banach 空间，$T \in \mcal{B}(X,Y)$，则 $\ker T = T^{-1}\{0\}$ 是 $X$ 的闭子空间. 从而 $X/\ker T$ 为商范数下 Banach 空间.
+可以定义$\setjot[-4]\begin{aligned}[t]
+    \hat{T}\colon X/\ker T &\to Y \\
+    [x]=x+\ker T &\mapsto  Tx
+\end{aligned} $
+这是 $X/\ker T$ 到 $Y$ 的连续双射.
+因此，在开映射定理下，若 $T$ 是满射，则 $Y \cong X/\ker T$.
+类似于抽象代数中的同态基本定理.
+
+\begin{corollary}
+    设 $X$ 是赋范线性空间，使得存在两个范数 $\|\cdot\|_1, \|\cdot\|_2$ 使其完备. 若 $\|\cdot\|_1 \lesssim \|\cdot\|_2$，即 $\exists\, M > 0, \st \forall\, x \in X, \|x\|_1 \leq M\|x\|_2$，则 $\|\cdot\|_2 \lesssim \|\cdot\|_1$，即 $\|\cdot\|_1 \approx \|\cdot\|_2$.
+\end{corollary}
+\begin{proof}
+    考虑 $\mathrm{Id}\colon (X, \|\cdot\|_2) \to (X, \|\cdot\|_1)$.\par
+    那么$\| \cdot \|_1 \leq M \| \cdot \|_2 \iff \|\mathrm{Id}\| \le M < \infty$.\par
+    由逆算子定理，$\mathrm{Id}^{-1}$ 也连续，从而 $\|\cdot\|_2 \lesssim \|\cdot\|_1$.
+\end{proof}
+
+观察到，若 $\forall\, x \in X, \|x\|_1 \leq M\|x\|_2$，则 $\mathbb{B}_1^{(X, \|\cdot\|_2)}(0) \subseteq M\mathbb{B}_1^{(X, \|\cdot\|_1)}(0)$.
+因此，若 $\|\cdot\|_1 \approx \|\cdot\|_2$，则 $\exists\, c > 0, \st \mathbb{B}_{c^{-1}}^{(X, \|\cdot\|_2)}(0) \subseteq \mathbb{B}_1^{(X, \|\cdot\|_1)}(0) \subseteq \mathbb{B}_c^{(X, \|\cdot\|_2)}(0)$.
+从而，$(X, \|\cdot\|_1)$ 与 $(X, \|\cdot\|_2)$ 有相同的拓扑.
+
+下面研究另两个定理，闭图像定理与一致有界原理.
+
+\begin{definition}[图像]
+    设 $f\colon A \to B$，其图像为 $\Gamma_f = \{(x, f(x)) \colon x \in A\} \subset A \times B$.
+\end{definition}
+
+\begin{theorem}[闭图像定理]
+    设 $X, Y$ 是 Banach 空间，$T \in \mcal{L}(X, Y)$，则 $T \in \mcal{B}(X, Y) \iff \Gamma_T$ 在 $(X \times Y, \|\cdot\|_X + \norm{\,\cdot\,}_Y)$ 中是闭集.
+\end{theorem}
+\begin{proof}
+    \fbox{$\Rightarrow$} 若 $T \in \mcal{B}(X, Y)$，则 $T$ 连续. 设 $\{(x_n, y_n)\} \subset \Gamma_T, \st (x_n, y_n)$ 在范数下收敛到 $(x, y)$.\par
+    则 $y_n = Tx_n \to Tx$ 且 $y_n \to y$. 由极限的唯一性，得 $Tx = y$，故 $(x, y) \in \Gamma_T$.\par
+    \fbox{$\Leftarrow$} 若 $\Gamma_T$ 闭，考虑投影$\setjot[-6]\begin{aligned}[t]
+        \pi_X\colon X \times Y &\to X\\
+        (x, y) &\mapsto x
+    \end{aligned} $和$\setjot[-6]\begin{aligned}[t]
+        \pi_Y\colon X \times Y &\to Y \\
+        (x, y) &\mapsto y
+    \end{aligned} $.\par
+    若 $\pi_X|_{\Gamma_T}(x, Tx) = 0$，则 $x = 0$，从而 $Tx = 0$，故 $\pi_X|_{\Gamma_T}$ 单.\par
+    显然 $\pi_X|_{\Gamma_T}$ 满，故 $\pi_X|_{\Gamma_T}\colon \Gamma_T \to X$ 是双射.\par
+    由于 $\Gamma_T$ 是 $X \times Y$ 的闭子空间，因此它是 Banach 空间.\par
+    由逆算子定理，$(\pi_X|_{\Gamma_T})^{-1}$ 是有界的.
+    因此 $T = \pi_Y \circ (\pi_X|_{\Gamma_T})^{-1}$ 有界.
+\end{proof}
+
+下面看闭图像定理的应用.
+设 $X$ 是 Banach 空间，$M, N$ 是闭子空间使得 $M \oplus N = X$. 考虑投影 $P\colon X \to M, x \mapsto m$，其中 $x = m + n, m \in M, n \in N$，则 $P$ 有界.
+\begin{proof}
+    由闭图像定理，只要证 $\Gamma_P$ 是闭的.
+    设 $\Gamma_P$ 中的序列 $(x_j, Px_j) \to (x, y)$\par
+    因为 $Px_j \in M$ 且 $M$ 是闭子空间，则$M$是Banach空间，故$y \in M$.\par
+    同时 $x_j - Px_j \in N$，由于 $N$ 也是闭子空间，故 $x_j - Px_j \to x - y \in N$.\par
+    因此 $x = y + (x - y)$ 且 $y \in M, x - y \in N$. 按投影定义知 $Px = y$，即 $(x, y) \in \Gamma_P$. \par
+    故 $\Gamma_P$ 闭，$P$ 有界.
+\end{proof}
+
+\begin{definition}
+    设 $M$ 是 Banach 空间 $X$ 的闭子空间，则称 $M$ 是\colorbf{可补的}当且仅当存在闭子空间 $N$，使得 $M \cap N = \{0\}, M + N = X$.
+\end{definition}
+
+上述表示和线性空间的直和分解的表述类似，那么类似于线性空间中的结论，可以思考投影和可补子空间之间的关系.
+
+\begin{definition}[投影]
+    设 $X$ 是 赋范线性空间，则 $P\colon X \to X$ 称为\colorbf{投影}，当且仅当 $P^2 = P$.
+\end{definition}
+
+之后，我们记 $\ker P = \mcal{N}(P)$，$\mcal{R}(P)=\mathrm{ran} P = P(X)$ 分别为 $X$ 的闭子空间.
+进一步，可以观察到若 $P \in \mcal{B}(X)$ 是投影，则 $X = \mcal{N}(P) \oplus \mcal{R}(P)$.
+事实上，$\mcal{N}(P) = P^{-1}(0), \mcal{R}(P) = \mcal{N}(I-P)$.
+\begin{itemize}[label=$\circ$]
+    \item 若 $x \in \mcal{N}(P) \cap \mcal{R}(P)$，则 $Px = 0$，且 $\exists\, y \in X$, $\st x = Py \Rightarrow P(Py) = Px = 0$.\par
+    又 $P(Py) = Py = x$，故 $x = 0$.
+    \item $\forall\, x \in X$，$x = Px + (I - P)x$. 则 $Px \in \mcal{R}(P), (I - P)x \in \mcal{N}(P)$.
+\end{itemize}
+
+\begin{theorem}
+    设 $M$ 是 Banach 空间 $X$ 的闭子空间，则 $M$ 可补当且仅当 $M$ 是 $X$ 的一个有界投影的像.
+\end{theorem}
+\begin{proof}
+    \fbox{$\Leftarrow$} 由上述分析即得.\par
+    \fbox{$\Rightarrow$} 若 $X = M \oplus N$，构造$\setjot[-6]\begin{aligned}[t]
+        P\colon X &\to M \\
+        m + n &\mapsto m
+    \end{aligned}$\par
+    由前述结论，$P \in \mcal{B}(X)$，且 $M = \mcal{R}(P), N = \mcal{N}(P)$.
+\end{proof}
+
+向前看，对于 Hilbert 空间 $H$，有
+\begin{proposition}
+    设 $M$ 是 Hilbert 空间 $\mathcal{H}$ 的任意闭子空间，则 $M$ 是可补的.
+\end{proposition}
+\begin{proof}
+    $\mathcal{H} = M \oplus M^\perp$.
+\end{proof}
+
+上述命题的逆命题也成立.
+\begin{proposition}
+    若 Banach 空间 $X$ 的任意闭子空间可补，则 $X$ 是 Hilbert 空间.
+\end{proposition}
+
+\begin{theorem}
+    设 $X$ 是 Banach 空间，若 $M$ 是 $X$ 的闭子空间且为有限维或余有限维的，则 $M$ 可补.
+\end{theorem}
+\begin{proof}
+    证明 $\dim M < \infty$ 的情形.\par
+    设 $\{e_1, \dots, e_n\}$ 是 $M$ 的 Hamel 基，则 $\forall\, x \in M$，$x = \alpha_1(x) e_1 + \dots + \alpha_n(x) e_n$，其中 $\alpha_j \in M^*, \forall\, 1 \leq j \leq n$.\par
+    由 Hahn-Banach 延拓定理，可以把 $\alpha_j$ 延拓为 $\tilde{\alpha}_j \in X^*$，则 $N = \bigcap_{j=1}^n \ker \tilde{\alpha}_j$ 为 $M$ 的代数补空间，且因为 $\tilde{\alpha}_j$ 连续，可知 $N$ 闭. 从而 $M$ 可补.\par
+
+    证明 $\mathrm{codim}\, M < \infty$ 的情形.\par
+    由于 $\mathrm{codim}\, M = n < \infty$，商空间 $X/M$ 为 $n$ 维向量空间.\par
+    设 $\{e_1 + M, \dots, e_n + M\}$ 为 $X/M$ 的一组基，取 $N = \mathrm{span}\{e_1, \dots, e_n\}$.\par
+    由基的定义易得，任意 $x \in X$ 可唯一分解为 $M$ 中的元素与 $N$ 中的元素之和，即 $X = M \oplus N$.\par
+    由于 $N$ 为有限维子空间，故 $N$ 为闭子空间.\par
+    由于 $M$ 与 $N$ 皆为闭子空间，对应的投影算子是有界的.因此 $M$ 是可补的.
+\end{proof}
+
+Banach-Steinhaus定理实际上可以包含一系列定理和推论.
+
+\begin{theorem}[A]
+    \wideline
+    设 $X$ 是完备度量空间，$\{f_i \colon i \in \mcal{I}\} \subset C^0(X, \mb{R})$，则下述命题有且仅有一成立：
+    \begin{enumerate}[label=(\roman*)]
+        \item 存在非空开集 $U \subset X$ 与 $M > 0$，$\st \sup_{i \in \mcal{I}} |f_i(x)| \leq M, \forall\, x \in U$.
+        \item 存在稠密 $G_\delta$ 集 $E \subset X$，$\st \sup_{i \in \mcal{I}} |f_i(x)| = \infty, \forall\, x \in E$.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    考虑 $\psi(x) := \sup_{i \in \mcal{I}} |f_i(x)|$.\par
+    设 $V_n = \{\psi > n\} = \bigcup_{i \in \mcal{I}} \{|f_i| > n\}$，由 $f_i$ 连续，知 $V_n$ 为开集.\par
+    若 (i) 不成立，则对任意非空开集 $U \subset X$，$V_n \cap U \neq \varnothing, \forall\, n \in \mb{N}$.\par
+    因此，每个 $V_n$ 都是稠密开集.\par
+    由 Baire 纲定理，$E := \bigcap_{n=1}^\infty V_n$ 是一个稠密 $G_\delta$ 集. 这证明了 (ii).
+\end{proof}
+定理A的结论表明，在完备度量空间中，函数族 $\{f_i\}$ 的一致有界性与逐点无界性之间存在二分法：要么在某个非空开集上一致有界，要么在一个稠密 $G_\delta$ 集上逐点无界.
+
+\begin{corollary}[B]
+    设 $X$ 是完备度量空间，$\{f_i \colon i \in \mcal{I}\} \subset C^0(X, \mb{R})$，若 $\forall\, x \in X$，$\sup_{i \in \mcal{I}} |f_i(x)| < \infty$，则存在非空开集 $U \subset X$ 与 $M > 0$，$\st \sup_{i \in \mcal{I}} |f_i(x)| \leq M, \forall\, x \in U$.
+\end{corollary}
+上述推论的条件排除了定理 A 中 (ii) 情况，故得到 (i) 的结论，它将函数族的逐点有界提升到在某个非空开集上的一致有界.\par
+上面两个定理都未对函数族作过多限制，现在我们考虑线性算子族的情况.
+
+\begin{corollary}[C]
+    设 $X$ 是 Banach 空间且 $Y$ 是 赋范线性空间，设 $\{T_i \in \mcal{B}(X, Y) \colon i \in \mcal{I}\}$，则要么 $\sup_{i \in \mcal{I}} \|T_i\| < \infty$，要么存在稠密$G_\delta$ 集 $E \subset X$，$\st \sup_{i \in \mcal{I}} \|T_ix\| = \infty, \forall\, x \in E$.
+\end{corollary}
+\begin{proof}
+    令 $f_i(x) := \|T_ix\|$ 是定理 A 中所述函数族.\par
+    若推论后半不成立，由定理 A，$\exists\, \mathbb{B}_{r_0}(x_0) \subset X$，$M > 0$，$\st \sup\{\|T_i x\| \colon i \in \mcal{I}, x \in \mathbb{B}_{r_0}(x_0)\} \leq M$.\par
+    注意到 $\forall\, x \in \mathbb{B}_{r_0}(0) \subset \mathbb{B}_{\tfrac{r_0}{2}}(x_0) - \mathbb{B}_{\tfrac{r_0}{2}}(x_0)$，$\|T_i x\| \leq \sup\{\|T_i z\| \colon z \in \mathbb{B}_{\tfrac{r_0}{2}}(x_0)\} + \sup\{\|T_i z\| \colon z \in -\mathbb{B}_{\tfrac{r_0}{2}}(x_0)\} \leq 2M$.\par
+    令$v=\frac{x}{r_0}$，则$\|T_i\| = \sup_{v \in \mathbb{B}_1(0)} \|T_i v\| = \frac{1}{r_0}\sup_{x \in \mathbb{B}_{r_0}(0)} \|T_i x\| \leq \frac{2M}{r_0},\forall\, i\in\mcal{I}$.
+\end{proof}
+证明的核心是，对于 $T \in \mcal{B}(X, Y)$，若 $\sup\{\|Tx\| \colon x \in \mathbb{B}_{r_0}(x_0)\} \leq M$，则 $\|T\| \leq C(M, r_0)$，$C$ 为与 $M, r_0$ 有关的常数.
+
+\begin{corollary}[D, 一致有界原理]
+    设 $X$ 是 Banach 空间，$Y$ 是 赋范线性空间，设 $\{T_i \colon i \in \mcal{I}\} \subset \mcal{B}(X, Y)$. 若 $\forall\, x\in X$，$\exists\,M_x,\st\allowbreak\sup_{i \in \mcal{I}} \|T_i x\|_Y \leq M_x$，则 $\exists\, M, \st \sup_{i \in \mcal{I}} \|T_i\|_{X \to Y} \leq M$.
+\end{corollary}
+该推论将逐点有界提升到算子范数的一致有界.
+
+\begin{corollary}[E]
+    设 $X$ 是 Banach 空间，$Y$ 是 赋范线性空间，设 $\{T_n\}_{n \in \mb{N}} \subset \mcal{B}(X, Y)$. 若 $\forall\, x \in X$，逐点极限 $Tx = \lim_{n \to \infty} T_nx$ 存在，则 $T \in \mcal{B}(X, Y)$ 且 $\|T\| \leq \liminf_{n \to \infty} \|T_n\|$.
+\end{corollary}
+\begin{proof}
+    由于逐点极限存在，可知 $\sup_{n \in \mb{N}} \|T_n x\| < \infty, \forall\, x \in X$.\par
+    由推论 D，$\sup_{n \in \mb{N}} \|T_n\| < \infty$.\par
+    则 $\|Tx\| = \liminf_{n \to \infty} \|T_n x\| \leq \left(\liminf_{n \to \infty} \|T_n\|\right) \|x\|, \forall\, x \in X$.\par
+    故 $\|T\| \leq \liminf_{n \to \infty} \|T_n\|$.
+\end{proof}
+因此逐点收敛极限的算子是下半连续的.
