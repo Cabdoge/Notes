@@ -4,10 +4,13 @@
 \usepackage{rainbow}
 \usepackage{bookstyle}
 
+
 %================ 数学 ================
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{bm}
 \usepackage{physics}
+
 
 %================ 页面布局 ================
 \usepackage{geometry}
@@ -31,7 +34,7 @@
 
 %================ 图形与绘图 ================
 \usepackage{tikz}
-\usetikzlibrary{decorations.pathreplacing,arrows.meta,cd}
+\usetikzlibrary{decorations.pathreplacing,arrows.meta,cd,svg.path}
 \usepackage{graphicx}
 \usepackage{float}
 
@@ -48,6 +51,10 @@
 \usepackage{pifont}        % 圆圈数字
 \usepackage{faktor}        % 商集符号
 \usepackage{extarrows}     % 额外长度自适应箭标
+\usepackage{nicematrix}
+%左侧下标
+\usepackage{mathtools}
+\usepackage{cleveref}
 
 
 
@@ -70,7 +77,7 @@
 \newcommand{\z}{\text}
 \renewcommand{\a}{\alpha}
 \renewcommand{\b}{\beta}
-\renewcommand{\d}{\delta}
+\renewcommand{\d}{\mathop{}\!\mathrm{d}}
 \newcommand{\D}{\Delta}
 \renewcommand{\l}{\lambda}
 \newcommand{\m}{\mu}
@@ -90,16 +97,8 @@
 \newcommand{\mbb}[1]{\mathbb{#1}}
 \newcommand{\eu}{\mathrm{e}}
 \newcommand{\iu}{\mathrm{i}}
-\DeclareMathOperator{\im}{Im}
-\DeclareMathOperator{\Hom}{Hom}
-\DeclareMathOperator{\End}{End}
-\DeclareMathOperator{\inv}{Inv}
-\DeclareMathOperator{\Irr}{Irr}
-\DeclareMathOperator{\cf}{cf}
-\DeclareMathOperator{\diag}{diag}
+\newcommand{\sigmaalg}{\sigma-\,\text{代数}}
 
-
-\newcommand{\ghomo}{$G-\!\!$模同态}
 
 %================ 定端同伦符号 ================
 \usepackage{accents}
@@ -109,14 +108,9 @@
 \DeclareMathOperator{\aew}{\,\text{a.e.}}
 \DeclareMathOperator{\ie}{\,\text{i.e.}}
 
-%================ 填空线 ================
-\newcommand{\fillin}[1][3.5]{%
-  \nolinebreak
-  \hspace{0.2em}%
-  \rule[-0.5ex]{#1em}{0.5pt}%
-  \hspace{0.05em}
-}
-\newcommand{\fl}{\fillin}
+
+
+
 
 %================ 图片环绕辅助 ================
 \usepackage{mwe}
@@ -151,14 +145,50 @@
 
 \begin{document}
 
+\begin{titlepage}
+\begin{tikzpicture}[remember picture, overlay, pencildraw/.style={
+		color=cyan!50!gray, thick,
+		decorate,
+		decoration={random steps, segment length=1pt, amplitude=0.7pt}
+	}]
+	\node[anchor=center] (title) at ([xshift=18em, yshift=-10em] current page.north west)
+		{ \fontsize{40}{40}\sffamily\bfseries 遍历理论讲义};
 
-\title{群与代数表示论笔记}
-\date{}
-\maketitle
+	\draw[line width=2pt, color=black!70!gray] ([xshift=-0.5em, yshift=-6em] title.north west) -- ++(25em,0);
+	\shade[top color=gray, bottom color=black,] ([xshift=-1em, yshift=1em] title.north west) rectangle ++(-1em,-11.5em);
+
+  \node[anchor=west] (author) at ([yshift=-4em, xshift=0em] title.south west)
+        {\fontsize{20}{20}\sffamily Cabdoge \quad 著};
+
+
+	\coordinate (pic) at ([xshift=-20em, yshift=20em] current page.south east);
+
+    % 遍历理论经典公式
+    \begin{scope}[shift={(pic)}, scale=1.25, opacity=0.4, color=blue!60!black]
+        \node at (0, 0) {\fontsize{14}{14}\selectfont $\displaystyle\lim_{n\to\infty} \frac{1}{n} \sum_{k=0}^{n-1} f(T^k x) = \int_X f \d\mu$};
+        \node at (-2.5, -1.5) {\fontsize{12}{12}\selectfont $\mu(T^{-1}A) = \mu(A)$};
+        \node at (2, -2.5) {\fontsize{14}{14}\selectfont $h_{\mathrm{top}}(T) = \sup_{\mu \in \mathcal{M}_{T}(X)} h_{\mu}(T)$};
+        \node at (2.5, 1.2) {\fontsize{14}{14}\selectfont $\displaystyle \lim_{n \to \infty} \mu(A \cap T^{-n}B) = \mu(A)\mu(B)$};
+        \node at (-2.5, 2.2) {\fontsize{12}{12}\selectfont $\displaystyle h(T, \alpha) = \lim\limits_{n\to\infty} \frac{1}{n} H\Big(\bigvee_{i=0}^{n-1} T^{-i}\alpha\Big)$};
+        \node at (0.5, -4) {\fontsize{13}{13}\selectfont $T_*\mu = \mu$};
+        \node at (-3, -3) {\fontsize{11}{11}\selectfont $d(T^n x, x) < \varepsilon$};
+    \end{scope}
+
+    % 动力系统演化轨道装饰背景
+    \begin{scope}[shift={(pic)}, scale=2.2, opacity=0.15, color=blue!70!cyan, thick]
+        % 李萨如相图 / 动力不变轨道
+        \draw [domain=0:360,variable=\t,smooth,samples=100] plot ({2*sin(3*\t)}, {2*sin(2*\t)});
+        \draw [domain=0:360,variable=\t,smooth,samples=100] plot ({1.5*sin(3*\t+45)}, {1.5*sin(2*\t+45)});
+        \draw[dashed] (-2,0) -- (2,0);
+        \draw[dashed] (0,-2) -- (0,2);
+    \end{scope}
+\end{tikzpicture}
+\end{titlepage}
+
 \setcounter{page}{1}
 
 \frontmatter
-\pagenumbering{roman}     % 目录等用罗马数字
+\pagenumbering{roman}
 \clearpage
 \tableofcontents
 \clearpage
@@ -166,10 +196,16 @@
 \ForceRightPage
 \mainmatter
 
-\input{群表示.tex}
+\input{预备知识.tex}
 
-\input{特征标理论.tex}
+\input{遍历理论.tex}
 
-\input{代数表示.tex}
+\input{遍历理论2.tex}
+
+\input{测度熵.tex}
+
+\input{拓扑熵.tex}
+
+\input{变分原理.tex}
 
 \end{document}

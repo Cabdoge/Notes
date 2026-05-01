@@ -43,7 +43,7 @@
 %     explicit        ── 标题文本不自动排版，必须在 Before-code 中用 #1 手动引用
 %                        这使得我们可以将标题传入 \MakeChapBox 等自定义命令
 %     indentafter     ── 标题后的首段保持缩进（中文排版习惯）
-\RequirePackage[calcwidth,bottomtitles,explicit,indentafter]{titlesec}
+\RequirePackage[calcwidth,nobottomtitles,explicit,indentafter]{titlesec}
 % titletoc    ── 自定义目录条目格式（配合 \titlecontents 命令）
 \RequirePackage{titletoc}
 % appendix    ── 附录支持
@@ -528,7 +528,7 @@
 % ──────────── 子节 (\subsection) —— 行内样式（runin） ────────────
 % [runin] 格式：标题与正文在同一行，标题后直接接正文
 %   适合较短的子节标题，节省垂直空间
-\titleformat{name=\subsection}[runin]
+\titleformat{name=\subsection}
   {\filleft\normalfont\sffamily\titleheiti\bfseries}%
   {\Large\thesubsection}% Label：大号编号（如 1.2.3）
   {3mm}% Sep：编号与标题间距 3mm
@@ -702,8 +702,9 @@
 %   - 节标记：不变（仍为"§A.1  标题"）
 % 注意：在 \g@addto@macro 内部，#1 必须写成 ##1（双井号转义）
 \g@addto@macro\appendix{%
-  \renewcommand{\chaptermark}[1]{\markboth{附录 \thechapter\quad ##1}{}}%
-  \renewcommand{\sectionmark}[1]{\markright{\S\thesection\quad ##1}}%
+  \ctexset{chapter/number=\Alph{chapter}, chapter/tocline={\protect\numberline{\Alph{#1}}#2}}%
+  \renewcommand{\chaptermark}[1]{\markboth{附录 \thechapter\quad #1}{}}%
+  \renewcommand{\sectionmark}[1]{\markright{\S\thesection\quad #1}}%
 }
 
 %====================================================================

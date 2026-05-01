@@ -3,15 +3,15 @@
 \section{一个问题}
 
 在正式介绍遍历理论之前，首先看一个利用遍历理论解决概率论问题的例子，以此引入我们将在后续学习的概念.问题是：
-\begin{problem}
+\begin{question}
     考虑数列$x_n=2^{n-1}$，$a_n$表示$x_n$的第一位数字，
     则对$\forall k\in\{1,2,\cdots,9\}$，计算$P(a_n=k) =$?
-\end{problem}
-\begin{wrapfigure}{l}{0.15\textwidth}
+\end{question}
+\begin{wrapfigure}{l}{0.09\textwidth}
     \vspace{-1.5em}
     \centering
     \renewcommand{\arraystretch}{1.1}
-    \setlength{\tabcolsep}{10pt}
+    \setlength{\tabcolsep}{4pt}
     \begin{tabular}{|c|c|c|}
         \hline
         $n$ & $x_n$ & $a_n$ \\
@@ -34,27 +34,28 @@
 \vspace{0.5em}
 首先对该问题进行化简，将其解释为可以处理的数学问题.\par
 $\begin{aligned}
-    x_n=2^n,a_n=x_n\text{的首一数字} &\Leftrightarrow \exists m\in\mathbb{N},\; \text{使得}a_n \cdot 10^m \leqslant 2^n \leqslant (a_n+1) \cdot 10^m \\
+    x_n=2^n,a_n=x_n\text{的首一数字} &\Leftrightarrow \exists\, m\in\mathbb{N},\st a_n \cdot 10^m \leqslant 2^n \leqslant (a_n+1) \cdot 10^m \\
     &\xLongleftrightarrow{\text{取对数}}\log{a_n}+m \leqslant n\log{2} \leqslant \log{a_n+1} +m \\
     &\xLongleftrightarrow{\text{取小数部分}} \log{a_n} \leqslant \{n\log{2}\} \leqslant \log{(a_n+1)} \\
     &\Longleftrightarrow \{n\log{2}\} \in [\log{a_n},\log{(a_n+1)}]
 \end{aligned}$\par
 \vspace{2em}\par\noindent
-\begin{itemize*}
-    \item $P(a_n=k)=\lim_{N\to\infty}{\frac{\big|\{0 \leqslant n \leqslant N-1|a_n=k\}\big|}{|N|}}=\lim_{N\to\infty}{\frac{1}{N} \left( \sum_{n=0}^{N-1}{\chi_{I_k}\big(\{n\log{2}\}\big)}\right)},\;I_k = [\log{k},\log{(k+1)}]$\par
-\end{itemize*}
+\begin{gather*}
+    P(a_n=k)=\lim_{N\to\infty}{\frac{\big|\{0 \leqslant n \leqslant N-1|a_n=k\}\big|}{|N|}}=\lim_{N\to\infty}{\frac{1}{N} \left( \sum_{n=0}^{N-1}{\chi_{I_k}\big(\{n\log{2}\}\big)}\right)},\\
+    I_k = [\log{k},\log{(k+1)}].
+\end{gather*}
 
 为了求出上述概率，我们需要引入均匀分布的概念.\par
 
-\begin{definition}{均匀分布}
+\begin{definition}[均匀分布]    
     设$\{x_n\}_{n\in\mathbb{N}} \subseteq [0,1]$，如果对于任意区间$I \subseteq [0,1]$，$\{x_n\}$落入区间$I$的概率等于$|I|$，即
     \[\lim_{N\to\infty}{\frac{\Big|\big\{1\leqslant n \leqslant N|x_n \in I\big\}\Big|}{N}} = |I|\]
-    那么称$\{x_n\}_{n\in\mathbb{N}}$在$[0,1]$中\textbf{均匀分布}.
+    那么称$\{x_n\}_{n\in\mathbb{N}}$在$[0,1]$中\colorbf{均匀分布}.
 \end{definition}
 
 下面还有均匀分布的等价刻画.
-\begin{proposition}{均匀分布的等价刻画}
-    $\{x_n\}_{n\in\mathbb{N}}$在$[0,1]$中均匀分布$\Longleftrightarrow\; \forall\, f\in C([0,1]), f(0)=f(1), \frac{1}{N}\sum_{n=1}^N{f(x_n)}\to \int_{0}^{1}{f(x)}\d x.$
+\begin{proposition}[均匀分布的等价刻画]
+    $\{x_n\}_{n\in\mathbb{N}}$在$[0,1]$中均匀分布，当且仅当$\forall\, f\in C([0,1])$且满足$f(0)=f(1)$，都有$\frac{1}{N}\sum_{n=1}^N{f(x_n)}\to \int_{0}^{1}{f(x)}\d x.$
 \end{proposition}
 \begin{proof}
     \begin{itemize}
@@ -71,7 +72,7 @@ $\begin{aligned}
         \end{alignat*}
         令$\varepsilon\to 0 \Rightarrow \frac{1}{N}\sum_{n=1}^N{f(x_n)}\to \int_{0}^{1}{f(x)}\d x$.\par
     \end{itemize}
-    \begin{minipage}[t]{0.77\textwidth}
+    \begin{minipage}[t]{0.74\textwidth}
     \begin{itemize}
         \item[“$\Leftarrow$"] $\forall\, I \subseteq [0,1]$，构造连续函数列$\{\varphi_n(x)\}_{n\in\mathbb{N}}$和$\{\psi_n(x)\}_{n\in\mathbb{N}}$，使
         \begin{enumerate}[(1)]
@@ -82,18 +83,17 @@ $\begin{aligned}
         $\Rightarrow \frac{1}{N}\sum_{n=1}^N{\varphi_n(x_n)} \leq \frac{1}{N}\sum_{n=1}^N{\chi_{I}(x_n)} \leq \frac{1}{N}\sum_{n=1}^N{\psi_n(x_n)}$.\par
     \end{itemize}
     \end{minipage}
-    \begin{minipage}[t]{0.225\textwidth}
+    \begin{minipage}[t]{0.25\textwidth}
         \vspace{-2 em}
         \includegraphics[width=1\textwidth]{fig/2.1.png}
         \captionof{figure}{连续函数逼近特征函数}
     \end{minipage}\par
      $\xLongrightarrow{n\to\infty}\int_0^1{\varphi_n(x)}\d x \leq \varliminf_{n\to\infty}{\sum_{n=1}^N{\chi_{I}(x_n)}} \leq \varlimsup_{n\to\infty}{\sum_{n=1}^N{\chi_{I}(x_n)}} \leq \int_0^1{\psi_n(x)}\d x$.\par
-        $\Rightarrow \lim_{n\to\infty}{\sum_{k=1}^N{\chi_{I}(x_k)}} = \int_0^1{\chi_{I}(x)}\d x$.\par
+    $\Rightarrow \lim_{n\to\infty}{\sum_{k=1}^N{\chi_{I}(x_k)}} = \int_0^1{\chi_{I}(x)}\d x$.
 \end{proof}\par
 
-\begin{itemize}
-    \item 上述定理给了我们用连续函数刻画均匀分布的方法，如果我们把连续的条件加强为三阶连续可导，设$f \in C^3([0,1])$，$f(0)=f(1)$，由Fourier分析可知可以对上述函数作Fourier级数展开$f(x)=\frac{a_0}{2}+\sum_{n=1}^\infty(a_n\cos{2\pi nx}+b_n\sin{2\pi nx})\, (\forall\, x\in[0,1])$.并且有以下定理.
-\end{itemize}
+上述定理给了我们用连续函数刻画均匀分布的方法，如果把连续的条件加强为三阶连续可导，设$f \in C^3([0,1])$，$f(0)=f(1)$，由Fourier分析可知可对上述函数作Fourier级数展开$f(x)=\frac{a_0}{2}+\sum_{n=1}^\infty(a_n\cos{2\pi nx}+b_n\sin{2\pi nx})\, (\forall\, x\in[0,1])$.并且有以下定理.
+
 
 \begin{theorem*}
     若$f\in C^1([0,1])$，$\frac{a_0}{2}+\sum_{n=1}^N(a_n\cos{2\pi nx}+b_n\sin{2\pi nx})\rightrightarrows f(x) \, (\forall\, x\in[0,1])$.
@@ -109,11 +109,14 @@ $\begin{aligned}
     \begin{itemize}
         \item[“$\Rightarrow$”] 取$f(x)=\cos{2\pi kx} \Rightarrow \frac{1}{N}\sum_{n=1}^N{\cos{2\pi kx_n}} \to \int_0^1{\cos{2\pi kx}} = 0$.\par
         对$\sin$的情形同理可证.
-        \item[“$\Leftarrow$”] $\forall\, f \in C^3([0,1]),f(0)=f(1),\frac{a_0}{2}+\sum_{n=1}^N(a_n\cos{2\pi nx}+b_n\sin{2\pi nx})\rightrightarrows f(x)$\par
-        $\Rightarrow \forall\, \varepsilon>0,\exists N,\text{s.t.}\left\lvert f(x) - \left(\frac{a_0}{2}+\sum_{n=1}^N(a_n\cos{2\pi nx}+b_n\sin{2\pi nx})\right)\right\rvert < \varepsilon,\,\forall\, x\in [0,1]$.\par
+        \item[“$\Leftarrow$”] $\forall\, f \in C^3([0,1]),f(0)=f(1),\frac{a_0}{2}+\sum_{n=1}^N(a_n\cos{2\pi nx}+b_n\sin{2\pi nx})\rightrightarrows f(x)$，即$\forall\, \varepsilon>0,\exists N,\text{s.t.}\forall\, x\in [0,1] ,\left\lvert f(x) - \left(\frac{a_0}{2}+\sum_{n=1}^N(a_n\cos{2\pi nx}+b_n\sin{2\pi nx})\right)\right\rvert < \varepsilon$.\par
         记$\varphi_N(x) = \frac{a_0}{2}+\sum_{n=1}^N(a_n\cos{2\pi nx}+b_n\sin{2\pi nx})$\par
         则$\frac{1}{L}\sum_{i=1}^L{\varphi_N(x_i)} - \varepsilon \leq \frac{1}{L}\sum_{i=1}^L{f(x_i)} \leq \frac{1}{L}\sum_{i=1}^L{\varphi_N(x_i)} + \varepsilon$.\par
-        令$L\to\infty$，则$\lim_{L\to\infty}\frac{1}{L}\sum_{i=1}^L{\varphi_N(x_i)}=\lim_{L\to\infty}{\frac{1}{L}\sum_{i=1}^L{\left(\frac{a_0}{2}+\sum_{n=1}^N(a_n\cos{2\pi nx_i}+b_n\sin{2\pi nx_i})\right)}}=\frac{a_0}{2}=\int_0^1{f(x)}\d x$.\par
+        令$L\to\infty$，则
+        \begin{align*}
+            \lim_{L\to\infty}\frac{1}{L}\sum_{i=1}^L{\varphi_N(x_i)}&=\lim_{L\to\infty}{\frac{1}{L}\sum_{i=1}^L{\left(\frac{a_0}{2}+\sum_{n=1}^N(a_n\cos{2\pi nx_i}+b_n\sin{2\pi nx_i})\right)}}\\[-2pt]
+            &=\frac{a_0}{2}=\int_0^1{f(x)}\d x.
+        \end{align*}
         故上述不等式变为$\int_0^1{f(x)}\d x-\varepsilon \leq \varliminf_{n\to\infty}{\frac{1}{N}\sum_{n=1}^N{f(x_n)}} \leq \varlimsup_{n\to\infty}{\frac{1}{N}\sum_{n=1}^N{f(x_n)}} \leq \int_0^1{f(x)}\d x+\varepsilon$.\par
         再令$\varepsilon\to 0 \Rightarrow \frac{1}{N}\sum_{n=1}^N{f(x_n)}\to \int_{0}^{1}{f(x)}\d x$
     \end{itemize}
@@ -126,8 +129,11 @@ $\begin{aligned}
         由于添加整数对于$\cos \left(k\cdot\{n\log{2}\}2\pi\right)$的值没有影响，因此
         \begin{align*}
             \left| \frac{1}{N}\sum_{n=1}^{N-1}\cos \left(k\cdot\{n\log{2}\}2\pi\right) \right| &= \left| \frac{1}{N}\sum_{n=1}^{N-1}\cos \left(k\cdot n\log{2}\cdot 2\pi\right) \right| \\
-            &= \left| \frac{1}{N}\sum_{n=0}^{N-1}{\frac{2\cos \left(k\cdot n\log{2}\cdot 2\pi\right)\sin \left(\log{2}\cdot k\pi\right)}{2\sin \left(\log{2}\cdot k\pi\right)}} \right| \\
-            &\xlongequal{\text{积化和差}} \left|\frac{1}{N}\sum_{n=0}^{N-1}{\frac{\sin \left(\log{2}\cdot(2n+1)k\pi\right) - \sin \left(\log{2}\cdot(2n-1)k\pi\right)}{2\sin \left(\log{2}\cdot k\pi\right)}}\right| \\
+            &= \left| \frac{1}{N}\sum_{n=0}^{N-1}{\frac{2\cos \left(k\cdot n\log{2}\cdot 2\pi\right)\sin \left(\log{2}\cdot k\pi\right)}{2\sin \left(\log{2}\cdot k\pi\right)}} \right| 
+        \end{align*}
+        对分子作和差化积可得
+        \begin{align*}
+            \text{LHR} &\xlongequal{\text{积化和差}} \left|\frac{1}{N}\sum_{n=0}^{N-1}{\frac{\sin \left(\log{2}\cdot(2n+1)k\pi\right) - \sin \left(\log{2}\cdot(2n-1)k\pi\right)}{2\sin \left(\log{2}\cdot k\pi\right)}}\right| \\
             &= \left|\frac{1}{N}\frac{\sin \left(\log{2}\cdot(2N-1)k\pi\right) - \sin \left(\log{2}\cdot(-k\pi)\right)}{2\sin \left(\log{2}\cdot k\pi\right)}\right| \\
             &\leq \frac{1}{N}\frac{1}{\left|\sin \left(\log{2}\cdot k\pi\right)\right|} \to 0\,(N\to\infty)
         \end{align*}
@@ -139,7 +145,7 @@ $\begin{aligned}
 \end{itemize}
 
 在上面一系列的证明过程中，最重要的部分是对$\frac{1}{L}\sum_{n=1}^L{f(x)}$的估计，关于这个估计，我们先不加证明的引入以下定理：
-\begin{theorem}{Birkhoff遍历定理}
+\begin{theorem}[Birkhoff遍历定理]
     设$(X,\mathcal{B},m)$是一个概率测度空间，$T:(X,\mathcal{B},m)\to(X,\mathcal{B},m)$是一个保测遍历映射，那么$\forall\, f \in L^1(X,\mathcal{B},m)$，$\frac{1}{N}\sum_{n=0}^{N-1}{f(T^n(x))} \to \int_X{f}\d m\; \aew x$.
 \end{theorem}
 该定理包含的保测映射、遍历映射等概念将在后续学习中一一提及.
@@ -147,17 +153,16 @@ $\begin{aligned}
 \section{保测映射}
 
 \vspace{-0.5 em}
-\begin{definition}{保测映射}
-    设$(X,\mathcal{B},m)$是一个概率测度空间，$T:(X,\mathcal{B}) \to (X,\mathcal{B})$是一个\textbf{可测映射}(可测集的原像是可测集).
+\begin{definition}[保测映射]
+    设$(X,\mathcal{B},m)$是一个概率测度空间，$T:(X,\mathcal{B}) \to (X,\mathcal{B})$是一个\colorbf{可测映射}(可测集的原像是可测集).
     \begin{itemize}
-        \item 如果$\forall\, A\in\mathcal{B}$，$m(T^{-1}A)=m(A)$，那么称$T$为\textbf{保测映射}.
-        \item 如果$T$是$1-1$的保测映射且$T^{-1}$也是保测映射，那么称$T$为\textbf{可逆保测映射}
+        \item 如果$\forall\, A\in\mathcal{B}$，$m(T^{-1}A)=m(A)$，那么称$T$为\colorbf{保测映射}.
+        \item 如果$T$是$1-1$的保测映射且$T^{-1}$也是保测映射，那么称$T$为\colorbf{可逆保测映射}
     \end{itemize}
 \end{definition}
-特别地，当映射$T:(X,\mathcal{B}) \to (X,\mathcal{B})$保持测度$m$不变时，我们就说$m$是$T$的\bluebf{不变测度}，称$(X,\mathcal{B},m,T)$为\bluebf{概率系统}.\par
-下面一个命题使用积分形式给出了保测映射的一个等价刻画.
+特别地，当映射$T:(X,\mathcal{B}) \to (X,\mathcal{B})$保持测度$m$不变时，我们就说$m$是$T$的\bluebf{不变测度}，称$(X,\mathcal{B},m,T)$为\bluebf{概率系统}.下面一个命题使用积分形式给出了保测映射的一个等价刻画.
 
-\begin{proposition}{保测映射的等价刻画}
+\begin{proposition}[保测映射的等价刻画]
     $T:(X,\mathcal{B}) \to (X,\mathcal{B})$是一个保测映射$\Rightarrow \int_X{f\circ T}\d m=\int_X{f}\d m, \;\; \forall f\in L^1(X,\mathcal{B},m)$.
 \end{proposition}
 \begin{proof}
@@ -173,13 +178,13 @@ $\begin{aligned}
         $\int_X{\varphi}\d m=\sum_{i=1}^n{c_i\int_X{\chi_{A_i}}\d m} =\sum_{i=1}^n{c_i m(A_i)}$.\par
         由于$T$是保测映射，所以$m(T^{-1}A_i)=m(A_i)$，故$\int_X{\varphi\circ T}\d m=\int_X{\varphi}\d m$.\par
         对于$\forall f\in L^1(X,\mathcal{B},m),\, f\geq 0$，可找到一列简单函数$\varphi_n(x)\nearrow f(x)$，\par
-        取极限得$\int_X{f\circ T}\d m=\int_X{f}\d m$.
+        取极限得$\int_X{f\circ T}\d m=\int_X{f}\d m$.\qedhere
     \end{itemize}
 \end{proof}
 
 除此之外，还有下述的帮助我们验证一个可测映射是否是保测映射的方法.
 
-\begin{theorem}{保测映射的验证方法}
+\begin{theorem}[保测映射的验证方法]
     设$(X,\mathcal{B},m)$是一个概率测度空间，$T:(X,\mathcal{B}) \to (X,\mathcal{B})$是一个可测映射.$\mathcal{S}$是$X$的一个生成$\mathcal{B}$的半代数，即$\mathcal{B}=\mathcal{B}(\mathcal{A}(\mathcal{S}))$，那么
     \[ T\text{是可测映射} \Longleftrightarrow \forall E \in \mathcal{S},m(T^{-1}E) = m(E) \]
 \end{theorem}
@@ -199,9 +204,9 @@ $\begin{aligned}
             \item $\mathcal{F}$是一个单调类.($\Rightarrow \mathcal{F}\supseteq\mathcal{C}(\mathcal{A}(\mathcal{S}))=\mathcal{B}(\mathcal{A}(\mathcal{S}))=\mathcal{B}$)\par
             设$A_1\subseteq A_2\subseteq \cdots\subseteq A_n\subseteq\cdots,\;A_i\in\mathcal{F}$.\par
             由于$T$是保测映射，所以$m(T^{-1}A_i)=m(A_i) \Leftrightarrow \int{\chi_{T^{-1}A_i}}\d m=\int {\chi_{A_i}}\d m$.\par
-            由LDCT得$\int{\chi_{T^{-1}(\bigcup_{i=1}^\infty{A_i})}}\d m=\int{\chi_{(\bigcup_{i=1}^\infty{A_i})}}\d m \Leftrightarrow m\left(\bigcup_{i=1}^\infty{A_i}\right) = m\left(T^{-1}\left(\bigcup_{i=1}^\infty{A_i}\right)\right)$.\par
-            $\Rightarrow \bigcup_{i=1}^\infty{A_i}\in\mathcal{F}$\par
-            单调减的情形类似.
+            由LDCT得$\int{\chi_{T^{-1}(\bigcup_{i=1}^\infty{A_i})}}\d m=\int{\chi_{(\bigcup_{i=1}^\infty{A_i})}}\d m$.\par
+            故$m\left(\bigcup_{i=1}^\infty{A_i}\right) = m\left(T^{-1}\left(\bigcup_{i=1}^\infty{A_i}\right)\right)$，从而$\bigcup_{i=1}^\infty{A_i}\in\mathcal{F}$\par
+            单调减的情形类似.\qedhere
         \end{enumerate}
     \end{itemize}
 \end{proof}
@@ -210,7 +215,7 @@ $\begin{aligned}
 
 \begin{instance}
     \begin{enumerate}[(1)]
-        \item 最简单的，恒同映射$Id:X\to X$是一个$X$上的保测映射.
+        \item 最简单地，恒同映射$\mathrm{Id}:X\to X$是一个$X$上的保测映射.
         \item 定义$\setjot[-6]\begin{aligned}[t]
             R_\alpha:\; [0,1) &\to [0,1) \\
             x &\mapsto x+\alpha \mod 1 
@@ -259,10 +264,11 @@ $\begin{aligned}
             \captionof{figure}{高斯映射保持测度}
         \end{minipage}
         高斯映射的图象如右图所示，可以看出高斯映射由可数条曲线组成，在自右向左第$k$根曲线上高斯映射可以写成：$\setjot[-6]\begin{aligned}
-            T^k_2: \left(\frac{1}{k+1},\frac{1}{k}\right) &\to (0,1) \\
+            T^k: \left(\frac{1}{k+1},\frac{1}{k}\right) &\to (0,1) \\
             x &\mapsto \frac{1}{x} \mod 1 = \frac{1}{x} - k
         \end{aligned}$.\par
-        对于$\forall\, I=(a,b)\subseteq (0,1) ,(T^k_2)^{-1}(I)=\left(\frac{1}{b+k},\frac{1}{a+k}\right)\Rightarrow T^{-1}_2(I) = \bigcup_{k\in\mbb{N}}\left(\frac{1}{b+k},\frac{1}{a+k}\right)$，则
+        对于$\forall\, I=(a,b)\subseteq (0,1) ,(T^k)^{-1}(I)=\left(\frac{1}{b+k},\frac{1}{a+k}\right).$\par 
+        因此$T^{-1}(I) = \bigcup_{k\in\mbb{N}}\left(\frac{1}{b+k},\frac{1}{a+k}\right)$，则
         {\setjot[-1]\begin{align*}
             m \left(T^{-1}_2(I)\right) &= \sum_{k=1}^\infty{\frac{1}{\ln 2}\int_{\frac{1}{b+k}}^{\frac{1}{a+k}}{\frac{1}{1+x}\d x}}=\sum_{k=1}^\infty \left(\frac{1}{\ln{2}}\left(\ln\frac{a+k+1}{a+1}-\ln{\frac{b+k+1}{b+1}}\right)\right) \\
             &=\lim_{N\to\infty}\sum_{k=1}^N\left(\frac{1}{\ln{2}}\left(\ln\frac{a+k+1}{a+1}-\ln{\frac{b+k+1}{b+1}}\right)\right) \\  
@@ -270,18 +276,19 @@ $\begin{aligned}
             = \lim_{N\to\infty}\left(\frac{1}{\ln{2}}\left(\ln\frac{a+N+1}{b+N+1}-\ln\frac{b+1}{a+1}\right)\right) \\
             &= \frac{1}{\ln{2}}\left(\ln\frac{b+1}{a+1}\right)=\frac{1}{\ln{2}}\int_a^b{\frac{1}{1+x}}\d x = m(I).
         \end{align*}}
-        \item 最后是一个积概率空间的例子.设$Y=\{1,2,\cdots,n\},\mcal{B}_Y=\{Y\text{的所有子集}\},\setjot[-6]\begin{aligned}[t]
+        \item 最后是一个积概率空间的例子.\par
+        设$Y=\{1,2,\cdots,n\},\mcal{B}_Y=\{Y\text{的所有子集}\},\setjot[-4]\begin{aligned}[t]
             m_Y: \mcal{B}_Y &\to [0,1] \\
             A &\mapsto \frac{|A|}{n}
         \end{aligned}$.\par
-        设$X=\prod_{i=-\infty}^\infty{Y}=\left\{(\cdots,x_{-1},x_0,x_1,\cdots)|x_i\in Y\right\}$，其上的$\sigmaalg$和概率测度参考定义$\ref{def:1.10}$、定义$\ref{def:1.11}$和定义$\ref{def:1.12}$.\par
+        设$X=\prod_{i=-\infty}^\infty{Y}=\left\{(\cdots,x_{-1},x_0,x_1,\cdots)|x_i\in Y\right\}$，其上的$\sigmaalg$和概率测度参考\cref{def:product-sigma-algebra}、\cref{def:product-measure} 和\cref{def:product-probability-space}.\par
         定义$Y$上的左位移映射
         {\setjot[-3]\begin{align*}
             T: X&\to X \\
             (\cdots,-x_2,-x_1,x_0,x_1,x_2,\cdots) &\mapsto (\cdots,x_{-1},x_0,x_1,x_2,x_3,\cdots) 
         \end{align*}}\par
         \begin{itemize}
-            \item $T$是保测映射，称为\bluebf{Bernouli转移}.\par
+            \item $T$是保测映射，称为 \bluebf{Bernouli转移}.\par
             $T$是可测映射，这是因为$T^{-1}\mcal{S}=\mcal{S} \Rightarrow T^{-1}\mcal{B}_x\subseteq \mcal{B}_x$.
             \item $\forall\, E=\cdots\times Y\times A_m\times\cdots\times A_n\times Y\times\cdots\in\mcal{S}$，\par
             知$T^{-1}E=\cdots\times Y\times Y\times A_m\times\cdots\times A_{n-1}\times A_n\times Y\times \cdots$\par
@@ -295,8 +302,8 @@ $\begin{aligned}
 
 \section{遍历映射}
 
-\begin{definition}{遍历映射}
-    设$(X,\mcal{B},m)$为概率测度空间，$T:X\to X$为保测映射，如果$T$满足$\forall\, B\in\mcal{B},T^{-1}B=B \Rightarrow m(B)=0\text{或}1$，那么称$T$是\textbf{遍历映射}.
+\begin{definition}[遍历映射]
+    设$(X,\mcal{B},m)$为概率测度空间，$T:X\to X$为保测映射，如果$T$满足$\forall\, B\in\mcal{B},T^{-1}B=B \Rightarrow m(B)=0\text{或}1$，那么称$T$是\colorbf{遍历映射}.
 \end{definition}
 
 下面的例子利用$R_\alpha$构造了一个遍历映射.
@@ -308,7 +315,7 @@ $\begin{aligned}
     $\forall\, x\in [0,1)$，定义$\delta_x(A)=\begin{cases}
         1, & x\in A \\
         0, & x\notin A
-    \end{cases}$，其中$A\in\mcal{B}$，称上述定义为支在点$x$处的\bluebf{Dirac测度}.\par
+    \end{cases}$，其中$A\in\mcal{B}$，称上述定义为支在点$x$处的 \bluebf{Dirac测度}.\par
     可以证明$\delta_x$是$\left([0,1),\mcal{B}\right)$上的一个概率测度.\par
     令$\mu = \frac{1}{m}\sum_{i=0}^{m-1}{\delta_{\tfrac{i}{m}}}$，它实际上就是分别支在$m$个均匀分布在$[0,1)$上的点的Dirac测度的平均值，因此也可以证明$\mu$是$\left([0,1),\mcal{B}\right)$上的一个概率测度.\par
     由于$R_\alpha(x)=x+\frac{n}{m}\mod 1$，因此$R_\alpha$作用在$\mathrm{supp}(\mu)=\left\{0,\frac{1}{m},\cdots,\frac{m-1}{m}\right\}$上为支集中点的轮换，因此有$\frac{1}{m}\sum_{i=0}^{m-1}{\delta_{R_\alpha \left(\tfrac{i}{m}\right)}(A)}=\frac{1}{m}\sum_{i=0}^{m-1}{\delta_{\tfrac{i}{m}}(A)}$.\par
@@ -335,7 +342,7 @@ $\begin{aligned}
 \end{align*}}
 
 遍历性有若干形式的等价条件，下面两个定理分别从集合和函数的角度给出了两组描述方式.
-\begin{theorem}{遍历映射的等价条件}\label{thm:2.4}
+\begin{theorem}[遍历映射的等价条件][thm:ergodic-equivalence]
     \wideline
     设$(X,\mcal{B},m)$是一个概率测度空间，$T:(X,\mcal{B},m)\to(X,\mcal{B},m)$是保测映射，则以下结论等价：
     \begin{enumerate}[(1)]
@@ -352,7 +359,8 @@ $\begin{aligned}
         令$A_n=\bigcup_{i=n}^\infty{T^{-i}B}$，则$A_0\supseteq A_1\supseteq \cdots\supseteq A_n\supseteq A_{n+1}\supseteq \cdots$，且$T^{-1}A_n=A_{n+1}$.\par
         $T^{-1}(E)=T^{-1}\left(\bigcap_{n=1}^\infty{A_n}\right)=\bigcap_{n=1}^\infty{T^{-1}A_n}=\bigcap_{n=2}^\infty{T^{-1}A_n}=\bigcap_{n=1}^\infty{A_n}=E$.\par
         由遍历映射的定义可得$m(E)=0$或$1$.
-        \item 由$T$为保测映射，所以$m \left(T^{-1}B\triangle B=0\right)\Rightarrow m \left(T^{-2}B\triangle T^{-1}B\right)=m \left(T^{-1}\left(T^{-1}B\triangle B\right)\right)=0$.\par
+        \item 由$T$为保测映射，所以$m \left(T^{-1}B\triangle B=0\right)$.\par
+        进而推得$m \left(T^{-2}B\triangle T^{-1}B\right)=m \left(T^{-1}\left(T^{-1}B\triangle B\right)\right)=0$.\par
         依此类推可得$m \left(T^{-(k+1)}B\triangle T^{-k}B\right)=0,\forall k\in\mbb{N}$.\par
         这表明$B,T^{-1}B,T^{-2}B,\cdots,T^{-k}B,\cdots$中任意两个集合之间只相差1个零测集.\par
         因此$\forall\, A_n,m \left(A_n\triangle B\right)=0\Rightarrow m(E\triangle B=0)\Rightarrow m(B)=m(E)=0$或$1$.
@@ -363,7 +371,7 @@ $\begin{aligned}
     而$m(E)=m \left(T^{-1}\left(\bigcup_{n=0}^\infty{T^{-n}A}\right)\right)=m \left(\bigcup_{n=0}^\infty{T^{-n}A}\right)\geq m(A) >0$.\par
     因此$m \left(\bigcup_{i=1}^\infty{T^{-i}A}\right)=1$.\par
     $(3)\Rightarrow(4)$：$\forall\, A,B\in\mcal{B},m(A)>0,m(B)>0$，由(3)可知$m \left(\bigcup_{n=1}^\infty{T^{-n}A}\right)=1$.\par
-    所以$m\left(B\cap \bigcup_{i=1}^\infty{T^{-i}A}\right)=m\left(\bigcup_{n=1}^\infty{\left(B\cap T^{-n}A\right)}\right)\xlongequal{\text{可列可加性}}\sum_{n=1}^\infty{m\left(B\cap T^{-n}A\right)}>0$.\par
+    故$m\left(B\cap \bigcup_{i=1}^\infty{T^{-i}A}\right)=m\left(\bigcup_{n=1}^\infty{\left(B\cap T^{-n}A\right)}\right)\xlongequal{\text{可列可加}}\sum_{n=1}^\infty{m\left(B\cap T^{-n}A\right)}>0$.\par
     $\Rightarrow \exists\, n\in\mbb{N},m\left(T^{-n}A \cap B\right)>0$.\par
     $(4)\Rightarrow(1)$：设$B\in\mcal{B},T^{-1}B=B$，如果$m(B)\in(0,1)$，那么令$A=X\setminus B$，有$m(A)>0$.\par
     $T^{-1}A=T^{-1}(X\setminus B)=T^{-1}X\setminus T^{-1}B = X\setminus B=A\ \Rightarrow T^{-n}A=A$，\par
@@ -372,7 +380,7 @@ $\begin{aligned}
 从直观上理解，遍历映射的定义和结论2是说在该映射下几乎保持不变的集合要么几乎是全集，要么几乎是空集.结论3和结论4是在说任意一个正测度的集合在映射的作用下会遍历几乎整个空间.只不过结论3只从集合本身出发，而结论4利用两个正测度的集合的关系来描述遍历性.
 
 
-\begin{theorem}{遍历映射的等价函数刻画}
+\begin{theorem}[遍历映射的等价函数刻画]
     \wideline
     设$(X,\mcal{B},m)$是一个概率测度空间，$T:(X,\mcal{B},m)\to(X,\mcal{B},m)$是保测映射，则以下结论等价：
     \begin{enumerate}[(1)]
@@ -391,7 +399,7 @@ $\begin{aligned}
     令$E_c=\{x\in X|f(x)\geq c\}(\forall\, c\in\mbb{R})$.\par
     $\forall\, y\in T^{-1}E_c\setminus S,f(y)=f(Ty)\geq c\Rightarrow y\in E_c$.\par
     因此$T^{-1}E_c\setminus S\subseteq E_c$，由保测映射$m(T^{-1}E_c)=m(E_c)\Rightarrow m(T^{-1}E_c\triangle E_c=0)$.\par
-    由定理$\ref{thm:2.4}(2)$可得$m(E_c)=0$或$1$.\par
+    由\cref{thm:ergodic-equivalence}(2)可得$m(E_c)=0$或$1$.\par
     取$c_0=\inf\{c|m(E_c)=0\}$，则$f=c_0 \aew$.
 \end{proof}
 
@@ -444,25 +452,26 @@ $\begin{aligned}
     第二个方法是利用函数来判断$R_\alpha$是否为遍历映射.\par
     设$L^2(X,\mcal{B}_X,m_\mathrm{Leb})$是$X$上所有平方可积函数构成的空间，则它是一个完备内积空间，即Hilbert空间，其中的内积定义为$
     \langle f,g\rangle=\int_X \bar{f}g\d m$.\par
-    $L^2(X,\mcal{B}_X,m_\mathrm{Leb})$中有一组标准正交基$\big\{e_n=\eu^{2\pi inx}|n\in\mb{Z}\big\}$，$\| e_n \|=\left(\int_0^1{\left|\eu^{2\pi inx}\right|^2\d x}\right)^{1/2}=1$.\par
-    $\forall\,f\in L^2(X,\mcal{B}_X,m_\mathrm{Leb})$，$\exists\, c_n\in\mb{C},\st f(x)=\sum_{n\in\mb{Z}}{c_n\cdot e_n}\Leftrightarrow \left\|f(x)-\sum_{n=-N}^N{c_n e_n}\right\|_{L^2}\to 0(N\to 0)$.其中$f\in L^2(X,\mcal{B}_X,m_\mathrm{Leb})(f:X\to\mb{C})$，系数$c_n=\int_0^1{f(x)\eu^{-2\pi inx}}\d x$.\par
+    $L^2(X,\mcal{B}_X,m_\mathrm{Leb})$中有一组标准正交基
+    \begin{equation*}
+        \qty{e_n=\eu^{2\pi \iu nx}|n\in\mb{Z}},\| e_n \|=\left(\int_0^1{\left|\eu^{2\pi \iu nx}\right|^2\d x}\right)^{1/2}=1.\end{equation*}
+    $\forall\,f\in L^2(X,\mcal{B}_X,m_\mathrm{Leb})$，$\exists\, c_n\in\mb{C},\st f(x)=\sum_{n\in\mb{Z}}{c_n\cdot e_n}$.这里的相等指的是它们在$L^2$范数意义下相等，即$\left\|f(x)-\sum_{n=-N}^N{c_n e_n}\right\|_{L^2}\to 0(N\to 0)$.其中$f\in L^2(X,\mcal{B}_X,m_\mathrm{Leb})$且$f:X\to\mathbb{C}$，系数$c_n=\int_0^1{f(x)\eu^{-2\pi \iu nx}}\d x$.\par
     \begin{enumerate}[(1)]
         \item $\alpha\in\mb{Q},\alpha=\frac{n}{m}(m\in\mb{N}^*,n\in\mb{Z},(m,n)=1)$.\par
-        则$\exists\, f(x)=e_m=\eu^{2\pi imx}$，$f\circ R_\alpha(x)=\eu^{2\pi im(x+\alpha)}=\eu^{2\pi imx}=f$.\par
+        则$\exists\, f(x)=e_m=\eu^{2\pi \iu mx}$，$f\circ R_\alpha(x)=\eu^{2\pi \iu m(x+\alpha)}=\eu^{2\pi \iu mx}=f$.\par
         由于$f\neq const$，所以$R_\alpha:X\to X$不是遍历映射.
         \item $\alpha\in\mb{R}\setminus\mb{Q}$，设$f\in L^2(X,\mcal{B}_X,m_\mathrm{Leb})$满足$f\circ R_\alpha=f\aew$.\par
         则$f(x)=\sum_{n\in\mb{Z}}{c_n\cdot e_n}$，其中$c_n$是$f$是关于基$\{e_m\}_{m\in\mb{Z}}$的坐标.\par
-        $f\circ R_\alpha(x)=\sum_{n\in\mb{Z}}{c_n \eu^{2\pi in(x+\alpha)}}=\sum_{n\in\mb{Z}}{(c_n \eu^{2\pi in\alpha})\cdot \eu^{2\pi inx}}$，且$f\circ R_\alpha(x)\in L^2(X,\mcal{B}_X,m_\mathrm{Leb})$.\par
-        因为$f\circ R_\alpha=f\aew \Rightarrow f\circ R_\alpha$和$f$代表$L^2(X,\mcal{B}_X,m_\mathrm{Leb})$中的同一元素，因此二者坐标相同，即$c_n=c_n\cdot \eu^{2\pi in\alpha}$.\par
-        由于$\alpha\in\mb{R}\setminus\mb{Q}$，$\eu^{2\pi in\alpha}\neq 1 \Rightarrow c_n=0(n\neq 0)$.\par
+        $f\circ R_\alpha(x)=\sum_{n\in\mb{Z}}{c_n \eu^{2\pi \iu n(x+\alpha)}}=\sum_{n\in\mb{Z}}{(c_n \eu^{2\pi \iu n\alpha})\cdot \eu^{2\pi \iu nx}}$，且$f\circ R_\alpha(x)\in L^2(X,\mcal{B}_X,m_\mathrm{Leb})$.\par
+        因为$f\circ R_\alpha=f\aew \Rightarrow f\circ R_\alpha$和$f$代表$L^2(X,\mcal{B}_X,m_\mathrm{Leb})$中的同一元素，因此二者坐标相同，即$c_n=c_n\cdot \eu^{2\pi \iu n\alpha}$.\par
+        由于$\alpha\in\mb{R}\setminus\mb{Q}$，$\eu^{2\pi \iu n\alpha}\neq 1 \Rightarrow c_n=0(n\neq 0)$.\par
         因此$f=\sum_{n\in\mb{Z}}{c_ne_n}=c_0e_0=c_0\in L^2(X,\mcal{B}_X,m_\mathrm{Leb})$.故$R_\alpha$为遍历映射.
     \end{enumerate}
 \end{instance}
 
 \begin{instance}
     设$(X,\mcal{B},m)$是一个概率测度空间，$\prod_{n=1}^\infty X_n=Y$是对应的乘积空间，$T:Y\to Y$为Bernoulli转移，$Y\xlongrightarrow{T} Y\quad (\cdots,x_{-2},x_{-1},x_0,x_1,x_2,\cdots)\to (\cdots,x_{-1},x_0,x_1,x_2,x_3,\cdots)$是遍历映射.\par
-\end{instance}
-\begin{proof}
+    \begin{proof}
         设$B\in Y$满足$T^{-1}B=B$.\par
         $\mcal{S}=\{\cdots\times X\times A_m\times\cdots\times A_n\times X\times\cdots|A_i\in\mcal{B}\}$是一个半代数，由它生成的$\sigmaalg\, \mcal{B}(\mcal{A}(\mcal{S}))$是乘积$Y$上的$\sigmaalg$.\par
         $\forall\,\varepsilon>0,\exists\, A\in\mcal{A}(\mcal{S}),\st m(A\triangle B)<\varepsilon$，由半代数生成代数上元素的结构可知$A=E_1\cup E_2\cup\cdots\cup E_n(E_i\in\mcal{S}\,\text{两两不交})$，再设$E_i=\cdots\times X\times A_{l_1}^i\times\cdots\times A_{i_2}^i\times X\times\cdots$.\par
@@ -485,13 +494,15 @@ $\begin{aligned}
         由假设$m(B)=m \left(T^{-L}B\cap B\right)\leq \left(m(B)+\varepsilon\right)^2+2\varepsilon$.\par
         令$\varepsilon\to 0$得$m(B)\leq m(B)^2 \Rightarrow m(B)=0\text{或}1$.
 \end{proof}
+\end{instance}
+
     
 
-\vspace{-0.5 em}
+
 \section{Birkhoff遍历定理}
-\vspace{-0.5 em}
+
 下面我们要正式介绍之前提到的Birkhoff遍历定理.
-\begin{theorem}{Birkhoff遍历定理}
+\begin{theorem}[Birkhoff遍历定理]
     \wideline
     设$(X,\mcal{B},m)$是一个概率测度空间，$T:X\to X$是保测映射，则对于$\forall\, f\in L^1(X,\mcal{B},m)$，有$\frac{1}{N}\sum_{k=0}^{N-1}{f\left(T^k(x)\right)}\to f^*(\aew x\in X)$，其中$f^*\in L^1(X,\mcal{B},m)$，$f^*\circ T=f^*\aew x\in X$且$\int_X{f^*}\d m=\int f\d m$\par
     如果$T$是遍历映射，那么$f^*=\int_X f\d m\aew$.
@@ -501,7 +512,7 @@ $\begin{aligned}
 若$f^*\circ T=f^*\aew$，由遍历映射的等价刻画可知$f^*=c(\aew)$，进而$f^*=c=\int_X{f^*}\d m=\int_X{f}\d m\aew$.\par
 
 为了证明这个定理，我们需要引入一些工具，首先介绍下面的引理.\par
-\begin{lemma}\label{lem:2.1}
+\begin{lemma}[lem:2.1]
     \wideline
     设$f\in L^1(X,\mcal{B},m)$，记$f_0=0,f_1=f,f_2=f+f\circ T,\cdots,f_n=f+f\circ T+\cdots+f\circ T^{n-1}$.\par
     定义$F_N=\max_{0\leq n\leq N}{f_n}$，那么$\int_{\{F_N>0\}}{f}\d m\geq 0$.
@@ -511,33 +522,33 @@ $\begin{aligned}
     则$F_N\circ T=\max_{0\leq n\leq N}\{f_n\circ T\}=\max_{0\leq n\leq N}\{f_{n+1}-f\}=\max_{0\leq n\leq N}{f_{n+1}}-f$.\par
     因此$f=\max_{0\leq n\leq N}{f_{n+1}}-F_N\circ T\geq \max_{1\leq n\leq N}{f_n}-F_N\circ T$.\par
     在$\{F_N>0\}$上，由于$f_0=0$，所以$\max_{1\leq n\leq N}{f_n}=\max_{0\leq n\leq N}{f_n}=F_N \Rightarrow f\geq F_N-F_N\circ T$.\par
-    积分得$\setjot[-2]\begin{aligned}[t]
+    积分得
+    {\setjot[-1]\begin{align*}
     \int_{\{F_N>0\}}{f}\d m &\geq \int_{\{F_N>0\}}{F_N}\d m-\int_{\{F_N>0\}}{F_N\circ T}\d m \\
     &\xlongequal{F_N,F_N\circ T\geq 0}\int_X{F_N}\d m-\int_X{F_N\circ T}\d m \\
-    &\xlongequal{T\text{保测}}0
-    \end{aligned}$.
+    &\xlongequal{T\text{保测}}0. \qedhere
+    \end{align*}}
 \end{proof}
 
 使用该引理，我们可以证明如下的极大遍历定理.\par
 
-\begin{theorem}{极大遍历定理}
+\begin{theorem}[极大遍历定理]
     设$(X,\mcal{B},m)$为概率测度空间，$T:X\to X$为保测映射，$g\in L^1(X,\mcal{B},m)$，$\forall\alpha\in\mb{R}$，定义
     \[E_\alpha=\left\{x\in X\left|\sup_{n\geq 1}{\frac{1}{n}\sum_{k=0}^{n-1}{g\left(T^k{x}\right)>\alpha }}\right.\right\}\]
     则$\int_{E_\alpha}{g}\d m\geq \alpha m\left(E_\alpha\right)$.\par
     如果$T^{-1}A=A(A\subseteq X)$，那么$\int_{E_\alpha\cap A}{g}\d m\geq\alpha m(E_\alpha\cap A)$，其中的保测映射为$T|_A:A\to A$.
 \end{theorem}
 \begin{proof}
-    设$f=g-\alpha$，令$f_0=0,f_1=f,f_2=f+f\circ T,\cdots$，$F_N=\max_{0\leq n\leq N}{f_n}$，则由引理\ref{lem:2.1}可知$\int_{\{F_N>0\}}{f}\d m\geq 0(\forall\, N\in\mb{N})$.\par
+    设$f=g-\alpha$，令$f_0=0,f_1=f,f_2=f+f\circ T,\cdots$，$F_N=\max_{0\leq n\leq N}{f_n}$，则由\cref{lem:2.1}可知$\int_{\{F_N>0\}}{f}\d m\geq 0(\forall\, N\in\mb{N})$.\par
     则$\setjot\begin{aligned}[t]
         E_\alpha &= \left\{x\in X\left|\sup_{n\geq 1}{\frac{1}{n}\sum_{i=0}^{n-1}{f\left(T^i{n}\right)>0}}\right.\right\}=\left\{x\in X\left|\sup_{n\geq 1}{\frac{1}{n}f_n>0}\right.\right\} \\
         &= \left\{x\in X\left|\sup_{n\geq 1}{f_n>0}\right.\right\}\\
         &=\bigcup_{N=1}^\infty{\{F_N>0\}}\text{，其中}F_{N+1}\geq F_n\Rightarrow\{F_N>0\}\subseteq\{F_{N+1}>0\}.
     \end{aligned}$\par
-    令$N\to\infty$，由单调收敛定理可知$\int{\chi_{\{F_N>0\}}(x)f}\d m\to\int{\chi_{\bigcup_{N=1}^\infty{\{F_N>0\}}}(x)f}\d m\geq 0$.\par
-    即$\int_{\bigcup_{N=1}^\infty{\{F_N>0\}}}{f}\d m\geq 0$.\par
-    $\Leftrightarrow \int_{E_\alpha}(g-\alpha)\d m\geq 0\Leftrightarrow \int_{E_\alpha}{g}\d m\geq \alpha m(E_\alpha)$.\par
+    令$N\to\infty$，由MCT可知$\int{\chi_{\{F_N>0\}}(x)f}\d m\to\int{\chi_{\bigcup_{N=1}^\infty{\{F_N>0\}}}(x)f}\d m\geq 0$.\par
+    即$\int_{\bigcup_{N=1}^\infty{\{F_N>0\}}}{f}\d m\geq 0\Leftrightarrow \int_{E_\alpha}(g-\alpha)\d m\geq 0\Leftrightarrow \int_{E_\alpha}{g}\d m\geq \alpha m(E_\alpha)$.\par
     如果$T^{-1}A=A$，那么考虑映射$T|_A:A\to A$,则$T|_A$是$(A,\mcal{B}|_A,m|_A)$上的保测映射，其中$m|_A(E)=\frac{m(E\cap A)}{m(A)},E\subseteq A$.\par
-    因此$\int_{E_\alpha\cap A}{g}\d m\geq\alpha m(E_\alpha\cap A)$.\par
+    因此$\int_{E_\alpha\cap A}{g}\d m\geq\alpha m(E_\alpha\cap A)$.
 \end{proof}
 
 有了以上两个工具，下面我们要正式开始证明Birkhoff遍历定理，证明这个定理的步骤为：
@@ -621,12 +632,13 @@ $\begin{aligned}
 
 \section{连分数与Gauss映射}
 下面讨论Gauss映射的遍历性，我们的出发点是以下的问题：
-\begin{problem}
+\begin{question}
     对于$x\in [0,1]$，考虑$x$的连分数展开，$x=a_0+\frac{1}{a_1+\tfrac{1}{a_2+\tfrac{1}{a_3+\raisebox{-.5\height}{$\ddots$}}}}(a_0=0,a_i\in\mb{N}^+)$.\par
     对$\forall\, k\in\mb{N}^+$，计算$\mb{P}(a_n=k)$.
     \begin{itemize}
         \item 上述所求的概率可以写成$\mb{P}(a_n=k)=\lim_{N\to\infty}{\frac{\left|\left\{1\leq n\leq N\left|a_n=k\right.\right\}\right|}{N}}$.
     \end{itemize}
+\end{question}
     但在正式计算之前，我们需要先了解连分数的定义与性质.\par
     \begin{definition}{连分数}
         \wideline
@@ -749,7 +761,7 @@ $\begin{aligned}
                 * & p_{k+1}
             \end{pmatrix}$
     \end{proof}    
-\end{problem}
+
 从上面的引理中，就可以得到$p_n,q_n$满足的递推关系：
 $\begin{pmatrix}
     q_{n-1} & q_n \\

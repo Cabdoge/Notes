@@ -1,10 +1,10 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.28)  29 APR 2026 10:41
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.28)  30 APR 2026 14:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**泛函分析教材翻译
-(./泛函分析教材翻译.tex
+**动力系统笔记b5
+(./动力系统笔记b5.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 (f:/texlive/2025/texmf-dist/tex/latex/ctex/ctexbook.cls (f:/texlive/2025/texmf-dist/tex/latex/ctex/config/ctexbackend.cfg
@@ -197,7 +197,7 @@ Package fontspec Info:
 )) (f:/texlive/2025/texmf-dist/tex/latex/ctex/config/ctex.cfg
 File: ctex.cfg 2022/07/14 v2.5.10 Configuration file (CTEX)
 ) (./rainbow.sty
-Package: rainbow 2026/03/04 (1.0)Rainbow theorem environments (tcolorbox)
+Package: rainbow 2026/03/04 (1.1) Rainbow theorem environments (tcolorbox)
  (f:/texlive/2025/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
  (f:/texlive/2025/texmf-dist/tex/latex/graphics-cfg/color.cfg
@@ -1070,6 +1070,120 @@ Package: faktor 2006/04/05 v0.1b Faktor-Ringe, -Gruppen, -Raeume (PE)
 \faktor@nennerhoehe=\skip163
 ) (f:/texlive/2025/texmf-dist/tex/latex/extarrows/extarrows.sty
 Package: extarrows 2020/03/12 v1.2.0 Some extensible arrows
+) (./nicematrix.sty
+Package: nicematrix 2025/10/23 v7.4 Enhanced arrays with the help of PGF/TikZ
+\l__nicematrix_tmpc_dim=\dimen347
+\l__nicematrix_tmpd_dim=\dimen348
+\l__nicematrix_tmpc_int=\count421
+\g__nicematrix_env_int=\count422
+\l__nicematrix_the_array_box=\box101
+\g__nicematrix_NiceMatrixBlock_int=\count423
+\g__nicematrix_notes_caption_int=\count424
+\l__nicematrix_columns_width_dim=\dimen349
+\l__nicematrix_col_width_dim=\dimen350
+\g__nicematrix_row_total_int=\count425
+\g__nicematrix_col_total_int=\count426
+\g__nicematrix_last_row_node_int=\count427
+\l__nicematrix_key_nb_rows_int=\count428
+\g__nicematrix_blocks_wd_dim=\dimen351
+\g__nicematrix_blocks_ht_dim=\dimen352
+\g__nicematrix_blocks_dp_dim=\dimen353
+\l__nicematrix_width_dim=\dimen354
+\l__nicematrix_tabular_width_dim=\dimen355
+\l__nicematrix_rule_width_dim=\dimen356
+\l__nicematrix_old_iRow_int=\count429
+\l__nicematrix_old_jCol_int=\count430
+\l__nicematrix_X_columns_dim=\dimen357
+\l__nicematrix_x_initial_dim=\dimen358
+\l__nicematrix_y_initial_dim=\dimen359
+\l__nicematrix_x_final_dim=\dimen360
+\l__nicematrix_y_final_dim=\dimen361
+\g__nicematrix_dp_row_zero_dim=\dimen362
+\g__nicematrix_ht_row_zero_dim=\dimen363
+\g__nicematrix_ht_row_one_dim=\dimen364
+\g__nicematrix_dp_ante_last_row_dim=\dimen365
+\g__nicematrix_ht_last_row_dim=\dimen366
+\g__nicematrix_dp_last_row_dim=\dimen367
+\g__nicematrix_width_last_col_dim=\dimen368
+\g__nicematrix_width_first_col_dim=\dimen369
+\g__nicematrix_ddots_int=\count431
+\g__nicematrix_iddots_int=\count432
+\g__nicematrix_delta_x_one_dim=\dimen370
+\g__nicematrix_delta_y_one_dim=\dimen371
+\g__nicematrix_delta_x_two_dim=\dimen372
+\g__nicematrix_delta_y_two_dim=\dimen373
+\l__nicematrix_row_min_int=\count433
+\l__nicematrix_row_max_int=\count434
+\l__nicematrix_col_min_int=\count435
+\l__nicematrix_col_max_int=\count436
+\l__nicematrix_initial_i_int=\count437
+\l__nicematrix_initial_j_int=\count438
+\l__nicematrix_final_i_int=\count439
+\l__nicematrix_final_j_int=\count440
+\l__nicematrix_start_int=\count441
+\l__nicematrix_end_int=\count442
+\l__nicematrix_local_start_int=\count443
+\l__nicematrix_local_end_int=\count444
+\g__nicematrix_static_num_of_col_int=\count445
+\l__nicematrix_rounded_corners_dim=\dimen374
+\l__nicematrix_tab_rounded_corners_dim=\dimen375
+\l__nicematrix_offset_dim=\dimen376
+\l__nicematrix_line_width_dim=\dimen377
+\g__nicematrix_block_box_int=\count446
+\l__nicematrix_submatrix_extra_height_dim=\dimen378
+\l__nicematrix_submatrix_left_xshift_dim=\dimen379
+\l__nicematrix_submatrix_right_xshift_dim=\dimen380
+\l__nicematrix_first_row_int=\count447
+\l__nicematrix_first_col_int=\count448
+\l__nicematrix_last_row_int=\count449
+\l__nicematrix_last_col_int=\count450
+\c@tabularnote=\count451
+\g__nicematrix_tabularnote_int=\count452
+\c@nicematrix_draft=\count453
+\l__nicematrix_cell_space_top_limit_dim=\dimen381
+\l__nicematrix_cell_space_bottom_limit_dim=\dimen382
+\l__nicematrix_xdots_inter_dim=\dimen383
+\l__nicematrix_xdots_shorten_start_dim=\dimen384
+\l__nicematrix_xdots_shorten_end_dim=\dimen385
+\l__nicematrix_xdots_radius_dim=\dimen386
+\l__nicematrix_left_margin_dim=\dimen387
+\l__nicematrix_right_margin_dim=\dimen388
+\l__nicematrix_extra_left_margin_dim=\dimen389
+\l__nicematrix_extra_right_margin_dim=\dimen390
+\c__nicematrix_max_l_dim=\dimen391
+\l__nicematrix_position_int=\count454
+\l__nicematrix_multiplicity_int=\count455
+\l__nicematrix_brace_yshift_dim=\dimen392
+) (f:/texlive/2025/texmf-dist/tex/latex/mathtools/mathtools.sty
+Package: mathtools 2024/10/04 v1.31 mathematical typesetting tools
+ (f:/texlive/2025/texmf-dist/tex/latex/mathtools/mhsetup.sty
+Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
+)
+\g_MT_multlinerow_int=\count456
+\l_MT_multwidth_dim=\dimen393
+\origjot=\skip164
+\l_MT_shortvdotswithinadjustabove_dim=\dimen394
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen395
+\l_MT_above_intertext_sep=\dimen396
+\l_MT_below_intertext_sep=\dimen397
+\l_MT_above_shortintertext_sep=\dimen398
+\l_MT_below_shortintertext_sep=\dimen399
+\xmathstrut@box=\box102
+\xmathstrut@dim=\dimen400
+) (f:/texlive/2025/texmf-dist/tex/latex/cleveref/cleveref.sty
+Package: cleveref 2018/03/27 v0.21.4 Intelligent cross-referencing
+Package cleveref Info: `hyperref' support loaded on input line 2370.
+LaTeX Info: Redefining \cref on input line 2370.
+LaTeX Info: Redefining \Cref on input line 2370.
+LaTeX Info: Redefining \crefrange on input line 2370.
+LaTeX Info: Redefining \Crefrange on input line 2370.
+LaTeX Info: Redefining \cpageref on input line 2370.
+LaTeX Info: Redefining \Cpageref on input line 2370.
+LaTeX Info: Redefining \cpagerefrange on input line 2370.
+LaTeX Info: Redefining \Cpagerefrange on input line 2370.
+LaTeX Info: Redefining \labelcref on input line 2370.
+LaTeX Info: Redefining \labelcpageref on input line 2370.
+Package cleveref Info: `amsthm' support loaded on input line 3026.
 ) (f:/texlive/2025/texmf-dist/tex/latex/esvect/esvect.sty
 Package: esvect 
 \symesvector=\mathgroup9
@@ -1078,38 +1192,791 @@ LaTeX Font Info:    Redeclaring math symbol \fldr on input line 38.
 \symugmL=\mathgroup10
  (f:/texlive/2025/texmf-dist/tex/latex/accents/accents.sty
 Package: accents 2006/05/12 v1.4 Math Accent Tools
-\cc@skew=\dimen347
-\cc@wd=\dimen348
-\cc@code=\count421
-\cc@group=\count422
-\cc@skewchar=\count423
-) (./泛函分析教材翻译.aux
+\cc@skew=\dimen401
+\cc@wd=\dimen402
+\cc@code=\count457
+\cc@group=\count458
+\cc@skewchar=\count459
+) (./动力系统笔记b5.aux
 
-LaTeX Warning: Label `def:distribution-derivative' multiply defined.
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
 
 )
-\openout1 = `泛函分析教材翻译.aux'.
+\openout1 = `动力系统笔记b5.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 137.
-LaTeX Font Info:    ... okay on input line 137.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 137.
-LaTeX Font Info:    ... okay on input line 137.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 137.
-LaTeX Font Info:    ... okay on input line 137.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 137.
-LaTeX Font Info:    ... okay on input line 137.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 137.
-LaTeX Font Info:    ... okay on input line 137.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 137.
-LaTeX Font Info:    ... okay on input line 137.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 137.
-LaTeX Font Info:    ... okay on input line 137.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 137.
-LaTeX Font Info:    ... okay on input line 137.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 137.
-LaTeX Font Info:    ... okay on input line 137.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 137.
-LaTeX Font Info:    ... okay on input line 137.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 146.
+LaTeX Font Info:    ... okay on input line 146.
 
 Package fontspec Info: 
 (fontspec)             Adjusting the maths setup (use [no-math] to avoid
@@ -1117,60 +1984,60 @@ Package fontspec Info:
 
 \symlegacymaths=\mathgroup11
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 137.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 137.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 137.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 137.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 137.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 137.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 137.
-LaTeX Font Info:    Redeclaring math accent \check on input line 137.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 137.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 137.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 137.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 137.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 137.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 137.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 137.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 137.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 137.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 137.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 137.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 137.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 137.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 137.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 137.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 137.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 146.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 146.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 146.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 146.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 146.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 146.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 146.
+LaTeX Font Info:    Redeclaring math accent \check on input line 146.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 146.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 146.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 146.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 146.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 146.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 146.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 146.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 146.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 146.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 146.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 146.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 146.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 146.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 146.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 146.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 146.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 137.
+(Font)              `operators' in the math version `normal' on input line 146.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 137.
+(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 146.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 137.
+(Font)              `operators' in the math version `bold' on input line 146.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 137.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 146.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 137.
+(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 146.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 137.
+(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 146.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/b/n on input line 137.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/b/n on input line 146.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 137.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 146.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 137.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 146.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  TU/lmr/m/n --> TU/lmr/b/n on input line 137.
+(Font)                  TU/lmr/m/n --> TU/lmr/b/n on input line 146.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> TU/lmr/b/it on input line 137.
+(Font)                  OT1/cmr/bx/it --> TU/lmr/b/it on input line 146.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 137.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 146.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 137.
-Package hyperref Info: Link coloring ON on input line 137.
- (./泛函分析教材翻译.out) (./泛函分析教材翻译.out)
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 146.
+Package hyperref Info: Link coloring ON on input line 146.
+ (./动力系统笔记b5.out) (./动力系统笔记b5.out)
 \@outlinefile=\write4
-\openout4 = `泛函分析教材翻译.out'.
+\openout4 = `动力系统笔记b5.out'.
 
 
 *geometry* driver: auto-detecting
@@ -1181,13 +2048,13 @@ Package hyperref Info: Link coloring ON on input line 137.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: twoside 
-* h-part:(L,W,R)=(71.13188pt, 372.73111pt, 56.9055pt)
+* h-part:(L,W,R)=(65.44142pt, 378.42157pt, 56.9055pt)
 * v-part:(T,H,B)=(71.13188pt, 588.97197pt, 51.21504pt)
 * \paperwidth=500.7685pt
 * \paperheight=711.3189pt
-* \textwidth=372.73111pt
+* \textwidth=378.42157pt
 * \textheight=588.97197pt
-* \oddsidemargin=-1.1381pt
+* \oddsidemargin=-6.82857pt
 * \evensidemargin=-15.36449pt
 * \topmargin=-31.2056pt
 * \headheight=12.0pt
@@ -1209,6 +2076,12 @@ Package hyperref Info: Link coloring ON on input line 137.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
+\c__nicematrix_shift_Ldots_last_row_dim=\dimen403
+\c__nicematrix_innersep_middle_dim=\dimen404
+\c@tabularnotesi=\count460
+\enitdp@tabularnotes=\count461
+\c@tabularnotes*i=\count462
+\enitdp@tabularnotes*=\count463
 
 Package fontspec Info: 
 (fontspec)             Could not resolve font "Microsoft YaHei Bold/I" (it
@@ -1235,37 +2108,37 @@ Package fontspec Info:
 (fontspec)             - 'bold italic' (b/it) with NFSS spec.: <->"Microsoft
 (fontspec)             YaHei/BI/OT:script=hani;language=dflt;"
 
-LaTeX Font Info:    Calculating math sizes for size <14> on input line 164.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 164.
+LaTeX Font Info:    Calculating math sizes for size <14> on input line 168.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 168.
 (f:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 164.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 168.
  (f:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+esvect on input line 164.
+LaTeX Font Info:    Trying to load font information for U+esvect on input line 168.
  (f:/texlive/2025/texmf-dist/tex/latex/esvect/uesvect.fd
 File: uesvect.fd 
 )
-LaTeX Font Info:    Trying to load font information for OMX+mdugm on input line 164.
+LaTeX Font Info:    Trying to load font information for OMX+mdugm on input line 168.
  (f:/texlive/2025/texmf-dist/tex/latex/mathdesign/mdugm/omxmdugm.fd
 File: omxmdugm.fd 2013/08/29 Fontinst v1.933 font definitions for OMX/mdugm.
 )
-LaTeX Font Info:    Calculating math sizes for size <13> on input line 169.
+LaTeX Font Info:    Calculating math sizes for size <13> on input line 173.
 
 
 LaTeX Font Warning: Font shape `U/esvect/m/n' in size <13> not available
-(Font)              size <12> substituted on input line 169.
+(Font)              size <12> substituted on input line 173.
 
 
 LaTeX Font Warning: Font shape `U/esvect/m/n' in size <6.5> not available
-(Font)              size <6> substituted on input line 169.
+(Font)              size <6> substituted on input line 173.
 
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 170.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 174.
 
 LaTeX Font Warning: Font shape `U/esvect/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 170.
+(Font)              size <5> substituted on input line 174.
 
 
 
@@ -1301,13 +2174,17 @@ Package fontspec Info:
 (fontspec)             - 'bold' (b/n) with NFSS spec.:
 (fontspec)             <->"SimHei/OT:script=hani;language=dflt;embolden=3;"
 
- (./泛函分析教材翻译.toc
+ (./动力系统笔记b5.toc
 
 [1
 
 
 
-]
+])
+\tf@toc=\write5
+\openout5 = `动力系统笔记b5.toc'.
+
+
 
 
 Package fontspec Info: 
@@ -1344,30 +2221,64 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
-[2]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[3])
-\tf@toc=\write5
-\openout5 = `泛函分析教材翻译.toc'.
-
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[4] (./引言.tex
+[2] (./预备知识.tex
 1
+
+Package fontspec Info: 
+(fontspec)             Could not resolve font "KaiTi/I" (it probably doesn't
+(fontspec)             exist).
+
+
+Package fontspec Info: 
+(fontspec)             Could not resolve font "KaiTi/BI" (it probably doesn't
+(fontspec)             exist).
+
+
+Package fontspec Info: 
+(fontspec)             Could not resolve font "KaiTi/I" (it probably doesn't
+(fontspec)             exist).
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'KaiTi(0)' created for font 'KaiTi' with
+(fontspec)             options [Script={CJK},AutoFakeBold={2.5}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"KaiTi/OT:script=hani;language=dflt;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->"KaiTi/OT:script=hani;language=dflt;embolden=2.5;"
+
+
+Package fontspec Info: 
+(fontspec)             Could not resolve font "FangSong/I" (it probably
+(fontspec)             doesn't exist).
+
+
+Package fontspec Info: 
+(fontspec)             Could not resolve font "FangSong/BI" (it probably
+(fontspec)             doesn't exist).
+
+
+Package fontspec Info: 
+(fontspec)             Could not resolve font "FangSong/I" (it probably
+(fontspec)             doesn't exist).
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'FangSong(0)' created for font 'FangSong'
+(fontspec)             with options [Script={CJK},AutoFakeBold={5}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"FangSong/OT:script=hani;language=dflt;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->"FangSong/OT:script=hani;language=dflt;embolden=5;"
+
 
 
 [1
@@ -1403,6 +2314,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [4]
+Missing character: There is no 两 (U+4E24) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no 两 (U+4E24) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no 不 (U+4E0D) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no 交 (U+4EA4) in font [lmroman10-regular]:mapping=tex-text;!
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1420,7 +2336,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
-[6]) (./Banach空间.tex
+[6]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1430,67 +2346,18 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [7]
-2
-
-Package fontspec Info: 
-(fontspec)             Could not resolve font "KaiTi/I" (it probably doesn't
-(fontspec)             exist).
 
 
-Package fontspec Info: 
-(fontspec)             Could not resolve font "KaiTi/BI" (it probably doesn't
-(fontspec)             exist).
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
-
-Package fontspec Info: 
-(fontspec)             Could not resolve font "KaiTi/I" (it probably doesn't
-(fontspec)             exist).
-
-
-Package fontspec Info: 
-(fontspec)             Font family 'KaiTi(0)' created for font 'KaiTi' with
-(fontspec)             options [Script={CJK},AutoFakeBold={2.5}].
-(fontspec)              
-(fontspec)              This font family consists of the following NFSS
-(fontspec)             series/shapes:
-(fontspec)              
-(fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->"KaiTi/OT:script=hani;language=dflt;"
-(fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->"KaiTi/OT:script=hani;language=dflt;embolden=2.5;"
-
-
-
-[8
-
-]
-
-Package fontspec Info: 
-(fontspec)             Could not resolve font "FangSong/I" (it probably
-(fontspec)             doesn't exist).
-
-
-Package fontspec Info: 
-(fontspec)             Could not resolve font "FangSong/BI" (it probably
-(fontspec)             doesn't exist).
-
-
-Package fontspec Info: 
-(fontspec)             Could not resolve font "FangSong/I" (it probably
-(fontspec)             doesn't exist).
-
-
-Package fontspec Info: 
-(fontspec)             Font family 'FangSong(0)' created for font 'FangSong'
-(fontspec)             with options [Script={CJK},AutoFakeBold={5}].
-(fontspec)              
-(fontspec)              This font family consists of the following NFSS
-(fontspec)             series/shapes:
-(fontspec)              
-(fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->"FangSong/OT:script=hani;language=dflt;"
-(fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->"FangSong/OT:script=hani;language=dflt;embolden=5;"
+[8]
+Overfull \hbox (44.349pt too wide) detected at line 388
+[]
+ []
 
 
 
@@ -1502,9 +2369,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [9]
-File: images/bo_d6ik6nn7aajc739ct1l0_26_134_226_1220_369_0.jpg Graphic file (type bmp)
-<images/bo_d6ik6nn7aajc739ct1l0_26_134_226_1220_369_0.jpg>
-
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1523,13 +2387,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [11]
-Overfull \hbox (22.96194pt too wide) in paragraph at lines 191--192
-[]\TU/KaiTi(0)/m/n/10 集 合 $[]$ 并 非 $\OML/cmm/m/it/10 `[]$ \TU/KaiTi(0)/m/n/10 的 代 数 基，|  但 提 供 了 一 个 拓 扑 基\TU/lmr/m/n/10 : \TU/KaiTi(0)/m/n/10 即 每 个 元 素 $\OML/cmm/b/it/10 x \OT1/cmr/m/n/10 = [] \OMS/cmsy/m/n/10 2
- []
-
-File: images/bo_d6ik6nn7aajc739ct1l0_28_122_1102_1234_435_0.jpg Graphic file (type bmp)
-<images/bo_d6ik6nn7aajc739ct1l0_28_122_1102_1234_435_0.jpg>
-
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1547,7 +2404,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
-[13]
+[13]) (./遍历理论.tex
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1557,15 +2414,31 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [14]
+2
+
+Overfull \hbox (19.43364pt too wide) in paragraph at lines 15--33
+ [][] 
+ []
 
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+Overfull \hbox (15.61008pt too wide) in paragraph at lines 36--41
+[]$[][]$ 
+ []
 
-[15]
+
+
+[15
+
+]
+File: fig/2.1.png Graphic file (type bmp)
+<fig/2.1.png>
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 89.
+See the caption package documentation for explanation.
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1584,9 +2457,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [17]
-File: images/bo_d6ik6nn7aajc739ct1l0_34_221_1328_1025_457_0.jpg Graphic file (type bmp)
-<images/bo_d6ik6nn7aajc739ct1l0_34_221_1328_1025_457_0.jpg>
-
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1614,8 +2484,43 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [20]
-File: images/bo_d6ik6nn7aajc739ct1l0_37_413_1667_643_469_0.jpg Graphic file (type bmp)
-<images/bo_d6ik6nn7aajc739ct1l0_37_413_1667_643_469_0.jpg>
+File: fig/2.2.png Graphic file (type bmp)
+<fig/2.2.png>
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 226.
+See the caption package documentation for explanation.
+
+File: fig/2.3.png Graphic file (type bmp)
+<fig/2.3.png>
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 244.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (0.7277pt too wide) in paragraph at lines 230--247
+[][] [] 
+ []
+
+
+Overfull \hbox (20.74118pt too wide) detected at line 258
+[]
+ []
+
+File: fig/2.4.png Graphic file (type bmp)
+<fig/2.4.png>
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 264.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (21.47466pt too wide) in paragraph at lines 247--269
+[][] []
+ []
+
 
 
 
@@ -1626,8 +2531,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [21]
-Overfull \hbox (0.20667pt too wide) detected at line 643
-\OML/cmm/m/it/10 p [] \U/msa/m/n/10 6 \OML/cmm/m/it/10 p [] \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 p [] \OT1/cmr/m/n/10 = [] [] + [] \OML/cmm/m/it/10 p []  \OMS/cmsy/m/n/10 8 \OML/cmm/m/it/10 x; y \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 X; ^^R \OMS/cmsy/m/n/10 2 [] \OML/cmm/m/it/10 :
+Overfull \hbox (6.07208pt too wide) detected at line 278
+[]
  []
 
 
@@ -1649,9 +2554,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [23]
-File: images/bo_d6ik6nn7aajc739ct1l0_41_242_758_999_533_0.jpg Graphic file (type bmp)
-<images/bo_d6ik6nn7aajc739ct1l0_41_242_758_999_533_0.jpg>
-
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1661,15 +2563,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [24]
-File: images/bo_d6ik6nn7aajc739ct1l0_42_203_1420_1073_331_0.jpg Graphic file (type bmp)
-<images/bo_d6ik6nn7aajc739ct1l0_42_203_1420_1073_331_0.jpg>
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 784.
-See the caption package documentation for explanation.
-
-
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1679,21 +2572,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [25]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[26]
-File: images/bo_d6ik6nn7aajc739ct1l0_44_155_1289_1156_448_0.jpg Graphic file (type bmp)
-<images/bo_d6ik6nn7aajc739ct1l0_44_155_1289_1156_448_0.jpg>
+File: fig/2.5.png Graphic file (type bmp)
+<fig/2.5.png>
+File: fig/2.6.png Graphic file (type bmp)
+<fig/2.6.png>
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 874.
+(caption)                particular \caption on input line 445.
 See the caption package documentation for explanation.
 
 
@@ -1705,18 +2591,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
-[27]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[28]
-Overfull \hbox (9.17598pt too wide) in paragraph at lines 950--951
-[]\TU/FangSong(0)/m/n/10 由 于 数 列 $[][]$ 有 界，|  故 存 在 一 个 无 穷 指 标 集 $\OML/cmm/m/it/10 I[] \OMS/cmsy/m/n/10 ^^Z \U/msb/m/n/10 N$ \TU/FangSong(0)/m/n/10 ，|  使 得 子 列 $[][]$
+[26]
+Overfull \hbox (15.7053pt too wide) in paragraph at lines 465--465
+[]$\OML/cmm/m/it/10 f \OMS/cmsy/m/n/10 ^^N \OML/cmm/m/it/10 R[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) = [] [] = [] []$\TU/SimSun(0)/m/n/10 ，|  且 $\OML/cmm/m/it/10 f \OMS/cmsy/m/n/10 ^^N \OML/cmm/m/it/10 R[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 L[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X; \OMS/cmsy/m/n/10 B[]\OML/cmm/m/it/10 ; m[]\OT1/cmr/m/n/10 )$\TU/lmr/m/n/10 . 
  []
 
 
@@ -1728,7 +2605,39 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
+[27]
+Overfull \hbox (9.49835pt too wide) in paragraph at lines 473--473
+\TU/SimSun(0)/m/n/10 为 \TU/lmr/m/n/10 Bernoulli \TU/SimSun(0)/m/n/10 转 移，| $\OML/cmm/m/it/10 Y [] Y \OT1/cmr/m/n/10 ([]  \OML/cmm/m/it/10 ; x[]; x[]; x[]; x[]; x[]; [] \OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ! \OT1/cmr/m/n/10 ([]  \OML/cmm/m/it/10 ; x[]; x[]; x[]; x[]; x[]; [] \OT1/cmr/m/n/10 )$
+ []
+
+
+Overfull \hbox (30.31006pt too wide) detected at line 485
+[]
+ []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[28]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
 [29]
+
+LaTeX Warning: Reference `lem:2.1' on page 1 undefined on input line 542.
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1738,6 +2647,21 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [30]
+Overfull \hbox (67.72205pt too wide) in paragraph at lines 568--568
+[]$\OML/cmm/m/it/10 E[] \OT1/cmr/m/n/10 = [] = []$\TU/lmr/m/n/10 . 
+ []
+
+
+Overfull \hbox (32.08449pt too wide) in paragraph at lines 579--579
+[]\TU/FangSong(0)/m/n/10 又 $\OML/cmm/m/it/10 E[] \OT1/cmr/m/n/10 = [] = []$\TU/lmr/m/n/10 . 
+ []
+
+
+Overfull \hbox (2.1423pt too wide) in paragraph at lines 585--585
+[]\TU/FangSong(0)/m/n/10 由 \TU/lmr/m/n/10 Fatou \TU/FangSong(0)/m/n/10 引 理 可 知 $[][] [] []  []\OML/cmm/m/it/10 m \U/msa/m/n/10 6 [] [] []  []\OML/cmm/m/it/10 m$\TU/lmr/m/n/10 . 
+ []
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1765,141 +2689,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [33]
+Underfull \hbox (badness 10000) in paragraph at lines 651--668
+[]\TU/KaiTi(0)/m/n/10 连 分 数 分 子 分 母 的 递 推 关 系 $[] [] [] [] \OT1/cmr/m/n/10 =
+ []
 
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[34]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[35]
-Missing character: There is no σ (U+03C3) in font [lmroman10-regular]:mapping=tex-text;!
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[36]) (./连续函数空间.tex
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[37]
-3
-
-
-[38
-
-]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[39]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[40]
-File: images/bo_d6ik6nn7aajc739ct1l0_61_464_229_545_507_0.jpg Graphic file (type bmp)
-<images/bo_d6ik6nn7aajc739ct1l0_61_464_229_545_507_0.jpg>
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[41]
-File: images/bo_d6ik6nn7aajc739ct1l0_62_300_227_883_472_0.jpg Graphic file (type bmp)
-<images/bo_d6ik6nn7aajc739ct1l0_62_300_227_883_472_0.jpg>
-File: images/bo_d6ik6nn7aajc739ct1l0_62_266_1404_948_476_0.jpg Graphic file (type bmp)
-<images/bo_d6ik6nn7aajc739ct1l0_62_266_1404_948_476_0.jpg>
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[42]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[43]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[44]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[45]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[46]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[47]
-Overfull \hbox (8.70935pt too wide) in paragraph at lines 466--467
-[] \TU/SimHei(1)/b/n/10 证 明 [][]\TU/FangSong(0)/m/n/10 定 义 一 范 数 是 显 然 的\TU/lmr/m/n/10 . \TU/FangSong(0)/m/n/10 为 证 空 间 $\OMS/cmsy/m/n/10 C[] []$ \TU/FangSong(0)/m/n/10 完 备，|  设 $[][]$ 是 关 于 范 数[]的
+Overfull \hbox (15.18524pt too wide) in paragraph at lines 730--748
+[]\TU/FangSong(0)/m/n/10 那 么 $[] [] [] [] \OT1/cmr/m/n/10 = [] [] = []$\TU/lmr/m/n/10 . 
  []
 
 
@@ -1911,7 +2707,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
-[48]
+[34]
+Overfull \hbox (47.24338pt too wide) in paragraph at lines 803--804
+[]$\OML/cmm/m/it/10 a[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; a[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; [] $ \TU/SimSun(0)/m/n/10 定 义 了 一 个 连 分 数 $\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 a[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ); \OML/cmm/m/it/10 a[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; a[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; [] \OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 ; [] \OT1/cmr/m/n/10 = [\OML/cmm/m/it/10 a[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ); \OML/cmm/m/it/10 a[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; [] a[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )]$\TU/lmr/m/n/10 . 
+ []
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1920,7 +2721,348 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
-[49]) (./有界线性算子.tex
+[35]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[36]
+Overfull \hbox (4.27928pt too wide) in paragraph at lines 844--856
+[]$\OMS/cmsy/m/n/10 ) [] [] [] [] \OT1/cmr/m/n/10 = []$ 
+ []
+
+
+Overfull \hbox (75.90787pt too wide) in paragraph at lines 857--872
+[]$\OMS/cmsy/m/n/10 , [] [] [] [] [] \OT1/cmr/m/n/10 = []$ 
+ []
+
+
+Overfull \hbox (4.29442pt too wide) in paragraph at lines 873--885
+[]$\OMS/cmsy/m/n/10 ) [] [] [] \OT1/cmr/m/n/10 = []$ 
+ []
+
+
+Overfull \hbox (13.51843pt too wide) in paragraph at lines 917--917
+[]\TU/FangSong(0)/m/n/10 设 $\OML/cmm/m/it/10 I \OT1/cmr/m/n/10 = (\OML/cmm/m/it/10 c; d\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^Z \OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1)$ \TU/FangSong(0)/m/n/10 是 $\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1)$ \TU/FangSong(0)/m/n/10 的 一 个 子 区 间，|  现 在 计 算 $\OML/cmm/m/it/10 m[] []$\TU/lmr/m/n/10 . 
+ []
+
+
+Overfull \hbox (14.62411pt too wide) in paragraph at lines 921--921
+[]\TU/FangSong(0)/m/n/10 因 为 $\OML/cmm/m/it/10 T[]x \OMS/cmsy/m/n/10 2 \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 c; d\OT1/cmr/m/n/10 )$\TU/FangSong(0)/m/n/10 ，|  所 以 $\OML/cmm/m/it/10 x \OT1/cmr/m/n/10 = []$ \TU/FangSong(0)/m/n/10 介 于 $[]$ 与 $[]$
+ []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[37]
+Overfull \hbox (68.4543pt too wide) in paragraph at lines 924--930
+$[][]$ 
+ []
+
+
+Overfull \hbox (47.76698pt too wide) in paragraph at lines 932--932
+[] $\OMS/cmsy/m/n/10 ) []\OML/cmm/m/it/10 m[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 I\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 m[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 I\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 b[]; []  ; b[]\OT1/cmr/m/n/10 )) \U/msa/m/n/10 6 \OML/cmm/m/it/10 m[] [] \U/msa/m/n/10 6 \OT1/cmr/m/n/10 2\OML/cmm/m/it/10 m[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 I\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 m[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 I\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 b[] []  ; b[]\OT1/cmr/m/n/10 ))$\TU/lmr/m/n/10 . 
+ []
+
+
+Overfull \hbox (11.62025pt too wide) in paragraph at lines 935--935
+[]\TU/FangSong(0)/m/n/10 故 $\OML/cmm/m/it/10 m$ \TU/FangSong(0)/m/n/10 绝 对 连 续 于 $\OML/cmm/m/it/10 m[]$\TU/FangSong(0)/m/n/10 ，|  且 存 在 绝 对 常 数 $\OT1/cmr/m/n/10 0 \OML/cmm/m/it/10 < c[] < c[]$\TU/FangSong(0)/m/n/10 ，| $[] \OMS/cmsy/m/n/10 8 \OML/cmm/m/it/10 I \OMS/cmsy/m/n/10 ^^Z \OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1)$\TU/FangSong(0)/m/n/10 ，| $\OMS/cmsy/m/n/10 8 \OML/cmm/m/it/10 b[]; b[]; [] b[] \OMS/cmsy/m/n/10 2
+ []
+
+
+Overfull \hbox (71.20015pt too wide) in paragraph at lines 935--935
+\U/msb/m/n/10 N[]$\TU/FangSong(0)/m/n/10 ，|  都 有 $\OML/cmm/m/it/10 c[]m\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 I\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 m\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 I\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 b[]; b[]; []  ; b[]\OT1/cmr/m/n/10 )) \U/msa/m/n/10 6 \OML/cmm/m/it/10 m [] \U/msa/m/n/10 6 \OML/cmm/m/it/10 c[]m\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 I\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 m\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 I\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 b[]; b[]; []  ; b[]\OT1/cmr/m/n/10 ))$\TU/lmr/m/n/10 . 
+ []
+
+
+Overfull \hbox (78.14189pt too wide) in paragraph at lines 937--937
+[]\TU/FangSong(0)/m/n/10 令 $\OMS/cmsy/m/n/10 F \OT1/cmr/m/n/10 = []$\TU/lmr/m/n/10 . 
+ []
+
+Missing character: There is no 有 (U+6709) in font [lmroman10-regular]:mapping=tex-text;!
+
+Overfull \hbox (46.22238pt too wide) in paragraph at lines 940--940
+[]\TU/FangSong(0)/m/n/10 令 $\OML/cmm/m/it/10 E \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 A$\TU/FangSong(0)/m/n/10 ，| $[]\OML/cmm/m/it/10 c[]m\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 A\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 m\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 I\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 b[]; []  ; b[]\OT1/cmr/m/n/10 )) \U/msa/m/n/10 6 \OML/cmm/m/it/10 m [] \U/msa/m/n/10 6 \OML/cmm/m/it/10 c[]m\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 A\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 m\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 I\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 b[]; []  ; b[]\OT1/cmr/m/n/10 ))$\TU/lmr/m/n/10 . 
+ []
+
+
+Overfull \hbox (33.38354pt too wide) in paragraph at lines 941--941
+[]\TU/FangSong(0)/m/n/10 其 中 $\OML/cmm/m/it/10 I\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 b[]; b[]; []  ; b[]\OT1/cmr/m/n/10 ) = []$ \TU/FangSong(0)/m/n/10 且 $\OML/cmm/m/it/10 m\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 I\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 b[]; []  ; b[]\OT1/cmr/m/n/10 )) =
+ []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[38]
+Overfull \hbox (7.95172pt too wide) in paragraph at lines 956--961
+[]\TU/SimSun(0)/m/n/10 所 以 $[][]$ 
+ []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[39]
+Overfull \hbox (9.78024pt too wide) detected at line 997
+[]
+ []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[40]
+Overfull \hbox (32.62238pt too wide) in paragraph at lines 1016--1016
+[]\TU/FangSong(0)/m/n/10 使 用 简 单 函 数 逼 近，| $\OML/cmm/m/it/10 '[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )$\TU/FangSong(0)/m/n/10 ，|  可 得 $[][] [] []  []\OML/cmm/m/it/10 ^^V\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 m\OT1/cmr/m/n/10 ) = [] [] =
+ []
+
+
+Overfull \hbox (46.02963pt too wide) in paragraph at lines 1022--1022
+[]$\OMS/cmsy/m/n/10 8 \OML/cmm/m/it/10 ! \OMS/cmsy/m/n/10 2 \OT1/cmr/m/n/10 
+\OML/cmm/m/it/10 ;  []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 !\OT1/cmr/m/n/10 ) = [] [] = [] [] = \OML/cmm/m/it/10 '[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 !\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 ; [] \OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 !
+ []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[41]
+Overfull \hbox (25.90999pt too wide) in paragraph at lines 1028--1033
+[]$[][]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1045--1046
+[]$\U/msb/m/n/10 R[] \OT1/cmr/m/n/10 = []$\TU/KaiTi(0)/m/n/10 ，| $\U/msb/m/n/10 Z[] \OT1/cmr/m/n/10 =
+ []
+
+
+Underfull \hbox (badness 1292) in paragraph at lines 1045--1046
+[]$ \TU/KaiTi(0)/m/n/10 是 其 格 点 子 群，|  则 把 $\U/msb/m/n/10 Z[]$ \TU/KaiTi(0)/m/n/10 的 左 陪 集 构 成 的
+ []
+
+File: fig/2.7.png Graphic file (type bmp)
+<fig/2.7.png>
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[42]
+File: fig/2.8.png Graphic file (type bmp)
+<fig/2.8.png>
+
+Underfull \hbox (badness 7116) in paragraph at lines 1065--1066
+[]$\OMS/cmsy/m/n/10 8 \OML/cmm/m/it/10 x \OT1/cmr/m/n/10 + \U/msb/m/n/10 Z[]\OML/cmm/m/it/10 ; y \OT1/cmr/m/n/10 + \U/msb/m/n/10 Z[] \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 X[]$\TU/KaiTi(0)/m/n/10 ，|  定 义 映 射 $\OML/cmm/m/it/10 d[]$ \TU/KaiTi(0)/m/n/10 为 $\OML/cmm/m/it/10 d[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x \OT1/cmr/m/n/10 + \U/msb/m/n/10 Z[]\OML/cmm/m/it/10 ; y \OT1/cmr/m/n/10 + \U/msb/m/n/10 Z[]\OT1/cmr/m/n/10 ) =
+ []
+
+
+Overfull \hbox (23.4951pt too wide) in paragraph at lines 1072--1073
+[]$\OML/cmm/m/it/10 d[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x \OT1/cmr/m/n/10 + \U/msb/m/n/10 Z[]\OML/cmm/m/it/10 ; y \OT1/cmr/m/n/10 + \U/msb/m/n/10 Z[]\OT1/cmr/m/n/10 ) = [] [] = [] [] =
+ []
+
+
+Overfull \hbox (18.29572pt too wide) in paragraph at lines 1075--1081
+[]\TU/FangSong(0)/m/n/10 则 $[][]$\TU/lmr/m/n/10 . 
+ []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[43]
+Overfull \hbox (75.89455pt too wide) in paragraph at lines 1099--1099
+[]\TU/SimSun(0)/m/n/10 下 面 考 虑 所 有 的 可 逆 整 系 数 $\OML/cmm/m/it/10 n$ \TU/SimSun(0)/m/n/10 阶 方 阵 组 成 的 集 合，|  记 为 $\OML/cmm/m/it/10 M[]\OT1/cmr/m/n/10 (\U/msb/m/n/10 Z\OT1/cmr/m/n/10 ) = []$\TU/lmr/m/n/10 . 
+ []
+
+
+Overfull \hbox (17.04535pt too wide) in paragraph at lines 1100--1103
+[]$\OMS/cmsy/m/n/10 8 \OML/cmm/m/it/10 A \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 M[]\OT1/cmr/m/n/10 (\U/msb/m/n/10 Z\OT1/cmr/m/n/10 )$\TU/SimSun(0)/m/n/10 ，|  可 以 定 义 $\OML/cmm/m/it/10 X[]$ \TU/SimSun(0)/m/n/10 上 的 映 射 $[][]$ 
+ []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[44]
+File: fig/2.9.png Graphic file (type bmp)
+<fig/2.9.png>
+
+Underfull \hbox (badness 3138) in paragraph at lines 1126--1126
+[][]\TU/SimSun(0)/m/n/10 基 于 这 两 个 性 质，|  可 以 证 明 $\OMS/cmsy/m/n/10 8 \OML/cmm/m/it/10 A \OMS/cmsy/m/n/10 2
+ []
+
+
+Underfull \hbox (badness 3098) in paragraph at lines 1126--1126
+\OML/cmm/m/it/10 M[]\OT1/cmr/m/n/10 (\U/msb/m/n/10 Z\OT1/cmr/m/n/10 )$\TU/SimSun(0)/m/n/10 ，| $\OML/cmm/m/it/10 T[] \OT1/cmr/m/n/10 : \OML/cmm/m/it/10 X[] \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 X[]$ \TU/SimSun(0)/m/n/10 是 一 个 保
+ []
+
+
+Underfull \hbox (badness 1448) in paragraph at lines 1126--1126
+\TU/SimSun(0)/m/n/10 测 映 射\TU/lmr/m/n/10 . \TU/SimSun(0)/m/n/10 为 了 证 明 这 一 点，|  只 需 要 验 证 对
+ []
+
+
+Overfull \hbox (77.1647pt too wide) in paragraph at lines 1142--1151
+[]\TU/FangSong(0)/m/n/10 设 $\OML/cmm/m/it/10 A \OT1/cmr/m/n/10 = []$\TU/FangSong(0)/m/n/10 ，|  记 $\OML/cmm/m/it/10 a \OT1/cmr/m/n/10 = [] []$\TU/lmr/m/n/10 . 
+ []
+
+\g__nicematrix_max_cell_width_dim=\dimen405
+\c@iRow=\count464
+\c@jCol=\count465
+\l__nicematrix_cell_box=\box103
+\l__nicematrix_left_delim_dim=\dimen406
+\l__nicematrix_right_delim_dim=\dimen407
+\g__nicematrix_block_box_1_box=\box104
+\g__nicematrix_block_box_2_box=\box105
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[45]
+Overfull \hbox (9.24362pt too wide) in paragraph at lines 1190--1195
+[]\TU/FangSong(0)/m/n/10 由 此，|  通 过 初 等 行 列 变 换，| $\OMS/cmsy/m/n/10 9 [][]\OML/cmm/m/it/10 ; [][] \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 M[]\OT1/cmr/m/n/10 (\U/msb/m/n/10 Z\OT1/cmr/m/n/10 )$\TU/FangSong(0)/m/n/10 ，|  使 得 $[][]\OML/cmm/m/it/10 P[]AQ[][][] \OT1/cmr/m/n/10 = []$ 
+ []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[46]
+Overfull \hbox (42.2547pt too wide) in paragraph at lines 1239--1249
+[]$[][]$\TU/FangSong(0)/m/n/10 ，|  因 此 $\OML/cmm/m/it/10 T[] [] S[] \OMS/cmsy/m/n/10 ^^B \OML/cmm/m/it/10 S[] \OMS/cmsy/m/n/10 ^^B [] ^^B \OML/cmm/m/it/10 S[]$\TU/FangSong(0)/m/n/10 ，|  其 中 $[][]$\TU/lmr/m/n/10 . 
+ []
+
+
+Overfull \hbox (16.06853pt too wide) in paragraph at lines 1252--1252
+[]$\OMS/cmsy/m/n/10 8 \OML/cmm/m/it/10 B \OMS/cmsy/m/n/10 ^^R \OML/cmm/m/it/10 X[]$ \TU/FangSong(0)/m/n/10 为 可 测 集，| $\OML/cmm/m/it/10 m[] [] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 m[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 T[]T[]T[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 B\OT1/cmr/m/n/10 )) = \OML/cmm/m/it/10 m[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 T[]T[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 B\OT1/cmr/m/n/10 )) =
+ []
+
+File: fig/2.10.png Graphic file (type bmp)
+<fig/2.10.png>
+
+Overfull \hbox (24.30391pt too wide) in paragraph at lines 1265--1275
+[][]\TU/SimSun(0)/m/n/10 若 $\OML/cmm/m/it/10 A \OT1/cmr/m/n/10 = []$\TU/SimSun(0)/m/n/10 ，|  那 么 $[][]$
+ []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[47]
+Overfull \hbox (3.13344pt too wide) in paragraph at lines 1301--1301
+\TU/SimSun(0)/m/n/10 等 的 元 素，|  不 妨 设 $[][] [] \OT1/cmr/m/n/10 = [] \OMS/cmsy/m/n/10 2 \U/msb/m/n/10 Z[]$ \TU/SimSun(0)/m/n/10 且 $[][] [] \OT1/cmr/m/n/10 = [][] [] \OMS/cmsy/m/n/10 ) [][] [] \OT1/cmr/m/n/10 =
+ []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[48]) (./遍历理论2.tex
+Overfull \hbox (29.17516pt too wide) in paragraph at lines 20--20
+[]$\OMS/cmsy/m/n/10 8 \OML/cmm/m/it/10 f \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 C\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 8 \OML/cmm/m/it/10 " > \OT1/cmr/m/n/10 0$\TU/SimSun(0)/m/n/10 ，|  由 $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 f[]\OMS/cmsy/m/n/10 g[]$ \TU/SimSun(0)/m/n/10 稠 密 知 $\OMS/cmsy/m/n/10 9 \OML/cmm/m/it/10 k \OMS/cmsy/m/n/10 2 \U/msb/m/n/10 N\OML/cmm/m/it/10 ; [] d\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 f[]; f\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10 < " \OMS/cmsy/m/n/10 , [] [] \OML/cmm/m/it/10 <
+ []
+
+
+Overfull \hbox (21.33118pt too wide) in paragraph at lines 21--21
+[]$\OMS/cmsy/m/n/10 8 \OML/cmm/m/it/10 x \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 Q$\TU/SimSun(0)/m/n/10 ，| $[] [] [] \OMS/cmsy/m/n/10 ! [][] [] []  []\OML/cmm/m/it/10 m[]$$\OMS/cmsy/m/n/10 ) [] [] \U/msa/m/n/10 6
+ []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[49]
+Overfull \hbox (5.4297pt too wide) in paragraph at lines 59--62
+[]\TU/SimSun(0)/m/n/10 则 $\OMS/cmsy/m/n/10 8 \OML/cmm/m/it/10 x \OMS/cmsy/m/n/10 2 [] 2 \OML/cmm/m/it/10 Q; [] [] [] \OMS/cmsy/m/n/10 ! \OT1/cmr/m/n/10 ([][] \OML/cmm/m/it/10 g []  []x\OT1/cmr/m/n/10 )([][] \OML/cmm/m/it/10 h []  []x\OT1/cmr/m/n/10 )$\TU/lmr/m/n/10 . 
+ []
+
+
+Overfull \hbox (51.51714pt too wide) in paragraph at lines 73--77
+[]\TU/SimSun(0)/m/n/10 那 么 $[][]$ 
+ []
+
+
+Overfull \hbox (11.2833pt too wide) in paragraph at lines 80--80
+[]\TU/SimSun(0)/m/n/10 又 $\OML/cmm/m/it/10 h$ \TU/SimSun(0)/m/n/10 是 连 续 函 数，|  因 此 $\OMS/cmsy/m/n/10 8 \OML/cmm/m/it/10 " > \OT1/cmr/m/n/10 0$\TU/SimSun(0)/m/n/10 ，| $\OMS/cmsy/m/n/10 9 \OML/cmm/m/it/10 M \OMS/cmsy/m/n/10 2 \U/msb/m/n/10 N$\TU/SimSun(0)/m/n/10 ，|  使 得 $\OMS/cmsy/m/n/10 8 \OML/cmm/m/it/10 n > M$\TU/SimSun(0)/m/n/10 ，| $[] \OML/cmm/m/it/10 <
+ []
+
+
+Overfull \hbox (14.14362pt too wide) in paragraph at lines 81--85
+[]\TU/SimSun(0)/m/n/10 所 以 $[][]$ 
+ []
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1930,12 +3072,45 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [50]
-4
+Overfull \hbox (29.4191pt too wide) in paragraph at lines 88--92
+[]\TU/SimSun(0)/m/n/10 最 后 只 需 证 明 上 述 $[]\OML/cmm/m/it/10 ^^K$ \TU/SimSun(0)/m/n/10 的 全 体 构 成 一 个 全 测 集，|  即 $\OML/cmm/m/it/10 m[] [] \OT1/cmr/m/n/10 =
+ []
 
 
-[51
+Overfull \hbox (9.25388pt too wide) in paragraph at lines 110--110
+[]\TU/SimSun(0)/m/n/10 根 据 均 匀 分 布 的 等 价 条 件，|  我 们 实 际 上 只 需 要 证 明 $\OMS/cmsy/m/n/10 8 \OML/cmm/m/it/10 k \OMS/cmsy/m/n/10 2 \U/msb/m/n/10 Z \OMS/cmsy/m/n/10 n f\OT1/cmr/m/n/10 0\OMS/cmsy/m/n/10 g\OML/cmm/m/it/10 ; [] [] [] \OMS/cmsy/m/n/10 !
+ []
 
-]
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[51]
+Overfull \hbox (21.91663pt too wide) in paragraph at lines 112--112
+[]\TU/SimSun(0)/m/n/10 对 于 上 面 的 定 理，|  如 果 $\OML/cmm/m/it/10 p\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 ^^Kn \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 a[]$\TU/SimSun(0)/m/n/10 ，|  它 在 $\OT1/cmr/m/n/10 [0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1)$ \TU/SimSun(0)/m/n/10 上 均 匀 分 布，|  因 而 $[] [] [] \OMS/cmsy/m/n/10 !
+ []
+
+
+Overfull \hbox (19.91844pt too wide) in paragraph at lines 118--121
+[]$[][]$ 
+ []
+
+
+Overfull \hbox (38.1088pt too wide) in paragraph at lines 124--128
+[]\TU/FangSong(0)/m/n/10 而 $[][]$ 
+ []
+
+
+Overfull \hbox (6.50551pt too wide) in paragraph at lines 131--134
+[]\TU/FangSong(0)/m/n/10 令 $\OML/cmm/m/it/10 H \OMS/cmsy/m/n/10 ! 1$\TU/FangSong(0)/m/n/10 ，|  得 $[][]$ 
+ []
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1945,6 +3120,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [52]
+Overfull \hbox (9.19908pt too wide) in paragraph at lines 143--143
+[]$[]\OML/cmm/m/it/10 b[] \OT1/cmr/m/n/10 = [][]$\TU/SimSun(0)/m/n/10 ，|  这 是 关 于 $\OML/cmm/m/it/10 n$ \TU/SimSun(0)/m/n/10 的 一 次 多 项 式，|  因 此 $[] [] [] \OMS/cmsy/m/n/10 !
+ []
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1963,8 +3143,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [54]
-File: images/bo_d6ik6nn7aajc739ct1l0_77_338_701_803_415_0.jpg Graphic file (type bmp)
-<images/bo_d6ik6nn7aajc739ct1l0_77_338_701_803_415_0.jpg>
+Overfull \hbox (0.37502pt too wide) in paragraph at lines 212--212
+[]$\OMS/cmsy/m/n/10 8 \OML/cmm/m/it/10 y \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 !\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 )$\TU/FangSong(0)/m/n/10 ，| $\OMS/cmsy/m/n/10 9 \OML/cmm/m/it/10 n[] < n[] < [] < n[] < [] $\TU/FangSong(0)/m/n/10 ，|  使 得 $[] [] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 y$\TU/FangSong(0)/m/n/10 ，|  则 $[] \OML/cmm/m/it/10 T [] \OT1/cmr/m/n/10 =
+ []
+
 
 
 
@@ -1993,6 +3175,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [57]
+Overfull \hbox (42.34784pt too wide) in paragraph at lines 324--324
+[]\TU/FangSong(0)/m/n/10 又 $[]$ 是 $\OML/cmm/m/it/10 A$ \TU/FangSong(0)/m/n/10 的 开 覆 盖 $\OMS/cmsy/m/n/10 ) 9 \OML/cmm/m/it/10 k \OMS/cmsy/m/n/10 2 f^^@\OML/cmm/m/it/10 L; []  ; L\OMS/cmsy/m/n/10 g\OML/cmm/m/it/10 ; [] y \OMS/cmsy/m/n/10 2
+ []
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2002,6 +3189,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [58]
+Overfull \hbox (17.09566pt too wide) in paragraph at lines 328--328
+[]$\OMS/cmsy/m/n/10 ) \OML/cmm/m/it/10 d [] \U/msa/m/n/10 6 \OML/cmm/m/it/10 " [] d [] \U/msa/m/n/10 6 \OML/cmm/m/it/10 " [] d [] \U/msa/m/n/10 6
+ []
+
+
+LaTeX Warning: Reference `lem:2.10' on page 59 undefined on input line 363.
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2011,8 +3206,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [59]
-File: images/bo_d6ik6nn7aajc739ct1l0_83_147_230_1194_331_0.jpg Graphic file (type bmp)
-<images/bo_d6ik6nn7aajc739ct1l0_83_147_230_1194_331_0.jpg>
+Overfull \hbox (7.57794pt too wide) in paragraph at lines 372--372
+[]\TU/FangSong(0)/m/n/10 由 $\OML/cmm/m/it/10 A$ \TU/FangSong(0)/m/n/10 是 闭 集 可 知 $\OML/cmm/m/it/10 A$ \TU/FangSong(0)/m/n/10 是 紧 集，|  因 此 $\OMS/cmsy/m/n/10 9 \OML/cmm/m/it/10 L \OMS/cmsy/m/n/10 2 \U/msb/m/n/10 N$\TU/FangSong(0)/m/n/10 ，|  使 得 $\OML/cmm/m/it/10 S[] [] \OMS/cmsy/m/n/10 [ \OML/cmm/m/it/10 S[] [] \OMS/cmsy/m/n/10 [
+ []
+
+
+LaTeX Warning: Reference `lem:2.8' on page 60 undefined on input line 382.
+
 
 
 
@@ -2023,6 +3223,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [60]
+Overfull \hbox (32.74031pt too wide) in paragraph at lines 395--401
+[]\TU/FangSong(0)/m/n/10 定 义 映 射 $[][]$，| $[][]$ 
+ []
+
+
+LaTeX Warning: Reference `lem:2.9' on page 61 undefined on input line 410.
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2032,6 +3240,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [61]
+Overfull \hbox (52.36711pt too wide) in paragraph at lines 445--445
+[][]\TU/FangSong(0)/b/n/10 证 明[] $\OMS/cmsy/m/n/10 8 \OML/cmm/m/it/10 x \OT1/cmr/m/n/10 = ([]  \OML/cmm/m/it/10 ; x[]; x[]; x[]; [] \OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; y \OT1/cmr/m/n/10 = ([]  \OML/cmm/m/it/10 ; y[]; y[]; y[]; [] \OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; d [] \OT1/cmr/m/n/10 = [] [] \U/msa/m/n/10 6
+ []
+
+
+Overfull \hbox (4.59679pt too wide) in paragraph at lines 451--451
+[]\TU/FangSong(0)/m/n/10 故 $\OMS/cmsy/m/n/10 9 \OML/cmm/m/it/10 m \OMS/cmsy/m/n/10 2 \U/msb/m/n/10 Z$\TU/FangSong(0)/m/n/10 ，|  使 得 $\OML/cmm/m/it/10 d [] < \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; d\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 T[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 T[]p\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; T[]p\OT1/cmr/m/n/10 ) \U/msa/m/n/10 6 \OT1/cmr/m/n/10 1 []  \OML/cmm/m/it/10 ; T[] \U/msa/m/n/10 6
+ []
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2040,7 +3258,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
-[62]
+[62]) (./测度熵.tex
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2049,20 +3267,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
-[63]) (./Hilbert空间.tex
+[63]
+3
 
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[64]
-5
-
-
-[65
+[64
 
 ]
 
@@ -2073,7 +3282,25 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
+[65]
+Overfull \hbox (67.68742pt too wide) in paragraph at lines 80--84
+[]$[][]$ 
+ []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
 [66]
+
+LaTeX Warning: Reference `lem:3.2' on page 67 undefined on input line 111.
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2083,8 +3310,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [67]
-File: images/bo_d6ik6nn7aajc739ct1l0_92_246_1195_985_446_0.jpg Graphic file (type bmp)
-<images/bo_d6ik6nn7aajc739ct1l0_92_246_1195_985_446_0.jpg>
+
+LaTeX Warning: Reference `lem:3.1' on page 68 undefined on input line 115.
+
+
+LaTeX Warning: Reference `lem:3.1' on page 68 undefined on input line 121.
+
+Package mdframed Info: mdframed works in twoside mode on input line 129.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 129.
 
 
 
@@ -2095,6 +3330,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [68]
+Overfull \hbox (52.45653pt too wide) in paragraph at lines 161--169
+[]$[][]$ 
+ []
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2104,9 +3344,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [69]
-File: images/bo_d6ik6nn7aajc739ct1l0_95_483_252_519_478_0.jpg Graphic file (type bmp)
-<images/bo_d6ik6nn7aajc739ct1l0_95_483_252_519_478_0.jpg>
-
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2125,13 +3362,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [71]
-Overfull \hbox (8.47235pt too wide) in paragraph at lines 313--314
-[]\TU/SimSun(0)/m/n/10 在 集 合 $[]$ 为 标 准 正 交 的 特 殊 情 形 下 \TU/lmr/m/n/10 (\TU/SimSun(0)/m/n/10 即 对 每 个 $\OML/cmm/m/it/10 j \OT1/cmr/m/n/10 = 1\OML/cmm/m/it/10 ; [] ; n$ \TU/SimSun(0)/m/n/10 均 有 $[] \OT1/cmr/m/n/10 =$
- []
-
-File: images/bo_d6ik6nn7aajc739ct1l0_97_408_1210_634_435_0.jpg Graphic file (type bmp)
-<images/bo_d6ik6nn7aajc739ct1l0_97_408_1210_634_435_0.jpg>
-
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2141,6 +3371,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [72]
+Overfull \hbox (31.49005pt too wide) in paragraph at lines 270--270
+[]$\OML/cmm/m/it/10 H [] \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 ^^@ [] []  []$ 
+ []
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2150,6 +3385,20 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [73]
+Overfull \hbox (39.14523pt too wide) in paragraph at lines 292--293
+[]\TU/FangSong(0)/m/n/10 因 此 $\OMS/cmsy/m/n/10 ^^@ [] [] \U/msa/m/n/10 6 \OML/cmm/m/it/10 k []$ 
+ []
+
+
+Overfull \hbox (2.15727pt too wide) in paragraph at lines 302--303
+$\OMS/cmsy/m/n/10 ^^@ [] [] \U/msa/m/n/10 6 [] [] 6
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 318.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 318.
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2159,6 +3408,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [74]
+Package mdframed Info: Not enough space on this page on input line 331.
+Package mdframed Info: mdframed works in twoside mode on input line 341.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 341.
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2168,6 +3423,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [75]
+Overfull \hbox (13.16243pt too wide) in paragraph at lines 382--383
+[][] 
+ []
+
+) (./拓扑熵.tex
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2177,15 +3437,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [76]
+4
 
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+[77
 
-[77]
+]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2196,6 +3453,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [78]
 
+LaTeX Warning: Reference `lem:3.2' on page 79 undefined on input line 63.
+
+
+Overfull \hbox (9.0015pt too wide) in paragraph at lines 85--88
+[]\TU/FangSong(0)/m/n/10 则 $[][]$ 
+ []
+
+
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.34525pt, for example:
@@ -2204,6 +3470,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [79]
+Overfull \hbox (20.50816pt too wide) in paragraph at lines 125--125
+[]\TU/FangSong(0)/m/n/10 否 则，|  一 定 存 在 $\OML/cmm/m/it/10 w \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 B[] [] \OMS/cmsy/m/n/10 \ \OML/cmm/m/it/10 B[] []$\TU/FangSong(0)/m/n/10 ，|  那 么 $\OML/cmm/m/it/10 d\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x; w\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10 < []; d\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y; w\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10 < []; d\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 Tx; Tw\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10 <
+ []
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2213,8 +3484,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [80]
-File: images/bo_d6ik6nn7aajc739ct1l0_106_338_561_802_715_0.jpg Graphic file (type bmp)
-<images/bo_d6ik6nn7aajc739ct1l0_106_338_561_802_715_0.jpg>
+Overfull \hbox (17.62912pt too wide) in paragraph at lines 154--154
+[][]\TU/FangSong(0)/b/n/10 证 明[] \TU/FangSong(0)/m/n/10 如 果 $\OML/cmm/m/it/10 y[]; y[] \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 B[] [] \OMS/cmsy/m/n/10 \ \OML/cmm/m/it/10 E$\TU/FangSong(0)/m/n/10 ，|  那 么 $\OML/cmm/m/it/10 d\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y[]; y[]\OT1/cmr/m/n/10 ) \U/msa/m/n/10 6 \OML/cmm/m/it/10 d\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y[]; x\OT1/cmr/m/n/10 ) + \OML/cmm/m/it/10 d\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x; y[]\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10 < "; d\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 Ty[]; Ty[]\OT1/cmr/m/n/10 ) \U/msa/m/n/10 6
+ []
+
 
 
 
@@ -2225,6 +3498,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [81]
+Overfull \hbox (13.8874pt too wide) in paragraph at lines 168--168
+[]\TU/FangSong(0)/m/n/10 则 $\OMS/cmsy/m/n/10 9 \OML/cmm/m/it/10 A[]; A[]; []  ; A[] \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 ^^K$\TU/FangSong(0)/m/n/10 ，|  使 得 $\OML/cmm/m/it/10 B [] \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 A[]; B [] \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 A[]; []  ; B [] \OMS/cmsy/m/n/10 2
+ []
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2243,8 +3521,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [83]
-Overfull \hbox (5.79329pt too wide) in paragraph at lines 883--884
-[]\TU/SimSun(0)/m/n/10 设 $\OML/cmm/m/it/10 H$ \TU/SimSun(0)/m/n/10 是 一 个 无 限 维、|  可 分 的 实 \TU/lmr/m/n/10 Hilbert \TU/SimSun(0)/m/n/10 空 间，| $\OML/cmm/m/it/10 `[]$ \TU/SimSun(0)/m/n/10 是 所 有 满 足 $\OMS/cmsy/m/n/10 k\OML/cmm/b/it/10 a\OMS/cmsy/m/n/10 k[] []  [][] \OML/cmm/m/it/10 <
+Overfull \hbox (27.31949pt too wide) in paragraph at lines 234--234
+[]\TU/FangSong(0)/m/n/10 记 $\OML/cmm/m/it/10 q \OT1/cmr/m/n/10 = (\OML/cmm/m/it/10 y[]; y[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 F[] \OMS/cmsy/m/n/10 ^^B \OML/cmm/m/it/10 F[]$\TU/FangSong(0)/m/n/10 ，|  则 $\OML/cmm/m/it/10 d\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 p; q\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10 < "; d\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 Tp; Tq\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10 < "; []  ; d\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 T[]p; T[]q\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10 <
  []
 
 
@@ -2257,8 +3535,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [84]
-File: images/bo_d6ik6nn7aajc739ct1l0_110_169_1151_1125_320_0.jpg Graphic file (type bmp)
-<images/bo_d6ik6nn7aajc739ct1l0_110_169_1151_1125_320_0.jpg>
+Overfull \hbox (25.46797pt too wide) in paragraph at lines 277--277
+[]$\OT1/cmr/m/n/10 (3) \OMS/cmsy/m/n/10 ) \OT1/cmr/m/n/10 (1)$\TU/FangSong(0)/m/n/10 ：|  设 $\OML/cmm/m/it/10 ^^K$ \TU/FangSong(0)/m/n/10 是 $\OML/cmm/m/it/10 T$ \TU/FangSong(0)/m/n/10 的 生 成 子 覆 盖，|  即 有 限 开 覆 盖 满 足 $\OMS/cmsy/m/n/10 8 f\OML/cmm/m/it/10 A[]\OMS/cmsy/m/n/10 g[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 A[] \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 ^^K\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; [] \U/msa/m/n/10 6
+ []
+
 
 
 
@@ -2277,7 +3557,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
-[86]) (./Hilbert空间上的紧算子.tex
+[86]
+Overfull \hbox (21.07005pt too wide) in paragraph at lines 331--331
+[]\TU/SimSun(0)/m/n/10 取 $\OML/cmm/m/it/10 A[] \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 ^^K\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 8 \OML/cmm/m/it/10 i \OMS/cmsy/m/n/10 2 \U/msb/m/n/10 Z\OT1/cmr/m/n/10 )$\TU/SimSun(0)/m/n/10 ，| $[] \OML/cmm/m/it/10 T[][] [] [] T[]A[] \OT1/cmr/m/n/10 = []$ 
+ []
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2287,12 +3572,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [87]
-6
+Overfull \hbox (0.57062pt too wide) in paragraph at lines 334--334
+[]\TU/SimSun(0)/m/n/10 其 中 $[] \OML/cmm/m/it/10 T[]^^K \OT1/cmr/m/n/10 = []$ \TU/SimSun(0)/m/n/10 为
+ []
 
 
-[88
+Overfull \hbox (26.21368pt too wide) in paragraph at lines 348--348
+[]$\OMS/cmsy/m/n/10 ) 9 \OML/cmm/m/it/10 T[]F[] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 T[]F[] \OMS/cmsy/m/n/10 [ \OML/cmm/m/it/10 F[]$ \TU/FangSong(0)/m/n/10 中 相 邻 的 两 个 点 $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 p[]; p[]\OMS/cmsy/m/n/10 g$\TU/FangSong(0)/m/n/10 ，|  使 得 $\OML/cmm/m/it/10 T[]x \OMS/cmsy/m/n/10 2 \OT1/cmr/m/n/10 [\OML/cmm/m/it/10 p[]; p[]\OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 ; [] <
+ []
 
-]
+) (./变分原理.tex
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2301,9 +3590,27 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
-[89]
-File: images/bo_d6ik6nn7aajc739ct1l0_115_253_988_972_477_0.jpg Graphic file (type bmp)
-<images/bo_d6ik6nn7aajc739ct1l0_115_253_988_972_477_0.jpg>
+[88]
+5
+
+Overfull \hbox (48.82314pt too wide) in paragraph at lines 8--12
+[]\TU/SimSun(0)/m/n/10 上 述 定 理 需 要 应 用 多 种 工 具，|  下 面 依 次 介 绍\TU/lmr/m/n/10 . \TU/SimSun(0)/m/n/10 我 们 记 $\OML/cmm/m/it/10 M\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 ) = []$\TU/SimSun(0)/m/n/10 ，|
+ []
+
+
+
+[89
+
+]
+Overfull \hbox (41.7809pt too wide) in paragraph at lines 37--37
+[]\TU/SimSun(0)/m/n/10 基 于 以 上，|  可 以 定 义 $\OML/cmm/m/it/10 M\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 )$ \TU/SimSun(0)/m/n/10 上 的 度 量 $\OML/cmm/m/it/10 D \OT1/cmr/m/n/10 : \OMS/cmsy/m/n/10 8 \OML/cmm/m/it/10 ^^V; m \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 M\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; D\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^V; m\OT1/cmr/m/n/10 ) := [] []$\TU/lmr/m/n/10 . 
+ []
+
+
+Overfull \hbox (21.40466pt too wide) in paragraph at lines 46--50
+[]\TU/FangSong(0)/m/n/10 因 此 $[][]$ 
+ []
+
 
 
 
@@ -2324,6 +3631,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [91]
 
+LaTeX Warning: Reference `lem:5.2' on page 92 undefined on input line 131.
+
+
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.34525pt, for example:
@@ -2332,6 +3643,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [92]
+Overfull \hbox (4.92036pt too wide) in paragraph at lines 146--153
+[]$[][]$
+ []
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2341,6 +3657,31 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [93]
+Overfull \hbox (41.30173pt too wide) in paragraph at lines 177--181
+[]\TU/SimSun(0)/m/n/10 如 果 $\OML/cmm/m/it/10 X$ \TU/SimSun(0)/m/n/10 是 一 个 紧 致 度 量 空 间，| $\OML/cmm/m/it/10 T \OT1/cmr/m/n/10 : \OML/cmm/m/it/10 X \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 X$ \TU/SimSun(0)/m/n/10 是 连 续 映 射，|  则 定 义 熵 映 射 为 $[][]$ 
+ []
+
+
+Overfull \hbox (66.82pt too wide) detected at line 193
+[]
+ []
+
+
+Overfull \hbox (52.02295pt too wide) in paragraph at lines 195--195
+[]\TU/FangSong(0)/m/n/10 设 $\OML/cmm/m/it/10 ^^Q \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 A[]; A[]; []  ; A[]\OMS/cmsy/m/n/10 g$ \TU/FangSong(0)/m/n/10 是 有 限 可 测 分 解，|  则 $\OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^Q\OT1/cmr/m/n/10 ) = \OMS/cmsy/m/n/10 ^^@ [] \OML/cmm/m/it/10 ^^^ []$ 
+ []
+
+
+Overfull \hbox (45.38065pt too wide) in paragraph at lines 196--196
+[]$\OML/cmm/m/it/10 p \OMS/cmsy/m/n/10 ^^A \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^Q\OT1/cmr/m/n/10 ) + (1 \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 p\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^Q\OT1/cmr/m/n/10 ) \U/msa/m/n/10 6 \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^Q\OT1/cmr/m/n/10 ) \U/msa/m/n/10 6 \OML/cmm/m/it/10 pH[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^Q\OT1/cmr/m/n/10 ) + (1 \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 p\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^Q\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@ []$ 
+ []
+
+
+Overfull \hbox (66.38295pt too wide) in paragraph at lines 198--202
+[]$[][]$
+ []
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2350,6 +3691,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [94]
+Overfull \hbox (45.13103pt too wide) in paragraph at lines 230--230
+[]$\OMS/cmsy/m/n/10 ) j\OML/cmm/m/it/10 ^^M[]\OMS/cmsy/m/n/10 j ^^A \OT1/cmr/m/n/10 2[] \U/msa/m/n/10 > \OMS/cmsy/m/n/10 j [] \OML/cmm/m/it/10 T[]^^X\OMS/cmsy/m/n/10 j ) [] [] [] \U/msa/m/n/10 > [] [] [] > []\OML/cmm/m/it/10 H[] []$\TU/lmr/m/n/10 . 
+ []
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2368,6 +3714,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [96]
+Overfull \hbox (42.17915pt too wide) in paragraph at lines 312--312
+[]\TU/lmr/m/n/10 (2)$[][]$ 
+ []
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2377,251 +3728,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [97]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[98]) (./线性算子半群.tex
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[99]
-7
-
-Overfull \hbox (13.12822pt too wide) in paragraph at lines 33--34
-[]\TU/FangSong(0)/m/n/10 我 们 断 言\TU/lmr/m/n/10 : $\OT1/cmr/m/n/10 ^^H$ \TU/FangSong(0)/m/n/10 关 于 等 价 范 数[] 是 严 格 压 缩 映 射\TU/lmr/m/n/10 . \TU/FangSong(0)/m/n/10 事 实 上，|  对 任 意 $\OML/cmm/m/it/10 u; v \OMS/cmsy/m/n/10 2 C []$\TU/FangSong(0)/m/n/10 ，|
+Overfull \hbox (5.88422pt too wide) in paragraph at lines 312--312
+[]$\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 q\OT1/cmr/m/n/10 )$$[][]$ 
  []
 
 
-
-[100
-
-]
-File: images/bo_d6ik6nn7aajc739ct1l0_129_334_235_748_423_0.jpg Graphic file (type bmp)
-<images/bo_d6ik6nn7aajc739ct1l0_129_334_235_748_423_0.jpg>
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[101]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[102]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[103]
-File: images/bo_d6ik6nn7aajc739ct1l0_132_122_1026_1232_463_0.jpg Graphic file (type bmp)
-<images/bo_d6ik6nn7aajc739ct1l0_132_122_1026_1232_463_0.jpg>
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[104]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[105]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[106]
-File: images/bo_d6ik6nn7aajc739ct1l0_136_739_911_639_261_0.jpg Graphic file (type bmp)
-<images/bo_d6ik6nn7aajc739ct1l0_136_739_911_639_261_0.jpg>
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[107]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[108]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[109]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[110]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[111]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[112]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[113]
-File: images/bo_d6ik6nn7aajc739ct1l0_143_164_1407_1153_511_0.jpg Graphic file (type bmp)
-<images/bo_d6ik6nn7aajc739ct1l0_143_164_1407_1153_511_0.jpg>
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[114]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[115]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[116]
-File: images/bo_d6ik6nn7aajc739ct1l0_147_261_663_916_703_0.jpg Graphic file (type bmp)
-<images/bo_d6ik6nn7aajc739ct1l0_147_261_663_916_703_0.jpg>
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[117]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[118]) (./Soblev空间.tex
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[119]
-8
-
-
-[120
-
-]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[121]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[122]
-File: images/bo_d6ik6nn7aajc739ct1l0_154_150_227_1183_394_0.jpg Graphic file (type bmp)
-<images/bo_d6ik6nn7aajc739ct1l0_154_150_227_1183_394_0.jpg>
-
-Overfull \hbox (6.52914pt too wide) in paragraph at lines 141--142
-[]\TU/SimSun(0)/m/n/10 前 一 节 所 述 构 造 可 推 广 至 多 维 空 间 中 任 意 开 区 域\TU/lmr/m/n/10 . \TU/SimSun(0)/m/n/10 设 $\OT1/cmr/m/n/10 
- \OMS/cmsy/m/n/10 ^^R \U/msb/m/n/10 R[]$ \TU/SimSun(0)/m/n/10 为 一 开 集\TU/lmr/m/n/10 . \TU/SimSun(0)/m/n/10 记 $\OML/cmm/m/it/10 L[] []$
+Overfull \hbox (6.74031pt too wide) in paragraph at lines 312--312
+[]\TU/FangSong(0)/m/n/10 由 于 熵 映 射 是 仿 射 映 射，|  故 $[][]$ 
  []
 
 
@@ -2633,180 +3746,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
-[123]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[124]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[125]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[126]
-File: images/bo_d6ik6nn7aajc739ct1l0_159_171_1175_1136_426_0.jpg Graphic file (type bmp)
-<images/bo_d6ik6nn7aajc739ct1l0_159_171_1175_1136_426_0.jpg>
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[127]
-File: images/bo_d6ik6nn7aajc739ct1l0_160_166_1087_1146_210_0.jpg Graphic file (type bmp)
-<images/bo_d6ik6nn7aajc739ct1l0_160_166_1087_1146_210_0.jpg>
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[128]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[129]
-File: images/bo_d6ik6nn7aajc739ct1l0_163_113_942_1254_295_0.jpg Graphic file (type bmp)
-<images/bo_d6ik6nn7aajc739ct1l0_163_113_942_1254_295_0.jpg>
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[130]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[131]
-File: images/bo_d6ik6nn7aajc739ct1l0_166_479_682_522_708_0.jpg Graphic file (type bmp)
-<images/bo_d6ik6nn7aajc739ct1l0_166_479_682_522_708_0.jpg>
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[132]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[133]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[134]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[135]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[136]
-File: images/bo_d6ik6nn7aajc739ct1l0_171_221_1182_1028_567_0.jpg Graphic file (type bmp)
-<images/bo_d6ik6nn7aajc739ct1l0_171_221_1182_1028_567_0.jpg>
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[137]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[138]
-File: images/bo_d6ik6nn7aajc739ct1l0_174_168_582_1149_476_0.jpg Graphic file (type bmp)
-<images/bo_d6ik6nn7aajc739ct1l0_174_168_582_1149_476_0.jpg>
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[139]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[140]
-Overfull \hbox (3.11093pt too wide) in paragraph at lines 885--886
-\OML/cmm/m/it/10 W[] []$ \TU/SimSun(0)/m/n/10 ，|  可 找 到 一 列 函 数 $\OML/cmm/m/it/10 u[] \OMS/cmsy/m/n/10 2 C[] []$ \TU/SimSun(0)/m/n/10 使 得 $[][] \OMS/cmsy/m/n/10 ! \OT1/cmr/m/n/10 0$ \TU/SimSun(0)/m/n/10 成 立\TU/lmr/m/n/10 . \TU/SimSun(0)/m/n/10 由[]式，| 
+[98]
+Overfull \hbox (12.19016pt too wide) in paragraph at lines 312--312
+[]\TU/FangSong(0)/m/n/10 两 边 同 除 $\OML/cmm/m/it/10 q$ \TU/FangSong(0)/m/n/10 并 取 极 限，|  得 $[] [] [] [] \U/msa/m/n/10 6 [] []\OML/cmm/m/it/10 H[] [] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 h[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 T; ^^Q\OT1/cmr/m/n/10 ) \U/msa/m/n/10 6
  []
 
 
@@ -2818,683 +3760,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
-[141]
-File: images/bo_d6ik6nn7aajc739ct1l0_177_106_234_1282_634_0.jpg Graphic file (type bmp)
-<images/bo_d6ik6nn7aajc739ct1l0_177_106_234_1282_634_0.jpg>
+[99])
 
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[142]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[143]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[144]
-Overfull \hbox (1.85841pt too wide) in paragraph at lines 1070--1071
-[]\TU/SimSun(0)/m/n/10 作 为 预 备 知 识，|  我 们 介 绍 广 义 \TU/lmr/m/n/10 Hölder \TU/SimSun(0)/m/n/10 不 等 式 的 一 个 有 用 应 用；|  参 见 附 录 中 的 \TU/lmr/m/n/10 (A.26).
- []
-
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[145]
-File: images/bo_d6ik6nn7aajc739ct1l0_181_291_1364_901_358_0.jpg Graphic file (type bmp)
-<images/bo_d6ik6nn7aajc739ct1l0_181_291_1364_901_358_0.jpg>
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[146]
-Overfull \hbox (5.86708pt too wide) in paragraph at lines 1110--1112
-\TU/FangSong(0)/m/n/10 注 意 第 二 个 不 等 式 是 将 广 义 \TU/lmr/m/n/10 Hölder \TU/FangSong(0)/m/n/10 不 等 式 应 用 于 $\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1$ \TU/FangSong(0)/m/n/10 个 函 数 $\OML/cmm/m/it/10 g[] \OT1/cmr/m/n/10 = [][] [] []  []\OML/cmm/m/it/10 s[]; i \OT1/cmr/m/n/10 =
- []
-
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[147]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[148]
-File: images/bo_d6ik6nn7aajc739ct1l0_184_162_1681_1146_219_0.jpg Graphic file (type bmp)
-<images/bo_d6ik6nn7aajc739ct1l0_184_162_1681_1146_219_0.jpg>
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[149]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[150]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[151]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[152]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[153]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[154]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[155]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[156]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[157]
-File: images/bo_d6ik6nn7aajc739ct1l0_195_164_238_1157_419_0.jpg Graphic file (type bmp)
-<images/bo_d6ik6nn7aajc739ct1l0_195_164_238_1157_419_0.jpg>
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[158]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[159]) (./线性偏微分方程.tex
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[160]
-9
-
-
-[161
-
-]
-File: images/bo_d6ik6nn7aajc739ct1l0_199_417_243_649_359_0.jpg Graphic file (type bmp)
-<images/bo_d6ik6nn7aajc739ct1l0_199_417_243_649_359_0.jpg>
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[162]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[163]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[164]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[165]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[166]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[167]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[168]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[169]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[170]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[171]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[172]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[173]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[174]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[175]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[176]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[177]
-Overfull \hbox (4.40913pt too wide) in paragraph at lines 820--821
-[]\TU/SimSun(0)/m/n/10 我 们 将 在 $\OML/cmm/m/it/10 L$ \TU/SimSun(0)/m/n/10 为 一 般 椭 圆 型 算 子 \TU/lmr/m/n/10 (\TU/SimSun(0)/m/n/10 如[]所 示\TU/lmr/m/n/10 )\TU/SimSun(0)/m/n/10 、|  且 对 应 的 双 线 性 型 $\OML/cmm/m/it/10 B []$ \TU/lmr/m/n/10 (\TU/SimSun(0)/m/n/10 见[]\TU/lmr/m/n/10 )
- []
-
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[178]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[179]
-Overfull \hbox (9.62767pt too wide) in paragraph at lines 897--898
-[]\TU/SimSun(0)/m/n/10 根 据 定 理[][]\TU/lmr/m/n/10 9.1.4[][]\TU/SimSun(0)/m/n/10 ，|  空 间 $\OML/cmm/m/it/10 L[] []$ \TU/SimSun(0)/m/n/10 存 在 一 组 由 $\OML/cmm/m/it/10 L$ \TU/SimSun(0)/m/n/10 的 特 征 函 数 构 成 的 标 准 正 交 基 $[]$，|
- []
-
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[180]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[181]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[182]
-File: images/bo_d6ik6nn7aajc739ct1l0_221_293_235_892_366_0.jpg Graphic file (type bmp)
-<images/bo_d6ik6nn7aajc739ct1l0_221_293_235_892_366_0.jpg>
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[183]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[184]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[185]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[186]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[187]) (./附录.tex
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[188]
-附录 A
-
-
-[189
-
-]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[190]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[191]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[192]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[193]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[194]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[195]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[196]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[197]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[198]
-File: images/bo_d6ik6nn7aajc739ct1l0_240_398_1533_718_612_0.jpg Graphic file (type bmp)
-<images/bo_d6ik6nn7aajc739ct1l0_240_398_1533_718_612_0.jpg>
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[199]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[200]
-File: images/bo_d6ik6nn7aajc739ct1l0_242_301_1360_918_351_0.jpg Graphic file (type bmp)
-<images/bo_d6ik6nn7aajc739ct1l0_242_301_1360_918_351_0.jpg>
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[201]
-Overfull \hbox (34.5174pt too wide) in paragraph at lines 630--631
-[]\TU/FangSong(0)/m/n/10 由 于 $\OML/cmm/m/it/10 g$ \TU/FangSong(0)/m/n/10 连 续，|  由 \TU/lmr/m/n/10 (ii) \TU/FangSong(0)/m/n/10 可 知 $[] \OMS/cmsy/m/n/10 ! \OT1/cmr/m/n/10 0$ \TU/FangSong(0)/m/n/10 在 紧 集 $\OML/cmm/m/it/10 K[]$ \TU/FangSong(0)/m/n/10 上 一 致 成 立\TU/lmr/m/n/10 . \TU/FangSong(0)/m/n/10 因 此 $[] [][] \U/msa/m/n/10 6
- []
-
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[202]
-File: images/bo_d6ik6nn7aajc739ct1l0_244_301_1743_909_382_0.jpg Graphic file (type bmp)
-<images/bo_d6ik6nn7aajc739ct1l0_244_301_1743_909_382_0.jpg>
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[203]
-File: images/bo_d6ik6nn7aajc739ct1l0_245_426_1636_660_466_0.jpg Graphic file (type bmp)
-<images/bo_d6ik6nn7aajc739ct1l0_245_426_1636_660_466_0.jpg>
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[204]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[205]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[206]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[207]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[208]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 12.34525pt, for example:
-(fancyhdr)                \setlength{\headheight}{12.34525pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
-
-[209]
-附录 B
-
-
-[210
-
-])
-
-
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.34525pt, for example:
 (fancyhdr)                \setlength{\headheight}{12.34525pt}.
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
-[211] (./泛函分析教材翻译.aux)
+[100] (./动力系统笔记b5.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2022/07/14>
@@ -3505,18 +3780,21 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
 
+LaTeX Warning: There were undefined references.
+
+
 LaTeX Warning: There were multiply-defined labels.
 
-Package rerunfilecheck Info: File `泛函分析教材翻译.out' has not changed.
-(rerunfilecheck)             Checksum: 3D8FD6B11E5702BBCB79934D16F0A22D;13211.
+Package rerunfilecheck Info: File `动力系统笔记b5.out' has not changed.
+(rerunfilecheck)             Checksum: C6D82F84CE5191460DD8D7EEEFF18854;3139.
  ) 
 Here is how much of TeX's memory you used:
- 41111 strings out of 473832
- 928326 string characters out of 5733157
- 1411712 words of memory out of 5000000
- 63320 multiletter control sequences out of 15000+600000
- 609341 words of font info for 295 fonts, out of 8000000 for 9000
+ 47916 strings out of 473832
+ 1089513 string characters out of 5733157
+ 1674212 words of memory out of 5000000
+ 70147 multiletter control sequences out of 15000+600000
+ 612252 words of font info for 309 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 131i,16n,135p,2333b,1185s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 131i,23n,135p,3237b,1302s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on 泛函分析教材翻译.pdf (216 pages).
+Output written on 动力系统笔记b5.pdf (103 pages).

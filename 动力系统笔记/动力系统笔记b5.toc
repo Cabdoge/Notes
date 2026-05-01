@@ -1,0 +1,32 @@
+\contentsline {chapter}{\numberline {1}预备知识}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}概率测度空间}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}单调类}{7}{section.1.2}%
+\contentsline {section}{\numberline {1.3}积概率空间}{10}{section.1.3}%
+\contentsline {section}{\numberline {1.4}积分与测度相关概念}{12}{section.1.4}%
+\contentsline {chapter}{\numberline {2}遍历理论}{15}{chapter.2}%
+\contentsline {section}{\numberline {2.1}一个问题}{15}{section.2.1}%
+\contentsline {section}{\numberline {2.2}保测映射}{19}{section.2.2}%
+\contentsline {section}{\numberline {2.3}遍历映射}{23}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Birkhoff遍历定理}{29}{section.2.4}%
+\contentsline {section}{\numberline {2.5}连分数与Gauss映射}{33}{section.2.5}%
+\contentsline {section}{\numberline {2.6}强大数定律}{39}{section.2.6}%
+\contentsline {paragraph}{定义概率测度空间}{40}{paragraph*.5}%
+\contentsline {paragraph}{定义遍历映射}{41}{paragraph*.6}%
+\contentsline {paragraph}{考虑投射并证明其可积性}{41}{paragraph*.7}%
+\contentsline {paragraph}{计算$f$的积分并应用Birkhoff遍历定理}{41}{paragraph*.8}%
+\contentsline {paragraph}{证明强大数定律}{42}{paragraph*.9}%
+\contentsline {section}{\numberline {2.7}环面上的遍历映射}{42}{section.2.7}%
+\contentsline {section}{\numberline {2.8}多项式函数的均匀分布}{49}{section.2.8}%
+\contentsline {section}{\numberline {2.9}回复定理}{54}{section.2.9}%
+\contentsline {section}{\numberline {2.10}Van de Waerden定理}{61}{section.2.10}%
+\contentsline {chapter}{\numberline {3}测度熵}{64}{chapter.3}%
+\contentsline {section}{\numberline {3.1}测度熵的概念}{64}{section.3.1}%
+\contentsline {section}{\numberline {3.2}条件熵与测度熵}{68}{section.3.2}%
+\contentsline {section}{\numberline {3.3}测度熵是同构不变量}{70}{section.3.3}%
+\contentsline {section}{\numberline {3.4}测度熵的计算}{71}{section.3.4}%
+\contentsline {chapter}{\numberline {4}拓扑熵}{77}{chapter.4}%
+\contentsline {section}{\numberline {4.1}拓扑熵的定义}{77}{section.4.1}%
+\contentsline {section}{\numberline {4.2}拓扑熵的性质}{80}{section.4.2}%
+\contentsline {section}{\numberline {4.3}拓扑熵的计算}{84}{section.4.3}%
+\contentsline {chapter}{\numberline {5}变分原理}{89}{chapter.5}%
+\contentsfinish 
