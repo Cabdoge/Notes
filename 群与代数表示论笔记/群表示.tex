@@ -622,7 +622,7 @@ a_{n1}R_2 & a_{n2}R_2 & \cdots & a_{nn}R_2
 Schur引理的第二部分表明了在代数闭域上的不可约表示之间的$G-\!\!$模同态的性质非常简单，只有数乘恒等映射，因而在其上的$G-\!\!$模同态空间$\Hom_G(V_1, V_1)$是一个一维空间.为了将这种简单的性质推广到一般的域上，我们将符合这一性质的域定义为分裂域以便进一步研究.
 
 \begin{definition}[分裂域][def:分裂域]
-    如果 $G$ 的任一表示 $V$ 在 $\mb{F}$ 上均有 $\Hom_G(V, V) \cong \mb{F}$，则称域 $\mb{F}$ 为群 $G$ 的分裂域.
+    如果 $G$ 的任一表示 $V$ 在 $\mb{F}$ 上均有 $\Hom_G(V, V) \cong \mb{F}$，则称域 $\mb{F}$ 为群 $G$ 的\colorbf{分裂域}.
 \end{definition}
 由以上定义，代数闭域是任一群的分裂域.注意，群表示的分裂域和域的分裂域是不同的概念，但二者的出发点和核心思想有相似之处.\par
 
@@ -644,8 +644,11 @@ Schur引理的第二部分表明了在代数闭域上的不可约表示之间的
         因此 $U$ 是 $V$ 的子表示，下证 $U$ 不可约.\par
         反证，若 $U$ 可约，则 $\rho(g)$ 对应的矩阵为上三角阵 $\begin{pmatrix} A & B \\ 0 & C \end{pmatrix} = R$.\par
         $|\lambda I - R| = \begin{vmatrix} \lambda I - A & -B \\ 0 & \lambda I - C \end{vmatrix} = (\lambda I - A)(\lambda I - C)$，其特征多项式在 $\mb{Q}$ 上可约.\par
-        而 $\rho(g)(g_1, \dots, g_{p-1}) = (g_1, \dots, g_{p-1}) \begin{pmatrix} 0 & 0 & \cdots & -1 \\ 1 & 0 & \cdots & -1 \\ 0 & 1 & \cdots & -1 \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \cdots & -1 \end{pmatrix}$.
-        其特征多项式 $\begin{vmatrix} \lambda & \dots & 1 \\ -1 & \lambda & \dots & 1 \\ \vdots & \ddots & \ddots & \vdots \\ 0 & \dots & -1 & \lambda+1 \end{vmatrix} = \lambda^{p-1} + \lambda^{p-2} + \dots + 1$. 在 $\mb{Q}$ 上不可约，矛盾!\par
+        而 \begin{equation*}
+        \rho(g)(g_1, \dots, g_{p-1}) = (g_1, \dots, g_{p-1}) \begin{pmatrix} 0 & 0 & \cdots & -1 \\ 1 & 0 & \cdots & -1 \\ 0 & 1 & \cdots & -1 \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \cdots & -1 \end{pmatrix}
+        \end{equation*}
+        其特征多项式 \begin{equation*}\begin{vmatrix} \lambda & \dots & 1 \\ -1 & \lambda & \dots & 1 \\ \vdots & \ddots & \ddots & \vdots \\ 0 & \dots & -1 & \lambda+1 \end{vmatrix} = \lambda^{p-1} + \lambda^{p-2} + \dots + 1.
+    \end{equation*} 在 $\mb{Q}$ 上不可约，矛盾!\par
         故 $U$ 是 $p-1$ 维不可约表示.
     \end{enumerate}\par
     实际上，$\mb{Q}G \cong V_1 \oplus U$，且 $V_1, U$ 是唯二的不可约子表示.\par
@@ -661,12 +664,18 @@ Schur引理的第二部分表明了在代数闭域上的不可约表示之间的
     若$(V_1,\rho_1),\cdots,\left(\rho_s,V_s\right)$是$G$的全部互不等价的不可约$F-\!$表示，则
     \[\rho_{\mathrm{reg}} \cong \left(\frac{\dim V_1}{d_1}\right)\rho_1 \oplus \left(\frac{\dim V_2}{d_2}\right)\rho_2 \oplus \cdots \oplus \left(\frac{\dim V_s}{d_s}\right)\rho_s\]
     其中$d_1=\dim\Hom_G\left(V_i,V_i\right),1\leq i\leq s$.\par
-    特别地，若$F$是$G$的分裂域，则$\rho_\mathrm{reg}=\left(\dim V_1\right)\rho_1\oplus \left(\dim V_2\right)\rho_2\oplus \cdots \oplus \left(\dim V_s\right)\rho_s$
+    特别地，若$F$是$G$的分裂域，则\begin{equation*}
+    \rho_\mathrm{reg}=\left(\dim V_1\right)\rho_1\oplus \left(\dim V_2\right)\rho_2\oplus \cdots \oplus \left(\dim V_s\right)\rho_s
+\end{equation*}
 \end{theorem}
 若进一步直接对正则表示求维数，那么可以得到以下推论
 \begin{corollary}[]
-    设$V_1,V_2,\cdots,V_s$是$G$的全部不可约$F-\!$表示，$d_i=\dim\Hom_G(V_i,V_i)$，则$|G|=\sum_{i=1}^s \frac{\dim^2{V_i}}{d_i}$.\par
-    特别地，若$F$是$G$的分裂域，则$|G|=\sum_{i=1}^s \dim^2{V_i}$.
+    设$V_1,V_2,\cdots,V_s$是$G$的全部不可约$F-\!$表示，$d_i=\dim\Hom_G(V_i,V_i)$，则\begin{equation*}
+    |G|=\sum_{i=1}^s \frac{\dim^2{V_i}}{d_i}.
+    \end{equation*}
+    特别地，若$F$是$G$的分裂域，则\begin{equation*}
+    |G|=\sum_{i=1}^s \dim^2{V_i}.
+\end{equation*}
 \end{corollary}
 上式直接给出了$G$的不可约表示的次数与个数的一个重要限制，因而可以帮助我们确定是否已经找全了所有的不可约表示.
 
@@ -676,8 +685,11 @@ Schur引理的第二部分表明了在代数闭域上的不可约表示之间的
     设$\setjot[-2]\begin{aligned}[t]
         \theta: V\otimes V&\to V\otimes V\\
         x\otimes y&\mapsto y\otimes x
-    \end{aligned} $.定义$V\otimes V$的\colorbf{对称平方}为$\mathrm{Sym}^2(V)\triangleq\{z\in V\otimes V\mid\theta(z)=z\}$.\par
-    其\colorbf{交错平方}为$\mathrm{Alt}^2(V)=\{z\in V\otimes V\mid\theta(z)=-z\}$.
+    \end{aligned} $.定义$V\otimes V$的\colorbf{对称平方}和为其\colorbf{交错平方}分别为
+    \begin{gather*}
+        \mathrm{Sym}^2(V)\triangleq\{z\in V\otimes V\mid\theta(z)=z\},\\
+        \mathrm{Alt}^2(V)=\{z\in V\otimes V\mid\theta(z)=-z\}.
+    \end{gather*}
 \end{definition}
 
 从基的角度来看，$\mathrm{Sym}^2(V)=\{e_i\otimes e_j+e_j\otimes e_i\mid e_i,e_j\in V\}$, $\mathrm{Alt}^2(V)=\{e_i\otimes e_j-e_j\otimes e_i\mid e_i,e_j\in V\}$.\par
@@ -688,13 +700,19 @@ Schur引理的第二部分表明了在代数闭域上的不可约表示之间的
 \end{theorem}
 
 \begin{proof}
-    由定义，$\forall\,g\in G,x,y\in V$，有$\theta(g(x\otimes y))=\theta(gx\otimes gy)=gy\otimes gx=g(y\otimes x)=g(\theta(x\otimes y))$.
+    由定义，$\forall\,g\in G,x,y\in V$，有
+    \begin{equation*}
+        \theta(g(x\otimes y))=\theta(gx\otimes gy)=gy\otimes gx=g(y\otimes x)=g(\theta(x\otimes y)),
+    \end{equation*}
     即$\theta\circ g=g\circ \theta$，所以$\theta$是一个\ghomo.\par
     又$\mathrm{id}$也是\ghomo ，因此$\theta\pm\mathrm{id}$是\ghomo.从而$\ker(\theta-\mathrm{id})$和$\ker(\theta+\mathrm{id})$都是$V\otimes V$的子表示.\par 
-    由于$\mathrm{Sym}^2(V)=\{z\in V\otimes V\mid \theta(z)=z\}=\mathrm{Ker}(\theta-\mathrm{id})$，且$\mathrm{Alt}^2(V)=\{z\in V\otimes V\mid \theta(z)=-z\}=\mathrm{Ker}(\theta+\mathrm{id})$，故它们均为$V\otimes V$的子表示.\par 
-    又$\forall\,z\in V\otimes V$，$z=\frac{z+\theta(z)}{2}+\frac{z-\theta(z)}{2}$.\par
-    $\theta(z+\theta(z))=\theta(z)+\theta^2(z)=\theta(z)+z,\theta(z-\theta(z))=\theta(z)-\theta^2(z)=\theta(z)-z$，因此$\frac{z+\theta(z)}{2}\in\mathrm{Sym}^2(V),\frac{z-\theta(z)}{2}\in\mathrm{Alt}^2(V)$.\par
-    故$V\otimes V=\mathrm{Sym}^2(V)\oplus\mathrm{Alt}^2(V)$.又$\mathrm{Sym}^2(V)\cap \mathrm{Alt}^2(V)=\{0\}$，因此$V\otimes V\cong\mathrm{Sym}^2(V)\oplus\mathrm{Alt}^2(V)$.
+    由于$\mathrm{Sym}^2(V)=\{z\in V\otimes V\mid \theta(z)=z\}=\ker(\theta-\mathrm{id})$，且$\mathrm{Alt}^2(V)=\{z\in V\otimes V\mid \theta(z)=-z\}=\ker(\theta+\mathrm{id})$，故它们均为$V\otimes V$的子表示.\par 
+    又$\forall\,z\in V\otimes V$，$z=\frac{z+\theta(z)}{2}+\frac{z-\theta(z)}{2}$，且我们总有
+    \begin{equation*}\theta(z+\theta(z))=\theta(z)+\theta^2(z)=\theta(z)+z,\theta(z-\theta(z))=\theta(z)-\theta^2(z)=\theta(z)-z,
+    \end{equation*}
+    因此$\frac{z+\theta(z)}{2}\in\mathrm{Sym}^2(V),\frac{z-\theta(z)}{2}\in\mathrm{Alt}^2(V)$.\par
+    故$V\otimes V=\mathrm{Sym}^2(V)\oplus\mathrm{Alt}^2(V)$.\par
+    又$\mathrm{Sym}^2(V)\cap \mathrm{Alt}^2(V)=\{0\}$，因此$V\otimes V\cong\mathrm{Sym}^2(V)\oplus\mathrm{Alt}^2(V)$.
 \end{proof}
 
 

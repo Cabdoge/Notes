@@ -5,14 +5,14 @@
 \section{分拆}
 
 由于不可约特征标的个数和对称群的共轭类数相同，我们首先需要研究对称群的共轭类，为此，我们需要引入分拆的概念.
-\begin{definition}[分拆]
+\begin{definition}[分拆]\index{f@分拆 (partition)}\index{f@分拆数 $\rho(n)$}
     设$n$为正整数，若存在正整数组$\lambda=(\lambda_1,\lambda_2,\ldots,\lambda_k),\lambda_1\geq\lambda_2\geq\cdots\geq\lambda_k$满足$|\lambda|\triangleq\sum_{i=1}^k\lambda_i=n$，则称$\lambda$是$n$的一个分拆，记作$\lambda\dashv n$.\par
     记$\rho(n)$为正整数$n$的分拆的个数.
 \end{definition}
 
 下面，我们可以证明对称群$S_n$的共轭类和$n$的分拆有密切的关系.
 
-\begin{theorem}[$S_n$的共轭类数]{\label{thm:conjugacy_classes_of_Sn}}
+\begin{theorem}[$S_n$的共轭类数]{\label{thm:conjugacy_classes_of_Sn}}\index{d@对称群 $S_n$}\index{g@共轭类与轮换类型}
     设$S_n$为$n$阶对称群，则两个置换共轭当且仅当它们具有相同的轮换类型.特别地，$S_n$的共轭类的个数等于整数$n$的分划数$\rho(n)$，
 \end{theorem}
 \begin{proof}
@@ -40,7 +40,7 @@
 
 由定理\ref{thm:conjugacy_classes_of_Sn}，我们知道$S_n$的共轭类数等于$n$的分拆数$\rho(n)$，而不可约表示的个数也等于共轭类数，因此我们可以通过研究$n$的分拆来研究$S_n$的不可约表示.为此，我们引入Young表.
 
-\begin{definition}[Young图]
+\begin{definition}[Young图]\index{y@Young 图}
     设$\lambda=(\lambda_1,\lambda_2,\ldots,\lambda_k)\dashv n$，则$\lambda$的Young图是由$n$个方格组成的图形，其中第$i$行有$\lambda_i$个方格.
 \end{definition}
 
@@ -51,7 +51,7 @@
     \end{equation*}
 \end{example}
 
-\begin{definition}[Young表]
+\begin{definition}[Young表]\index{y@Young 表}
     设$\lambda\dashv n$，则$\lambda$的Young表是在其Young图的$n$个方格中填入$1$到$n$得到的，记为$t$.称原来的Young表为$t$的形状，记作$\sh t$.
 \end{definition}
 
@@ -64,7 +64,7 @@
 \end{example}
 
 特别地，在所有的Young表中，可以定义一种特殊的Young表，称为标准Young表.
-\begin{definition}[标准Young表]
+\begin{definition}[标准Young表]\index{b@标准Young表}
     设$\lambda\dashv n$且$\sh t=n$，若$t$的每一行数字严格递增，每一列数字严格递增，则称$t$是$\lambda$的一个标准Young表.
 \end{definition}
 
@@ -76,7 +76,7 @@
     简单计算可知，分拆$(3,1,0,0)$的标准Young表共有$3$个.
 \end{example}
 相较于Young表，标准Young表的个数不至依赖于$n$，还需要考虑Young表的形状.关于标准Young表的个数，我们先不加证明地给出下述公式
-\begin{theorem}[钩长公式]
+\begin{theorem}[钩长公式]\index{g@钩长公式 (hook length formula)}\index{g@钩长 $h_{i,j}$}
     设$\lambda\dashv n$，则$\lambda$的标准Young表的个数由下式给出：
     \begin{equation*}
         f^\lambda = \frac{n!}{\prod_{(i,j)\in\lambda} h_{i,j}},
@@ -87,7 +87,7 @@
 
 \section{Young子群}
 
-\begin{definition}[Young子群]
+\begin{definition}[Young子群]\index{y@Young 子群}
     设$\lambda=(\lambda_1,\ldots,\lambda_k)\dashv n$，则对应的$S_n$的Young子群为
     \begin{equation*}
         S_\lambda= S_{\{1,2,\ldots,\lambda_1\}} \times S_{\{\lambda_1+1,\ldots,\lambda_1+\lambda_2\}} \times \cdots \times S_{n-\lambda_k+1,n-\lambda_k+2,\ldots,n}.
@@ -101,7 +101,7 @@
 \end{equation*}
 
 
-\begin{definition}[行群与列群]
+\begin{definition}[行群与列群]\index{h@行群 $R_t$}\index{l@列群 $C_t$}
     设$t$为一个Young表，定义$t$的\textbf{行群}为
     \begin{equation*}
         R_t = \{ \sigma \in S_n \mid \sigma\;\text{保持每行元素不变}\}.
@@ -127,7 +127,7 @@
 
 通过分别对行群和列群求和，我们可以构造出群代数$\mathbb{C}[S_n]$中的特定元素.
 
-\begin{definition}[Young对称化子]
+\begin{definition}[Young对称化子]\index{y@Young 对称化子 $c_t$}\index{h@行对称化子 $a_t$}\index{l@列反对称化子 $b_t$}
     对于给定的Young表$t$，定义群代数$\mathbb{C}[S_n]$中的行堆成化子和列反对成化子分别为
     \begin{equation*}
         a_t = \sum_{\sigma \in R_t} \sigma, \qquad b_t = \sum_{\tau \in C_t} \mathrm{sgn}(\tau) \tau.
@@ -140,7 +140,7 @@
 
 Young对称化子在群代数$\mathbb{C}[S_n]$中具有重要的性质，特别是当它满足特定的关系时，可以用来构造不可约表示.
 
-\begin{lemma}[von Neumann引理]{\label{lem:von_neumann}}
+\begin{lemma}[von Neumann引理]{\label{lem:von_neumann}}\index{v@von Neumann 引理}
     对于任意$\sigma\in R_t,\tau\in C_t$，有
     \begin{equation*}
         \sigma c_t \tau = \mathrm{sgn}(\tau) c_t.

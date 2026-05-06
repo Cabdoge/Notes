@@ -93,7 +93,33 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
     \begin{figure}[H]
         \centering
         \vspace{-1 em}
-        \includegraphics[width=0.4\textwidth]{fig/1.1.png}
+        \begin{tikzpicture}[scale=1.8]
+            % Axes
+            \draw[->,>=stealth,gray!80,thick] (-1.3,0) -- (1.3,0) node[right,text=black] {$x$};
+            \draw[->,>=stealth,gray!80,thick] (0,-1.3) -- (0,1.3) node[above,text=black] {$y$};
+            
+            % p = 0.5 (Non-convex, astroid-like)
+            \draw[domain=0:90, samples=100, color=purple, thick] plot ({cos(\x)*cos(\x)*cos(\x)*cos(\x)}, {sin(\x)*sin(\x)*sin(\x)*sin(\x)});
+            \draw[domain=90:180, samples=100, color=purple, thick] plot ({-cos(\x)*cos(\x)*cos(\x)*cos(\x)}, {sin(\x)*sin(\x)*sin(\x)*sin(\x)});
+            \draw[domain=180:270, samples=100, color=purple, thick] plot ({-cos(\x)*cos(\x)*cos(\x)*cos(\x)}, {-sin(\x)*sin(\x)*sin(\x)*sin(\x)});
+            \draw[domain=270:360, samples=100, color=purple, thick] plot ({cos(\x)*cos(\x)*cos(\x)*cos(\x)}, {-sin(\x)*sin(\x)*sin(\x)*sin(\x)});
+
+            % p = 1 (Diamond)
+            \draw[thick, blue] (1,0) -- (0,1) -- (-1,0) -- (0,-1) -- cycle;
+            
+            % p = 2 (Circle)
+            \draw[thick, red] (0,0) circle (1);
+            
+            % p = infinity (Square)
+            \draw[thick, green!60!black] (-1,-1) rectangle (1,1);
+            
+            % Labels
+            \node[purple] at (0.3,0.3) {$p=0.5$};
+            \node[blue] at (0.6,0.6) {$p=1$};
+            \node[red] at (0.9,0.9) {$p=2$};
+            \node[green!60!black] at (1.2,1.2) {$p=\infty$};
+            \node[below left] at (0,0) {$0$};
+        \end{tikzpicture}
         \captionof{figure}{不同$p$下的单位球}
     \end{figure}
     可以发现，当$p\geq 1$时，单位球都是凸集，并且若$p\neq 1$或$\infty$，单位球是一致凸的.因此处理$p-$范数时，有时会单独讨论$p=1$或$\infty$的情况.\par
@@ -174,7 +200,7 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
     那么$\sum_k\left(y_{n_{k+1}}-y_{n_k}\right)$绝对收敛，因此由假设收敛.\par
     故$y_{n_k}=y_{n_1}+\sum_{j=1}^{k-1}\left(y_{n_{j+1}}-y_{n_j}\right)$收敛.\par
     \begin{claim*}
-        任意有收敛子列的Cauchy列也收敛.
+        任意有收敛子列的Cauchy列也收敛. \qedhere
     \end{claim*}
 \end{proof}
 最终可以证明上面所定义的数列空间是完备的.
@@ -201,7 +227,7 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
         和$\ell^\infty$的情形相同，当$n\to\infty$时，有$x_n^{(i)}\to y^{(i)}$.\par
         那么对任意$M\in\mb{N}$，有$\sum_{i=1}^M \left|x_n^{(i)}-y^{(i)}\right|^p=\lim_{k\to\infty}\sum_{i=1}^M\left|x_k^{(i)}-y^{(i)}\right|^p\leq\varepsilon$.\par
         因此对于足够大的$n$，$\sum_{i=1}^\infty \left|x_n^{(i)}-y^{(i)}\right|\leq\varepsilon$，此处$\varepsilon>0$是任意的.\par
-        所以$x_n\to y=\{y^{(i)}\}_{i\in\mb{N}}$在$\ell^p$中收敛.
+        所以$x_n\to y=\{y^{(i)}\}_{i\in\mb{N}}$在$\ell^p$中收敛.\qedhere
     \end{enumerate}
 \end{proof}
 

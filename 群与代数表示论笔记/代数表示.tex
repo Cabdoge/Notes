@@ -38,7 +38,7 @@
         A \times V &\to V \\
         (a,v) &\mapsto a \cdot v,\forall\, a \in A, v \in V
     \end{aligned}$满足：
-    \begin{enumerate}
+    \begin{enumerate}[(i)]
         \item $a(v_1 + v_2) = a v_1 + a v_2, \quad\forall\, a \in A, v_1, v_2 \in V$
         \item $(\lambda a) v = a (\lambda v) = \lambda (av), \quad\forall\, a \in A, \lambda \in F, v \in V$
         \item $(a+b) v = av + bv, \quad\forall\, a, b \in A, v \in V$
@@ -55,7 +55,7 @@
         R \times M &\to M \\
         (r, m) &\mapsto rm
     \end{aligned}$，满足：
-    \begin{enumerate}
+    \begin{enumerate}[(i)]
         \item $r(x+y) = rx+ry, \quad\forall\, r \in R, x, y \in M$
         \item $(r+s)x = rx+sx, \quad\forall\, r, s \in R, x \in M$
         \item $1_R \cdot x = x, \quad\forall\, x \in M$
@@ -89,7 +89,8 @@
     下面验证其为$\mathbb{F}-\!\!$代数：
     \begin{enumerate}
         \item \textbf{结合环}：由于群$G$的乘法满足结合律，且上述乘法定义继承了群$G$的结合律，因此$\mathbb{F}G$是结合环.
-        \item \textbf{标量相容性}：对于任意$\lambda \in \mathbb{F}$，有$\lambda(xy) = \lambda \sum_{g,h \in G} (a_g b_h) (gh) = \sum_{g,h \in G} (\lambda a_g) b_h (gh) = (\lambda x) y$.\par
+        \item \textbf{标量相容性}：对于任意$\lambda \in \mathbb{F}$，有\begin{equation*}\lambda(xy) = \lambda \sum_{g,h \in G} (a_g b_h) (gh) = \sum_{g,h \in G} (\lambda a_g) b_h (gh) = (\lambda x) y.
+        \end{equation*}
         同理可得 $\lambda(xy) = \sum_{g,h \in G} a_g (\lambda b_h) (gh) = x(\lambda y)$，说明标量乘法与环乘法可交换.
     \end{enumerate}
     因此，$\mathbb{F}G$完全满足域上代数的条件.\par

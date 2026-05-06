@@ -5,10 +5,10 @@
 
 \begin{definition}[特征标]
     设$(\rho,V)$是群$G$的表示，则其\colorbf{特征标}为函数
-    $\setjot[-2]\begin{aligned}[t]
-        \chi_\rho:G&\to \mathbb{F} \\
-        g&\mapsto \chi_\rho(g)\triangleq \tr(\rho(g))=\tr(R_g)
-    \end{aligned}$\par
+    \begin{align*}
+        \chi_\rho:G&\to \mathbb{F}, \\[-3pt]
+        g&\mapsto \chi_\rho(g)\triangleq \tr(\rho(g))=\tr(R_g).
+    \end{align*}
     定义特征标的\colorbf{次数}为$\mathrm{deg}\,\chi\triangleq\dim V=\mathrm{deg}\,\rho$.\par
     若$\rho$不可约，其称其特征标为\colorbf{不可约特征标}.
 \end{definition}
@@ -551,7 +551,7 @@ $\forall\, f\in \Hom_G(V_1,V_1)$，由于$V_1$不可约，$\ker f=0$，又$\math
             $\chi_4$ & $3$   & $0$        & $0$        & $-1$
         \end{tabular}
     \end{center}
-    将特征标表的每一行对应$A_4$的正规子群，那么$\chi_1$对应$A_4$，$\chi_2, \chi_3$对应$K_4$，$\chi_4$对应$\{1\}$.\par
+    特征标表的每一行对应$A_4$的正规子群，那么$\chi_1$对应$A_4$，$\chi_2, \chi_3$对应$K_4$，$\chi_4$对应$\{1\}$.\par
     现在计算$C_3 = A_4 / K_4$的特征标表，其来源于$\chi_1,\chi_2,\chi_3$这三行.\par
     发现$(1)$与$(12)(34)$的列相同，将其合并即可得到$C_3$特征标表.
     \begin{center}
@@ -567,7 +567,7 @@ $\forall\, f\in \Hom_G(V_1,V_1)$，由于$V_1$不可约，$\ker f=0$，又$\math
 \subsection*{换位子群}{\textcolor{white}{1}}
 
 \begin{definition}[换位子群]
-    设$G$是群，则其\colorbf{换位子群}定义为$G'= \qty{g^{-1}h^{-1}gh \mid g, h \in G}$.
+    设$G$是群，则其\colorbf{换位子群}定义为$G'= \qty{g^{-1}h^{-1}gh \mid g, h \in G}=\langle g,h|gh=hg\rangle$.
 \end{definition}
 
 \begin{property}[]
@@ -766,6 +766,6 @@ $\forall\, f\in \Hom_G(V_1,V_1)$，由于$V_1$不可约，$\ker f=0$，又$\math
     由于不可约表示一定是正则表示的直和项，即不可约表示是正则表示的子表示.\par
     由上例可得不可约表示具有诱导表示.\par
     (2) 唯一性.\par
-    设$V_1, V_2$均由$W$诱导，下证$V_1 \cong V_2$。只需寻找\ghomo $F: V_1 \to V_2$.
+    设$V_1, V_2$均由$W$诱导，下证$V_1 \cong V_2$.只需寻找\ghomo $F: V_1 \to V_2$.
 \end{proof}
 
