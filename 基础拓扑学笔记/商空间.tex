@@ -2,7 +2,8 @@
 
 \section{商拓扑与商空间}
 
-\begin{definition}[商空间]
+\begin{definition}[商空间][def:8.1]
+\index{s@商空间}
     设 $(X, \mathcal{T})$ 是一个拓扑空间，$\sim$ 是 $X$ 上的一个等价关系.
     \begin{itemize}
         \item $X/\!\sim$ 是商集.
@@ -11,7 +12,7 @@
             x &\mapsto [x]
         \end{aligned}$ 是典范映射.
     \end{itemize}
-    令 $\tilde{\mathcal{T}} := \{ U \subset X/\!\sim \mid q^{-1}(U) \in \mathcal{T} \}$.则$\tilde{\mathcal{T}}$ 是 $X/\!\sim$ 上的一个拓扑，称为\textbf{商拓扑}. $(X/\!\sim, \tilde{\mathcal{T}})$ 称为\textbf{商空间}，$q:X\to X/\!\sim$ 称为\textbf{商映射}.
+    令 $\tilde{\mathcal{T}} := \{ U \subset X/\!\sim \mid q^{-1}(U) \in \mathcal{T} \}$.则$\tilde{\mathcal{T}}$ 是 $X/\!\sim$ 上的一个拓扑，称为\colorbf{商拓扑}. $(X/\!\sim, \tilde{\mathcal{T}})$ 称为\colorbf{商空间}，$q:X\to X/\!\sim$ 称为\colorbf{商映射}.
 \end{definition}
 \begin{proof}
     下面证明“$\tilde{\mathcal{T}}$是一个拓扑”： \par
@@ -37,7 +38,7 @@
     若 $(X, \mathcal{T})$ 是离散拓扑，则对于 $X$ 上的任意等价关系 $\sim$，$(X/\!\sim, \tilde{\mathcal{T}})$ 也是离散拓扑.
 \end{instance}
 
-\begin{proposition}
+\begin{proposition}[][prop:8.1]
     商拓扑是使得 $q: X \to X/\!\sim$ 连续的最精细的拓扑.
 \end{proposition}
 \begin{proof}
@@ -46,7 +47,7 @@
     因此 $\tilde{\mathcal{T}}' \subset \tilde{\mathcal{T}}$.
 \end{proof}
 
-\begin{lemma}\label{lem:quotient_map_char}
+\begin{lemma}[商映射的连续特征][lem:8.1]
     设 $q: X \to X/\!\sim$ 是一个商映射，$Z$ 是一个拓扑空间，$f: X/\!\sim \to Z$ 是一个映射.
     则 $f$ 连续 $\iff f \circ q$ 连续.
 \end{lemma}
@@ -63,24 +64,25 @@
     \]
 \end{proof}
 
-\begin{lemma}
+\begin{lemma}[][lem:8.2]
     设 $q: X \to X/\!\sim$ 是一个商映射.则 $C \subset X/\!\sim$ 是闭集 $\iff q^{-1}(C)$ 在 $X$ 中是闭集.
 \end{lemma}
 
-\begin{definition}[商映射的抽象定义]
+\begin{definition}[商映射的抽象定义][def:8.2]
+\index{s@商映射}
     设 $X, Y$ 是拓扑空间.如果映射$f: X \to Y$满足：
     \begin{enumerate}[(1)]
         \item $f$ 是满射.
         \item $U \subset Y$ 是开集(闭集) $\iff f^{-1}(U) \subset X$ 是开集(闭集).
     \end{enumerate}
-    则称$f$为一个\textbf{商映射}.
+    则称$f$为一个\colorbf{商映射}.
 \end{definition}
 
 \begin{remark}
-    引理 \ref{lem:quotient_map_char} 对于抽象定义的商映射也成立.
+    \cref{lem:8.1} 对于抽象定义的商映射也成立.
 \end{remark}
 
-\begin{theorem}[商空间同胚定理]
+\begin{theorem}[商空间同胚定理][thm:8.1]
     设 $f: X \to Y$ 是一个商映射，$x_1, x_2 \in X$.定义等价关系 $x_1 \sim_f x_2 \iff f(x_1) = f(x_2)$.
     则 $X/\!\sim_f \cong Y$.
 \end{theorem}
@@ -99,7 +101,7 @@
             X/\!\sim_f \arrow[r, "h"'] & Y
         \end{tikzcd}
         \]
-        我们有 $h \circ q = f$.因为 $f$ 是连续的，根据引理 \ref{lem:quotient_map_char}，$h$ 是连续的.
+        我们有 $h \circ q = f$.因为 $f$ 是连续的，根据\cref{lem:8.1}，$h$ 是连续的.
 
         \item 证明 $h^{-1}$ 连续：
         考虑交换图：
@@ -109,13 +111,13 @@
             Y \arrow[ru, "h^{-1}"'] &
         \end{tikzcd}
         \]
-        我们有 $h^{-1} \circ f = q$.因为 $q$ 是连续的，而 $f$ 是商映射（根据抽象定义），再次使用引理 \ref{lem:quotient_map_char}，可知 $h^{-1}$ 是连续的.
+        我们有 $h^{-1} \circ f = q$.因为 $q$ 是连续的，而 $f$ 是商映射（根据抽象定义），再次使用\cref{lem:8.1}，可知 $h^{-1}$ 是连续的.
     \end{itemize}
     因此，$h$ 是一个同胚.
 \end{proof}
 这个定理实际说明了通过等价类定义出来的商映射和抽象定义的商映射是相互兼容的，二者并不矛盾.
 
-\begin{proposition}
+\begin{proposition}[][prop:8.2]
     若映射 $f:X\to Y$ 是满射、连续、开(闭)映射，则 $f$ 是一个商映射.
 \end{proposition}
 \begin{proof}
@@ -141,7 +143,7 @@
     \end{aligned} $ 是一个商映射，因为 $\pi_X$ 是满射、连续且开的.
 \end{instance}
 
-\begin{proposition}{}{8.3}
+\begin{proposition}[][prop:8.3]
     设 $f:X\to Y$ 是一个连续满射.若 $X$ 是紧致空间，$Y$ 是Hausdorff空间，则 $f$ 是一个商映射.
 \end{proposition}
 \begin{proof}
@@ -154,7 +156,7 @@
     由于 $Y$ 是Hausdorff空间，所以 $f(C)$ 在 $Y$ 中是闭集.
 \end{proof}
 
-\begin{lemma}
+\begin{lemma}[][lem:8.3]
     设 $f:X\to Y$ 和 $g:Y\to Z$ 都是商映射，则复合映射 $g\circ f:X\to Z$ 也是一个商映射.
 \end{lemma}
 \begin{proof}
@@ -193,7 +195,7 @@
         \captionof{figure}{n=2的情形}
     \end{center}\par
     当$n=2$时，上述映射将闭圆盘$D^2$中的每一个同心圆映为$S^2$上的小圆和大圆，特别地将闭圆盘的圆心和边界映为$S^2$的两极.\par
-    可以验证$f$是连续满射.由于$D^n$ 是紧的，$S^n$ 是Hausdorff的，由命题\ref{pro:8.3}可知$f$ 是一个商映射.\par
+    可以验证$f$是连续满射.由于$D^n$ 是紧的，$S^n$ 是Hausdorff的，由\cref{prop:8.3}可知$f$ 是一个商映射.\par
     因此 $D^n/S^{n-1}=D^n/\!\sim_f\cong S^n$.
 \end{instance}
 
@@ -257,8 +259,9 @@
 
 \section{射影空间}
 
-\begin{definition}[射影空间]
-    $n$维\textbf{射影空间}，记作 $\mathbb{P}^n$，有以下几种等价的构造方式：
+\begin{definition}[射影空间][def:8.3]
+\index{s@射影空间}
+    $n$维\colorbf{射影空间}，记作 $\mathbb{P}^n$，有以下几种等价的构造方式：
     \begin{enumerate}[(i)]
         \item 在 $\mathbb{E}^{n+1}\setminus\{0\}$ 中，定义等价关系：对于 $\vec{y}_1, \vec{y}_2 \in \mathbb{E}^{n+1}\setminus\{0\}$，
         \[ \vec{y}_1 \sim \vec{y}_2 \iff \exists \lambda \in \mathbb{R}\setminus\{0\}, \st \vec{y}_2 = \lambda \vec{y}_1 \]

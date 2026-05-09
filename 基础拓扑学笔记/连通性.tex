@@ -5,8 +5,9 @@
 \section{连通空间}
 
 \vspace{-1 em}
-\begin{definition}[连通空间]
-    设$X$是一个拓扑空间.如果存在非空、不相交的开集 $U$ 和 $V$，使得 $U \cup V = X$，则称$X$是\textbf{不连通的}，$\{U, V\}$ 是$X$的一个\textbf{分割}.否则，称$X$是\textbf{连通的}.
+\begin{definition}[连通空间][def:7.1]
+\index{l@连通空间}
+    设$X$是一个拓扑空间.如果存在非空、不相交的开集 $U$ 和 $V$，使得 $U \cup V = X$，则称$X$是\colorbf{不连通的}，$\{U, V\}$ 是$X$的一个\colorbf{分割}.否则，称$X$是\colorbf{连通的}.
 \end{definition}
 
 \begin{instance}
@@ -22,7 +23,7 @@
     取开集$U=(-\infty,0)=\bigcup_{n\in\mb{Z_+}}[-n,0)$和开集$V=[0,+\infty)=\bigcup_{n\in\mb{Z}_+}[0,n)$即可.
 \end{instance}
 
-\begin{proposition}
+\begin{proposition}[][prop:7.1]
     $X$是不连通的 $\iff$ 存在$X$的一个非空、既开又闭的真子集.
 \end{proposition}
 
@@ -37,17 +38,17 @@
     \end{proof}
 \end{instance}
 
-\begin{definition}[连通子集]
-    设$X$是拓扑空间，$A \subset X$.如果$A$在子空间拓扑中是连通的，则称$A$在$X$中是\textbf{连通的}（或$A$是$X$中的一个\textbf{连通子集}）.
+\begin{definition}[连通子集][def:7.2]
+    设$X$是拓扑空间，$A \subset X$.如果$A$在子空间拓扑中是连通的，则称$A$在$X$中是\colorbf{连通的}（或$A$是$X$中的一个\colorbf{连通子集}）.
 \end{definition}
 
 \begin{instance}
     $(-2, -1) \cup (1, 2) \subset \mathbb{E}^1$ 是不连通的.
 \end{instance}
 
-\begin{lemma}
+\begin{lemma}[][lem:7.1]
     设$X$是一个拓扑空间，$A \subset X$.则$A$在$X$中是不连通的 $\iff$ 存在$X$中的开集 $U$ 和 $V$，使得 $U \cap A \neq \varnothing$, $V \cap A \neq \varnothing$, $U \cup V \supset A$，且 $(U \cap A) \cap (V \cap A) = \varnothing$.
-    这样的 $\{U, V\}$ 称为$A$在$X$中的一个\textbf{分割}.
+    这样的 $\{U, V\}$ 称为$A$在$X$中的一个\colorbf{分割}.
 \end{lemma}
 \begin{figure}[h]
     \centering
@@ -56,7 +57,7 @@
 \end{figure}
 
 
-\begin{proposition}
+\begin{proposition}[][prop:7.2]
     连通空间的连续像是连通的.即若 $f: X \to Y$ 是连续函数且 $X$ 是连通空间，则 $f(X)$ 在 $Y$ 中是连通的.
 \end{proposition}
 \begin{proof}
@@ -67,7 +68,7 @@
     因此$\{f^{-1}(U),f^{-1}(V)\}$是$X$的一个分割，所以 $X$ 是不连通的，矛盾！
 \end{proof}
 
-\begin{theorem}
+\begin{theorem}[][thm:7.1]
     设 $X_1 \cong X_2$.$X_1$ 是连通的 $\iff X_2$ 是连通的.
 \end{theorem}
 这个定理表示连通性是拓扑性质，因此可以考查两个拓扑的连通性来判定它们是否是同胚的.如果两个拓扑空间一个连通一个不连通，则它们一定不是同胚的.
@@ -91,14 +92,15 @@
     因为$[a,b) \cong (a,b] \cong (-\infty,b] \cong [a, +\infty) $，$[a,b),(a,b],(-\infty,b]$是连通的
 \end{proof}
 
-\begin{theorem}[介值定理]
+\begin{theorem}[介值定理][thm:7.2]
+\index{j@介值定理}
     设$X$是一个连通拓扑空间，$f: X \to \mathbb{E}^1$ 是连续的，$x_0, x_1 \in X$ 且 $f(x_0) < f(x_1)$.那么对于任意 $y \in \left[f(x_0), f(x_1)\right]$，都存在 $x \in X$，使得 $f(x) = y$.
 \end{theorem}
 上述定理和极值定理一样，实则是拓宽了在数学分析中学习的连续函数在有界闭区间上取值的性质.其原因在于欧式空间下有界闭区间是连通的紧集.
 
 
 
-\begin{lemma}
+\begin{lemma}[][lem:7.2]
     设$X$是一个拓扑空间，$A\subset X$，$\{U,V\}$是$X$的一个分割，则要么$A\subset U$，要么$A\subset V$.
 \end{lemma}
 \begin{proof}
@@ -106,7 +108,7 @@
 \end{proof}
 
 
-\begin{lemma}[引理7.2的一般形式]{7.3}
+\begin{lemma}[引理7.2的一般形式][lem:7.3]
     设 $X$ 是拓扑空间，$A\subset B\subset X$，$\{U,V\}$ 是 $B$ 在 $X$ 中的一个分割.若 $A$ 在 $X$ 中是连通的，则要么 $A\subset U$，要么 $A\subset V$.
 \end{lemma}
 \begin{proof}
@@ -123,12 +125,12 @@
 \end{proof}
 \vspace{1 em}
 
-\begin{proposition}[连通子集的闭包连通]
+\begin{proposition}[连通子集的闭包连通][prop:7.3]
     设 $X$ 是一个拓扑空间，$A$ 是 $X$ 中的一个连通子集，$B\subset X$且$A\subset B\subset \overline{A}$.则 $B$ 是连通的.特别地 $\overline{A}$ 是连通的.
 \end{proposition}
 \begin{proof}
     反证法，如若不然，则存在 $B$ 在 $X$ 中的一个分割 $\{U,V\}$.\par
-    由引理\ref{lem:7.3}知 $A\subset U$ 或 $A\subset V$.不失一般性，不妨设 $A\subset V$，则 $A\cap U=\varnothing$.\par
+    由\cref{lem:7.3}知 $A\subset U$ 或 $A\subset V$.不失一般性，不妨设 $A\subset V$，则 $A\cap U=\varnothing$.\par
     取任意$x\in U\cap B$，则 $x\in B\subset \overline{A}\Rightarrow x\in\overline{A}$.\par
     $x\in U,A\cap U=\varnothing\Rightarrow x\notin \overline{A}$，矛盾!
 \end{proof}
@@ -140,7 +142,7 @@
     圆周$S^1=\mb{E}^1\cup\{\infty\}=\overline{\mb{E}^1}$同胚于一维欧式空间的单点紧化.由$\mb{E}^1$连通可得$S^1$连通.
 \end{instance}
 
-\begin{lemma}[交集非空的连通族的并连通]{7.4}
+\begin{lemma}[交集非空的连通族的并连通][lem:7.4]
     设 $X$ 是拓扑空间，$\{C_\lambda\}_{\lambda\in\Lambda}$ 是一族在 $X$ 中连通的子集，且 $\bigcap_{\lambda\in\Lambda} C_\lambda \neq \varnothing$.则$\bigcup_{\lambda\in\Lambda} C_\lambda$ 是连通的.
 \end{lemma}
 \begin{proof}
@@ -151,7 +153,7 @@
 \end{proof}
 该引理的想法是，如果每个子集都连通，且相互“连接”在一起(即交集非空)，则并集也连通.
 
-\begin{theorem}[乘积空间的连通性]
+\begin{theorem}[乘积空间的连通性][thm:7.3]
     设 $X,Y$ 为拓扑空间，则 $X\times Y$ 连通当且仅当 $X$ 与 $Y$ 都连通.
 \end{theorem}
 \begin{proof}
@@ -164,14 +166,14 @@
         \vspace{-1 em}
     \end{wrapfigure}
     $\forall\,y\in Y$，$X\times\{y\}\cong X$，故连通.\par
-    记$C_y:= (X\times\{y\})\cup(\{x_0\}\times Y)$ 连通，由引理\ref{lem:7.4}，$C_y$连通.\par
-    $X\times Y=\bigcup_{y\in Y} C_y$，且 $\bigcap_{y\in Y} C_y=\{x_0\}\times Y\neq\varnothing$.由引理\ref{lem:7.4}，$X\times Y$ 连通.
+    记$C_y:= (X\times\{y\})\cup(\{x_0\}\times Y)$ 连通，由\cref{lem:7.4}，$C_y$连通.\par
+    $X\times Y=\bigcup_{y\in Y} C_y$，且 $\bigcap_{y\in Y} C_y=\{x_0\}\times Y\neq\varnothing$.由\cref{lem:7.4}，$X\times Y$ 连通.
 \end{proof}
 \vspace{2 em}
 
 这个定理的结论是自然的，并且应用数学归纳法可以将其推广到有限乘积拓扑空间的情形.
 
-\begin{corollary}[有限乘积空间的连通性]
+\begin{corollary}[有限乘积空间的连通性][cor:7.1]
     若 $X_1,\dots,X_n$ 为拓扑空间，则 $X_1\times\cdots\times X_n$ 连通 $\iff$ 每个 $X_i$ 连通.
 \end{corollary}
 \begin{instance}
@@ -182,14 +184,14 @@
 \end{instance}
 \section{连通分支}
 
-\begin{definition}[连通分支]
+\begin{definition}[连通分支][def:7.3]
     设$X$是一个拓扑空间，$x,y\in X$，若存在一个连通子集 $C_{x,y}\subset X,\st x,y\in C$，则定义$x\sim_c y$，那么$\sim_c$是 $X$ 上的一个等价关系，即
     \begin{enumerate}[(i)]
         \item $x\sim_c x$
         \item $x\sim_c y\Rightarrow y\sim_c x$
         \item $x\sim_c y,y\sim_c z\Rightarrow x\sim_c z$
     \end{enumerate}
-    “$\sim_c$”的每一个等价类称为 $X$ 的一个\textbf{连通分支}.
+    “$\sim_c$”的每一个等价类称为 $X$ 的一个\colorbf{连通分支}.
 \end{definition}
 \begin{proof}
     下面证明$\sim_c$是一个等价关系.(i)(ii)显然成立.\par
@@ -207,23 +209,23 @@
 
 一个连通分支有以下几个重要性质，即连通分支是连通的、极大的、闭的.\par
 
-\begin{lemma}[连通分支是连通的]
+\begin{lemma}[连通分支是连通的][lem:7.5]
     设 $C$ 是 $X$ 的一个连通分支，则 $C$ 是连通的.
 \end{lemma}
 \begin{proof}
     取 $x_0\in C$.$\forall\,p\in C$，存在一个连通子集$C_p\subset X$，使得 $x_0,p\in C_p$.\par
     由定义可知$C_p\subset C$，因此$C=\bigcup_{p\in C}{C_p}$.\par    
-    因为$\bigcap_{p\in C} C_p\supset\{x_0\}\neq\varnothing$，由引理\ref{lem:7.4}，$C=\bigcup_{p\in C} C_p$ 连通.
+    因为$\bigcap_{p\in C} C_p\supset\{x_0\}\neq\varnothing$，由\cref{lem:7.4}，$C=\bigcup_{p\in C} C_p$ 连通.
 \end{proof}
 
-\begin{lemma}[连通分支的极大性]
+\begin{lemma}[连通分支的极大性][lem:7.6]
     设 $C$ 是 $X$ 的一个连通分支，$A\subset X$ 是连通子集且 $C\subset A$，则 $A=C$.
 \end{lemma}
 \begin{proof}
     只需证明$A\subset C$.取$x_0\in C\subset A$.由$A$是连通子集，故$\forall\, a\in A,a\sim_c x_0$，因此$a\in C$，则$A\subset C$.
 \end{proof}
 
-\begin{lemma}[连通分支是闭集]
+\begin{lemma}[连通分支是闭集][lem:7.7]
     若 $C$ 是 $X$ 的一个连通分支，则 $C$ 在 $X$ 中闭.
 \end{lemma}
 \begin{proof}
@@ -246,8 +248,9 @@
 
 \section{道路连通}
 
-\begin{definition}[道路]
-    在拓扑空间 $X$ 中，称从 $x$ 到 $y$ 的一条\textbf{道路}为一个连续映射 $a:[0,1]\to X$，满足 $a(0)=x$，$a(1)=y$.
+\begin{definition}[道路][def:7.4]
+\index{d@道路}
+    在拓扑空间 $X$ 中，称从 $x$ 到 $y$ 的一条\colorbf{道路}为一个连续映射 $a:[0,1]\to X$，满足 $a(0)=x$，$a(1)=y$.
 \end{definition}
 \begin{figure}[h]
     \centering
@@ -258,9 +261,10 @@
     一条道路不仅仅是它的像，还包含参数化信息.
 \end{remark}
 
-\begin{definition}[道路连通]
-    在拓扑空间$X$中，若对任意 $x,y\in X$，都存在从 $x$ 到 $y$ 的道路，则称 $X$ 是\textbf{道路连通}的.\par
-    若 $A\subset X$ 在子空间拓扑中是道路连通的，则称 $A$ 是 $X$ 的一个\textbf{道路连通子集}.
+\begin{definition}[道路连通][def:7.5]
+\index{d@道路连通}
+    在拓扑空间$X$中，若对任意 $x,y\in X$，都存在从 $x$ 到 $y$ 的道路，则称 $X$ 是\colorbf{道路连通}的.\par
+    若 $A\subset X$ 在子空间拓扑中是道路连通的，则称 $A$ 是 $X$ 的一个\colorbf{道路连通子集}.
 \end{definition}
 需要注意，道路连通子集不能使用大空间中的道路来连接其内的两点，而必须使用子空间拓扑下的道路，因此没有类似于紧致子集和连通子集的使用大空间中集合的性质来证明其紧致性和连通性的结论.
 
@@ -279,7 +283,7 @@
     对任意 $x,y\in\mathbb{R}$，映射 $a:[0,1]\to\mathbb{R}$，$t\mapsto (1-t)x+ty$ 是连续的，将其视作到 $\mathbb{R}_{fc}$ 的映射仍为一条从 $x$ 到 $y$ 的道路.
 \end{instance}
 
-\begin{proposition}[连续映射保持道路连通性]
+\begin{proposition}[连续映射保持道路连通性][prop:7.4]
     若 $X$ 道路连通且 $f:X\to Y$ 连续，则 $f(X)$ 在 $Y$ 中是道路连通的.
 \end{proposition}
 \begin{proof}
@@ -288,21 +292,21 @@
     则 $f\circ a:[0,1]\to Y$ 是从 $y_0$ 到 $y_1$ 的道路，其像包含于 $f(X)$，故 $f(X)$ 道路连通.
 \end{proof}
 
-\begin{theorem}
+\begin{theorem}[][thm:7.4]
     若 $X_1\cong X_2$，则 $X_1$ 道路连通当且仅当 $X_2$ 道路连通.
 \end{theorem}
 这告诉我们道路连通性和连通性一样，也是一个拓扑性质. 
 
 \section{道路连通分支}
 
-\begin{definition}[道路连通分支]
+\begin{definition}[道路连通分支][def:7.6]
     设$X$是一个拓扑空间，$x,y\in X$，若存在一条从 $x$ 到 $y$ 的道路，则定义$x\sim_p y$，那么$\sim_p$是 $X$ 上的一个等价关系，即
     \begin{enumerate}[(i)]
         \item $x\sim_p x$
         \item $x\sim_p y\Rightarrow y\sim_p x$
         \item $x\sim_p y,y\sim_p z\Rightarrow x\sim_p z$
     \end{enumerate}
-    “$\sim_p$”的每一个等价类称为 $X$ 的一个\textbf{道路连通分支}.
+    “$\sim_p$”的每一个等价类称为 $X$ 的一个\colorbf{道路连通分支}.
 \end{definition}
 \begin{proof}
     下面证明$\sim_p$是一个等价关系.\par
@@ -346,7 +350,7 @@
     由粘贴引理知 $c$ 连续，故 $c$ 是从 $x$ 到 $z$ 的道路.
 \end{proof}
 
-\begin{lemma}[道路连通分支是道路连通的]
+\begin{lemma}[道路连通分支是道路连通的][lem:7.8]
     $X$ 的任一道路连通分支 $P$ 都是道路连通的.
 \end{lemma}
 \begin{proof}
@@ -357,7 +361,7 @@
     \end{aligned}$，它是从$a(0)$到$a(t)$的道路，因此有$a(t)\in P$，从而 $a\left([0,1]\right)\subset P$.因此 $P$ 道路连通.
 \end{proof}
 
-\begin{lemma}[道路连通分支的极大性]
+\begin{lemma}[道路连通分支的极大性][lem:7.9]
     若 $P$ 是 $X$ 的一个道路连通分支，$A\subset X$ 是道路连通子集且 $P\subset A$，则 $A=P$.
 \end{lemma}
 \begin{proof}
@@ -369,7 +373,7 @@
 
 \section{连通与道路连通}
 
-\begin{proposition}[道路连通必连通]
+\begin{proposition}[道路连通必连通][prop:7.5]
     若拓扑空间 $X$ 道路连通，则 $X$ 连通.
 \end{proposition}
 \begin{proof}
@@ -412,8 +416,9 @@ $B$是连通的，因为$B\cong (0,1]$，那么$X=\overline{B}$也是连通的.\
 
 \section{局部道路连通}
 
-\begin{definition}[局部道路连通]
-    设$X$是一个拓扑空间，若对$\forall\,x\in X$及其任意$x$的邻域$U$，存在$x$的道路连通的邻域$V$，使得$x\in V\subset U$，则称$X$为\textbf{局部道路连通}.
+\begin{definition}[局部道路连通][def:7.7]
+\index{j@局部道路连通}
+    设$X$是一个拓扑空间，若对$\forall\,x\in X$及其任意$x$的邻域$U$，存在$x$的道路连通的邻域$V$，使得$x\in V\subset U$，则称$X$为\colorbf{局部道路连通}.
 \end{definition}
 
 \begin{remark}
@@ -447,7 +452,7 @@ $B$是连通的，因为$B\cong (0,1]$，那么$X=\overline{B}$也是连通的.\
 \end{instance}
 
 下面这个命题告诉我们连通集补充上局部道路连通的性质后就是一个道路连通集.
-\begin{proposition}[连通且局部道路连通蕴含道路连通]
+\begin{proposition}[连通且局部道路连通蕴含道路连通][prop:7.6]
     若 $X$ 连通且局部道路连通，则 $X$ 道路连通.
 \end{proposition}
 \begin{proof}
@@ -458,13 +463,13 @@ $B$是连通的，因为$B\cong (0,1]$，那么$X=\overline{B}$也是连通的.\
     因此，$\bigcup_{\lambda\neq\lambda_0}{P_\lambda}$的补集$P_{\lambda_0}$是开集，故 $P_{\lambda_0}$为既开又闭的非空真子集，与$X$连通矛盾.
 \end{proof}
 
-\begin{corollary}
+\begin{corollary}[][cor:7.2]
     若 $A\subset \mathbb{E}^n$ 是开集且连通，则$A$道路连通.
 \end{corollary}
 
 \section{区分拓扑空间}
 
-\begin{lemma}[限制仍为同胚]
+\begin{lemma}[限制仍为同胚][lem:7.10]
     若 $f:X\to Y$ 是同胚，$A\subset X$，则限制 $f|_A:A\to f(A)$ 也是同胚.
 \end{lemma}
 \begin{proof}

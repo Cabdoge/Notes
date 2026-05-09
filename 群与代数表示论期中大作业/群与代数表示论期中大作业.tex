@@ -9,6 +9,9 @@
 \makeindex[title=关键词索引, columns=2, columnsep=1.5cm, intoc, options=-s pinyin.ist]
 
 \usepackage[hidelinks]{hyperref}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{float}
 
 %================ 页面布局 ================
 \usepackage{geometry}
@@ -66,6 +69,7 @@
 \subject{群与代数表示论期中大作业}
 \keywords{上海交大,饮水思源,爱国荣校}
 
+
 \begin{document}
 \maketitle
 
@@ -95,7 +99,9 @@
     $f^\lambda$ & 形状为$\lambda$的标准Young表个数 \\
     $h_{i,j}$ & Young图方格$(i,j)$的钩长 \\
     $H(\lambda)$ & $\lambda$的全图钩长之积$\prod h_{i,j}$ \\
-    $C(\lambda)$ & $\lambda$的可移角格集合 \\ \hline
+    $C(\lambda)$ & $\lambda$的可移角格集合 \\
+    $\operatorname{Des}(T)$ & 标准Young表$T$的下降集 \\
+    $\operatorname{Peak}(T)$ & 标准Young表$T$的单峰集 \\ \hline
     \multicolumn{2}{c}{\textit{群与代数}} \\ \hline
     $S_n$ & $n$阶对称群 \\
     $C_\mu$ & 轮换类型为$\mu$的共轭类 \\
@@ -338,7 +344,7 @@ $M^\lambda$仍然可约，甚至于可以是正则表示包含所有的不可约
     \end{equation*}
 \end{proof}
 
-下一个引理是纯组合学上的，它连接了杨表的“形状”与群代数的“计算”.
+下一个引理是纯组合学上的，它连接了Young表的“形状”与群代数的“计算”.
 
 \begin{lemma}[多项表的极值性]{\label{lem:extremality}}\index{d@多项表极值性（择一性）}
     设$\sh t=\lambda\dashv n$，$\{t'\}\in M^\lambda$，考虑列反对称化子$b_t$在$\{t'\}$上的作用，则有以下择一性：
@@ -511,14 +517,14 @@ $M^\lambda$仍然可约，甚至于可以是正则表示包含所有的不可约
 \begin{definition}[$\lambda-\!$报的字典序]
     对于两个不同的$\lambda-\!$报 $\{t\}$ 和 $\{s\}$，我们比较元素 $1, 2, \dots, n$ 在它们中所在的行号.找到最大的那个所在行号不同的元素 $k$.如果 $k$ 在 $\{t\}$ 中的行号小于它在 $\{s\}$ 中的行号，则称$\{t\} \rhd \{s\}$
 \end{definition}
-一个观察是对于任何杨表 $t$，在多项表 $e_t = \sum_{\tau \in C_t} \mathrm{sgn}(\tau)\tau \{t\}$ 的所有展开项中，$\{t\}$ 本身总是唯一的序最大项.这是因为列群中的非平凡置换必然会把某些元素移到更低的行.
+一个观察是对于任何Young表 $t$，在多项表 $e_t = \sum_{\tau \in C_t} \mathrm{sgn}(\tau)\tau \{t\}$ 的所有展开项中，$\{t\}$ 本身总是唯一的序最大项.这是因为列群中的非平凡置换必然会把某些元素移到更低的行.
 
 
 \begin{lemma}[标准多项表线性无关]
-    所有标准杨表生成的多项表必然线性无关.
+    所有标准Young表生成的多项表必然线性无关.
 \end{lemma}
 \begin{proof}
-    假设存在一组互不相同的标准杨表 $t_1, t_2, \dots, t_m$ 和不全为零的常数 $c_i$，使得：
+    假设存在一组互不相同的标准Young表 $t_1, t_2, \dots, t_m$ 和不全为零的常数 $c_i$，使得：
     \begin{equation*}
         \sum_{i=1}^m c_i e_{t_i} = 0.
     \end{equation*}
@@ -528,7 +534,7 @@ $M^\lambda$仍然可约，甚至于可以是正则表示包含所有的不可约
     因此，在 $e_{t_k}$ 中，$\{t_k\}$ 的系数仅仅是 $1$（对应于 $\tau = \mathrm{id}$ 的情况）.\par
     其次，对于任意 $j \neq k$（且 $c_j \neq 0$），我们要说明 $e_{t_j}$ 的展开式中不可能出现 $\{t_k\}$：如果 $e_{t_j}$ 中包含 $\{t_k\}$ 项，则必然存在列群中的置换 $\tau \in C_{t_j}$ 使得 $\tau \{t_j\} = \{t_k\}$. \par
     根据对于字典序的观察，展开项的序总是小于等于原项，这要求 $\{t_k\} = \tau \{t_j\} \unlhd \{t_j\}$. 由于第一步选择 $\{t_k\}$ 时取的是所有非零项中的极大元，必须同时有 $\{t_j\} \unlhd \{t_k\}$，于是只有当 $\{t_k\} = \{t_j\}$ 时等号才成立.\par
-    然而，$t_k$ 和 $t_j$ 都是标准杨表，它们的每一行内部必然已经全部按严格递增且从左向右排列. 如果 $\{t_k\} = \{t_j\}$，在它们同时满足升序排列的前提下，意味着必然有 $t_k = t_j$. 这与 $t_i$ 互不相同的假设直接矛盾.\par
+    然而，$t_k$ 和 $t_j$ 都是标准Young表，它们的每一行内部必然已经全部按严格递增且从左向右排列. 如果 $\{t_k\} = \{t_j\}$，在它们同时满足升序排列的前提下，意味着必然有 $t_k = t_j$. 这与 $t_i$ 互不相同的假设直接矛盾.\par
     因此，对于所有的 $j \neq k$ ，$e_{t_j}$ 根本无法产生 $\{t_k\}$ 项来与 $c_k e_{t_k}$ 产生的 $\{t_k\}$ 相抵消. 这就导致了整个左边求和式展开后，$\{t_k\}$ 的总系数恰好是不等于0的 $c_k$.\par
     这与等式右边为 $0$ 矛盾.\par
     因此，所有标准多项表必然线性无关.
@@ -581,7 +587,7 @@ $M^\lambda$仍然可约，甚至于可以是正则表示包含所有的不可约
 
 \section{Frobenius公式}
 
-前章已证明Specht模$S^\lambda$构成对称群不可约表示的完备集，理论上对其取迹即得特征标，但$S^\lambda$的维数随$n$阶乘增长，直接进行矩阵运算行不通。Frobenius的洞见在于：将特征标理论"翻译"为对称多项式理论——对称多项式环为类函数空间提供了一个代数化的工作平台，在此平台上，不可约特征标$\chi^\lambda$对应于Schur多项式$s_\lambda$，而共轭类$C_\mu$对应于幂和对称多项式$p_\mu$，二者之间的基变换系数恰好是我们需要的特征标值。
+前章已证明Specht模$S^\lambda$构成对称群不可约表示的完备集，理论上对其取迹即得特征标，但$S^\lambda$的维数随$n$阶乘增长，直接进行矩阵运算行不通. Frobenius的洞见在于：将特征标理论"翻译"为对称多项式理论——对称多项式环为类函数空间提供了一个代数化的工作平台，在此平台上，不可约特征标$\chi^\lambda$对应于Schur多项式$s_\lambda$，而共轭类$C_\mu$对应于幂和对称多项式$p_\mu$，二者之间的基变换系数恰好是我们需要的特征标值. 
 
 \begin{definition}[幂和对称多项式]\index{m@幂和对称多项式 $p_\mu$}\index{z@中心化子的阶 $z_\mu$}
     对正整数$k$，定义\textbf{幂和对称多项式}为
@@ -602,7 +608,7 @@ $M^\lambda$仍然可约，甚至于可以是正则表示包含所有的不可约
 $|C_{S_n}(\sigma_\mu)| = z_\mu.$
 
 \begin{remark}
-    $\{p_\mu \mid \mu \dashv n\}$构成$n$次对称多项式环的一组基。特别地，当$\mu \neq \nu$时，$p_\mu$与$p_\nu$线性无关，且个数恰为分拆数$\rho(n)$，与不可约表示的个数一致。
+    $\{p_\mu \mid \mu \dashv n\}$构成$n$次对称多项式环的一组基. 特别地，当$\mu \neq \nu$时，$p_\mu$与$p_\nu$线性无关，且个数恰为分拆数$\rho(n)$，与不可约表示的个数一致. 
 \end{remark}
 
 
@@ -627,7 +633,7 @@ $|C_{S_n}(\sigma_\mu)| = z_\mu.$
 \end{definition}
 
 \begin{remark}
-    分子$a_{\lambda+\delta}(x)$是交错多项式，必被Vandermonde行列式$a_\delta(x)$整除，故$s_\lambda(x)$确为对称多项式。
+    分子$a_{\lambda+\delta}(x)$是交错多项式，必被Vandermonde行列式$a_\delta(x)$整除，故$s_\lambda(x)$确为对称多项式. 
 \end{remark}
 
 \begin{remark}\index{b@半标准Young表 (SSYT)}
@@ -635,7 +641,7 @@ $|C_{S_n}(\sigma_\mu)| = z_\mu.$
     \begin{equation*}
         s_\lambda(x) = \sum_{T \in \mathrm{SSYT}(\lambda)} x^{\operatorname{wt}(T)},
     \end{equation*}
-    其中$\mathrm{SSYT}(\lambda)$为$\lambda$上的所有半标准Young表，权$\operatorname{wt}(T)=(w_1,w_2,\dots)$记录$T$中各数字的出现次数，且$x^{\operatorname{wt}(T)} = x_1^{w_1}x_2^{w_2}\cdots$。此组合定义与行列式定义等价，后文以行列式定义为主要工具。
+    其中$\mathrm{SSYT}(\lambda)$为$\lambda$上的所有半标准Young表，权$\operatorname{wt}(T)=(w_1,w_2,\dots)$记录$T$中各数字的出现次数，且$x^{\operatorname{wt}(T)} = x_1^{w_1}x_2^{w_2}\cdots$. 此组合定义与行列式定义等价，后文以行列式定义为主要工具. 
 \end{remark}
 
 
@@ -646,10 +652,10 @@ $|C_{S_n}(\sigma_\mu)| = z_\mu.$
     \begin{equation}\label{eq:frobenius}
         s_\lambda(x) = \sum_{\mu \,\dashv\, n} \frac{\chi^\lambda_\mu}{z_\mu}\, p_\mu(x),
     \end{equation}
-    其中$\chi^\lambda_\mu$表示Specht模$S^\lambda$在共轭类$C_\mu$上的不可约特征标值。
+    其中$\chi^\lambda_\mu$表示Specht模$S^\lambda$在共轭类$C_\mu$上的不可约特征标值. 
 \end{theorem}
 
-该公式表明Schur多项式在幂和对称多项式基下的展开系数，乘以$z_\mu$后即得不可约特征标值。求特征标的问题由此被转化为对称多项式的基展开问题，由此完全避开了对$S^\lambda$中具体矩阵的依赖.特别地，Frobenius公式还隐含了一个重要的对称性：
+该公式表明Schur多项式在幂和对称多项式基下的展开系数，乘以$z_\mu$后即得不可约特征标值. 求特征标的问题由此被转化为对称多项式的基展开问题，由此完全避开了对$S^\lambda$中具体矩阵的依赖.特别地，Frobenius公式还隐含了一个重要的对称性：
 \begin{corollary}[逆关系]\label{cor:inv}\index{f@Frobenius 特征标公式}
     两组基之间的转换矩阵具有对称性：
     \begin{equation*}
@@ -664,7 +670,7 @@ $|C_{S_n}(\sigma_\mu)| = z_\mu.$
         \mathcal{F}: C(S_n) \longrightarrow \Lambda_n,\qquad\index{f@Frobenius 特征标映射 $\mathcal{F}$}
         \mathcal{F}(f) = \sum_{\mu \dashv n} f(\sigma_\mu)\,\frac{p_\mu}{z_\mu},
     \end{equation*}
-    其中$\sigma_\mu$为轮换类型为$\mu$的任一置换。该映射将共轭类$C_\mu$的示性函数映为$p_\mu / z_\mu$。
+    其中$\sigma_\mu$为轮换类型为$\mu$的任一置换. 该映射将共轭类$C_\mu$的示性函数映为$p_\mu / z_\mu$. 
 
     在$\Lambda_n$上定义Hall内积\index{h@Hall 内积}
     \begin{equation*}
@@ -677,8 +683,8 @@ $|C_{S_n}(\sigma_\mu)| = z_\mu.$
         = [\chi,\psi].
     \end{equation*}
 
-    Schur多项式$\{s_\lambda\}$在Hall内积下构成$\Lambda_n$的一组正交基；而不可约特征标$\{\chi^\lambda\}$在类函数内积$[\cdot,\cdot]$下构成$C(S_n)$的一组标准正交基。\par
-    由等距性，$\{\mathcal{F}(\chi^\lambda)\}$也是$\Lambda_n$中的一个标准正交系。适当调整符号后，必有$\mathcal{F}(\chi^\lambda) = s_\lambda$。将$\mathcal{F}(\chi^\lambda)$的定义式展开即得\eqref{eq:frobenius}式。细节可参见\cite{FultonHarris}.
+    Schur多项式$\{s_\lambda\}$在Hall内积下构成$\Lambda_n$的一组正交基；而不可约特征标$\{\chi^\lambda\}$在类函数内积$[\cdot,\cdot]$下构成$C(S_n)$的一组标准正交基. \par
+    由等距性，$\{\mathcal{F}(\chi^\lambda)\}$也是$\Lambda_n$中的一个标准正交系. 适当调整符号后，必有$\mathcal{F}(\chi^\lambda) = s_\lambda$. 将$\mathcal{F}(\chi^\lambda)$的定义式展开即得\eqref{eq:frobenius}式. 细节可参见\cite{FultonHarris}.
 \end{proof}
 
 下面用Frobenius公式完整计算$S_3$的特征标表作为示例.
@@ -687,11 +693,11 @@ $|C_{S_n}(\sigma_\mu)| = z_\mu.$
 \begin{equation}\label{eq:S3-vander}
     \Delta(x)=a_\delta(x)=(x_1-x_2)(x_1-x_3)(x_2-x_3).
 \end{equation}
-下面依次计算三个分拆对应的Schur多项式$s_\lambda=a_{\lambda+\delta}\,/\,a_\delta$。
+下面依次计算三个分拆对应的Schur多项式$s_\lambda=a_{\lambda+\delta}\,/\,a_\delta$. 
 
 \medskip
-\noindent\textbf{情形一：$\lambda=(1,1,1)=(1^3)$。}\quad
-此时$\lambda+\delta=(3,2,1)$。
+\noindent\textbf{情形一：$\lambda=(1,1,1)=(1^3)$. }\quad
+此时$\lambda+\delta=(3,2,1)$. 
 \begin{align*}
     a_{(3,2,1)}&= \det\begin{pmatrix}
         x_1^3 & x_1^2 & x_1\\
@@ -721,8 +727,8 @@ $|C_{S_n}(\sigma_\mu)| = z_\mu.$
 \end{equation}
 
 \medskip
-\noindent\textbf{情形二：$\lambda=(2,1)$。}\quad
-此时$\lambda+\delta=(4,2,0)$。展开交错和：
+\noindent\textbf{情形二：$\lambda=(2,1)$. }\quad
+此时$\lambda+\delta=(4,2,0)$. 展开交错和：
 \begin{align*}
     a_{(4,2,0)}&= \det\begin{pmatrix}
         x_1^4 & x_1^2 & 1\\
@@ -747,22 +753,22 @@ $|C_{S_n}(\sigma_\mu)| = z_\mu.$
 \begin{align*}
     s_{(2,1)}&=x_1^2x_2+x_1^2x_3+x_1x_2^2+x_1x_3^2+x_2^2x_3+x_2x_3^2+2x_1x_2x_3.
 \end{align*}
-记$A=\sum_{i\neq j}x_i^2x_j$$B=x_1x_2x_3=e_3$，则$s_{(2,1)}=A+2B$。
+记$A=\sum_{i\neq j}x_i^2x_j$$B=x_1x_2x_3=e_3$，则$s_{(2,1)}=A+2B$. 
 
-下面用幂和表达$A$与$B$。展开幂和乘积：
+下面用幂和表达$A$与$B$. 展开幂和乘积：
 \begin{align*}
     p_1^3&=(x_1+x_2+x_3)^3=p_3+3A+6B,\\
     p_1p_2&=(x_1+x_2+x_3)(x_1^2+x_2^2+x_3^2)=p_3+A.
 \end{align*}
-由此解出$A=p_1p_2-p_3$，而$B=e_3=\frac{1}{6}(p_1^3-3p_1p_2+2p_3)$。代入：
+由此解出$A=p_1p_2-p_3$，而$B=e_3=\frac{1}{6}(p_1^3-3p_1p_2+2p_3)$. 代入：
 \begin{align*}
     s_{(2,1)}&=A+2B=(p_1p_2-p_3)+\frac{1}{3}(p_1^3-3p_1p_2+2p_3)\\
     &=\frac{1}{3}\bigl(p_1^3-p_3\bigr).
 \end{align*}
 
 \medskip
-\noindent\textbf{情形三：$\lambda=(3)$。}\quad
-此时$\lambda+\delta=(5,1,0)$。
+\noindent\textbf{情形三：$\lambda=(3)$. }\quad
+此时$\lambda+\delta=(5,1,0)$. 
 \begin{equation*}
     a_{(5,1,0)}=\det\begin{pmatrix}
         x_1^5 & x_1 & 1\\
@@ -770,12 +776,12 @@ $|C_{S_n}(\sigma_\mu)| = z_\mu.$
         x_3^5 & x_3 & 1
     \end{pmatrix}.
 \end{equation*}
-展开该行列式需计算五次方项，因子分解不如前两例简明。为此我们利用Schur多项式的经典性质：单行分拆$\lambda=(n)$对应的$s_{(n)}$恰为完全齐次对称多项式$h_n$（这一事实亦可直接从行列式定义验证：$s_{(n)}=a_{(n+(n-1),\,n-2,\,\dots,\,0)}/a_\delta=h_n$的Jacobi-Trudi展开）。于是
+展开该行列式需计算五次方项，因子分解不如前两例简明. 为此我们利用Schur多项式的经典性质：单行分拆$\lambda=(n)$对应的$s_{(n)}$恰为完全齐次对称多项式$h_n$（这一事实亦可直接从行列式定义验证：$s_{(n)}=a_{(n+(n-1),\,n-2,\,\dots,\,0)}/a_\delta=h_n$的Jacobi-Trudi展开）. 于是
 \begin{equation*}
     s_{(3)}(x)=h_3=\sum_{1\le i\le j\le k\le 3} x_i x_j x_k
     =p_3+A+B,
 \end{equation*}
-其中$A$和$B$的定义与前文相同。再次利用$A=p_1p_2-p_3$与$B=\frac{1}{6}(p_1^3-3p_1p_2+2p_3)$：
+其中$A$和$B$的定义与前文相同. 再次利用$A=p_1p_2-p_3$与$B=\frac{1}{6}(p_1^3-3p_1p_2+2p_3)$：
 \begin{align*}
     s_{(3)}&=p_3+(p_1p_2-p_3)+\frac{1}{6}(p_1^3-3p_1p_2+2p_3)\\
     &=\frac{1}{6}\bigl(p_1^3+3p_1p_2+2p_3\bigr).
@@ -788,22 +794,22 @@ $|C_{S_n}(\sigma_\mu)| = z_\mu.$
     s_{(1^3)}   &= \frac{1}{6}p_1^3 - \frac{1}{2}p_1p_2 + \frac{1}{3}p_3.
 \end{align}
 
-注意到$p_1^3=p_{(1^3)}$，$p_1p_2=p_{(2,1)}$，$p_3=p_{(3)}$。由\eqref{eq:zmu}式：
+注意到$p_1^3=p_{(1^3)}$，$p_1p_2=p_{(2,1)}$，$p_3=p_{(3)}$. 由\eqref{eq:zmu}式：
 \begin{equation*}
     z_{(1^3)} = 1^3\cdot 3! = 6,\qquad
     z_{(2,1)} = 1^1\cdot 1! \cdot 2^1\cdot 1! = 2,\qquad
     z_{(3)}   = 3^1\cdot 1! = 3.
 \end{equation*}
-依据Frobenius公式~\eqref{eq:frobenius}，$p_\mu$的系数等于$\chi^\lambda_\mu/z_\mu$，故$\chi^\lambda_\mu=\text{（系数）}\times z_\mu$。逐行读出：
+依据Frobenius公式~\eqref{eq:frobenius}，$p_\mu$的系数等于$\chi^\lambda_\mu/z_\mu$，故$\chi^\lambda_\mu=\text{（系数）}\times z_\mu$. 逐行读出：
 
 \medskip
-\noindent$\lambda=(3)$：系数依次为$\frac{1}{6},\frac{1}{2},\frac{1}{3}$，乘$z$后得$\chi^{(3)}_{(1^3)}=\chi^{(3)}_{(2,1)}=\chi^{(3)}_{(3)}=1$。
+\noindent$\lambda=(3)$：系数依次为$\frac{1}{6},\frac{1}{2},\frac{1}{3}$，乘$z$后得$\chi^{(3)}_{(1^3)}=\chi^{(3)}_{(2,1)}=\chi^{(3)}_{(3)}=1$. 
 
 \medskip
-\noindent$\lambda=(2,1)$：系数依次为$\frac{1}{3},0,-\frac{1}{3}$，乘$z$后得$\chi^{(2,1)}_{(1^3)}=2$，$\chi^{(2,1)}_{(2,1)}=0$，$\chi^{(2,1)}_{(3)}=-1$。
+\noindent$\lambda=(2,1)$：系数依次为$\frac{1}{3},0,-\frac{1}{3}$，乘$z$后得$\chi^{(2,1)}_{(1^3)}=2$，$\chi^{(2,1)}_{(2,1)}=0$，$\chi^{(2,1)}_{(3)}=-1$. 
 
 \medskip
-\noindent$\lambda=(1^3)$：系数依次为$\frac{1}{6},-\frac{1}{2},\frac{1}{3}$，乘$z$后得$\chi^{(1^3)}_{(1^3)}=1$，$\chi^{(1^3)}_{(2,1)}=-1$，$\chi^{(1^3)}_{(3)}=1$。
+\noindent$\lambda=(1^3)$：系数依次为$\frac{1}{6},-\frac{1}{2},\frac{1}{3}$，乘$z$后得$\chi^{(1^3)}_{(1^3)}=1$，$\chi^{(1^3)}_{(2,1)}=-1$，$\chi^{(1^3)}_{(3)}=1$. 
 
 \medskip
 汇总得$S_3$的完整特征标表：
@@ -823,7 +829,7 @@ $|C_{S_n}(\sigma_\mu)| = z_\mu.$
 可以验证正交关系：
 $\sum_{\mu}(\chi^\lambda_\mu)^2/z_\mu
 =\frac{1}{6}\sum_{\sigma\in S_3}\chi^\lambda(\sigma)^2=1$
-对每种$\lambda$均成立。
+对每种$\lambda$均成立. 
 \end{example}
 
 可以看出，即使是$S_3$，单纯使用Frobenius公式计算也较为复杂.
@@ -831,38 +837,38 @@ $\sum_{\mu}(\chi^\lambda_\mu)^2/z_\mu
 
 \section{边界带表}
 
-Frobenius公式将特征标$\chi^\lambda_\mu$表达为Schur多项式在幂和基下的展开系数，这一代数化路径在$S_3$的例子中可行，但对更大的$n$，行列式展开的工作量迅速增长。本节引入纯组合的工具——\textbf{边界带}与\textbf{边界带表}——它们是Young图上可按规则逐层"剥离"的连通块，将构成下一节Murnaghan-Nakayama递推公式的基本单元。
+Frobenius公式将特征标$\chi^\lambda_\mu$表达为Schur多项式在幂和基下的展开系数，这一代数化路径在$S_3$的例子中可行，但对更大的$n$，行列式展开的工作量迅速增长. 本节引入纯组合的工具——\textbf{边界带}与\textbf{边界带表}.
 
-\medskip
-\noindent\textbf{边界.}\quad
-对于分拆$\lambda$，其Young图的\emph{边界}\index{b@边界}是指图中所有满足以下条件的方格$(i,j)$：其东南对角位置$(i+1,j+1)$不属于$\lambda$。换言之，
+
+\begin{definition}[边界]
+    对于分拆$\lambda$，其Young图的\emph{边界}\index{b@边界}是指图中所有满足以下条件的方格$(i,j)$：其东南对角位置$(i+1,j+1)$不属于$\lambda$，即
 \begin{equation*}
     \mathrm{rim}(\lambda) = \{\, (i,j) \in \lambda \mid (i+1,j+1) \notin \lambda \,\}.
 \end{equation*}
-从几何上看，边界就是从Young图西南角沿阶梯路径走到东北角所经过的全部方格。边界总是连通的，且$\lambda$的"外轮廓"完全由其边界方格决定。
+\end{definition}
 
-\medskip
-\noindent\textbf{边界带的定义.}
+从几何上看，边界就是从Young图西南角沿阶梯路径走到东北角所经过的全部方格. 边界总是连通的，且$\lambda$的"外轮廓"完全由其边界方格决定. 
+
 
 \begin{definition}[边界带]\label{def:borderstrip}\index{b@边界带}
-    设$\lambda \dashv n$。$\lambda$的一个\emph{边界带}$\xi$是$\lambda$的Young图边界上的一个连通方格集合，满足以下三个条件：
+    设$\lambda \dashv n$. $\lambda$的一个\emph{边界带} $\xi$是$\lambda$的Young图边界上的一个连通方格集合，满足以下三个条件：
     \begin{enumerate}[label={(\roman*)},nosep]
         \item $\xi$在边界上连通：$\xi\subseteq\mathrm{rim}(\lambda)$，且$\xi$中的方格沿边界路径相互连通（即沿边相邻或沿边界对角相邻）；
-        \item $\xi$不含$2\times2$的方格方块；
-        \item 从$\lambda$的Young图中删去$\xi$中的全部方格后，剩余的方格仍构成某个分拆的Young图（左对齐、上对齐）。
+        \item $\xi$不含$2\times2$的方格方块；\index{2@$2\times2$ 禁令}
+        \item 从$\lambda$的Young图中删去$\xi$中的全部方格后，剩余的方格仍构成某个分拆的Young图. 
     \end{enumerate}
 \end{definition}
 
 对边界带$\xi$，记：
 \begin{itemize}[nosep]
     \item $|\xi|$为$\xi$所含的方格数，称为边界带的\emph{大小}；
-        \item $\operatorname{ht}(\xi)$为$\xi$所占的行数与$1$的差，称为边界带的\emph{高度}（leg length）；\index{b@边界带的高度与符号}
-    \item $\varepsilon(\xi)=(-1)^{\operatorname{ht}(\xi)}$为边界带的\emph{符号}。
+        \item $\operatorname{ht}(\xi)$为$\xi$所占的行数与$1$的差，称为边界带的\emph{高度}；\index{b@边界带的高度与符号}
+    \item $\varepsilon(\xi)=(-1)^{\operatorname{ht}(\xi)}$为边界带的\emph{符号}. 
 \end{itemize}
-条件(iii)表明，若从$\lambda$中删去边界带$\xi$，剩下的图形对应一个新的分拆，记作$\lambda\setminus\xi$。
+条件(iii)表明，若从$\lambda$中删去边界带$\xi$，剩下的图形对应一个新的分拆，记作$\lambda\setminus\xi$. 
 
 \begin{example}[$\lambda=(3,1)$的边界带]\label{ex:bs-31}\index{b@边界带}
-    考虑Young图$\ydiagram{3,1}$，即$\lambda=(3,1)$。其边界由方格$(2,1)$，$(1,2)$，$(1,3)$，$(1,1)$组成（按边界路径的次序），共计$4$格。去掉不满足条件(iii)的子集后，有效的边界带为：
+    考虑Young图$\ydiagram{3,1}$，即$\lambda=(3,1)$. 其边界由方格$(2,1)$，$(1,2)$，$(1,3)$，$(1,1)$组成，共计$4$格. 去掉不满足条件(iii)的子集后，有效的边界带为：
 
     \begin{center}
     \renewcommand{\arraystretch}{1.25}
@@ -877,27 +883,25 @@ Frobenius公式将特征标$\chi^\lambda_\mu$表达为Schur多项式在幂和基
     \end{tabular}
     \end{center}
 
-    注意$\{(2,1),(1,2)\}$虽在边界上连通，但删去后剩余的$\{(1,1),(1,3)\}$不是左对齐的图形（第$1$行存在缺口），故不满足条件(iii)，不是边界带。
+    注意$\{(2,1),(1,2)\}$虽在边界上连通，但删去后剩余的$\{(1,1),(1,3)\}$不是左对齐的图形（第$1$行存在缺口），故不满足条件(iii)，不是边界带. 
 \end{example}
 
 \begin{example}[$2\times2$禁令：$\lambda=(2,2)$]\label{ex:bs-22}\index{2@$2\times2$ 禁令}
-    $\ydiagram{2,2}$的边界由$(2,2)$，$(2,1)$，$(1,2)$（以及$(1,1)$）组成。考虑全部$4$个方格构成的子集$\{(1,1),(1,2),(2,1),(2,2)\}$：其包含一个完整的$2\times2$方块，违反定义~\ref{def:borderstrip}~(ii)，因此\emph{不是}边界带。它的任意真子集若满足连通性与删除后合法性，则可成为边界带。
+    $\ydiagram{2,2}$的边界由$(2,2)$，$(2,1)$，$(1,2)$以及$(1,1)$组成. 考虑全部$4$个方格构成的子集$\{(1,1),(1,2),(2,1),(2,2)\}$：其包含一个完整的$2\times2$方块，违反定义~\ref{def:borderstrip}~(ii)，因此\emph{不是}边界带. 它的任意真子集若满足连通性与删除后合法性，则可成为边界带. 
 
-    此禁令的几何含义为：边界带在每一行至多经过一个"凸角"，因而在Young图上只能沿边界"蛇形"蜿蜒，不得形成块状结构。
+    此禁令的几何含义为：边界带在每一行至多经过一个"凸角"，因而在Young图上只能沿边界"蛇形"蜿蜒，不得形成块状结构. 
 \end{example}
 
-\medskip
-\noindent\textbf{边界带表.}
 
 \begin{definition}[边界带表]\label{def:bst}\index{b@边界带表}
-    设$\mu=(\mu_1,\mu_2,\dots,\mu_k)\dashv n$为对称群$S_n$的一个共轭类的轮换类型。形状为$\lambda$、类型为$\mu$的\emph{边界带表}是一个分拆的递减链
+    设$\mu=(\mu_1,\mu_2,\dots,\mu_k)\dashv n$为对称群$S_n$的一个共轭类的轮换类型. 形状为$\lambda$、类型为$\mu$的\emph{边界带表}是一个分拆的递减链
     \begin{equation*}
         \lambda = \lambda^{(0)} \supset \lambda^{(1)} \supset \lambda^{(2)} \supset \cdots \supset \lambda^{(k)} = \varnothing,
     \end{equation*}
-    使得对每个$1\le i\le k$，差集$\xi_i = \lambda^{(i-1)}\setminus\lambda^{(i)}$是$\lambda^{(i-1)}$的一个大小为$\mu_i$的边界带。
+    使得对每个$1\le i\le k$，差集$\xi_i = \lambda^{(i-1)}\setminus\lambda^{(i)}$是$\lambda^{(i-1)}$的一个大小为$\mu_i$的边界带. 
 \end{definition}
 
-等价地，我们也可以将边界带表直观地理解为在$\lambda$的Young图的各个方格中填入数字$1,2,\dots,k$的一种填法：数字$i$恰好出现$\mu_i$次，填入$i$的那些方格恰好构成一个边界带，并且在填完数字$1$并将其对应的边界带"剥离"后，剩余方格仍是分拆$\lambda^{(1)}$的Young图；在此基础上填入$2$并剥离，如此继续，直至全部方格被剥离完毕。
+等价地，我们也可以将边界带表直观地理解为在$\lambda$的Young图的各个方格中填入数字$1,2,\dots,k$的一种填法：数字$i$恰好出现$\mu_i$次，填入$i$的那些方格恰好构成一个边界带，并且在填完数字$1$并将其对应的边界带"剥离"后，剩余方格仍是分拆$\lambda^{(1)}$的Young图；在此基础上填入$2$并剥离，如此继续，直至全部方格被剥离完毕. 
 
 对于一个边界带表$T$，记其各层边界带的符号之积为$T$的符号：
 \begin{equation*}
@@ -905,66 +909,69 @@ Frobenius公式将特征标$\chi^\lambda_\mu$表达为Schur多项式在幂和基
 \end{equation*}
 
 \begin{example}[$\lambda=(3,1)$，$\mu=(2,2)$的边界带表]\label{ex:bst-31-22}\index{b@边界带表}
-    从例~\ref{ex:bs-31}已知$\lambda=(3,1)$只有一个大小为$2$的边界带$\xi_1=\{(1,2),(1,3)\}$（高度为$0$），移除后得到$\lambda^{(1)}=(1,1)$：$\ydiagram{1,1}$。\par
-    $\lambda^{(1)}=(1,1)$的唯一大小为$2$的边界带为$\xi_2=\{(1,1),(2,1)\}$（高度为$1$），移除后得到$\varnothing$。\par
+    从例~\ref{ex:bs-31}已知$\lambda=(3,1)$只有一个大小为$2$的边界带$\xi_1=\{(1,2),(1,3)\}$（高度为$0$），移除后得到$\lambda^{(1)}=(1,1)$：$\ydiagram{1,1}$. \par
+    $\lambda^{(1)}=(1,1)$的唯一大小为$2$的边界带为$\xi_2=\{(1,1),(2,1)\}$（高度为$1$），移除后得到$\varnothing$. \par
     因此形状$\lambda=(3,1)$、类型$\mu=(2,2)$的边界带表有且仅有一个，记作$T$：
     \begin{equation*}
         (3,1) \xrightarrow[\operatorname{ht}=0]{\xi_1} (1,1) \xrightarrow[\operatorname{ht}=1]{\xi_2} \varnothing.
     \end{equation*}
-    其总高度为$0+1=1$，符号为$\varepsilon(T)=(-1)^{1}=-1$。
+    其总高度为$0+1=1$，符号为$\varepsilon(T)=(-1)^{1}=-1$. 
 \end{example}
 
 \medskip
-边界带与边界带表的核心价值在于，它们将Murnaghan-Nakayama递推公式的所有要素翻译成了纯粹的Young图组合操作：每次从$\lambda$中剥去一个大小适当的边界带，并计入其高度决定的符号。我们将在下一节看到，不可约特征标$\chi^\lambda_\mu$恰好等于所有形状$\lambda$、类型$\mu$的边界带表的符号之和。
+边界带与边界带表的核心价值在于，它们将Murnaghan-Nakayama递推公式的所有要素翻译成了纯粹的Young图组合操作：每次从$\lambda$中剥去一个大小适当的边界带，并计入其高度决定的符号. 我们将在下一节看到，不可约特征标$\chi^\lambda_\mu$恰好等于所有形状$\lambda$、类型$\mu$的边界带表的符号之和. 
 
 
 \section{Murnaghan-Nakayama公式}
 
-前两节分别建立了Frobenius公式（代数桥）和边界带表（组合语言），本节将它们融合为完整的Murnaghan-Nakayama法则。该法则将不可约特征标$\chi^\lambda_\mu$的计算彻底转化为Young图上的边界带剥离操作——不依赖任何矩阵或行列式展开，是特征标理论中最实用的组合工具。
+前两节分别建立了Frobenius公式和边界带表，本节将它们融合为完整的Murnaghan-Nakayama法则. 该法则将不可约特征标$\chi^\lambda_\mu$的计算转化为Young图上的边界带剥离操作，是特征标理论中最实用的组合工具. 
 
-\begin{theorem}[Murnaghan-Nakayama法则（递推形式）]\label{thm:MN}\index{m@Murnaghan-Nakayama 法则}
-    设$\lambda,\mu\vdash n$，且$\mu=(\mu_1,\mu_2,\dots,\mu_k)$。则
+\begin{theorem}[Murnaghan-Nakayama法则(递推形式)]\label{thm:MN}\index{m@Murnaghan-Nakayama 法则}
+    设$\lambda,\mu\vdash n$，且$\mu=(\mu_1,\mu_2,\dots,\mu_k)$. 则
     \begin{equation}\label{eq:MN-rec}
         \chi^\lambda_\mu = \sum_{\substack{\xi\subseteq\lambda\text{为边界带}\\|\xi|=\mu_1}} (-1)^{\operatorname{ht}(\xi)}\;\,
         \chi^{\lambda\setminus\xi}_{(\mu_2,\,\dots,\,\mu_k)},
     \end{equation}
-    其中$\lambda\setminus\xi$表示从$\lambda$中删去边界带$\xi$后得到的分拆。当$k=1$（即$\mu=(n)$）时，约定$\chi^{\varnothing}_{()}=1$。
+    其中$\lambda\setminus\xi$表示从$\lambda$中删去边界带$\xi$后得到的分拆. 当$k=1$，即$\mu=(n)$时，约定$\chi^{\varnothing}_{()}=1$. 
 \end{theorem}
 
-换言之：要计算$\chi^\lambda_\mu$，只需找到$\lambda$中所有大小为$\mu_1$的边界带，对每个边界带$\xi$乘以符号$(-1)^{\operatorname{ht}(\xi)}$，然后递归计算更小分拆$\lambda\setminus\xi$关于缩短后的共轭类$(\mu_2,\dots,\mu_k)$的特征标。
+换言之：要计算$\chi^\lambda_\mu$，只需找到$\lambda$中所有大小为$\mu_1$的边界带，对每个边界带$\xi$乘以符号$(-1)^{\operatorname{ht}(\xi)}$，然后递归计算更小分拆$\lambda\setminus\xi$关于缩短后的共轭类$(\mu_2,\dots,\mu_k)$的特征标. 
 
-\begin{corollary}[封闭形式——边界带表的符号和]\label{cor:MN-closed}\index{m@Murnaghan-Nakayama 法则}
-    对$\lambda,\mu\vdash n$，记$\mu=(\mu_1,\dots,\mu_k)$。则
+\begin{corollary}[非递推形式]\label{cor:MN-closed}\index{m@Murnaghan-Nakayama 法则}
+    对$\lambda,\mu\vdash n$，记$\mu=(\mu_1,\dots,\mu_k)$. 则
     \begin{equation}\label{eq:MN-closed}
         \chi^\lambda_\mu = \sum_{T} \varepsilon(T) = \sum_{T} (-1)^{\operatorname{ht}(T)},
     \end{equation}
-    其中$T$跑遍所有形状为$\lambda$、类型为$\mu$的边界带表（定义~\ref{def:bst}）。
+    其中$T$跑遍所有形状为$\lambda$、类型为$\mu$的边界带表. 
 \end{corollary}
 \begin{proof}
-    对$k$归纳。$k=1$时，边界带表$T$退化为$\lambda$本身（作为大小为$n$的边界带），\eqref{eq:MN-closed}即\eqref{eq:MN-rec}中$k=1$的情形。若$k>1$，将\eqref{eq:MN-rec}右端的每个$\chi^{\lambda\setminus\xi}_{(\mu_2,\dots,\mu_k)}$按归纳假设展开为边界带表的符号和，即得所有形状$\lambda$、类型$\mu$的边界带表符号和。
+    对$k$归纳. $k=1$时，边界带表$T$退化为$\lambda$本身，\eqref{eq:MN-closed}即\eqref{eq:MN-rec}中$k=1$的情形.\par
+    若$k>1$，将\eqref{eq:MN-rec}右端的每个$\chi^{\lambda\setminus\xi}_{(\mu_2,\dots,\mu_k)}$按归纳假设展开为边界带表的符号和，即得所有形状$\lambda$、类型$\mu$的边界带表符号和. 
 \end{proof}
 
 \begin{remark}
-    $\mu$的分量顺序不影响最终的特征标值：Murnaghan-Nakayama法则对$\mu$的任意排列均成立。在实际计算中，通常取最大的$\mu_i$先行剥离，以减少候选边界带数目。
+    $\mu$的分量顺序不影响最终的特征标值：Murnaghan-Nakayama法则对$\mu$的任意排列均成立. 在实际计算中，通常取最大的$\mu_i$先行剥离，以减少候选边界带数目. 
 \end{remark}
 
 \medskip
 \noindent\textbf{证明概要.}\quad
-定理~\ref{thm:MN}的证明核心在于对称多项式环中的一个展开恒等式。
+定理~\ref{thm:MN}的证明核心在于对称多项式环中的一个展开恒等式. 
 
 \begin{lemma}[幂和乘Schur多项式的边界带展开]\label{lem:ps-Schur}\index{m@Murnaghan-Nakayama 法则}
     在$n$元对称多项式环中，对任意分拆$\nu$和正整数$r$，有
     \begin{equation}\label{eq:ps-Schur}
         p_r \cdot s_\nu = \sum_{\xi} (-1)^{\operatorname{ht}(\xi)}\, s_{\nu\cup\xi},
     \end{equation}
-    其中$\xi$跑遍所有能添加到$\nu$上的大小为$r$的边界带（即$\nu\cup\xi$为合法分拆，且$\xi$落在$\nu\cup\xi$的边界上）。
+    其中$\xi$跑遍所有能添加到$\nu$上的大小为$r$的边界带（即$\nu\cup\xi$为合法分拆，且$\xi$落在$\nu\cup\xi$的边界上）. 
 \end{lemma}
 \begin{proof}[引理思路]
-    利用Schur多项式的行列式定义$s_\nu=a_{\nu+\delta}\,/\,a_\delta$及幂和的定义$p_r=\sum_i x_i^r$。将乘积$p_r\cdot a_{\nu+\delta}$展开为行列式的线性组合，利用行列式的斜对称性，每个非零项恰好对应在$\nu$的Young图上沿边界添加一个大小为$r$的边界带，其符号恰为$(-1)^{\operatorname{ht}(\xi)}$。除以$a_\delta$后即得\eqref{eq:ps-Schur}。详细论证可参见~\cite{FultonHarris}第4章或Sagan~\cite{Sagan}第4章。
+    利用Schur多项式的行列式定义$s_\nu=a_{\nu+\delta}\,/\,a_\delta$及幂和的定义$p_r=\sum_i x_i^r$. 将乘积$p_r\cdot a_{\nu+\delta}$展开为行列式的线性组合.\par
+    利用行列式的斜对称性，每个非零项恰好对应在$\nu$的Young图上沿边界添加一个大小为$r$的边界带，其符号恰为$(-1)^{\operatorname{ht}(\xi)}$. 除以$a_\delta$后即得\eqref{eq:ps-Schur}.\par
+    详细论证可参见~\cite{FultonHarris}第4章或Sagan~\cite{Sagan}第4章. 
 \end{proof}
 
 \begin{proof}[定理~\ref{thm:MN}的证明]
-    反复应用引理~\ref{lem:ps-Schur}。从空分拆$\varnothing$出发（对应$s_\varnothing=1$）：
+    反复应用引理~\ref{lem:ps-Schur}. 从空分拆$\varnothing$出发（对应$s_\varnothing=1$）：
     \begin{align*}
         p_\mu = p_{\mu_1}p_{\mu_2}\cdots p_{\mu_k}
         &= p_{\mu_1}p_{\mu_2}\cdots p_{\mu_{k-1}}\cdot\bigl(p_{\mu_k}\cdot 1\bigr)  \\
@@ -972,92 +979,78 @@ Frobenius公式将特征标$\chi^\lambda_\mu$表达为Schur多项式在幂和基
         &=\;\cdots\\
         &=\sum_{T} (-1)^{\operatorname{ht}(T)}\, s_{\operatorname{sh}(T)},
     \end{align*}
-    其中$T$跑遍类型为$\mu$的所有边界带表（最终形状$\operatorname{sh}(T)$随$T$变化）。最后一步恰为对$k$的归纳。
+    其中$T$跑遍类型为$\mu$的所有边界带表. 最后一步恰为对$k$的归纳. 
 
     另一方面，由Frobenius特征标公式的逆关系（推论~\ref{cor:inv}），
     \begin{equation*}
         p_\mu = \sum_{\lambda\,\dashv\, n} \chi^\lambda_\mu \; s_\lambda .
     \end{equation*}
 
-    $\{s_\lambda\}$是线性无关的。比较上两式中$s_\lambda$的系数，即得
+    $\{s_\lambda\}$是线性无关的. 比较上两式中$s_\lambda$的系数，即得
     \begin{equation*}
         \chi^\lambda_\mu = \sum_{T:\,\operatorname{sh}(T)=\lambda} (-1)^{\operatorname{ht}(T)},
     \end{equation*}
-    此即封闭形式~\eqref{eq:MN-closed}，再由推论~\ref{cor:MN-closed}的归纳论证，递推形式~\eqref{eq:MN-rec}等价成立。
+    此即封闭形式~\eqref{eq:MN-closed}，再由推论~\ref{cor:MN-closed}的归纳论证，递推形式~\eqref{eq:MN-rec}等价成立. 
 \end{proof}
 
-\medskip
-\noindent\textbf{例子：$S_4$的若干特征标值.}
 
 \begin{example}[用Murnaghan-Nakayama法则计算$S_4$特征标]\label{ex:MN-S4}\index{m@Murnaghan-Nakayama 法则}
-下面递推计算$S_4$的五个特征标值，每个计算严格遵循三步：找边界带、读高度、递归。
+下面递推计算$S_4$的五个特征标值，每个计算严格遵循三步：找边界带、读高度、递归. 
 
 \medskip
 \noindent\textbf{(i) $\chi^{(4)}_{(4)}$：}\quad
-$\lambda=(4)$（单行Young图），$\mu=(4)$（单个$4$-轮换）。\par
-$\lambda$中大小为$4$的边界带：整行四格，$\operatorname{ht}=0$。$\lambda\setminus\xi=\varnothing$。\par
-$\chi^{(4)}_{(4)} = (-1)^0 \cdot 1 = \mathbf{1}$。
+$\lambda=(4)$（单行Young图），$\mu=(4)$（单个$4$-轮换）. \par
+$\lambda$中大小为$4$的边界带：整行四格，$\operatorname{ht}=0$. $\lambda\setminus\xi=\varnothing$. \par
+$\chi^{(4)}_{(4)} = (-1)^0 \cdot 1 = \mathbf{1}$. 
 
 \medskip
 \noindent\textbf{(ii) $\chi^{(1^4)}_{(4)}$：}\quad
-$\lambda=(1,1,1,1)$（单列），$\mu=(4)$。\par
-$\lambda$中大小为$4$的边界带：整列四格，跨$4$行，$\operatorname{ht}=3$。\par
-$\chi^{(1^4)}_{(4)} = (-1)^3 \cdot 1 = \mathbf{-1}$。
+$\lambda=(1,1,1,1)$（单列），$\mu=(4)$. \par
+$\lambda$中大小为$4$的边界带：整列四格，跨$4$行，$\operatorname{ht}=3$. \par
+$\chi^{(1^4)}_{(4)} = (-1)^3 \cdot 1 = \mathbf{-1}$. 
 
 \medskip
 \noindent\textbf{(iii) $\chi^{(3,1)}_{(4)}$：}\quad
-$\lambda=(3,1)$，$\mu=(4)$。\par
-由例~\ref{ex:bs-31}，$\lambda$中大小为$4$的边界带恰为整图$\{(1,1),(1,2),(1,3),(2,1)\}$，跨$2$行，$\operatorname{ht}=1$。\par
-$\chi^{(3,1)}_{(4)} = (-1)^1 \cdot 1 = \mathbf{-1}$。
+$\lambda=(3,1)$，$\mu=(4)$. \par
+由例~\ref{ex:bs-31}，$\lambda$中大小为$4$的边界带恰为整图$\{(1,1),(1,2),(1,3),(2,1)\}$，跨$2$行，$\operatorname{ht}=1$. \par
+$\chi^{(3,1)}_{(4)} = (-1)^1 \cdot 1 = \mathbf{-1}$. 
 
 \medskip
 \noindent\textbf{(iv) $\chi^{(2,2)}_{(4)}$：}\quad
-$\lambda=(2,2)$（正方形的$2\times2$图），$\mu=(4)$。\par
-$\lambda$的边界由$(2,2)$，$(2,1)$，$(1,2)$，$(1,1)$组成。整图包含一个$2\times2$方块，违反边界带的定义条件(ii)，故整图\emph{不是}边界带。任何真子集方格数至多为$3<4$，无法构成大小$4$的边界带。因此$\lambda$中不存在大小为$4$的边界带，求和为空。\par
-$\chi^{(2,2)}_{(4)} = \mathbf{0}$。
+$\lambda=(2,2)$（正方形的$2\times2$图），$\mu=(4)$. \par
+$\lambda$的边界由$(2,2)$，$(2,1)$，$(1,2)$，$(1,1)$组成. 整图包含一个$2\times2$方块，违反边界带的定义条件(ii)，故整图\emph{不是}边界带. 任何真子集方格数至多为$3<4$，无法构成大小$4$的边界带. 因此$\lambda$中不存在大小为$4$的边界带，求和为空. \par
+$\chi^{(2,2)}_{(4)} = \mathbf{0}$. 
 
 \medskip
 \noindent\textbf{(v) $\chi^{(3,1)}_{(3,1)}$：}\quad
-$\lambda=(3,1)$，$\mu=(3,1)$，$\mu_1=3$，$\mu_2=1$。\par
-首先找$\lambda$中大小为$3$的边界带。由例~\ref{ex:bs-31}，$\{(1,1),(1,2),(1,3)\}$是唯一的候选，$\operatorname{ht}=0$，$\lambda\setminus\xi=(1)$。\par
-然后递归：$\chi^{(1)}_{(1)}=1$（$S_1$的唯一不可约特征标）。\par
-$\chi^{(3,1)}_{(3,1)} = (-1)^0 \cdot 1 = \mathbf{1}$。
+$\lambda=(3,1)$，$\mu=(3,1)$，$\mu_1=3$，$\mu_2=1$. \par
+首先找$\lambda$中大小为$3$的边界带. 由例~\ref{ex:bs-31}，$\{(1,1),(1,2),(1,3)\}$是唯一的候选，$\operatorname{ht}=0$，$\lambda\setminus\xi=(1)$. \par
+然后递归：$\chi^{(1)}_{(1)}=1$（$S_1$的唯一不可约特征标）. \par
+$\chi^{(3,1)}_{(3,1)} = (-1)^0 \cdot 1 = \mathbf{1}$. 
 
-\medskip
-汇总：
-\begin{center}
-\renewcommand{\arraystretch}{1.3}
-\begin{tabular}{c|c|c}
-    $\lambda$ & $\mu$ & $\chi^\lambda_\mu$ \\
-    \hline
-    $(4)$       & $(4)$ & $1$  \\
-    $(1^4)$     & $(4)$ & $-1$ \\
-    $(3,1)$     & $(4)$ & $-1$ \\
-    $(2,2)$     & $(4)$ & $0$  \\
-    $(3,1)$     & $(3,1)$ & $1$ \\
-\end{tabular}
-\end{center}
-这些结果可对照$S_4$的完整特征标表逐一验证。特别地，(ii)中的$-1$与符号表示一致（$4$-轮换为奇置换），(iv)中的$0$是$2\times2$禁令的直接推论，(v)展示了递推$\mu_1=3\to\mu_2=1$的完整流程。
+
+
+特别地，(iv)中的$0$是$2\times2$禁令的直接推论，(v)展示了递推$\mu_1=3\to\mu_2=1$的完整流程. 
 \end{example}
 
 \begin{remark}\label{rem:MN-to-hook}\index{f@分支递推 (branching recurrence)}
-    当$\mu=(1^n)$（单位元共轭类）时，每个$\mu_i$均为$1$，边界带全部是单个方格（高度恒为$0$，符号恒为$+1$）。此时边界带表恰好等价于标准Young表：依次填入$1,2,\dots,n$，每步填入的单个方格构成大小为$1$的边界带。因此
+    当$\mu=(1^n)$时，每个$\mu_i$均为$1$，边界带全部是单个方格. 此时边界带表恰好等价于标准Young表：依次填入$1,2,\dots,n$，每步填入的单个方格构成大小为$1$的边界带. 因此
     \begin{equation*}
         \chi^\lambda_{(1^n)} = \#\{\,\text{形状}\lambda\text{的标准Young表}\,\} = f^\lambda = \dim S^\lambda,
     \end{equation*}
-    与第二章维数定理一致。下一节的钩长公式将给出$f^\lambda$的显式闭表达式。
+    与第二章维数定理一致. 下一节的钩长公式将给出$f^\lambda$的显式闭表达式. 
 \end{remark}
 
 
 \section{钩长公式}
 
-前文已从Murnaghan-Nakayama公式的特例$\mu=(1^n)$得出$f^\lambda=\dim S^\lambda=\chi^\lambda_{(1^n)}$。但$f^\lambda$的数值仍需逐层递推计算。本节给出其显式闭公式——Frame-Robinson-Thrall钩长公式——并利用Murnaghan-Nakayama定理完成证明。
+前文已从Murnaghan-Nakayama公式的特例$\mu=(1^n)$得出$f^\lambda=\dim S^\lambda=\chi^\lambda_{(1^n)}$. 但$f^\lambda$的数值仍需逐层递推计算. 本节给出其显式公式——Frame-Robinson-Thrall钩长公式.
 
 \begin{definition}[钩与钩长]\index{g@钩长 $h_{i,j}$}
     对于Young图的某一个方格$(i, j)$，定义它的钩长$h_{i,j}$为该方格正下方、正右方的方格连同自身所构成的方格总数.
 \end{definition}
 
-记$H(\lambda)=\prod_{(i,j)\in\lambda} h_{i,j}$为$\lambda$的全图钩长之积。\index{g@钩长积 $H(\lambda)$}
+记$H(\lambda)=\prod_{(i,j)\in\lambda} h_{i,j}$为$\lambda$的全图钩长之积. \index{g@钩长积 $H(\lambda)$}
 
 \begin{theorem}[Frame-Robinson-Thrall钩长公式]\label{thm:hook}\index{g@钩长公式 (hook length formula)}
     形状为$\lambda$的标准Young表的个数由下式给出：
@@ -1067,15 +1060,15 @@ $\chi^{(3,1)}_{(3,1)} = (-1)^0 \cdot 1 = \mathbf{1}$。
 \end{theorem}
 
 \begin{proof}
-证明分三步：先用Murnaghan-Nakayama定理导出$f^\lambda$的分支递推关系；再证明钩长积$H(\lambda)$满足同一递推（核心引理）；最后用归纳法完成。
+证明分三步：先用Murnaghan-Nakayama定理导出$f^\lambda$的分支递推关系；再证明钩长积$H(\lambda)$满足同一递推（核心引理）；最后用归纳法完成. 
 
 \medskip
 \noindent\textbf{第一步：分支递推.}\quad
-在Murnaghan-Nakayama递推公式~\eqref{eq:MN-rec}中取$\mu=(1^n)$（单位元共轭类），此时$\mu_1=\cdots=\mu_n=1$，每个边界带大小为$1$。大小为$1$的边界带是单个方格，高度恒为$0$，符号恒为$+1$。能从$\lambda$中移除且仍为合法分拆的方格恰好是$\lambda$的可移角格（removable corners），记角格集合为$C(\lambda)$。于是~\eqref{eq:MN-rec}退化为
+在Murnaghan-Nakayama递推公式~\eqref{eq:MN-rec}中取$\mu=(1^n)$，此时$\mu_1=\cdots=\mu_n=1$，每个边界带大小为$1$. 大小为$1$的边界带是单个方格，高度恒为$0$，符号恒为$+1$. 能从$\lambda$中移除且仍为合法分拆的方格恰好是$\lambda$的可移角格，记角格集合为$C(\lambda)$. 于是~\eqref{eq:MN-rec}退化为
 \begin{equation}\label{eq:branching}
     f^\lambda = \sum_{c\in C(\lambda)} f^{\lambda\setminus c},\qquad f^\varnothing = 1.
 \end{equation}
-这称为\emph{分支递推}（branching recurrence），其组合含义是：在标准Young表中，数字$n$必然位于某个角格，删去该格后得到$n-1$阶标准Young表；反之亦然。
+这称为\emph{分支递推}，其组合含义是：在标准Young表中，数字$n$必然位于某个角格，删去该格后得到$n-1$阶标准Young表；反之亦然. 
 
 \medskip
 \noindent\textbf{第二步：钩长积的递推引理.}\quad
@@ -1083,14 +1076,14 @@ $\chi^{(3,1)}_{(3,1)} = (-1)^0 \cdot 1 = \mathbf{1}$。
 \begin{equation*}
     F(\lambda) = \frac{n!}{H(\lambda)} = \frac{n!}{\prod_{(i,j)\in\lambda} h_{i,j}} .
 \end{equation*}
-我们断言$F(\lambda)$满足与$f^\lambda$相同的分支递推关系。
+我们断言$F(\lambda)$满足与$f^\lambda$相同的分支递推关系. 
 
 \begin{lemma}[钩长恒等式]\label{lem:hook-identity}\index{g@钩长公式 (hook length formula)}
     对任意分拆$\lambda\vdash n$（$n\ge 1$），有
     \begin{equation}\label{eq:hook-identity}
         \frac{n}{H(\lambda)} = \sum_{c\in C(\lambda)} \frac{1}{H(\lambda\setminus c)},
     \end{equation}
-    等价于$F(\lambda) = \sum_{c\in C(\lambda)} F(\lambda\setminus c)$。
+    等价于$F(\lambda) = \sum_{c\in C(\lambda)} F(\lambda\setminus c)$. 
 \end{lemma}
 
 \begin{proof}[引理证明]
@@ -1098,66 +1091,211 @@ $\chi^{(3,1)}_{(3,1)} = (-1)^0 \cdot 1 = \mathbf{1}$。
     \begin{equation}\label{eq:rational}
         \Phi_\lambda(x) = \prod_{(i,j)\in\lambda} \frac{x + j - i}{\,x + h_{i,j}\,}.
     \end{equation}
-    分子与分母均为$n$次首一多项式，故$\Phi_\lambda(x)\to 1$（$x\to\infty$）。$\Phi_\lambda$在$x=-h_{i,j}$处有极点。将$\Phi_\lambda$展开为部分分式：
+    分子与分母均为$n$次首一多项式，故$\Phi_\lambda(x)\to 1$（$x\to\infty$）. $\Phi_\lambda$在$x=-h_{i,j}$处有极点. 将$\Phi_\lambda$展开为部分分式：
     \begin{equation*}
         \Phi_\lambda(x) = 1 + \sum_{(i,j)\in\lambda} \frac{R_{i,j}}{x+h_{i,j}},
     \end{equation*}
-    其中$R_{i,j}$为$\Phi_\lambda$在$x=-h_{i,j}$处的留数。
+    其中$R_{i,j}$为$\Phi_\lambda$在$x=-h_{i,j}$处的留数. 
 
-    \emph{留数的计算}：根据定义，
+    \emph{留数的计算}：当$x\to -h_{i,j}$时，分母中对应的项产生极点，留数即为去除该极点后的乘积求值：
     \begin{equation*}
-        R_{i,j} = \prod_{(a,b)\in\lambda}\frac{-h_{i,j}+b-a}{\prod_{(a,b)\neq (i,j)}(-h_{i,j}+h_{a,b})}.
+        R_{i,j} = (-h_{i,j}+j-i) \prod_{(a,b)\neq (i,j)}\frac{-h_{i,j}+b-a}{-h_{i,j}+h_{a,b}}.
     \end{equation*}
-    关键的观察是：若$(i,j)$非角格，则它必有正右方邻格$(i,j+1)$或正下方邻格$(i+1,j)$。此时在乘积中，因子$(-h_{i,j}+ (j+1)-i) = -h_{i,j}+j-i+1$（来自$(i,j+1)$）与某个钩长之差相消，导致整个分子为$0$。具体而言，$R_{i,j}\neq 0$当且仅当$(i,j)\in C(\lambda)$（即为角格）——这是钩长与内容之间经典对消关系的推论。对于非角格不展开细节，可参见~\cite{FultonHarris}习题4.44或~\cite{Sagan}第3.10节。
+    首先观察非角格：若$(i,j)\notin C(\lambda)$，说明其正右方或正下方至少有一个格子. 可以证明，此时乘积分子中必有一项$(-h_{i,j}+b-a)$为零，从而导致$R_{i,j}=0$. 此处不展开详细计算，读者可参考~\cite{Sagan}第3.10节的证明. 这意味着 $\Phi_\lambda(x)$ 的留数仅集中在角格 $c\in C(\lambda)$ 处. 
 
-    对于角格$c=(i_0,j_0)\in C(\lambda)$，留数经过化简（将分子分母中涉及$c$所在行与列的因子逐项比对）得到\footnote{化简的关键在于：对$c$同行左侧的格$(i_0,j)$，$h_{i_0,j}-h_{i_0,j+1}=1$（若列$j$与$j+1$的腿长相等），在适当的变形下乘积锐化为钩长之比。}：
+    对于角格$c=(i_0,j_0)\in C(\lambda)$，其留数可通过系统地比对该格所在行与列的钩长变换来计算. 由于除掉角格前后，其他格子的钩长变化极其规律，最终大部分因子均能相消，得到：
     \begin{equation}\label{eq:residue}
         R_c = -\frac{H(\lambda)}{H(\lambda\setminus c)}.
     \end{equation}
 
-    由$\Phi_\lambda(x)\to1$得$\sum_{(i,j)} R_{i,j}=0$（部分分式中一次项系数之和为零）。非角格的留数为$0$，仅角格贡献，于是
+    \emph{渐近展开与恒等式的得出}：我们考虑 $x(\Phi_\lambda(x) - 1)$ 在 $x\to \infty$ 时的极限. 由部分分式展开 $\Phi_\lambda(x) = 1 + \sum_{c\in C(\lambda)} \frac{R_c}{x+h_c}$，我们有：
     \begin{equation*}
-        0 = \sum_{c\in C(\lambda)} R_c = -\sum_{c\in C(\lambda)} \frac{H(\lambda)}{H(\lambda\setminus c)}.
+        \lim_{x\to\infty} x(\Phi_\lambda(x) - 1) = \sum_{c\in C(\lambda)} R_c = -\sum_{c\in C(\lambda)} \frac{H(\lambda)}{H(\lambda\setminus c)}.
     \end{equation*}
-    移项即得$\sum_{c} H(\lambda)/H(\lambda\setminus c) = 0$——但这与所需的$n$不符，说明常数项需要修正。正确的部分分式展开因$\deg(\text{分子})=\deg(\text{分母})$而含有额外的常数项：考虑到$H(\lambda)$与$n$之间的组合恒等式$\sum_{(i,j)} h_{i,j} = n + \sum_{(i,j)} (j-i)$（此即$\sum h = n + \sum c$），从$x\Phi_\lambda(x)$在无穷远处的渐近展开可得$\sum_c H(\lambda)/H(\lambda\setminus c) = n$。由此完成\eqref{eq:hook-identity}的证明。
+    另一方面，直接从 $\Phi_\lambda(x)$ 的乘积定义式~\eqref{eq:rational} 出发，比较分子与分母的最次高幂等同于求分子与分母所有的常数偏置之差：
+    \begin{equation*}
+        \lim_{x\to\infty} x(\Phi_\lambda(x) - 1) = \sum_{(i,j)\in\lambda} (j-i) - \sum_{(i,j)\in\lambda} h_{i,j}.
+    \end{equation*}
+    Young图的基本组合恒等式表明 $\sum_{(i,j)\in\lambda} h_{i,j} = |\lambda| + \sum_{(i,j)\in\lambda} (j-i)$ （即所有钩长之和等于内容之和加上方格数 $n$）. 因此该极限值恰好等于 $-n$. 
+    
+    综合两方面的结果，得 $-\sum_{c\in C(\lambda)} \frac{H(\lambda)}{H(\lambda\setminus c)} = -n$，移项变形后即产生所需等恒等式 $F(\lambda) = \sum_{c\in C(\lambda)} F(\lambda\setminus c)$，由此完成引理~\ref{lem:hook-identity}的证明.  
 \end{proof}
 
-\begin{remark}[钩游走的概率直觉]\index{g@钩游走 (hook walk)}
-    上述恒等式有一个优美的概率解释（Greene-Nijenhuis-Wilf, 1979）。在$\lambda$上定义随机游走：从一个均匀随机选取的方格出发，每步以均匀概率跳至当前格子钩长范围内的任意一格；重复直到抵达某个角格为止。可以证明：该过程终止于角格$c$的概率恰好为$1/n$（与$c$无关），且产生某个特定标准Young表$T$的概率等于$1/H(\lambda)$。由于共有$f^\lambda$个标准Young表，概率归一化条件即给出$f^\lambda/H(\lambda)=n!$中的常数因子关系。这一解释揭示了"钩长"作为"回归角格的困难程度"的组合含义。
+\begin{remark}[钩游走的概率直觉]\index{g@钩游走}
+    上述恒等式有一个优美的概率解释（Greene-Nijenhuis-Wilf, 1979）. 在$\lambda$上定义随机游走：从一个均匀随机选取的方格出发，每步以均匀概率跳至当前格子钩长范围内的任意一格；重复直到抵达某个角格为止. 可以证明：该过程终止于角格$c$的概率恰好为$1/n$（与$c$无关），且产生某个特定标准Young表$T$的概率等于$1/H(\lambda)$. 由于共有$f^\lambda$个标准Young表，概率归一化条件即给出$f^\lambda/H(\lambda)=n!$中的常数因子关系. 这一解释揭示了"钩长"作为"回归角格的困难程度"的组合含义. 
 \end{remark}
 
 \medskip
 \noindent\textbf{第三步：归纳完成.}\quad
-等式~\eqref{eq:branching}给出$f^\lambda = \sum_{c} f^{\lambda\setminus c}$（从Murnaghan-Nakayama定理导出）；引理~\ref{lem:hook-identity}给出$F(\lambda) = \sum_c F(\lambda\setminus c)$。二者满足完全相同的递推关系，且初始条件一致：$f^\varnothing = F(\varnothing) = 1$。按$n=|\lambda|$归纳，对每个分拆$\lambda\vdash n$，$f^\lambda$与$F(\lambda)$均由递推唯一确定，故
+等式~\eqref{eq:branching}给出$f^\lambda = \sum_{c} f^{\lambda\setminus c}$；\par
+引理~\ref{lem:hook-identity}给出$F(\lambda) = \sum_c F(\lambda\setminus c)$. 二者满足完全相同的递推关系，且初始条件一致：$f^\varnothing = F(\varnothing) = 1$. 按$n=|\lambda|$归纳，对每个分拆$\lambda\vdash n$，$f^\lambda$与$F(\lambda)$均由递推唯一确定，故
 \begin{equation*}
     \dim S^\lambda = f^\lambda = F(\lambda) = \frac{n!}{\prod_{(i,j)\in\lambda} h_{i,j}}.
 \end{equation*}
-定理得证。
+定理得证. 
 \end{proof}
 
-\begin{example}[$\lambda=(3,1)$验证]\index{g@钩长公式 (hook length formula)}
-    取$n=4$，$\lambda=(3,1)$的Young图为$\ydiagram{3,1}$。钩长依次为：
+\begin{example}[$\lambda=(3,1)$验证]\index{g@钩长公式}
+    取$n=4$，$\lambda=(3,1)$的Young图为$\ydiagram{3,1}$. 钩长依次为：
     $(1,1):4$（臂$2$+腿$1$+自身$1$），
     $(1,2):2$（臂$1$+腿$0$+自身$1$），
     $(1,3):1$，
-    $(2,1):1$。
-    $H(3,1)=4\cdot2\cdot1\cdot1=8$。故
+    $(2,1):1$. 
+    $H(3,1)=4\cdot2\cdot1\cdot1=8$. 故
     \begin{equation*}
         f^{(3,1)} = \frac{4!}{8} = \frac{24}{8} = 3.
     \end{equation*}
-    这一结果与第二章的标准Young表计数一致：形状$(3,1)$恰有$3$个标准Young表。
+    这一结果与第二章的标准Young表计数一致：形状$(3,1)$恰有$3$个标准Young表. 
 \end{example}
 
 
+\section{基于下降理论的特征标公式}
+
+上文讨论的 Murnaghan-Nakayama 公式虽然有效，但寻找并分类所有的边界带随着 $n$ 的增大依然十分繁琐. 近三十年来，代数组合学发展出了基于Young表局部统计特征直算特征标的理论.本节只做简要介绍，具体证明过程详见论文[3].
+
+\subsection{标准Young表的下降集}\index{xiajiangji@下降集 $\operatorname{Des}(T)$}
+
+给定形状为 $\lambda \vdash n$ 的标准 Young 表 $T$. 可以定义其下降集
+\begin{definition}[下降集]\index{xiajiangji@下降集 $\operatorname{Des}(T)$}
+    设 $T$ 是形状为 $\lambda \vdash n$ 的标准 Young 表. 对于 $1 \leq i \leq n-1$，如果数字 $i+1$ 在表 $T$ 中出现在数字 $i$ 的更下方（即 $i+1$ 所在的行数严格大于 $i$ 所在的行数），则称 $i$ 为 $T$ 的一个\emph{下降}. 
+    $T$ 的所有下降组成的集合称为其\emph{下降集}，记作 $\operatorname{Des}(T)$. 
+\end{definition}
+
+接着我们将其推广到Young表的单峰性：
+\begin{definition}[$\mu$-单峰性]\index{2@$\mu$-单峰}
+    对于 $n$ 的一个构成 (区分于分拆，它不需要递减) $\mu=(\mu_1,\dots,\mu_k)$，我们将 $1$ 到 $n$ 的数字序列分成大小分别为 $\mu_1, \mu_2, \dots, \mu_k$ 的 $k$ 个部分. 我们称一个标准 Young 表 $T$ 是\textbf{$\mu$-单峰的}，如果在构成 $\mu$ 的这 $k$ 个组成部分中，下降集 $\operatorname{Des}(T)$ 对应的增减趋势在每一个部分内部都是单峰的.
+\end{definition}
+如果 $T$ 是 $\mu$-单峰的，那么在每个部分内部，下降集的元素一定位于该部分的前半段或后半段.为了方便刻画，我们将这 $k$ 个部分的结束点位置收集起来，定义集合 $S(\mu) := \{\mu_1, \mu_1+\mu_2, \dots, \mu_1+\dots+\mu_k=n\} \subseteq [n]$. 同时，记 $U_\mu(\lambda)$ 为形状为 $\lambda$ 且满足 $\mu$-单峰性质的所有标准Young表集合. 
+
+\begin{example}
+    考察下面形状为 $\lambda=(3,3,2,1) \vdash 9$ 的标准 Young 表 $T$：
+    \begin{equation*}
+        T = \ytableausetup{mathmode, boxsize=1.2em}\begin{ytableau}1&3&4\\2&5&9\\6&8\\7\end{ytableau}
+    \end{equation*}
+    观察数字位置可知，其下降集为 $\operatorname{Des}(T) = \{1, 4, 5, 6\}$. 
+    \begin{itemize}
+        \item 若考察 $\mu = (4,5)$：我们将 $1 \dots 9$ 分为 $\{1,2,3,4\}$ 和 $\{5,6,7,8,9\}$ 两块. 在第一块内，下降点为$1,4$，分别在最前和最后，符合先减后增.在第二块内，内部的下降点为 $5,6$，均在前段，同样符合先减后增. 因此各部分都是单峰的，$T$ 是 $(4,5)$-单峰的. 
+        \item 若考察 $\mu = (5,4)$：我们将分块变为 $\{1,2,3,4,5\}$ 和 $\{6,7,8,9\}$. 对于第一块 $\{1,2,3,4,5\}$，其内部的下降点为 $1$ 和 $4$，其中$4$单独出现在中间，显然破坏了单峰性. 因此 $T$ 不是 $(5,4)$-单峰的. 
+    \end{itemize}
+\end{example}
+
+\subsection{Roichman 特征标公式}\index{R@Roichman公式}
+
+基于单峰性，Adin 和 Roichman 给出了如下精美的组合公式，它完全避开了寻找边界带的代数过程，而仅需要观察Young表下降集：
+
+\begin{theorem}[Roichman 公式, 1993]\index{R@Roichman公式}
+    设 $\lambda \vdash n$，$\mu=(\mu_1,\dots,\mu_k)$ 是 $n$ 的一个构成. 那么对称群的不可约特征标 $\chi^\lambda_\mu$ 可以表示为：
+    \begin{equation}
+        \chi^\lambda_\mu = \sum_{T \in U_\mu(\lambda)} (-1)^{|\operatorname{Des}(T) \cap I(\mu)|},
+    \end{equation}
+    其中 $[n]$ 代表集合 $\{1, 2, \dots, n\}$，而 $I(\mu) := [n] \setminus S(\mu)$. 
+\end{theorem}
+该公式的优美之处在于：我们只需要写下标准 Young 表，并通过数字的相对位置筛出极其规律的少部分单峰Young表，便能直接符号计算 $\chi^\lambda_\mu$ 的值. 
+
+\subsection{实例：$S_4$ 的特征标表计算}
+
+为了体会单峰下降理论的高效性，我们用 Roichman 公式计算$S_4$ 的完整特征标表. 首先，我们在表~\ref{tab:s4-syt-des} 中列出 $S_4$ 全部的标准Young表与其所带的下降集：
+
+\begin{table}[h]
+    \centering
+    \renewcommand{\arraystretch}{1.3}
+    \caption{$S_4$ 的所有标准 Young 表及其下降集}
+    \label{tab:s4-syt-des}
+    \begin{tabular}{|c|c|c||c|c|c|}
+    \hline
+    $\lambda$ & 标准 Young 表 $T$ & $\operatorname{Des}(T)$ & $\lambda$ & 标准 Young 表 $T$ & $\operatorname{Des}(T)$ \\
+    \hline
+    $(4)$ & \scriptsize\ytableausetup{mathmode, boxsize=1em}\begin{ytableau}1&2&3&4\end{ytableau} & $\emptyset$ & 
+    $(2,1^2)$ & \scriptsize\ytableausetup{mathmode, boxsize=1em}\begin{ytableau}1&4\\2\\3\end{ytableau} & $\{1,2\}$ \\
+    \hline
+    \multirow{3}{*}{$(3,1)$} 
+    & \scriptsize\ytableausetup{mathmode, boxsize=1em}\begin{ytableau}1&2&3\\4\end{ytableau} & $\{3\}$ &
+    & \scriptsize\ytableausetup{mathmode, boxsize=1em}\begin{ytableau}1&3\\2\\4\end{ytableau} & $\{1,3\}$ \\
+    \cline{2-3}\cline{5-6}
+    & \scriptsize\ytableausetup{mathmode, boxsize=1em}\begin{ytableau}1&2&4\\3\end{ytableau} & $\{2\}$ &
+    & \scriptsize\ytableausetup{mathmode, boxsize=1em}\begin{ytableau}1&2\\3\\4\end{ytableau} & $\{2,3\}$ \\
+    \cline{2-3}\cline{4-6}
+    & \scriptsize\ytableausetup{mathmode, boxsize=1em}\begin{ytableau}1&3&4\\2\end{ytableau} & $\{1\}$ &
+    $(1^4)$ & \scriptsize\ytableausetup{mathmode, boxsize=1em}\begin{ytableau}1\\2\\3\\4\end{ytableau} & $\{1,2,3\}$ \\
+    \hline
+    \multirow{2}{*}{$(2,2)$}
+    & \scriptsize\ytableausetup{mathmode, boxsize=1em}\begin{ytableau}1&2\\3&4\end{ytableau} & $\{2\}$ & \multicolumn{3}{c|}{}\\
+    \cline{2-3}
+    & \scriptsize\ytableausetup{mathmode, boxsize=1em}\begin{ytableau}1&3\\2&4\end{ytableau} & $\{1,3\}$ & \multicolumn{3}{c|}{} \\
+    \hline
+    \end{tabular}
+\end{table}
+
+根据单峰定义与求和公式，我们挑选两种典型的共轭类结构进行人工验算：
+
+\textbf{情形 1: $\mu=(1^4)$的计算.}
+此时每个数字单独成段，段内仅有一个位置，单峰条件自动满足. 因此所有Young表均为 $(1^4)$-单峰的. 代入 $I(1^4)=\emptyset$ 后，每张表的权值均为 $(-1)^0=1$. 由于每个分拆$\lambda$的标准Young表数量分别为 $1,3,2,3,1$，最终得到 $\mu=(1^4)$ 的列向量特征标为 $[1, 3, 2, 3, 1]^T$.
+
+\textbf{情形 2：$\mu=(2,1^2)$ 的计算. }
+段长对应为 $\{1,2\}\{3\},\{4\}$，段内大小仅为$1$或$2$，因此任意下降模式都是平凡前缀. 所以所有Young表均无条件地成为了 $(2,1^2)$-单峰Young的. 代入 $I(2,1^2)=\{1\}$ 后，计算得：
+\begin{itemize}
+    \item $\lambda=(4)$，唯一表的下降集 $\emptyset$ 与 $I(2,1^2)$ 无交集，提供项 $(-1)^0=1$. 
+    \item $\lambda=(3,1)$，三表权值为 $(-1)^{|\{3\}\cap\{1\}|}+(-1)^{|\{2\}\cap\{1\}|}+(-1)^{|\{1\}\cap\{1\}|} = 1+1+(-1) = 1$. 
+    \item $\lambda=(2,2)$，两表权值为 $(-1)^{|\{2\}\cap\{1\}|} + (-1)^{|\{1,3\}\cap\{1\}|} = 1+(-1) = 0$. 
+    \item $\lambda=(2,1^2)$，三表权值为 $(-1)^{|\{1,2\}\cap\{1\}|}+(-1)^{|\{2,3\}\cap\{1\}|}+(-1)^{|\{1,3\}\cap\{1\}|} = (-1)+1+(-1) = -1$. 
+    \item $\lambda=(1^4)$，唯一表的下降集 $\{1,2,3\}$ 与 $I(2,1^2)$ 的交集为 $\{1\}$，提供项 $(-1)^1=-1$.
+\end{itemize}
+故得 $\mu=(2,1^2)$ 的列向量为 $[1, 1, 0, -1, -1]^T$.
+
+\textbf{情形 3：$\mu=(2,2)$ 的计算. }
+同理可知，所有Young表都是$(2,2)$-单峰的.代入$I(2,2)=\{1,3\}$可得：
+\begin{itemize}
+    \item $\lambda=(4)$，唯一表的下降集 $\emptyset$ 与 $I(2,2)$ 无交集，提供项 $(-1)^0=1$. 
+    \item $\lambda=(3,1)$，三表权值为 $(-1)^{|\{3\}\cap\{1,3\}|}+(-1)^{|\{2\}\cap\{1,3\}|}+(-1)^{|\{1\}\cap\{1,3\}|} = (-1)+1+(-1) = -1$. 
+    \item $\lambda=(2,2)$，两表权值为 $(-1)^{|\{2\}\cap\{1,3\}|} + (-1)^{|\{1,3\}\cap\{1,3\}|} = 1+1 = 2$. 
+    \item $\lambda=(2,1^2)$，三表权值为 $(-1)^{|\{1,2\}\cap\{1,3\}|}+(-1)^{|\{2,3\}\cap\{1,3\}|}+(-1)^{|\{1,3\}\cap\{1,3\}|} = (-1)+(-1)+1 = -1$. 
+    \item $\lambda=(1^4)$，唯一表的下降集 $\{1,2,3\}$ 与 $I(2,2)$ 的交集为 $\{1,3\}$，提供项 $(-1)^2=1$. 
+\end{itemize}
+故得 $\mu=(2,2)$ 的列向量为 $[1, -1, 2, -1, 1]^T$. 
+
+\textbf{情形 4：$\mu=(3,1)$ 的计算. }
+段长为$\{1,2,3\}$和$\{4\}$. $I=\{1,2\}$，通过上表计算得知：
+\begin{itemize}
+    \item $\lambda=(4)$ 与 $(1^4)$的Young表显然满足该前缀条件，分别提供公式项 $(-1)^0 = 1$ 和 $(-1)^{|\{1,2,3\}\cap \{1,2\}|} = 1$.
+    \item $\lambda=(3,1)$的三张表只有下降集为$\{1\}$和$\{3\}$的表满足前缀条件，提供项 $(-1)^{|\{1\}\cap\{1,2\}|}+(-1)^{|\{3\}\cap\{1,2\}|} = 0$.
+    \item $\lambda=(2,2)$中下降集为$\{1,3\}$的表满足条件，提供项$(-1)^{|\{1,3\}\cap\{1,2\}|}=-1$
+    \item $\lambda=(2,1^2)$的三表中下降集为$\{1,2\}$和$\{1,3\}$的满足前缀条件，提供项 $(-1)^{|\{1,2\}\cap\{1,2\}|}+(-1)^{|\{1,3\}\cap\{1,2\}|} = 0$.
+\end{itemize}
+故得 $\mu=(3,1)$的列向量为$[1,0,-1,0,1]^T$
+
+\textbf{情形 5：$\mu=(4)$的计算. } 
+Young表为 $(4)$-单峰的充要条件是其对应下降集必须为全集的前缀（只能是 $\emptyset, \{1\}, \{1,2\}, \{1,2,3\}$ 之一）. 通过上表计算得知：
+\begin{itemize}
+    \item $\lambda=(4)$ 与 $(1^4)$的Young表显然满足该前缀条件，分别提供公式项 $(-1)^0 = 1$ 和 $(-1)^3 = -1$. 
+    \item $\lambda=(3,1)$ 的三张表内只有下降集为 $\{1\}$ 的那张满足前缀性质，进入有效求和，提供项 $(-1)^1 = -1$. 
+    \item $\lambda=(2,2)$ 的两表下降集分别为 $\{2\}$ 和 $\{1,3\}$，内部俱含断层，因此皆不为单峰！$U_{(4)}(2,2)$ 是空集，故加和恒为 $0$. 
+    \item $\lambda=(2,1^2)$ 三表中只有下降集为 $\{1,2\}$ 的满足前缀，提供项 $(-1)^2 = 1$. 
+\end{itemize}
+故$\mu=(4)$的列向量特征标为$[1, -1, 0, 1, -1]^T$. 
+
+
+这完美复刻了表~\ref{tab:s4-char} 中的行列组合结果.  
+
+\begin{table}[H]
+    \centering
+    \renewcommand{\arraystretch}{1.25}
+    \caption{$S_4$ 的完整不可约特征标表}
+    \label{tab:s4-char}
+    \begin{tabular}{c|rrrrr}
+    共轭类代码 $\mu$ & $(1^4)$ & $(2,1^2)$ & $(2^2)$ & $(3,1)$ & $(4)$ \\
+    \hline
+    $\chi^{(4)}$ & 1 & 1 & 1 & 1 & 1 \\
+    $\chi^{(3,1)}$ & 3 & 1 & $-1$ & 0 & $-1$ \\
+    $\chi^{(2,2)}$ & 2 & 0 & 2 & $-1$ & 0 \\
+    $\chi^{(2,1^2)}$ & 3 & $-1$ & $-1$ & 0 & 1 \\
+    $\chi^{(1^4)}$ & 1 & $-1$ & 1 & 1 & $-1$ \\
+    \end{tabular}
+\end{table}
+从上述计算中可以发现，相对于其他方法需要大规模的计算(虽然可以依赖程序实现)，但是Roichman公式仅需要观察标准Young表的下降集，便能直接得出特征标的数值，极大地简化了计算过程.同时，这一方法同样可以使用算法实现，因此在实际应用中具有很高的效率.
+
 \chapter{总结}
 
-本文从对称群的共轭类与整数分拆的对应出发，逐步建立了一套完整的不可约表示构造与特征标计算理论。回顾全文的逻辑线索，可以清晰地看出三个阶段的推进：
-
-\begin{enumerate}[label={(\arabic*)},nosep]
-    \item \textbf{表示构造阶段}（第一章与第二章）。利用Young图的组合结构，定义Young子群、行对称化子与列反对称化子，构造出Young对称化子$c_t$。通过多项表的极值性引理与子模定理，证明每个分拆$\lambda$对应的Specht模$S^\lambda$不可约，且不同分拆给出互不同构的表示，从而完成$S_n$所有不可约表示的分类。作为副产品，得到$\dim S^\lambda = f^\lambda$（标准Young表个数）。
-    \item \textbf{代数翻译阶段}（第三章第1节）。为避开直接矩阵取迹，Frobenius将特征标理论"翻译"为对称多项式理论：引入幂和对称多项式$p_\mu$（对应共轭类$C_\mu$）与Schur多项式$s_\lambda$（对应不可约表示$S^\lambda$），建立Frobenius特征标公式$s_\lambda = \sum_\mu (\chi^\lambda_\mu/z_\mu)p_\mu$，将求特征标转化为对称多项式的基展开问题。
-    \item \textbf{组合计算阶段}（第三章第2--4节）。定义边界带与边界带表这两种纯组合对象，用Murnaghan-Nakayama法则将特征标彻底归结为Young图上的"剥离边界带"操作：$\chi^\lambda_\mu = \sum_T (-1)^{\operatorname{ht}(T)}$。取$\mu=(1^n)$的特例即退化到维数，而钩长公式$f^\lambda = n!/\prod h_{i,j}$则给出了维数的显式闭表达式。
-\end{enumerate}
+本文从对称群的共轭类与整数分拆的对应出发，逐步建立了一套完整的不可约表示构造与特征标计算理论. 本文的特点在于，我们并未直接在行文过程中引入过多概念，而是依据后续所要使用的工具和结果，在维护“如无必要，勿增实体”的原则下，逐步构建了Young图、Young表、Young对称化子、边界带等核心对象，并通过它们的组合结构与代数性质，完成了整个理论的构建与证明.
 
 整个理论的逻辑依存关系如下（$\star$标记核心定理）：
 
@@ -1179,20 +1317,20 @@ $\chi^{(3,1)}_{(3,1)} = (-1)^0 \cdot 1 = \mathbf{1}$。
     \S3.2&\quad D3.3--D3.4 & 边界带与边界带表的定义 \\
     \S3.3&\quad T9\;\;$\star$ & Murnaghan-Nakayama法则 \\
     \S3.4&\quad T10\;\;$\star$ & Frame-Robinson-Thrall钩长公式 \\
+    \S3.5&\quad T11\;\;$\star$ & Roichman公式 \\
     \hline
 \end{tabular}
 \par}
 
 \medskip
-受限于篇幅，本文未涉及以下与本主题密切相关的重要方向，在此简注以资进一步阅读：
+受限于篇幅，本文未涉及以下与本主题密切相关的方向，在此简注以供进一步研究：
 \begin{itemize}[nosep]
-    \item \textbf{限制与诱导表示}：$S_n$的不可约表示限制到子群$S_{n-1}$时按"删去角格"规则分解，其逆过程诱导表示则由"添加方格"规则控制。这是Young图在表示论中的另一核心应用。
-    \item \textbf{Frobenius特征标映射的深入理论}：本文仅在类函数空间与对称多项式环之间架设了映射$\mathcal{F}$以完成证明，$\mathcal{F}$本身作为环同构（Frobenius同构）有更丰富的结构，将$S_n$的表示环与对称函数环完全等同起来。
-    \item \textbf{Littlewood-Richardson法则}：对于两个对称群的表示张量积的分解，Littlewood-Richardson法则通过"格子词"给出组合描述，是Young表理论的深远推广之一。
-    \item \textbf{模表示论}：本文均基于特征$0$的常表示论。对正特征域上的对称群表示（模表示论），Young图与$p$-核、$p$-商等概念同样扮演核心角色。
+    \item \textbf{限制与诱导表示}：对$S_n$的边界带表删去角格或是添加角格后可以将其和限制表示和诱导表示联系起来. 这是Young图在表示论中的另一核心应用. 
+    \item \textbf{Frobenius特征标映射的深入理论}：本文仅在类函数空间与对称多项式环之间架设了映射$\mathcal{F}$以完成证明，$\mathcal{F}$本身作为环同构有更丰富的结构，它将$S_n$的表示环与对称函数环完全等同起来. 
+    \item \textbf{Littlewood-Richardson法则}：对于两个对称群的表示张量积的分解，Littlewood-Richardson法则通过"格子词"给出组合描述，是Young表理论的深远推广之一. 
+    \item \textbf{模表示论}：本文均基于常表示论. 对模表示论下对称群的表示，Young图与$p$-核、$p$-商等概念同样扮演核心角色.(实际上，本文中的部分定理不依赖于域的选取) 
 \end{itemize}
 
-综上所述，对称群的表示论之所以优美，在于它深度嫁接了群论、组合学与对称函数三个领域，使得"不可约表示"这一代数对象完全等价于"分拆"这一组合对象，而特征标的计算最终转化为Young图上的图形操作。这一理论框架深刻影响了二十世纪后期表示论、代数组合学乃至数学物理的发展。
 
 
 \printindex
@@ -1212,6 +1350,11 @@ Graduate Texts in Mathematics, Vol.~129, Springer, 1991.
 B.~E.~Sagan,
 \emph{The Symmetric Group: Representations, Combinatorial Algorithms, and Symmetric Functions},
 Graduate Texts in Mathematics, Vol.~203, Springer, 2001.
+
+\bibitem{Roichman1993}
+Y.~Roichman,
+\emph{A recursive rule for Kazhdan-Lusztig characters},
+Advances in Mathematics, Vol.~129, No.~1, pp.~25--45, 1997.
 \end{thebibliography}
 
 \end{document}

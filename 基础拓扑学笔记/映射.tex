@@ -2,8 +2,9 @@
 
 \section{连续映射}
 
-\begin{definition}{连续映射}
-    设$X,Y$是拓扑空间，$f:X\to Y$是一个映射. 如果对$Y$中任意开集$V$，其原像$f^{-1}(V)$在$X$中是开集，则称$f$是\textbf{连续的}.
+\begin{definition}[连续映射][def:3.1]
+\index{l@连续映射}
+    设$X,Y$是拓扑空间，$f:X\to Y$是映射. 如果对$Y$中任意开集$V$，其原像$f^{-1}(V)$在$X$中是开集，则称$f$是\colorbf{连续的}.
 \end{definition}
 
 \begin{instance}
@@ -30,7 +31,7 @@
     \end{enumerate}
 \end{instance}
 
-\begin{lemma}
+\begin{lemma}[][lem:3.1]
     若$f:X\to Y$和$g:Y\to Z$是连续映射，则复合映射$g\circ f:X\to Z$也是连续的.
 \end{lemma}
 \begin{proof}
@@ -52,7 +53,7 @@
     又$f$和$i$都是连续的，因此$f|_A$也是连续的.
 \end{instance}
 
-\begin{lemma}
+\begin{lemma}[][lem:3.2]
     设$f:X\to Y$是一个映射，$\mcal{B}$是$Y$的一个拓扑基，则$f$是连续的$\Leftrightarrow \forall\, B\in\mcal{B},f^{-1}(B)$是$X$中的开集.
 \end{lemma}
 这个定理的证明只需要利用连续映射的定义和拓扑基生成拓扑的方式即可完成.\par
@@ -69,12 +70,12 @@
     \end{aligned}$都是连续函数.
 \end{instance}
 
-\begin{lemma}
+\begin{lemma}[][lem:3.3]
     $f:X\to Y$是一个映射，则$f$是连续的$\Leftrightarrow \forall\,\close C\in Y,f^{-1}(C)$是$X$中的闭集.
 \end{lemma}
 这个引理相较于连续映射最初始的定义，只是将其中的开集改为闭集.成立的原因是开集取补就是闭集.\par
 
-\begin{proposition}
+\begin{proposition}[][prop:3.1]
     设$f:X\to Y_1\times Y_2$是一个映射，定义为$f(x)=(f_1(x),f_2(x))$，其中$f_1:X\to Y_1, f_2:X\to Y_2$. 则$f$连续$\Leftrightarrow f_1$和$f_2$都连续.
 \end{proposition}
 \begin{proof}
@@ -91,7 +92,7 @@
     因此$f^{-1}(U_1\times U_2)$是$X$中的开集.
 \end{proof}
 
-\begin{lemma}{粘贴引理}
+\begin{lemma}[粘贴引理][lem:3.4]
     $X$是一个拓扑空间，$A,B$是$X$中的闭集且$X=A\cup B$.设$f:A\to Y$和$g:B\to Y$是两个连续映射，且对任意$x\in A\cap B$都有$f(x)=g(x)$. 则由它们定义的映射
     \[h:X\to Y, x\mapsto\begin{cases} f(x) & x\in A \\ g(x) & x\in B \end{cases}\]
     是连续的.
@@ -117,9 +118,10 @@
 
 下面介绍一种特殊的连续映射，称为同胚，它是衡量拓扑空间“相似性”的重要工具，其严格定义如下：
 
-\begin{definition}{同胚}
-    设 $X,Y$ 是拓扑空间，$f:X\to Y$ 是一个具有逆映射 $f^{-1}:Y\to X$ 的双射.如果 $f$ 和 $f^{-1}$ 都是连续的, 则称 $f$ 是一个\textbf{同胚}.\par
-    如果存在一个在 $X$ 和 $Y$ 之间的同胚, 则称 $X$ 和 $Y$ 是\textbf{同胚的}, 记作 $X\cong Y$.
+\begin{definition}[同胚][def:3.2]
+\index{t@同胚}
+    设 $X,Y$ 是拓扑空间，$f:X\to Y$ 是一个具有逆映射 $f^{-1}:Y\to X$ 的双射.如果 $f$ 和 $f^{-1}$ 都是连续的, 则称 $f$ 是一个\colorbf{同胚}.\par
+    如果存在一个在 $X$ 和 $Y$ 之间的同胚, 则称 $X$ 和 $Y$ 是\colorbf{同胚的}, 记作 $X\cong Y$.
 \end{definition}
 
 \begin{remark}
@@ -132,8 +134,8 @@
     \end{enumerate}
 \end{remark}
 
-\begin{proposition}
-    关系“$\cong$”是拓扑空间之间的一个等价关系.
+\begin{proposition}[][prop:3.2]
+    关系"$\cong$"是拓扑空间之间的一个等价关系.
     \begin{enumerate}[(i)]
         \item $X\cong X$
         \item $X\cong Y \Rightarrow Y\cong X$
@@ -206,8 +208,8 @@
     \end{enumerate}
 \end{instance}
 
-\begin{definition}{开映射和闭映射}
-    映射 $f:X\to Y$ 称为\textbf{开映射} (相应地, \textbf{闭映射})，如果 $f$ 将 $X$ 中的每个开集 (相应地, 闭集) 映射到 $Y$ 中的一个开集 (相应地, 闭集).
+\begin{definition}[开映射和闭映射][def:3.3]
+    映射 $f:X\to Y$ 称为\colorbf{开映射} (相应地, \colorbf{闭映射})，如果 $f$ 将 $X$ 中的每个开集 (相应地, 闭集) 映射到 $Y$ 中的一个开集 (相应地, 闭集).
 \end{definition}
 上述概念和连续映射不同. 连续映射要求开集的原像是开集, 而开映射要求开集的像是开集.\par
 \begin{remark}
@@ -221,7 +223,7 @@
     \end{aligned}$是开映射，因为$\pi_1 \left(\bigcup_\lambda{(U_\lambda\times V_\lambda)}\right)=\bigcup_\lambda{U_\lambda}$.
 \end{instance}
 
-\begin{proposition}
+\begin{proposition}[][prop:3.3]
     设 $X,Y$ 是拓扑空间. $f:X\to Y$ 是一个同胚 $\Leftrightarrow$ $f$ 是双射、连续的开映射 $\Leftrightarrow$ $f$ 是双射、连续的闭映射.
 \end{proposition}
 对上述命题，由于同胚包含$f$是连续双射以及$f^{-1}$是连续的，因此我们只需要证明$f^{-1}$连续$\Leftrightarrow f$是开映射.
@@ -230,7 +232,7 @@
     “$\Leftarrow$” $\forall$ 开集 $U\subset X$, 因为 $f:X\to Y$ 是开映射, $f(U)=\left(f^{-1}\right)^{-1}(U)$ 在 $Y$ 中是开集. 所以 $f^{-1}:Y\to X$ 是连续的.
 \end{proof}
 
-\begin{theorem}
+\begin{theorem}[][thm:3.1]
     如果 $f:X\to Y$ 是一个同胚且 $X$ 是Hausdorff空间, 那么 $Y$ 也是Hausdorff空间.
 \end{theorem}
 \begin{proof}
@@ -250,15 +252,16 @@
 \end{instance}
 
 最后我们引入如下的概念：
-\begin{definition}{拓扑性质}
-    一个拓扑空间的性质, 如果在同胚下保持不变, 则称之为一个\textbf{拓扑性质}.
+\begin{definition}[拓扑性质][def:3.4]
+    一个拓扑空间的性质, 如果在同胚下保持不变, 则称之为一个\colorbf{拓扑性质}.
 \end{definition}
 因此，一个拓扑空间的Hausdorff性质是一个拓扑性质.\par
 
 \section{嵌入}
 
-\begin{definition}{嵌入}
-    设$X,Y$是拓扑空间，则$X$ 在 $Y$ 中的一个\textbf{嵌入}是一个连续映射 $f:X\to Y$, 它将 $X$ 同胚地映射到子空间 $f(X)\subset Y$ 上.
+\begin{definition}[嵌入][def:3.5]
+\index{q@嵌入}
+    设$X,Y$是拓扑空间，则$X$ 在 $Y$ 中的一个\colorbf{嵌入}是一个连续映射 $f:X\to Y$, 它将 $X$ 同胚地映射到子空间 $f(X)\subset Y$ 上.
 \end{definition}
 \begin{figure}[h]
     \centering
@@ -292,17 +295,17 @@
 \end{instance}
 
 关于嵌入，我们也有类似于同胚的快捷的判断方法：
-\begin{proposition}
+\begin{proposition}[][prop:3.4]
     设$X,Y$是拓扑空间，$f:X\to Y$是一个嵌入$\Leftrightarrow f$是单射、连续的开映射$\Leftrightarrow f$是单射、连续的闭映射.
 \end{proposition}
 
 
-\begin{definition}{同痕}
+\begin{definition}[同痕][def:3.6]
     设 $f_0, f_1: S^1 \to \mb{E}^3$ 是两个嵌入. 如果存在一个连续映射 $F:S^1\times[0,1]\to\mb{E}^3$, 使得
     $F(x,0)=f_0(x)$, $F(x,1)=f_1(x)$, 并且对$\forall\, t\in[0,1]$, 映射 $f_t=F(\cdot,t):\setjot[-6]\begin{aligned}[t]
         S^1&\to\mb{E}^3\\
         x&\mapsto F(x,t)
-    \end{aligned}$ 都是一个嵌入，那么称 $f_0$ 和 $f_1$ 是\textbf{同痕的 (isotopic)}.
+    \end{aligned}$ 都是一个嵌入，那么称 $f_0$ 和 $f_1$ 是\colorbf{同痕的 (isotopic)}.
 \end{definition}
 同痕描述了拓扑空间中两个嵌入映射之间的关系.如果两个嵌入映射是同痕的，那么它们之间就可以通过连续的嵌入映射相互转换.
 
@@ -329,7 +332,8 @@
 
 \section{度量和度量拓扑}
 
-\begin{definition}{度量}
+\begin{definition}[度量][def:4.1]
+\index{d@度量空间}
     设 $X$ 是一个集合.如果$X$上的函数 $\setjot[-4]\begin{aligned}[t]
         d:X\times X&\to \mb{R}\\
         (x,y) &\mapsto d(x,y)
@@ -339,7 +343,7 @@
         \item $d(x,y)=d(y,x)$.(对称性)
         \item $d(x,y)+d(y,z)\geq d(x,z)$. (三角不等式)
     \end{enumerate}
-    则称$d$是$X$的一个\textbf{度量}，$d(x,y)$称为$x$和$y$之间的\textbf{距离}，$(X,d)$ 称为一个\textbf{度量空间}.
+    则称$d$是$X$的一个\colorbf{度量}，$d(x,y)$称为$x$和$y$之间的\colorbf{距离}，$(X,d)$ 称为一个\colorbf{度量空间}.
 \end{definition}
 
 \begin{instance}
@@ -350,8 +354,9 @@
 \end{instance}
 
 在度量空间上，可以自然地定义如下的拓扑：
-\begin{definition}{度量拓扑}
-    $\forall\, x\in (X,d)$, 开球 $B(x,\varepsilon)=\{y\in X | d(x,y)<\varepsilon\}$.则$\mcal{B}=\{B(x,\varepsilon)|x\in X, \varepsilon>0\}$ 是 $X$ 上的一个拓扑基.由这个拓扑基生成的拓扑称为由度量 $d$ \textbf{诱导的度量拓扑}.
+\begin{definition}[度量拓扑][def:4.2]
+\index{d@度量拓扑}
+    $\forall\, x\in (X,d)$, 开球 $B(x,\varepsilon)=\{y\in X | d(x,y)<\varepsilon\}$.则$\mcal{B}=\{B(x,\varepsilon)|x\in X, \varepsilon>0\}$ 是 $X$ 上的一个拓扑基.由这个拓扑基生成的拓扑称为由度量 $d$ \colorbf{诱导的度量拓扑}.
 \end{definition}
 
 \begin{proof}
@@ -371,7 +376,7 @@
 \end{proof}
 
 上述定义表示度量空间是一个比拓扑空间更强的条件，所有的度量空间都是拓扑空间.除此之外，由度量诱导的拓扑也具有更好的性质：
-\begin{proposition}
+\begin{proposition}[][prop:4.1]
     每个度量空间都是Hausdorff空间.
 \end{proposition}
 \begin{proof}
@@ -380,7 +385,7 @@
     下证$B(x_1,\varepsilon)\cap B(x_2,\varepsilon)=\varnothing$.\par
     (反证)假设$y\in B(x_1,\varepsilon)\cap B(x_2,\varepsilon)$，则$d(x_1,x_2)\leq d(x_1,y)+d(y,x_2) < 2\varepsilon = \frac{2}{3}d(x_1,x_2)$.矛盾!
 \end{proof}
-\begin{corollary}
+\begin{corollary}[][cor:4.1]
     度量空间中的每个单点集都是闭集.
 \end{corollary}
 
@@ -390,8 +395,9 @@
 
 
 
-\begin{definition}{可度量化}
-    $X$ 是一个拓扑空间.如果在 $X$ 上存在一个度量 $d$ 诱导了 $X$ 上的拓扑，则称$X$ 是\textbf{可度量化的}.
+\begin{definition}[可度量化][def:4.3]
+\index{k@可度量化}
+    $X$ 是一个拓扑空间.如果在 $X$ 上存在一个度量 $d$ 诱导了 $X$ 上的拓扑，则称$X$ 是\colorbf{可度量化的}.
 \end{definition}
 
 \begin{instance}

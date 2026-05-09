@@ -1,8 +1,9 @@
 \chapter{分离与可数}
 
 \section{正则空间和正规空间}
-\begin{definition}[正则空间]
-    一个拓扑空间 $X$ 称为\textbf{正则的}, 如果
+\begin{definition}[正则空间][def:5.1]
+\index{z@正则空间}
+    一个拓扑空间 $X$ 称为\colorbf{正则的}, 如果
     \begin{enumerate}
         \item[(i)] $X$ 中的单点集是闭集;
         \item[(ii)] 对任意 $a \in X$ 和 $X$ 中的任意闭集 $B$ 且 $a \notin B$, 存在不相交的开集 $U$ 和 $V$ 使得 $a \in U$ 且 $B \subset V$.
@@ -18,8 +19,9 @@
     正则 $\implies$ Hausdorff.
 \end{remark}
 
-\begin{definition}[正规空间]
-    一个拓扑空间 $X$ 称为\textbf{正规的}, 如果
+\begin{definition}[正规空间][def:5.2]
+\index{z@正规空间}
+    一个拓扑空间 $X$ 称为\colorbf{正规的}, 如果
     \begin{enumerate}
         \item[(i)] $X$ 中的单点集是闭集;
         \item[(ii)] 对任意两个不相交的闭集 $A, B \subset X$, 存在不相交的开集 $U$ 和 $V$ 使得 $A \subset U$ 且 $B \subset V$.
@@ -38,12 +40,12 @@
 \section{分离公理}
 
 我们也称 Hausdorff 空间为 $T_2$ 空间, 正则空间为 $T_3$ 空间, 正规空间为 $T_4$ 空间，它们都反应了拓扑空间的分离性质，并且有以下包含关系:
-\begin{axiom}{分离公理}
+\begin{axiom}[分离公理][axm:5.1]
     正规 ($T_4$) $\subset$ 正则 ($T_3$) $\subset$ Hausdorff ($T_2$)
 \end{axiom}
 
 上一节章中证明了每个度量空间都是 Hausdorff 的，现在可以进一步证明每个度量空间都是正规的，也就是度量空间有最强的分离性质.\par
-\begin{proposition}
+\begin{proposition}[][prop:5.1]
     任意一个度量空间都是正规的.
 \end{proposition}
 \begin{proof}
@@ -99,8 +101,8 @@
 \end{proof}
 
 \section{可数性}
-\begin{definition}[可数邻域基]
-    设$X$是一个拓扑空间，$x\in X$，如果存在$x$的一个可数邻域族$\{U_n\}_{n \in \mathbb{Z}^+}$，使得$x$的任何邻域 $W$都包含其中一个 $U_n$, 即 $x \in U_n \subset W$，则称在点$x$处一个\textbf{可数邻域基}.
+\begin{definition}[可数邻域基][def:5.3]
+    设$X$是一个拓扑空间，$x\in X$，如果存在$x$的一个可数邻域族$\{U_n\}_{n \in \mathbb{Z}^+}$，使得$x$的任何邻域 $W$都包含其中一个 $U_n$, 即 $x \in U_n \subset W$，则称在点$x$处一个\colorbf{可数邻域基}.
 \end{definition}
 \vspace{-1.5 em}
 \begin{figure}[h]
@@ -109,8 +111,9 @@
     \caption{可数邻域基}
 \end{figure}
 
-\begin{definition}[第一可数]
-    如果 $X$ 在其每一点都有可数邻域基, 则称 $X$ 是\textbf{第一可数的}，记为$C_1$空间.
+\begin{definition}[第一可数][def:5.4]
+\index{d@第一可数}
+    如果 $X$ 在其每一点都有可数邻域基, 则称 $X$ 是\colorbf{第一可数的}，记为$C_1$空间.
 \end{definition}
 
 \begin{instance}
@@ -118,8 +121,9 @@
     对$\forall\,x \in (X, d)$, $\left\{U_n = B\left(x, \frac{1}{n}\right)\right\}_{n \in \mathbb{Z}^+}$ 是一个可数邻域基.
 \end{instance}
 
-\begin{definition}[第二可数]
-    设$X$是一个拓扑空间，若$X$有一个可数基, 则称$X$是\textbf{第二可数的}, 记为$C_2$空间.
+\begin{definition}[第二可数][def:5.5]
+\index{d@第二可数}
+    设$X$是一个拓扑空间，若$X$有一个可数基, 则称$X$是\colorbf{第二可数的}, 记为$C_2$空间.
 \end{definition}
 
 \begin{instance}
@@ -130,7 +134,7 @@
     \end{enumerate}
 \end{instance}
 
-\begin{proposition}
+\begin{proposition}[][prop:5.2]
     每个第二可数空间都是第一可数的.
 \end{proposition}
 \begin{proof}
@@ -145,7 +149,7 @@
 \end{instance}
 从上述例子中可以看出，度量空间虽然是正规的、第一可数的，但它不一定是第二可数的，因此第二可数空间是极强的条件.\par
 
-\begin{proposition}
+\begin{proposition}[][prop:5.3]
     \begin{enumerate}[(i)]
         \item 第一（第二）可数空间的子空间是第一（第二）可数的.
         \item 两个第一（第二）可数空间的乘积是第一（第二）可数的.
@@ -160,7 +164,7 @@
 \end{proof}
 
 \section{两个定理}
-\begin{theorem}[Urysohn 度量化定理]
+\begin{theorem}[Urysohn度量化定理][thm:5.1]
     如果一个拓扑空间 $X$ 是正则的且是第二可数的，那么 $X$ 是可度量化的.
     \[
         \left.
@@ -173,7 +177,7 @@
 \end{theorem}
 反过来，对于度量空间，我们只能得到正规和第一可数的条件.
 
-\begin{theorem}[Tietze 扩张定理]
+\begin{theorem}[Tietze扩张定理][thm:5.2]
     如果 $X$ 是一个正规空间，$A \subset X$ 是闭集，$f: A \to \mathbb{E}^1$ 是一个连续函数.那么存在一个连续函数 $F: X \to \mathbb{E}^1$ 使得对所有 $a \in A$ 都有 $F(a) = f(a)$.
 \end{theorem}
 

@@ -1,0 +1,38 @@
+\begin{titlepage}
+\begin{tikzpicture}[remember picture, overlay, pencildraw/.style={
+		color=cyan!50!gray, thick,
+		decorate,
+		decoration={random steps, segment length=1pt, amplitude=0.7pt}
+	}]
+	\node[anchor=west] (title) at ([xshift=6em, yshift=-10em] current page.north west)
+		{ \fontsize{40}{40}\sffamily\bfseries 泛函分析讲义};
+
+	\draw[line width=2pt, color=black!70!gray] ([xshift=-0.5em, yshift=-6em] title.north west) -- ++(25em,0);
+	\shade[top color=gray, bottom color=black,] ([xshift=-1em, yshift=1em] title.north west) rectangle ++(-1em,-11.5em);
+
+  \node[anchor=west] (author) at ([yshift=-4em, xshift=0em] title.south west)
+        {\fontsize{20}{20}\sffamily Cabdoge \quad 著};
+
+	\coordinate (pic) at ([xshift=-20em, yshift=20em] current page.south east);
+
+    % 泛函分析经典公式
+    \begin{scope}[shift={(pic)}, scale=1.25, opacity=0.4, color=blue!60!black]
+        \node at (0, 0) {\fontsize{14}{14}\selectfont $|\langle x, y \rangle| \le \|x\| \|y\|$};
+        \node at (-2.5, -1.5) {\fontsize{12}{12}\selectfont $\displaystyle \sup_{n} \|T_n\| < \infty$};
+        \node at (2, -2.5) {\fontsize{14}{14}\selectfont $\| u{\| }_{{\mathcal{C}}^{0,\gamma }\left( {\mathbb{R}}^{n}\right) }\; \leq  \;C\| u{\| }_{{W}^{1,p}\left( {\mathbb{R}}^{n}\right) }$};
+        \node at (2.5, 1.2) {\fontsize{14}{14}\selectfont $\| x{\| }_{* * } \doteq  \mathop{\sup }\limits_{{\| \varphi {\| }_{ * } \leq  1}}\left| {\varphi \left( x\right) }\right|  = \| x\|$};
+        \node at (-2.5, 2.2) {\fontsize{12}{12}\selectfont $\sigma(T) = \sigma_{p}(T) \cup \sigma_{c}(T) \cup \sigma_{r}(T)$};
+        \node at (0.5, -4) {\fontsize{13}{13}\selectfont $(L^p)^* \cong L^q$};
+        \node at (-3, -3) {\fontsize{11}{11}\selectfont $\int f{D}^{\alpha }{\phi \d x} = {\left( -1\right) }^{\left| \alpha \right| }\int {g\phi \d x}$};
+    \end{scope}
+
+    % 单位球装饰背景
+    \begin{scope}[shift={(pic)}, scale=2.2, opacity=0.15, color=blue!70!cyan, thick]
+        \draw (0,0) circle (2);
+        \draw (0,0) ellipse (2 and 0.5);
+        \draw[rotate=90] (0,0) ellipse (2 and 0.5);
+        \draw[dashed] (-2,0) -- (2,0);
+        \draw[dashed] (0,-2) -- (0,2);
+    \end{scope}
+\end{tikzpicture}
+\end{titlepage}

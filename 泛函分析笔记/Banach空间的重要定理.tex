@@ -5,7 +5,7 @@
 
 在正式介绍诸多定理之前，由于要讨论无限维赋范线性空间的性质，因此需要引入一些集合论的工具，以便处理无限的情景.
 
-\begin{definition}[偏序关系]
+\begin{definition}[偏序关系]\index{p@偏序关系}
     设 $S$ 是一个集合，$\lesssim$ 是 $S$ 上的偏序关系，即满足：
     \begin{itemize}
         \item 自反性：$x \lesssim x$.
@@ -14,12 +14,12 @@
     \end{itemize}
 \end{definition}
 
-集合 $T \subseteq S$ 是\bluebf{链}（全序集），若 $\forall\, x, y \in T$，要么 $x \lesssim y$，要么 $y \lesssim x$.\par
-集合 $B \subseteq (S, \lesssim)$ 有\bluebf{上界} $u \in S$，若 $\forall\, x \in B, x \lesssim u$.\par
-称 $m \in S$ 为\bluebf{极大元}，若 $\forall\, y \in S, m \lesssim y \Rightarrow m = y$.\par
+集合 $T \subseteq S$ 是\bluebf{链}\index{l@链}（全序集），若 $\forall\, x, y \in T$，要么 $x \lesssim y$，要么 $y \lesssim x$.\par
+集合 $B \subseteq (S, \lesssim)$ 有\bluebf{上界}\index{s@上界} $u \in S$，若 $\forall\, x \in B, x \lesssim u$.\par
+称 $m \in S$ 为\bluebf{极大元}\index{j@极大元}，若 $\forall\, y \in S, m \lesssim y \Rightarrow m = y$.\par
 
 基于以上定义，我们可以引入 Zorn 引理，它可以用来证明很多集合的存在性问题.
-\begin{lemma}[Zorn 引理]
+\begin{lemma}[Zorn 引理]\index{z@Zorn引理}
     设 $(S, \lesssim)$ 是一个偏序集，若 $S$ 的每个链都有上界，则 $S$ 中存在极大元.
 \end{lemma}
 
@@ -36,7 +36,7 @@
 \end{enumerate}\par
 上面的第一个结论就是Hamel基的最初始形态，而Hausdorff才真正证明了Hamel基的存在性.
 
-\begin{theorem}[Hausdorff, 1932]
+\begin{theorem}[Hausdorff, 1932]\index{h@Hamel基}
     每个非零线性空间都有一组Hamel基.
 \end{theorem}
 
@@ -49,7 +49,7 @@
     因此 $L$ 线性无关，故 $L \in \mcal{S}$.\par
     由 Zorn 引理，存在极大元 $\mcal{B} \in \mcal{S}$，且 $\mcal{B}$ 线性无关.\par
     下证 $V = \mathrm{span}(B)$.\par
-    反证，若不然，则 $\exists\, v \in V \setminus \span(\mcal{B})$，考虑 $B \cup \{v\}$.\par
+    反证，若不然，则 $\exists\, v \in V \setminus \spann(\mcal{B})$，考虑 $B \cup \{v\}$.\par
     取 $\{v_1, \dots, v_n\} \subset B \cup \{v\},\st \sum_{i=1}^n c_i v_i = 0$.\par
     \begin{itemize}
         \item 若所有的 $v_i$ 均在 $\mcal{B}$ 中，由于 $\mcal{B} \in \mcal{S}$，则所有的 $c_i$ 均为 $0$.
@@ -76,11 +76,11 @@
 
 因此对于序数，同构是保序的双射.所有的序数构成的集合也是一个良序集.\par
 由上述定义，定义$\mb{N}$ 的序数为 $\omega = \aleph_0$，$\mb{R}$ 的序数为 $2^{\aleph_0} = \aleph_1$.著名的关于$\aleph_0$和$\aleph_1$的命题是
-\begin{assumption}[连续统假设, CH]
+\begin{assumption}[连续统假设, CH]\index{l@连续统假设}
     不存在序数在 $\aleph_0$ 与 $\aleph_1$ 之间的集合.
 \end{assumption}
 Gödel 在 1938 年证明了连续统假设在 ZFC 中不可证.Cohen 在 1963 年更进一步证明了连续统假设独立于 ZFC.因此关于连续统假设，我们无法得知它的真值.\par
-基于序数理论，我们可以推广自然数中的数学归纳法为序数中的有超限归纳法：若 $[(\forall\, \beta < \alpha) P(\beta)] \to P(\alpha)$，则 $P(\alpha), \forall\, \alpha$.
+基于序数理论，我们可以推广自然数中的数学归纳法为序数中的有超限归纳法\index{c@超限归纳法}：若 $[(\forall\, \beta < \alpha) P(\beta)] \to P(\alpha)$，则 $P(\alpha), \forall\, \alpha$.
 
 在超限归纳法的框架下，可以证明下述定理.
 \begin{theorem}
@@ -103,7 +103,7 @@ Gödel 在 1938 年证明了连续统假设在 ZFC 中不可证.Cohen 在 1963 �
 设$X$是一个向量空间，$X'=\mcal{L}\left(X,\mb{K}=\mb{R}\,\text{或}\,\mb{C}\right)$为其代数对偶.若$X$是一个赋范线性空间，则$X^*=\mcal{B}(X,\mb{K})$.一个重要的观察是，若$Y\leq X$，$f\in X^*$，则$\|f|_Y\|_{Y^*}\leq\|f\|_{X^*}$.\par
 我们知道，在线性空间中，若有一个子空间上的函数，可以通过将子空间上的基底扩展为整个空间的基底来将函数延拓到整个空间.自然地，当整个空间被赋予范数后，若$Y< X$，且有一个$f\in Y^*$，还能否将$f$延拓到$F\in X^*$，即$F|_Y=f$.\par
 在这个问题中，我们主要聚焦于次线性泛函这一特殊的函数.\par
-\begin{definition}[次线性泛函]
+\begin{definition}[次线性泛函]\index{c@次线性泛函}
     设$X$是一个实线性空间，称$P:X\to\mb{R}$是一个\colorbf{次线性泛函}，如果其满足：
     \begin{enumerate}[label=(\roman*)]
         \item $\forall\, x,y\in X,P(x+y)\leq P(x)+P(y)$
@@ -114,7 +114,7 @@ Gödel 在 1938 年证明了连续统假设在 ZFC 中不可证.Cohen 在 1963 �
 
 
 
-\begin{theorem}[Hahn-Banach 延拓定理]
+\begin{theorem}[Hahn-Banach 延拓定理]\index{h@Hahn-Banach定理}
     设 $X$ 是实线性空间，$Y \leq X$ 是子空间，$p \colon X \to \mb{R}$ 是次线性泛函.若 $f \in Y'$ 满足 $\forall\, x \in Y,f(x) \leq p(x)$，则存在 $F \in X'$ 使得 $F|_Y = f$ 且 $\forall\, x \in X,F(x) \leq p(x)$.
 \end{theorem}
 \begin{proof}
@@ -172,14 +172,14 @@ Gödel 在 1938 年证明了连续统假设在 ZFC 中不可证.Cohen 在 1963 �
 
 上述 Hahn-Banach 定理对复数域依旧成立，但需要将次线性泛函加强为半范数.
 
-\begin{theorem}[复 Hahn-Banach 延拓定理]
+\begin{theorem}[复 Hahn-Banach 延拓定理]\index{h@Hahn-Banach定理!f@复数域}
     设 $X$ 为复线性空间，$Y \leq X$ 是子空间且 $p\colon X \to \mb{R}$ 是半范数，若 $f \in Y^*$ 满足 $|f(x)| \leq p(x)$，则 $\exists\, F \in X^*$，$\st F|_Y = f$，$F \leq p$.
 \end{theorem}
 
 下面来看更多 Hahn-Banach 定理的应用.
 
 \begin{instance}
-    1. 设 $X$ 是 $\mb{R}$ 上的赋范线性空间，则 $\forall\, x_0 \in X \setminus \{0\}$，$\exists\, f \in X^*$ $\st \|x_0\| = f(x_0)$，$\|f\|_{X^*} = 1$，称 $f$ 是 $X$ 的\bluebf{范数泛函}.
+    1. 设 $X$ 是 $\mb{R}$ 上的赋范线性空间，则 $\forall\, x_0 \in X \setminus \{0\}$，$\exists\, f \in X^*$ $\st \|x_0\| = f(x_0)$，$\|f\|_{X^*} = 1$，称 $f$ 是 $X$ 的\bluebf{范数泛函}.\index{f@范数泛函}
 
     \begin{proof}
         在 $\langle x_0 \rangle = \mathrm{span}\{x_0\}$ 上定义 $f$：$f(\lambda x_0) = \lambda \|x_0\|$.
@@ -200,7 +200,7 @@ Gödel 在 1938 年证明了连续统假设在 ZFC 中不可证.Cohen 在 1963 �
 \end{instance}
 对上述的第2个例子，不自然的点是，$X$中的元素可以使用$X^*$定义，但$X^*$也是用$X$定义而非再对$X^*$求对偶.在其余Banach空间，这种性质未必成立，我们必须研究二次对偶.
 
-\begin{definition}[二次对偶]
+\begin{definition}[二次对偶]\index{e@二次对偶}
     赋范线性空间 $X$ 的\colorbf{二次对偶}为 $X^{**} = (X^*)^*$.
 \end{definition}
 
@@ -210,7 +210,7 @@ Gödel 在 1938 年证明了连续统假设在 ZFC 中不可证.Cohen 在 1963 �
     设 $X$ 是赋范线性空间，$\setjot[-0]\begin{aligned}[t]
         J = J_X: X &\to X^{**} = (X^*)^* \\
         x &\mapsto (J(x))(f) = f(x),\forall\, f \in X^*
-    \end{aligned} $ 为\colorbf{典范等距嵌入}.\par
+    \end{aligned} $ 为\colorbf{典范等距嵌入}.\index{d@典范等距嵌入}\par
 \end{definition}
 事实上，我们可以证明$J_X$是单射，且它是等距的，即 $\|J(x)\|_{X^{**}} = \|x\|_X$.但是上述嵌入通常显然不是满射，即 $X \lneqq X^{**}$.
 \begin{attention}
@@ -218,7 +218,7 @@ Gödel 在 1938 年证明了连续统假设在 ZFC 中不可证.Cohen 在 1963 �
 \end{attention}
 
 由以上的讨论可知$J_X$的满射性质是十分特殊的，因此需要特别强调满足该性质的空间.
-\begin{definition}[自反空间]
+\begin{definition}[自反空间]\index{z@自反空间}
     如果 $J_X$ 是满射，则称 $X$ 是一个\colorbf{自反 Banach 空间}.
 \end{definition}
 
@@ -277,7 +277,7 @@ Gödel 在 1938 年证明了连续统假设在 ZFC 中不可证.Cohen 在 1963 �
 在此基础上，线性泛函可以分离点，可以分离一个点与闭子空间，也可以分离两个凸集.\par
 进一步地，引入 Hahn-Banach 分离定理：
 
-\begin{theorem}[Hahn-Banach 分离定理]
+\begin{theorem}[Hahn-Banach 分离定理]\index{h@Hahn-Banach定理!l@分离定理}
     设 $X$ 是 $\mb{R}$ 上的赋范线性空间，设 $A, B \subset X$ 是非空不交凸集，则：
     \begin{enumerate}[label=(\arabic*),leftmargin=2em]
         \item 若 $A$ 是开集，$\exists\, f \in X^*$，$\lambda \in \mb{R}$，$\st f(a) < \lambda \leq f(b)$，$\forall\, a \in A, b \in B$.
@@ -285,19 +285,19 @@ Gödel 在 1938 年证明了连续统假设在 ZFC 中不可证.Cohen 在 1963 �
     \end{enumerate}
 \end{theorem}
 
-\begin{definition}[吸收集]
+\begin{definition}[吸收集]\index{x@吸收集}
     设 $X$ 是 赋范线性空间，$A \subset X$ 是\colorbf{吸收的} $\iff \forall\, x \in X, \exists\, t > 0, \st\, x \in tA$.
 \end{definition}
 
 上述的一个等价描述是 $\bigcup_{t > 0} tA = X$.
 
-\begin{definition}[平衡集]
+\begin{definition}[平衡集]\index{p@平衡集}
     设 $X$ 是 $\mb{R}$ 或 $\mb{C}$ 上的赋范线性空间，$B \subseteq X$ 是\colorbf{平衡的} $\iff \forall\, \lambda \in \mb{F}, \st\, |\lambda| \leq 1$, $\lambda B \subset B$.
 \end{definition}
 
 下面考虑吸收的，平衡的 $X$ 的凸集 $B$ 应该具有怎样的性质，最直观的感受是它应当类似于单位球.
 
-\begin{definition}[Minkowski 泛函]
+\begin{definition}[Minkowski 泛函]\index{m@Minkowski泛函}
     设 $X$ 是赋范线性空间，$A \subset X$ 是吸收集，定义 $\mu_A\colon X \to [0, \infty)$, $x \mapsto \inf \{t > 0 : x \in tA\}$，称为 \colorbf{Minkowski 泛函}.
 \end{definition}
 
@@ -381,7 +381,7 @@ Gödel 在 1938 年证明了连续统假设在 ZFC 中不可证.Cohen 在 1963 �
 \end{center}
 在测度意义下，零测集是小的集合.与之相对的，其补集全测集是最大的集合.那么在拓扑意义下，该如何进行分类.Baire在其博士论文给出了详尽的分类.
 
-\begin{definition}[无处稠密，第一纲集，第二纲集]
+\begin{definition}[无处稠密，第一纲集，第二纲集]\index{w@无处稠密}\index{d@第一纲集}\index{s@剩余集}\index{d@第二纲集}
     \begin{enumerate}[label=(\arabic*)]
         \item 设 $E \subset X$，如果 $\overline{E}$ 没有内点，称 $E$ \colorbf{无处稠密}.
         \item 称 $E$ 是\colorbf{贫乏集}或\colorbf{第一纲集}，当且仅当 $E = \bigcup_{i=1}^\infty N_i$，$N_i$ 无处稠密.
@@ -438,7 +438,7 @@ $\mb{Q}$是$\mb{R}$的稠密子集，因此$\overline{\mb{Q}}=\mb{R}$是第二�
     由于 $\mathcal{O}_n$ 开，故 $\mathrm{int}(\overline{X \setminus \mathcal{O}_n}) = \mathrm{int}(X \setminus \mathcal{O}_n) = X \setminus \overline{\mathcal{O}_n} \xlongequal{\text{稠密}} X \setminus X = \varnothing$.
 \end{proof}
 
-\begin{theorem}[Baire 纲定理]
+\begin{theorem}[Baire 纲定理]\index{b@Baire纲定理}
     设 $X$ 是非空完备度量空间，$\{\mathcal{O}_n\}_{n=1}^\infty$ 是 $X$ 中一列稠密开集，则 $\bigcap_{n=1}^\infty \mathcal{O}_n$ 稠密.
 \end{theorem}
 \begin{proof}
@@ -491,7 +491,7 @@ $\mb{Q}$是$\mb{R}$的稠密子集，因此$\overline{\mb{Q}}=\mb{R}$是第二�
     下证 $\forall\, n, M \in \mb{N}$，$D_{n, M}$ 无处稠密.\par
     对 $f \in D_{n, M}$，对 $f$ 增加高频小幅振荡，可得 $\tilde{f} \notin D_{n, M}$.
 \end{proof}
-\subsection*{Banach-Mazur 游戏}
+\subsection*{Banach-Mazur 游戏}\index{b@Banach-Mazur游戏}
 为了更直观地刻画剩余集和第一纲集，可以使用 Banach-Mazur 游戏.\par
 规则：给定 $A \subset \mb{R}$.\par
 玩家 (I) 选择闭区间 $I_1$.\par
@@ -645,12 +645,12 @@ $\Rightarrow$ 但 $A \cap \mcal{C} \neq \varnothing$. \par
 
 \section{开映射定理与逆算子定理}
 
-\begin{theorem}[逆算子定理]
+\begin{theorem}[逆算子定理]\index{n@逆算子定理}
     设 $X, Y$ 是 Banach 空间，$T \in \mcal{B}(X,Y)$.若 $T$ 是双射，则 $T^{-1} \in \mcal{B}(Y,X)$.
 \end{theorem}
 它是开映射定理的直接推论.
 
-\begin{theorem}[开映射定理]
+\begin{theorem}[开映射定理]\index{k@开映射定理}
     设 $X, Y$ 是 Banach 空间，$T \in \mcal{B}(X,Y)$.若 $T$ 是满射，则 $T$ 是开映射.
 \end{theorem}
 \begin{proof}
@@ -666,7 +666,7 @@ $\Rightarrow$ 但 $A \cap \mcal{C} \neq \varnothing$. \par
     所以 $T(U) \supseteq T(\mathbb{B}_r^X(x)) = Tx + T(\mathbb{B}_r^X(0)) \supseteq y + \mathbb{B}_{\frac{r\rho_0}{n_0}}^Y(0) = \mathbb{B}_{\frac{r\rho_0}{n_0}}^Y(y)$，这说明 $T(U)$ 包含 $y$ 的一个邻域，故 $T(U)$ 是开集，即 $T$ 是开映射.
 \end{proof}
 
-\begin{lemma}[Banach]
+\begin{lemma}[Banach]\index{b@Banach引理}
     若 $\forall\, y \in \mathbb{B}_1^Y(0)$，$\dist(y, T(\mathbb{B}_c^X(0))) < \varepsilon$，则 $\mathbb{B}_1^Y(0) \subseteq T\left(\mathbb{B}_{\frac{c}{1-\varepsilon}}^X(0)\right)$.
 \end{lemma}
 \begin{proof}
@@ -721,7 +721,7 @@ $\Rightarrow$ 但 $A \cap \mcal{C} \neq \varnothing$. \par
     设 $f\colon A \to B$，其图像为 $\Gamma_f = \{(x, f(x)) \colon x \in A\} \subset A \times B$.
 \end{definition}
 
-\begin{theorem}[闭图像定理]
+\begin{theorem}[闭图像定理]\index{b@闭图像定理}
     设 $X, Y$ 是 Banach 空间，$T \in \mcal{L}(X, Y)$，则 $T \in \mcal{B}(X, Y) \iff \Gamma_T$ 在 $(X \times Y, \|\cdot\|_X + \norm{\,\cdot\,}_Y)$ 中是闭集.
 \end{theorem}
 \begin{proof}
@@ -753,12 +753,12 @@ $\Rightarrow$ 但 $A \cap \mcal{C} \neq \varnothing$. \par
 \end{proof}
 
 \begin{definition}
-    设 $M$ 是 Banach 空间 $X$ 的闭子空间，则称 $M$ 是\colorbf{可补的}当且仅当存在闭子空间 $N$，使得 $M \cap N = \{0\}, M + N = X$.
+    设 $M$ 是 Banach 空间 $X$ 的闭子空间，则称 $M$ 是\colorbf{可补的}\index{k@可补子空间}当且仅当存在闭子空间 $N$，使得 $M \cap N = \{0\}, M + N = X$.
 \end{definition}
 
 上述表示和线性空间的直和分解的表述类似，那么类似于线性空间中的结论，可以思考投影和可补子空间之间的关系.
 
-\begin{definition}[投影]
+\begin{definition}[投影]\index{t@投影}
     设 $X$ 是 赋范线性空间，则 $P\colon X \to X$ 称为\colorbf{投影}，当且仅当 $P^2 = P$.
 \end{definition}
 
@@ -848,7 +848,7 @@ Banach-Steinhaus定理实际上可以包含一系列定理和推论.
 \end{proof}
 证明的核心是，对于 $T \in \mcal{B}(X, Y)$，若 $\sup\{\|Tx\| \colon x \in \mathbb{B}_{r_0}(x_0)\} \leq M$，则 $\|T\| \leq C(M, r_0)$，$C$ 为与 $M, r_0$ 有关的常数.
 
-\begin{corollary}[D, 一致有界原理]
+\begin{corollary}[D, 一致有界原理]\index{y@一致有界原理}\index{b@Banach-Steinhaus定理}
     设 $X$ 是 Banach 空间，$Y$ 是 赋范线性空间，设 $\{T_i \colon i \in \mcal{I}\} \subset \mcal{B}(X, Y)$. 若 $\forall\, x\in X$，$\exists\,M_x,\st\allowbreak\sup_{i \in \mcal{I}} \|T_i x\|_Y \leq M_x$，则 $\exists\, M, \st \sup_{i \in \mcal{I}} \|T_i\|_{X \to Y} \leq M$.
 \end{corollary}
 该推论将逐点有界提升到算子范数的一致有界.

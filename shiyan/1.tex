@@ -1,0 +1,77 @@
+\documentclass[UTF8]{ctexrep} % 也可以是 ctexbook
+
+% 必须加载的宏包
+\usepackage{amsmath, amssymb} % 提供 \mathbb, \mathcal, \lesssim
+\usepackage{longtable}        % 提供长表格环境
+\usepackage{array}            % 提供 p 列的高级宽度计算支持
+
+% 正确的宏定义（绝对不能包含 $ 符号）
+\newcommand{\mb}[1]{\mathbb{#1}}
+\newcommand{\mcal}[1]{\mathcal{#1}}
+
+\begin{document}
+
+\chapter*{符号说明}
+{\small
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.2}
+% 绝对不要在这里外面套 \begin{table}
+\begin{longtable}{p{3.2cm}p{\dimexpr\linewidth-3.4cm-4\tabcolsep\relax}}
+\hline
+\textbf{符号} & \textbf{说明} \\
+\hline
+\endfirsthead
+\hline
+\textbf{符号}（续） & \textbf{说明}（续） \\
+\hline
+\endhead
+\hline
+\endfoot
+$\|\cdot\|$ & 范数 \\
+$\|\cdot\|_p$ & $p$-范数 \\
+$\rho(\cdot,\cdot)$ & 度量 \\
+$\mb{K}$ & 域 $\mb{R}$ 或 $\mb{C}$ \\
+$\mb{B}_r(x)$ & 以 $x$ 为心、$r$ 为半径的开球 \\
+$\mb{B}(x)$ & 以 $x$ 为心的单位开球 \\
+$\mb{S}_X$ & 单位球面 $\{x\in X:\|x\|=1\}$ \\
+$\ell^p$ & $p$-可和数列空间 \\
+$\ell^\infty$ & 有界数列空间 \\
+$c_0$ & 收敛于零的数列空间 \\
+$c_{00}$ & 有限项非零的数列空间 \\
+$C(K)$ & 紧集 $K$ 上的连续函数空间 \\
+$L^p(\Omega)$ & $\Omega$ 上的 $p$-可积函数空间 \\
+$\chi_{A}$ & 集合 $A$ 的特征函数 \\
+$\dim X$ & 空间 $X$ 的维数 \\ 
+$\mcal{L}(X,Y)$ & $X$ 到 $Y$ 的所有线性算子 \\
+$\mcal{B}(X,Y)$ & $X$ 到 $Y$ 的所有有界线性算子 \\
+$\mcal{B}(X)$ & $\mcal{B}(X,X)$ 的简写 \\
+$\|T\|_{X\to Y}$ & 算子范数 \\
+$\|\cdot\|_{\sup}$ & 上确界范数 \\
+$X^*$ & $X$ 上的有界线性泛函空间（对偶空间） \\
+$X^{**}$ & $X$ 的二次对偶 \\
+$J_X$ & $X$ 到 $X^{**}$ 的典范等距嵌入 \\
+$L$, $R$ & 左右位移算子 \\
+$I$, $\mathrm{Id}_X$ & $X$ 上的恒等算子 \\
+$P$ & 投影算子 \\
+$T^{-1}$ & 算子 $T$ 的逆 \\
+$\ker T$ & 算子 $T$ 的核 \\
+$\mathrm{ran}\, T$ & 算子 $T$ 的值域 \\
+$\mcal{N}(P)$ & 投影 $P$ 的核 $\ker P$ \\
+$\mcal{R}(P)$ & 投影 $P$ 的值域 $P(X)$ \\
+$\Gamma_T$ & 算子 $T$ 的图像 \\
+$\sigma(T)$ & 算子 $T$ 的谱 \\
+$\rho(T)$ & 算子 $T$ 的预解集 \\
+$\mathrm{Aut}(X)$ & $X$ 上全体可逆有界线性算子 \\
+$\lambda I-T$ & 特征算子 \\ 
+$\mcal{N}$ & 半范数为零的元素构成的子空间 \\
+$X/Y$ & $X$ 关于子空间 $Y$ 的商空间 \\
+$\big\|[x]\big\|_{X/Y}$ & 商范数 \\
+$\mathrm{dist}(x,Y)$ & $x$ 到 $Y$ 的距离 \\
+$\mathrm{span}\, A$ & 集合 $A$ 的张成子空间 \\
+$\lesssim$ & 偏序关系 \\
+$\aleph_0$ & 可数无穷基数 \\
+$\aleph_1$ & 连续统基数 $2^{\aleph_0}$ \\
+$\mcal{C}$ & Cantor 集 \\
+\end{longtable}
+}
+\end{document}

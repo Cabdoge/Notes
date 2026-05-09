@@ -3,7 +3,7 @@
 \section{Banach空间的基本定义}
 
 
-\begin{definition}[范数]
+\begin{definition}[范数]\index{f@范数}
     设$X$是域$\mb{K}=\mb{R}$或$\mb{C}$上的线性空间，则$X$上的\colorbf{范数}是函数$\|\cdot\|\colon X\to[0,+\infty)$，满足：
     \begin{enumerate}[label=(\roman*)]
         \item $\|x\|=0\iff x=0$.
@@ -13,7 +13,7 @@
 \end{definition}
 其中这三条性质分别称为范数的非退化性、一次齐次性和三角不等式.范数衡量了线性空间中元素的大小.\par
 除了大小之外，为了研究收敛性、连续性等拓扑性质，我们需要为线性空间配备拓扑，其一的方式是为线性空间中的元素定义其距离.
-\begin{definition}[度量]
+\begin{definition}[度量]\index{d@度量}
     设$X$是一个拓扑空间，则$X$上的\colorbf{度量}是函数$\rho: X\times X\to[0,+\infty)$，满足：
     \begin{enumerate}[label=(\roman*)]
         \item $\rho(x,y)=0\iff x=y$.
@@ -31,12 +31,14 @@
         \item 平移不变性：$\rho(x+w,y+w)=\rho(x,y)$
         \item 一次齐次性：$\rho(\lambda x,\lambda y)=|\lambda|\cdot\rho(x,y)$
     \end{itemize}\par
-    前者让我们只需要考虑零点附近的性质就可以了解全局的性质，加上后者我们就只需要研究清除单位球就基本可以了解全局性质了，而关于单位球，有以下性质：
+    前者让我们只需要考虑零点附近的性质就可以了解全局的性质，加上后者我们就只需要研究清楚单位球就基本可以了解全局性质了，而关于单位球，有以下性质：
     \begin{itemize}
         \item 单位球是凸的：以后我们就记$\mb{B}_r(x)=\{y\in X:\rho(x,y)<r\},\mb{B}_r=\mb{B}_r(0),\mb{B}(x)=\mb{B}_1(x)$.\par
         \begin{sproof}
-            给定$x,y\in\mb{B},\lambda\in(0,1)$，$\|\lambda x+(1-\lambda)y|\leq\|\lambda x\|+\|(1-\lambda)y\|=|\lambda|\|x\|+|1-\lambda|\|y\|<\lambda+1-\lambda=1$.\par
-            $\Rightarrow \lambda x+(1-\lambda)y\in\mb{B}$.
+            给定$x,y\in\mb{B},\lambda\in(0,1)$，有\begin{equation*}
+                \|\lambda x+(1-\lambda)y\| \leq \|\lambda x\| + \|(1-\lambda)y\| = |\lambda|\|x\| + |1-\lambda|\|y\| < \lambda + 1 - \lambda = 1.
+            \end{equation*}
+            因此$\lambda x+(1-\lambda)y\in\mb{B}$.
         \end{sproof}
     \end{itemize}\par
     因此，当度量满足上述三个性质时，这个度量就和某个范数相容.\par
@@ -45,33 +47,39 @@
 
 赋予线性空间范数后，下面就可以研究上面的收敛性.\par
 
-\begin{definition}[Cauchy列]
-    设$X$是赋范线性空间，序列$\{x_n\}\subset X$是\colorbf{Cauchy列}$\iff \text{当}\, n,l\to\infty,\|x_n-x_l\|\to 0\iff \forall\,\varepsilon>0,\exists\, N\in\mb{N},\st\,\forall\, n,l>N,\|x_n-x_l\|<\varepsilon.$
+\begin{definition}[Cauchy列]\index{c@Cauchy列}
+    设$X$是赋范线性空间，序列$\{x_n\}\subset X$是 \colorbf{Cauchy列}$\iff \text{当}\, n,l\to\infty,\|x_n-x_l\|\to 0\iff \forall\,\varepsilon>0,\exists\, N\in\mb{N},\st\,\forall\, n,l>N,\|x_n-x_l\|<\varepsilon.$
 \end{definition}
 
-Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般的度量空间中Cauchy列未必收敛.例如在$(0,1)$中，序列$\{1-\frac{1}{n}\}$是Cauchy列，但它的极限点$1$不在$(0,1)$中.因此我们需要引入完备性的概念来保证Cauchy列的收敛性.
+Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般的度量空间中Cauchy列未必收敛.例如在$(0,1)$中，序列$\qty{1-\frac{1}{n}}$是Cauchy列，但它的极限点$1$不在$(0,1)$中.因此我们需要引入完备性的概念来保证Cauchy列的收敛性.
 
-\begin{definition}[完备性]
+\begin{definition}[完备性]\index{w@完备性}
     一个赋范线性空间$X$是\colorbf{完备的}当且仅当$X$中的每个Cauchy列都收敛.
 \end{definition}
 
-\begin{definition}[Banach空间]
+\begin{definition}[Banach空间]\index{b@Banach空间}
     一个完备赋范线性空间称为\colorbf{Banach空间}.
 \end{definition}
 
 \section{Banach空间的例子}
 
-\begin{instance}[$p-$范数]
-    设$X=\left(\mb{R}^d,\|\cdot\|_p\right),1\leq p\leq \infty$.对$\vv{x}=\left(x^1,x^2,\cdots,x^d\right)\in\mb{R}^d$，定义其范数为$\|\vv{x}\|_p:=\begin{cases}
+\begin{instance}[$p-\!\!$范数]\index{p@$p$- 范数}
+    设$X=\left(\mb{R}^d,\|\cdot\|_p\right),1\leq p\leq \infty$.对$\vv{x}=\left(x^1,x^2,\cdots,x^d\right)\in\mb{R}^d$，定义其范数为
+        \begin{equation*}
+        \|\vv{x}\|_p:=\begin{cases}
     \left(\sum_{i=1}^d|x^i|^p\right)^{\frac{1}{p}},&1\leq p<\infty\\
-    \max_{1\leq i\leq d}|x^i|,&p=\infty
-    \end{cases}$.\par
+    \max_{1\leq i\leq d}|x^i|,&p=\infty.
+    \end{cases}
+\end{equation*}
     下证上述确为范数.\par
     \begin{proof}
         (i)(ii)显然.\par
         (iii)当$p=\infty$时，显然得证.当$1\leq p<\infty$时，首先需要下列不等式.
-        \begin{lemma}[Hölder不等式]
-            $\left|\langle \vv{x},\vv{y}\rangle\right|=\left|\sum_{i=1}^d{x^iy^i}\right|\leq\|\vv{x}\|_p\cdot\|\vv{y}\|_q$，其中$1\leq p,q\leq\infty$满足$\frac{1}{p}+\frac{1}{q}=1$，称$p,q$\;\colorbf{Hölder共轭}.
+        \begin{lemma}[Hölder不等式]\index{h@H\"older不等式}
+            \begin{equation*}
+                \left|\langle \vv{x},\vv{y}\rangle\right|=\left|\sum_{i=1}^d{x^iy^i}\right|\leq\|\vv{x}\|_p\cdot\|\vv{y}\|_q,
+            \end{equation*}
+            其中$1\leq p,q\leq\infty$满足$\frac{1}{p}+\frac{1}{q}=1$，称$p,q$\;\colorbf{Hölder共轭}.\index{h@H\"older共轭}
         \end{lemma}
         \begin{sproof}
             若$\vv{x}=0$或$\vv{y}=0$，易证.\par
@@ -93,52 +101,36 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
     \begin{figure}[H]
         \centering
         \vspace{-1 em}
-        \begin{tikzpicture}[scale=1.8]
-            % Axes
-            \draw[->,>=stealth,gray!80,thick] (-1.3,0) -- (1.3,0) node[right,text=black] {$x$};
-            \draw[->,>=stealth,gray!80,thick] (0,-1.3) -- (0,1.3) node[above,text=black] {$y$};
-            
-            % p = 0.5 (Non-convex, astroid-like)
-            \draw[domain=0:90, samples=100, color=purple, thick] plot ({cos(\x)*cos(\x)*cos(\x)*cos(\x)}, {sin(\x)*sin(\x)*sin(\x)*sin(\x)});
-            \draw[domain=90:180, samples=100, color=purple, thick] plot ({-cos(\x)*cos(\x)*cos(\x)*cos(\x)}, {sin(\x)*sin(\x)*sin(\x)*sin(\x)});
-            \draw[domain=180:270, samples=100, color=purple, thick] plot ({-cos(\x)*cos(\x)*cos(\x)*cos(\x)}, {-sin(\x)*sin(\x)*sin(\x)*sin(\x)});
-            \draw[domain=270:360, samples=100, color=purple, thick] plot ({cos(\x)*cos(\x)*cos(\x)*cos(\x)}, {-sin(\x)*sin(\x)*sin(\x)*sin(\x)});
-
-            % p = 1 (Diamond)
-            \draw[thick, blue] (1,0) -- (0,1) -- (-1,0) -- (0,-1) -- cycle;
-            
-            % p = 2 (Circle)
-            \draw[thick, red] (0,0) circle (1);
-            
-            % p = infinity (Square)
-            \draw[thick, green!60!black] (-1,-1) rectangle (1,1);
-            
-            % Labels
-            \node[purple] at (0.3,0.3) {$p=0.5$};
-            \node[blue] at (0.6,0.6) {$p=1$};
-            \node[red] at (0.9,0.9) {$p=2$};
-            \node[green!60!black] at (1.2,1.2) {$p=\infty$};
-            \node[below left] at (0,0) {$0$};
-        \end{tikzpicture}
+        \input{fig/1.1.tex}
         \captionof{figure}{不同$p$下的单位球}
     \end{figure}
-    可以发现，当$p\geq 1$时，单位球都是凸集，并且若$p\neq 1$或$\infty$，单位球是一致凸的.因此处理$p-$范数时，有时会单独讨论$p=1$或$\infty$的情况.\par
+    可以发现，当$p\geq 1$时，单位球都是凸集，并且若$p\neq 1$或$\infty$，单位球是一致凸的.因此处理$p-$范数时，有时会单独讨论$p=1$或$\infty$的情况.\index{d@单位球}\par
     当$p<1$时，单位球不再是凸集，因为$p<1$时，对应定义的函数不再是范数.\par
 \end{instance}
 
-\begin{instance}[$\ell^p$空间]
-    设$1\leq p\leq \infty$，可以定义数列组成的空间$\ell^p$为$\{\{\alpha_j\}_{j\in\mb{N}}:\|\{\alpha_j\}\|_p<\infty\}=\left(\mb{R}^\infty,\|\cdot\|\right)$，并定义其范数为$\|x\|_p:=\begin{cases}
-        \left(\sum_{j=1}^\infty|\alpha_j|^p\right)^{\frac{1}{p}},&1\leq p<\infty\\
-        \sup_{j\in\mb{N}}|\alpha_j|,&p=\infty
-    \end{cases}$.\par
-    可以证明上述空间为一个赋范线性空间.\par
+\begin{instance}[$\ell^p$空间]\index{l@$\ell^p$空间}
+    设$1\leq p\leq \infty$，可以定义数列组成的空间$\ell^p$为
+    \begin{equation*}
+    \ell^p:=\left\{\{\alpha_j\}_{j\in\mb{N}}:\|\{\alpha_j\}\|_p<\infty\right\}=\left(\mb{R}^\infty,\|\cdot\|\right),
+    \end{equation*}
+    即$p$次可和的数列空间，并定义其范数为
+    \begin{equation*}
+        \|x\|_p:=\begin{cases}
+        \left(\sum_{j=1}^\infty|\alpha_j|^p\right)^{\frac{1}{p}},&1\leq p<\infty;\\
+        \sup_{j\in\mb{N}}|\alpha_j|,&p=\infty.
+    \end{cases}
+    \end{equation*}
+    可以证明上述空间为一个赋范线性空间.
 \end{instance}
 
-\begin{instance}[连续函数空间]
-    设$K$为紧致Hausdorff空间，定义$C(K)=\{f:K\to\mb{R}:f\text{连续}\}$，并定义其范数为上极限范数$\|f\|=\sup_{x\in K}|f(x)|<\infty$.范数的有限性来自于紧集上的连续函数是有界的，因此上述空间为一个赋范线性空间.\par
+\begin{instance}[连续函数空间]\index{l@连续函数空间}
+    设$K$为\uline{紧致Hausdorff空间}，定义\begin{equation*}
+        C(K)=\{f:K\to\mb{R}:f\,\text{连续}\},
+    \end{equation*}
+    并定义其范数为上极限范数$\|f\|=\sup_{x\in K}|f(x)|<\infty$.范数的有限性来自于紧集上的连续函数是有界的，因此上述空间为一个赋范线性空间.\par
     下面证明它是完备的.
     \begin{proof}
-        取$\{f_n\}\subset C(K)$为Cauchy列，则当$n,\ell\to\infty$时，$\|f_n-f_\ell\|=\sup_{x\in K}\left|f_n(x)-f_\ell(x)\right|\to 0$.\par
+        取$\{f_n\}\subset C(K)$为Cauchy列，当$n,\ell\to\infty$，$\|f_n-f_\ell\|=\sup_{x\in K}\left|f_n(x)-f_\ell(x)\right|\to 0$.\par
         对任意固定的$x\in K$，$\{f_n(x)\}$是$\mb{R}$中的Cauchy列.\par
         由于$\mb{R}$是完备的，因此$\exists\, f:K\to\mb{R},f_n(x)\to f(x)$.\par
         由于上述极限为一致极限，$f_n$都连续，因此$f$也连续.\par
@@ -149,7 +141,7 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
     \end{proof}
     现在可以研究$C(K)$中单位球的性质.\par
     令$K=[0,1],f_n=x^n$.则$\|f_n\|=\sup_{x\in[0,1]}|x^n|=1$，因此$\{f_n\}\subset\mb{S}_{C(K)}$.\par
-    但我们知道$f_n\to\chi_{1}$，而$\chi_{1}$不是连续函数，因此$\{f_n\}$在$C(K)$中没有收敛子列.\par
+    但$f_n\to\chi_{\{1\}}$，而$\chi_{\{1\}}$不是连续函数，因此$\{f_n\}$在$C(K)$中没有收敛子列.\par
     从而$C(K)$中的单位球不是紧集.\par
 \end{instance}
 从上面一个例子中可以看出，连续函数空间的单位球是一个有界闭集，但它不是紧集.但在实数域等有限维线性空间中，有界闭集都是紧集.因此我们可以得到以下结论：
@@ -162,7 +154,10 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
 \end{instance}
 因此，对于无限维赋范空间而言，子空间未必是闭集，我们需要额外的条件.
 \begin{theorem}
-    设$(X,\|\cdot\|)$是一个Banach空间，设$Y\leq X$是一个线性子空间，则$(T,\|\cdot\|)$是Banach空间$\iff$ $Y$是闭集.
+    设$(X,\|\cdot\|)$是一个Banach空间，设$Y\leq X$是一个线性子空间，则
+    \begin{equation*}
+        (Y,\|\cdot\|)\,\text{是Banach空间}\iff Y\,\text{是闭集}.
+    \end{equation*}
 \end{theorem}
 \begin{proof}
     $\Rightarrow$：设$(Y,\|\cdot\|)$是Banach空间，取任意$\{y_n\}\subset Y,\st y_n\to x\in X$.\par
@@ -184,9 +179,9 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
     更进一步，可以证明$Z$上的任意范数均不完备.
 \end{instance}
 
-\begin{definition}[级数收敛]
-    $\sum_n{x_n}$在$X$中收敛当且仅当$S_n=\sum_{n=1}^N{x_n}$收敛.\par
-    $\sum_n{x_n}$在$X$中绝对收敛当且仅当$\sum_n\|x_n\|$收敛.\par
+\begin{definition}[级数收敛]\index{j@级数收敛}
+    $\sum_n{x_n}$在$X$中\colorbf{收敛}当且仅当$S_n=\sum_{n=1}^N{x_n}$收敛.\par
+    $\sum_n{x_n}$在$X$中\colorbf{绝对收敛}\index{j@绝对收敛}当且仅当$\sum_n\|x_n\|$收敛.\par
 \end{definition}
 下面可以证明以下结论.
 \begin{theorem}[]
@@ -196,7 +191,7 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
     $\Rightarrow$：设$X$是Banach空间，设$\sum\|x_n\|<\infty$，考虑$S_n=\sum_{i=1}^n{x_i}$.\par
     $\|S_n-S_\ell\|=\|\sum_{j=\ell+1}^n{x_j}\|\leq\sum_{j=\ell+1}^n\|x_j\|\xlongrightarrow{n,\ell\to\infty} 0$.\par
     因此$\{S_n\}$是Cauchy列，故收敛，因而$\sum_n{x_n}$收敛.\par
-    $\Leftarrow$：任取Cauchy列$\{y_n\}\subset X$，可取一个迅速收敛的子列$\{y_{n_k}\}\st\,\|y_{n_{k+1}}-y_{n_k}\|<2^{-k}$.\par
+    $\Leftarrow$：任取Cauchy列$\{y_n\}\subset X$，可取收敛子列$\{y_{n_k}\}$，且满足$\|y_{n_{k+1}}-y_{n_k}\|<2^{-k}$.\par
     那么$\sum_k\left(y_{n_{k+1}}-y_{n_k}\right)$绝对收敛，因此由假设收敛.\par
     故$y_{n_k}=y_{n_1}+\sum_{j=1}^{k-1}\left(y_{n_{j+1}}-y_{n_j}\right)$收敛.\par
     \begin{claim*}
@@ -204,7 +199,7 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
     \end{claim*}
 \end{proof}
 最终可以证明上面所定义的数列空间是完备的.
-\begin{theorem}[Riesz-Fischer]
+\begin{theorem}[Riesz-Fischer]\index{r@Riesz-Fischer定理}
     $\ell^p(\mb{R}),\ell^p(\mb{C})$是Banach空间，$\forall\, 1\leq p\leq \infty$.
 \end{theorem}
 \begin{proof}
@@ -218,7 +213,7 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
             $\setjot[-2]\begin{aligned}[t]
                 \|x_n-y\|_{\ell^\infty} &=\sup_{i\in\mb{N}}\left|x_n^{(i)}-y^{(i)}\right|=\sup_{i\in\mb{N}}\left|x_n^{(i)}-\lim_{k\to\infty}x_k^{(i)}\right| \\
                 &=\sup_{i\in\mb{N}}\lim_{k\to\infty}\left|x_n^{(i)}-x_k^{(i)}\right|\to 0,\;\text{当}\, n\to\infty
-            \end{aligned}$\par
+            \end{aligned}$
         \end{claim}
         又可知$y\in \ell^\infty$，故$\ell^\infty$是Banach空间.
         \item \textbf{\boldmath$1\leq p<\infty$}\par
@@ -235,7 +230,7 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
 \section{线性算子}
 
 赋范线性空间的另一研究方向是赋范线性空间之间的线性算子，其中更关注于有界线性算子.\par
-\begin{definition}[有界线性算子]
+\begin{definition}[有界线性算子]\index{y@有界线性算子}
     设$X,Y$是赋范线性空间，线性算子$T:X\to Y$是\bluebf{有界的}当且仅当它满足以下任意条件：
     \begin{enumerate}[label=(\roman*)]
         \item $\exists\, M>0,\st\forall\, x\in X.\|Tx\|_Y\leq M\|x\|_X$.
@@ -245,8 +240,8 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
     \end{enumerate}
 \end{definition}
 上述四个条件虽然是彼此之间等价的，但它们分别从不同的角度描述了有界线性算子.第一个条件是从纯粹分析的角度描述，它给出了范数的估计.而到第四个条件则是从拓扑的角度出发，描述了单位球在映射下的像所满足的条件.由于泛函分析有强烈的拓扑背景，因此在分析和拓扑的视角中相互切换是学习泛函分析的重要技巧.\par
-\begin{definition}[算子代数]
-    设$X,Y$是赋范线性空间，线性算子$T:X\to Y$的\colorbf{算子代数}定义为
+\begin{definition}[算子范数]\index{s@算子范数}
+    设$X,Y$是赋范线性空间，线性算子$T:X\to Y$的\colorbf{算子范数}定义为
     \[\|T\|_{X\to Y}=\|T\|:=\inf\{M>0:\|Tx\|_Y\leq M\|x\|_X,\forall\, x\in X\}\]
     $T$是有界线性算子当且仅当$\|T\|_{X\to Y}<\infty$.
 \end{definition}
@@ -274,7 +269,7 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
 但对于后者，其逆命题并不成立，即$\forall\, x\in X,T_n x\to Tx$并不意味着$T_n$在范数下收敛到$T$.例如设$X=Y=\ell^2,e_i=(0,\cdots,0,1,0,\cdots)$，其中$1$在第$i$个坐标，定义$T_n e_i=\begin{cases}
     e_i,&i\neq n\\
     2e_n,&i=n
-\end{cases}$，则$\forall\, x\in X,T_n x\to x$，但$\|T_n-I\|=\sup_{\|x\|\leq 1}\|T_n x-x\|\geq \|T_n e_n-e_n\|=\|e_n\|=1$，因此$T_n$在范数下不收敛到$I$.这表明前者的条件比后者更强，我们有时也称前者为\bluebf{强范数收敛}.\par
+\end{cases}$，则$\forall\, x\in X,T_n x\to x$，但$\|T_n-I\|=\sup_{\|x\|\leq 1}\|T_n x-x\|\geq \|T_n e_n-e_n\|=\|e_n\|=1$，因此$T_n$在范数下不收敛到$I$.这表明前者的条件比后者更强，我们有时也称前者为\bluebf{强范数收敛}.\index{q@强范数收敛}\par
 下面一个定理表明在线性算子的前提下，有界和连续是等价的.\par
 \begin{theorem}[]
     设$X,Y$是赋范线性空间，$Y\in\mcal{L}(X,Y)$，则$T$连续$\iff$$T$有界.
@@ -306,7 +301,7 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
 特别地，如果$X=Y$，则记$\mcal{B}(X,X)=\mcal{B}(X)$，并且可以定义其中的乘法$\setjot[-6]\begin{aligned}[t]
     \mcal{B}(X)\times\mcal{B}(X) &\to\mcal{B}(X) \\
     (T,S) &\mapsto S\circ T
-\end{aligned}$，并且满足$\|ST\|\leq \|S\|\|T\|$.如果$X$为一个Banach空间，则$\mcal{B}(X)$也是一个Banach空间且在上方有乘法，称为\bluebf{Banach代数}.\par
+\end{aligned}$，并且满足$\|ST\|\leq \|S\|\|T\|$.如果$X$为一个Banach空间，则$\mcal{B}(X)$也是一个Banach空间且在上方有乘法，称为\bluebf{Banach代数}.\index{b@Banach代数}\par
 \begin{instance}
     $n$阶矩阵是一个Banach代数.\par
     $\left(C[0,1],\|\cdot\|_\mathrm{sup}\right)$，$(fg)(x)=f(x)g(x)$是一个Banach代数.
@@ -342,7 +337,7 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
         \item 设$X=\ell^p,1\leq p\leq \infty$，定义左右位移算子分别为$L:X\to X,L(x_1,x_2,x_3,\cdots)=(x_2,x_3,\cdots),R:X\to X,R(x_1,x_2,x_3,\cdots)=(0,x_1,x_2,\cdots)$.\par
         则$\|L\|=1=\|R\|$，并且$LR=\mathrm{Id}_X\neq RL$，这表明有界线性算子可能并不存在逆算子，而要区分左逆和右逆.\par
         本例中的原因是$R$是单射，$R$是满射，因此$RL$不单不满，必然不是恒等映射.\par
-        但是我们可以发现$\dim (X/\ran R)=1,\dim\ker L=1$，被称为\bluebf{Fredholm算子}，它是泛函分析中可逆算子的推广.
+        但是我们可以发现$\dim (X/\ran R)=1,\dim\ker L=1$，被称为 \bluebf{Fredholm算子}\index{f@Fredholm算子}，它是泛函分析中可逆算子的推广.
         \item 设$\setjot[-2]\begin{aligned}[t]
             I:C[0,1]&\to C[0,1] \\ 
             f&\mapsto F(x)=\int_0^x{f(y)\d y}
@@ -368,7 +363,7 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
 
 从上述定理中也可以看出，$(C_{00},\|\cdot\|)$不是一个Banach空间.\par
 接下来更深入的研究有界线性算子的可逆性.在线性空间中，我们定义过特征值的概念，若$\lambda$为特征值，则$\exists\, v\neq 0,\st Tv=\lambda v\iff \ker(\lambda I-T)\neq\{0\}\Rightarrow \lambda I-T$可逆.注意在有限维线性空间中，最后一个箭头是双向的，逆命题成立，但在无限维线性空间中，逆命题不成立.因此我们需要一个新的概念来描述有界线性算子的可逆性.
-\begin{definition}[谱]
+\begin{definition}[谱]\index{p@谱}
     设$X$是Banach空间，$T\in\mcal{B}(X)$，$T$的\colorbf{谱}是$\sigma(T)=\Spec(T):=\{\lambda\in\mb{C}:\lambda I-T\,\text{不可逆}\}$.
 \end{definition}
 谱的一个重要性质是
@@ -397,7 +392,7 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
     这说明$\forall\, T\in\Aut(X),\exists\,\mb{B}_\delta(T)\subset \Aut(X)$，从而$\Aut(X)$是开集.
 \end{proof}
 类似的想法，定义预解集的概念.
-\begin{definition}[预解集]
+\begin{definition}[预解集]\index{y@预解集}
     设$X$是Banach空间，$T\in\mcal{B}(X)$，则$\rho(T):=\{\lambda\in\mb{C}:\lambda I-T\in\Aut(X)\}$称为$T$的\colorbf{预解集}.
 \end{definition}
 由定理1.8，可以证明预解集也是一个开集，从而$\sigma(T)$是$\mb{C}$中的闭集\par
@@ -414,7 +409,7 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
 \end{proof}
 
 在这一节的最后，引入泛函的概念.
-\begin{definition}[有界线性泛函]
+\begin{definition}[有界线性泛函]\index{y@有界线性泛函}
     设$X$是Banach空间，记$X^*=\mcal{B}(X,\mb{R})$或$\mcal{B}(X,\mb{C})$，则$X^*$中的元素称为$X$上的\colorbf{有界线性泛函}.
 \end{definition}
 这里的$X^*$和线性代数中的对偶空间的概念相同，对有限维线性空间，$V\cong \mb{R}^d\cong V^*$.但当推广到无限维空间时，通常而言，$X^*\not\cong X$，且$X^*$会比$X$大得多.\par
@@ -422,7 +417,7 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
 \section{有限维赋范空间与半范数}
 
 继续上一节末尾的话题，对于有限维线性空间而言，如果两个空间的维数相同，那么这两个空间是同构的且都同构与$\mb{R}^d$，因此从这一角度，它们几乎是相同的，故我们只需要研究$\mb{R}^d$即可.问题是，对于配备了范数的赋范线性空间而言，是否也存在类似的分类结果呢?首先需要定义何为赋范线性空间的同构.\par
-\begin{definition}[赋范线性空间的同构]
+\begin{definition}[赋范线性空间的同构]\index{f@赋范线性空间同构}
    设$(X,\|\cdot\|_X)$和$(Y,\|\cdot\|_Y)$是赋范线性空间，则$X$与$Y$\colorbf{同构}当且仅当存在线性空间上的同构$B:X\to Y,\st \|B\|,\|B^{-1}\|<\infty$.
 \end{definition}
 相比单纯线性空间的同构，赋范线性空间的同构要求同构映射和其逆映射是有界的.下面就可以说明即使是赋范线性空间，维数相同时也一定同构.
@@ -443,7 +438,7 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
     $\Rightarrow a_\infty=0$，与$\|a_\infty\|=1$矛盾.
 \end{proof}
 在上述证明中，我们并没证明对$\mb{R}^d$中的任意范数都成立，而是只选取了$\mb{R}^d$中的无穷范数，这背后的原因是$\mb{R}^d$从根本上只有一种范数，这需要引入范数等价的概念.
-\begin{definition}[范数的等价]
+\begin{definition}[范数的等价]\index{f@范数等价}
     设$\|\cdot\|_1,\|\cdot\|_2$是$X$上的范数，称$X_1$与$X_2$\,\colorbf{等价}$\iff\exists\,0<c<C<\infty,\st\forall\, x\in X,\,c\|x\|_1\leq \|x\|_2\leq C\|x\|_1$.
 \end{definition}
 \begin{corollary}[有限维赋范空间范数的等价性]
@@ -459,7 +454,7 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
     设$(X,\|\cdot\|)$是赋范线性空间，则有界闭集是紧集$\iff\dim X<\infty$.
 \end{theorem}
 上述定理有直接的证明方式，但在此处我们先引入半范数的概念，利用半范数来证明上述定理.
-\begin{definition}[半范数]
+\begin{definition}[半范数]\index{b@半范数}
     若$\|\cdot\|:X\to [0,\infty)$满足：
     \begin{enumerate}[label=(\roman*)]
         \item $\|\lambda x\|=|\lambda|\|x\|$
@@ -472,7 +467,7 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
 严谨来说，记$\mcal{N}:=\left\{x\in X:\|x\|=0\right\}\leq X$，可以定义商空间$X/\mcal{N}=\left\{[x]=x+\mcal{N}:x\in X\right\}$.则$[x]=[y]\iff x-y\in\mcal{N}$.\par
 定义商空间上的范数为$\big\|[x]\big\|_{X/\mcal{N}}\equiv\|x+\mcal{N}\|_{X/\mcal{N}}$.上述定义是良定的，因为若$x+\mcal{N}=y+\mcal{N}$，则$\exists\, n\in\mcal{N},\st x=y+n$，则$\|x\|=\|y+n\|\leq \|y\|+\|n\|=\|y\|=\|x-n\|\leq\|x\|+\|-n\|=\|x\|$，因此$\|x\|=\|y\|$.那么$\left(X/\mcal{N},\|\cdot\|_{X/\mcal{N}}\right)$是一个赋范线性空间.\par
 利用商空间定义范数的一个经典例子是$L^p$空间.
-\begin{instance}[$L^p$空间]
+\begin{instance}[$L^p$空间]\index{l@$L^p$空间}
     $1\leq p\leq\infty$，$\left(L^P\left(\Omega\subset\mb{R}^n\right),\|\cdot\|_{L^p}\right)$，定义$\|f\|_{L^p}:=\begin{cases}
     \left(\int_\Omega|f(x)|^p\d x\right)^\frac{1}{p},&1\leq p<\infty\\
     \mathrm{ess}\sup_{x\in\Omega}|f(x)|,&p=\infty
@@ -500,7 +495,7 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
 
 另外一个有意思的结论是.在线性空间中，我们总有$X\cong Y\oplus (X/Y)$.但是存在Banach空间$X$，使得$X\not\cong Y\oplus (X/Y)$，这是由Corson Trans在1961年得出的结论.\par
 于是我们可以证明下述重要的引理.
-\begin{lemma}[Riesz引理]
+\begin{lemma}[Riesz引理]\index{r@Riesz引理}
     设$X$是赋范线性空间，$Y\leq X$是一个闭子空间，且$Y\neq X$，则$\forall\, \varepsilon>0,\exists\, x\in X,\st \|x\|=1$，$\dist(x,Y)\geq 1-\varepsilon$.
 \end{lemma}
 \begin{proof}
@@ -510,7 +505,7 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
     则$\dist \left(x,Y\right)=\frac{\dist(z,Y)}{\|z\|}=\frac{\left\|\left[\tilde{z}\right]\right\|_{X/Y}}{\|z\|}\geq 1-\varepsilon$.\par
     则上述的$x$就是满足条件的向量.
 \end{proof}
-基于上述引理，若$\dim X=\infty$，则可取$x_1,x_2,\cdots\in X,\st \|x_j\|=1,\dist\left(x_j,\span\{x_1,\cdots,x_{j-1}\} \right)\geq 0.99$，因此$\{x_j\}\subset \mb{S}_X$没有收敛子列.\par
+基于上述引理，若$\dim X=\infty$，则可取$x_1,x_2,\cdots\in X,\st \|x_j\|=1,\dist\left(x_j,\spann\{x_1,\cdots,x_{j-1}\} \right)\geq 0.99$，因此$\{x_j\}\subset \mb{S}_X$没有收敛子列.\par
 \begin{corollary}[]
     设$X$是赋范线性空间.若$\dim X=\infty$，则有界闭集不是紧集.
 \end{corollary}
@@ -519,7 +514,7 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
 例如对于$\left(C(K),\|\cdot\|_{\mathrm{sup}}\right)$，若$K$是紧致度量空间，那么$C(K)$是Banach空间.若$K$是一个开集，例如$K=(0,1)$，则$C((0,1))$不是赋范线性空间，但我们可以不断取紧集$K_1\subset K_2\subset K_3\subset\cdots\subset \Omega$，使得$\Omega=\bigcup_{i=1}^\infty K_i$.\par
 那么在每一个$K_i$上，都可以定义一个半范数$\|f\|_{i}=\sup_{x\in K_i}|f(x)|$.\par
 如果在$C(\Omega)$上，$\forall\, f(x)\neq 0,\exists\, i,\st \|f_i\|\neq 0$，那么称$\left\{\|\cdot\|_i\right\}_{i\in\mb{N}}$是$C(\Omega)$上的一族分离点的半范数，即$\forall\, f,g\in C(\Omega),\exists\, i,\st \|f\|_i\neq\|g\|_i$.\par
-因此就可以定义其距离为$\rho(f,g)=\sum_{i=1}^{\infty}\frac{1}{2^i}\frac{\|f-g\|_i}{1+\|f-g\|_i}$，由此$C(\Omega)$是一个度量空间，将其称为\,\bluebf{Fréchet空间}.
+因此就可以定义其距离为$\rho(f,g)=\sum_{i=1}^{\infty}\frac{1}{2^i}\frac{\|f-g\|_i}{1+\|f-g\|_i}$，由此$C(\Omega)$是一个度量空间，将其称为\,\bluebf{Fréchet空间}.\index{f@Fr\'echet空间}
 
 
 

@@ -3,14 +3,15 @@
 
 \section{曲面}
 
-\begin{definition}[曲面]
+\begin{definition}[曲面][def:9.1]
+\index{q@曲面}
     设 $X$ 是一个拓扑空间，如果
     \begin{enumerate}[(i)]
         \item $X$ 是 Hausdorff 空间.
         \item $X$ 是第二可数的.
         \item 对任意 $x \in X$，存在 $x$ 的一个邻域同胚于 $\mathbb{E}^2$ 或 $\mathbb{E}^2_+$，该同胚将 $x$ 映为 $0 \in \mathbb{E}^2$ 或 $0 \in \mathbb{E}^2_+$.
     \end{enumerate}
-    则称 $X$ 为一个\textbf{曲面}.
+    则称 $X$ 为一个\colorbf{曲面}.
 \end{definition}
 \vspace{-1 em}
 \begin{figure}[h]
@@ -48,15 +49,15 @@
 \end{instance}
 
 
-\begin{definition}[边界]
-    设 $S$ 是一个曲面，若 $x \in S$ 有一个邻域同胚于 $\mathbb{E}^2_+$ 且该同胚将 $x$ 映为 $0 \in \mathbb{E}^2_+$，则称 $x$ 为 $S$ 的一个\textbf{边界点}.
-    $S$ 的边界点的集合称为 $S$ 的\textbf{边界}，记为 $\partial S$.\par
-    若紧致曲面 $S$ 满足 $\partial S = \varnothing$，则称其为\textbf{闭曲面}.
+\begin{definition}[边界][def:9.2]
+    设 $S$ 是一个曲面，若 $x \in S$ 有一个邻域同胚于 $\mathbb{E}^2_+$ 且该同胚将 $x$ 映为 $0 \in \mathbb{E}^2_+$，则称 $x$ 为 $S$ 的一个\colorbf{边界点}.
+    $S$ 的边界点的集合称为 $S$ 的\colorbf{边界}，记为 $\partial S$.\par
+    若紧致曲面 $S$ 满足 $\partial S = \varnothing$，则称其为\colorbf{闭曲面}.
 \end{definition}
 依照上述定义，球面、环面、克莱因瓶和射影平面均为闭曲面.
 
-\begin{definition}[曲面定向]
-    若曲面 $S$ 包含一个嵌入的莫比乌斯带，则称 $S$ 是\textbf{不可定向的}.否则称其为\textbf{可定向的}.
+\begin{definition}[曲面定向][def:9.3]
+    若曲面 $S$ 包含一个嵌入的莫比乌斯带，则称 $S$ 是\colorbf{不可定向的}.否则称其为\colorbf{可定向的}.
 \end{definition}
 \begin{figure}[h]
     \centering
@@ -68,13 +69,13 @@
     $\mathbb{R}\mb{P}^2$ 和克莱因瓶是不可定向的.
 \end{instance}
 
-\begin{theorem}
+\begin{theorem}[][thm:9.1]
     设 $S_1, S_2$ 是曲面，且 $S_1 \cong S_2$.则 $S_1$ 可定向 $\iff S_2$ 可定向.
 \end{theorem}
 这表示一个曲面是否定向是一个拓扑性质.
 
-\begin{definition}
-    设 $S_1, S_2$ 为两个曲面.$S_1$ 和 $S_2$ 的\textbf{连通和}，记作$S_1 \# S_2$，是通过从每个曲面中移除一个开圆盘，并将两个圆周边界粘合在一起而得到的.
+\begin{definition}[连通和][def:9.4]
+\index{l@连通和}
 \end{definition}
 \begin{instance}
     球面$\#$环面 $\cong$ 环面.\par
@@ -149,7 +150,7 @@
 
 \section{闭曲面的分类}
 
-\begin{theorem}[闭曲面分类定理]
+\begin{theorem}[闭曲面分类定理][thm:9.2]
     每个闭曲面同胚于 $S^2$，$nT^2$，$m\mb{P}^2$ ($n, m \ge 1$) 中的恰好一个.
 \end{theorem}
 
@@ -157,14 +158,13 @@
     $T^2\# \mb{R}\mb{P}^2\cong 3\mb{P}^2$
 \end{instance}
 
-\begin{definition}{曲面上的三角形}
-    设$S$是一个曲面，$S$中的一个\textbf{三角形}是指$S$ 的一个子空间 $T$ 以及一个同胚 $h: \Delta \to T$，其中 $\Delta \subset \mathbb{E}^2$ 是一个闭三角形区域，满足
+\begin{definition}[曲面上的三角形][def:9.5]
+    设$S$是一个曲面，$S$中的一个\colorbf{三角形}是指$S$ 的一个子空间 $T$ 以及一个同胚 $h: \Delta \to T$，其中 $\Delta \subset \mathbb{E}^2$ 是一个闭三角形区域，满足
     若 $v$ 是 $\Delta$ 的顶点，则 $h(v)$ 是 $T$ 的顶点.
     若 $e$ 是 $\Delta$ 的边，则 $h(e)$ 是 $T$ 的边.
 \end{definition}
 
-\begin{definition}
-    闭曲面 $S$ 的一个\textbf{三角剖分}是 $S$ 中有限个覆盖 $S$的三角形的集合，且满足：任意两个三角形要么不相交，要么相交于两个三角形的一个公共顶点，要么相交于两个三角形的一条公共边.
+\begin{definition}[三角剖分][def:9.6]
 \end{definition}
 
 \begin{instance}
@@ -202,14 +202,15 @@
     \end{center}
 \end{instance}
 
-\begin{theorem}[Rado, 1925]
+\begin{theorem}[Rado, 1925][thm:9.3]
     每个闭曲面都有一个三角剖分.
 \end{theorem}
 
 \section{欧拉示性数}
 
-\begin{definition}{欧拉示性数}
-    $S$ 是一个曲面，$T$ 是 $S$ 的一个三角剖分，则$S$ 的\textbf{欧拉示性数}定义为
+\begin{definition}[欧拉示性数][def:9.7]
+\index{o@欧拉示性数}
+    $S$ 是一个曲面，$T$ 是 $S$ 的一个三角剖分，则$S$ 的\colorbf{欧拉示性数}定义为
     \[ \chi(S) = V - E + F \]
     其中 $V$ 是顶点数，$E$ 是边数，$F$ 是面数(三角形个数).
     $\chi(S)$ 不依赖于 $T$ 的选取.
@@ -222,7 +223,7 @@
     $\chi(S^2) = 4 - 6 + 4 = 2$
 \end{instance}
 
-\begin{lemma}
+\begin{lemma}[][lem:9.1]
     \[ \chi(S_1 \# S_2) = \chi(S_1) + \chi(S_2) - 2 \]
 \end{lemma}
 \begin{proof}
@@ -242,16 +243,10 @@
 
 \section{曲面的多边形表示}
 
-\begin{definition}
-    设 $S$ 是一个闭曲面.
-    \begin{itemize}
-        \item $\tau$ 是一个具有偶数条边的多边形.
-        \item $\varphi$ 是将 $\tau$ 的边成对粘合的映射.
-    \end{itemize}
-    $\tau/\varphi$ 是一个闭曲面.若 $\tau/\varphi \cong S$，则称 $(\tau, \varphi)$ 为 $S$ 的一个\textbf{多边形表示}.
+\begin{definition}[多边形表示][def:9.8]
 \end{definition}
 
-\begin{proposition}
+\begin{proposition}[][prop:9.1]
     任意闭曲面都有一个多边形表示.
 \end{proposition}
 
@@ -293,7 +288,7 @@
 
 
 
-\begin{theorem}
+\begin{theorem}[][thm:9.4]
     任意多边形表示都可以变换为标准形式.\par
     \begin{itemize}
     \item $nT^2$: $a_1 b_1 a_1^{-1} b_1^{-1} \dots a_n b_n a_n^{-1} b_n^{-1}$
@@ -358,7 +353,7 @@
 
 此时 $(\tau', \varphi')$ 只有一个顶点类.
 
-\begin{lemma}
+\begin{lemma}[][lem:9.2]
     $(\tau, \varphi)$ 中的反向对不相邻，且至少与另一边对相间排列.
 \end{lemma}
 \begin{proof}
@@ -416,18 +411,11 @@ $a$ 是反向对，由引理，存在另一反向对 $b$ 与 $a$ 相间排列.�
 
 \section{流形}
 
-\begin{definition}
-    设 $X$ 是一个拓扑空间，$n \geq 1$.
-    \begin{enumerate}[(i)]
-        \item $X$ 是 Hausdorff 空间.
-        \item $X$ 是第二可数的.
-        \item 对任意 $x \in X$，存在 $x$ 的一个邻域同胚于 $\mathbb{E}^n$ 或 $\mathbb{E}^n_+$，该同胚将 $x$ 映为 $0 \in \mathbb{E}^n$ 或 $0 \in \mathbb{E}^n_+$.
-    \end{enumerate}
-    则称 $X$ 为一个 \textbf{$\bm{n}$ 维流形}.
+\begin{definition}[n维流形][def:9.9]
     \[ \mathbb{E}^n_+ = \{ (x_1, \dots, x_n) \in \mathbb{E}^n \mid x_n \ge 0 \} \]
 \end{definition}
 
-\begin{proposition}
+\begin{proposition}[][prop:9.2]
     流形是可度量化的.
 \end{proposition}
 \begin{proof}

@@ -1,33 +1,34 @@
 \begin{theindex}
 \item \textbf{数字}\nopagebreak
 
-  \item $2\times2$ 禁令, \hyperpage{24}
+  \item $2\times2$ 禁令, \hyperpage{24, 25}
+  \item $\mu$-单峰, \hyperpage{32}
 
   \indexspace
 \item \textbf{B}\nopagebreak
 
-  \item 不可约特征标 $\chi^\lambda_\mu$, \hyperpage{19, 20}
-  \item 不可约表示的分类, \hyperpage{14}
-  \item 半标准Young表 (SSYT), \hyperpage{19}
+  \item 不可约特征标 $\chi^\lambda_\mu$, \hyperpage{20, 21}
+  \item 不可约表示的分类, \hyperpage{15}
+  \item 半标准Young表 (SSYT), \hyperpage{20}
   \item 标准Young表, \hyperpage{5}
-  \item 边界, \hyperpage{23}
-  \item 边界带, \hyperpage{23, 24}
+  \item 边界, \hyperpage{24}
+  \item 边界带, \hyperpage{24, 25}
   \item 边界带的高度与符号, \hyperpage{24}
-  \item 边界带表, \hyperpage{24, 25}
+  \item 边界带表, \hyperpage{25, 26}
 
   \indexspace
 \item \textbf{D}\nopagebreak
 
-  \item 多项表 $e_t$, \hyperpage{9}
-  \item 多项表分解定理, \hyperpage{16}
-  \item 多项表极值性（择一性）, \hyperpage{11}
+  \item 多项表 $e_t$, \hyperpage{10}
+  \item 多项表分解定理, \hyperpage{17}
+  \item 多项表极值性（择一性）, \hyperpage{12}
   \item 对称群 $S_n$, \hyperpage{4}
 
   \indexspace
 \item \textbf{F}\nopagebreak
 
-  \item Frobenius 特征标公式, \hyperpage{19}
-  \item Frobenius 特征标映射 $\mathcal{F}$, \hyperpage{19}
+  \item Frobenius 特征标公式, \hyperpage{20}
+  \item Frobenius 特征标映射 $\mathcal{F}$, \hyperpage{20}
   \item 分拆 (partition), \hyperpage{4}
   \item 分拆数 $\rho(n)$, \hyperpage{4}
   \item 分支递推 (branching recurrence), \hyperpage{28}
@@ -35,48 +36,54 @@
   \indexspace
 \item \textbf{G}\nopagebreak
 
-  \item Garnir 元, \hyperpage{16}
+  \item Garnir 元, \hyperpage{17}
   \item 共轭类与轮换类型, \hyperpage{4}
-  \item 钩游走 (hook walk), \hyperpage{30}
-  \item 钩长 $h_{i,j}$, \hyperpage{6}, \hyperpage{28}
+  \item 钩游走, \hyperpage{31}
+  \item 钩长 $h_{i,j}$, \hyperpage{6}, \hyperpage{29}
+  \item 钩长公式, \hyperpage{31}
   \item 钩长公式 (hook length formula), \hyperpage{6}, 
-		\hyperpage{28--30}
-  \item 钩长积 $H(\lambda)$, \hyperpage{28}
+		\hyperpage{29}
+  \item 钩长积 $H(\lambda)$, \hyperpage{29}
 
   \indexspace
 \item \textbf{H}\nopagebreak
 
-  \item Hall 内积, \hyperpage{20}
-  \item Hook-content 有理函数 $\Phi_\lambda$, \hyperpage{29}
-  \item 行对称化子 $a_t$, \hyperpage{6}
-  \item 行等价, \hyperpage{8}
-  \item 行等价报 (tabloid), \hyperpage{8}
+  \item Hall 内积, \hyperpage{21}
+  \item Hook-content 有理函数 $\Phi_\lambda$, \hyperpage{30}
+  \item 行对称化子 $a_t$, \hyperpage{7}
+  \item 行等价, \hyperpage{9}
+  \item 行等价报 (tabloid), \hyperpage{9}
   \item 行群 $R_t$, \hyperpage{6}
 
   \indexspace
 \item \textbf{L}\nopagebreak
 
-  \item 列反对称化子 $b_t$, \hyperpage{6}
+  \item 列反对称化子 $b_t$, \hyperpage{7}
   \item 列群 $C_t$, \hyperpage{6}
 
   \indexspace
 \item \textbf{M}\nopagebreak
 
-  \item Murnaghan-Nakayama 法则, \hyperpage{25--27}
-  \item 幂和对称多项式 $p_\mu$, \hyperpage{18}
+  \item Murnaghan-Nakayama 法则, \hyperpage{26--28}
+  \item 幂和对称多项式 $p_\mu$, \hyperpage{19}
 
   \indexspace
 \item \textbf{N}\nopagebreak
 
-  \item Newton 恒等式, \hyperpage{20}
-  \item 内积（$S_n$-不变内积）, \hyperpage{10}
+  \item Newton 恒等式, \hyperpage{21}
+  \item 内积（$S_n$-不变内积）, \hyperpage{11}
+
+  \indexspace
+\item \textbf{R}\nopagebreak
+
+  \item Roichman公式, \hyperpage{32}
 
   \indexspace
 \item \textbf{S}\nopagebreak
 
-  \item Schur 多项式 $s_\lambda$, \hyperpage{19}
-  \item Specht 模 $S^\lambda$, \hyperpage{9, 10}
-  \item Specht 模的不可约性, \hyperpage{13}
+  \item Schur 多项式 $s_\lambda$, \hyperpage{20}
+  \item Specht 模 $S^\lambda$, \hyperpage{10, 11}
+  \item Specht 模的不可约性, \hyperpage{14}
 
   \indexspace
 \item \textbf{V}\nopagebreak
@@ -86,22 +93,27 @@
   \indexspace
 \item \textbf{W}\nopagebreak
 
-  \item 维数定理 $\dim S^\lambda=f^\lambda$, \hyperpage{16}
+  \item 维数定理 $\dim S^\lambda=f^\lambda$, \hyperpage{18}
+
+  \indexspace
+\item \textbf{X}\nopagebreak
+
+  \item 下降集 $\operatorname{Des}(T)$, \hyperpage{31, 32}
 
   \indexspace
 \item \textbf{Y}\nopagebreak
 
   \item Young 图, \hyperpage{5}
   \item Young 子群, \hyperpage{6}
-  \item Young 对称化子 $c_t$, \hyperpage{6}
+  \item Young 对称化子 $c_t$, \hyperpage{7}
   \item Young 表, \hyperpage{5}
 
   \indexspace
 \item \textbf{Z}\nopagebreak
 
-  \item 中心化子的阶 $z_\mu$, \hyperpage{18}
-  \item 子模定理, \hyperpage{12}
-  \item 支配序 $\lambda\rhd\mu$, \hyperpage{13}
-  \item 置换模 $M^\lambda$, \hyperpage{9}
+  \item 中心化子的阶 $z_\mu$, \hyperpage{19}
+  \item 子模定理, \hyperpage{13}
+  \item 支配序 $\lambda\rhd\mu$, \hyperpage{14}
+  \item 置换模 $M^\lambda$, \hyperpage{10}
 
 \end{theindex}

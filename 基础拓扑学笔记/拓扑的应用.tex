@@ -1,8 +1,8 @@
-\chapter{补充}
+\chapter{拓扑的应用}
 
 \section{代数学基本定理}
 
-\begin{lemma}
+\begin{lemma}[][lem:11.1]
     $h:S^1\to \mathbb{C}-\{0\}$是零伦的当且仅当$h$可以连续延拓到$g: D^2 \to \mathbb{C}-\{0\}$.
 \end{lemma}
 \begin{proof}
@@ -33,7 +33,7 @@
     所以 $g$ 是 $h$ 的连续延拓.
 \end{proof}
 
-\begin{theorem}
+\begin{theorem}[代数学基本定理][thm:11.1]
     $f(z) = z^n + a_{n-1}z^{n-1} + \dots + a_1 z + a_0 = 0$ 在 $\mathbb{C}$ 中有根，其中 $a_i \in \mathbb{C}, n \geq 1$.
 \end{theorem}
 
@@ -74,7 +74,7 @@
     那么 $z^n + a_{n-1}z^{n-1} + \dots + a_1 z + a_0 = 0$ 有根 $z_0 = c y_0 \in \mathbb{C}$.
 \end{proof}
 
-\begin{lemma}
+\begin{lemma}[][lem:11.2]
     $f:X\to Y$是零伦的当且仅当$f$可以连续扩张到锥空间$CX$上.
 \end{lemma}
 \begin{proof}
@@ -96,7 +96,7 @@
 
 \section{不动点}
 
-\begin{lemma}
+\begin{lemma}[][lem:11.3]
     $S^1 = \partial D^2$，$S^1$ 不是 $D^2$ 的收缩核 (retract).
 \end{lemma}
 
@@ -129,7 +129,8 @@
     由于 $\pi_1(D^2, x_0) = \{1\}$，$r_* \circ i_*$ 是平凡同态，矛盾！
 \end{proof}
 
-\begin{theorem}[Brouwer不动点定理]
+\begin{theorem}[Brouwer不动点定理][thm:11.2]
+\index{B@Brouwer不动点定理}
     若 $f: D^2 \longrightarrow D^2$ 是连续的，则 $f$ 有不动点，即 $\exists\,x_0 \in D^2$，使得 $f(x_0) = x_0$.
 \end{theorem}
 
@@ -146,7 +147,7 @@
     矛盾！故 $f: D^2 \longrightarrow D^2$ 必须有不动点.
 \end{proof}
 使用Brouwer不动点定理可以证明以下定理：
-\begin{theorem}[Frobenius定理]
+\begin{theorem}[Frobenius定理][thm:11.3]
     假设 $A$ 是一个 $3 \times 3$ 矩阵.
     \[
         \begin{pmatrix}
@@ -177,292 +178,3 @@
     所以 $\|\sigma(x^0)\|$ 是 $A$ 的一个特征值，且满足$\|\sigma(x^0)\| \in \mathbb{R}$，$\|\sigma(x^0)\| > 0$.
 \end{proof}
 
-\section{复习}
-
-\subsection{拓扑空间 (Topological Space)}
-
-开集 (open sets)，闭集 (closed sets)，基 (base)，内部 (interior)，闭包 (closure)，聚点 (limit point)，边界 (boundary).
-
-$E^n$，有限拓扑空间 (finite topological space)，$\mathbb{R}_{fc}$.
-
-$\mathbb{R}_l([a, b))$.
-
-子空间 (subspace). 平凡拓扑 (trivial topology)，离散拓扑 (discrete topology).
-
-更细 (finer)，更粗 (coarser).
-
-$x \in \mathring{A} \iff \exists$ $x$ 的邻域 $U$，s.t. $U \subset A$.
-
-$x \in \bar{A} \iff$ 对任意 $x$ 的邻域 $U$，$U \cap A \neq \emptyset$.
-
-$x$ 是 $A$ 的聚点 $\iff x \in \overline{A-\{x\}}$.
-
-\subsection{连续映射 (Continuous map)}
-
-同胚 (homeomorphism)，嵌入 (embedding)，开映射 (open map).
-
-闭映射 (closed map)，延拓与限制 (extension and restriction).
-
-复合 (composition)，拼接引理 (pasting lemma).
-
-$f: Z \longrightarrow X \times Y$ 是连续的 $\iff \pi_1 \circ f$ 和 $\pi_2 \circ f$ 是连续的.
-
-\subsection{分离公理 (Separation Axioms)}
-
-Hausdorff $\impliedby$ 正则 (regular) $\impliedby$ 正规 (normal).
-
-$X$ 是 Hausdorff $\iff \Delta = \{(x, x) \in X \times X\}$ 在 $X \times X$ 中是闭的.
-
-Tietze 延拓定理 (Tietze extension THM).
-$X$ 是正规的，$A \subset X$ 是闭集，$f: A \longrightarrow E^1$ 连续 $\implies f$ 可延拓为 $F: X \longrightarrow E^1$.
-
-\subsection{可数性 (Countability)}
-
-第一可数 (1st countable) $\impliedby$ 第二可数 (2nd countable).
-
-\subsection{度量空间 (Metric space)}
-
-度量空间是正规的，第一可数的，但不一定是第二可数的.
-
-Urysohn 度量化定理 (Urysohn metrization THM):
-正则 (regular) + 第二可数 (2nd countable) $\implies$ 可度量化 (metrizable).
-
-\subsection{紧致性 (Compactness)}
-
-$X$ 紧，$f: X \longrightarrow Y$ 连续 $\implies f(X)$ 在 $Y$ 中紧.
-
-紧空间中的闭集是紧的.
-
-Hausdorff 空间中的紧集是闭的.
-
-$A \subset E^n$ 是紧的 $\iff A$ 是有界闭集.
-
-最大 (小) 值定理 (Maximum/Minimum Value THM).
-
-$X, Y$ 紧 $\iff X \times Y$ 是紧的.
-
-紧度量空间，Lebesgue 引理 (Lebesgue lemma).
-
-$X$ Hausdorff，$C_\lambda$ 紧 $\implies \bigcap_{\lambda \in \Lambda} C_\lambda$ 是紧的.
-
-局部紧 (locally compact).
-
-单点紧化 (one-point compactification) $E^n \cup \{\infty\} \cong S^n$.
-
-\subsection{连通性 (Connectedness)}
-
-$X$ 连通，$f: X \longrightarrow Y$ 连续 $\implies f(X)$ 在 $Y$ 中连通.
-
-$A$ 在 $X$ 中连通，$A \subset B \subset \bar{A} \implies B$ 是连通的.
-
-$\{A_\lambda \mid \lambda \in \Lambda\}$ 是 $X$ 的连通覆盖，$\bigcap_{\lambda \in \Lambda} A_\lambda \neq \emptyset$，则 $X$ 是连通的.
-
-$X, Y$ 连通 $\iff X \times Y$ 是连通的.
-
-介值定理 (Intermediate Value THM). 连通分支 (component) \{连通性，极大性，闭集\}.
-
-道路连通 (path connected)，拓扑学家正弦曲线 (Topologist's sine curve).
-
-道路分支 (path component) \{道路连通性，极大性\}.
-
-局部道路连通 (locally path connected).
-连通 + 局部道路连通 $\implies$ 道路连通.
-
-\subsection{商空间 (Quotient spaces)}
-
-$q: X \longrightarrow X/\sim$. $U \subset X/\sim$ 是开集 $\iff q^{-1}(U) \subset X$ 是开集.
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.4\textwidth]{example-image}
-\end{figure}
-
-$f$ 是连续的 $\iff f \circ q$ 是连续的.
-
-连续映射 $f: X \longrightarrow Y$ 是 \{同胚 / 商映射\}.
-
-若 $X$ 是紧的，$Y$ 是 Hausdorff 且 $f$ 是 \{双射 / 满射\} $\implies$ \{同胚 / 商映射 (若 $f$ 开或闭)\}.
-
-$D^n/\partial D^n \cong S^n$. $CX = X \times [0, 1] / X \times \{1\}$.
-
-$\mathbb{R}P^n, \mathbb{C}P^n$. 圆环 (Annulus)，莫比乌斯带 (Möbius band).
-
-环面 (torus)，克莱因瓶 (Klein bottle). $nT^2, mP^2$.
-
-曲面 (Surface)，连通和 (Connected sum)，三角剖分 (Triangulation).
-
-欧拉示性数 (Euler characteristic). $\chi(S_1 \# S_2) = \chi(S_1) + \chi(S_2) - 2$.
-
-闭曲面分类 (Classification of closed surface) $\{S^2, nT^2, mP^2\}$.
-
-标准多边形表示 (standard polygonal representation).
-
-$nT^2: a_1b_1a_1^{-1}b_1^{-1} \dots a_nb_na_n^{-1}b_n^{-1}$.
-
-$mP^2: a_1^2 a_2^2 \dots a_m^2$.
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.3\textwidth]{example-image}
-\end{figure}
-
-\subsection{同伦 (Homotopy)}
-
-$f \simeq g: X \longrightarrow Y$.
-
-直线同伦 (straight-line homotopy) $H: X \times [0, 1] \longrightarrow Y$.
-\[
-    H(x, 0) = f(x), \quad H(x, 1) = g(x)
-\]
-
-相对同伦 (relative homotopy) $H: f \simeq g \text{ rel } A$.
-\[
-    H(x, 0) = f(x), \quad H(x, 1) = g(x)
-\]
-\[
-    H(a, t) = f(a) = g(a), \quad \forall a \in A
-\]
-
-路径同伦 (path homotopy) $H: a_0 \simeq a_1$.
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.4\textwidth]{example-image}
-\end{figure}
-
-$f$ 是零同伦的 (null-homotopic) 如果 $f \simeq c: X \longrightarrow Y$，其中 $c$ 是常值映射 (constant).
-
-$f: X \longrightarrow Y$ 是零同伦的 $\iff f$ 可以延拓为 $F: CX \longrightarrow Y$.
-
-同伦等价 (homotopy equivalence) $X \simeq Y$.
-
-可缩空间 (Contractible space). $CX$ 是可缩的.
-
-收缩 (retraction) $r: X \longrightarrow A$. $r \circ i = id_A: A \longrightarrow A$.
-
-形变收缩 (deformation retraction).
-\[
-\begin{cases}
-    r \circ i = id_A \\
-    id_X \simeq i \circ r, \text{ rel } A
-\end{cases}
-\]
-
-$H: X \times [0, 1] \longrightarrow X$.
-\[
-\begin{cases}
-    H(x, 0) = x \\
-    H(x, 1) = r(x) \in A \\
-    H(a, t) = a, \quad \forall a \in A, t \in [0, 1]
-\end{cases}
-\]
-
-$f: X \longrightarrow Y$ 是一个商映射 (quotient map).
-$H: X \times [0, 1] \longrightarrow X$ 实现从 $X$ 到 $A$ 的形变收缩 (def. retr.).
-如果 $x_0 \sim_f x_1 \implies H(x_0, t) \sim_f H(x_1, t)$，那么 $Y$ 形变收缩道 $B = q(A)$.
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.4\textwidth]{example-image}
-\end{figure}
-
-\[
-    nT^2 - \{pt\} \simeq \bigvee_{i=1}^{2n} S^1_i \quad mP^2 - \{pt\} \simeq \bigvee_{i=1}^{m} S^1_i
-\]
-
-\subsection{基本群 (Fundamental group)}
-
-$\pi_1(X, x_0)$.
-
-$f: X \longrightarrow Y$ 诱导 $f_*: \pi_1(X, x_0) \longrightarrow \pi_1(Y, f(x_0))$.
-\[
-    [\alpha] \longmapsto [f \circ \alpha]
-\]
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.3\textwidth]{example-image}
-\end{figure}
-
-$\omega_\#: \pi_1(X, x_0) \longrightarrow \pi_1(X, x_1)$.
-\[
-    \alpha \longmapsto \omega^{-1} \alpha \omega
-\]
-
-$\pi_1(S^1) \cong \mathbb{Z}$.
-
-$\pi_1(X \times Y, (x_0, y_0)) \cong \pi_1(X, x_0) \times \pi_1(Y, y_0)$.
-
-单连通 (Simple connected): 道路连通 + $\pi_1(X)$ 平凡 (trivial).
-
-$H: f \simeq g: X \longrightarrow Y$.
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.4\textwidth]{example-image}
-\end{figure}
-
-$h = [0, 1] \longrightarrow Y$，$t \longmapsto H(x_0, t)$.
-
-$g_* = [h]_\# \circ f_*$.
-
-$X \simeq Y \implies \pi_1(X) \cong \pi_1(Y)$，$X, Y$ 道路连通.
-
-Seifert-van Kampen 定理 (Seifert-van Kampen THM).
-
-$\pi_1(S^n) = \{1\}$，$n \ge 2$.
-
-$\pi_1(\infty) = \mathbb{Z} * \mathbb{Z}$.
-
-$\pi_1(nT^2)$. $\pi_1(mP^2)$.
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.2\textwidth]{example-image}
-\end{figure}
-$\pi_1(\dots) = \mathbb{Z}_3$.
-
-自由群 (free group)，自由积 (free product) $G_1 * G_2$.
-生成元和关系元 (generator and relator). 
-$\langle g_1, \dots, g_n \mid r_1, \dots, r_m \rangle$.
-
-\subsection{覆盖空间 (Covering space)}
-
-$p: E \longrightarrow B$.
-
-$p: E^1 \longrightarrow S^1$. $p: S^n \longrightarrow \mathbb{R}P^n$.
-
-$p: T^2 \longrightarrow K$ (torus $\to$ Klein bottle).
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.3\textwidth]{example-image}
-\end{figure}
-
-提升 (lift).
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.3\textwidth]{example-image}
-\end{figure}
-
-唯一提升定理 (Unique Lifting THM)，路径提升定理 (Path Lifting THM).
-
-路径同伦提升 (Path homotopy Lifting)，提升准则 (Lifting criteria).
-
-$p_*: \pi_1(E, e_0) \longrightarrow \pi_1(B, b_0)$ 是单射 (injective).
-
-$[\pi_1(B, b_0) : p_* \pi_1(E, e_0)] = \# p^{-1}(b_0)$ (叶数 number of sheets).
-
-$\{p_* \pi_1(E, e) \mid e \in p^{-1}(b_0)\}$ 是 $\pi_1(B, b_0)$ 的一个共轭类子群 (conjugacy class of subgroup).
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.5\textwidth]{example-image}
-    \caption{万有覆盖 (universal cover) 树 (tree)}
-\end{figure}
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.5\textwidth]{example-image}
-\end{figure}

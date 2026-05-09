@@ -4,7 +4,7 @@
 
 代数实际上是在环的基础上添加上模/表示的结构.
 
-\begin{definition}[域上的代数]
+\begin{definition}[域上的代数]\index{d@代数!y@域上的代数}
     设$F$是域，$A$是$F$上的一个向量空间且$A$是一个结合环，即
     \[ \forall\, a, b, c \in A, a(bc) = (ab)c \]
     若$A$中作为环的加法和在向量空间中的加法相同且$F-\!\!$空间中的标量乘法与环$A$的乘法可交换：
@@ -14,26 +14,26 @@
 
 由于$A$既是向量空间又是环，故继承了子代数、商代数、理想等概念，但对于$A$同时具有以上两个空间的性质，因此其子代数也必须是子环和子空间.
 
-\begin{definition}[单代数]
+\begin{definition}[单代数]\index{d@单代数}
     若$F-\!\!$代数$A$仅有$0$和$A$两个非平凡理想，则称其为\colorbf{单代数}.
 \end{definition}
 
 同样可以定义代数之间的运算：
 
-\begin{definition}[代数同态]
+\begin{definition}[代数同态]\index{d@代数同态}
     设$A, B$是$F-\!\!$代数，若$f: A \to B$既是环同态，又是$F-\!\!$线性映射，则称其为\colorbf{$F-\!\!$代数同态}.
 \end{definition}
 
 进而，可以类比群表示，定义代数表示.和群表示不同的是，代数中的元素不一定可逆，因此我们不要求值域是$V$上的可逆线性变换，而仅仅是自同态即可.除此之外，$V$上的自同态构成代数，因此需要代数同态.
 
-\begin{definition}[代数的表示]
+\begin{definition}[代数的表示]\index{d@代数的表示}
     设$A$是$F-\!\!$代数，$V$是$F-\!\!$向量空间，若存在$F-\!\!$代数同态$\rho : A \to \mathrm{End}_F(V)$，则称$(V, \rho)$是$A$的\colorbf{$F-\!\!$表示}.
 \end{definition}
 
 在介绍群表示时，我们曾利用群作用给出等价定义，在代数表示中同样成立.
 即定义$\rho(a): V \to V, v \mapsto \rho(a)v \triangleq a \cdot v$，并要求其满足代数同态的要求，如此即可得到模.
 
-\begin{definition}[左$A-\!\!$模]
+\begin{definition}[左$A-\!\!$模]\index{m@模!a@$A$-模}
     设$A$为$F-\!\!$代数，$V$是$F-\!\!$空间，若存在映射$\setjot[-2]\begin{aligned}[t]
         A \times V &\to V \\
         (a,v) &\mapsto a \cdot v,\forall\, a \in A, v \in V
@@ -50,7 +50,7 @@
 
 注意，模根据$A$中元素是左乘还是右乘可分为左模和右模，但二者在根本上是等价的，因此我们仅讨论左模即可.\par
 更一般地，有以下给出模的定义：
-\begin{definition}[模]
+\begin{definition}[模]\index{m@模!r@$R$-模}
     设$R$是环，$M$是Abel群，若存在映射$\setjot[-2]\begin{aligned}[t]
         R \times M &\to M \\
         (r, m) &\mapsto rm
@@ -73,7 +73,7 @@
 
 借助一般模的定义，可将域上的代数推广到环上的代数.
 
-\begin{definition}[环上的代数]
+\begin{definition}[环上的代数]\index{d@代数!h@环上的代数}
     设$R$是交换环，$A$是环且满足：
     \begin{enumerate}[label=(\roman*)]
         \item $(A, +)$可视作$R-\!\!$模

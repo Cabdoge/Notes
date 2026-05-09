@@ -3,7 +3,7 @@
 \vspace{-1 em}
 \section{群表示的定义}
 
-\begin{definition}[群表示]
+\begin{definition}[群表示]\index{q@群表示}
     设$G$是一个群，$V$是域$\mathbb{F}$上的线性空间，则群的\colorbf{表示}是$G$到$GL(V)$的群同态$\setjot[-3]\begin{aligned}[t]
     \rho\colon G &\to GL(V) \\
     g &\mapsto \rho(g)
@@ -31,7 +31,7 @@
 \end{proof}
 
 除了使用线性变换的角度定义群表示，群表示的本质是群在向量空间上的线性作用，因此也可以从以下观点定义群表示：
-\begin{definition}[群作用观点的群表示]
+\begin{definition}[群作用观点的群表示]\index{q@群表示（群作用观点）}
     设$G$是一个群，$V$是域$\mb{F}$上的线性空间，如果存在$G$在$V$上的线性作用，即存在映射$\setjot[-4]\begin{aligned}[t]
     G\times V &\to V \\
     (g,v) &\mapsto g\cdot v
@@ -93,7 +93,7 @@
 \section{子表示，商表示和表示同态}
 类似于研究线性空间的子空间、商空间，拓扑空间的子空间、商空间等，下一步要研究群表示的子表示、商表示等概念，以便于我们更好地理解群表示的结构.\par
 
-\begin{definition}[子表示]
+\begin{definition}[子表示]\index{z@子表示}
     设$(V,\rho)$是群$G$的表示，设$U\subseteq V$，若$\rho|_U:G\to GL(U)$是$G$在$U$上的表示，即\begin{equation*}
         \forall\, g\in G,u\in U,\, \rho(g)u\in U,
     \end{equation*}
@@ -105,7 +105,7 @@
 一个非平凡的子表示的构造方式是考虑一个群$G$的正则表示，定义$x\triangleq\sum_{g\in G}g,U\triangleq\mb{F}\cdot x$.那么就有$\rho(h)(x)\triangleq h\cdot x=x\in U$，这是因为$x$是$G$中所有元素之和，而$h$作用在$G$是对其中元素作置换，因此将所有元素之和置换后仍然是所有元素之和.因此$\rho|_U$是子表示.\par
 
 除此之外，我们可以定义商表示.
-\begin{definition}[商表示][def:商表示]
+\begin{definition}[商表示][def:商表示]\index{s@商表示}
     设$(V,\rho)$是群$G$的表示，$U\subseteq V$，则$G$的\colorbf{商表示}定义为
     \begin{align*}
         \rho_{V/U}:G&\to GL(V/U) \\[-2pt]
@@ -180,7 +180,7 @@
 (i)$s_i^2=1$\hspace{2em}(ii)$s_is_j=s_js_i,|i-j|>1$\hspace{2em}(iii)$s_is_{i+1}s_i=s_{i+1}s_is_{i+1}$ \par
 因此在后续研究对称群时，实际上只需要考虑对称群的生成元以及它们之间的关系即可.\par
 在了解完表示的子表示和商表示后，现在要讨论的是表示之间有何关系.
-\begin{definition}[表示同态，$G-\!\!$模同态][def:G模同态]
+\begin{definition}[表示同态，$G-\!\!$模同态][def:G模同态]\index{g@$G$-模同态}
     设$(V_1,\rho_1),(V_2,\rho_2)$是$G$的两个表示，若存在线性映射$f:V_1\to V_2$使交换图成立 \par
     \begin{center}
     \begin{tikzcd}[labels={font=\normalsize}]
@@ -191,7 +191,7 @@ V_1 \arrow[rr, "f"]                          &  & V_2
     \end{center}
     即$\forall\, g\in G,f\rho_1(g)=\rho_2(g)f$，则称$f$是\colorbf{表示同态}或\colorbf{$G-\!\!$模同态}.
 \end{definition}
-\begin{definition}[表示同构][def:表示同构]
+\begin{definition}[表示同构][def:表示同构]\index{b@表示同构}
     设$(V_1,\rho_1),(V_2,\rho_2)$是两个表示，$f:V_1\to V_2$是表示同态，如果$f$是双射，则称$f$是\colorbf{表示同构}，此时称 \colorbf{$(V_1,\rho_1)\cong(V_2,\rho_2)$}.
 \end{definition}
 \begin{instance}
@@ -248,7 +248,7 @@ V_3                                  &  &
     \Hom_F(V_1,V_2)=\left\{f:V_1\to V_2,f\,\text{为线性映射}\right\},
 \end{gather*}
 二者都是$\mathbb{F}$线性空间，则自然可以定义群$G$在上面的表示，特别地由于$\Hom_G(V_1,V_2)\subseteq \Hom_F(V_1,V_2)$，我们只需要在$\Hom_F(V_1,V_2)$上定义表示即可.\par
-\begin{definition}[线性映射空间上的表示][def:线性映射空间上的表示]
+\begin{definition}[线性映射空间上的表示][def:线性映射空间上的表示]\index{x@线性映射空间上的表示}
     定义$G$在$W=\Hom_F(V_1,V_2)$上的表示为\begin{align*}
         \rho(g):W&\to W \\[-10pt]
         f &\mapsto \rho(g)f: \begin{aligned}
@@ -274,7 +274,7 @@ V_3                                  &  &
 
 在上一节中我们已经证明了什么样的表示可以分解为其子表示和补子表示的直和，现在来正式定义表示的直和并进一步研究表示的分解问题.
 
-\begin{definition}[表示的直和][def:表示的直和]
+\begin{definition}[表示的直和][def:表示的直和]\index{b@表示的直和}
     设$(\rho_i,V_i),i=1,2,\cdots,s$均为$G$的表示，$V=V_1\oplus V_2\oplus\cdots\oplus V_s$，则$G$在$V$上的表示为
     \[\setjot[-2]\begin{aligned}[t]
         \rho:G&\to GL(V) \\
@@ -355,7 +355,7 @@ V_3                                  &  &
 
 由此，若$G$有限，$\mathrm{char}\, F\nmid|G|$，则任意表示均可以写作$V=\bigoplus_{i=1}^s U_i$，其中$U_i$不可以再分解为非平凡的子表示，称之为\bluebf{不可约}.若$V$可以分解为不可约的表示的直和，则称$V$ \bluebf{完全可约}.进而，Maskche定理可以表述为：
 
-\begin{theorem}[Maschke定理][thm:Maschke定理]
+\begin{theorem}[Maschke定理][thm:Maschke定理]\index{m@Maschke 定理}
     设$G$是一个有限群，则其任意表示完全可约$\iff \mathrm{char}\, F\nmid |G|$
 \end{theorem}
 
@@ -389,7 +389,7 @@ V_3                                  &  &
 
 \section{特殊的表示}
 下面我们来看一些特殊的表示，首先是反轭表示.
-\begin{definition}[反轭表示][def:反轭表示]
+\begin{definition}[反轭表示][def:反轭表示]\index{f@反轭表示}
     设$(V,\rho)$是$G$的表示，令$V^*=\Hom_F(V,F)$，定义其\colorbf{反轭表示}为 \[\setjot[-2]\begin{aligned}[t]
         \rho^*:G&\to GL(V^*) \\
         g&\mapsto \rho^*(g): \setjot[-2]\begin{aligned}[t]
@@ -411,14 +411,14 @@ $\rho(g^{-1})(\varepsilon_1,\cdots,\varepsilon_n)=(\varepsilon_1,\cdots,\varepsi
 \end{equation*}
 因此$a_{\ell k}=b_{k\ell}$，即$R^*_g=\left(R_{g}^{-1}\right)^T$.\par
 有了反轭表示，实际上也有表示的共轭表示，定义如下.
-\begin{definition}[共轭表示][def:共轭表示]
+\begin{definition}[共轭表示][def:共轭表示]\index{g@共轭表示}
     设$(V,\rho)$是$G$的表示，$N\vartriangleleft G$，定义其\colorbf{共轭表示}为$\setjot[-2]\begin{aligned}[t]
         \rho_N:N&\to GL(V) \\
         n &\mapsto \rho(g^{-1}ng)
     \end{aligned}$
 \end{definition}
 事实上，上述表示可以视作现将$G$的表示和$N\to G$的群同态的复合，因此上述定义可以不依赖于正规子群和共轭作用.\par
-\begin{definition}[表示的提升][def:表示的提升]
+\begin{definition}[表示的提升][def:表示的提升]\index{b@表示的提升}
     设$(V,\rho)$是$G_1$的表示，$f$是$G_2\to G_1$的群同态，则$\eta=\rho\circ f:G_2\to GL(V)$是$G_2$的表示，称为\colorbf{表示的提升}.
 \end{definition}
 \begin{instance}
@@ -428,7 +428,7 @@ $\rho(g^{-1})(\varepsilon_1,\cdots,\varepsilon_n)=(\varepsilon_1,\cdots,\varepsi
 
 \section{表示的张量积}
 线性空间还有一种特殊的运算---张量积，对于线性空间的张量积，我们有以下三个等价定义.\par
-\begin{definition}[线性空间的张量积][def:线性空间的张量积]
+\begin{definition}[线性空间的张量积][def:线性空间的张量积]\index{z@张量积!x@线性空间的张量积}
     \begin{enumerate}[label=\textbf{定义\arabic*},leftmargin=3.5em]
         \item 设$f:V_1\times V_2\to W$是双线性映射，$V_1$的基为$\{\varepsilon_i\}$，$V_2$的基为$\{\eta_j\}$，则由$\{f(\varepsilon_i,\eta_j)\}$张成的空间$W$称为$V_1$和$V_2$的\colorbf{张量积}，记为$W=V_1\otimes V_2$.
         \item 设$V_1,V_2$是线性空间，$(a+a',b)-(a,b)-(a,b'),(a,b+b')-(a,b)-(a,b'),(ka,b)-k(a,b),(a,kb)-k(a,b),\forall\, a,a'\in V_1,b,b'\in V_2,k\in F$张成$V_1\times V_2$的子空间$K$，则定义$V_1\otimes V_2\triangleq F(V_1\times V_2)/K$.
@@ -467,7 +467,7 @@ W_1 \arrow[rruu, "{\exists\, ! \mathrm{id}_{W_1}}"', dashed] &  &
 
 对于张量空间$V_1\otimes V_2$，其中一个特点在于$av_1\otimes v_2=v_1\otimes (av_2)=a(v_1\otimes v_2)$，表明域的作用在张量积上是相容的，可以随意移动的.\par
 下面需要定义表示的张量积，首先需要先定义线性变换的张量积.\par
-\begin{definition}[线性变换的张量积][def:线性变换的张量积]
+\begin{definition}[线性变换的张量积][def:线性变换的张量积]\index{z@张量积!x@线性变换的张量积}
     设$f_1\otimes f_2\in \End\left(V_1\otimes V_2\right)=\left\{f:V_1\otimes V_2\to V_1\otimes V_2\right\}$，其满足$\forall\, v_1\otimes v_2\in V_1\otimes V_2$，\begin{equation*}\left(f_1\otimes f_2\right)\left(v_1\otimes v_2\right)\triangleq f_1(v_1)\otimes f_2(v_2).
     \end{equation*}
 \end{definition}
@@ -483,7 +483,7 @@ a_{21}R_2 & a_{22}R_2 & \cdots & a_{2n}R_2 \\
 a_{n1}R_2 & a_{n2}R_2 & \cdots & a_{nn}R_2
 \end{pmatrix}.\end{equation*}
 下一步就可以自然地定义表示的张量积了.
-\begin{definition}[表示的张量积]
+    \begin{definition}[表示的张量积]\index{z@张量积!b@表示的张量积}
     设$(V_1,\rho_1)$和$(V_2,\rho_2)$是$G$的表示，则定义其张量积为\begin{align*}
         \rho_1\otimes \rho_2:G&\to GL(V_1\otimes V_2) \\
         g&\mapsto (\rho_1\otimes\rho_2)(g)\triangleq \rho_1(g)\otimes\rho_2(g)
@@ -528,7 +528,7 @@ a_{n1}R_2 & a_{n2}R_2 & \cdots & a_{nn}R_2
 
 最后，张量积的定义是针对同一个群的表示而言的，那么如果我们有两个不同群的表示，应当如何定义它们的张量积呢?因此我们有以下定义.
 
-\begin{definition}[外张量积][def:外张量积]
+\begin{definition}[外张量积][def:外张量积]\index{z@张量积!w@外张量积}
     设 $(\rho_1, V_1), (\rho_2, V_2)$ 分别为群 $G_1, G_2$ 的表示，则其\colorbf{外张量积}为 \begin{align*}
         \rho_1 \mathbin{\#} \rho_2 \colon G_1 \times G_2 &\to GL(V_1 \otimes V_2) \\
         (g_1, g_2) &\mapsto \rho_1(g_1) \otimes \rho_2(g_2)
@@ -541,7 +541,7 @@ a_{n1}R_2 & a_{n2}R_2 & \cdots & a_{nn}R_2
 
 在Maskche定理一章中，我们已经简单提及了表示的可约性的概念，并且Maskche定理实际上就给出了一个表示完全可约的充要条件，现在，再次重新严格定义这些概念.
 
-\begin{definition}[不可约表示][def:不可约表示]
+\begin{definition}[不可约表示][def:不可约表示]\index{b@不可约表示}
     设 $(\rho, V)$ 是 $G$ 的表示，若其子表示只有 $0$ 和自身，则称其为 \colorbf{不可约表示}.
 \end{definition}
 除了不可约的定义，一并给出不可约表示的一个重要结论和三个等价的完全可约的定义方式.
@@ -549,7 +549,7 @@ a_{n1}R_2 & a_{n2}R_2 & \cdots & a_{nn}R_2
     设$G$是Abel群，则$G$的任一不可约表示均是一维的.
 \end{lemma}
 
-\begin{definition}[完全可约][def:完全可约]
+\begin{definition}[完全可约][def:完全可约]\index{w@完全可约}
     设 $(\rho, V)$ 是群 $G$ 的表示，称其\colorbf{完全可约}，当且仅当其满足以下任一条件：
     \begin{enumerate}[label=(\roman*)]
         \item $V = V_1 \oplus V_2 \oplus \cdots \oplus V_s$，其中 $V_i$ 为不可约表示.
@@ -594,7 +594,7 @@ a_{n1}R_2 & a_{n2}R_2 & \cdots & a_{nn}R_2
 
 在表示论中，两个表示之间的$G-\!\!$模同态始终是重要的话题.由上述不可约表示的相关知识，可以知道若$V = \bigoplus_{i=1}^s V_i, W = \bigoplus_{j=1}^t W_j$，则 $\Hom_G(V, W) \cong \bigoplus_{i,j} \Hom_G(V_i, W_j)$. 因此我们只需要研究两个不可约表示的 $G-\!\!$模同态的性质后，基本就可以知道任意两个表示之间的 $G-\!\!$模同态的性质了.这一方面的其中一个最重要的成果是Schur引理.
 
-\begin{lemma}[Schur 引理]
+\begin{lemma}[Schur 引理]\index{s@Schur 引理}
     设 $(\rho_1, V_1), (\rho_2, V_2)$ 是 $G$ 的不可约表示：
     \begin{enumerate}[label=(\roman*)]
         \item 若 $f \in \Hom_G(V_1, V_2), f \neq 0$，则 $f$ 是同构. 从而\begin{equation*}
@@ -621,13 +621,13 @@ a_{n1}R_2 & a_{n2}R_2 & \cdots & a_{nn}R_2
 
 Schur引理的第二部分表明了在代数闭域上的不可约表示之间的$G-\!\!$模同态的性质非常简单，只有数乘恒等映射，因而在其上的$G-\!\!$模同态空间$\Hom_G(V_1, V_1)$是一个一维空间.为了将这种简单的性质推广到一般的域上，我们将符合这一性质的域定义为分裂域以便进一步研究.
 
-\begin{definition}[分裂域][def:分裂域]
+\begin{definition}[分裂域][def:分裂域]\index{f@分裂域}
     如果 $G$ 的任一表示 $V$ 在 $\mb{F}$ 上均有 $\Hom_G(V, V) \cong \mb{F}$，则称域 $\mb{F}$ 为群 $G$ 的\colorbf{分裂域}.
 \end{definition}
 由以上定义，代数闭域是任一群的分裂域.注意，群表示的分裂域和域的分裂域是不同的概念，但二者的出发点和核心思想有相似之处.\par
 
 
-\begin{definition}[合成列]
+\begin{definition}[合成列]\index{h@合成列}
     设 $(\rho, V)$ 是 $G$ 的表示，则存在 $(\rho, V)$ 的有限子表示序列 $V = V_0 \supseteq V_1 \supseteq \cdots \supseteq V_s = 0$，使得 $V_i / V_{i+1}$ 是不可约表示，称其为 $V$ 的\colorbf{合成列}，$V_i / V_{i+1}$ 为该合成列的\colorbf{合成因子}.
 \end{definition}
 
@@ -659,7 +659,7 @@ Schur引理的第二部分表明了在代数闭域上的不可约表示之间的
 
 由上例，若正则表示有不可约分解$FG \cong \bigoplus m_i V_i$，则对于任意正则表示的不可约表示$V$，$\Hom_G(FG, V) \cong \bigoplus m_i \Hom_G(V_i, V) \cong V$.再由Schur引理，$V\cong V_j$，由此$FG$ 的不可约表示即为 $V_1, V_2, \dots, V_s$.\par
 对上式求维数，可得$\dim V = m_j \dim \Hom_G(V_j, V)$. 记 $\dim \Hom_G(V_j, V) = d_j \Rightarrow \dim V_j = m_j d_j$.则可以得到一个正则表示的重要等式.
-\begin{theorem}[正则表示的不可约分解]
+\begin{theorem}[正则表示的不可约分解]\index{z@正则表示的不可约分解}
     $G$的任一不可约$F-\!$表示$(V,\rho)$均是正则表示$\left(FG,\rho_\mathrm{reg}\right)$的直和项.\par
     若$(V_1,\rho_1),\cdots,\left(\rho_s,V_s\right)$是$G$的全部互不等价的不可约$F-\!$表示，则
     \[\rho_{\mathrm{reg}} \cong \left(\frac{\dim V_1}{d_1}\right)\rho_1 \oplus \left(\frac{\dim V_2}{d_2}\right)\rho_2 \oplus \cdots \oplus \left(\frac{\dim V_s}{d_s}\right)\rho_s\]
@@ -681,7 +681,7 @@ Schur引理的第二部分表明了在代数闭域上的不可约表示之间的
 
 \section{对称平方和交错平方}
 
-\begin{definition}[对称平方、交错平方]
+\begin{definition}[对称平方、交错平方]\index{d@对称平方}\index{j@交错平方}
     设$\setjot[-2]\begin{aligned}[t]
         \theta: V\otimes V&\to V\otimes V\\
         x\otimes y&\mapsto y\otimes x

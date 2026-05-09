@@ -3,8 +3,9 @@
 \section{同伦}
 
 
-\begin{definition}{同伦}
-    设$X,Y$是拓扑空间，$f,g:X\to Y$是两个连续映射，如果存在一个连续映射$H:X\times[0,1]\to Y$，使得$H(x,0)=f(x),H(x,1)=g(x)$，则称$f$和$g$是\textbf{同伦的}，记作$f\simeq g$，映射$H$称为从$f$到$g$的\textbf{同伦}，记作$H:f\simeq g$.
+\begin{definition}[同伦][def:10.1]
+\index{t@同伦}
+    设$X,Y$是拓扑空间，$f,g:X\to Y$是两个连续映射，如果存在一个连续映射$H:X\times[0,1]\to Y$，使得$H(x,0)=f(x),H(x,1)=g(x)$，则称$f$和$g$是\colorbf{同伦的}，记作$f\simeq g$，映射$H$称为从$f$到$g$的\colorbf{同伦}，记作$H:f\simeq g$.
 \end{definition}
 
 \begin{figure}[h]
@@ -39,7 +40,7 @@
 \end{instance}
 
 
-\begin{proposition}
+\begin{proposition}[][prop:10.1]
     设$X,Y$是拓扑空间，同伦是$X$到$Y$的连续映射之间的等价关系.
 \end{proposition}
 
@@ -77,15 +78,16 @@
     由粘合引理，$H$是连续的，且$H(x,0)=f(x), H(x,1)=h(x)$. 所以$f\simeq h$.
 \end{proof}
 
-\begin{definition}{零同伦}
-    如果$f:X\to Y$同伦于常值映射，则称$f$是\textbf{零伦的}.
+\begin{definition}[零同伦][def:10.2]
+\index{l@零同伦}
+    如果$f:X\to Y$同伦于常值映射，则称$f$是\colorbf{零伦的}.
 \end{definition}
 
 \begin{instance}
     $f:X\to \mathbb{E}^n$是零伦的. 事实上，任何映入$\mathbb{E}^n$的凸子空间的映射都是零同伦的.
 \end{instance}
 
-\begin{proposition}
+\begin{proposition}[][prop:10.2]
     设$f_0\simeq f_1:X\to Y, g_0\simeq g_1:Y\to Z$.
     则$g_0\circ f_0 \simeq g_1\circ f_1:X\to Z$.
 \end{proposition}
@@ -105,8 +107,9 @@
 
 \section{相对同伦}
 
-\begin{definition}{相对同伦}
-    设$f,g:X\to Y, A\subset X$. 若$f,g$通过$H:X\times [0,1]\to Y$同伦，且$\forall\, a\in A, H(a,t)=f(a)=g(a)$，则称$f$和$g$是\textbf{相对于$A$同伦的}，记作$f\simeq g \text{ rel } A$.
+\begin{definition}[相对同伦][def:10.3]
+\index{x@相对同伦}
+    设$f,g:X\to Y, A\subset X$. 若$f,g$通过$H:X\times [0,1]\to Y$同伦，且$\forall\, a\in A, H(a,t)=f(a)=g(a)$，则称$f$和$g$是\colorbf{相对于$A$同伦的}，记作$f\simeq g \text{ rel } A$.
 \end{definition}
 从定义中可以看出，相对同伦是对同伦概念的加强，它不仅要求普通的同伦，还要求映射在子集$A$上保持不变，即在同伦变换过程中，$A$上的点始终映射到相同的位置.特别地，如果$A=\varnothing$，则相对同伦就是同伦.\par
 
@@ -133,9 +136,10 @@
 
 \section{道路同伦}
 
-\begin{definition}{道路同伦}
+\begin{definition}[道路同伦][def:10.4]
+\index{d@道路同伦}
     设$X$是拓扑空间，$a,b:[0,1]\to X$是两条道路.
-    如果$a\simeq b \text{ rel } \{0,1\}$，则称$a$和$b$是\textbf{道路同伦的(定端同伦的)}，记作$a\simeqdot b$.
+    如果$a\simeq b \text{ rel } \{0,1\}$，则称$a$和$b$是\colorbf{道路同伦的(定端同伦的)}，记作$a\simeqdot b$.
 \end{definition}
 
 具体来说，存在$H:[0,1]\times [0,1]\to X$满足：$H(s,0)=a(s), H(s,1)=b(s)$，$H(0,t)=a(0)=b(0), H(1,t)=a(1)=b(1)$.\par
@@ -154,8 +158,8 @@
 
 
 
-\begin{definition}{逆道路}
-    设$a:[0,1]\to X$是一条道路，定义$a$的\textbf{逆道路}为$ \setjot[-2]\begin{aligned}[t]
+\begin{definition}[逆道路][def:10.5]
+    设$a:[0,1]\to X$是一条道路，定义$a$的\colorbf{逆道路}为$ \setjot[-2]\begin{aligned}[t]
     \overline{a}:&[0,1]\to X \\
     t &\mapsto a(1-t)
     \end{aligned}$
@@ -167,8 +171,8 @@
     \caption{逆道路示意图}
 \end{figure}
 
-\begin{definition}{乘积道路}
-    设$a,b:[0,1]\to X$是两条道路，且$a(1)=b(0)$，定义$a$和$b$的\textbf{乘积道路}为\par
+\begin{definition}[乘积道路][def:10.6]
+    设$a,b:[0,1]\to X$是两条道路，且$a(1)=b(0)$，定义$a$和$b$的\colorbf{乘积道路}为\par
     $\setjot[-2]\begin{aligned}[t]
     ab:&[0,1]\to X \\
     t &\mapsto \begin{cases}
@@ -196,11 +200,11 @@
 \end{minipage}
 
 
-\begin{definition}{道路类}
-    道路$a$的\textbf{道路类}定义为$[a]=\{b\mid b\simeqdot a\}$. 如果$a$是一条闭路，则$[a]$称为\textbf{闭路类}，且$a(0)$(或$a(1)$)称为该闭路类的\textbf{基点}.
+\begin{definition}[道路类][def:10.7]
+    道路$a$的\colorbf{道路类}定义为$[a]=\{b\mid b\simeqdot a\}$. 如果$a$是一条闭路，则$[a]$称为\colorbf{闭路类}，且$a(0)$(或$a(1)$)称为该闭路类的\colorbf{基点}.
 \end{definition}
 
-\begin{lemma}
+\begin{lemma}[][lem:10.1]
     $a\simeqdot b \implies \overline{a}\simeqdot \overline{b}$.
 \end{lemma}
 
@@ -212,11 +216,11 @@
     \end{aligned}$，则$\overline{H}:\overline{a}\simeqdot \overline{b}$.
 \end{proof}
 
-\begin{definition}{逆道路类}
-    定义道路类$[a]$的\textbf{逆}为$[a]^{-1}:=[ \overline{a} ]$.
+\begin{definition}[逆道路类][def:10.8]
+    定义道路类$[a]$的\colorbf{逆}为$[a]^{-1}:=[ \overline{a} ]$.
 \end{definition}
 
-\begin{lemma}
+\begin{lemma}[][lem:10.2]
     设$a\simeqdot c, b\simeqdot d$，且$a(1)=b(0)$(从而$c(1)=d(0)$)，则$ab\simeqdot cd$.
 \end{lemma}
 
@@ -245,14 +249,15 @@
     由粘合引理，$H$是连续的. 所以$ab\simeqdot cd$.
 \end{proof}
 
-\begin{definition}{道路类的乘积}
-    设$[a],[b]$是两个道路类，且$a(1)=b(0)$，定义它们的\textbf{乘积}为$[a]\cdot [b]:=[ab]$.
+\begin{definition}[道路类的乘积][def:10.9]
+    设$[a],[b]$是两个道路类，且$a(1)=b(0)$，定义它们的\colorbf{乘积}为$[a]\cdot [b]:=[ab]$.
 \end{definition}
 
 \section{基本群}
 
 \vspace{-1 em}
-\begin{definition}{基本群}
+\begin{definition}[基本群][def:10.10]
+\index{j@基本群}
     设$X$是拓扑空间，$x_0\in X$.
     定义$\pi_1(X,x_0)=\{ \text{所有以}\,x_0\,\text{为基点的闭路类} \}$.
     对于任意两个闭路类$[a],[b]\in \pi_1(X,x_0)$，定义运算$[a]\cdot [b]=[ab]\in \pi_1(X,x_0)$.
@@ -264,9 +269,9 @@
     \captionof{figure}{}
 \end{figure}
 
-\begin{lemma}[运算的结合律]
+\begin{lemma}[运算的结合律][lem:10.3]
     设$a,b,c:[0,1]\to X$是道路，且$a(1)=b(0), b(1)=c(0)$，则$\left([a]\cdot [b]\right)\cdot [c] = [a]\cdot \left([b]\cdot [c]\right)$.
-    特别地，$\pi_1(X,x_0)$中的乘法满足\textbf{结合律}.
+    特别地，$\pi_1(X,x_0)$中的乘法满足\colorbf{结合律}.
 \end{lemma}
 
 \begin{proof}
@@ -309,9 +314,9 @@
     由粘贴引理，$H$连续，故$H:(ab)c \simeqdot a(bc)$.
 \end{proof}
 
-\begin{lemma}
+\begin{lemma}[][lem:10.4]
     设$a:[0,1]\to X, a(0)=x_0, a(1)=x_1$，则$[c_{x_0}]\cdot [a] = [a] = [a]\cdot [c_{x_1}]$，其中$c_{x_0}, c_{x_1}$是常值道路.
-    特别地，$[c_{x_0}]$是$\pi_1(X,x_0)$中的\textbf{单位元}.
+    特别地，$[c_{x_0}]$是$\pi_1(X,x_0)$中的\colorbf{单位元}.
 \end{lemma}
 
 \begin{proof}
@@ -343,9 +348,9 @@
     \vspace{4 em}
 \end{proof}
 
-\begin{lemma}
+\begin{lemma}[][lem:10.5]
     设$a:[0,1]\to X, a(0)=x_0, a(1)=x_1$，则$[a]\cdot [a]^{-1} = [c_{x_0}], [a]^{-1}\cdot [a] = [c_{x_1}]$.
-    特别地，$\pi_1(X,x_0)$中的任意闭路类都有\textbf{逆元}.
+    特别地，$\pi_1(X,x_0)$中的任意闭路类都有\colorbf{逆元}.
 \end{lemma}
 
 \begin{proof}
@@ -372,8 +377,8 @@
     则$H:a\overline{a}\simeqdot c_{x_0}$
 \end{proof}
 
-\begin{theorem}
-    $\pi_1(X,x_0)$是一个群，称为$X$的以$x_0$为基点的\textbf{基本群}.
+\begin{theorem}[][thm:10.1]
+    $\pi_1(X,x_0)$是一个群，称为$X$的以$x_0$为基点的\colorbf{基本群}.
 \end{theorem}
 
 \begin{instance}
@@ -387,8 +392,8 @@
 
 \section{诱导同态}
 
-\begin{definition}{同态}
-    设$G_1, G_2$是两个群，若$\varphi:G_1\to G_2$满足$\varphi(gh)=\varphi(g)\varphi(h)$，则称$\varphi$是\textbf{同态}.
+\begin{definition}[同态][def:10.11]
+    设$G_1, G_2$是两个群，若$\varphi:G_1\to G_2$满足$\varphi(gh)=\varphi(g)\varphi(h)$，则称$\varphi$是\colorbf{同态}.
 \end{definition}
 因此，同态保持了群的运算结构.
 
@@ -409,7 +414,7 @@
 设$X,Y$是两个空间，$f:X\to Y$是连续映射.
 $a:[0,1]\to X$是$X$中的道路，则$f\circ a:[0,1]\to Y$是$Y$中的道路.
 
-\begin{lemma}
+\begin{lemma}[][lem:10.6]
     若在$X$中$a\simeqdot b$，则在$Y$中$f\circ a \simeqdot f\circ b$.
 \end{lemma}
 
@@ -426,14 +431,14 @@ $a:[0,1]\to X$是$X$中的道路，则$f\circ a:[0,1]\to Y$是$Y$中的道路.
     $f\circ H:[0,1]\times [0,1]\to Y$.则$f\circ H: f\circ a \simeqdot f\circ b$.
 \end{proof}
 
-\begin{definition}
+\begin{definition}[诱导同态][def:10.12]
     $f:X\to Y$诱导了一个映射$\setjot[-2]\begin{aligned}[t]
             f_*:\pi_1(X,x_0) &\to \pi_1(Y,f(x_0)) \\
             [a] &\mapsto [f\circ a]
         \end{aligned}$.
 \end{definition}
 
-\begin{lemma}
+\begin{lemma}[][lem:10.7]
     $f_*$是一个同态.
 \end{lemma}
 
@@ -470,7 +475,7 @@ $a:[0,1]\to X$是$X$中的道路，则$f\circ a:[0,1]\to Y$是$Y$中的道路.
         \end{aligned}$是恒等同构.
 \end{instance}
 
-\begin{lemma}
+\begin{lemma}[][lem:10.8]
     设$f:X\to Y, g:Y\to Z, x_0\in X$.
     则$(g\circ f)_* = g_*\circ f_*: \pi_1(X,x_0)\to \pi_1(Z,g(f(x_0)))$.
 \end{lemma}
@@ -479,7 +484,7 @@ $a:[0,1]\to X$是$X$中的道路，则$f\circ a:[0,1]\to Y$是$Y$中的道路.
     $\forall\,[a]\in \pi_1(X,x_0)$，$(g\circ f)_*([a]) = [g\circ f\circ a]= g_*[f\circ a] = g_*(f_*[a]) = g_*\circ f_*[a]$.
 \end{proof}
 
-\begin{theorem}
+\begin{theorem}[][thm:10.2]
     设$f:X\to Y$是同胚，$x_0\in X$.
     则$f_*:\pi_1(X,x_0)\to \pi_1(Y,f(x_0))$是一个同构.
 \end{theorem}
@@ -531,7 +536,7 @@ $\forall\,\alpha \in \pi_1(X,x_0)$，则$w^{-1}\alpha w \in \pi_1(X,x_1)$.
     \caption{基点移动}
 \end{figure}
 
-\begin{lemma}
+\begin{lemma}[][lem:10.9]
     $w_\#$是一个同态.
 \end{lemma}
 
@@ -566,7 +571,7 @@ $\forall\,\alpha \in \pi_1(X,x_0)$，则$w^{-1}\alpha w \in \pi_1(X,x_1)$.
     \caption{道路复合示意图}
 \end{figure}
 
-\begin{lemma}
+\begin{lemma}[][lem:10.10]
     设$w'$是从$x_1$到$x_2$的道路类.
     $(w\cdot w')_\#:\pi_1(X,x_0)\to \pi_1(X,x_2)$.
     则$(w\cdot w')_\# = (w')_\# \circ w_\#$.
@@ -580,7 +585,7 @@ $\forall\,\alpha \in \pi_1(X,x_0)$，则$w^{-1}\alpha w \in \pi_1(X,x_1)$.
     \end{aligned}$
 \end{proof}
 
-\begin{proposition}
+\begin{proposition}[][prop:10.3]
     $w_\#:\pi_1(X,x_0)\to \pi_1(X,x_1)$是一个同构.
 \end{proposition}
 
@@ -598,7 +603,7 @@ $\forall\,\alpha \in \pi_1(X,x_0)$，则$w^{-1}\alpha w \in \pi_1(X,x_1)$.
 \end{proof}
 上述命题表示，基本群的基点的选取不影响群的结构.\par
 
-\begin{corollary}
+\begin{corollary}[][cor:10.1]
     设$X$是道路连通空间，$x_0,x_1\in X$.
     则$\pi_1(X,x_0)\cong \pi_1(X,x_1)$.
 \end{corollary}
@@ -614,8 +619,9 @@ $\forall\,\alpha \in \pi_1(X,x_0)$，则$w^{-1}\alpha w \in \pi_1(X,x_1)$.
     $\pi_0(X)$是$X$的道路连通分支的集合.
 \end{remark}
 
-\begin{definition}{单连通}
-    设$X$是道路连通的. 如果$\pi_1(X,x_0)=\{1\}$，则称$X$是\textbf{单连通的}.
+\begin{definition}[单连通][def:10.13]
+\index{d@单连通}
+    设$X$是道路连通的. 如果$\pi_1(X,x_0)=\{1\}$，则称$X$是\colorbf{单连通的}.
 \end{definition}
 
 
@@ -641,7 +647,7 @@ $\forall\,\alpha \in \pi_1(X,x_0)$，则$w^{-1}\alpha w \in \pi_1(X,x_1)$.
 (ii)$p|_{\left(-\frac{1}{2}, \frac{1}{2}\right)}: \left(-\frac{1}{2}, \frac{1}{2}\right) \to S^1 - \{-1\}$ 是双射，连续且开的，所以它是一个同胚.\par
 令 $\psi = \left(p|_{\left(-\frac{1}{2}, \frac{1}{2}\right)}\right)^{-1}: S^1 - \{-1\} \to \left(-\frac{1}{2}, \frac{1}{2}\right)$.
 
-\begin{lemma}[道路提升引理]
+\begin{lemma}[道路提升引理][lem:10.11]
     如果 $a$ 是 $S^1$ 中以 $1 \in S^1$ 为起点的道路，则存在 $\mathbb{E}^1$ 中\uline{唯一的}道路 $\tilde{a}$ 以 $0 \in \mathbb{E}^1$ 为起点，使得 $p \circ \tilde{a} = a$.
 \end{lemma}
 \begin{figure}[H]
@@ -650,7 +656,7 @@ $\forall\,\alpha \in \pi_1(X,x_0)$，则$w^{-1}\alpha w \in \pi_1(X,x_1)$.
     \caption{两个引理的交换图}
 \end{figure}
 
-\begin{lemma}[同伦提升引理]
+\begin{lemma}[同伦提升引理][lem:10.12]
     如果 $b$ 也是 $[0,1]\to S^1$ 中的道路，使得 $H: a \simeq b$，则存在\uline{唯一的} $\tilde{H}: [0,1] \times [0,1] \to \mathbb{E}^1$，使得 $p \circ \tilde{H} = H$，且 $\tilde{H}: \tilde{a} \simeq \tilde{b}$，其中 $\tilde{b}$ 是 $b$ 的提升.
 \end{lemma}
 
@@ -697,7 +703,7 @@ $\forall\,\alpha \in \pi_1(X,x_0)$，则$w^{-1}\alpha w \in \pi_1(X,x_1)$.
     因此 $\tilde{H}: \tilde{a} \simeqdot \tilde{b}$.
 \end{proof}
 
-\begin{corollary}
+\begin{corollary}[][cor:10.2]
     $\tilde{a}$ 的终点只依赖于 $a$ 的道路类，即 $a \simeqdot b$，$\tilde{a},\tilde{b}$分别为$a,b$的提升，且$\tilde{a}(0)=\tilde{b}(0)=0 \in \mathbb{E}^1$，则$\tilde{a} \simeqdot \tilde{b}$.
 \end{corollary}
 
@@ -739,16 +745,16 @@ $\forall\,n \in \mathbb{Z}$，定义 $\tilde{a}(s) = ns, s \in [0,1]$.
 因此在 $\mathbb{E}^1$ 中$\tilde{a} \simeqdot c_0$ ，且 $p \circ \tilde{a} \simeqdot p \circ c_0$，即在 $S^1$ 中$a \simeqdot c_1$.\par
 因此$[a] = 0 \in \pi_1(S^1, 1)$，即单位元.\par
 综合以上过程，就有以下定理：
-\begin{theorem}
+\begin{theorem}[][thm:10.3]
     $\pi_1(S^1, 1) \cong \mathbb{Z}$.
 \end{theorem}
 因此，圆周的基本群等价于一个无限循环群.\par
 
 \section{群论复习}
 
-\begin{definition}{核和像}
-    对于同态$\Phi: G \to G_1$，定义$\mathrm{Ker}\,\Phi = \{g \in G \mid \Phi(g) = e_1\}$，称为$\Phi$的\textbf{核}，其中$e_1$是$G_1$的单位元.\par
-    定义$\mathrm{Im}\,\Phi = \{h \in G_1 \mid \exists\,g \in G, \text{s.t. } h = \Phi(g)\}$，称为$\Phi$的\textbf{像}.
+\begin{definition}[核和像][def:10.14]
+    对于同态$\Phi: G \to G_1$，定义$\mathrm{Ker}\,\Phi = \{g \in G \mid \Phi(g) = e_1\}$，称为$\Phi$的\colorbf{核}，其中$e_1$是$G_1$的单位元.\par
+    定义$\mathrm{Im}\,\Phi = \{h \in G_1 \mid \exists\,g \in G, \text{s.t. } h = \Phi(g)\}$，称为$\Phi$的\colorbf{像}.
 \end{definition}
 
 除了无限循环群之外，还有有限循环群.\par
@@ -756,10 +762,10 @@ $\forall\,n \in \mathbb{Z}$，定义 $\tilde{a}(s) = ns, s \in [0,1]$.
 循环群中的二元运算定义为$\forall\,\overline{q_1}+\overline{q_2}=\overline{q_2+q_1}$，即为代表元相加所在的等价类.其中的单位元为$\bar{1}$，$\bar{1}$被称为\bluebf{生成元}，因为循环群中的所有元素都可以有生成元不断相加得到.\par
 一个例子是二阶循环群$\mb{Z}_2=\mathbb{Z}/2\mathbb{Z} = \{\bar{0}, \bar{1}\}$，它的两个等价类分别代表了奇数和偶数.\par
 下面介绍群之间的直积运算.\par
-\begin{definition}{直积}
+\begin{definition}[直积][def:10.15]
     设$G_1,G_2$是两个群，定义$G_1 \times G_2 = \{(a,b) \mid a \in G_1, b \in G_2\}$，并定义二元运算$\cdot$为：
     \[ (a_1, b_1) \cdot (a_2, b_2) = (a_1 a_2, b_1 b_2),\text{其中}\,a_1,a_2\in G_1, b_1,b_2 \in G_2 \]
-    则$G_1\times G_2$称为$G_1$和$G_2$的\textbf{直积}，其中的单位元为$(e_1,e_2)$，$e_1,e_2$分别为$G_1,G_2$的单位元.
+    则$G_1\times G_2$称为$G_1$和$G_2$的\colorbf{直积}，其中的单位元为$(e_1,e_2)$，$e_1,e_2$分别为$G_1,G_2$的单位元.
 \end{definition}
 例如：$\mathbb{Z} \times \mathbb{Z} = \{(n, m) \in \mathbb{Z} \times \mathbb{Z}\}$
 $(n_1, m_1) + (n_2, m_2) = (n_1+n_2, m_1+m_2)$
@@ -767,7 +773,7 @@ $(\mathbb{Z}, +)$：单位元 $(0,0) \in \mathbb{Z} \times \mathbb{Z}$.
 
 \section{积空间的基本群}
 
-\begin{theorem}
+\begin{theorem}[][thm:10.4]
     设$X, Y$是两个拓扑空间.$x_0 \in X, y_0 \in Y$.
     则 $\pi_1(X \times Y, (x_0, y_0)) \cong \pi_1(X, x_0) \times \pi_1(Y, y_0)$.
 \end{theorem}
@@ -825,8 +831,9 @@ $(\mathbb{Z}, +)$：单位元 $(0,0) \in \mathbb{Z} \times \mathbb{Z}$.
 
 \section{同伦等价}
 
-\begin{definition}{同伦等价}
-    设$X, Y$是两个拓扑空间，$f: X \to Y, g: Y \to X$是连续映射，如果$g \circ f \simeq \mathrm{id}_X: X \to X$且$f \circ g \simeq \mathrm{id}_Y: Y \to Y$，则称$X$和$Y$是\textbf{同伦等价的}，记作$X \simeq Y$.
+\begin{definition}[同伦等价][def:10.16]
+\index{t@同伦等价}
+    设$X, Y$是两个拓扑空间，$f: X \to Y, g: Y \to X$是连续映射，如果$g \circ f \simeq \mathrm{id}_X: X \to X$且$f \circ g \simeq \mathrm{id}_Y: Y \to Y$，则称$X$和$Y$是\colorbf{同伦等价的}，记作$X \simeq Y$.
 \end{definition}
 
 \begin{remark}
@@ -859,7 +866,7 @@ $(\mathbb{Z}, +)$：单位元 $(0,0) \in \mathbb{Z} \times \mathbb{Z}$.
     类似地，进一步可以证明：$X \times \mathbb{E}^1 \simeq X$.
 \end{instance}
 
-\begin{proposition}
+\begin{proposition}[][prop:10.4]
     同伦等价是拓扑空间之间的等价关系.
 \end{proposition}
 
@@ -932,8 +939,9 @@ $(\mathbb{Z}, +)$：单位元 $(0,0) \in \mathbb{Z} \times \mathbb{Z}$.
     显然$g \circ f \simeq \mathrm{id}_{\mathbb{E}^n}$ (通过直线同伦)，$f \circ g = \mathrm{id}_{\{pt\}}$.
 \end{instance}
 
-\begin{definition}{可缩}
-    如果一个空间$X \simeq \{pt\}$，则称$X$是\textbf{可缩的}.
+\begin{definition}[可缩][def:10.17]
+\index{k@可缩}
+    如果一个空间$X \simeq \{pt\}$，则称$X$是\colorbf{可缩的}.
 \end{definition}
 
 \section{同伦等价空间的基本群}
@@ -950,7 +958,7 @@ $h_*$和$k_*$有什么关系？
 \end{aligned}$.\par
 令$\omega = [b]$.
 
-\begin{proposition}{}\label{prop:10.5}
+\begin{proposition}[][prop:10.5]
     $k_* = \omega_\# \circ h_*$.
     即\begin{tikzcd}[labels={font=\normalsize}]
                                                               &  & {\pi_1(X_1,h(x_0))} \arrow[dd, "\omega_\#"] \\
@@ -984,12 +992,12 @@ $h_*$和$k_*$有什么关系？
     于是$H\circ F\circ G=(H \circ F \circ \gamma_0) \cdot (H \circ F \circ \beta_1) \simeq (H \circ F \circ \beta_0) \cdot (H \circ F \circ \gamma_1)$,即$ b \cdot (k \circ a) \simeq (h \circ a) \cdot b$.
 \end{proof}
 
-\begin{corollary}
+\begin{corollary}[][cor:10.3]
     假设$h \simeq k: X_0 \to X_1$.
     如果$h_*$是单射，或满射，或同构，那么$k_*$也是.
 \end{corollary}
 
-\begin{theorem}
+\begin{theorem}[][thm:10.5]
     设 $X \simeq Y$，且 $f: X \to Y, g: Y \to X$ 满足 $\mathrm{id}_X \simeq g \circ f: X \to X$，$\mathrm{id}_Y \simeq f \circ g: Y \to Y$.
     取 $x_0 \in X$. 则 $f_*: \pi_1(X, x_0) \to \pi_1(Y, f(x_0))$ 是一个同构.
 \end{theorem}
@@ -1004,7 +1012,7 @@ $h_*$和$k_*$有什么关系？
 \end{tikzcd}
     \end{center}\par
     (i) $\mathrm{id}_X \simeq g \circ f: X \to X$.\par
-    由命题\ref{prop:10.5}，$g_*\circ f_* = (g \circ f)_* = (\omega_1)_\# \circ \mathrm{id}: \pi_1(X, x_0) \to \pi_1(X, g \circ f(x_0)) $\par
+    由命题\cref{prop:10.5}，$g_*\circ f_* = (g \circ f)_* = (\omega_1)_\# \circ \mathrm{id}: \pi_1(X, x_0) \to \pi_1(X, g \circ f(x_0)) $\par
     即 $g_* \circ f_*$ 是一个同构，所以 $f_*$ 是单射，$g_*$ 是满射.\par
     (ii) $\mathrm{id}_Y \simeq f \circ g: Y \to Y$.\par
     则$f_*\circ g_*=(f \circ g)_* = (\omega_2)_\# \circ \mathrm{id}: \pi_1(Y, f(x_0)) \to \pi_1(Y, f \circ g \circ f(x_0)) $.\par
@@ -1014,7 +1022,7 @@ $h_*$和$k_*$有什么关系？
     所以 $f_*: \pi_1(X, x_0) \to \pi_1(Y, f(x_0))$ 是一个同构.
 \end{proof}
 
-\begin{corollary}
+\begin{corollary}[][cor:10.4]
     设 $X, Y$ 是道路连通空间，则$X \simeq Y \implies \pi_1(X) \cong \pi_1(Y)$.
 \end{corollary}
 
@@ -1028,6 +1036,8 @@ $h_*$和$k_*$有什么关系？
     $\pi_1(X) \not\cong \pi_1(Y) \implies X \not\simeq Y \implies X \not\cong Y$.
 \end{remark}
 
+
+
 \begin{note}
     \textbf{庞加莱猜想 (Poincaré Conjecture)}
     
@@ -1039,10 +1049,11 @@ $h_*$和$k_*$有什么关系？
 
 \section{形变收缩}
 
-\begin{definition}{收缩映射}
+\begin{definition}[收缩映射][def:10.18]
+\index{s@收缩映射}
     设 $X$是一个拓扑空间，$A \subset X$，$i: A \to X$为嵌入映射，$r: X \to A$.
     如果 $r|_A = \mathrm{id}_A: A \to A$，即 $r \circ i = \mathrm{id}_A: A \to A$，
-    则称 $r$ 是一个\textbf{收缩映射}，且称 $A$ 是 $X$ 的一个\textbf{收缩核}.
+    则称 $r$ 是一个\colorbf{收缩映射}，且称 $A$ 是 $X$ 的一个\colorbf{收缩核}.
 \end{definition}
 
 \begin{instance}
@@ -1071,11 +1082,12 @@ $h_*$和$k_*$有什么关系？
     $r_*: \pi_1(X, a_0) \to \pi_1(A, a_0)$ 是满射.
 \end{remark}
 
-\begin{definition}{形变收缩映射}
+\begin{definition}[形变收缩映射][def:10.19]
+\index{x@形变收缩}
     设 $X$ 是拓扑空间，$A \subset X$，$i: A \to X$是嵌入映射，$r: X \to A$.
     如果 $r \circ i = \mathrm{id}_A$，且 $i \circ r \simeq \mathrm{id}_X \text{ rel } A$.
-    则称 $r$ 是一个\textbf{形变收缩映射}，
-    且称 $A$ 是 $X$ 的一个\textbf{形变收缩核}.
+    则称 $r$ 是一个\colorbf{形变收缩映射}，
+    且称 $A$ 是 $X$ 的一个\colorbf{形变收缩核}.
 \end{definition}
 
 \begin{remark}
@@ -1152,7 +1164,7 @@ $h_*$和$k_*$有什么关系？
 
 \section{商空间的形变收缩}
 
-\begin{theorem}\label{thm:10.6}
+\begin{theorem}[商空间的形变收缩][thm:10.6]
     $f: X \to Y$ 是一个商映射. $A \subset X$ 是一个形变收缩核. $B = f(A) \subset Y$.
     $H: X \times [0,1] \to X$ 实现了从 $X$ 到 $A$ 的形变收缩.
     如果 $f(x) = f(x') \implies f \circ H(x, t) = f \circ H(x', t)$，
@@ -1174,7 +1186,7 @@ $h_*$和$k_*$有什么关系？
     \end{aligned} $.\par
     如果 $x' \in f^{-1}(y)$，那么 $f(x) = f(x') \implies f \circ H(x, t) = f \circ H(x', t)$.\par
     所以 $H_1(y, t)$ 独立于 $x \in f^{-1}(y)$ 的选取，即 $H_1$ 是良定义的.
-    \begin{lemma}
+    \begin{lemma}[][lem:10.13]
         $f: X \to Y$ 是一个商映射，那么 $f \times \mathrm{id}: X \times [0,1] \to Y \times [0,1]$ 是一个商映射.
     \end{lemma}
     因为 $f \times \mathrm{id}$ 是一个商映射且 $f \circ H$ 是连续的，所以 $H_1$ 是连续的.并且：
@@ -1212,7 +1224,7 @@ Y \arrow[rr, "def\;\;retr"]                   &  & B\makebox[0pt][l]{${} =f(A) $
     \parallel & & \parallel \\
     f \circ H(1, 1-s, t) & = & f\left(1, (1-t)(1-s) + t \cdot \frac{1}{2}\right)
     \end{array}\]\par
-    由定理\ref{thm:10.6}，$B$ 是 $Y$ 的一个形变收缩核.
+    由定理\cref{thm:10.6}，$B$ 是 $Y$ 的一个形变收缩核.
     $\pi_1(Y) \cong \mathbb{Z}$.
 \end{instance}
 
@@ -1226,7 +1238,7 @@ Y \arrow[rr, "def\;\;retr"]                   &  & B\makebox[0pt][l]{${} =f(A) $
         (x, s, t) &\mapsto (x, (1-t)s + t \cdot 1)
     \end{aligned}$.\par
     若$f(x, 1) = f(x', 1)$，则$ f \circ H(x, 1, t) = f(x, 1)=f(x', 1)=f \circ H(x', 1, t) $.\par
-    由定理\ref{thm:10.6}，$CX$ 形变收缩到 $B$，即一个点.\par
+    由定理\cref{thm:10.6}，$CX$ 形变收缩到 $B$，即一个点.\par
     所以任何锥都是可缩的.
 \end{instance}
 
@@ -1245,7 +1257,7 @@ Y \arrow[rr, "def\;\;retr"]                   &  & B\makebox[0pt][l]{${} =f(A) $
     $B = f(A)$. $Y$ 形变收缩到 $B = \text{Figure 8}$.
 \end{instance}
 
-\begin{corollary}
+\begin{corollary}[][cor:10.5]
     $f: X \to Y$ 是一个商映射. $A$ 是 $X$ 的一个形变收缩核.
     如果粘合只发生在 $A$ 中，那么 $Y$ 形变收缩到 $B = f(A)$.
 \end{corollary}
@@ -1262,7 +1274,7 @@ Y \arrow[rr, "def\;\;retr"]                   &  & B\makebox[0pt][l]{${} =f(A) $
 
 \section{商空间的形变收缩核}
 
-\begin{proposition}
+\begin{proposition}[][prop:10.6]
     $nT^2-\{p\}\simeq \bigvee_{i=1}^{2n}S_i^1$($2n$个圆的一点并).
 \end{proposition}
 
@@ -1281,7 +1293,7 @@ Y \arrow[rr, "def\;\;retr"]                   &  & B\makebox[0pt][l]{${} =f(A) $
     即$2T^2-\{pt\}\simeq \bigvee_{i=1}^4 S_i^1$.
 \end{proof}
 
-\begin{lemma}
+\begin{lemma}[][lem:10.14]
     $D^n\times [0,1]$形变收缩到$D^n\times \{0\}\cup S^{n-1}\times [0,1]$.
 \end{lemma}
 
@@ -1297,7 +1309,7 @@ Y \arrow[rr, "def\;\;retr"]                   &  & B\makebox[0pt][l]{${} =f(A) $
 \end{proof}
     
 
-\begin{proposition}
+\begin{proposition}[][prop:10.7]
     设$X$是一个空间，$f\simeq g:S^{n-1}\to X$.
     定义
     \[ X\cup_f D^n=X\sqcup D^n / x\sim f(x) \]
@@ -1351,8 +1363,8 @@ Y \arrow[rr, "def\;\;retr"]                   &  & B\makebox[0pt][l]{${} =f(A) $
 
 \section{有限表现群}
 
-\begin{definition}{群的自由积}
-    设$G_1,G_2$是群，定义它们的\textbf{自由积}为：
+\begin{definition}[群的自由积][def:10.20]
+    设$G_1,G_2$是群，定义它们的\colorbf{自由积}为：
     \[ G_1*G_2:=\{ \alpha_1\beta_1\alpha_2\beta_2\dots\alpha_n\beta_n \mid \alpha_i\in G_1,\beta_i\in G_2 \} \]
     其中运算法则如下：
     \[ \alpha_1\beta_1\dots\alpha_n\beta_n \cdot \alpha'_1\beta'_1\dots\alpha'_m\beta'_m = \alpha_1\beta_1\dots\alpha_n\beta_n \alpha'_1\beta'_1\dots\alpha'_m\beta'_m \]
@@ -1369,16 +1381,16 @@ Y \arrow[rr, "def\;\;retr"]                   &  & B\makebox[0pt][l]{${} =f(A) $
     \end{figure}
 \end{instance}
 
-\begin{definition}{自由群}
-    $\underbrace{\mathbb{Z}*\mathbb{Z}*\dots*\mathbb{Z}}_{n}=F_n$称为\textbf{秩为$n$的自由群}.
+\begin{definition}[自由群][def:10.21]
+    $\underbrace{\mathbb{Z}*\mathbb{Z}*\dots*\mathbb{Z}}_{n}=F_n$称为\colorbf{秩为$n$的自由群}.
 \end{definition}
 
-\begin{definition}{生成元集}
-    $\{g_1,g_2,\dots,g_n\}$是群$G$的\textbf{生成元集}，如果$G$中的每个元素都是有限个$g_i$及其逆元的乘积.
+\begin{definition}[生成元集][def:10.22]
+    $\{g_1,g_2,\dots,g_n\}$是群$G$的\colorbf{生成元集}，如果$G$中的每个元素都是有限个$g_i$及其逆元的乘积.
 \end{definition}
 
-\begin{definition}{正规闭包}
-    设$G$是群，$S\subset G$是子集.包含$S$的$G$的最小\textbf{正规子群}称为$S$的\textbf{正规闭包}，记为$\overline{S}$.
+\begin{definition}[正规闭包][def:10.23]
+    设$G$是群，$S\subset G$是子集.包含$S$的$G$的最小\colorbf{正规子群}称为$S$的\colorbf{正规闭包}，记为$\overline{S}$.
     
     具体地，
     \[ \overline{S}:=\{ g_1 s_1^{\pm 1} g_1^{-1} \dots g_n s_n^{\pm 1} g_n^{-1} \mid g_i\in G, s_i\in S \} \]
@@ -1386,15 +1398,15 @@ Y \arrow[rr, "def\;\;retr"]                   &  & B\makebox[0pt][l]{${} =f(A) $
     显然对于任意$h\in G$，有$h \left( g_1 s_1 g_1^{-1} \dots \right) h^{-1}\in \overline{S}$.
 \end{definition}
 
-\begin{definition}{自由群}
+\begin{definition}[自由群II][def:10.24]
     自由群 $F_n = \langle g_1, g_2, \dots, g_n \rangle = \underbrace{\mathbb{Z} * \mathbb{Z} * \dots * \mathbb{Z}}_{n}$.
 \end{definition}
 
-\begin{definition}{有限表现群}
+\begin{definition}[有限表现群][def:10.25]
     设 $\{r_1, r_2, \dots, r_m\} \subset F_n$.
     商群 $F_n / \overline{\{r_1, r_2, \dots, r_m\}}$ 记为
     \[ \langle g_1, g_2, \dots, g_n \mid r_1, r_2, \dots, r_m \rangle = G \]
-    其中 $g_i$ 称为\textbf{生成元}，$r_j$ 称为\textbf{关系元}.
+    其中 $g_i$ 称为\colorbf{生成元}，$r_j$ 称为\colorbf{关系元}.
     有限表现群是指具有有限个生成元和有限个关系元的群.
 \end{definition}
 
@@ -1431,7 +1443,7 @@ Y \arrow[rr, "def\;\;retr"]                   &  & B\makebox[0pt][l]{${} =f(A) $
     \alpha_1 \beta_1 \dots \alpha_n \beta_n &\mapsto (j_1)_*(\alpha_1) (j_2)_*(\beta_1) \dots (j_1)_*(\alpha_n) (j_2)_*(\beta_n)
 \end{aligned}$，其中 $\alpha_i \in \pi_1(U, x_0), \beta_i \in \pi_1(V, x_0)$.则$\Phi$是一个同态.
 
-\begin{lemma}
+\begin{lemma}[][lem:10.15]
     $\Phi$ 是满射.
 \end{lemma}
 
@@ -1452,7 +1464,7 @@ Y \arrow[rr, "def\;\;retr"]                   &  & B\makebox[0pt][l]{${} =f(A) $
 \end{proof}
 基于以上结论，由于同态基本定理，就有$\pi_1(X, x_0) \cong \pi_1(U, x_0) * \pi_1(V, x_0) / \ker \Phi$.\par
 
-\begin{lemma}
+\begin{lemma}[][lem:10.16]
     设 $N$ 是 $\pi_1(U, x_0) * \pi_1(V, x_0)$ 中集合$\{ (i_1)_*(\alpha) (i_2)_*(\alpha^{-1}) \mid \alpha \in \pi_1(U \cap V, x_0) \}$
     的正规闭包，则 $N \leq \ker \Phi$.
 \end{lemma}
@@ -1468,7 +1480,7 @@ Y \arrow[rr, "def\;\;retr"]                   &  & B\makebox[0pt][l]{${} =f(A) $
     \end{aligned}$.
 \end{proof}
 
-\begin{lemma}
+\begin{lemma}[][lem:10.17]
     $\ker \Phi \leq N$.
 \end{lemma}
 
@@ -1478,12 +1490,13 @@ Y \arrow[rr, "def\;\;retr"]                   &  & B\makebox[0pt][l]{${} =f(A) $
 
 因此，$\ker \Phi = N$.
 
-\begin{theorem}[Seifert-van Kampen 定理]
+\begin{theorem}[Seifert-van Kampen定理][thm:10.7]
+\index{S@Seifert-van Kampen定理}
     \[ \pi_1(X, x_0) \cong \pi_1(U, x_0) * \pi_1(V, x_0) / N \]
     其中 $N$ 是由 $\{ (i_1)_*(\alpha) (i_2)_*(\alpha^{-1}) \mid \alpha \in \pi_1(U \cap V, x_0) \}$ 生成的正规闭包.
 \end{theorem}
 
-\begin{corollary}
+\begin{corollary}[][cor:10.6]
     如果 $U$ 和 $V$ 都是单连通的，那么 $X$ 也是单连通的.
 \end{corollary}
 
@@ -1494,7 +1507,7 @@ Y \arrow[rr, "def\;\;retr"]                   &  & B\makebox[0pt][l]{${} =f(A) $
     $U, V, U \cap V$ 都是道路连通的，且$U,V$都是单连通的，故$\pi_1(U) = \pi_1(V) = \{1\}$.
 \end{instance}
 
-\begin{corollary}
+\begin{corollary}[][cor:10.7]
     如果 $U \cap V$ 是单连通的，那么
     \[ \pi_1(X, x_0) \cong \pi_1(U, x_0) * \pi_1(V, x_0) \]
 \end{corollary}
@@ -1545,7 +1558,7 @@ Y \arrow[rr, "def\;\;retr"]                   &  & B\makebox[0pt][l]{${} =f(A) $
     生成元为 $\{ a, b^2, b a b^{-1} \}$.
 \end{instance}
 
-\begin{corollary}
+\begin{corollary}[][cor:10.8]
     如果 $V$ 是单连通的，那么$\pi_1(X, x_0) \cong \pi_1(U, x_0) / \overline{\{ (i_1)_*(\alpha) \mid \alpha \in \pi_1(U \cap V, x_0) \}}$.
 \end{corollary}
 
