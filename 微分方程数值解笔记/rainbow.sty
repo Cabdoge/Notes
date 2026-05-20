@@ -61,192 +61,182 @@
 %================ 调控行距 ================
 \newcommand{\wideline}{\setlength{\lineskip}{\dimexpr\baselineskip-\ccwd\relax}\setlength{\lineskiplimit}{2.5pt}}
 
-%================ 颜色定义 ================
+%================ 定理类环境 ==================================
+
+% ======================================================================
+% 🌈 Rainbow 定理类环境使用说明 (User Guide)
+% ======================================================================
+%
+% 本模块使用工厂宏 \DeclareRainbowEnv 批量生成带彩色左边框的定理类环境。
+% 生成的环境具有类似 CSS 的“基础继承 -> 专属继承 -> 局部覆盖”三重样式体系，
+% 并且完美修复了 tcolorbox 与 LaTeX 原生交叉引用（label/ref）的作用域冲突。
+%
+% ----------------------------------------------------------------------
+% 【1】 宏的语法说明
+% ----------------------------------------------------------------------
+% \DeclareRainbowEnv{<英文环境名>}{<中文显示名>}{<颜色变量名>}[<计数层级>]
+% 
+% 示例：\DeclareRainbowEnv{theorem}{定理}{rbTheoremColor}[chapter]
+% 该命令将在后台自动生成以下内容：
+%   1. 计数器：rbtheorem (绑定到 chapter，自动显示为 "章号.序号")
+%   2. 引用别名：支持 \autoref 和 \cref 自动输出 "定理 1.1"
+%   3. 样式钩子：rainbow theorem style (初始为空，供全局专属修改)
+%   4. 带编号环境：\begin{theorem} ... \end{theorem}
+%   5. 无编号环境：\begin{theorem*} ... \end{theorem*}
+%
+% ----------------------------------------------------------------------
+% 【2】 环境的使用说明 (以 theorem 为例)
+% ----------------------------------------------------------------------
+% 带编号环境接收 3 个可选参数： \begin{theorem}[附加标题][引用标签][局部样式]
+% 无编号环境接收 2 个可选参数： \begin{theorem*}[附加标题][局部样式]
+%
+% 场景 A：最基础的用法（只有编号，无标题，无引用）
+%   \begin{theorem}
+%     直角三角形两条直角边的平方和等于斜边的平方。
+%   \end{theorem}
+%
+% 场景 B：带标题，且需要交叉引用 (最推荐的用法)
+%   % 注意：请将 label 放在第二个方括号内，绝对不要在环境内写 \label{...}！
+%   \begin{theorem}[勾股定理][thm:gougu]
+%     直角三角形两条直角边的平方和等于斜边的平方。
+%   \end{theorem}
+%   % 正文中引用：根据 \autoref{thm:gougu} 可知... (将输出 "根据 定理 2.1 可知...")
+%
+% 场景 C：不需要标题，但需要交叉引用
+%   % 此时第一个方括号必须留空，占位符不可省略。
+%   \begin{theorem}[][thm:noname]
+%     这是一个重要的但没有名字的定理。
+%   \end{theorem}
+%
+% 场景 D：无编号环境 (星号版本)
+%   \begin{theorem*}[费马大定理]
+%     当整数 n > 2 时，关于 x, y, z 的方程 x^n + y^n = z^n 没有正整数解。
+%   \end{theorem*}
+%
+% 场景 E：局部样式微调（临时改变单个盒子的外观）
+%   % 利用第三个参数（无编号环境为第二个），传入 tcolorbox 的原生选项
+%   \begin{theorem}[危险定理][thm:danger][colback=red!10, borderline west={3pt}{-1pt}{red}]
+%     这个定理的背景将变成浅红色，边框变成红色，但不影响其他的 theorem。
+%   \end{theorem}
+%
+% ----------------------------------------------------------------------
+% 【3】 全局样式修改指南 (CSS 层叠逻辑)
+% ----------------------------------------------------------------------
+% 方式 1：修改所有环境的共通属性 (修改 rainbow base style)
+%   \tcbset{
+%     rainbow base style/.append style={
+%       before skip=1em,  % 统一加大所有定理环境前后的间距
+%       after skip=1em,
+%       drop fuzzy shadow % 为所有彩虹环境添加阴影
+%     }
+%   }
+%
+% 方式 2：修改某一类特定环境的属性 (修改 rainbow <英文名> style)
+%   \tcbset{
+%     rainbow definition style/.append style={
+%       colback=green!5,          % 仅把所有“定义”环境的背景调为浅绿
+%       fontupper=\bfseries\songti % 仅把所有“定义”的正文改为宋体加粗
+%     }
+%   }
+% ======================================================================
+
+
+%================ 1. 颜色定义 ================
 % 对应 Typst 中各环境的颜色（darken 处理后的近似值）
 \definecolor{rbTheoremColor}{RGB}{255,134,24}      % red.darken(20%)
-\definecolor{rbLemmaColor}{RGB}{147,112,219}         % teal.darken(10%)
+\definecolor{rbLemmaColor}{RGB}{147,112,219}       % teal.darken(10%)
 \definecolor{rbCorollaryColor}{RGB}{178,34,178}    % fuchsia.darken(10%)
-\definecolor{rbDefinitionColor}{RGB}{0,166,82}    % orange
+\definecolor{rbDefinitionColor}{RGB}{0,166,82}     % orange
 \definecolor{rbAxiomColor}{RGB}{0,102,0}           % green.darken(20%)
 \definecolor{rbPostulateColor}{RGB}{128,0,0}       % maroon
-\definecolor{rbPropositionColor}{RGB}{0,174,247}    % blue.darken(10%)
+\definecolor{rbPropositionColor}{RGB}{0,174,247}   % blue.darken(10%)
 \definecolor{rbAssumptionColor}{RGB}{115,0,153}    % purple.darken(10%)
 \definecolor{rbPropertyColor}{RGB}{0,115,140}      % eastern.darken(10%)
 \definecolor{rbConjectureColor}{RGB}{0,0,102}      % navy.darken(10%)
+\definecolor{rbStructureColor}{RGB}{60,113,183}    % green (main)，用于 exercise 分隔标题等
 
 
-%================ 独立计数器（每个环境各自编号，均按 chapter 重置） ================
-\newcounter{rbtheorem}[chapter]
-\renewcommand{\therbtheorem}{\thechapter.\arabic{rbtheorem}}
 
-\newcounter{rblemma}[chapter]
-\renewcommand{\therblemma}{\thechapter.\arabic{rblemma}}
-
-\newcounter{rbcorollary}[chapter]
-\renewcommand{\therbcorollary}{\thechapter.\arabic{rbcorollary}}
-
-\newcounter{rbdefinition}[chapter]
-\renewcommand{\therbdefinition}{\thechapter.\arabic{rbdefinition}}
-
-\newcounter{rbaxiom}[chapter]
-\renewcommand{\therbaxiom}{\thechapter.\arabic{rbaxiom}}
-
-\newcounter{rbpostulate}[chapter]
-\renewcommand{\therbpostulate}{\thechapter.\arabic{rbpostulate}}
-
-\newcounter{rbproposition}[chapter]
-\renewcommand{\therbproposition}{\thechapter.\arabic{rbproposition}}
-
-\newcounter{rbassumption}[chapter]
-\renewcommand{\therbassumption}{\thechapter.\arabic{rbassumption}}
-
-\newcounter{rbproperty}[chapter]
-\renewcommand{\therbproperty}{\thechapter.\arabic{rbproperty}}
-
-\newcounter{rbconjecture}[chapter]
-\renewcommand{\therbconjecture}{\thechapter.\arabic{rbconjecture}}
-
-%================ 定义各环境 ================
-
-% ---- theorem 定理 ----
-\newtcolorbox[use counter=rbtheorem]{theorem}[1][]{%
-  enhanced, breakable, blanker, colback=white,
-  borderline west={3pt}{-1pt}{rbTheoremColor!50},
-  left=.66em, right=0pt, top=.66em, bottom=.66em,
-  before skip=.5em, after skip=.5em,
-  fonttitle=\heiti\bfseries\color{rbTheoremColor},
-  fontupper=\kaishu,
-  attach title to upper={\par\vspace{.3em}},
-  title={定理~\thechapter.\therbtheorem%
-    \ifx\\#1\\\else~(#1)\fi
-  },
+%================ 2. 全局基础样式 (CSS 第1层级) ================
+% 将所有彩虹环境共用的排版属性抽离，修改此处可全局生效
+\tcbset{
+  rainbow base style/.style={
+    enhanced, breakable, blanker, colback=white,
+    left=.66em, right=0pt, top=.66em, bottom=.66em,
+    before skip=.5em, after skip=.5em,
+    fontupper=\kaishu, % 正文字体
+    attach title to upper={\par\vspace{.3em}}, % 标题与正文的连接方式
+  }
 }
 
-% ---- lemma 引理 ----
-\newtcolorbox[use counter=rblemma]{lemma}[1][]{%
-  enhanced, breakable, blanker, colback=white,
-  borderline west={3pt}{-1pt}{rbLemmaColor!50},
-  left=.66em, right=0pt, top=.66em, bottom=.66em,
-  before skip=.5em, after skip=.5em,
-  fonttitle=\heiti\bfseries\color{rbLemmaColor},
-  fontupper=\kaishu,
-  attach title to upper={\par\vspace{.3em}},
-  title={引理~\thechapter.\therblemma%
-    \ifx\\#1\\\else~(#1)\fi
-  },
+%================ 3. 定理类环境批量生成宏 ================
+% 语法参数说明: 
+% #1: 环境的英文名称 (如 theorem)
+% #2: 环境的中文显示 (如 定理)
+% #3: 对应的主题颜色变量名 (如 rbTheoremColor)
+% #4: [可选] 计数器绑定的层级，默认为 chapter。如果写 article 类文章可传入 section
+\NewDocumentCommand{\DeclareRainbowEnv}{ m m m O{chapter} }{%
+  
+  % A. 注册专属样式钩子 (CSS 第2层级)
+  % 默认留空。用户可在使用时通过 \tcbset{rainbow #1 style/.append style={...}} 针对某一特定环境全局修改
+  \tcbset{rainbow #1 style/.style={}}
+
+  % B. 注册伪粗体颜色钩子 (兼容你的 \colorbf 设置)
+  \BeforeBeginEnvironment{#1}{\colorlet{colorbf}{#3}}
+  \BeforeBeginEnvironment{#1*}{\colorlet{colorbf}{#3}}
+
+  % C. 自动生成专属计数器 (保持纯净，不绑定层级)
+  \newcounter{rb#1}
+
+  % D. 自动注入交叉引用别名 (兼容 autoref 和 cleveref)
+  \expandafter\providecommand\csname rb#1autorefname\endcsname{#2}
+  \AtBeginDocument{%
+    \@ifpackageloaded{cleveref}{\crefname{rb#1}{#2}{#2}}{}%
+  }
+
+  % E. 定义带编号的主环境
+  % 环境接收 3 个可选参数: 
+  % [##1] 附加标题 (如 "勾股定理")
+  % [##2] 原生引用标签 (如 "thm:gougu")，彻底解决 tcolorbox 的引用作用域丢失问题
+  % [##3] 局部样式覆盖 (CSS 第3层级)，用于单个盒子的特殊定制
+  \NewTColorBox[
+    use counter=rb#1,       % 绑定刚创建的计数器
+    number within=#4,       % 让 tcolorbox 原生接管层级重置逻辑 (解决序号不带章号的 bug)
+  ]{#1}{ O{} O{} O{} }{
+    rainbow base style,     % 继承基础共用样式
+    rainbow #1 style,       % 继承该环境专属全局样式
+    borderline west={3pt}{-1pt}{#3!50}, % 动态生成左侧彩色边框
+    fonttitle=\heiti\bfseries\color{#3}, % 动态应用标题颜色
+    % 标题拼接逻辑：如果有附加标题则加上括号
+    title={#2~\thetcbcounter\ifx\\##1\\\else~(##1)\fi}, 
+    label={##2},            % 将参数 ##2 传入底层 label 引擎
+    ##3                     % 展开传入的局部样式覆盖选项
+  }
+
+  % F. 定义无编号环境 (带星号版)
+  % 接收 2 个可选参数: [##1] 附加标题, [##2] 局部样式覆盖
+  \NewTColorBox{#1*}{ O{} O{} }{
+    rainbow base style,     % 继承基础共用样式
+    rainbow #1 style,       % 继承该环境专属全局样式
+    borderline west={3pt}{-1pt}{#3!50},
+    fonttitle=\heiti\bfseries\color{#3},
+    title={#2\ifx\\##1\\\else~(##1)\fi},
+    ##2                     % 展开局部覆盖选项
+  }
 }
 
-% ---- corollary 推论 ----
-\newtcolorbox[use counter=rbcorollary]{corollary}[1][]{%
-  enhanced, breakable, blanker, colback=white,
-  borderline west={3pt}{-1pt}{rbCorollaryColor!50},
-  left=.66em, right=0pt, top=.66em, bottom=.66em,
-  before skip=.5em, after skip=.5em,
-  fonttitle=\heiti\bfseries\color{rbCorollaryColor},
-  fontupper=\kaishu,
-  attach title to upper={\par\vspace{.3em}},
-  title={推论~\thechapter.\therbcorollary%
-    \ifx\\#1\\\else~(#1)\fi
-  },
-}
+%================ 4. 一键批量生成所需环境 ================
+\DeclareRainbowEnv{theorem}{定理}{rbTheoremColor}
+\DeclareRainbowEnv{lemma}{引理}{rbLemmaColor}
+\DeclareRainbowEnv{corollary}{推论}{rbCorollaryColor}
+\DeclareRainbowEnv{definition}{定义}{rbDefinitionColor}
+\DeclareRainbowEnv{axiom}{公理}{rbAxiomColor}
+\DeclareRainbowEnv{postulate}{公设}{rbPostulateColor}
+\DeclareRainbowEnv{proposition}{命题}{rbPropositionColor}
+\DeclareRainbowEnv{assumption}{假设}{rbAssumptionColor}
+\DeclareRainbowEnv{property}{性质}{rbPropertyColor}
+\DeclareRainbowEnv{conjecture}{猜想}{rbConjectureColor}
 
-% ---- definition 定义 ----
-\newtcolorbox[use counter=rbdefinition]{definition}[1][]{%
-  enhanced, breakable, blanker, colback=white,
-  borderline west={3pt}{-1pt}{rbDefinitionColor!50},
-  left=.66em, right=0pt, top=.66em, bottom=.66em,
-  before skip=.5em, after skip=.5em,
-  fonttitle=\heiti\bfseries\color{rbDefinitionColor},
-  fontupper=\kaishu,
-  attach title to upper={\par\vspace{.3em}},
-  title={定义~\thechapter.\therbdefinition%
-    \ifx\\#1\\\else~(#1)\fi
-  },
-}
-
-% ---- axiom 公理 ----
-\newtcolorbox[use counter=rbaxiom]{axiom}[1][]{%
-  enhanced, breakable, blanker, colback=white,
-  borderline west={3pt}{-1pt}{rbAxiomColor!50},
-  left=.66em, right=0pt, top=.66em, bottom=.66em,
-  before skip=.5em, after skip=.5em,
-  fonttitle=\heiti\bfseries\color{rbAxiomColor},
-  fontupper=\kaishu,
-  attach title to upper={\par\vspace{.3em}},
-  title={公理~\thechapter.\therbaxiom%
-    \ifx\\#1\\\else~(#1)\fi
-  },
-}
-
-% ---- postulate 公设 ----
-\newtcolorbox[use counter=rbpostulate]{postulate}[1][]{%
-  enhanced, breakable, blanker, colback=white,
-  borderline west={3pt}{-1pt}{rbPostulateColor!50},
-  left=.66em, right=0pt, top=.66em, bottom=.66em,
-  before skip=.5em, after skip=.5em,
-  fonttitle=\heiti\bfseries\color{rbPostulateColor},
-  fontupper=\kaishu,
-  attach title to upper={\par\vspace{.3em}},
-  title={公设~\thechapter.\therbpostulate%
-    \ifx\\#1\\\else~(#1)\fi
-  },
-}
-
-% ---- proposition 命题 ----
-\newtcolorbox[use counter=rbproposition]{proposition}[1][]{%
-  enhanced, breakable, blanker, colback=white,
-  borderline west={3pt}{-1pt}{rbPropositionColor!50},
-  left=0.66em, right=0pt, top=.66em, bottom=.66em,
-  before skip=.5em, after skip=.5em,
-  fonttitle=\heiti\bfseries\color{rbPropositionColor},
-  fontupper=\kaishu,
-  attach title to upper={\par\vspace{.3em}},
-  title={命题~\thechapter.\therbproposition%
-    \ifx\\#1\\\else~(#1)\fi
-  },
-}
-
-% ---- assumption 假设 ----
-\newtcolorbox[use counter=rbassumption]{assumption}[1][]{%
-  enhanced, breakable, blanker, colback=white,
-  borderline west={3pt}{-1pt}{rbAssumptionColor!50},
-  left=.66em, right=0pt, top=.66em, bottom=.66em,
-  before skip=.5em, after skip=.5em,
-  fonttitle=\heiti\bfseries\color{rbAssumptionColor},
-  fontupper=\kaishu,
-  attach title to upper={\par\vspace{.3em}},
-  title={假设~\thechapter.\therbassumption%
-    \ifx\\#1\\\else~(#1)\fi
-  },
-}
-
-% ---- property 性质 ----
-\newtcolorbox[use counter=rbproperty]{property}[1][]{%
-  enhanced, breakable, blanker, colback=white,
-  borderline west={3pt}{-1pt}{rbPropertyColor!50},
-  left=.66em, right=0pt, top=.66em, bottom=.66em,
-  before skip=.5em, after skip=.5em,
-  fonttitle=\heiti\bfseries\color{rbPropertyColor},
-  fontupper=\kaishu,
-  attach title to upper={\par\vspace{.3em}},
-  title={性质~\thechapter.\therbproperty%
-    \ifx\\#1\\\else~(#1)\fi
-  },
-}
-
-% ---- conjecture 猜想 ----
-\newtcolorbox[use counter=rbconjecture]{conjecture}[1][]{%
-  enhanced, breakable, blanker, colback=white,
-  borderline west={3pt}{-1pt}{rbConjectureColor!50},
-  left=0.66em, right=0pt, top=.66em, bottom=.66em,
-  before skip=.5em, after skip=.5em,
-  fonttitle=\heiti\bfseries\color{rbConjectureColor},
-  fontupper=\kaishu,
-  attach title to upper={\par\vspace{.3em}},
-  title={猜想~\thechapter.\therbconjecture%
-    \ifx\\#1\\\else~(#1)\fi
-  },
-}
 
 %================ 附加：proof 环境 ================
 % 仿照 elegantbook 的 proof 样式，使用 tcolorbox 实现带左侧色条的证明环境
@@ -485,15 +475,14 @@
 }
 
 % ---- conclusison 总结 ----
-\newtcolorbox{conclusion}[1][]{%
+\newtcolorbox{conclusion}[1][总结]{%
   enhanced, breakable, blanker, colback=white,
   borderline west={3pt}{-1pt}{rbConclusionColor!50},
   left=.66em, right=0pt, top=.66em, bottom=.66em,
   before skip=.5em, after skip=.5em,
   fonttitle=\bfseries\color{rbConclusionColor},
   attach title to upper={\par\vspace{.3em}},
-  title={$\oslash$\enspace 总结},
-  #1,
+  title={$\oslash$\enspace #1},
 }
 
 

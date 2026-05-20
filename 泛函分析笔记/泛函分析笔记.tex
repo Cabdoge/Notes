@@ -15,7 +15,10 @@
 %================ 数学 ================
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{physics}
+\usepackage{stmaryrd} % 额外的数学符号，如 \llbracket \rrbracket
+\usepackage{bm}
+\usepackage{physics2}
+\usephysicsmodule{ab.legacy,op.legacy,qtext.legacy}
 
 %================ 页面布局 ================
 \usepackage{geometry}
@@ -76,15 +79,7 @@
 %================ 数学简写 ================
 \newcommand{\mb}{\mathbb}
 \newcommand{\z}{\text}
-\renewcommand{\a}{\alpha}
-\renewcommand{\b}{\beta}
 \renewcommand{\d}{\mathop{}\!\mathrm{d}}
-\newcommand{\D}{\Delta}
-\renewcommand{\l}{\lambda}
-\newcommand{\m}{\mu}
-\newcommand{\p}{\uppi}
-\renewcommand{\th}{\theta}
-\newcommand{\lam}{\lambda}
 \renewcommand{\leq}{\leqslant}
 \renewcommand{\geq}{\geqslant}
 \newcommand{\rttri}{\mathrm{Rt}\triangle}
@@ -96,6 +91,9 @@
 \newcommand{\setjot}[1][0]{\setlength{\jot}{#1 pt}}
 \newcommand{\mcal}[1]{\mathcal{#1}}
 \newcommand{\mbb}[1]{\mathbb{#1}}
+\newcommand{\eu}{\mathrm{e}}
+\newcommand{\iu}{\mathrm{i}}
+\newcommand{\weakstar}{\stackrel{*}{\rightharpoonup}}
 \DeclareMathOperator{\ran}{ran}
 \DeclareMathOperator{\Spec}{Spec}
 \DeclareMathOperator{\Aut}{Aut}
@@ -173,6 +171,8 @@
 \input{Banach空间.tex}
 
 \input{Banach空间的重要定理.tex}
+
+\input{Hilbert空间.tex}
 
 \printindex
 

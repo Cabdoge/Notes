@@ -1,0 +1,44 @@
+\begin{titlepage}
+\begin{tikzpicture}[remember picture, overlay, pencildraw/.style={
+		color=cyan!50!gray, thick,
+		decorate,
+		decoration={random steps, segment length=1pt, amplitude=0.7pt}
+	}]
+	\node[anchor=west] (title) at ([xshift=6em, yshift=-10em] current page.north west)
+		{ \fontsize{40}{40}\sffamily\bfseries 微分方程数值解讲义};
+
+	\draw[line width=2pt, color=black!70!gray] ([xshift=-0.5em, yshift=-6em] title.north west) -- ++(25em,0);
+	\shade[top color=gray, bottom color=black,] ([xshift=-1em, yshift=1em] title.north west) rectangle ++(-1em,-11.5em);
+
+  \node[anchor=west] (author) at ([yshift=-4em, xshift=0em] title.south west)
+        {\fontsize{20}{20}\sffamily Cabdoge \quad 著};
+
+	\coordinate (pic) at ([xshift=-20em, yshift=20em] current page.south east);
+
+    % 微分方程数值解经典公式
+    \begin{scope}[shift={(pic)}, scale=1.25, opacity=0.4, color=blue!60!black]
+        \node at (0, 0) {\fontsize{14}{14}\selectfont $y_{n+1} = y_n + h f(t_n, y_n)$};
+        \node at (-2.5, -1.5) {\fontsize{12}{12}\selectfont $\displaystyle y_{n+1} = y_n + \frac{h}{6}(k_1 + 2k_2 + 2k_3 + k_4)$};
+        \node at (2, -2.5) {\fontsize{14}{14}\selectfont $\frac{u_{j}^{n+1} - u_j^n}{\Delta t} + a \frac{u_{j+1}^n - u_{j-1}^n}{2\Delta x} = 0$};
+        \node at (2.5, 1.2) {\fontsize{14}{14}\selectfont $\nu = \frac{a \Delta t}{\Delta x} \le 1$};
+        \node at (-2.5, 2.2) {\fontsize{12}{12}\selectfont $\frac{u_i^{n+1}-u_i^n}{\Delta t} = D \frac{u_{i+1}^n - 2u_i^n + u_{i-1}^n}{\Delta x^2}$};
+        \node at (0.5, -4) {\fontsize{13}{13}\selectfont $\|e_n\| \le C h^p$};
+        \node at (-3, -3) {\fontsize{11}{11}\selectfont $R(z) = \frac{P(z)}{Q(z)}$};
+    \end{scope}
+
+    % 网格与差分背景
+    \begin{scope}[shift={(pic)}, scale=2.2, opacity=0.15, color=blue!70!cyan, thick]
+        \draw[step=0.5, thin] (-2,-2) grid (2,2);
+        \draw[->, thick] (-2,0) -- (2.2,0) node[right] {$x$};
+        \draw[->, thick] (0,-2) -- (0,2.2) node[above] {$t$};
+        
+        % 差分格式 stencil (典型的显式格式形状)
+        \fill (0.5, 0.5) circle (1.5pt);
+        \fill (0, 0.5) circle (1.5pt);
+        \fill (-0.5, 0.5) circle (1.5pt);
+        \fill (0, 1) circle (1.5pt);
+        \draw[thick, dashed] (0.5,0.5) -- (-0.5,0.5);
+        \draw[thick, dashed] (0,0.5) -- (0,1);
+    \end{scope}
+\end{tikzpicture}
+\end{titlepage}

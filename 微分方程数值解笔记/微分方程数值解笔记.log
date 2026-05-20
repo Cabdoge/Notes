@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.9)  28 APR 2026 15:31
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.9)  19 MAY 2026 15:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -38,8 +38,8 @@ LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
 File: ctexopts.cfg 2022/07/14 v2.5.10 Option configuration file (CTEX)
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/base/book.cls
 Document Class: book 2024/06/29 v1.4n Standard LaTeX document class
-(/usr/local/texlive/2025/texmf-dist/tex/latex/base/bk11.clo
-File: bk11.clo 2024/06/29 v1.4n Standard LaTeX file (size option)
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/bk10.clo
+File: bk10.clo 2024/06/29 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count198
 \c@chapter=\count199
@@ -762,63 +762,176 @@ Package: enumitem 2025/02/06 v3.11 Customized lists
 \rbhomeworklabelleftpad=\skip136
 \rbhomeworklabelsep=\skip137
 \rbhomework@labelwidth=\skip138
-) (./bookstyle.sty
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/imakeidx/imakeidx.sty
+Package: imakeidx 2016/10/15 v1.3e Package for typesetting indices in a synchronous mode
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
+ (/usr/local/texlive/2025/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/usr/local/texlive/2025/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks46
+\XKV@tempa@toks=\toks47
+)
+\XKV@depth=\count368
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+)) (/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifxetex.sty
+Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
+) (/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifluatex.sty
+Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2024/09/14 v1.9i multicolumn formatting (FMi)
+\c@tracingmulticols=\count369
+\mult@box=\box91
+\multicol@leftmargin=\dimen301
+\c@unbalance=\count370
+\c@collectmore=\count371
+\doublecol@number=\count372
+\multicoltolerance=\count373
+\multicolpretolerance=\count374
+\full@width=\dimen302
+\page@free=\dimen303
+\premulticols=\dimen304
+\postmulticols=\dimen305
+\multicolsep=\skip139
+\multicolbaselineskip=\skip140
+\partial@page=\box92
+\last@line=\box93
+\mc@boxedresult=\box94
+\maxbalancingoverflow=\dimen306
+\mult@rightbox=\box95
+\mult@grightbox=\box96
+\mult@firstbox=\box97
+\mult@gfirstbox=\box98
+\@tempa=\box99
+\@tempa=\box100
+\@tempa=\box101
+\@tempa=\box102
+\@tempa=\box103
+\@tempa=\box104
+\@tempa=\box105
+\@tempa=\box106
+\@tempa=\box107
+\@tempa=\box108
+\@tempa=\box109
+\@tempa=\box110
+\@tempa=\box111
+\@tempa=\box112
+\@tempa=\box113
+\@tempa=\box114
+\@tempa=\box115
+\@tempa=\box116
+\@tempa=\box117
+\@tempa=\box118
+\@tempa=\box119
+\@tempa=\box120
+\@tempa=\box121
+\@tempa=\box122
+\@tempa=\box123
+\@tempa=\box124
+\@tempa=\box125
+\@tempa=\box126
+\@tempa=\box127
+\@tempa=\box128
+\@tempa=\box129
+\@tempa=\box130
+\@tempa=\box131
+\@tempa=\box132
+\@tempa=\box133
+\@tempa=\box134
+\c@minrows=\count375
+\c@columnbadness=\count376
+\c@finalcolumnbadness=\count377
+\last@try=\dimen307
+\multicolovershoot=\dimen308
+\multicolundershoot=\dimen309
+\mult@nat@firstbox=\box135
+\colbreak@box=\box136
+\mc@col@check@num=\count378
+)) (/usr/local/texlive/2025/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2024-10-27 v4.22 Multi-page Table package (DPC)
+\LTleft=\skip141
+\LTright=\skip142
+\LTpre=\skip143
+\LTpost=\skip144
+\LTchunksize=\count379
+\LTcapwidth=\dimen310
+\LT@head=\box137
+\LT@firsthead=\box138
+\LT@foot=\box139
+\LT@lastfoot=\box140
+\LT@gbox=\box141
+\LT@cols=\count380
+\LT@rows=\count381
+\c@LT@tables=\count382
+\c@LT@chunks=\count383
+\LT@p@ftn=\toks48
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/multirow/multirow.sty
+Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
+\multirow@colwidth=\skip145
+\multirow@cntb=\count384
+\multirow@dima=\skip146
+\bigstrutjot=\dimen311
+)
+\微分方程数值解笔记@idxfile=\write4
+\openout4 = `微分方程数值解笔记.idx'.
+
+
+Writing index file 微分方程数值解笔记.idx
+(./bookstyle.sty
 Package: bookstyle 2026/03/04 v1.2 AJbook-style layout for ctexbook
  (/usr/local/texlive/2025/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2022/12/04 v6.7b set line spacing
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
-\f@nch@headwidth=\skip139
-\f@nch@offset@elh=\skip140
-\f@nch@offset@erh=\skip141
-\f@nch@offset@olh=\skip142
-\f@nch@offset@orh=\skip143
-\f@nch@offset@elf=\skip144
-\f@nch@offset@erf=\skip145
-\f@nch@offset@olf=\skip146
-\f@nch@offset@orf=\skip147
-\f@nch@height=\skip148
-\f@nch@footalignment=\skip149
-\f@nch@widthL=\skip150
-\f@nch@widthC=\skip151
-\f@nch@widthR=\skip152
-\@temptokenb=\toks46
+\f@nch@headwidth=\skip147
+\f@nch@offset@elh=\skip148
+\f@nch@offset@erh=\skip149
+\f@nch@offset@olh=\skip150
+\f@nch@offset@orh=\skip151
+\f@nch@offset@elf=\skip152
+\f@nch@offset@erf=\skip153
+\f@nch@offset@olf=\skip154
+\f@nch@offset@orf=\skip155
+\f@nch@height=\skip156
+\f@nch@footalignment=\skip157
+\f@nch@widthL=\skip158
+\f@nch@widthC=\skip159
+\f@nch@widthR=\skip160
+\@temptokenb=\toks49
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2025/01/04 v2.17 Sectioning titles
-\ttl@box=\box91
-\beforetitleunit=\skip153
-\aftertitleunit=\skip154
-\ttl@plus=\dimen301
-\ttl@minus=\dimen302
-\ttl@toksa=\toks47
-\titlewidth=\dimen303
-\titlewidthlast=\dimen304
-\titlewidthfirst=\dimen305
+\ttl@box=\box142
+\beforetitleunit=\skip161
+\aftertitleunit=\skip162
+\ttl@plus=\dimen312
+\ttl@minus=\dimen313
+\ttl@toksa=\toks50
+\titlewidth=\dimen314
+\titlewidthlast=\dimen315
+\titlewidthfirst=\dimen316
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/titlesec/titletoc.sty
 Package: titletoc 2025/01/04 v2.17 TOC entries
-\ttl@leftsep=\dimen306
+\ttl@leftsep=\dimen317
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/appendix/appendix.sty
 Package: appendix 2020/02/08 v1.2c extra appendix facilities
-\c@@pps=\count368
-\c@@ppsavesec=\count369
-\c@@ppsaveapp=\count370
+\c@@pps=\count385
+\c@@ppsavesec=\count386
+\c@@ppsaveapp=\count387
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/apptools/apptools.sty
 Package: apptools 2012/11/28 v1.0 Tools for customizing appendices
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2023/07/08 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count371
-\calc@Bcount=\count372
-\calc@Adimen=\dimen307
-\calc@Bdimen=\dimen308
-\calc@Askip=\skip155
-\calc@Bskip=\skip156
+\calc@Acount=\count388
+\calc@Bcount=\count389
+\calc@Adimen=\dimen318
+\calc@Bdimen=\dimen319
+\calc@Askip=\skip163
+\calc@Bskip=\skip164
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count373
-\calc@Cskip=\skip157
+\calc@Ccount=\count390
+\calc@Cskip=\skip165
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/xstring/xstring.sty (/usr/local/texlive/2025/texmf-dist/tex/generic/xstring/xstring.tex
-\xs_counta=\count374
-\xs_countb=\count375
+\xs_counta=\count391
+\xs_countb=\count392
 )
 Package: xstring 2023/08/22 v1.86 String manipulations (CT)
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/hyperref.sty
@@ -834,19 +947,19 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count376
+\c@section@level=\count393
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/stringenc/stringenc.sty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
 )
-\@linkdim=\dimen309
-\Hy@linkcounter=\count377
-\Hy@pagecounter=\count378
+\@linkdim=\dimen320
+\Hy@linkcounter=\count394
+\Hy@pagecounter=\count395
  (/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2024-11-05 v7.01l Hyperref: PDFDocEncoding definition (HO)
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count379
+\Hy@SavedSpaceFactor=\count396
  (/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2024-11-05 v7.01l Hyperref: PDF Unicode definition (HO)
 )
@@ -858,21 +971,21 @@ Package hyperref Info: Plain pages OFF on input line 4172.
 Package hyperref Info: Backreferencing OFF on input line 4177.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4424.
-\c@Hy@tempcnt=\count380
+\c@Hy@tempcnt=\count397
  (/usr/local/texlive/2025/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip18
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4763.
-\XeTeXLinkMargin=\dimen310
+\XeTeXLinkMargin=\dimen321
  (/usr/local/texlive/2025/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
  (/usr/local/texlive/2025/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
-\Fld@menulength=\count381
-\Field@Width=\dimen311
-\Fld@charsize=\dimen312
+\Fld@menulength=\count398
+\Field@Width=\dimen322
+\Fld@charsize=\dimen323
 Package hyperref Info: Hyper figures OFF on input line 6042.
 Package hyperref Info: Link nesting OFF on input line 6047.
 Package hyperref Info: Hyper index ON on input line 6050.
@@ -884,18 +997,18 @@ Package hyperref Info: PDF/A mode OFF on input line 6072.
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count382
-\c@Item=\count383
-\c@Hfootnote=\count384
+\Hy@abspage=\count399
+\c@Item=\count400
+\c@Hfootnote=\count401
 )
 Package hyperref Info: Driver (autodetected): hxetex.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/hxetex.def
 File: hxetex.def 2024-11-05 v7.01l Hyperref driver for XeTeX
-\pdfm@box=\box92
-\c@Hy@AnnotLevel=\count385
-\HyField@AnnotCount=\count386
-\Fld@listcount=\count387
-\c@bookmark@seq@number=\count388
+\pdfm@box=\box143
+\c@Hy@AnnotLevel=\count402
+\HyField@AnnotCount=\count403
+\Fld@listcount=\count404
+\c@bookmark@seq@number=\count405
  (/usr/local/texlive/2025/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
  (/usr/local/texlive/2025/texmf-dist/tex/latex/base/atveryend-ltx.sty
@@ -906,24 +1019,24 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
 )
-\Hy@SectionHShift=\skip158
+\Hy@SectionHShift=\skip166
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
  (/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count389
-\Gm@cntv=\count390
-\c@Gm@tempcnt=\count391
-\Gm@bindingoffset=\dimen313
-\Gm@wd@mp=\dimen314
-\Gm@odd@mp=\dimen315
-\Gm@even@mp=\dimen316
-\Gm@layoutwidth=\dimen317
-\Gm@layoutheight=\dimen318
-\Gm@layouthoffset=\dimen319
-\Gm@layoutvoffset=\dimen320
-\Gm@dimlist=\toks48
+\Gm@cnth=\count406
+\Gm@cntv=\count407
+\c@Gm@tempcnt=\count408
+\Gm@bindingoffset=\dimen324
+\Gm@wd@mp=\dimen325
+\Gm@odd@mp=\dimen326
+\Gm@even@mp=\dimen327
+\Gm@layoutwidth=\dimen328
+\Gm@layoutheight=\dimen329
+\Gm@layouthoffset=\dimen330
+\Gm@layoutvoffset=\dimen331
+\Gm@dimlist=\toks51
 )
 Package hyperref Info: Option `breaklinks' set `true' on input line 191.
 Package hyperref Info: Option `unicode' set `true' on input line 191.
@@ -936,150 +1049,186 @@ Package hyperref Info: Option `linktocpage' set `true' on input line 191.
 File: tikzlibrarycalc.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarybackgrounds.code.tex
 File: tikzlibrarybackgrounds.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@layerbox@background=\box93
-\pgf@layerboxsaved@background=\box94
+\pgf@layerbox@background=\box144
+\pgf@layerboxsaved@background=\box145
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/mwe/mwe.sty
 Package: mwe 2018/03/30 v0.5 Package to support minimal working examples (MWE)
  (/usr/local/texlive/2025/texmf-dist/tex/latex/lipsum/lipsum.sty (/usr/local/texlive/2025/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
 Package: l3keys2e 2024-08-16 LaTeX2e option processing using LaTeX3 keys
 )
 Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
-\g__lipsum_par_int=\count392
-\l__lipsum_a_int=\count393
-\l__lipsum_b_int=\count394
+\g__lipsum_par_int=\count409
+\l__lipsum_a_int=\count410
+\l__lipsum_b_int=\count411
  (/usr/local/texlive/2025/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex)) (/usr/local/texlive/2025/texmf-dist/tex/latex/blindtext/blindtext.sty
 Package: blindtext 2012/01/06 V2.0 blindtext-Package
  (/usr/local/texlive/2025/texmf-dist/tex/latex/tools/xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 )
-\c@blindtext=\count395
-\c@Blindtext=\count396
-\c@blind@countparstart=\count397
-\blind@countxx=\count398
-\blindtext@numBlindtext=\count399
-\blind@countyy=\count400
-\c@blindlist=\count401
-\c@blindlistlevel=\count402
-\c@blindlist@level=\count403
-\blind@listitem=\count404
-\c@blind@listcount=\count405
-\c@blind@levelcount=\count406
-\blind@mathformula=\count407
-\blind@Mathformula=\count408
-\c@blind@randomcount=\count409
-\c@blind@randommax=\count410
-\c@blind@pangramcount=\count411
-\c@blind@pangrammax=\count412
+\c@blindtext=\count412
+\c@Blindtext=\count413
+\c@blind@countparstart=\count414
+\blind@countxx=\count415
+\blindtext@numBlindtext=\count416
+\blind@countyy=\count417
+\c@blindlist=\count418
+\c@blindlistlevel=\count419
+\c@blindlist@level=\count420
+\blind@listitem=\count421
+\c@blind@listcount=\count422
+\c@blind@levelcount=\count423
+\blind@mathformula=\count424
+\blind@Mathformula=\count425
+\c@blind@randomcount=\count426
+\c@blind@randommax=\count427
+\c@blind@pangramcount=\count428
+\c@blind@pangrammax=\count429
 ))
-\BoxTtlwidth=\skip159
-\c@ttlp@side=\count413
-\ttlp@side=\count414
+\BoxTtlwidth=\skip167
+\c@ttlp@side=\count430
+\ttlp@side=\count431
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/tools/bm.sty
+Package: bm 2023/12/19 v1.2f Bold Symbol Support (DPC/FMi)
+\symboldoperators=\mathgroup6
+\symboldletters=\mathgroup7
+\symboldsymbols=\mathgroup8
+Package bm Info: No bold for \OMX/cmex/m/n, using \pmb.
+Package bm Info: No bold for \U/msa/m/n, using \pmb.
+Package bm Info: No bold for \U/msb/m/n, using \pmb.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/mathtools/empheq.sty
 Package: empheq 2024/08/09 v2.17 Emphasizing equations
  (/usr/local/texlive/2025/texmf-dist/tex/latex/mathtools/mhsetup.sty
 Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/mathtools/mathtools.sty
 Package: mathtools 2024/10/04 v1.31 mathematical typesetting tools
-\g_MT_multlinerow_int=\count415
-\l_MT_multwidth_dim=\dimen321
-\origjot=\skip160
-\l_MT_shortvdotswithinadjustabove_dim=\dimen322
-\l_MT_shortvdotswithinadjustbelow_dim=\dimen323
-\l_MT_above_intertext_sep=\dimen324
-\l_MT_below_intertext_sep=\dimen325
-\l_MT_above_shortintertext_sep=\dimen326
-\l_MT_below_shortintertext_sep=\dimen327
-\xmathstrut@box=\box95
-\xmathstrut@dim=\dimen328
+\g_MT_multlinerow_int=\count432
+\l_MT_multwidth_dim=\dimen332
+\origjot=\skip168
+\l_MT_shortvdotswithinadjustabove_dim=\dimen333
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen334
+\l_MT_above_intertext_sep=\dimen335
+\l_MT_below_intertext_sep=\dimen336
+\l_MT_above_shortintertext_sep=\dimen337
+\l_MT_below_shortintertext_sep=\dimen338
+\xmathstrut@box=\box146
+\xmathstrut@dim=\dimen339
 )
-\l_EQ_equationtype_int=\count416
-\l_EQ_alignmentmode_int=\count417
-\l_EQ_totalwidth_dim=\dimen329
-\l_EQ_displaywidth_dim=\dimen330
-\l_EQ_temp_linewidth_dim=\dimen331
-\l_EQ_linewidth_dim=\dimen332
-\EmphEqdelimitershortfall=\dimen333
-\EmphEqdelimiterfactor=\count418
-\g_EQ_toptag_height_dim=\dimen334
-\g_EQ_bottomtag_depth_dim=\dimen335
-\g_EQ_toprow_height_dim=\dimen336
-\g_EQ_bottomrow_depth_dim=\dimen337
-\g_EQ_widesttag_dim=\dimen338
-\EQ_mathdisplay_box=\box96
-\EQ_tag_box=\box97
-\g_EQ_temprow_int=\count419
+\l_EQ_equationtype_int=\count433
+\l_EQ_alignmentmode_int=\count434
+\l_EQ_totalwidth_dim=\dimen340
+\l_EQ_displaywidth_dim=\dimen341
+\l_EQ_temp_linewidth_dim=\dimen342
+\l_EQ_linewidth_dim=\dimen343
+\EmphEqdelimitershortfall=\dimen344
+\EmphEqdelimiterfactor=\count435
+\g_EQ_toptag_height_dim=\dimen345
+\g_EQ_bottomtag_depth_dim=\dimen346
+\g_EQ_toprow_height_dim=\dimen347
+\g_EQ_bottomrow_depth_dim=\dimen348
+\g_EQ_widesttag_dim=\dimen349
+\EQ_mathdisplay_box=\box147
+\EQ_tag_box=\box148
+\g_EQ_temprow_int=\count436
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/physics2/physics2.sty
+Package: physics2 2024/01/10 v1.0.1 Tools for typesetting math for physics.
+\phy@tempcnta=\count437
+\phy@tempdima=\dimen350
+\phy@tempdimb=\dimen351
+\phy@tempskipa=\skip169
+\phy@tempmuskipa=\muskip19
+\phy@tempboxa=\box149
+\phy@toksa=\toks52
+\l__phy_tmpa_int=\count438
+\l__phy_tmpb_int=\count439
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/physics2/phy-ab.legacy.sty
+File: phy-ab.legacy.sty 2023/10/24 `ab.legacy' module of physics2
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/physics2/phy-ab.sty
+File: phy-ab.sty 2023/10/24 `ab' (autobraces) module of physics2
+)) (/usr/local/texlive/2025/texmf-dist/tex/latex/physics2/phy-op.legacy.sty
+File: phy-op.legacy.sty 2023/10/24 `op.legacy' module of physics2
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/physics2/phy-qtext.legacy.sty
+File: phy-qtext.legacy.sty 2023/10/24 `qtext.legacy' module of physics2.sty
+LaTeX Info: Redefining \qunless on input line 51.
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/physics2/phy-diagmat.sty
+File: phy-diagmat.sty 2024/01/10 `diagmat' module of physics2
+\l__phy_mat_dim_int=\count440
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathreplacing.code.tex (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.code.tex (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.code.tex
-\pgfdecoratedcompleteddistance=\dimen339
-\pgfdecoratedremainingdistance=\dimen340
-\pgfdecoratedinputsegmentcompleteddistance=\dimen341
-\pgfdecoratedinputsegmentremainingdistance=\dimen342
-\pgf@decorate@distancetomove=\dimen343
-\pgf@decorate@repeatstate=\count420
-\pgfdecorationsegmentamplitude=\dimen344
-\pgfdecorationsegmentlength=\dimen345
+\pgfdecoratedcompleteddistance=\dimen352
+\pgfdecoratedremainingdistance=\dimen353
+\pgfdecoratedinputsegmentcompleteddistance=\dimen354
+\pgfdecoratedinputsegmentremainingdistance=\dimen355
+\pgf@decorate@distancetomove=\dimen356
+\pgf@decorate@repeatstate=\count441
+\pgfdecorationsegmentamplitude=\dimen357
+\pgfdecorationsegmentlength=\dimen358
 )
-\tikz@lib@dec@box=\box98
+\tikz@lib@dec@box=\box150
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathreplacing.code.tex)) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
 File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfarrowinset=\dimen346
-\pgfarrowlength=\dimen347
-\pgfarrowwidth=\dimen348
-\pgfarrowlinewidth=\dimen349
+\pgfarrowinset=\dimen359
+\pgfarrowlength=\dimen360
+\pgfarrowwidth=\dimen361
+\pgfarrowlinewidth=\dimen362
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/tikz-cd/tikzlibrarycd.code.tex (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarymatrix.code.tex
 File: tikzlibrarymatrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryquotes.code.tex
 File: tikzlibraryquotes.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )) (/usr/local/texlive/2025/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count421
-\float@exts=\toks49
-\float@box=\box99
-\@float@everytoks=\toks50
-\@floatcapt=\box100
+\c@float@type=\count442
+\float@exts=\toks53
+\float@box=\box151
+\@float@everytoks=\toks54
+\@floatcapt=\box152
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/wrapfig/wrapfig.sty
-\wrapoverhang=\dimen350
-\WF@size=\dimen351
-\c@WF@wrappedlines=\count422
-\WF@box=\box101
-\WF@everypar=\toks51
+\wrapoverhang=\dimen363
+\WF@size=\dimen364
+\c@WF@wrappedlines=\count443
+\WF@box=\box153
+\WF@everypar=\toks55
 Package: wrapfig 2003/01/31  v 3.6
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2023/08/05 v3.6o Customizing captions (AR)
  (/usr/local/texlive/2025/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
-\caption@tempdima=\dimen352
-\captionmargin=\dimen353
-\caption@leftmargin=\dimen354
-\caption@rightmargin=\dimen355
-\caption@width=\dimen356
-\caption@indent=\dimen357
-\caption@parindent=\dimen358
-\caption@hangindent=\dimen359
+\caption@tempdima=\dimen365
+\captionmargin=\dimen366
+\caption@leftmargin=\dimen367
+\caption@rightmargin=\dimen368
+\caption@width=\dimen369
+\caption@indent=\dimen370
+\caption@parindent=\dimen371
+\caption@hangindent=\dimen372
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count423
-\c@continuedfloat=\count424
+\c@caption@flags=\count444
+\c@continuedfloat=\count445
 Package caption Info: changepage package is loaded.
-\caption@adjustwidth@hsize=\dimen360
-\caption@adjustwidth@linewidth=\dimen361
+\caption@adjustwidth@hsize=\dimen373
+\caption@adjustwidth@linewidth=\dimen374
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
+Package caption Info: longtable package is loaded.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/caption/ltcaption.sty
+Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
+)
 Package caption Info: wrapfig package is loaded.
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/makecell/makecell.sty
 Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
  (/usr/local/texlive/2025/texmf-dist/tex/latex/tools/array.sty
 Package: array 2024/10/17 v2.6g Tabular extension package (FMi)
-\col@sep=\dimen362
-\ar@mcellbox=\box102
-\extrarowheight=\dimen363
-\NC@list=\toks52
-\extratabsurround=\skip161
-\backup@length=\skip162
-\ar@cellbox=\box103
+\col@sep=\dimen375
+\ar@mcellbox=\box154
+\extrarowheight=\dimen376
+\NC@list=\toks56
+\extratabsurround=\skip170
+\backup@length=\skip171
+\ar@cellbox=\box155
 )
-\rotheadsize=\dimen364
-\c@nlinenum=\count425
-\TeXr@lab=\toks53
+\rotheadsize=\dimen377
+\c@nlinenum=\count446
+\TeXr@lab=\toks57
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/pifont.sty
 Package: pifont 2020/03/25 PSNFSS-v9.3 Pi font support (SPQR) 
 LaTeX Font Info:    Trying to load font information for U+pzd on input line 63.
@@ -1098,78 +1247,247 @@ Invalid UTF-8 byte or sequence at line 29 replaced by U+FFFD.
 Invalid UTF-8 byte or sequence at line 30 replaced by U+FFFD.
 Invalid UTF-8 byte or sequence at line 31 replaced by U+FFFD.
 Package: faktor 2006/04/05 v0.1b Faktor-Ringe, -Gruppen, -Raeume (PE)
-\faktor@zaehlerhoehe=\skip163
-\faktor@nennerhoehe=\skip164
+\faktor@zaehlerhoehe=\skip172
+\faktor@nennerhoehe=\skip173
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/extarrows/extarrows.sty
 Package: extarrows 2020/03/12 v1.2.0 Some extensible arrows
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/booktabs/booktabs.sty
-Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen365
-\lightrulewidth=\dimen366
-\cmidrulewidth=\dimen367
-\belowrulesep=\dimen368
-\belowbottomsep=\dimen369
-\aboverulesep=\dimen370
-\abovetopsep=\dimen371
-\cmidrulesep=\dimen372
-\cmidrulekern=\dimen373
-\defaultaddspace=\dimen374
-\@cmidla=\count426
-\@cmidlb=\count427
-\@aboverulesep=\dimen375
-\@belowrulesep=\dimen376
-\@thisruleclass=\count428
-\@lastruleclass=\count429
-\@thisrulewidth=\dimen377
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/physics/physics.sty
-Package: physics 
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/cleveref/cleveref.sty
+Package: cleveref 2018/03/27 v0.21.4 Intelligent cross-referencing
+Package cleveref Info: `hyperref' support loaded on input line 2370.
+LaTeX Info: Redefining \cref on input line 2370.
+LaTeX Info: Redefining \Cref on input line 2370.
+LaTeX Info: Redefining \crefrange on input line 2370.
+LaTeX Info: Redefining \Crefrange on input line 2370.
+LaTeX Info: Redefining \cpageref on input line 2370.
+LaTeX Info: Redefining \Cpageref on input line 2370.
+LaTeX Info: Redefining \cpagerefrange on input line 2370.
+LaTeX Info: Redefining \Cpagerefrange on input line 2370.
+LaTeX Info: Redefining \labelcref on input line 2370.
+LaTeX Info: Redefining \labelcpageref on input line 2370.
+Package cleveref Info: `amsthm' support loaded on input line 3026.
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/esvect/esvect.sty
 Package: esvect 
-\symesvector=\mathgroup6
+\symesvector=\mathgroup9
 LaTeX Font Info:    Redeclaring math symbol \fldr on input line 38.
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/tools/bm.sty
-Package: bm 2023/12/19 v1.2f Bold Symbol Support (DPC/FMi)
-\symboldoperators=\mathgroup7
-\symboldletters=\mathgroup8
-\symboldsymbols=\mathgroup9
-Package bm Info: No bold for \OMX/cmex/m/n, using \pmb.
-Package bm Info: No bold for \U/msa/m/n, using \pmb.
-Package bm Info: No bold for \U/msb/m/n, using \pmb.
-Package bm Info: No bold for \U/esvect/m/n, using \pmb.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
 )
 \symugmL=\mathgroup10
  (/usr/local/texlive/2025/texmf-dist/tex/latex/accents/accents.sty
 Package: accents 2006/05/12 v1.4 Math Accent Tools
 \cc@skew=\dimen378
 \cc@wd=\dimen379
-\cc@code=\count430
-\cc@group=\count431
-\cc@skewchar=\count432
+\cc@code=\count447
+\cc@group=\count448
+\cc@skewchar=\count449
+) (./微分方程数值解笔记.aux
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `eq:4.4' multiply defined.
+
+
+LaTeX Warning: Label `eq:4.4@cref' multiply defined.
+
+
+LaTeX Warning: Label `eq:4.5' multiply defined.
+
+
+LaTeX Warning: Label `eq:4.5@cref' multiply defined.
+
+
+LaTeX Warning: Label `eq:4.6' multiply defined.
+
+
+LaTeX Warning: Label `eq:4.6@cref' multiply defined.
+
+
+LaTeX Warning: Label `eq:4.7' multiply defined.
+
+
+LaTeX Warning: Label `eq:4.7@cref' multiply defined.
+
+
+LaTeX Warning: Label `eq:4.8' multiply defined.
+
+
+LaTeX Warning: Label `eq:4.8@cref' multiply defined.
+
+
+LaTeX Warning: Label `eq:4.9' multiply defined.
+
+
+LaTeX Warning: Label `eq:4.9@cref' multiply defined.
+
+
+LaTeX Warning: Label `eq:4.10' multiply defined.
+
+
+LaTeX Warning: Label `eq:4.10@cref' multiply defined.
+
+
+LaTeX Warning: Label `eq:4.11' multiply defined.
+
+
+LaTeX Warning: Label `eq:4.11@cref' multiply defined.
+
 )
-No file 微分方程数值解笔记.aux.
 \openout1 = `微分方程数值解笔记.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 162.
-LaTeX Font Info:    ... okay on input line 162.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 162.
-LaTeX Font Info:    ... okay on input line 162.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 162.
-LaTeX Font Info:    ... okay on input line 162.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 162.
-LaTeX Font Info:    ... okay on input line 162.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 162.
-LaTeX Font Info:    ... okay on input line 162.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 162.
-LaTeX Font Info:    ... okay on input line 162.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 162.
-LaTeX Font Info:    ... okay on input line 162.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 162.
-LaTeX Font Info:    ... okay on input line 162.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 162.
-LaTeX Font Info:    ... okay on input line 162.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 162.
-LaTeX Font Info:    ... okay on input line 162.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 150.
+LaTeX Font Info:    ... okay on input line 150.
 
 Package fontspec Info: 
 (fontspec)             Adjusting the maths setup (use [no-math] to avoid
@@ -1177,88 +1495,87 @@ Package fontspec Info:
 
 \symlegacymaths=\mathgroup11
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 162.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 162.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 162.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 162.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 162.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 162.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 162.
-LaTeX Font Info:    Redeclaring math accent \check on input line 162.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 162.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 162.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 162.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 162.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 162.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 162.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 162.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 162.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 162.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 162.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 162.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 162.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 162.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 162.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 162.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 162.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 150.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 150.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 150.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 150.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 150.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 150.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 150.
+LaTeX Font Info:    Redeclaring math accent \check on input line 150.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 150.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 150.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 150.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 150.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 150.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 162.
+(Font)              `operators' in the math version `normal' on input line 150.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 162.
+(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 150.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 162.
+(Font)              `operators' in the math version `bold' on input line 150.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 162.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 150.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 162.
+(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 150.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 162.
+(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 150.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/b/n on input line 162.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/b/n on input line 150.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 162.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 150.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 162.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 150.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  TU/lmr/m/n --> TU/lmr/b/n on input line 162.
+(Font)                  TU/lmr/m/n --> TU/lmr/b/n on input line 150.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> TU/lmr/b/it on input line 162.
+(Font)                  OT1/cmr/bx/it --> TU/lmr/b/it on input line 150.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 162.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 150.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 162.
-Package hyperref Info: Link coloring ON on input line 162.
-\@outlinefile=\write4
-\openout4 = `微分方程数值解笔记.out'.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 150.
+Package hyperref Info: Link coloring ON on input line 150.
+ (./微分方程数值解笔记.out) (./微分方程数值解笔记.out)
+\@outlinefile=\write5
+\openout5 = `微分方程数值解笔记.out'.
 
-
-Package hyperref Warning: Rerun to get /PageLabels entry.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
 *geometry* verbose mode - [ preamble ] result:
 * driver: xetex
-* paper: a4paper
+* paper: b5paper
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: twoside 
-* h-part:(L,W,R)=(71.13188pt, 469.47049pt, 56.9055pt)
-* v-part:(T,H,B)=(71.13188pt, 722.69992pt, 51.21504pt)
-* \paperwidth=597.50787pt
-* \paperheight=845.04684pt
-* \textwidth=469.47049pt
-* \textheight=722.69992pt
+* h-part:(L,W,R)=(71.13188pt, 372.73111pt, 56.9055pt)
+* v-part:(T,H,B)=(71.13188pt, 588.97197pt, 51.21504pt)
+* \paperwidth=500.7685pt
+* \paperheight=711.3189pt
+* \textwidth=372.73111pt
+* \textheight=588.97197pt
 * \oddsidemargin=-1.1381pt
 * \evensidemargin=-15.36449pt
-* \topmargin=-33.0119pt
+* \topmargin=-31.2056pt
 * \headheight=12.0pt
-* \headsep=19.8738pt
-* \topskip=11.0pt
-* \footskip=27.46295pt
-* \marginparwidth=106.0pt
+* \headsep=18.06749pt
+* \topskip=10.0pt
+* \footskip=25.29494pt
+* \marginparwidth=57.0pt
 * \marginparsep=7.0pt
 * \columnsep=10.0pt
-* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
@@ -1268,94 +1585,11 @@ Package hyperref Warning: Rerun to get /PageLabels entry.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+LaTeX Info: Redefining \Re on input line 150.
+LaTeX Info: Redefining \Im on input line 150.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Option `pageanchor' set `false' on input line 167.
-*geometry* verbose mode - [ newgeometry ] result:
-* driver: xetex
-* paper: a4paper
-* layout: <same size as paper>
-* layoutoffset:(h,v)=(0.0pt,0.0pt)
-* modes: twoside 
-* h-part:(L,W,R)=(0.0pt, 597.50787pt, 0.0pt)
-* v-part:(T,H,B)=(0.0pt, 845.04684pt, 0.0pt)
-* \paperwidth=597.50787pt
-* \paperheight=845.04684pt
-* \textwidth=597.50787pt
-* \textheight=845.04684pt
-* \oddsidemargin=-72.26999pt
-* \evensidemargin=-72.26999pt
-* \topmargin=-104.14378pt
-* \headheight=12.0pt
-* \headsep=19.8738pt
-* \topskip=11.0pt
-* \footskip=27.46295pt
-* \marginparwidth=106.0pt
-* \marginparsep=7.0pt
-* \columnsep=10.0pt
-* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
-* \hoffset=0.0pt
-* \voffset=0.0pt
-* \mag=1000
-* \@twocolumnfalse
-* \@twosidetrue
-* \@mparswitchtrue
-* \@reversemarginfalse
-* (1in=72.27pt=25.4mm, 1cm=28.453pt)
-
-File: example-image.pdf Graphic file (type pdf)
-<use example-image.pdf>
-LaTeX Font Info:    Trying to load font information for U+msa on input line 167.
-(/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 167.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    Trying to load font information for U+esvect on input line 167.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/esvect/uesvect.fd
-File: uesvect.fd 
-)
-LaTeX Font Info:    Trying to load font information for OMX+mdugm on input line 167.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/mathdesign/mdugm/omxmdugm.fd
-File: omxmdugm.fd 2013/08/29 Fontinst v1.933 font definitions for OMX/mdugm.
-)
-
-Package fontspec Info: 
-(fontspec)             Could not resolve font "KaiTi/I" (it probably doesn't
-(fontspec)             exist).
-
-
-Package fontspec Info: 
-(fontspec)             Could not resolve font "KaiTi/BI" (it probably doesn't
-(fontspec)             exist).
-
-
-Package fontspec Info: 
-(fontspec)             Could not resolve font "KaiTi/I" (it probably doesn't
-(fontspec)             exist).
-
-
-Package fontspec Info: 
-(fontspec)             Font family 'KaiTi(0)' created for font 'KaiTi' with
-(fontspec)             options [Script={CJK},AutoFakeBold={2.5}].
-(fontspec)              
-(fontspec)              This font family consists of the following NFSS
-(fontspec)             series/shapes:
-(fontspec)              
-(fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->"KaiTi/OT:script=hani;language=dflt;"
-(fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->"KaiTi/OT:script=hani;language=dflt;embolden=2.5;"
-
-
-
-[1
-
-
-
-]
+(./cover.tex
 
 Package fontspec Info: 
 (fontspec)             Script 'CJK' not explicitly supported within font
@@ -1388,6 +1622,45 @@ Package fontspec Info:
 (fontspec)             - 'bold italic' (b/it) with NFSS spec.:
 (fontspec)             <->"STXihei/BI/OT:script=hani;language=dflt;"
 
+LaTeX Font Info:    Calculating math sizes for size <14> on input line 20.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 20.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 20.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for U+esvect on input line 20.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/esvect/uesvect.fd
+File: uesvect.fd 
+)
+LaTeX Font Info:    Trying to load font information for OMX+mdugm on input line 20.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/mathdesign/mdugm/omxmdugm.fd
+File: omxmdugm.fd 2013/08/29 Fontinst v1.933 font definitions for OMX/mdugm.
+)
+LaTeX Font Info:    Calculating math sizes for size <13> on input line 25.
+
+
+LaTeX Font Warning: Font shape `U/esvect/m/n' in size <13> not available
+(Font)              size <12> substituted on input line 25.
+
+
+LaTeX Font Warning: Font shape `U/esvect/m/n' in size <6.5> not available
+(Font)              size <6> substituted on input line 25.
+
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 26.
+
+LaTeX Font Warning: Font shape `U/esvect/m/n' in size <5.5> not available
+(Font)              size <5> substituted on input line 26.
+
+
+
+[1
+
+
+])
+Package hyperref Info: Option `pageanchor' set `true' on input line 154.
 
 Package fontspec Info: 
 (fontspec)             Could not resolve font "SimHei/I" (it probably doesn't
@@ -1416,25 +1689,18 @@ Package fontspec Info:
 (fontspec)             - 'bold' (b/n) with NFSS spec.:
 (fontspec)             <->"SimHei/OT:script=hani;language=dflt;embolden=3;"
 
-
-No file 微分方程数值解笔记.toc.
-\tf@toc=\write5
-\openout5 = `微分方程数值解笔记.toc'.
-
-
+ (./微分方程数值解笔记.toc
 
 [1
 
 
 
+])
+\tf@toc=\write6
+\openout6 = `微分方程数值解笔记.toc'.
 
-]
-
-[2
 
 
-] (./椭圆型方程的差分方法.tex
-1
 
 Package fontspec Info: 
 (fontspec)             Could not resolve font "SimHei/I" (it probably doesn't
@@ -1463,6 +1729,29 @@ Package fontspec Info:
 (fontspec)             - 'bold' (b/n) with NFSS spec.:
 (fontspec)             <->"SimHei/OT:script=hani;language=dflt;embolden=2.5;"
 
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[2]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[3]
+
+[4
+
+
+] (./椭圆型方程的差分方法.tex
+1
 File: fig/1.1.png Graphic file (type bmp)
 <fig/1.1.png>
 File: fig/1.2.png Graphic file (type bmp)
@@ -1472,30 +1761,74 @@ File: fig/1.2.png Graphic file (type bmp)
 [1
 
 
+
 ]
-Overfull \hbox (3.41046pt too wide) in paragraph at lines 63--66
-[]\TU/STSong(0)/m/n/10.95 再 记 $\OML/cmm/m/it/10.95 K\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x; s\OT1/cmr/m/n/10.95 ) = (1 \OMS/cmsy/m/n/10.95 ^^@ \OML/cmm/m/it/10.95 s\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 x \OMS/cmsy/m/n/10.95 ^^@ \OML/cmm/m/it/10.95 ^^_[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 s\OT1/cmr/m/n/10.95 )(\OML/cmm/m/it/10.95 x \OMS/cmsy/m/n/10.95 ^^@ \OML/cmm/m/it/10.95 s\OT1/cmr/m/n/10.95 ) = []$\TU/STSong(0)/m/n/10.95 ，|  则 $\OML/cmm/m/it/10.95 u\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x\OT1/cmr/m/n/10.95 ) = [][] \OML/cmm/m/it/10.95 K\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 x; s\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 f\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 s\OT1/cmr/m/n/10.95 ) []  []\OML/cmm/m/it/10.95 s$\TU/lmr/m/n/10.95 . 
+Overfull \hbox (11.53268pt too wide) in paragraph at lines 59--62
+[]\TU/STSong(0)/m/n/10 令 $\OML/cmm/m/it/10 ^^_[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 s\OT1/cmr/m/n/10 ) = []$\TU/STSong(0)/m/n/10 ，|  那 么 $\OML/cmm/m/it/10 u\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) = [][] [] \OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 s\OT1/cmr/m/n/10 ) []  []\OML/cmm/m/it/10 s$\TU/lmr/m/n/10 . 
  []
 
 
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [2]
+Overfull \hbox (5.9118pt too wide) in paragraph at lines 89--89
+[]\TU/STSong(0)/m/n/10 以 $\OML/cmm/m/it/10 x[]$ \TU/STSong(0)/m/n/10 为 中 心，|  使 用 二 阶 中 心 差 商 近 似 二 阶 导 数，|  即 $\OML/cmm/m/it/10 u[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^Y []$\TU/lmr/m/n/10 . 
+ []
+
+
+Overfull \hbox (17.65286pt too wide) in paragraph at lines 93--95
+\TU/STSong(0)/m/n/10 上 述 的 \TU/lmr/m/n/10 (1.3a)-(1.3c) \TU/STSong(0)/m/n/10 就 是 完 整 的 有 限 差 分 法，|  因 此 可 以 得 到 近 似 解 $\OML/cmm/m/it/10 u[] \OMS/cmsy/m/n/10 ^^Y \OML/cmm/m/it/10 u\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0 \U/msa/m/n/10 6
+ []
+
+
+Overfull \hbox (39.8549pt too wide) in paragraph at lines 117--124
+\TU/STSong(0)/m/n/10 ，|  其 中 $\OML/cmm/m/it/10 A[] \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 ^^@[] [] \OML/cmm/m/it/10 ; [] \OT1/cmr/m/n/10 = [\OML/cmm/m/it/10 u[]; u[]; [] ; u[]\OT1/cmr/m/n/10 ][]\OML/cmm/m/it/10 ; [] \OT1/cmr/m/n/10 = [\OML/cmm/m/it/10 f[]; f[]; [] ; f[]\OT1/cmr/m/n/10 ][]$ 
+ []
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [3]
+
+Package fontspec Info: 
+(fontspec)             Could not resolve font "KaiTi/I" (it probably doesn't
+(fontspec)             exist).
+
+
+Package fontspec Info: 
+(fontspec)             Could not resolve font "KaiTi/BI" (it probably doesn't
+(fontspec)             exist).
+
+
+Package fontspec Info: 
+(fontspec)             Could not resolve font "KaiTi/I" (it probably doesn't
+(fontspec)             exist).
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'KaiTi(0)' created for font 'KaiTi' with
+(fontspec)             options [Script={CJK},AutoFakeBold={2.5}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"KaiTi/OT:script=hani;language=dflt;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->"KaiTi/OT:script=hani;language=dflt;embolden=2.5;"
+
 
 Package fontspec Info: 
 (fontspec)             Could not resolve font "FangSong/I" (it probably
@@ -1528,54 +1861,54 @@ Package fontspec Info:
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [4]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [5]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [6]
 
-LaTeX Warning: Reference `matrix_iteration' on page 7 undefined on input line 294.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[7]
 
 
-LaTeX Warning: Reference `matrix_iteration' on page 7 undefined on input line 302.
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
-
-LaTeX Warning: Reference `damped' on page 7 undefined on input line 302.
-
-
-LaTeX Warning: Reference `matrix_iteration' on page 7 undefined on input line 305.
-
-
-LaTeX Warning: Reference `matrix_iteration' on page 7 undefined on input line 311.
-
-
-LaTeX Warning: Reference `damped' on page 7 undefined on input line 324.
-
+[8]
 File: fig/1.3.png Graphic file (type bmp)
 <fig/1.3.png>
 File: fig/1.4.png Graphic file (type bmp)
 <fig/1.4.png>
 
-Overfull \hbox (14.94662pt too wide) in paragraph at lines 346--360
+Overfull \hbox (14.76947pt too wide) in paragraph at lines 346--360
 []$[]$ $[]$ 
  []
 
@@ -1583,113 +1916,104 @@ Overfull \hbox (14.94662pt too wide) in paragraph at lines 346--360
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
-
-[7]
-
-LaTeX Warning: Reference `poisson' on page 8 undefined on input line 382.
-
-
-LaTeX Warning: Reference `poisson' on page 8 undefined on input line 396.
-
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
-
-[8]
-
-LaTeX Warning: Reference `five-point' on page 9 undefined on input line 423.
-
-
-LaTeX Warning: Reference `five-point' on page 9 undefined on input line 429.
-
-
-LaTeX Warning: Reference `five-point' on page 9 undefined on input line 430.
-
-
-LaTeX Warning: Reference `five-point' on page 9 undefined on input line 451.
-
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [9]
 
-LaTeX Warning: Reference `five-point' on page 10 undefined on input line 476.
-
-
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [10]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [11]
 
-LaTeX Warning: Reference `five-point' on page 12 undefined on input line 578.
-
-
-LaTeX Warning: Reference `five-point' on page 12 undefined on input line 585.
-
-
-LaTeX Warning: Reference `five-point' on page 12 undefined on input line 592.
-
-
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [12]
+Overfull \hbox (11.56885pt too wide) in paragraph at lines 551--551
+[]\TU/STSong(0)/m/n/10 在 离 散 最 大 模 估 计 的 证 明 过 程 中，|  我 们 就 是 将 待 定 函 数 定 义 为 $\OML/cmm/m/it/10 ^^^\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x; y\OT1/cmr/m/n/10 ) = []\OML/cmm/m/it/10 x[]; \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x; y\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 2
+ []
 
-LaTeX Warning: Reference `poisson' on page 13 undefined on input line 615.
+
+Overfull \hbox (7.33395pt too wide) in paragraph at lines 561--567
+[]\TU/STSong(0)/m/n/10 由 截 断 误 差 定 义 可 知 $[] \OMS/cmsy/m/n/10 ) []$ 
+ []
 
 
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [13]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [14]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[15]
+Overfull \hbox (7.2511pt too wide) in paragraph at lines 687--687
+[]\TU/STSong(0)/m/n/10 相 应 的 特 征 向 量 为：| $[][] \OT1/cmr/m/n/10 = [[](\OML/cmm/m/it/10 ^^R[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; []\OT1/cmr/m/n/10 (2\OML/cmm/m/it/10 ^^R[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; []  ; []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 N^^R[]\OT1/cmr/m/n/10 )][]$\TU/STSong(0)/m/n/10 ，|  其 中 $\OML/cmm/m/it/10 ^^R[] \OT1/cmr/m/n/10 = []\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1 \U/msa/m/n/10 6
+ []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[16]
+Overfull \hbox (30.34567pt too wide) in paragraph at lines 734--735
+[]$[][] \OT1/cmr/m/n/10 = [][] = [][]$\TU/STSong(0)/m/n/10 ，|  其 中 $[][] \OT1/cmr/m/n/10 = 2[]\OML/cmm/b/it/10 U[]\OML/cmm/m/it/10 ; [][] \OT1/cmr/m/n/10 = [] [][]$\TU/lmr/m/n/10 . 
+ []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[17]
 
 Package fontspec Info: 
 (fontspec)             Script 'CJK' not explicitly supported within font
@@ -1724,55 +2048,51 @@ Package fontspec Info:
 (fontspec)             <->"STFangsong/OT:script=hani;language=dflt;"
 
 
+Overfull \hbox (28.01295pt too wide) in paragraph at lines 787--788
+[]\TU/STSong(0)/m/n/10 基 于 三 个 网 格 点 $\OML/cmm/m/it/10 x[]; x[]; x[]$ \TU/STSong(0)/m/n/10 的 格 点 函 数 值 建 立 的 中 心 差 分 格 式 $\OMS/cmsy/m/n/10 ^^@[] \OT1/cmr/m/n/10 =
+ []
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
-[15]
+[18]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
-
-[16]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
-
-[17]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
-
-[18]) (./发展方程有限差分法的基本概念和理论.tex
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [19]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[20]) (./发展方程有限差分法的基本概念和理论.tex
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[21]
 2
 
 
-[20
+[22
 
 ]
 File: fig/2.1-1.jpg Graphic file (type bmp)
@@ -1783,691 +2103,697 @@ File: fig/2.1-2.jpg Graphic file (type bmp)
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
-[21]
-
-LaTeX Warning: Reference `eq:convection_ivp' on page 22 undefined on input line 92.
-
+[23]
 File: fig/2.2.jpg Graphic file (type bmp)
 <fig/2.2.jpg>
 
-LaTeX Warning: Reference `eq:convection_ivp' on page 22 undefined on input line 114.
-
-
-LaTeX Warning: Reference `eq:convection_ivp' on page 22 undefined on input line 119.
-
-
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
-
-[22]
-
-LaTeX Warning: Reference `eq:convection_ivp' on page 23 undefined on input line 134.
-
-
-LaTeX Warning: Reference `eq:exact_sol' on page 23 undefined on input line 134.
-
-
-LaTeX Warning: Reference `eq:grid_eq' on page 23 undefined on input line 162.
-
-
-LaTeX Warning: Reference `eq:grid_eq' on page 23 undefined on input line 170.
-
-
-LaTeX Warning: Reference `eq:1.5' on page 23 undefined on input line 179.
-
-
-LaTeX Warning: Reference `eq:1.5' on page 23 undefined on input line 182.
-
-
-LaTeX Warning: Reference `eq:1.7' on page 23 undefined on input line 186.
-
-
-LaTeX Warning: Reference `eq:convection_ivp' on page 23 undefined on input line 186.
-
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
-
-[23]
-
-LaTeX Warning: Reference `eq:1.7' on page 24 undefined on input line 191.
-
-
-LaTeX Warning: Reference `eq:1.8' on page 24 undefined on input line 191.
-
-
-LaTeX Warning: Reference `eq:convection_ivp' on page 24 undefined on input line 191.
-
-
-LaTeX Warning: Reference `eq:convection_ivp' on page 24 undefined on input line 233.
-
-
-LaTeX Warning: Reference `eq:1.5' on page 24 undefined on input line 233.
-
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [24]
 
-LaTeX Warning: Reference `eq:2.1' on page 25 undefined on input line 238.
-
-
-LaTeX Warning: Reference `eq:1.5' on page 25 undefined on input line 252.
-
-
-LaTeX Warning: Reference `eq:1.5' on page 25 undefined on input line 266.
-
-
-LaTeX Warning: Reference `eq:1.5' on page 25 undefined on input line 272.
-
-
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [25]
 
-LaTeX Warning: Reference `eq:convection_ivp' on page 26 undefined on input line 300.
-
-File: fig/2.3.jpg Graphic file (type bmp)
-<fig/2.3.jpg>
-
-LaTeX Warning: Reference `eq:2.3' on page 26 undefined on input line 324.
-
-
-LaTeX Warning: Reference `eq:convection_ivp' on page 26 undefined on input line 324.
-
-
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [26]
 
-LaTeX Warning: Reference `eq:convection_ivp' on page 27 undefined on input line 357.
 
-File: fig/2.4.png Graphic file (type bmp)
-<fig/2.4.png>
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
-LaTeX Warning: Reference `eq:convection_ivp' on page 27 undefined on input line 363.
+[27]
+Overfull \hbox (7.70253pt too wide) detected at line 258
+[]
+ []
 
 
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
-[27]
-
-LaTeX Warning: Reference `eq:convection_ivp' on page 28 undefined on input line 365.
-
-
-LaTeX Warning: Reference `eq:3.1' on page 28 undefined on input line 371.
+[28]
+File: fig/2.3.jpg Graphic file (type bmp)
+<fig/2.3.jpg>
 
 
-LaTeX Warning: Reference `eq:3.2' on page 28 undefined on input line 375.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[29]
+File: fig/2.4.png Graphic file (type bmp)
+<fig/2.4.png>
 
 
-LaTeX Warning: Reference `eq:3.2' on page 28 undefined on input line 381.
 
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[30]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[31]
 File: fig/2.5.png Graphic file (type bmp)
 <fig/2.5.png>
 
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
-
-[28]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
-
-[29]
-
-LaTeX Warning: Reference `eq:exact_sol' on page 30 undefined on input line 444.
-
-
-LaTeX Warning: Reference `eq:4.1' on page 30 undefined on input line 444.
-
-
-LaTeX Warning: Reference `eq:1.5' on page 30 undefined on input line 444.
-
-
-LaTeX Warning: Reference `eq:4.2' on page 30 undefined on input line 457.
-
-
-LaTeX Warning: Reference `eq:4.4' on page 30 undefined on input line 479.
-
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
-
-[30]
-
-LaTeX Warning: Reference `eq:4.5' on page 31 undefined on input line 501.
-
-
-LaTeX Warning: Reference `eq:4.6' on page 31 undefined on input line 503.
-
-
-LaTeX Warning: Reference `eq:4.6' on page 31 undefined on input line 512.
-
-
-LaTeX Warning: Reference `eq:4.7' on page 31 undefined on input line 512.
-
-
-LaTeX Warning: Reference `eq:4.9' on page 31 undefined on input line 522.
-
-
-LaTeX Warning: Reference `eq:4.5' on page 31 undefined on input line 530.
-
-
-LaTeX Warning: Reference `eq:4.8' on page 31 undefined on input line 530.
-
-
-LaTeX Warning: Reference `eq:4.10' on page 31 undefined on input line 530.
-
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
-
-[31]
-
-LaTeX Warning: Reference `eq:4.2' on page 32 undefined on input line 533.
-
-
-LaTeX Warning: Reference `eq:1.5' on page 32 undefined on input line 542.
-
-
-LaTeX Warning: Reference `eq:4.12' on page 32 undefined on input line 561.
-
-
-LaTeX Warning: Reference `eq:4.11' on page 32 undefined on input line 561.
-
-
-LaTeX Warning: Reference `eq:4.2' on page 32 undefined on input line 582.
-
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [32]
-
-LaTeX Warning: Reference `eq:4.13' on page 33 undefined on input line 619.
-
-
-LaTeX Warning: Reference `eq:4.15' on page 33 undefined on input line 625.
-
-
-LaTeX Warning: Reference `eq:4.16' on page 33 undefined on input line 627.
+Overfull \hbox (41.54485pt too wide) in paragraph at lines 419--423
+[]\TU/SimHei(1)/b/n/10 例 \TU/lmr/bx/n/10 2.11 (\TU/SimHei(1)/b/n/10 对 流 方 程 向 前 差 分 格 式 的 逐 点 收 敛 性\TU/lmr/bx/n/10 )[]\TU/STSong(0)/m/n/10 现 在 来 讨 论 求 解 对 流 方 程 $[]$
+ []
 
 
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [33]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [34]
 
-LaTeX Warning: Reference `eq:fourier_diff' on page 35 undefined on input line 696.
-
-
-LaTeX Warning: Reference `eq:fourier_u_np1' on page 35 undefined on input line 712.
-
-
-LaTeX Warning: Reference `eq:fourier_linear' on page 35 undefined on input line 712.
-
-
-LaTeX Warning: Reference `eq:fourier_diff' on page 35 undefined on input line 725.
-
-
-LaTeX Warning: Reference `eq:fourier_diff' on page 35 undefined on input line 730.
-
-
-LaTeX Warning: Reference `eq:parseval' on page 35 undefined on input line 730.
-
-
-LaTeX Warning: Reference `eq:fourier_norm' on page 35 undefined on input line 730.
-
-
-LaTeX Warning: Reference `eq:fourier_stab_cond' on page 35 undefined on input line 734.
-
-
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [35]
 
-LaTeX Warning: Reference `eq:fourier_diff' on page 36 undefined on input line 744.
-
-
-LaTeX Warning: Reference `eq:fourier_general' on page 36 undefined on input line 756.
-
-
-LaTeX Warning: Reference `eq:1.7' on page 36 undefined on input line 769.
-
-
-LaTeX Warning: Reference `eq:convection_ivp' on page 36 undefined on input line 777.
-
-
-LaTeX Warning: Reference `eq:ex1.1_diff' on page 36 undefined on input line 782.
-
-
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [36]
 
-LaTeX Warning: Reference `eq:fourier_stab_theorem_cond' on page 37 undefined on input line 794.
-
-
-LaTeX Warning: Reference `eq:convection_ivp' on page 37 undefined on input line 798.
-
-
-LaTeX Warning: Reference `eq:ex1.2_diff' on page 37 undefined on input line 808.
-
-
-LaTeX Warning: Reference `eq:fourier_stab_theorem_cond' on page 37 undefined on input line 808.
-
-
-LaTeX Warning: Reference `eq:von_neumann_cond' on page 37 undefined on input line 824.
-
-
-LaTeX Warning: Reference `eq:fourier_stab_theorem_cond' on page 37 undefined on input line 829.
-
-
-LaTeX Warning: Reference `eq:fourier_stab_theorem_cond' on page 37 undefined on input line 829.
-
-
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [37]
 
-LaTeX Warning: Reference `eq:fourier_stab_theorem_cond' on page 38 undefined on input line 847.
-
-
-LaTeX Warning: Reference `eq:ex2.1_diff' on page 38 undefined on input line 858.
-
-
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [38]
-
-LaTeX Warning: Reference `eq:ex2.1_diff' on page 39 undefined on input line 869.
-
-
-LaTeX Warning: Reference `eq:1.9' on page 39 undefined on input line 885.
+Overfull \hbox (38.72954pt too wide) in paragraph at lines 673--676
+[]\TU/STSong(0)/m/n/10 第 三 个 性 质 可 以 帮 我 我 们 求 解 部 分 数 学 物 理 方 程\TU/lmr/m/n/10 . \TU/STSong(0)/m/n/10 例 如 对 于 方 程 $[]$\TU/lmr/m/n/10 . 
+ []
 
 
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [39]
 
-LaTeX Warning: Reference `lem:3.1' on page 40 undefined on input line 950.
-
-
-LaTeX Warning: Reference `thm:3.2' on page 40 undefined on input line 953.
-
-
-LaTeX Warning: Reference `eq:convection_ivp' on page 40 undefined on input line 957.
-
-
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [40]
 
-LaTeX Warning: Reference `lem:3.1' on page 41 undefined on input line 978.
-
-
-LaTeX Warning: Reference `eq:matrix_diff' on page 41 undefined on input line 1025.
-
-
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [41]
+Overfull \hbox (2.14575pt too wide) in paragraph at lines 811--811
+|[] 
+ []
 
-LaTeX Warning: Reference `eq:matrix_diff' on page 42 undefined on input line 1051.
 
-
-LaTeX Warning: Reference `eq:matrix_norm' on page 42 undefined on input line 1080.
+Overfull \hbox (2.14575pt too wide) in paragraph at lines 811--811
+ |[]
+ []
 
 
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [42]
 
-LaTeX Warning: Reference `eq:matrix_diff' on page 43 undefined on input line 1088.
-
-
-LaTeX Warning: Reference `eq:convection_ivp' on page 43 undefined on input line 1100.
-
-
-LaTeX Warning: Reference `eq:ex3.2_diff' on page 43 undefined on input line 1115.
-
-
-LaTeX Warning: Reference `eq:ex3.2_diff' on page 43 undefined on input line 1126.
-
-
-LaTeX Warning: Reference `eq:convection_ivp' on page 43 undefined on input line 1134.
-
-
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [43]
-Missing character: There is no ， (U+FF0C) in font [lmroman10-regular]:mapping=tex-text;!
-
-LaTeX Warning: Reference `eq:matrix_diff' on page 44 undefined on input line 1156.
-
-
-LaTeX Warning: Reference `eq:matrix_diff' on page 44 undefined on input line 1172.
-
-) (./双曲型方程的差分方法.tex
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [44]
-3
 
 
-[45
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
-]
+[45]
 
-LaTeX Warning: Reference `eq:lax-wendroff-c3' on page 46 undefined on input line 68.
+LaTeX Warning: Reference `lem:3.1' on page 46 undefined on input line 950.
+
+
+LaTeX Warning: Reference `lem:3.1' on page 46 undefined on input line 978.
 
 
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [46]
 
-LaTeX Warning: Reference `eq:convection-3.1' on page 47 undefined on input line 114.
 
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[47]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[48]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[49]
+Missing character: There is no ， (U+FF0C) in font [lmroman10-regular]:mapping=tex-text;!
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[50]) (./双曲型方程的差分方法.tex
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[51]
+3
+
+
+[52
+
+]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[53]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 149.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `eq:lax-wendroff-c3' on page 47 undefined on input line 152.
-
-
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
-
-[47]
-
-LaTeX Warning: Reference `eq:convection-3.1' on page 48 undefined on input line 175.
-
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
-
-[48]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
-
-[49]
-
-LaTeX Warning: Reference `eq:variable-coefficient-hyperbolic' on page 50 undefined on input line 342.
-
-
-LaTeX Warning: Reference `eq:characteristic-variable' on page 50 undefined on input line 354.
-
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
-
-[50]
-
-LaTeX Warning: Reference `eq:variable-coefficient-hyperbolic' on page 51 undefined on input line 378.
-
-
-LaTeX Warning: Reference `eq:upwind-variable' on page 51 undefined on input line 378.
-
-
-LaTeX Warning: Reference `eq:CFL-variable' on page 51 undefined on input line 416.
-
-
-LaTeX Warning: Reference `eq:upwind-variable' on page 51 undefined on input line 416.
-
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
-
-[51]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
-
-[52]
-
-LaTeX Warning: Reference `eq:leapfrog' on page 53 undefined on input line 505.
-
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
-
-[53]
-
-LaTeX Warning: Reference `eq:wave-equation' on page 54 undefined on input line 566.
-
-
-LaTeX Warning: Reference `fig:virtual-grid' on page 54 undefined on input line 613.
-
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [54]
+Overfull \hbox (5.2301pt too wide) in paragraph at lines 154--155
+\TU/STSong(0)/m/n/10 确 解 的 依 赖 区 域\TU/lmr/m/n/10 . []Courant-Friedrichs-Levy \TU/STSong(0)/m/n/10 条 件 \TU/lmr/m/n/10 (CFL \TU/STSong(0)/m/n/10 条 件\TU/lmr/m/n/10 ) \TU/STSong(0)/m/n/10 就 是 要 求 $\OML/cmm/m/it/10 D \OMS/cmsy/m/n/10 2 \OT1/cmr/m/n/10 [\OML/cmm/m/it/10 x[]; x[]\OT1/cmr/m/n/10 ]$\TU/lmr/m/n/10 .[] 
+ []
 
-LaTeX Warning: Reference `eq:wave-finite-difference' on page 55 undefined on input line 638.
 
-)
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.84526pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.84526pt}.
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
 (fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.84526pt}.
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
-[55] (./微分方程数值解笔记.aux)
+[55]
+Overfull \hbox (8.42131pt too wide) in paragraph at lines 232--232
+\TU/STSong(0)/b/n/10 情 形 \TU/lmr/bx/n/10 3. \TU/STSong(0)/m/n/10 如 果 以 $\OML/cmm/m/it/10 B; D$ \TU/STSong(0)/m/n/10 两 点 的 格 点 函 数 值 作 线 性 插 值\TU/lmr/m/n/10 , \TU/STSong(0)/m/n/10 则 仿 照 上 述 推 导 可 得 \TU/lmr/m/n/10 Lax-Friedrichs
+ []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[56]
+Overfull \hbox (2.62527pt too wide) in paragraph at lines 293--295
+\TU/STSong(0)/m/n/10 然 后 用 前 面 介 绍 的 常 系 数 情 形 的 差 分 格 式 在 $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]; t[]\OT1/cmr/m/n/10 )$ \TU/STSong(0)/m/n/10 处 进 一 步 离 散\TU/lmr/m/n/10 , \TU/STSong(0)/m/n/10 比 如\TU/lmr/m/n/10 , \TU/STSong(0)/m/n/10 设 $\OML/cmm/m/it/10 a\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]; t[]\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10 >
+ []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[57]
+Overfull \hbox (5.16534pt too wide) in paragraph at lines 339--340
+ [][] 
+ []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[58]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[59]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[60]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[61]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[62]
+File: fig/3.3.png Graphic file (type bmp)
+<fig/3.3.png>
+File: fig/3.4.png Graphic file (type bmp)
+<fig/3.4.png>
+File: fig/3.5.png Graphic file (type bmp)
+<fig/3.5.png>
+File: fig/3.6.png Graphic file (type bmp)
+<fig/3.6.png>
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[63]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[64]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[65]) (./抛物型方程的差分格式.tex
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[66]
+4
+
+
+[67
+
+]
+Overfull \hbox (14.99123pt too wide) detected at line 40
+\OMS/cmsy/m/n/10 ^^@\OML/cmm/m/it/10 a^^U^^Ru[] \OT1/cmr/m/n/10 + (1 + 2\OML/cmm/m/it/10 a^^U^^R\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 u[] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 a^^U^^Ru[] \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 ^^@\OML/cmm/m/it/10 a^^U\OT1/cmr/m/n/10 (1 \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 ^^R\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 u[] \OT1/cmr/m/n/10 + (1 + 2\OML/cmm/m/it/10 a^^U\OT1/cmr/m/n/10 (1 \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 ^^R\OT1/cmr/m/n/10 ))\OML/cmm/m/it/10 u[] \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 a^^U\OT1/cmr/m/n/10 (1 \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 ^^R\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 u[]:
+ []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[68]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[69]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[70] (./fig/4.1.tex)
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[71]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[72]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[73] (./fig/4.2.tex)
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[74]
+File: fig/4.3.png Graphic file (type bmp)
+<fig/4.3.png>
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[75]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[76]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[77]
+Overfull \hbox (2.6126pt too wide) in paragraph at lines 454--455
+[]\TU/STSong(0)/m/n/10 格 式 [] 实 即 紧 致 的 \TU/lmr/m/n/10 Crank-Nicolson \TU/STSong(0)/m/n/10 格 式\TU/lmr/m/n/10 , \TU/STSong(0)/m/n/10 它 也 可 以 如 下 导 出\TU/lmr/m/n/10 . \TU/STSong(0)/m/n/10 在 点 $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]; t[]\OT1/cmr/m/n/10 )$
+ []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[78]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[79]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[80]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[81]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[82]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[83]
+Overfull \hbox (11.60207pt too wide) in paragraph at lines 823--824
+ [][] 
+ []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[84]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[85])
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[86] (./微分方程数值解笔记.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2022/07/14>
  ***********
 
 
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 1.0pt have occurred.
+
+
 LaTeX Warning: There were undefined references.
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
-
-Package rerunfilecheck Warning: File `微分方程数值解笔记.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `微分方程数值解笔记.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  4237CA792248E3CB112B2214BBD949CD;6608.
+Package rerunfilecheck Info: File `微分方程数值解笔记.out' has not changed.
+(rerunfilecheck)             Checksum: 851A4FD30074AC8ABFBC931202296DD6;9839.
  ) 
 Here is how much of TeX's memory you used:
- 41193 strings out of 473832
- 914004 string characters out of 5729481
- 1409332 words of memory out of 5000000
- 63468 multiletter control sequences out of 15000+600000
- 579968 words of font info for 174 fonts, out of 8000000 for 9000
+ 44488 strings out of 473832
+ 991424 string characters out of 5729481
+ 1486262 words of memory out of 5000000
+ 66652 multiletter control sequences out of 15000+600000
+ 612293 words of font info for 314 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 131i,16n,135p,2334b,1187s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 131i,16n,135p,3238b,1204s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on 微分方程数值解笔记.pdf (58 pages).
+Output written on 微分方程数值解笔记.pdf (91 pages).

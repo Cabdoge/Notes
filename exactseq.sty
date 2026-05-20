@@ -1,0 +1,93 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{exactseq}[2026/05/11 Custom macros for drawing exact sequences using tikz-cd]
+
+\RequirePackage{tikz}
+\usetikzlibrary{cd}
+\RequirePackage{xparse}
+
+% ==========================================
+% 1. 左侧正合列（单射列）: 0 -> M' -> M
+% 用法: \injseq[映射名称]{M'}{M}
+% 示例: \injseq[f]{M'}{M} 或 \injseq{M'}{M} (默认映射为 f)
+% ==========================================
+\NewDocumentCommand{\injseq}{ O{f} m m }{%
+    \begin{tikzcd}[cramped, sep=scriptsize]
+        0 \arrow[r,"0"] & #2 \arrow[r,"#1"] & #3
+    \end{tikzcd}%
+}
+
+% ==========================================
+% 2. 右侧正合列（满射列）: M -> M'' -> 0
+% 用法: \surjseq[映射名称]{M}{M''}
+% 示例: \surjseq[g]{M}{M''}
+% ==========================================
+\NewDocumentCommand{\surjseq}{ O{g} m m }{%
+    \begin{tikzcd}[cramped, sep=scriptsize]
+        #2 \arrow[r,"#1"] & #3 \arrow[r,"0"] & 0
+    \end{tikzcd}%
+}
+
+% ==========================================
+% 3. 短正合列: 0 -> M' -> M -> M'' -> 0
+% 用法: \ses[映射1][映射2]{M'}{M}{M''}
+% 示例: \ses[f][g]{M'}{M}{M''}
+% ==========================================
+\NewDocumentCommand{\ses}{ O{f} O{g} m m m }{%
+    \begin{tikzcd}[cramped, sep=scriptsize]
+        0 \arrow[r,"0"] & #3 \arrow[r,"#1"] & #4 \arrow[r,"#2"] & #5 \arrow[r,"0"] & 0
+    \end{tikzcd}%
+}
+
+% ==========================================
+% 4. 任意长度正合列 (递归链式调用)
+% 用法: \exactseq{M_1}[]{M_2}[f]{M_3}[g]{M_4}[]{0}
+% ==========================================
+\ExplSyntaxOn
+% 声明一个变量，用于暂存拼接的正合列代码
+\tl_new:N \l__my_exactseq_tl
+
+% 入口命令
+\NewDocumentCommand{\exactseq}{ m }
+  {
+    % 1. 清空变量，并将第一个节点放进去
+    \tl_set:Nn \l__my_exactseq_tl { #1 }
+    % 2. 启动向后扫描
+    \my_exactseq_next:
+  }
+
+% 检查下一个字符是不是 [
+\cs_new_protected:Nn \my_exactseq_next:
+  {
+    % 如果紧接着的是 [，则去吃掉一对 [] 和 {}；否则就结束并输出
+    \peek_charcode:NTF [
+      { \my_exactseq_consume:w }
+      { \my_exactseq_finish: }
+  }
+
+% 吃掉一对 [映射名] 和 {节点}
+\NewDocumentCommand \my_exactseq_consume:w { O{} m }
+  {
+    % 如果 [] 里面是空的，就不加映射名；如果里面有内容，就在箭头上加映射名
+    \tl_if_empty:nTF { #1 }
+      { \tl_put_right:Nn \l__my_exactseq_tl { \arrow[r] \& #2 } }
+      { \tl_put_right:Nn \l__my_exactseq_tl { \arrow[r,"#1"] \& #2 } }
+    
+    % 继续向后递归检查
+    \my_exactseq_next:
+  }
+
+% 结束并输出
+\cs_new_protected:Nn \my_exactseq_finish:
+  {
+    % 使用 \use:x 将收集好的代码完全展开，注入到 tikzcd 中
+    % 注意必须使用 ampersand replacement=\& 来兼容在宏里使用 \arrow
+    \use:x
+      {
+        \exp_not:N \begin{tikzcd} [cramped, ~ sep=scriptsize, ~ ampersand~replacement=\exp_not:N \&]
+          \exp_not:V \l__my_exactseq_tl
+        \exp_not:N \end{tikzcd}
+      }
+  }
+\ExplSyntaxOff
+
+\endinput

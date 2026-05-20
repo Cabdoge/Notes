@@ -31,11 +31,11 @@
 该格式便于推广至变系数的情形，甚至于非线性偏微分方程.此外，对于方程组情形该格式也可生效.\par
 考虑
 \begin{equation*}
-    u_j^{n+1}-\frac{1}{2}\qty(u_{j+1}^n+u_{j-1}^n)+\frac{1}{2}a\lambda\qty(u_{j+1}^n-u_{j-1}^n)=0
+    u_j^{n+1}-\frac{1}{2}\ab(u_{j+1}^n+u_{j-1}^n)+\frac{1}{2}a\lambda\ab(u_{j+1}^n-u_{j-1}^n)=0
 \end{equation*}
 进一步化简并令$u^{n}=v^n\eu^{\iu jkh}$，则
 \begin{equation*}
-    v^{n+1}=\frac{1}{2}\qty((1-a\lambda)\eu^{\iu kh}+(1+a\lambda)\eu^{-\iu kj})v^n
+    v^{n+1}=\frac{1}{2}\ab((1-a\lambda)\eu^{\iu kh}+(1+a\lambda)\eu^{-\iu kj})v^n
 \end{equation*}
 
 那么增长因子为$G=\cos kh-\iu a\lambda\sin kh,|G|^2=\cos^2 kh+(a\lambda)^2\sin^ kh$.\par
@@ -85,7 +85,7 @@
 \end{equation*}
 关于空间差商，同样考虑先关于时间求平均，然后使用空间上的中心差商，即
 \begin{equation*}
-    u^{n+1/2}_{j}\approx \frac{1}{2}\qty(u^{n+1}_{j} + u^{n}_{j})\approx \frac{1}{4h}\qty(u^{n+1}_{j+1} - u^{n+1}_{j-1} + u^{n}_{j+1} - u^{n}_{j-1}).
+    u^{n+1/2}_{j}\approx \frac{1}{2}\ab(u^{n+1}_{j} + u^{n}_{j})\approx \frac{1}{4h}\ab(u^{n+1}_{j+1} - u^{n+1}_{j-1} + u^{n}_{j+1} - u^{n}_{j-1}).
 \end{equation*}
 代入后即可得到 Crank-Nicolson 格式.\par
 
@@ -96,7 +96,7 @@ CN 格式与 Lax-Wendroff 格式一样，也是一个二阶精度格式. 该格�
 \begin{instance}
     对于热传导方程$u_t=a u_{xx}$，我们可以构造如下的 Crank-Nicolson 格式.
     \begin{equation*}
-        \frac{u^{n+1}_j-u^n_j}{\tau}=\frac{a}{2}\qty(\delta^2_x u^{n+1}_j+\delta^2_x u^n_j),
+        \frac{u^{n+1}_j-u^n_j}{\tau}=\frac{a}{2}\ab(\delta^2_x u^{n+1}_j+\delta^2_x u^n_j),
     \end{equation*}
     其中$\delta_x^2u_j=\frac{u_{j+1}-2u_j+u_{j-1}}{h^2}$.
 \end{instance}
@@ -154,9 +154,9 @@ CN 格式与 Lax-Wendroff 格式一样，也是一个二阶精度格式. 该格�
 由对流方程的精确解表达式 $u(x, t) = u_0(x - at)$ 可知，$D = x_j - at_n$ 为 $(x_j, t_n)$ 处精确解的依赖区域. \textcolor{red}{Courant-Friedrichs-Levy 条件 (CFL 条件) 就是要求 $D \in [x_{j-n}, x_{j+n}]$.}
 
 Lax-Wendroff 格式稳定应满足
-\begin{equation*}
+\begin{equation}\label{eq:CFL-variable}
     x_{j-n} \leq x_j - at_n \leq x_{j+n},
-\end{equation*}
+\end{equation}
 即 $a\lambda \leq 1$, 和前面得到的稳定性结果一致.
 
 \begin{note}
@@ -287,7 +287,7 @@ Lax-Wendroff 格式稳定应满足
 
 \textbf{方法 1. 冻结系数法.}
 
-将方程在网格点 $(x_j, t_n)$ 的系数 $a(x,t)$ 冻结为常数 $a(x_j, t_n)$ 而得
+将方程在网格点 $(x_j, t_n)$领域中，将系数 $a(x,t)$ 冻结为常数 $a(x_j, t_n)=a_{j}^n$ 而得
 \begin{equation*}
     u_t + a(x_j, t_n)u_x = 0,
 \end{equation*}
@@ -295,6 +295,10 @@ Lax-Wendroff 格式稳定应满足
 \begin{equation}\label{eq:upwind-variable}
     \frac{u_j^{n+1} - u_j^n}{\tau} + a(x_j, t_n)\frac{u_j^n - u_{j-1}^n}{h} = 0.
 \end{equation}
+化简后即得递推关系为
+\begin{equation*}
+    u_j^{n+1} = (1 - a_{j}^n\lambda) u_j^n + a_{j}^n\lambda u_{j-1}^n.
+\end{equation*}
 
 \begin{figure}[htbp]
     \centering
@@ -337,52 +341,63 @@ Lax-Wendroff 格式稳定应满足
     \label{fig:characteristics}
 \end{figure}
 
-\textbf{方法 2. 特征线方法.}
-
-问题\eqref{eq:variable-coefficient-hyperbolic}过 $(\bar{x}_0, \bar{t}_0)$ 的特征线方程为
+\textbf{方法 2. 特征线方法.}\par
+\noindent\allbf{Step 1.} 过$P(x_j,t_{n+1})$作特征线$L:x=x(t)$与$t=t_n$交于点$Q(x_Q,t_n)$
+对流问题\eqref{eq:variable-coefficient-hyperbolic}过 $(\bar{x}, \bar{t})$ 的特征线方程满足
+$\frac{\d u}{\d t}=0$，故
 \begin{equation}\label{eq:characteristic-variable}
     (L): \begin{cases}
         \frac{\mathrm{d}x}{\mathrm{d}t} = a(x,t), \\
-        t = \bar{t}_0, x = \bar{x}_0.
+        t = \bar{t}, x = \bar{x},\\
+        u(P)=u(Q).
     \end{cases}
 \end{equation}
-故知
-\begin{equation}
-    u_j^{n+1} \approx u(x_j, t_{n+1}) = u(x(t_n; x_j, t_{n+1}), t_n).
-\end{equation}
 
-从而问题的关键是如何近似求解 $x(t_n; x_j, t_{n+1})$ (后文简记为 $x(t_n)$). 一旦得到它, 可以通过插值的方法, 求出 $u$ 在这点的近似值, 进而获得差分方程. 为此, 对特征线方程 \eqref{eq:characteristic-variable} 在 $[t_n, t_{n+1}]$ 积分, 并注意到 $t = t_{n+1}$ 时, $x = x_j$, 可有
+\noindent\allbf{Step 2.} 计算$u(x_Q,t_n)$的近似值.需要确定$x_Q$.\par
+记$x=x(t;\bar{x},\bar{t})$，则
 \begin{equation*}
-    x_j - x(t_n) = \int_{t_n}^{t_{n+1}} a(x,t) \,\mathrm{d}t.
+    x_Q=x(t_n; x_j, t_{n+1}).
 \end{equation*}
 
+对特征线方程 \eqref{eq:characteristic-variable} 在 $[t_n, t_{n+1}]$ 积分, 并注意到 $t = t_{n+1}$ 时, $x = x_j$, 可有
+\begin{equation*}
+    x_j - x_Q = \int_{t_n}^{t_{n+1}} a(x,t) \,\mathrm{d}t.
+\end{equation*}
+
+根据数值积分方法, 上式的右端可以有多种近似方式, 从而得到不同的差分格式. 例如, 可以使用如下数值积分方法来近似上述积分:
 \begin{enumerate}[(1)]
     \item 右矩形公式.
     \begin{equation*}
-        x_j - x(t_n) \approx \tau a(x_j, t_{n+1}) \implies x(t_n) \approx x_j - \tau a(x_j, t_{n+1}).
+        x_j - x_Q \approx \tau a(x_j, t_{n+1}) \implies x_Q \approx x_j - \tau a(x_j, t_{n+1}).
     \end{equation*}
     \item 左矩形公式.
     \begin{equation*}
-        x_j - x(t_n) \approx \tau a(x(t_n), t_n) \implies \text{求得 } x(t_n) \text{ 的近似值.}
+        x_j - x_Q \approx \tau a(x_Q, t_n) \implies \text{求得 } x_Q \text{ 的近似值.}
     \end{equation*}
     \item 梯形公式.
     \begin{equation*}
-        x_j - x(t_n) \approx \frac{\tau}{2}(a(x_j, t_{n+1}) + a(x(t_n), t_n)) \implies \text{求得 } x(t_n) \text{ 的近似值.}
+        x_j - x_Q \approx \frac{\tau}{2}(a(x_j, t_{n+1}) + a(x_Q, t_n)) \implies \text{求得 } x_Q \text{ 的近似值.}
     \end{equation*}
 \end{enumerate}
+而后利用
+\begin{equation}
+    u_j^{n+1} \approx u(x_j, t_{n+1}) = u(x(t_n; x_j, t_{n+1}), t_n)=u(x_Q, t_n)
+\end{equation}
+即可得到$u(x_j,t_{n+1})$的值.
 
 \textbf{核心思想：}利用特征线方程, 将偏微分方程数值求解转化为常微分方程数值求解.
 
 \subsection{差分格式的稳定性分析}
 
-现在用能量方法研究差分格式的稳定性. 设 $a(x,t) > 0$, 考虑求解问题 \eqref{eq:variable-coefficient-hyperbolic} 的差分格式 \eqref{eq:upwind-variable} 的稳定性. 该格式可重写为
-\begin{equation*}
+对于上述差分方法，必须也要分析其稳定性.但由于此时方程是变系数的，因此无法使用Fourier方法来判断稳定性.此时我们引入能量方法研究差分格式的稳定性. 设 $a(x,t) > 0$, 考虑求解问题 \eqref{eq:variable-coefficient-hyperbolic} 的差分格式 \eqref{eq:upwind-variable} 的稳定性. 该格式可重写为
+\begin{equation}\label{eq:变系数迎风化简}
     u_j^{n+1} = u_j^n - \lambda a_j^n(u_j^n - u_{j-1}^n),
-\end{equation*}
+\end{equation}
 式中, $a_j^n = a(x_j, t_n)$, $\lambda = \tau/h$ 为网格比.
 
 \textbf{若干假设:}
 \begin{enumerate}[(1)]
+    \item $\lambda a_j^n\leq 1$
     \item $a(x,t)$ 在 $\mathbb{R} \times [0, +\infty)$ 连续可微, 且存在常数 $M > 0$ 满足
     \begin{equation}\label{eq:assumption-a}
         \sup_{x,t} [|a(x,t)| + |a_x(x,t)|] \leq M < +\infty.
@@ -393,27 +408,53 @@ Lax-Wendroff 格式稳定应满足
     \end{equation*}
 \end{enumerate}
 
-设
-\begin{equation}\label{eq:CFL-variable}
-    \lambda \max_j a_j^n \leq 1.
+我们的目的是证明：
+\begin{equation}
+    \|\bm{u}^n\|_h^2 \leq k\|\bm{u}^0\|_h^2,
 \end{equation}
-在差分方程两侧同乘以 $u_j^{n+1}$, 再利用 Cauchy-Schwarz 不等式可知
+在差分方程\eqref{eq:变系数迎风化简}两侧同乘以 $u_j^{n+1}$, 再利用 Cauchy-Schwarz 不等式（在这里等价于基本不等式 $2xy \le x^2 + y^2$）可知
 \begin{equation*}
     \begin{aligned}
-        (u_j^{n+1})^2 &\leq (1 - \lambda a_j^n)u_j^n u_j^{n+1} + \lambda a_j^n u_{j-1}^n u_j^{n+1} \\
+        (u_j^{n+1})^2 &= (1 - \lambda a_j^n)u_j^n u_j^{n+1} + \lambda a_j^n u_{j-1}^n u_j^{n+1} \\
         &\leq \frac{1 - \lambda a_j^n}{2} \{ (u_j^n)^2 + (u_j^{n+1})^2 \} + \frac{\lambda a_j^n}{2} \{ (u_{j-1}^n)^2 + (u_j^{n+1})^2 \},
     \end{aligned}
 \end{equation*}
-即
+上述不等式成立需要满足系数非负，即要求 $1 - \lambda a_j^n \geq 0$ 且 $\lambda a_j^n \geq 0$，即$\lambda \max_{j} a_j^n \leq 1$. 整理后得
 \begin{equation*}
     (u_j^{n+1})^2 \leq (1 - \lambda a_j^n)(u_j^n)^2 + \lambda a_j^n(u_{j-1}^n)^2.
 \end{equation*}
-
-令 $\|u^n\|_h^2 = \sum_{j=-\infty}^\infty h (u_j^n)^2$. 经推导可知对任意 $T > 0$, 当 $n\tau \leq T$ 时, 成立
+又
+\begin{align*}
+    \|\bm{u}^{n+1}\|_h^2 &= h\sum_{j=-\infty}^\infty (u_j^{n+1})^2 \\
+    &\leq h\sum_{j=-\infty}^\infty  (1 - \lambda a_j^n)(u_j^n)^2 + h\sum_{j=-\infty}^\infty \lambda a_{j+1}^n(u_{j}^n)^2  \\
+    &=h\sum_{j=-\infty}^\infty (u_j^n)^2 + \tau\sum_{j=-\infty}^\infty (a_{j+1}^n - a_j^n)(u_j^n)^2 
+\end{align*}
+由Lagrange中值定理，
 \begin{equation*}
-    \|u^n\|_h^2 \leq (1 + M\tau)^n \|u^0\|_h^2 \leq e^{MT} \|u^0\|_h^2.
+    a_{j+1}^n - a_j^n = a(x_{j+1}, t_n) - a(x_j, t_n) = a_x(\xi_j, t_n)h,
 \end{equation*}
-因此, 若条件 \eqref{eq:CFL-variable} 成立时, 格式 \eqref{eq:upwind-variable} 是稳定的.
+从而
+\begin{align*}
+    \|\bm{u}^{n+1}\|_h^2 &\leq h\sum_{j=-\infty}^\infty (u_j^n)^2 + \tau h\sum_{j=-\infty}^\infty a_x(\xi_j, t_n)(u_j^n)^2 \\
+    &\leq (1 + M\tau) \|\bm{u}^n\|_h^2.
+\end{align*}
+其中，$M=\sup_{x,t} |a_x(x,t)|$.
+进一步作迭代可得对任意 $T > 0$, 当 $n\tau \leq T$ 时, 成立
+\begin{equation*}
+    \|\bm{u}^n\|_h^2 \leq (1 + M\tau)^n \|\bm{u}^0\|_h^2 \leq e^{MT} \|\bm{u}^0\|_h^2.
+\end{equation*}
+因此, 若条件$\lambda \max a_j^n\leq 1$成立时, 格式 \eqref{eq:upwind-variable} 是稳定的.
+
+另外，可以使用最大模方法来分析该格式的稳定性.由三角不等式可得
+\begin{align*}
+    |u_j^{n+1}| &\leq |1-\lambda a_j^n||u_j^n| + \lambda a_j^n |u_{j-1}^n| \\
+    &\leq (\lambda a_j^n+(1-\lambda a_j^n))\max_{j}\norm{\bm{u}^n}_\infty \\
+    &= \norm{\bm{u}^n}_\infty.
+\end{align*}
+迭代后可以得到
+\begin{equation*}
+    \norm{\bm{u}^n}_\infty \leq \norm{\bm{u}^0}_\infty.
+\end{equation*}
 
 \section{一阶双曲型方程初边值问题的差分法}
 
@@ -459,7 +500,7 @@ Lax-Wendroff 格式稳定应满足
 
 将空间区域 $[0,1]$ 作 $J$ 等分, 则 $x$ 方向的步长为 $h$, 可仿照构造一阶双曲型方程初值问题差分格式的思想来处理相应的初边值问题.
 
-\textbf{方法 1: 迎风格式.}
+\noindent\textbf{方法 1: 迎风格式.}
 \begin{equation*}
     \begin{cases}
         \frac{u_j^{n+1} - u_j^n}{\tau} - \frac{u_{j+1}^n - u_j^n}{h} = 0, \quad 0 < j < J, \\
@@ -467,46 +508,18 @@ Lax-Wendroff 格式稳定应满足
         u_j^0 = f(x_j) = f_j.
     \end{cases}
 \end{equation*}
-该格式的精度为 $O(\tau + h)$.
-
-\textbf{$x = 0$ 处的网格点赋值：}
-设想 $x = 0$ 处也满足双曲型方程, 则使用迎风格式离散可得
+该格式的精度为 $O(\tau + h)$.\par
+当$n=1$时，除了$x=0$的点外都可以由向前差商和初值条件得到.但在$x=0$处，它本应使用$x=0,n=0$的点的取值，但$x=0$没有方程假设满足，因此必须还要做出假设.一般即设想 $x = 0$ 处也满足双曲型方程, 则使用迎风格式离散可得
 \begin{equation*}
     \frac{u_0^{n+1} - u_0^n}{\tau} - \frac{u_1^n - u_0^n}{h} = 0.
 \end{equation*}
+不断迭代即可得到方程的数值解.\par
 
-\textbf{方法 2: 蛙跳格式.}
+\noindent\textbf{方法 2: 蛙跳格式.}
 \begin{equation}\label{eq:leapfrog}
     \frac{u_j^{n+1} - u_j^{n-1}}{2\tau} - \frac{u_{j+1}^n - u_{j-1}^n}{2h} = 0, \quad 0 < j < J.
 \end{equation}
-该格式精度为 $O(\tau^2 + h^2)$. 同样地, 它在 $x = 0$ 处的信息无法知道. 有两个解决方法:
-\begin{enumerate}[(1)]
-    \item 均匀化法. 作均匀化假设 $\frac{u_0^n + u_2^n}{2} = u_1^n$. 但这样做将会出现回流现象, 导致格式失真.
-    \item 迎风格式法. 在 $x = 0$ 处离散时用迎风格式
-    \begin{equation*}
-        u_0^{n+1} = u_0^n + \lambda(u_1^n - u_0^n)
-    \end{equation*}
-    或格式
-    \begin{equation*}
-        u_0^{n+1} = u_0^{n-1} + \lambda \left( u_1^n - \frac{1}{2}(u_0^{n+1} + u_0^{n-1}) \right).
-    \end{equation*}
-\end{enumerate}
-
-\textbf{例: 用蛙跳格式数值求解问题}
-\begin{equation*}
-    \begin{cases}
-        u_t - u_x = 0, \quad 0 < x < 1, \ 0 < t < 0.5, \\
-        t = 0, \quad u_0(x) = f(x), \\
-        x = 1, \quad u = g(t),
-    \end{cases}
-\end{equation*}
-其中, $f(x), g(t)$ 由精确解 $u(x,t) = e^{-\alpha(x+t)}$ 确定 ($\alpha > 0$ 为参数).
-
-内部点的离散格式为 \eqref{eq:leapfrog}, 即
-\begin{equation*}
-    u_j^{n+1} = u_j^{n-1} + \lambda(u_{j+1}^n - u_{j-1}^n), \quad \lambda = \tau/h.
-\end{equation*}
-
+该格式精度为 $O(\tau^2 + h^2)$，较迎风格式更高.\par
 \begin{figure}[htbp]
     \centering
     \begin{tikzpicture}[scale=1.5, >=stealth]
@@ -529,9 +542,37 @@ Lax-Wendroff 格式稳定应满足
         \filldraw[black] (0, -1) circle (1.5pt); % (j, n-1)
         \filldraw[fill=white, draw=black] (0, 1) circle (1.5pt); % (j, n+1)
     \end{tikzpicture}
+    \captionof{figure}{蛙跳格式示意图.}
 \end{figure}
+同样地, 它在 $x = 0$ 处的信息无法知道. 有两个解决方法:
+\begin{enumerate}[(1)]
+    \item 均匀化法. 作均匀化假设 $\frac{u_0^n + u_2^n}{2} = u_1^n$. 但这样做将会出现回流现象, 导致格式失真.
+    \item 迎风格式法. 在 $x = 0$ 处离散时用迎风格式
+    \begin{equation*}
+        u_0^{n+1} = u_0^n + \lambda(u_1^n - u_0^n)
+    \end{equation*}
+    或格式
+    \begin{equation*}
+        u_0^{n+1} = u_0^{n-1} + \lambda \left( u_1^n - \frac{1}{2}(u_0^{n+1} + u_0^{n-1}) \right).
+    \end{equation*}
+\end{enumerate}
 
-蛙跳格式的节点示意图如上，即用三个黑点处的值求白点处的值，显然白点达不到区域的左右边界，因而对本问题，需要给出左边界的处理方法，这里选取均匀化法和迎风格式法. 计算开始时需要 $n=0$ 和 $n=1$ 时间层的结果以进行迭代. 为了聚焦左边界点处不同离散化方法引起的不同效应，使用精确解来获得这些值.
+\begin{instance}
+用蛙跳格式数值求解问题
+\begin{equation*}
+    \begin{cases}
+        u_t - u_x = 0, \quad 0 < x < 1, \ 0 < t < 0.5, \\
+        t = 0, \quad u_0(x) = f(x), \\
+        x = 1, \quad u = g(t),
+    \end{cases}
+\end{equation*}
+其中, $f(x), g(t)$ 由精确解 $u(x,t) = e^{-\alpha(x+t)}$ 确定 ($\alpha > 0$ 为参数).
+
+内部点的离散格式为 \eqref{eq:leapfrog}, 即
+\begin{equation*}
+    u_j^{n+1} = u_j^{n-1} + \lambda(u_{j+1}^n - u_{j-1}^n), \quad \lambda = \tau/h.
+\end{equation*}
+
 
 根据理论分析稳定的充要条件是 $\lambda = \tau/h < 1$，计算中取 $h = 0.02$, $\tau = 0.01$. 均匀化法是用左边界处的值构造平均得到的，因而当精确解在左边界处变化较大时，相应的数值解应该会出现较大的偏差. 为了观察这种效应，我们逐渐增大参数 $\alpha$，相应的数值结果表现如下:
 
@@ -539,6 +580,28 @@ Lax-Wendroff 格式稳定应满足
     \item 当 $\alpha$ 增大时，均匀化法的计算结果在真实解附近振荡，而且随时间增大，这种振荡越明显，这是因为此时真实解在左端的变化更大. 这种非物理性振荡恰好符合均值的特性. 与此不同的是，迎风格式法的计算结果与真实解很好地吻合.
     \item 如果比较误差极值的话，迎风格式法也明显优于均匀化法.
 \end{enumerate}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.75\textwidth]{fig/3.3.png}
+    \captionof{figure}{$\alpha=1$时左边界的计算结果}
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.75\textwidth]{fig/3.4.png}
+    \captionof{figure}{$\alpha=10$时左边界的计算结果}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{fig/3.5.png}
+    \captionof{figure}{$\alpha=1$时两种方法的绝对误差(左：均匀化法，右：迎风格式法)}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{fig/3.6.png}
+    \captionof{figure}{$\alpha=10$时两种方法的绝对误差(左：均匀化法，右：迎风格式法)}
+\end{figure}
+
+\end{instance}
 
 \section{二阶双曲型方程的差分方法}
 
@@ -553,42 +616,31 @@ Lax-Wendroff 格式稳定应满足
 
 构造它的差分格式有两种方法.
 
-\textbf{方法 1. 数值微分方法.}
+\noindent\textbf{方法 1. 数值微分方法.}
 
 将 $u_{tt}$ 和 $u_{xx}$ 用中心差商离散即得 ($n=1, 2, \cdots, \ j=0, \pm 1, \cdots$)
 \begin{equation} \label{eq:wave-finite-difference}
     \frac{u_j^{n+1} - 2u_j^n + u_j^{n-1}}{\tau^2} - a^2 \frac{u_{j+1}^n - 2u_j^n + u_{j-1}^n}{h^2} = 0.
 \end{equation}
-易得该差分方程的截断误差为 $O(\tau^2 + h^2)$. 对该格式的稳定性分析留作练习.
-
-\textbf{方法 2. 高阶方程化为一阶方程组法.}
-
-令 $v = u_t$, $w = a u_x$, 则由 \eqref{eq:wave-equation} 可知
+移项化简可得
 \begin{equation*}
-    \begin{cases}
-        v_t - a w_x = 0, \\
-        a v_x - w_t = 0.
-    \end{cases}
+    u_j^{n+1}=2u_j^n - u_j^{n-1} + (a\lambda)^2 \{u_{j+1}^n - 2u_j^n + u_{j-1}^n\}.
+\end{equation*}
+它是一个三层显示格式.易得该差分方程的截断误差为 $O(\tau^2 + h^2)$.并且该格式弱不稳定的.\par
+\begin{question}
+    上述格式是一个三层格式，那么我们需要两个时间层的初值条件才能开始迭代，应当如何取$u_j^1$?
+\end{question}
+\noindent\textbf{法一：标准方法.} 考虑在$u_t$处的数值微分
+\begin{equation*}
+    u_1(x)=u_t(x,0)\approx \frac{u_j^1-u_j^0}{\tau}
+\end{equation*}
+进而
+\begin{equation*}
+    u_j^1 = u_0(x_j) + \tau u_1(x_j).
 \end{equation*}
 
-如记 $\boldsymbol{u} = [v, w]^T$, 则上式即为
-\begin{equation*}
-    \boldsymbol{u}_t -
-    \begin{bmatrix}
-        0 & a \\
-        a & 0
-    \end{bmatrix}
-    \boldsymbol{u}_x = \boldsymbol{0}.
-\end{equation*}
-对该方程组可以构造多个差分格式离散.
-
-\vspace{1ex}
-现在对初值条件进行离散. 对于 $0$ 时间层, 自然有 $u_j^0 = u_0(x_j)$. 对于 $1$ 时间层, 如果将 $u_t$ 用前向差商离散, 则得
-\begin{equation*}
-    \frac{u_j^1 - u_j^0}{\tau} = u_t(x_j, 0) = u_1(x_j).
-\end{equation*}
-该方法只有一阶精度.
-
+这一方法的问题在于通过数值微分得到的$u_j^1$只有一阶精度，和中心差商的二阶精度不相匹配.\par
+\noindent\textbf{法二：虚拟格点法.} 另一种方法是引进虚拟网格 $(x_j, -\tau)$ 及格点函数 $u_j^{-1}$ (见图 \ref{fig:virtual-grid}).\par
 \begin{figure}[htbp]
     \centering
     \begin{tikzpicture}[scale=1]
@@ -610,12 +662,11 @@ Lax-Wendroff 格式稳定应满足
     \label{fig:virtual-grid}
 \end{figure}
 
-另一种方法是引进虚拟网格 $(x_j, -\tau)$ 及格点函数 $u_j^{-1}$ (见图 \ref{fig:virtual-grid}).
 
 在 $(x_j, 0)$ 处假设满足弦振动方程并用中心差商离散, 对 $u_t$ 也使用中心差商离散, 则得
 \begin{equation*}
     \begin{cases}
-        \frac{u_j^1 - u_j^{-1}}{2\tau} = u_t(x_j, 0) = u_1(x_j), \\[1ex]
+        \frac{u_j^1 - u_j^{-1}}{2\tau} = u_t(x_j, 0) = u_1(x_j), \\[2ex]
         \frac{u_j^1 - 2u_j^0 + u_j^{-1}}{\tau^2} - a^2 \frac{u_{j+1}^0 - 2u_j^0 + u_{j-1}^0}{h^2} = 0,
     \end{cases}
 \end{equation*}
@@ -624,15 +675,40 @@ Lax-Wendroff 格式稳定应满足
     u_j^1 = u_0(x_j) + \tau u_1(x_j) + \frac{1}{2}(a\lambda)^2 \{u_{j+1}^0 - 2u_j^0 + u_{j-1}^0 \}.
 \end{equation*}
 
-以上结果也可由 Taylor 展开得到:
+\noindent\textbf{法三：Taylor 展开法.} 先将其连续化，有$u_j^1=u(x_j,\tau)$，由Taylor 展开得到:
 \begin{equation*}
     \begin{aligned}
         u_j^1 &\approx u(x_j, \tau) = u(x_j, 0) + \tau u_t(x_j, 0) + \frac{1}{2}\tau^2 u_{tt}(x_j, 0) + O(\tau^3) \\
         &= u_0(x_j) + \tau u_1(x_j) + \frac{1}{2}a^2\tau^2 u_{xx}(x_j, 0) + O(\tau^3),
     \end{aligned}
 \end{equation*}
-故取
+再将$u_{xx}$用中心差商离散，即可得到
 \begin{equation*}
     u_j^1 = u_0(x_j) + \tau u_1(x_j) + \frac{1}{2}(a\lambda)^2 \{u_0(x_{j+1}) - 2u_0(x_j) + u_0(x_{j-1}) \}.
 \end{equation*}
 这个格式具有二阶精度, 和差分方程 \eqref{eq:wave-finite-difference} 的精度吻合.
+
+\noindent\textbf{方法 2. 高阶方程化为一阶方程组法.}
+
+令 $v = u_t$, $w = a u_x$, 则由 \eqref{eq:wave-equation} 可知
+\begin{equation*}
+    \begin{cases}
+        v_t - a w_x = 0, \\
+        a v_x - w_t = 0.
+    \end{cases}
+\end{equation*}
+
+如记 $\boldsymbol{u} = [v, w]^T$, 则上式即为
+\begin{equation*}
+    \boldsymbol{u}_t -
+    \begin{bmatrix}
+        0 & a \\
+        a & 0
+    \end{bmatrix}
+    \boldsymbol{u}_x = \boldsymbol{0}.
+\end{equation*}
+对该方程组可以构造多个差分格式离散.
+
+
+
+

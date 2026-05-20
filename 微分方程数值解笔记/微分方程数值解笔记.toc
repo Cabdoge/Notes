@@ -1,41 +1,59 @@
 \contentsline {chapter}{\numberline {1}椭圆型方程的差分方法}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}一个典型例子}{1}{section.1.1}%
-\contentsline {section}{\numberline {1.2}求解线性代数方程组的迭代法}{6}{section.1.2}%
-\contentsline {section}{\numberline {1.3}二维 Poisson 方程的差分方法}{7}{section.1.3}%
-\contentsline {section}{\numberline {1.4}五点差分格式的性质}{8}{section.1.4}%
-\contentsline {subsection}{\numberline {1.4.1}截断误差}{8}{subsection.1.4.1}%
-\contentsline {subsection}{\numberline {1.4.2}存在唯一性}{9}{subsection.1.4.2}%
-\contentsline {subsection}{\numberline {1.4.3}收敛性}{10}{subsection.1.4.3}%
-\contentsline {section}{\numberline {1.5}离散后线性方程组基本求解方法}{12}{section.1.5}%
-\contentsline {section}{\numberline {1.6}求解五点差分格式的快速 DST 方法}{13}{section.1.6}%
-\contentsline {subsection}{\numberline {1.6.1}求解方法}{13}{subsection.1.6.1}%
-\contentsline {subsection}{\numberline {1.6.2}DST 算法}{15}{subsection.1.6.2}%
-\contentsline {subsection}{\numberline {1.6.3}各类算法计算时间的比较}{16}{subsection.1.6.3}%
-\contentsline {section}{\numberline {1.7}两点边值问题的紧致差分格式}{16}{section.1.7}%
-\contentsline {chapter}{\numberline {2}发展方程有限差分法的基本概念和理论}{20}{chapter.2}%
-\contentsline {section}{\numberline {2.1}差分方法的构造步骤}{20}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}网格剖分得格点}{21}{subsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.1.2}构造差分格式}{21}{subsection.2.1.2}%
-\contentsline {section}{\numberline {2.2}差分格式的截断误差和相容性}{24}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}构造差分格式的待定系数法}{26}{subsection.2.2.1}%
-\contentsline {section}{\numberline {2.3}有限体积法}{27}{section.2.3}%
-\contentsline {section}{\numberline {2.4}差分格式的收敛性和稳定性}{29}{section.2.4}%
-\contentsline {section}{\numberline {2.5}判别差分格式稳定性的 Fourier 方法}{34}{section.2.5}%
-\contentsline {subsection}{\numberline {2.5.1}Fourier 变换回顾}{34}{subsection.2.5.1}%
-\contentsline {subsection}{\numberline {2.5.2}用 Fourier 变换研究差分格式稳定性}{35}{subsection.2.5.2}%
-\contentsline {section}{\numberline {2.6}Von-Neumann 条件与差分格式稳定性分析初步}{37}{section.2.6}%
-\contentsline {section}{\numberline {2.7}多层差分格式稳定性分析}{38}{section.2.7}%
-\contentsline {section}{\numberline {2.8}差分格式稳定性的其他研究方法}{41}{section.2.8}%
-\contentsline {subsection}{\numberline {2.8.1}矩阵分析方法}{41}{subsection.2.8.1}%
-\contentsline {subsection}{\numberline {2.8.2}最大模方法}{43}{subsection.2.8.2}%
-\contentsline {chapter}{\numberline {3}双曲型方程的差分方法}{45}{chapter.3}%
-\contentsline {section}{\numberline {3.1}一阶双曲型方程的若干差分格式}{45}{section.3.1}%
-\contentsline {section}{\numberline {3.2}CFL 条件}{47}{section.3.2}%
-\contentsline {section}{\numberline {3.3}用特征线法构造差分格式}{48}{section.3.3}%
-\contentsline {section}{\numberline {3.4}一阶变系数双曲型方程的差分法}{50}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}差分格式的稳定性分析}{51}{subsection.3.4.1}%
-\contentsline {section}{\numberline {3.5}一阶双曲型方程初边值问题的差分法}{51}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}边值条件提法}{51}{subsection.3.5.1}%
-\contentsline {subsection}{\numberline {3.5.2}差分格式}{52}{subsection.3.5.2}%
-\contentsline {section}{\numberline {3.6}二阶双曲型方程的差分方法}{53}{section.3.6}%
+\contentsline {section}{\numberline {1.2}求解线性代数方程组的迭代法}{7}{section.1.2}%
+\contentsline {section}{\numberline {1.3}二维 Poisson 方程的差分方法}{8}{section.1.3}%
+\contentsline {section}{\numberline {1.4}五点差分格式的性质}{9}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}截断误差}{9}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.2}存在唯一性}{10}{subsection.1.4.2}%
+\contentsline {subsection}{\numberline {1.4.3}收敛性}{12}{subsection.1.4.3}%
+\contentsline {section}{\numberline {1.5}离散后线性方程组基本求解方法}{14}{section.1.5}%
+\contentsline {section}{\numberline {1.6}求解五点差分格式的快速 DST 方法}{15}{section.1.6}%
+\contentsline {subsection}{\numberline {1.6.1}求解方法}{15}{subsection.1.6.1}%
+\contentsline {subsection}{\numberline {1.6.2}DST 算法}{17}{subsection.1.6.2}%
+\contentsline {subsection}{\numberline {1.6.3}各类算法计算时间的比较}{18}{subsection.1.6.3}%
+\contentsline {section}{\numberline {1.7}两点边值问题的紧致差分格式}{18}{section.1.7}%
+\contentsline {chapter}{\numberline {2}发展方程有限差分法的基本概念和理论}{22}{chapter.2}%
+\contentsline {section}{\numberline {2.1}差分方法的构造步骤}{22}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}网格剖分得格点}{23}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}构造差分格式}{24}{subsection.2.1.2}%
+\contentsline {section}{\numberline {2.2}差分格式的截断误差和相容性}{27}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}构造差分格式的待定系数法}{29}{subsection.2.2.1}%
+\contentsline {section}{\numberline {2.3}有限体积法}{30}{section.2.3}%
+\contentsline {section}{\numberline {2.4}差分格式的收敛性和稳定性}{33}{section.2.4}%
+\contentsline {section}{\numberline {2.5}判别差分格式稳定性的 Fourier 方法}{39}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Fourier 变换回顾}{39}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}用 Fourier 变换研究差分格式稳定性}{39}{subsection.2.5.2}%
+\contentsline {section}{\numberline {2.6}Von-Neumann 条件与差分格式稳定性分析初步}{42}{section.2.6}%
+\contentsline {section}{\numberline {2.7}多层差分格式稳定性分析}{44}{section.2.7}%
+\contentsline {section}{\numberline {2.8}差分格式稳定性的其他研究方法}{47}{section.2.8}%
+\contentsline {subsection}{\numberline {2.8.1}矩阵分析方法}{47}{subsection.2.8.1}%
+\contentsline {subsection}{\numberline {2.8.2}最大模方法}{49}{subsection.2.8.2}%
+\contentsline {chapter}{\numberline {3}双曲型方程的差分方法}{52}{chapter.3}%
+\contentsline {section}{\numberline {3.1}一阶双曲型方程的若干差分格式}{52}{section.3.1}%
+\contentsline {section}{\numberline {3.2}CFL 条件}{54}{section.3.2}%
+\contentsline {section}{\numberline {3.3}用特征线法构造差分格式}{55}{section.3.3}%
+\contentsline {section}{\numberline {3.4}一阶变系数双曲型方程的差分法}{57}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}差分格式的稳定性分析}{59}{subsection.3.4.1}%
+\contentsline {section}{\numberline {3.5}一阶双曲型方程初边值问题的差分法}{60}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}边值条件提法}{60}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}差分格式}{61}{subsection.3.5.2}%
+\contentsline {section}{\numberline {3.6}二阶双曲型方程的差分方法}{64}{section.3.6}%
+\contentsline {chapter}{\numberline {4}抛物型方程的差分格式}{67}{chapter.4}%
+\contentsline {section}{\numberline {4.1}常系数抛物型方程差分格式}{67}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}一维常系数抛物型方程初值问题}{67}{subsection.4.1.1}%
+\contentsline {section}{\numberline {4.2}初边值问题第一类边值条件}{73}{section.4.2}%
+\contentsline {section}{\numberline {4.3}第三类边值条件}{73}{section.4.3}%
+\contentsline {section}{\numberline {4.4}对流扩散方程初值问题的差分格式}{74}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}差分格式的建立}{75}{subsection.4.4.1}%
+\contentsline {section}{\numberline {4.5}变系数方程 Taylor 展开法和有限体积法}{77}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Taylor 展开法}{78}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}有限体积法}{79}{subsection.4.5.2}%
+\contentsline {section}{\numberline {4.6}二维抛物方程差分法：一维问题的直接推广}{80}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}显式和隐式格式}{80}{subsection.4.6.1}%
+\contentsline {section}{\numberline {4.7}交替方向隐式格式}{81}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}交替方向隐式格式 (Peaceman-Rachford)}{81}{subsection.4.7.1}%
+\contentsline {section}{\numberline {4.8}算子分裂方法}{83}{section.4.8}%
+\contentsline {subsection}{\numberline {4.8.1}从一个简单例子谈起}{83}{subsection.4.8.1}%
+\contentsline {subsection}{\numberline {4.8.2}一般化及在抛物型方程中的应用}{84}{subsection.4.8.2}%
+\contentsline {subsection}{\numberline {4.8.3}算子分裂方法在抛物型方程差分方法中的应用}{85}{subsection.4.8.3}%
 \contentsfinish 

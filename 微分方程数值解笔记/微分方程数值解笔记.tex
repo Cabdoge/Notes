@@ -1,17 +1,28 @@
-\documentclass[11pt,a4paper,openany,twoside]{ctexbook}
+\documentclass[10pt,b5paper,openany,twoside]{ctexbook}
 
 %================ 核心：rainbow 环境 ================
 \usepackage{rainbow}
+
+%================ 索引与符号说明（imakeidx 须在 hyperref 之前加载）================
+\usepackage{imakeidx}
+\usepackage{longtable}
+\usepackage{multicol}
+\usepackage{multirow}
+\makeindex[title=关键词索引, columns=2, columnsep=1.5cm, intoc, options=-s pinyin.ist]
+
 \usepackage{bookstyle}
 
 %================ 数学 ================
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{bm}
+\usepackage{empheq}
+\usepackage{physics2}
+\usephysicsmodule{ab.legacy,op.legacy,qtext.legacy,diagmat}
 
 %================ 页面布局 ================
 \usepackage{geometry}
 
-\usepackage{empheq} % 用于公式分组
 
 %================ 行距 ================
 \usepackage{setspace}
@@ -23,8 +34,8 @@
 
 %================ 缩小公式上下间距 ================
 \AtBeginDocument{
-  \abovedisplayskip=4pt plus 1pt minus 1pt
-  \belowdisplayskip=4pt plus 1pt minus 1pt
+  \abovedisplayskip=4pt plus 1pt minus 1.5pt
+  \belowdisplayskip=4pt plus 1pt minus 1.5pt
   \abovedisplayshortskip=0pt plus 3pt
   \belowdisplayshortskip=3pt plus 1pt minus 1pt 
 }
@@ -48,11 +59,8 @@
 \usepackage{pifont}        % 圆圈数字
 \usepackage{faktor}        % 商集符号
 \usepackage{extarrows}     % 额外长度自适应箭标
-\usepackage{booktabs}        % 表格线条
-\usepackage{physics}
+\usepackage{cleveref}      % 智能引用
 
-%================ 蓝色加粗 / 常用简写 ================
-\definecolor{titleblue}{HTML}{3498DB}
 
 %================ 向量 ================
 \usepackage[f]{esvect}
@@ -68,20 +76,10 @@
         (.350em,.1ex) -- (.650em,1.5ex)
         (.550em,.1ex) -- (.850em,1.5ex);}}}
 
-\usepackage{bm}
-
 %================ 数学简写 ================
 \newcommand{\mb}{\mathbb}
 \newcommand{\z}{\text}
-\renewcommand{\a}{\alpha}
-\renewcommand{\b}{\beta}
 \renewcommand{\d}{\mathop{}\!\mathrm{d}}
-\newcommand{\D}{\Delta}
-\renewcommand{\l}{\lambda}
-\newcommand{\m}{\mu}
-\newcommand{\p}{\uppi}
-\renewcommand{\th}{\theta}
-\newcommand{\lam}{\lambda}
 \renewcommand{\leq}{\leqslant}
 \renewcommand{\geq}{\geqslant}
 \newcommand{\rttri}{\mathrm{Rt}\triangle}
@@ -95,6 +93,11 @@
 \newcommand{\mbb}[1]{\mathbb{#1}}
 \newcommand{\eu}{\mathrm{e}}
 \newcommand{\iu}{\mathrm{i}}
+\DeclareMathOperator{\ran}{ran}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\spann}{span}
+\DeclareMathOperator{\dist}{dist}
 
 %================ 定端同伦符号 ================
 \usepackage{accents}
@@ -103,7 +106,6 @@
 \DeclareMathOperator{\st}{\,\text{s.t.}}
 \DeclareMathOperator{\aew}{\,\text{a.e.}}
 \DeclareMathOperator{\ie}{\,\text{i.e.}}
-\DeclareMathOperator{\diag}{diag}
 
 %================ 填空线 ================
 \newcommand{\fillin}[1][3.5]{%
@@ -128,18 +130,6 @@
 \setcounter{secnumdepth}{2}
 \setcounter{tocdepth}{2}
 
-%================ 消除 subsection 前的换页鼓励 ================
-% beforeskip 为正值时使用 \addvspace，不会插入负惩罚鼓励换页
-\ctexset{
-  subsection/beforeskip = {3.5ex plus 1ex minus .2ex}
-}
-
-%================ subsection 前检查剩余空间（机制二）================
-% 若页面剩余空间不足 5 行，则整体移到下一页，避免孤立标题
-\usepackage{needspace}
-\usepackage{etoolbox}
-\pretocmd{\subsection}{\needspace{-1\baselineskip}}{}{}
-
 %================ enumerate 第二级样式 ================
 \setlist[enumerate,2]{label=(\arabic*), leftmargin=2em}
 
@@ -154,17 +144,14 @@
 }
 \makeatother
 
-\allowdisplaybreaks
-
 \raggedbottom
 
 
 \begin{document}
 
+\input{cover.tex}
 
-\title{微分方程数值解笔记}
-\date{}
-\maketitle
+\hypersetup{pageanchor=true}
 \setcounter{page}{1}
 
 \frontmatter
@@ -176,10 +163,14 @@
 \ForceRightPage
 \mainmatter
 
+\clearpage
+
 \input{椭圆型方程的差分方法.tex}
 
 \input{发展方程有限差分法的基本概念和理论.tex}
 
 \input{双曲型方程的差分方法.tex}
+
+\input{抛物型方程的差分格式.tex}
 
 \end{document}

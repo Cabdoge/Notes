@@ -15,7 +15,10 @@
 %================ 数学 ================
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{physics}
+\usepackage{bm}
+\usepackage{physics2}
+\usephysicsmodule{ab.legacy,op.legacy}
+\usepackage{exactseq}
 
 %================ 页面布局 ================
 \usepackage{geometry}
@@ -42,6 +45,7 @@
 \usetikzlibrary{decorations.pathreplacing,arrows.meta,cd}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{subcaption}
 
 %================ 图片环绕 ================
 \usepackage{wrapfig}
@@ -100,6 +104,8 @@
 \newcommand{\eu}{\mathrm{e}}
 \newcommand{\iu}{\mathrm{i}}
 \DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\coim}{coim}
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\End}{End}
 \DeclareMathOperator{\inv}{Inv}

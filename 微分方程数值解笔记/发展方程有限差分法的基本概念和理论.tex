@@ -822,7 +822,7 @@ u_j^{n-1}=(1-a\lambda)u_j^n+a\lambda u_{j+1}^n.
 \end{note}
 \begin{theorem}
     设 $\bm{G}(\tau,k)$ 是求解某一问题的某一差分格式的增长矩阵，则 Von-Neumann 条件 \eqref{eq:von_neumann_cond} 是该格式在范数 $\|\cdot\|_h$ 的意义下稳定的必要条件.\par
-    另一方面，如果$\bm{G}=\bm{S\Lambda S}^{-1}$，其中$\bm{\Lambda}=\diag(\lambda_1,\cdots,\lambda_p),\|\bm{S}\|_2+\|\bm{S}\|_2\leq M<\infty$，则 Von-Neumann 条件也是它在范数 $\|\cdot\|_h$ 的意义下稳定的充分条件.
+    另一方面，如果$\bm{G}=\bm{S\Lambda S}^{-1}$，其中$\bm{\Lambda}=\pdiagmat{\lambda_1,\cdots,\lambda_p},\|\bm{S}\|_2+\|\bm{S}\|_2\leq M<\infty$，则 Von-Neumann 条件也是它在范数 $\|\cdot\|_h$ 的意义下稳定的充分条件.
 \end{theorem}
 
 \begin{proof}
@@ -870,7 +870,7 @@ u_j^{n-1}=(1-a\lambda)u_j^n+a\lambda u_{j+1}^n.
 \end{instance}
 
 以下引理可以帮我们快捷的判断二阶矩阵的特征值是否满足 Von-Neumann 条件.
-\begin{lemma}\label{lem:3.1}
+\begin{lemma}[][lem:实二次方程根的模的判别]
     设 $b, c$ 为实常数，则二次方程
     \begin{equation}
         \mu^2 - b\mu - c = 0 \label{eq:lem3.1_1}
@@ -1143,7 +1143,7 @@ $\bm{H}_{J-1}$ 的特征值为
 
     令$u_j^n=v^n\eu^{\iu jkh}$，则
     \begin{equation*}
-        v^n\qty(a\lambda\eu^{\iu kh}+(1-a\lambda))=v^{n-1}，
+        v^n\ab(a\lambda\eu^{\iu kh}+(1-a\lambda))=v^{n-1}，
     \end{equation*}
     
     因此，增长因子为
