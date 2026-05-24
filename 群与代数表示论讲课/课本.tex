@@ -1,0 +1,358 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[UTF8]{ctex}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+
+\begin{document}
+
+\noindent \textbf{第 3 章 \quad 代数的表示} \hfill \textbf{81}
+\vspace{0.5em} \hrule \vspace{1.5em}
+
+\begin{center}
+    \Large \textbf{\S 4 \quad Wedderburn-Artin 定理}
+\end{center}
+
+\vspace{1em}
+
+\textbf{4.1 定义} \ 设 $A$ 是有限维 $F$-代数. 如果左正则 $A$-模 ${}_A A$ 是半单模, 即 ${}_A A$ 是其单子模的直和, 则称 $A$ 是半单代数.
+
+$A$ 的非零左理想 $I$ 称为极小左理想, 如果 $I$ 不再真包含 $A$ 的非零左理想. 由定义知左正则 $A$-模 ${}_A A$ 的单子模恰是 $A$ 的极小左理想. 故 $A$ 是半单代数当且仅当 $A$ 是其极小左理想的直和. 由 2.5 引理 1 知 $A$ 是半单代数当且仅当 $A$ 是其极小左理想的和.
+
+例如, 可除代数 $A$ 是半单代数, 因为 $A$ 本身是 $A$ 的极小左理想.
+
+若 $G$ 是有限群, $F$ 是特征不能整除 $|G|$ 的域. 则由 Maschke 定理知群代数 $FG$ 上任一左模均是半单模, 特别地, 左正则 $FG$-模是半单模. 于是, 可以将 Maschke 定理重新叙述如下:
+
+\vspace{0.5em}
+\textbf{4.2 定理} \ 有限群代数 $FG$ 是半单代数当且仅当 $\mathrm{char}F \nmid |G|$.
+\vspace{0.5em}
+
+\textbf{4.3 引理} \ 单代数是半单代数.
+
+\textbf{证} \ 设 $A$ 是单代数. 令 $M$ 是 $A$ 的所有极小左理想的和. 只要证明 $M = A$. 为此, 设 $S$ 是 $A$ 的任一极小左理想. 对于 $a \in A$, 映射 $s \mapsto sa, \forall s \in S$, 是单 $A$-模 $S$ 到模 $Sa$ 的满同态, 因此 $Sa = 0$ 或者 $Sa$ 也是单 $A$-模, 从而 $Sa \subseteq M$. 这表明 $Ma \subseteq M$, 即 $M$ 也是 $A$ 的右理想, 从而 $M$ 是 $A$ 的非零理想. 再由 $A$ 的单性即知 $M = A$. \hfill $\Box$
+\vspace{0.5em}
+
+\textbf{4.4 引理} \ 设 $D$ 是可除 $F$-代数, $(M_n(D))^{\mathrm{op}}$ 是 $D$ 上 $n$ 阶全矩阵代数 $M_n(D)$ 的反代数. 则有 $F$-代数同构 $(M_n(D))^{\mathrm{op}} \cong M_n(D^{\mathrm{op}})$, 其中 $D^{\mathrm{op}}$ 是 $D$ 的反代数.
+
+\textbf{证} \ 令 $\pi : (M_n(D))^{\mathrm{op}} \to M_n(D^{\mathrm{op}})$ 将 $D$ 上 $n$ 阶矩阵 $X$ 送到 $X$ 的转置 $X^{\mathrm{T}}$. 则 $\pi$ 是 $F$-线性映射. 设 $X=(x_{ij})$ 和 $Y=(y_{ij})$ 均是 $n$ 阶矩阵. 分别用 $X \circ Y$ 和 $X * Y$ 表示 $(M_n(D))^{\mathrm{op}}$ 和 $M_n(D^{\mathrm{op}})$ 中的乘法. 设 $x, y \in D$. 用 $x \circ y$ 表示 $D^{\mathrm{op}}$ 中的乘法. 则 (注意: 若 $D$ 不可换, 则在 $M_n(D)$ 中 $(YX)^{\mathrm{T}}$ 未必等于 $X^{\mathrm{T}} \cdot Y^{\mathrm{T}}$)
+
+$$
+\begin{aligned}
+(\pi(X \circ Y))_{ij} &= (\pi(YX))_{ij} = ((YX)^{\mathrm{T}})_{ij} \\
+&= (YX)_{ji} = \sum_{k=1}^n y_{jk} x_{ki} \\
+&= \sum_{k=1}^n x_{ki} \circ y_{jk} = (X^{\mathrm{T}} * Y^{\mathrm{T}})_{ij} \\
+&= (\pi(X) * \pi(Y))_{ij},
+\end{aligned}
+$$
+
+\newpage
+\noindent \textbf{82} \hfill \textbf{群与代数表示引论}
+\vspace{0.5em} \hrule \vspace{1.5em}
+
+即 $\pi(X \circ Y) = \pi(X) * \pi(Y)$. 从而 $\pi$ 是 $F$-代数同构. \hfill $\Box$
+
+下述定理是 Wedderburn-Artin 关于半单代数结构的主要结果.
+
+\textbf{4.5 定理 (Wedderburn-Artin)} \ 下述命题等价:
+\begin{itemize}
+    \item[(i)] $A$ 是半单 $F$-代数.
+    \item[(ii)] 任一左 $A$-模均是半单模.
+    \item[(iii)] $A$ 同构于可除 $F$-代数上全矩阵代数的直积. \\
+    特别地, 若 $F$ 是代数闭域, $A$ 同构于 $F$ 上全矩阵代数的直积.
+    \item[(iv)] $A$ 同构于单代数的直积.
+\end{itemize}
+
+\textbf{证} \ (i) $\Rightarrow$ (ii): 设 $A$ 是半单代数, $M$ 是任一左 $A$-模. 设 $m_1, \dots, m_n$ 是 $M$ 的一组 $F$-基. 则 $M = Am_1 + \dots + Am_n$. 考虑映射 $f_i: A \to Am_i$, 其中 $f_i(a) = am_i, \forall a \in A$. 则 $f_i$ 是左 $A$-模满同态, 即 $Am_i$ 是半单模 ${}_A A$ 的商模, 故由 2.5 引理 2 知 $Am_i$ 也是半单模, 从而 $M$ 是半单模.
+
+(ii) $\Rightarrow$ (iii): 设任一左 $A$-模均是半单模. 则左正则模 ${}_A A$ 是半单模. 故 $A = n_1S_1 \oplus \dots \oplus n_tS_t$, 其中 $S_1, \dots, S_t$ 是 ${}_A A$ 的互不同构的单子模. 令 $n_iS_i = L_i$. 则由引理 2.4 和 Schur 引理知
+
+$$
+\mathrm{Hom}_A(L_i, L_j) \cong n_i n_j \mathrm{Hom}_A(S_i, S_j) = 0, \ i \neq j.
+$$
+
+再由推论 2.12 知
+
+$$
+\mathrm{End}_A(L_i) = \mathrm{End}_A(n_iS_i) \cong M_{n_i}(D_i),
+$$
+
+其中 $D_i = \mathrm{End}_A(S_i)$ 是 $F$-上可除代数.
+
+由引理 2.8、引理 2.11 和引理 4.4, 有
+
+$$
+\begin{aligned}
+A &\cong (\mathrm{End}_A(A))^{\mathrm{op}} = (\mathrm{End}_A(L_1 \oplus \dots \oplus L_t))^{\mathrm{op}} \\
+&\cong (\mathrm{End}_A(L_1) \times \dots \times \mathrm{End}_A(L_t))^{\mathrm{op}} \\
+&\cong (M_{n_1}(D_1) \times \dots \times M_{n_t}(D_t))^{\mathrm{op}} \\
+&\cong (M_{n_1}(D_1))^{\mathrm{op}} \times \dots \times (M_{n_t}(D_t))^{\mathrm{op}} \\
+&\cong M_{n_1}(D_1^{\mathrm{op}}) \times \dots \times M_{n_t}(D_t^{\mathrm{op}}).
+\end{aligned}
+$$
+
+因为 $D_i$ 是可除代数, 故 $D_i^{\mathrm{op}}$ 也是可除代数, 从而 $A$ 同构于可除代数上全矩阵代数的直积.
+
+(iii) $\Rightarrow$ (iv): 显然, 因为可除代数上的全矩阵代数是单代数.
+
+\newpage
+\noindent \textbf{第 3 章 \quad 代数的表示} \hfill \textbf{83}
+\vspace{0.5em} \hrule \vspace{1.5em}
+
+(iv) $\Rightarrow$ (i): 设 $A = A_1 \times \dots \times A_n$, $A_i$ 均为单代数. 注意到每个直积因子 $A_i$ 上的模 $M$ 均可自然地视为 $A$-模: $\forall a = (a_1, \dots, a_n) \in A$, 其中 $a_i \in A_i$, 且
+
+$$
+a \cdot m := a_i m, \quad \forall m \in M;
+$$
+
+并且 $M$ 作为 $A_i$-模是单模当且仅当它作为 $A$-模是单模. 由引理 4.3 知每个 $A_i$ 均是单 $A_i$-模的和, 从而是单 $A$-模的和; 而左正则 $A$-模是左 $A$-模 $A_i$ 的和, 因此 ${}_A A$ 是单 $A$-模的和, 即 $A$ 是半单代数. \hfill $\Box$
+
+\vspace{0.5em}
+\textbf{4.6 推论} \ $A$ 是单代数当且仅当 $A$ 同构于可除代数上的某一全矩阵代数.
+
+特别地, 若 $F$ 是代数闭域, 则 $A$ 是单代数当且仅当 $A$ 同构于 $F$ 上的某一全矩阵代数.
+
+\textbf{证} \ 设 $A$ 是单代数. 由引理 4.3 知 $A$ 是半单代数. 从而由定理 4.5 知 $A \cong M_{n_1}(D_1) \times \dots \times M_{n_t}(D_t)$, 其中 $D_i$ 均为可除代数. 因为每个直积因子 $M_{n_i}(D_i)$ 均为 $A$ 的理想, 由 $A$ 的单性即知 $t=1$. \hfill $\Box$
+\vspace{0.5em}
+
+\textbf{4.7} \ 设 $A$ 是半单代数. 根据定理 4.5, 任一左 $A$-模均是半单模, 因此 $A$-模的研究归结为单 $A$-模的研究. 我们希望知道 $A$ 有多少个互不同构的单模以及每个单模的构造. 下述定理完全回答了这个问题.
+
+\textbf{定理} \ (i) 设 $A = A_1 \times \dots \times A_n$ 是半单代数, 其中每个 $A_i$ 均为单代数, $S$ 是任一单 $A$-模. 则存在唯一的 $A_i$ 使得 $S$ 是单 $A_i$-模且 $A_j S = 0, \forall j \neq i$. 称 $A_i$ 为 $S$ 相应的单因子.
+
+从而, 半单代数上单模是其某一个单因子上的单模.
+
+(ii) 设 $D$ 是有限维可除 $F$-代数. 则在同构意义下 $A = M_n(D)$ 有唯一的单模 $V$; 且正则 $A$-模同构于 $nV$, $\dim_F V = n[D:F]$; $\mathrm{End}_A(V) \cong D^{\mathrm{op}}$.
+
+(iii) 设 $D$ 是有限维可除 $F$-代数, $(V, \rho)$ 是 $A = M_n(D)$ 的不可约表示, 其中 $\rho : A \to \mathrm{End}_F(V)$ 是相应的代数同态. 则 $\rho(A) \cong M_n(D)$.
+
+若 $\mathrm{Hom}_A(V, V) \cong F$, 则 $\rho(A) = M_n(F)$. 此时 $\dim_F V = n$; 并且存在 $V$ 的一组 $F$-基 $B$ 使得 $\rho(a)$ 在 $B$ 下的矩阵就是 $a, \forall a \in A$.
+
+\textbf{证} \ (i) 设 $e_i$ 是 $A_i$ 的单位元, $i = 1, \dots, n$. 则 $1 = e_1 + \dots + e_n$. 因为 $e_j$ 在 $A$ 的中心里, 故 $e_j S$ 均是左 $A$-模. 由 $S$ 的单性即知 $e_j S = 0$ 或者 $e_j S = S$.
+
+设 $e_i S = S$. 则对于任一 $j \neq i$, $e_j S = e_j(e_i S) = (e_j e_i) S = 0$. 于是 $A_i S = (A e_i) S = A S = S$, 且 $A_j S = (A e_j) S = 0, j \neq i$. 从而 $S$ 也是单 $A_i$-模.
+
+\newpage
+\noindent \textbf{84} \hfill \textbf{群与代数表示引论}
+\vspace{0.5em} \hrule \vspace{1.5em}
+
+(ii) 令
+
+$$
+V := \left\{ \begin{pmatrix} x_1 \\ \vdots \\ x_n \end{pmatrix} \ \middle| \ x_1, \dots, x_n \in D \right\}.
+$$
+
+则 $V$ 自然地作成左 $M_n(D)$-模. 注意, $n$ 个单位列向量仅是 $V$ 的一组 $D$-基, 但一般来说不再是 $V$ 的一组 $F$-基. 因此, 对于 $a \in A = M_n(D)$, $a$ 作为 $V$ 的 $F$-线性变换一般来说不再是 $a$ 本身 (除非 $D=F$).
+
+设 $U$ 是 $V$ 的非零子模. 取 $a = \begin{pmatrix} a_1 \\ \vdots \\ a_n \end{pmatrix} \in U$, 其中某一 $a_j \neq 0$. 则
+
+$$
+\begin{pmatrix}
+0 & \dots & 0 & x_1 a_j^{-1} & 0 & \dots & 0 \\
+\vdots & & \vdots & \vdots & \vdots & & \vdots \\
+0 & \dots & 0 & x_n a_j^{-1} & 0 & \dots & 0
+\end{pmatrix}
+\begin{pmatrix} a_1 \\ \vdots \\ a_n \end{pmatrix}
+= \begin{pmatrix} x_1 \\ \vdots \\ x_n \end{pmatrix} \in U,
+$$
+
+即 $U = V$, 故 $V$ 是单 $M_n(D)$-模.
+
+令
+
+$$
+I_i = \left\{ \begin{pmatrix}
+0 & \dots & 0 & x_1 & 0 & \dots & 0 \\
+\vdots & & \vdots & \vdots & \vdots & & \vdots \\
+0 & \dots & 0 & x_n & 0 & \dots & 0
+\end{pmatrix}
+\in M_n(D) \ \middle| \ x_1, \dots, x_n \in D \right\}.
+$$
+
+则 $I_i$ 是 $M_n(D)$ 的左理想, 且有左 $M_n(D)$-模同构 $I_i \cong V, i = 1, \dots, n$. 于是有 $M_n(D)$-模同构 $M_n(D) = I_1 \oplus \dots \oplus I_n \cong nV$.
+
+设 $S$ 是任一单 $A$-模. 则
+
+$$
+0 \neq S \cong \mathrm{Hom}_A(A, S) \cong \mathrm{Hom}_A(nV, S) \cong n\mathrm{Hom}_A(V, S);
+$$
+
+从而 $\mathrm{Hom}_A(V, S) \neq 0$, 由 Schur 引理即知 $S \cong V$. 这表明 $V$ 是 $A$ 的唯一单模.
+
+设 $f \in \mathrm{End}_A(V)$. 注意到 $V = A\alpha$, $\alpha$ 可取 $\begin{pmatrix} 1 \\ 0 \\ \vdots \\ 0 \end{pmatrix}$.
+
+\newpage
+\noindent \textbf{第 3 章 \quad 代数的表示} \hfill \textbf{85}
+\vspace{0.5em} \hrule \vspace{1.5em}
+
+令 $f(\alpha) = \begin{pmatrix} a_1 \\ \vdots \\ a_n \end{pmatrix}$, $e_{ij}$ 是 $(i, j)$ 处为 $1$, 其余全为 $0$ 的 $n$ 阶矩阵. 则由
+
+$$
+\begin{pmatrix} a_1 \\ \vdots \\ a_n \end{pmatrix}
+= f(\alpha) = f(e_{11}\alpha) = e_{11} \begin{pmatrix} a_1 \\ \vdots \\ a_n \end{pmatrix}
+= \begin{pmatrix} a_1 \\ 0 \\ \vdots \\ 0 \end{pmatrix},
+$$
+
+推出 $a_2 = \dots = a_n = 0$. 从而对于任一 $x = \begin{pmatrix} x_1 \\ \vdots \\ x_n \end{pmatrix} \in V$, 有
+
+$$
+\begin{aligned}
+f(x) &= f((e_{11}x_1 + \dots + e_{n1}x_n)\alpha) = (e_{11}x_1 + \dots + e_{n1}x_n) \begin{pmatrix} a_1 \\ 0 \\ \vdots \\ 0 \end{pmatrix} \\
+&= \begin{pmatrix} x_1 a_1 \\ \vdots \\ x_n a_1 \end{pmatrix}
+= \begin{pmatrix} x_1 \\ \vdots \\ x_n \end{pmatrix} \cdot a_1.
+\end{aligned}
+$$
+
+由此可见, $f \mapsto a_1$ 给出了 $F$-代数同构: $\mathrm{End}_A(V) \cong D^{\mathrm{op}}$.
+
+(iii) 将上段证明中的单 $A$-模 $V$ 视为 $A$ 的不可约 $F$-表示, 于是得到代数映射 $\rho : A \to \mathrm{End}_F(V)$. 由模 ${}_A V$ 的构造知
+
+$$
+\mathrm{Ker}\rho = \{ a \in A \mid aV = 0 \} = 0.
+$$
+
+因此
+
+$$
+\rho(A) \cong A/\mathrm{Ker}\rho = A = M_n(D).
+$$
+
+设 $\mathrm{Hom}_A(V, V) \cong F$. 因 $\mathrm{Hom}_A(V, V) \cong D^{\mathrm{op}}$ 且 $D \supseteq F$, 故 $D=F$, $A = M_n(F)$. 从而由 $A$-模 $V$ 的构造知 $\rho(A) = M_n(F)$, 且对任一 $a \in A$, $\rho(a)$ 在 $V$ 的 $n$ 个单位列向量作成的基下的矩阵就是 $a$. \hfill $\Box$
+
+\vspace{0.5em}
+\textbf{4.8 推论} \ 设 $A \cong A_1 \times \dots \times A_n$ 是半单 $F$-代数, 其中每个 $A_i$ 均为单代数. 则恰有 $n$ 个互不同构的单 $A$-模.
+
+进一步地, 若 $\mathrm{Hom}_A(V, V) \cong F$, 其中 $V$ 是任一单 $A$-模, 则单 $A$-模的个数为 $\dim_F Z(A)$.
+
+\newpage
+\noindent \textbf{86} \hfill \textbf{群与代数表示引论}
+\vspace{0.5em} \hrule \vspace{1.5em}
+
+\textbf{证} \ 由推论 4.6 和定理 4.7(ii) 知 $A_i$ 有唯一的单模 $V_i$, 它们按 $A_j V_i = 0, j \neq i$, 的方式自然地作成单 $A$-模, 由此得到 $A$ 的 $n$ 个互不同构的单模. 再由定理 4.7(i) 知这是全部的单 $A$-模.
+
+注意到 $Z(A) \cong Z(A_1) \times \dots \times Z(A_n)$. 由推论 4.6、定理 4.7(ii) 和假设知 $A_i \cong M_{n_i}(D_i), \ D_i \cong (\mathrm{End}_{A_i}(V_i))^{\mathrm{op}} = (\mathrm{End}_A(V_i))^{\mathrm{op}} \cong F$. 因此
+
+$$
+\dim_F Z(A) = \sum_{i=1}^n \dim_F Z(A_i) = \sum_{i=1}^n \dim_F Z(M_{n_i}(F)) = n. \quad \Box
+$$
+
+\textbf{4.9} \ 类似于定理 4.5 的证明我们可以得到: 右正则模 $A_A$ 是半单模当且仅当 $A$ 同构于单代数的直积. 从而由定理 4.5 知 $A_A$ 是半单模当且仅当 ${}_A A$ 是半单模. 这说明半单代数是左右“对称”的.
+
+\textbf{4.10} \ Wedderburn-Artin 定理将半单代数 $A$ 归结为可除代数 $D_1, \dots, D_t$ 和正整数 $n_1, \dots, n_t$, 即 $A \cong M_{n_1}(D_1) \times \dots \times M_{n_t}(D_t)$. 自然的问题是 $D_i$ 与 $n_i$ 是否由 $A$ 唯一确定? 下述定理给出了肯定的回答, 从而将半单 $F$-代数的分类归结为有限维可除 $F$-代数的分类.
+
+\textbf{定理} \ 若 $A \cong M_{n_1}(D_1) \times \dots \times M_{n_t}(D_t) \cong M_{m_1}(K_1) \times \dots \times M_{m_s}(K_s)$, 其中 $D_1, \dots, D_t$, $K_1, \dots, K_s$ 均是可除 $F$-代数, 则 $t = s$, 且存在 $\{1, \dots, s\}$ 的置换 $\pi$ 使得 $n_i = m_{\pi(i)}, \ D_i \cong K_{\pi(i)}$.
+
+\textbf{证} \ 设 $e_i$ 是 $M_{n_i}(D_i)$ 的单位元, $i = 1, \dots, t$; $f_j$ 是 $M_{m_j}(K_j)$ 的单位元, $j = 1, \dots, s$. 则
+
+$$
+1 = e_1 + \dots + e_t = f_1 + \dots + f_s.
+$$
+
+因为 $e_i, f_j$ 均属于 $A$ 的中心, 故 $e_i f_j$ 与 $e_i - e_i f_j$ 均是 $M_{n_i}(D_i)$ 的幂等元, 且 $e_i f_j (e_i - e_i f_j) = (e_i - e_i f_j) e_i f_j = 0$. 于是得到 $M_{n_i}(D_i)$ 的单位元 $e_i$ 的中心分解 $e_i = e_i f_j + (e_i - e_i f_j)$. 从而由命题 1.4 知 $M_{n_i}(D_i)$ 有直积分解, 但 $M_{n_i}(D_i)$ 是单代数, 故 $e_i f_j = 0$ 或 $e_i f_j = e_i$. 类似地, $e_i f_j = 0$ 或 $e_i f_j = f_j$.
+
+因为 $e_i = e_i(f_1 + \dots + f_s)$, 故存在 $f_j$ 使得 $e_i f_j \neq 0$. 从而 $e_i = e_i f_j = f_j$; 若 $l \neq j$, 则 $e_i f_l = 0$, 这是因为 $e_i f_l = f_j f_l = 0$. 这表明对于任一 $i$, 存在唯一的 $j$, 使得 $e_i = f_j$. 于是 $t \leq s$.
+
+同样的讨论可知 $s \leq t$, 从而 $t = s$. 于是存在 $\{1, \dots, s\}$ 的置换 $\pi$ 使得 $e_i = f_{\pi(i)}$. 从而 $M_{n_i}(D_i) \cong A e_i = A f_{\pi(i)} \cong M_{m_{\pi(i)}}(K_{\pi(i)})$.
+
+\newpage
+\noindent \textbf{第 3 章 \quad 代数的表示} \hfill \textbf{87}
+\vspace{0.5em} \hrule \vspace{1.5em}
+
+余下要证: 若 $A \cong M_n(D) \cong M_m(K)$, $D$ 与 $K$ 均为 $F$-可除代数, 则 $n = m$ 且 $D \cong K$.
+
+根据定理 4.7(ii) 知 $A \cong nV \cong mV$, 其中 $V$ 是 $A$ 唯一的单模, 从而 $n = m$, 而且 $D \cong (\mathrm{End}_A(V))^{\mathrm{op}} \cong K$. \hfill $\Box$
+\vspace{1em}
+
+最后, 将本节的结果应用于有限群的群代数, 我们重新得到定理 II.3.2.
+
+\textbf{4.11 定理} \ 设 $\mathrm{char}F \nmid |G|$. 则有限群代数 $FG$ 的互不同构的单模个数 $\leq s$, 其中 $s$ 是 $G$ 的共轭类的个数; 且若 $F$ 是 $G$ 的分裂域, 则 $FG$ 恰有 $s$ 个互不同构的单模.
+
+\textbf{证} \ 由推论 4.8 知 $FG$ 恰有 $n$ 个互不同构的单模, 其中 $n$ 是半单代数 $FG$ 的单因子的个数, 因此 $n \leq \dim_F Z(FG)$, 且若 $F$ 是 $G$ 的分裂域, 则等号成立; 而由 1.3 例 3 知 $\dim_F Z(FG)$ 恰是 $G$ 的共轭类的个数. \hfill $\Box$
+\vspace{0.5em}
+
+\textbf{4.12} \ 设 $\mathrm{char}F \nmid |G|$ 且 $F$ 是 $G$ 的分裂域. 则由定理 4.2、定理 4.5 和定理 4.7(ii) 知
+
+$$
+FG = M_{n_1}(F) \times \dots \times M_{n_s}(F),
+$$
+
+其中 $s$ 恰为 $G$ 的共轭类的个数. 令 $e_i$ 是 $M_{n_i}(F)$ 的单位元. 则得到 $FG$ 的中心 $Z(FG)$ 的两组基 $\{c_1, \dots, c_s\}$ 和 $\{e_1, \dots, e_s\}$, 其中 $c_i$ 是 $G$ 的共轭类 $C_i$ 的类和. 这两组基各有优点: $c_1, \dots, c_s$ 有明显的群论意义, 而 $e_1, \dots, e_s$ 是正交基.
+
+令
+
+$$
+\begin{pmatrix} c_1 \\ \vdots \\ c_s \end{pmatrix}
+= \begin{pmatrix}
+a_{11} & \dots & a_{1s} \\
+\dots & \dots & \dots \\
+a_{s1} & \dots & a_{ss}
+\end{pmatrix}
+\begin{pmatrix} e_1 \\ \vdots \\ e_s \end{pmatrix}, \quad
+\begin{pmatrix} e_1 \\ \vdots \\ e_s \end{pmatrix}
+= \begin{pmatrix}
+b_{11} & \dots & b_{1s} \\
+\dots & \dots & \dots \\
+b_{s1} & \dots & b_{ss}
+\end{pmatrix}
+\begin{pmatrix} c_1 \\ \vdots \\ c_s \end{pmatrix},
+$$
+
+则 $A = (a_{ij})_{s \times s}$ 和 $B = (b_{ij})_{s \times s}$ 是 $F$ 上互逆的 $s$ 阶矩阵. 下面的命题给出了 $A, B$ 与 $G$ 的特征标表的关系.
+
+\vspace{0.5em}
+\textbf{命题} \ 设 $h_i = |C_i|$. 则
+
+$$
+a_{ij} = \frac{h_i}{n_j} \chi_j(g_i), \quad b_{ij} = \frac{n_i}{|G|} \chi_i(g_j^{-1}),
+$$
+
+其中 $\chi_i$ 是单因子 $M_{n_i}(F)$ 上的单模 $V_i$ (自然地视为 $FG$-模) 的特征标, $g_i$ 是 $C_i$ 中任一元.
+
+\newpage
+\noindent \textbf{88} \hfill \textbf{群与代数表示引论}
+\vspace{0.5em} \hrule \vspace{1.5em}
+
+\textbf{证} \ 若 $j \neq k$, 注意到 $M_{n_j}(F)$ 在 $V_k$ 上的作用为零, 而 $e_j$ 在 $V_j$ 上的作用是恒等作用. 因此
+
+$$
+\chi_j(e_k) := \mathrm{tr}(e_k) = \begin{cases}
+n_j, & k = j, \\
+0, & k \neq j.
+\end{cases}
+$$
+
+从而
+
+$$
+\chi_j(c_i) = \chi_j \left( \sum_{k=1}^s a_{ik}e_k \right) = \sum_{k=1}^s a_{ik} \chi_j(e_k) = a_{ij}n_j;
+$$
+
+另一方面, $\chi_j(c_i) = h_i \chi_j(g_i)$. 又因为 $\mathrm{char}F \nmid n_j$ (引理 II.3.3.A), 由此即得 $a_{ij} = \frac{h_i}{n_j} \chi_j(g_i)$.
+
+再由 $\chi_{\mathrm{reg}}(g) = \begin{cases} |G|, & g = 1, \\ 0, & g \neq 1 \end{cases}$ 知, 若 $g^{-1} \notin C_k$, 则 $\chi_{\mathrm{reg}}(c_k g) = 0$; 若 $g^{-1} \in C_k$, 则 $\chi_{\mathrm{reg}}(c_k g) = \chi_{\mathrm{reg}}(1) = |G|$. 于是, 由 $\chi_{\mathrm{reg}} = \sum_{i=1}^s n_i \chi_i$ 即得
+
+$$
+\chi_{\mathrm{reg}}(e_i g_j^{-1}) = \chi_{\mathrm{reg}} \left( \sum_{k=1}^s b_{ik} c_k g_j^{-1} \right) = \sum_{k=1}^s b_{ik} \chi_{\mathrm{reg}}(c_k g_j^{-1}) = |G|b_{ij};
+$$
+
+另一方面, 因 $e_i g_j^{-1} \in M_{n_i}(F)$, $M_{n_i}(F) V_k = 0 \ (i \neq k)$, 故 $\chi_k(e_i g_j^{-1}) = 0 \ (k \neq i)$, 而 $(e_i g_j^{-1}) V_i = g_j^{-1} (e_i V_i) = g_j^{-1} \cdot V_i$, 即 $\chi_i(e_i g_j^{-1}) = \chi_i(g_j^{-1})$. 于是
+
+$$
+\chi_{\mathrm{reg}}(e_i g_j^{-1}) = \sum_{k=1}^s n_k \chi_k(e_i g_j^{-1}) = n_i \chi_i(e_i g_j^{-1}) = n_i \chi_i(g_j^{-1}),
+$$
+
+从而得到 $b_{ij} = \frac{n_i}{|G|} \chi_i(g_j^{-1})$. \hfill $\Box$
+
+\vspace{3em}
+\begin{center}
+    \Large \textbf{习 \quad 题}
+\end{center}
+\vspace{1.5em}
+
+\begin{enumerate}
+    \setlength{\itemsep}{10pt}
+    \item 证明代数闭域上交换代数的单模必是 $1$ 维的.
+    \item 证明 $F$-代数 $A$ 是交换半单代数当且仅当 $A \cong K_1 \times \dots \times K_s$, 其中 $K_i$ 均是 $F$ 的扩域.
+    \item 设 $H, K$ 均为有限 Abel 群, $\mathrm{char}F \nmid |H|$, $\mathrm{char}F \nmid |K|$, 且 $F$ 是代数闭域. 则 $FH$ 与 $FK$ 作为 $F$-代数是同构的当且仅当 $|H| = |K|$.
+    \item 设 $A = A_1 \times \dots \times A_s$, $A_i$ 均为单代数, $M$ 是左 $A$-模, $1 = e_1 + \dots + e_s$ 是相应的单位元的中心分解. 证明: $M = \bigoplus_{i=1}^s e_i M$, 且 $e_i M$ 是左 $A_i$-模.
+\end{enumerate}
+
+\end{document}
