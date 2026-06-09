@@ -1,0 +1,63 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb}
+\usepackage{exactseq}
+\DeclareMathOperator{\Hom}{Hom}
+
+\begin{document}
+
+\section*{Default style}
+Inline: $\exactseq{0}[]{M'}[f]{M}[g]{M''}[]{0}$
+
+Display:
+\[
+\exactseq{0}[]{M'}[f]{M}[g]{M''}[]{0}
+\]
+
+Short labels:
+\[
+\exactseq{M'}[f]{M}[g]{M''}
+\]
+
+Long labels auto-extend:
+\[
+\exactseq{0}[]{M \otimes_R A}[1_M \otimes f]{M \otimes_R B}[1_M \otimes g]{M \otimes_R C}[]{0}
+\]
+
+\section*{Comparison with standard \textbackslash rightarrow}
+Standard: $A \rightarrow B \xrightarrow{f} C \longrightarrow D$
+
+Our arrows: $\exactseq{A}[]{B}[f]{C}[]{\dots}$
+
+\section*{\textbackslash injseq, \textbackslash surjseq, \textbackslash ses}
+\[
+\injseq[f]{M'}{M}, \quad
+\surjseq[g]{M}{M''}
+\]
+\[
+\ses[f][g]{M'}{M}{M''}
+\]
+
+\section*{Stealth style}
+\exactseqset{arrow style={-{Stealth}}}
+
+\[
+\exactseq{0}[]{M'}[f]{M}[g]{M''}[]{0}
+\]
+
+\section*{Latex style + longer min length}
+\exactseqset{arrow style={-{Latex[length=3pt]}}, min length=2.5em}
+
+\[
+\exactseq{0}[]{M'}[f]{M}[g]{M''}[]{0}
+\]
+
+\section*{Complex labels}
+\exactseqset{arrow style={->}, min length=1.8em}
+\[
+\exactseq{0}[]{M_1}[\iota_1]{M_1 \oplus M_2}[\pi_2]{M_2}[]{0}
+\]
+\[
+\exactseq{0}[]{\Hom_R(M, A)}[\Hom_R(M, A)]{\Hom_R(M, B)}[\bar{g}]{\Hom_R(M, C)}[]{0}
+\]
+
+\end{document}

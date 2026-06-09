@@ -1,0 +1,124 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{exactseq}[2026/06/01 Custom macros for drawing exact sequences using tikz-cd]
+
+\RequirePackage{tikz}
+\usetikzlibrary{cd, arrows.meta}
+\RequirePackage{xparse}
+
+% ==========================================
+% Configuration keys
+% ==========================================
+\ExplSyntaxOn
+\keys_define:nn { exactseq }
+  {
+    arrow~style .tl_set:N  = \l__exactseq_arrow_style_tl,
+    arrow~style .initial:n = { -> },
+    min~length  .dim_set:N = \l__exactseq_min_length_dim,
+    min~length  .initial:n = { 1.8em },
+    label~style .tl_set:N  = \l__exactseq_label_style_tl,
+    label~style .initial:n = { \scriptstyle },
+    label~sep   .dim_set:N = \l__exactseq_label_sep_dim,
+    label~sep   .initial:n = { 1.5pt },
+  }
+
+\NewDocumentCommand \exactseqset { m }
+  {
+    \keys_set:nn { exactseq } { #1 }
+  }
+
+% ==========================================
+% Core arrow command
+% ==========================================
+\dim_new:N \l__exactseq_arrowlen_dim
+\box_new:N \l__exactseq_label_box
+\newdimen\exactseqmathaxis
+\newdimen\exactseqarrowlen
+
+\cs_new_protected:Nn \__exactseq_draw_arrow:n
+  {
+    \hbox_set:Nn \l__exactseq_label_box
+      { $ \l__exactseq_label_style_tl #1 $ }
+    \dim_set:Nn \l__exactseq_arrowlen_dim
+      { \box_wd:N \l__exactseq_label_box + 0.6em }
+    \dim_compare:nNnT
+      { \l__exactseq_arrowlen_dim } < { \l__exactseq_min_length_dim }
+      { \dim_set_eq:NN \l__exactseq_arrowlen_dim \l__exactseq_min_length_dim }
+    \exactseqmathaxis = \fontdimen22 \textfont2
+    \exactseqarrowlen = \l__exactseq_arrowlen_dim
+    \mathrel
+      {
+        \tikz [ baseline = 0pt, inner~sep = 0pt, outer~sep = 0pt ]
+          {
+            \draw [ \l__exactseq_arrow_style_tl ]
+              ( 0, \exactseqmathaxis )
+              --
+              node
+                [
+                  above = \dim_use:N \l__exactseq_label_sep_dim,
+                  inner~sep = 1pt,
+                  pos = 0.5,
+                ]
+                { $ \l__exactseq_label_style_tl #1 $ }
+              ( \exactseqarrowlen, \exactseqmathaxis )
+              ;
+          }
+      }
+  }
+
+% ==========================================
+% User macros (inside ExplSyntaxOn for _ and : access)
+% ==========================================
+
+% 1. 左侧正合列（单射列）: 0 -> M' -> M
+\NewDocumentCommand{\injseq}{ O{f} m m }{%
+    0 \__exactseq_draw_arrow:n {0} #2 \__exactseq_draw_arrow:n {#1} #3
+}
+
+% 2. 右侧正合列（满射列）: M -> M'' -> 0
+\NewDocumentCommand{\surjseq}{ O{g} m m }{%
+    #2 \__exactseq_draw_arrow:n {#1} #3 \__exactseq_draw_arrow:n {0} 0
+}
+
+% 3. 短正合列: 0 -> M' -> M -> M'' -> 0
+\NewDocumentCommand{\ses}{ O{f} O{g} m m m }{%
+    0 \__exactseq_draw_arrow:n {0}
+      #3 \__exactseq_draw_arrow:n {#1}
+      #4 \__exactseq_draw_arrow:n {#2}
+      #5 \__exactseq_draw_arrow:n {0} 0
+}
+\ExplSyntaxOff
+
+% ==========================================
+% 4. 任意长度正合列 (递归链式调用)
+% 用法: \exactseq{M_1}[]{M_2}[f]{M_3}[g]{M_4}[]{0}
+% ==========================================
+\ExplSyntaxOn
+\tl_new:N \l__my_exactseq_tl
+
+\NewDocumentCommand{\exactseq}{ m }
+  {
+    \tl_set:Nn \l__my_exactseq_tl { #1 }
+    \my_exactseq_next:
+  }
+
+\cs_new_protected:Nn \my_exactseq_next:
+  {
+    \peek_charcode:NTF [
+      { \my_exactseq_consume:w }
+      { \my_exactseq_finish: }
+  }
+
+\NewDocumentCommand \my_exactseq_consume:w { O{} m }
+  {
+    \tl_put_right:Nn \l__my_exactseq_tl
+      { \__exactseq_draw_arrow:n {#1} #2 }
+    \my_exactseq_next:
+  }
+
+\cs_new_protected:Nn \my_exactseq_finish:
+  {
+    \tl_use:N \l__my_exactseq_tl
+  }
+\ExplSyntaxOff
+
+\endinput

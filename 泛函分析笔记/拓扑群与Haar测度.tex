@@ -1,0 +1,191 @@
+\chapter{拓扑群与 Haar 测度}
+
+对球面 $S^1$，如果要做积分 $\int_{S^1} f \d x$，这里的 $\d x$ 就是球面上的表面积分.这个积分在旋转下是不变的，我们称其为 Haar 测度.
+
+\section{拓扑群与表示}
+
+\begin{definition}[拓扑群]\index{t@拓扑群}
+设$G$是群，则称$G$是\colorbf{拓扑群}当且仅当
+\begin{enumerate}[(i)]
+    \item $G$配备拓扑，使得$G$是Hausdorff空间；
+    \item 群运算$\{\circ, \cdot^{-1}\}$是连续的
+\end{enumerate}
+\end{definition}
+从直观上说，拓扑群同时带有群和拓扑空间的结构，并且这两种结构是相容的.
+
+\begin{instance}
+$(\mb{R}^n, +)$, $(\mb{R}\setminus\{0\}, \times)$,
+$(\mathrm{GL}(n,\mb{R}), \times)$ 及其闭子群.\par
+若 $E$ 是赋范线性空间，定义
+\begin{equation*}
+\operatorname{Iso}(E) := \{T \in \mcal{B}(E): T \text{ 是等距同构}\},\quad
+\operatorname{Aut}(E) := \{T \in \mcal{B}(E): T \text{ 双射且 } T^{-1} \text{ 有界}\}.
+\end{equation*}
+则 $\operatorname{Iso}(E)$ 在强算子拓扑下为拓扑群.
+\end{instance}
+
+下面介绍群表示的概念.它可以将抽象的群的元素转移到我们所熟知的同态上(如果是有限维就是矩阵).
+\begin{definition}[表示]\index{b@表示}
+设 $E$ 是赋范线性空间，则群 $G$ 在 $E$ 上的\colorbf{表示}为同态
+\begin{equation*}
+\pi: G \to \operatorname{Aut}(E).
+\end{equation*}
+\end{definition}
+
+从另一个视角看，表示实际上和群作用是相同的，即每一个表示都可以诱导一个群作用，每一个群作用反过来可以诱导一个表示.
+
+\begin{definition}[群作用]\index{q@群作用}
+称群 $G$ \colorbf{作用}在 $A$ 上，记作 $G \curvearrowright A$，是指存在 
+\begin{align*}
+    f: G \times A &\to A\\[-6pt]
+    (g,a) &\mapsto g\cdot a
+\end{align*}
+满足 $(g_1 g_2, a) = g_1 \cdot (g_2 \cdot a)$, $e \cdot a = a$，其中 $e$ 为 $G$ 的单位元.
+\end{definition}
+
+% ---------- 过渡 -----------
+群在空间上的连续作用可以自然诱导出函数空间上的表示，以下命题表明这种诱导表示在强算子拓扑下是连续的.
+% ---------- 过渡 -----------
+
+\begin{proposition}
+设 $G$ 是拓扑群，且在紧度量空间 $X$ 上的作用连续，设
+\begin{align*}
+\pi: G &\to \operatorname{Iso}(C_c(X))\\[-6pt]
+g &\mapsto \pi(g),
+\end{align*}
+其中 $\pi(g)(f)(x) := f(g^{-1}x)$，则若 $\operatorname{Iso}(C_c(X))$ 配备强算子拓扑，$\pi$ 连续.
+\end{proposition}
+
+\begin{corollary}
+$\pi: G \to \operatorname{Iso}(L^p(X))$ 连续.
+\end{corollary}
+
+下面的例子表明上述命题只有在强算子拓扑下连续，在范数拓扑下不一定成立.
+\begin{instance}
+$G = \mb{R}$, $G \curvearrowright X = \mb{R}$是平移$(a,x) \mapsto a+x$.\par
+则 $G$ 也可以自然作用在 $C_c(\mb{R})$ 上，有 $(a,f) \mapsto \pi_a(f)$ 且 $\pi_a(f)(x) = f(x-a)$.\par
+考虑 $\pi_t 1_{[0,1]} = 1_{[t,t+1]}$，则
+\begin{equation*}
+\norm{\pi_t 1_{[0,1]} - 1_{[0,1]}}_{L^p(\mb{R})} = \norm{1_{[t,1]} - 1_{[0,t]}}_{L^p} = (2t)^{\frac{1}{p}} \xrightarrow{t \to 0} 0, \quad \forall\, 1 \le p < \infty.
+\end{equation*}
+而 $\norm{1_{[0,t]}}_{L^p} = t^{\frac{1}{p}}$，故 $\norm{\pi_t - \mathrm{Id}} \ge 1$，这表明 $\pi_t$ 在范数拓扑下不收敛到 $\mathrm{Id}$.\par
+但 $\pi_t$ 在强算子拓扑下收敛到 $\mathrm{Id}$.
+\end{instance}
+
+
+
+\begin{proof}[命题的证明]
+要证：$\forall\, f \in C_c(X)$, $\forall\, \varepsilon > 0$，存在 $e$ 的邻域 $U \subset G$，使得 $\forall\, g \in U$, $\norm{\pi(g)f - f}_{C(X)} < \varepsilon$.\par
+由于 $\operatorname{supp}(f) = \{f \neq 0\}$ 是 $X$ 中紧集，存在邻域 $N \subset X$ 包含 $\operatorname{supp}(f)$，使得 $\overline{N}$ 是紧集.\par
+$\forall\, x \in \operatorname{supp}(f)$，存在 $N_x \subset N$ 包含 $x$，$W_x \subset G$ 包含 $e$，使得
+\begin{equation*}
+W_x \cdot N_x = \{g \cdot y: g \in W_x, y \in N_x\} \subset N.
+\end{equation*}
+由 $\operatorname{supp}(f)$ 的紧性，$\exists\, \{x_1, \ldots, x_n\}$，$\st$ $\operatorname{supp}(f) \subset \bigcup_{i=1}^n N_{x_i}$.\par
+令 $\widetilde{U} = \bigcap_{i=1}^n W_{x_i}$，则 $\widetilde{U}$ 是开集且 $e \in \widetilde{U}$.\par
+需要验证存在某个开集 $e \in U \subset \widetilde{U}$，满足
+\begin{equation*}
+|f(g^{-1}x) - f(x)| < \varepsilon, \quad \forall\, x \in \overline{N}, g \in U.
+\end{equation*}
+事实上，$\forall\, x \in \overline{N}$，存在 $x$ 的邻域 $M_x \subset X$，$\st$ $|f(x) - f(y)| < \frac{\varepsilon}{2}$，$\forall\, y \in M_x$.\par
+由 $G \curvearrowright X$ 连续，存在邻域 $e \in V_x \subset G$，$x \in M_x' \subset X$，$\st$ $V_x M_x' \subset M_x$.\par
+由 $\overline{N}$ 的紧性，$\exists\, \{z_1, z_2, \ldots, z_p\} \subset \overline{N}$，$\st$ $\overline{N} \subset \bigcup_{i=1}^p M_{z_i}'$.\par
+令 $U = \bigcap_{i=1}^p V_{z_i} \cap \widetilde{U}$，则 $e \in U \subset G$.\par
+那么，$\forall\, g \in U^{-1}$，$y \in \overline{N}$，
+\begin{equation*}
+g^{-1}y \in U\overline{N} \subset U \cdot M_{z_i}', \quad \text{for some } 1 \le i \le p.
+\end{equation*}
+\begin{align*}
+\Rightarrow |f(g^{-1}y) - f(y)|
+&\le |f(g^{-1}y) - f(z_i)| + |f(z_i) - f(y)| \\
+&< \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon.
+\end{align*}
+\end{proof}
+
+\begin{instance}
+平移 $\pi: \mb{R} \to \operatorname{Iso}(C_c(\mb{R}))$, $(\pi_t f)(x) = f(x-t)$ 在强算子拓扑下是连续的：
+\begin{equation*}
+t \mapsto \pi_t.
+\end{equation*}
+\end{instance}
+
+\section{不变测度}
+
+\begin{definition}[推前测度]
+设群 $G$ 在 $X$ 上的作用为 $\varphi: G \times X \to X$, $\varphi_g(x) = \varphi(g,x)$.
+$\mu$ 为 $X$ 上测度，则定义\colorbf{推前测度}：
+\begin{equation*}
+(g_{\#}\mu)(A) := \mu(\varphi_g^{-1}(A)), \quad \forall\, A \subset X.
+\end{equation*}
+\end{definition}
+
+\begin{definition}[不变测度]\index{b@不变测度}
+称 $X$ 上的测度 $\mu$ 在作用 $G \times X \to X$ 下\colorbf{不变}当且仅当 $\forall\, g \in G$, $g_{\#}\mu = \mu$，称 $\mu$ 是 $G$-\textbf{不变的}.
+\end{definition}
+
+若 $\pi: G \to \mathrm{GL}(V)$ 为表示，考虑 $V^* = \{T: V \to \mb{R} \text{ 有界}\}$，可自然定义
+\begin{equation*}
+\pi^*: G \to \mathrm{GL}(V^*),\quad g \mapsto (\pi(g^{-1}))^*,
+\end{equation*}
+称其为\colorbf{伴随表示}.特别地，若 $V^*$ 有弱*拓扑或 $V$ 是赋范线性空间且 $V^*$ 有范数拓扑，则 $\pi^*$ 是表示.\par
+设 $X$ 为紧度量空间，$[C(X)]^* \cong M(X) = \{\text{Radon 测度}\}$.\par
+因此，若 $X$ 是紧度量空间，$G \curvearrowright X$ 连续，则 $\pi: G \to \operatorname{Iso}(C(X))$ 连续，得
+\begin{equation*}
+\pi^*: G \to \operatorname{Iso}([C(X)]^*) = \operatorname{Iso}(M(X)),
+\end{equation*}
+其中，
+\begin{equation*}
+(\pi^*(g)\mu)(A) = ([\pi(g^{-1})]^* \mu)(A) = \mu(\pi(g^{-1})(A)) = g_{\#}\mu(A).
+\end{equation*}
+
+\section{Kakutani-Markov 不动点定理}
+
+\begin{theorem}[Kakutani-Markov]\index{K@Kakutani-Markov 定理}
+设 $E$ 是赋范线性空间（或更一般有弱范数族的拓扑线性空间），$\pi: G \to \operatorname{Aut}(E)$ 为 Abel 群的表示，设 $A \subset E$ 是 $G$-不变的、紧凸子集，则在 $A$ 中存在 $G$-不动点.
+\end{theorem}
+
+\begin{corollary}
+设 $X$ 是紧度量空间，$G$ 是拓扑 Abel 群且 $G \curvearrowright X$ 连续，则可诱导 $M(X)$ 上的伴随表示.则存在 $G$-不变概率测度.\par
+特别地，若 $X = S^1$，且 $G = S^1 \curvearrowright X$ 为旋转，则存在 $S^1$ 上的 $S^1$-不变测度.
+\end{corollary}
+
+\begin{instance}
+这里 $G$ 的交换性是必要的.考虑 $\varphi_i: [0,1] \to [0,1]$,
+\begin{equation*}
+x \mapsto x^{2^i}.
+\end{equation*}
+若 $\mu \in \operatorname{Prob}([0,1])$ 是 $\varphi_i$-不变的，$\operatorname{supp}(\mu) \subset \{0,1\}$.\par
+将 $0,1$ 等同得到 $S^1$，从而若 $\mu \in \operatorname{Prob}([0,1])$ 是 $\varphi_i$-不变的，$\operatorname{supp}(\mu) = \{\mathrm{pt}\}$.\par
+设 $\varphi_2$ 是 $S^1$ 上的非单位旋转，$\varphi_1 \circ \varphi_2$ 没有不变概率测度（$\varphi_2 \circ \varphi_1 \neq \varphi_1 \circ \varphi_2$）：
+\begin{equation*}
+F_2 = \langle \varphi_1, \varphi_2 \rangle \subseteq \operatorname{Homeo}(S^1).
+\end{equation*}
+\end{instance}
+
+\section{Haar 测度的存在性}
+
+\begin{theorem}[Haar 测度]\index{H@Haar 测度}
+设 $G$ 是局部紧的拓扑群，则：
+\begin{enumerate}[(i)]
+\item 存在左不变测度 $\mu$，且若 $K$ 是紧集，$\mu(K) < \infty$.
+\item $\mu$ 在模掉 $\mu \mapsto \lambda \mu, \lambda > 0$ 后唯一.
+\item 若 $g_{\#}\nu = \nu$，则 $\nu = \mu$.
+\end{enumerate}
+\end{theorem}
+
+\begin{instance}
+$G = \mb{R}^n$, $\mu = \mcal{L}^n$ 为 Lebesgue 测度.\par
+$G = S^1$, $\mu$ 为弧长.\par
+$G = S^1 \times S^1 \times \cdots \times S^1$, $\mu$ 为弧长的乘积.\par
+$G$ 为有限群，$\mu$ 为计数测度.\par
+$G = \mathrm{SO}(n) = \{T \in \mathrm{GL}(n): \det T = 1\}$.
+\end{instance}
+
+% ---------- 过渡 -----------
+由 Kakutani-Markov 定理，对于紧群作用在紧度量空间上，不变概率测度的存在性是直接的推论.特别地，紧群自身的 Haar 测度同时是左不变和右不变的.
+% ---------- 过渡 -----------
+
+\begin{corollary}
+设 $G$ 是紧群，$X$ 是紧度量空间，$G \curvearrowright X$ 连续，则存在 $G$-不变概率测度.\par
+若 $G$ 紧，$\mu$ 是左不变概率测度，则 $\mu$ 也是右不变的.
+\end{corollary}

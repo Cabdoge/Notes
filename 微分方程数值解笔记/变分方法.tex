@@ -1,0 +1,581 @@
+\chapter{变分方法}
+
+\section{历史背景}
+
+在微积分中，经常考虑如下有限维优化问题：
+    \begin{equation}\label{eq:有限维优化问题}
+        \min_{x\in\Omega\subset\mathbb{R}^n} f(x).
+    \end{equation}
+
+但是在很多实际问题中，优化对象是一个函数而非一个有限维的向量，而是一个无穷维的对象，这时就需要考虑如下的无穷维优化问题：
+    \begin{equation}\label{eq:无限维优化问题}
+        \min_{v\in V} f(v).
+    \end{equation}
+
+这里，$V$ 为函数空间或容许集，$f$ 为函数 $v$ 的函数，称之为泛函.如果 $V$ 是有限维的容许集，则问题 \eqref{eq:无限维优化问题} 就退化为问题 \eqref{eq:有限维优化问题}，因此后者可视为前者的推广.
+
+变分问题历史悠久，在力学、物理学、摩擦学、经济学、信息论和自动控制等诸多领域均有重要应用，对它的研究业已发展成为一门专门的学科，称为变分学.而二十世纪中叶发展起来的数值求解偏微分方程的有限元方法，其数学基础之一就是变分方法.
+
+\subsection{典型例子}
+
+\begin{example}
+给定两点 $A(0,0)$ 和 $B(a,0)$，求连接 $A$ 和 $B$ 两点的最短曲线.
+
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw[-Stealth] (-0.5,0) -- (3.8,0) node[right] {$x$};
+        \draw[-Stealth] (0,-0.5) -- (0,2) node[above] {$y$};
+        \node[below left] at (0,0) {$A$};
+        \node[below] at (3,0) {$B$};
+        \draw (0,0) .. controls (0.5,1.5) and (2.5,1.5) .. (3,0);
+    \end{tikzpicture}
+\end{figure}
+
+如图，设曲线方程为
+\begin{equation*}
+    y=f(x),\quad f(0)=f(a)=0,
+\end{equation*}
+则相应弧长为
+\begin{equation*}
+    L = \int_0^a \sqrt{1+f'^2(x)}\,\d x.
+\end{equation*}
+于是得到变分问题
+\begin{equation}\label{eq:最短曲线变分问题}
+    \min_{f\in K} \int_0^a \sqrt{1+f'^2(x)}\,\d x,
+\end{equation}
+式中，
+\begin{equation*}
+    K = \left\{f: f\in C^2[0,a],\ f(0)=f(a)=0\right\}.
+\end{equation*}
+对于以上问题，为了研究方便假设曲线是 $C^2$ 光滑的.另外，如果在三维空间的曲面上考虑同样的问题，那么就得到微分几何中的测地线或短程线问题.
+\end{example}
+
+\begin{example}[Bernoulli 最速降线问题 (1696)]
+如下图所示，设 $A(0,0)$ 和 $B(x_1, y_1)$ 不在同一垂直于地面的直线上，有一物体从 $A$ 到 $B$ 受重力作用自由下滑，摩擦阻力忽略不计，求该物体下降最快的路径.
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw[-Stealth] (-0.5,0) -- (4,0) node[right] {$x$};
+        \draw[-Stealth] (0,0.5) -- (0,-3) node[below] {$y$};
+        \node[left] at (0,0) {$A$};
+        \node[right] at (3,-2) {$B$};
+        \draw (0,0) .. controls (0.5,-2) and (1.5,-2.2) .. (3,-2) node[midway, above right] {$y=y(x)$};
+    \end{tikzpicture}
+\end{figure}
+
+设物体的质量为 $m$，则由机械能守恒定律知
+\begin{equation*}
+    mgy = \frac{1}{2}mv^2 \Rightarrow v = \sqrt{2gy},
+\end{equation*}
+亦即
+\begin{equation*}
+    \frac{\d s}{\d t} = \sqrt{2gy},
+\end{equation*}
+故有
+\begin{equation*}
+    \sqrt{1+y'^2}\frac{\d x}{\d t} = \sqrt{2gy},
+\end{equation*}
+换言之，
+\begin{equation*}
+    \d t = \sqrt{\frac{1+y'^2}{2gy}}\,\d x.
+\end{equation*}
+故由常微分方程理论知
+\begin{equation*}
+    T = T(y) = \int_0^T \d t = \int_0^{x_1} \sqrt{\frac{1+y'^2}{2gy}}\,\d x.
+\end{equation*}
+于是问题的数学模型为：
+\begin{equation}\label{eq:最速降线问题}
+    \min_{y\in K} \int_0^{x_1} \sqrt{\frac{1+y'^2}{2gy}}\,\d x, \quad K = \left\{y\in C^2[0,x_1]: y(0)=0, y(x_1)=y_1\right\}.
+\end{equation}
+\end{example}
+
+
+\section{变分问题解的必要条件}
+
+\subsection{变分学基本引理}
+
+\begin{itemize}
+    \item $C_0^{\infty}(a,b)$: $[a,b]$ 上无穷次可微，且在端点 $a$, $b$ 的某一邻域内(邻域大小与具体函数有关)等于零的函数类.
+    \item 对于给定开集 $\Omega$ 和其上的 Lebesgue 可积函数 $f$，以 $\mathrm{supp}(f)$ 表示$f$的支集，
+    \begin{equation*}
+        \mathrm{supp} f := \overline{\{x\in\Omega: f(x)\neq 0\}}.
+    \end{equation*}
+\end{itemize}
+
+则易知
+\begin{equation*}
+    C_0^{\infty}(a,b) = \{v\in C^{\infty}[a,b]: \mathrm{supp}(v) \subset (a,b)\}.
+\end{equation*}
+
+\begin{lemma}[变分学基本引理][lem:变分学基本引理]
+设 $f(x) \in C[a,b]$，如果
+\begin{equation}\label{eq:变分学基本引理条件}
+    \int_a^b f(x)\phi(x)\d x = 0, \quad \phi \in C_0^{\infty}(a,b),
+\end{equation}
+则 $f(x) \equiv 0, x \in [a,b].$
+\end{lemma}
+\begin{proof}
+    反证法. 若存在 $x_0 \in [a,b]$ 使得 $f(x_0) \neq 0$，不妨设 $f(x_0) > 0$. 由连续性，$x_0$ 可选为内点，此时存在 $x_0$ 的邻域 $(x_0 - \varepsilon, x_0 + \varepsilon) \subset (a, b)$，使得对任意的 $x \in (x_0 - \varepsilon, x_0 + \varepsilon)$，有 $f(x) \geq f(x_0) / 2 > 0$.
+    
+    定义如下磨光函数：
+    \begin{equation*}
+        \eta(x) = \begin{cases} \exp \left( \dfrac{1}{|x|^2 - 1} \right), & |x| < 1, \\ 0, & |x| \geq 1, \end{cases}
+    \end{equation*}
+    并令
+    \begin{equation*}
+        \eta_\varepsilon(x) = \varepsilon^{-1} \eta(\varepsilon^{-1} x).
+    \end{equation*}
+    直接验证知 $\eta_\varepsilon \in C_0^\infty(\mathbb{R})$，且其支集为 $[-\varepsilon, \varepsilon]$. 于是取 $\phi(x) = \eta_\varepsilon(x - x_0)$，我们有 $\phi \in C_0^\infty(a, b)$，且支集为 $[x_0 - \varepsilon, x_0 + \varepsilon]$. 显然，$\phi(x) > 0$, $x \in (x_0 - \varepsilon, x_0 + \varepsilon)$，因而
+    \begin{equation*}
+        \int_a^b f(x)\phi(x)\d x = \int_{x_0-\varepsilon}^{x_0+\varepsilon} f(x)\phi(x)\d x \geq \frac{f(x_0)}{2} \times \int_{x_0-\varepsilon}^{x_0+\varepsilon} \phi(x)\d x > 0,
+    \end{equation*}
+    与引理条件矛盾.
+\end{proof}
+
+
+
+\section{一维变分问题}
+
+\subsection{一维变分原理 —— Euler-Lagrange 方程}
+
+现在来考察一般变分问题：
+\begin{equation*}
+    J(y) = \int_a^b F(x, y, y')\d x,
+\end{equation*}
+式中，函数 $F$ 有充分的光滑性，容许函数集为
+\begin{equation*}
+    K = \{y : y \in C^2[a, b], y(a) = y_a, y(b) = y_b \}.
+\end{equation*}
+
+\begin{question}[问题 P]
+找 $u \in K$，使
+\begin{equation*}
+    J(u) = \min_{v \in K} J(v).
+\end{equation*}
+\end{question}
+
+问题 P 是一个无穷维的优化问题，初一看似乎无从入手. 解决这个问题的关键是将其转化为一维优化问题来处理.
+
+\noindent\textbf{Step 1.} 记 $u$ 为该问题之解，对任意的 $w \in C_0^\infty(a, b)$，定义
+\begin{equation*}
+    K(u; w) = \{ u + \varepsilon w : \varepsilon \in \mathbb{R} \}.
+\end{equation*}
+显然 $u \in K(u; w) \subset K$，因此
+\begin{equation*}
+    J(u) = \min_{v \in K(u; w)} J(v).
+\end{equation*}
+
+\noindent\textbf{Step 2.} 由 Step 1 知只需研究关于 $\varepsilon \in \mathbb{R}$ 的目标函数为 $J(u + \varepsilon w)$ 的优化问题即可. 此时由 Fermat 引理即知
+\begin{equation*}
+    \left. \frac{\d }{\d \varepsilon} \int_a^b F(x, u+\varepsilon w, u'+\varepsilon w')\d x \right|_{\varepsilon=0} = 0.
+\end{equation*}
+直接计算有
+\begin{align*}
+    \left. \int_a^b \frac{\d }{\d \varepsilon} F(x, u+\varepsilon w, u'+\varepsilon w')\d x \right|_{\varepsilon=0} &= \left[ \int_a^b \frac{\partial F}{\partial u} (x, u+\varepsilon w, u'+\varepsilon w') w \d x \right. \\
+    &\left. \quad + \int_a^b \frac{\partial F}{\partial u'} (x, u+\varepsilon w, u'+\varepsilon w') w' \d x \right]_{\varepsilon = 0} \\
+    &= \int_a^b \left\{ \frac{\partial F}{\partial u} (x, u, u') w + \frac{\partial F}{\partial u'} (x, u, u') w' \right\} \d x.
+\end{align*}
+
+故有
+\begin{equation*}
+    \int_a^b \left\{ \frac{\partial F}{\partial u} (x, u, u') w + \frac{\partial F}{\partial u'} (x, u, u') w' \right\} \d x = 0,
+\end{equation*}
+即
+\begin{equation*}
+    \int_a^b \left\{ \frac{\partial F}{\partial u} (x, u, u') - \frac{\d }{\d x} \left( \frac{\partial F}{\partial u'} (x, u, u') \right) \right\} w \d x = 0.
+\end{equation*}
+再利用\cref{lem:变分学基本引理}可得
+\begin{equation}\label{eq:Euler-Lagrange方程}
+    \frac{\partial F}{\partial u} (x, u, u') - \frac{\d }{\d x} \left( \frac{\partial F}{\partial u'} (x, u, u') \right) = 0.
+\end{equation}
+上述方程称为 Euler-Lagrange 方程. 这是变分问题 P 之解 $u$ 要满足的必要条件.
+
+\begin{theorem}[Euler-Lagrange 方程][thm:Euler-Lagrange方程]
+    问题 P 之解 $u$ 满足 Euler-Lagrange 方程
+    \begin{equation*}
+        \frac{\partial F}{\partial u} (x, u, u') - \frac{\d }{\d x} \left( \frac{\partial F}{\partial u'} (x, u, u') \right) = 0.
+    \end{equation*}    
+\end{theorem}
+
+一般来说，Euler-Lagrange 方程是一个二阶拟线性常微分方程，要对其显式求解还是很困难的. 幸运的是，如果 $F$ 不显含 $x$ 时，成立如下重要结果：
+
+\begin{theorem}[守恒定律][thm:守恒定律]
+如果 $F = F(u, u')$ 不显含 $x$，则问题 P 之解 $u$ 满足一个守恒律，即 Hamilton 量
+\begin{equation}\label{eq:守恒定律}
+    H = u' F_{u'} (u, u') - F(u, u')
+\end{equation}
+沿着问题 P 的解轨线是常数.
+\end{theorem}
+\begin{proof}
+问题 P 之解 $u$ 满足 Euler-Lagrange 方程 \eqref{eq:Euler-Lagrange方程}. 另一方面，
+\begin{align*}
+    \frac{\d H}{\d x} &= \frac{\d }{\d x}(u' F_{u'}) - \frac{\d }{\d x} F \\
+    &= u'' F_{u'} + u' \frac{\d }{\d x} F_{u'} - F_u \frac{\d u}{\d x} - F_{u'} u'' \\
+    &= u' \left\{ \frac{\d }{\d x} F_{u'} - F_u \right\} = 0. \qedhere
+\end{align*}
+\end{proof}
+
+
+\subsection{用守恒定律求解最速降线问题}
+
+此时
+\begin{equation*}
+    F(y, y') = \sqrt{\frac{1+y'^2}{2gy}}
+\end{equation*}
+不显含 $x$，由守恒定律有
+\begin{equation*}
+    y' F_{y'} (y, y') - F(y, y') = c,
+\end{equation*}
+具体即
+\begin{equation*}
+    y(1+y'^2) = c.
+\end{equation*}
+其解有如下形式
+\begin{equation*}
+    \begin{cases} 
+        x = \dfrac{c}{2} (\theta - \sin\theta) + c_1, \\[1ex]
+        y = \dfrac{c}{2} (1 - \cos\theta). 
+    \end{cases}
+\end{equation*}
+由 $x=0$ 时 $y=0$ 得 $x=0$ 时，$\theta=0$，故 $c_1=0$，最后有
+\begin{equation*}
+    \begin{cases} 
+        x = a (\theta - \sin\theta), \\[1ex]
+        y = a (1 - \cos\theta). 
+    \end{cases}
+\end{equation*}
+该曲线为旋轮线(或摆线).
+
+\section{二次函数极值问题}
+本节研究对称正定线性方程组
+\begin{equation}\label{eq:对称正定线性方程组}
+    \bm{A}\bm{x} = \bm{b}
+\end{equation}
+的等价描述，其中 $\bm{A} \in \mathbb{R}^{n \times n}$ 为对称正定阵，$\bm{b} \in \mathbb{R}^n$ 为列向量.
+
+\begin{note}[冯康原理]
+等价的数学形式导出的数值算法不一定等价.
+\end{note}
+
+\begin{theorem}[][thm:二次函数极值问题等价结论]
+以下三个结论等价：
+\begin{enumerate}
+    \item $\bm{x}_0$ 为 \eqref{eq:对称正定线性方程组} 之解.
+    \item $\bm{x}_0$ 为以下问题之解：
+    \begin{equation}\label{eq:二次函数等价2}
+        (\bm{A}\bm{x}_0, \bm{y}) = (\bm{b}, \bm{y}), \quad \bm{y} \in \mathbb{R}^n.
+    \end{equation}
+    \item $\bm{x}_0$ 是以下问题之解：
+    \begin{equation}\label{eq:二次函数等价3}
+        J(\bm{x}_0) = \min_{\bm{y} \in \mathbb{R}^n} J(\bm{y}) = \frac{1}{2}(\bm{A}\bm{y}, \bm{y}) - (\bm{b}, \bm{y}).
+    \end{equation}
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+(1) $\Longrightarrow$ (2) 显然成立.\par
+(2) $\Longrightarrow$ (1) 取 $\bm{y} = \bm{x}_0$ 即可.\par
+(2) $\Longrightarrow$ (3) $\forall\, x=x_0+y$，
+\begin{align*}
+    J(x)  &= \frac{1}{2}(\bm{A}(x_0+y), x_0+y) - (\bm{b}, x_0+y) \\
+    &= \frac{1}{2}\ab((\bm{A}x_0, x_0) + 2(\bm{A}x_0, y) + (\bm{A}y, y)) - (\bm{b}, x_0) - (\bm{b}, y) \\
+    &= \frac{1}{2}(\bm{A}x_0, x_0) - (\bm{b}, x_0) + \frac{1}{2}(\bm{A}y, y) \\
+    &\geq \frac{1}{2}(\bm{A}x_0, x_0) - (\bm{b}, x_0) = J(x_0).
+\end{align*}
+
+(3) $\Longrightarrow$ (2) 设$x_0$是(2)的解，也为(3)的解.又设$x_1$为(3)的另一解，则
+\begin{equation*}
+    J(x_1)=J(x_0)+\frac{1}{2}(\bm{A}(x_1-x_0), x_1-x_0) \leq J(x_0),
+\end{equation*}
+因此$\ab(\bm{A}(x_1-x_0),x_1-x_0)\leq 0$.但是$\ab(\bm{A}(x_1-x_0),x_1-x_0)\geq 0$，故
+\begin{equation*}
+    \ab(\bm{A}(x_1-x_0),x_1-x_0)=0\Rightarrow x_1-x_0=0\Rightarrow x_1=x_0.\qedhere
+\end{equation*}
+\end{proof}
+
+\section{一维变分问题}
+
+考虑问题
+\begin{equation}\label{eq:一维PDE}
+    \begin{cases}
+        Lu = -(p(x)u')' + q(x)u = f, \quad a < x < b, \\
+        u(a) = 0, \quad u'(b) = 0,
+    \end{cases}
+\end{equation}
+式中 $p(x), q(x)$ 均为连续可微函数，且存在正常数 $p_0$ 使得 $p(x) \geq p_0 > 0$, $q(x) \geq 0$.\par
+在物理中，可以使用虚功原理和最小位能原理处理.在数学中，它们分别对应于 Galerkin 变分原理和 Ritz 变分原理.
+
+\begin{note}[目的与解决办法]
+\begin{itemize}
+    \item 目的：找 \eqref{eq:一维PDE} 的等价描述.
+    \item 解决办法：类比\cref{thm:二次函数极值问题等价结论}的构造方法和推导过程.
+\end{itemize}
+\end{note}
+
+我们分为如下几步.
+
+\noindent\textbf{Step 1. 构造容许函数空间.} 
+
+这里选取的空间为
+\begin{equation*}
+    V = \{v : v\ \text{充分光滑},\ v(a) = 0\}.
+\end{equation*}
+\begin{remark}
+    (1)添加的只能是Dirichlet边界条件.\par
+    (2)边界条件必须是齐次的，如果$u(a)=1$，则需要令$\overline{u}=u-1$，而后考虑$\overline{u}$.
+\end{remark}
+
+\noindent\textbf{Step 2. 分部积分获得 Galerkin 变分原理.} 
+
+设 $u \in V$ 为问题 \eqref{eq:一维PDE} 之解，则对任意 $v \in V$ 有$(Lu, v) = (f, v)$，即
+\begin{equation*}
+    \int_a^b \{-(p(x)u')' + q(x)u\}v \d x = \int_a^b f(x)v(x) \d x.
+\end{equation*}
+分部积分可知
+\begin{equation*}
+    \int_a^b p(x)u'v' \d x - \left[p(x)u'v\right]_a^b + \int_a^b q(x)uv \d x = \int_a^b f(x)v(x) \d x,
+\end{equation*}
+即
+\begin{equation*}
+    \int_a^b \{p(x)u'v' + q(x)uv\} \d x = \int_a^b f(x)v(x) \d x.
+\end{equation*}
+令
+\begin{equation*}
+    A(u, v) = \int_a^b \{p(x)u'v' + q(x)uv\} \d x, \quad F(v) = \int_a^b f(x)v(x) \d x,
+\end{equation*}
+则问题 \eqref{eq:一维PDE} 的 Galerkin 变分原理描述如下：
+\begin{equation}\label{eq:Galerkin变分原理}
+    \begin{cases}
+        \text{找 }\ u \in V,\ \text{使得} \\
+        A(u, v) = F(v), \quad v \in V.
+    \end{cases}
+\end{equation}
+这就是我们在偏微分方程中经常使用的弱解的定义.
+
+\noindent\textbf{Step 3. 获得 Ritz 变分原理.} 
+
+类比 \eqref{eq:二次函数等价3} 可得问题 \eqref{eq:一维PDE} 的 Ritz 变分原理描述为
+\begin{equation}\label{eq:Ritz变分原理}
+    J(u) = \min_{v \in V} J(v) = \frac{1}{2}A(v, v) - F(v).
+\end{equation}
+\begin{remark}
+    只有当$A$为正定对称双线性性，即$A(u,v)=A(v,u),A(u,v)\geq \alpha\|v\|^2$成立时才有该变分原理.
+\end{remark}
+
+
+\begin{theorem}[][thm:一维PDE三种描述等价]
+设 $u \in C^2[a, b]$，则三个问题描述 \eqref{eq:一维PDE}、\eqref{eq:Galerkin变分原理}、\eqref{eq:Ritz变分原理} 等价.
+\end{theorem}
+\begin{sproof}
+    \eqref{eq:一维PDE} $\Rightarrow$ \eqref{eq:Galerkin变分原理} 由上述推导可知.
+
+    接着证明 \eqref{eq:Galerkin变分原理} $\Rightarrow$ \eqref{eq:一维PDE}. 对任意 $v \in V$，有
+    \begin{equation*}
+        \int_a^b (pu'v' + quv)\d x = \int_a^b fv\d x,
+    \end{equation*}
+    注意到 $u \in C^2[a, b]$，分部积分得
+    \begin{equation*}
+        \int_a^b -(pu')'v\d x + \left[vpu'\right]_a^b + \int_a^b quv\d x = \int_a^b fv\d x,
+    \end{equation*}
+    即
+    \begin{equation}\label{eq:三等价推导}
+        \int_a^b [-(pu')' + qu]v\d x + p(b)u'(b)v(b) = \int_a^b fv\d x.
+    \end{equation}
+    特别地，取 $v \in C_0^\infty(a, b) \subset V$ 上式亦应成立，即
+    \begin{equation*}
+        \int_a^b [-(pu')' + qu]v\d x = \int_a^b fv\d x, \quad v \in C_0^\infty(a, b).
+    \end{equation*}
+    由\cref{lem:变分学基本引理}可知
+    \begin{equation}\label{eq:三等价推导2}
+        -(pu')' + q(x)u = f.
+    \end{equation}
+    再取 $v \in C^2[a,b] \cap V$ 且 $v(b) = 1$，由 \eqref{eq:三等价推导} 和 \eqref{eq:三等价推导2} 可得 $p(b)u'(b) = 0$，结果得证.
+
+    现证明 \eqref{eq:Galerkin变分原理} $\Rightarrow$ \eqref{eq:Ritz变分原理}. 设 $u$ 是 \eqref{eq:Galerkin变分原理} 的解，我们要证
+    \begin{equation*}
+        J(u) \leq J(v), \quad v \in V.
+    \end{equation*}
+    令 $v = u + w, w \in V$，直接计算有
+    \begin{align*}
+        J(v) &= J(u + w) = \frac{1}{2}A(u+w, u+w) - F(u+w) \\[-1pt]
+        &= \frac{1}{2}A(u, u) - F(u) + \frac{1}{2}A(w, w) + A(u, w) - F(w)  \\[-1pt]
+        &= J(u) + \frac{1}{2}A(w, w) \geq J(u),
+    \end{align*}
+    这里用到了 $A(w, w) \geq 0$.
+
+    最后证明 \eqref{eq:Ritz变分原理} $\Rightarrow$ \eqref{eq:Galerkin变分原理}. 设 $u_1$ 是 \eqref{eq:Ritz变分原理} 的解，$u$ 是 \eqref{eq:Galerkin变分原理} 的解，则 $J(u_1) \leq J(u)$. 令 $u_1 = u + (u_1 - u)$，则类似上一步的计算有
+    \begin{align*}
+        J(u_1) &= J(u) + \frac{1}{2}A(u_1-u, u_1-u) + A(u, u_1-u) - F(u_1-u) \\[-1pt]
+        &= J(u) + \frac{1}{2}A(u_1-u, u_1-u).
+    \end{align*}
+    于是，
+    \begin{equation*}
+        A(u_1-u, u_1-u) = 2[J(u_1) - J(u)] \leq 0.
+    \end{equation*}
+    又 $A(u_1-u, u_1-u) \geq 0$，故 $A(u_1-u, u_1-u) = 0$. 由 $A(\cdot, \cdot)$ 的定义知，$u_1 - u = c$ 为常数. 注意到 $u_1(a) = u(a) = 0$，由题设的连续性，$u_1 \equiv u$. 证毕.
+\end{sproof}
+
+
+\section{二维变分问题}
+
+
+考虑 Poisson 方程的 Dirichlet 问题：
+\begin{equation}\label{eq:二维Poisson}
+    \begin{cases}
+        -\Delta u = f, & (x, y) \in \Omega, \\
+        u = 0, & (x, y) \in \partial\Omega,
+    \end{cases}
+\end{equation}
+式中，$\Omega$ 为适当光滑的有界区域.
+
+类似前面，我们可分如下几步获得该问题对应的等价变分描述.
+
+\noindent\textbf{步 1. 找容许函数空间.} 
+
+取
+\begin{equation*}
+    V = \{ v : v\ \text{充分光滑},\ \text{在}\ \partial\Omega\ \text{上}\ v = 0 \}.
+\end{equation*}
+
+\noindent\textbf{步 2. 分部积分获得 Galerkin 变分原理.}
+
+对任意 $v \in V$，在方程两边乘以 $v$ 并积分得
+\begin{equation*}
+    (-\Delta u, v) = (f, v), \quad v \in V.
+\end{equation*}
+注意到
+\begin{align*}
+    -(\Delta u, v) &= -\int_{\Omega} \Delta u v \d x\d y = -\int_{\Omega} (u_{xx} + u_{yy}) v \d x\d y, \\
+    \int_{\Omega} u_{xx} v \d x\d y &= -\int_{\Omega} u_x v_x \d x\d y + \int_{\partial\Omega} u_x v n_1 \d s, \\
+    \int_{\Omega} u_{yy} v \d x\d y &= -\int_{\Omega} u_y v_y \d x\d y + \int_{\partial\Omega} u_y v n_2 \d s,
+\end{align*}
+我们有
+\begin{equation*}
+    (-\Delta u, v) = \int_{\Omega} \nabla u \cdot \nabla v \d x\d y - \int_{\partial\Omega} v \partial_{\bm{n}} u \d s = \int_{\Omega} \nabla u \cdot \nabla v \d x\d y,
+\end{equation*}
+故得原问题的 Galerkin 变分原理描述如下：
+\begin{equation}\label{eq:二维Galerkin}
+    \begin{cases}
+        \text{找 }\ u \in V,\ \text{使得} \\
+        A(u, v) = F(v), \quad v \in V,
+    \end{cases}
+\end{equation}
+式中，
+\begin{equation*}
+    A(u, v) = \int_{\Omega} \nabla u \cdot \nabla v \d x\d y, \quad F(v) = \int_{\Omega} fv \d x\d y.
+\end{equation*}
+
+\noindent\textbf{步 3. 获得 Ritz 变分原理.}
+
+类比问题 \eqref{eq:二次函数等价3}，可得问题 \eqref{eq:二维Poisson} 的 Ritz 变分原理为
+\begin{equation}\label{eq:二维Ritz}
+    J(u) = \min_{v \in V} J(v) = \frac{1}{2} A(v, v) - F(v).
+\end{equation}
+
+
+与上一定理类似，可获得以下结论.
+\begin{theorem}
+设 $u \in C^2(\bar{\Omega})$，则三个问题描述 \eqref{eq:二维Poisson}、\eqref{eq:二维Galerkin}、\eqref{eq:二维Ritz} 是等价的.
+\end{theorem}
+
+对于其他边值问题，例如
+\begin{equation*}
+    \begin{cases}
+        -\Delta u + u = f, & (x, y) \in \Omega, \\
+        \partial_{\bm{n}} u = 0, & (x, y) \in \partial\Omega,
+    \end{cases}
+\end{equation*}
+类似可知它的 Galerkin 变分原理描述为
+\begin{equation*}
+    \begin{cases}
+        \text{找 }\ u \in V,\ \text{使得} \\
+        A(u, v) = F(v) \quad \forall v \in V,
+    \end{cases}
+\end{equation*}
+其中，$V = \{v : v\ \text{充分光滑}\}$，
+\begin{equation*}
+    A(u, v) = \int_{\Omega} (\nabla u \cdot \nabla v + uv) \d x\d y, \quad F(v) = \int_{\Omega} f v \d x\d y.
+\end{equation*}
+而 Ritz 变分原理描述为
+\begin{equation*}
+    J(u) = \min_{v \in V} J(v) = \frac{1}{2} A(v, v) - F(v).
+\end{equation*}
+也成立相应的等价性定理.
+
+\subsection{发展方程的变分原理}
+类似于二维的情形，我们可以分析得到发展方程的Gelerkin 变分原理.\par
+考虑发展方程的初值问题
+\begin{equation*}
+    \begin{cases}
+        u_t=\Delta u+f \qin \Omega, \\
+        t=0,u=u_0,\\
+        u|_{\partial\Omega}=0
+    \end{cases}
+\end{equation*}
+
+\noindent\textbf{Step 1.} 化为边值问题
+\begin{equation*}
+    -\Delta u=f-u_t \qin \Omega,\\
+    u|_{\partial\Omega}=0.
+\end{equation*}
+
+\noindent\textbf{Step 2.} 使用边值问题处理技巧，构造容许函数空间
+\begin{equation*}
+    V=\{v:v\ \text{充分光滑},\ v|_{\partial\Omega}=0\}.
+\end{equation*}
+找$u\in V$，使得
+\begin{equation*}
+    \int_\Omega \nabla u\cdot\nabla v \d x\d y=\int_\Omega (f-u_t)v\d x\d y
+\end{equation*}
+
+\noindent\textbf{Step 3.} 标准化
+\begin{equation*}
+    \begin{cases}
+        (u_t,v)+A(u,v)=(f,v),\quad v\in V,\\
+        t=0,u=u_0.
+    \end{cases}
+\end{equation*}
+
+\section{变分问题的近似计算}
+
+一个微分方程可以转化为具有其他物理意义的等价描述. 可以从这些等价描述入手，得到其他数值求解方法. 
+我们有如下两种等价形式：
+\begin{enumerate}
+    \item $\begin{cases} u \in V, \\ A(u, v) = F(v), \quad v \in V. \end{cases}$
+    \item $\begin{cases} u \in V, \\ J(u) = \min\limits_{v \in V} J(v) = \dfrac{1}{2}A(v, v) - F(v). \end{cases}$
+\end{enumerate}
+
+为了能够使用计算机计算，\textcolor{red}{关键是找到无限维空间 $V$ 的有限维近似 $V_h$}，将原来的等价形式约束到 $V_h$ 上来研究，从而构造一系列近似求解方法.
+
+\subsection{Ritz 方法}
+
+Ritz 方法针对第二种形式. 设 $V_h = \spann\{\phi_1, \dots, \phi_n\}$ 为包含于 $V$ 中的近似空间，则可寻求 $u_h \in V_h$ 使得
+\begin{equation}
+    J(u_h) = \min_{v_h \in V_h} J(v_h).
+\end{equation}
+设
+\begin{equation*}
+    u_h = \sum_{i=1}^n u_i \phi_i, \quad v_h = \sum_{i=1}^n v_i \phi_i,
+\end{equation*}
+则
+\begin{align*}
+    J(v_h) &= \frac{1}{2}A(v_h, v_h) - F(v_h) = \frac{1}{2}A\left(\sum_{i=1}^n v_i \phi_i, \sum_{j=1}^n v_j \phi_j\right) - F\left(\sum_{i=1}^n v_i \phi_i\right) \\
+    &= \frac{1}{2} \sum_{i,j=1}^n A(\phi_i, \phi_j) v_i v_j - \sum_{i=1}^n v_i F(\phi_i) = \frac{1}{2} \sum_{i,j=1}^n a_{ij} v_i v_j - \sum_{i=1}^n v_i b_i \\
+    &= \frac{1}{2} (\bm{A}\bm{v}, \bm{v}) - (\bm{b}, \bm{v}),
+\end{align*}
+式中，$\bm{A} = [A(\phi_j, \phi_i)]_{1 \le i,j \le n}$ 一般是对称正定矩阵，$\bm{b} = [F(\phi_1), \dots, F(\phi_n)]^T$.
+以上问题的求解等价于求线性方程组 $\bm{A}\bm{u} = \bm{b}$.
+
+\subsection{Galerkin 方法}
+
+Galerkin 方法针对第一种形式.
+\begin{equation*}
+    \begin{cases}
+        \text{找 }\ u_h \in V_h,\ \text{使得} \\
+        A(u_h, v_h) = F(v_h), \quad v_h \in V_h.
+    \end{cases}
+\end{equation*}
+其余可类似 Ritz 展开讨论，而得线性方程组 $\bm{A}\bm{u} = \bm{b}$.
+

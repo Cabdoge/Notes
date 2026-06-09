@@ -1,0 +1,10 @@
+This is makeindex, version 2.17 [TeX Live 2025] (kpathsea + Thai support).
+Scanning style file ./pinyin.ist.....done (5 attributes redefined, 0 ignored).
+Scanning input file 群与代数表示论笔记a5.idx....
+!! Input index error (file = 群与代数表示论笔记a5.idx, line = 48):
+   -- Extra `!' at position 15 of first argument.
+done (99 entries accepted, 1 rejected).
+Sorting entries....done (701 comparisons).
+Generating output file 群与代数表示论笔记a5.ind....done (182 lines written, 0 warnings).
+Output written in 群与代数表示论笔记a5.ind.
+Transcript written in 群与代数表示论笔记a5.ilg.

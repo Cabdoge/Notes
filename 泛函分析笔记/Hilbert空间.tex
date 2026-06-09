@@ -844,7 +844,7 @@ $\ell^\infty$ 不可分，又 $(\ell^\infty)^* = \ell^1$，因此 $(\overline{\m
     设 $X$ 是 Banach 空间，$K\subset X$ 凸，$H$ 是仿射子空间，则称 $H$ 是 $K$ 的\colorbf{支撑流形}当且仅当
     \[
     \begin{cases}
-    H\cap K = \emptyset,\\
+    H\cap K = \varnothing,\\
     \text{若 } [x,y]\subset K \text{ 在 } H \text{ 中有内点，则 } [x,y]\subset H.
     \end{cases}
     \]
@@ -852,21 +852,8 @@ $\ell^\infty$ 不可分，又 $(\ell^\infty)^* = \ell^1$，因此 $(\overline{\m
 
 \begin{figure}[H]
     \centering
-    \begin{tikzpicture}[thick, scale=1]
-
-    % 1. 绘制水平直线 H
-    \draw (-1, 0) -- (6, 0) node[right=2pt] {$H$};
-
-    % 2. 绘制上方的多边形（凸集 K），底边与直线 H 重合
-    \draw (1.5, 0) -- (3.5, 0) -- (4.5, 1.5) -- (3.5, 3) -- (1.5, 3) -- (0.5, 1.5) -- cycle; % cycle 用于闭合路径
-
-    % 3. 在多边形中心添加标签 K
-    \node at (2.5, 1.5) {\LARGE $K$};
-
-    % 4. 在直线下方添加中文标注“支撑流形”
-    \node[below=5pt] at (2.5, 0) {支撑流形};
-
-\end{tikzpicture}
+    \input{fig/3.1.tex}
+    \captionof{figure}{支撑流形}
 \end{figure}
 
 
@@ -874,8 +861,9 @@ $\ell^\infty$ 不可分，又 $(\ell^\infty)^* = \ell^1$，因此 $(\overline{\m
 % --- 新增过渡 ---
 Krein-Milman 定理的证明依赖于以下关键断言：任何闭支撑流形必包含极点.下面先陈述该断言，再给出定理的验证.
 % --- 新增过渡结束 ---
-
-\textbf{关键断言}：设 $X$ 是 Banach 空间，$K\subset X$ 是弱紧且凸的，若 $H$ 是 $K$ 的闭支撑流形，则 $H\cap \operatorname{Ext}(K)\neq \emptyset$.\par
+\begin{claim*}
+    设 $X$ 是 Banach 空间，$K\subset X$ 是弱紧且凸的，若 $H$ 是 $K$ 的闭支撑流形，则 $H\cap \operatorname{Ext}(K)\neq \varnothing$.
+\end{claim*}
 
 承认上述断言，可以验证 $K\subseteq \overline{\operatorname{conv}}^w(\operatorname{Ext}(K))$.\par
 假设 $\exists c\in K\setminus \widetilde{K}$，其中 $\widetilde{K} = \overline{\operatorname{conv}}^w(\operatorname{Ext}(K))$.\par
@@ -886,41 +874,51 @@ Krein-Milman 定理的证明依赖于以下关键断言：任何闭支撑流形�
 
 \begin{figure}[H]
 \begin{center}
-\begin{tikzpicture}[scale=1.2, rotate=15] % 整体旋转15度，还原手绘的倾斜感
-
-    % 1. 绘制底部的支撑超平面 f = \alpha (红色平行线)
-    % 设底线在 y = -1 的水平线上。红线比公用底边长。
-    \draw[thick, red] (-2.3, -1) -- (2.3, -1) node[right, text=red] {$f=\alpha$};
-
-    % 2. 绘制外部的大凸集 K (极致平滑的新形状)
-    % 中心大约在 (0, 0.45)，外围半径约 1.6-1.7
-    % 使用全贝塞尔路径实现圆弧和直线的自然平滑过渡，确保在底部与 y = -1 完全公用共线。
-    % 通过更柔和的控制点实现极致自然平滑的过渡。
-    \draw[thick] (-0.7, -1) -- (0.7, -1) % 公用底边
-          .. controls (1.2, -1) and (1.6, -0.2) .. (1.6, 0.4) % 右下平滑过渡，圆弧切点在 (1.6, 0.4)
-          .. controls (1.6, 1.2) and (0.8, 1.9) .. (0, 1.9) % 顶部圆弧
-          .. controls (-0.8, 1.9) and (-1.6, 1.2) .. (-1.6, 0.4) % 左上圆弧，圆弧切点在 (-1.6, 0.4)
-          .. controls (-1.6, -0.2) and (-1.2,-1) .. cycle; % 左下平滑过渡，回到底边
-    % 标签在大凸集 K 的主体上
-    \node[font=\large] at (0.9, 0.9) {$K$};
-
-    % 3. 绘制内部的小凸集 (对应证明中的 \tilde{K})
-    % 凸多边形，底边 (-0.6, -1) -- (0.6, -1) 严格落在 y = -1 的公用边上。
-    \draw[thick] (-0.6, -1) -- (0.6, -1) -- (0.9, -0.4) -- (0.4, 0.2) -- (-0.4, 0.2) -- (-0.9, -0.4) -- cycle;
-    % 标签在内部小图形上
-    \node[font=\large] at (0, -0.4) {$\widetilde{K}$};
-
-    % 4. 绘制中间的分离超平面 (红色平行线)
-    % 同一个泛函 f 的等值线，必然与 y = -1 严格平行，通过 y = 0.4
-    \draw[thick, red] (-2.3, 0.4) -- (2.3, 0.4);
-
-    % 5. 绘制极点 x (对应证明中的点 c)
-    % 确保它位于分离超平面上方，大凸集内部
-    \filldraw (-0.2, 1.1) circle (1.2pt);
-    \node[right, font=\large] at (-0.2, 1.1) {$x$};
-
-\end{tikzpicture}
+    \input{fig/3.2.tex}
+    \captionof{figure}{Krein-Milman 定理证明示意图}
 \end{center}
 \end{figure}
+
+
+% 下面给出关键断言的完整证明：任何闭支撑流形必包含极点.
+% 证明的核心是 Zorn 引理 —— 在全体支撑流形构成的偏序集中取极小元，并证明极小支撑流形与 K 的交是单点集.
+
+\begin{proof}[关键断言的证明]
+设 $H$ 是 $K$ 的闭支撑流形.考虑 $H$ 的所有支撑仿射子流形构成的集合族
+\begin{equation*}
+\mcal{M} = \ab\{\widetilde{H} : \widetilde{H}\subseteq H \text{ 为 }\,K\,\text{ 上支撑仿射流形}\}.
+\end{equation*}
+该族在 $\supseteq$ 下构成偏序集.\par
+设 $\{H_\alpha\}_{\alpha\in I}\subseteq \mcal{M}$ 是 $\mcal{M}$ 中的链（全序集）.\par
+令 $\displaystyle H_\infty = \bigcap_{\alpha\in I} H_\alpha$，下证 $H_\infty\in\mcal{M}$.\par
+首先，由于每个 $H_\alpha\cap K\neq\varnothing$，且 $\{H_\alpha\cap K\}_{\alpha\in I}$ 是弱紧集 $K$ 中满足 $\supseteq$ 序关系的链，由弱紧性得 $\bigcap_{\alpha\in I} (H_\alpha\cap K)\neq\varnothing$，故 $H_\infty\cap K\neq\varnothing$.\par
+其次，验证支撑流形条件.设 $[x,y]\subseteq K$ 在 $H_\infty$ 中有内点.则 $\forall\,\alpha\in I$，$(x,y)\cap H_\alpha\neq\varnothing$，由 $H_\alpha$ 是支撑流形知 $[x,y]\subseteq H_\alpha$，$\forall\,\alpha\in I$，故 $[x,y]\subseteq H_\infty$.\par
+综上，$H_\infty\in\mcal{M}$，且它是该链的一个上界.由 Zorn 引理，$\mcal{M}$ 存在极小元，记为 $M_0$.\par
+下证 $M_0\cap K = \{x_0\}$，则 $x_0\in \operatorname{Ext}(K)$.\par
+反证，假设 $\exists\, x\neq y\in M_0\cap K$.由于 $x\neq y$，可取 $f\in X^*$，$\st f(x)\neq f(y)$.\par
+由于 $M_0\cap K$是弱紧集的闭集，故也为弱紧集，因而$f$ 在其上达到最大值，即
+\begin{equation*}
+\exists\, k\in M_0\cap K,\st f(k) = \sup_{z\in M_0\cap K} f(z) \equiv \alpha.
+\end{equation*}
+则 $f^{-1}\{\alpha\}$ 是 $K$ 的支撑超平面，且 $k\in M_0\cap K\cap f^{-1}\{\alpha\}$.\par
+考虑 $\widetilde{M} := M_0\cap f^{-1}\{\alpha\}$.由支撑流形与支撑超平面的交仍为支撑流形，$\widetilde{M}$ 仍是 $K$ 的支撑仿射流形，故 $\widetilde{M}\in\mcal{M}$.\par
+由于 $f(x)\neq f(y)$，$x,y$ 不可能同时属于 $f^{-1}\{\alpha\}$，因此 $x,y$ 中至少其一不在 $\widetilde{M}$ 中.\par
+故 $\widetilde{M}\subsetneq M_0$，这与 $M_0$ 的极小性矛盾.\par
+因此 $M_0\cap K$ 为单点集，从而 $H\cap \operatorname{Ext}(K)\neq\varnothing$.
+\end{proof}
+
+% --- 新增过渡 ---
+由上述关键断言立即得出以下两个有用的观察.
+% --- 新增过渡结束 ---
+
+\begin{corollary}[]
+设 $K\subseteq X$ 是弱紧且凸的，则 $K$ 存在支撑超平面.\par
+进一步，若 $H\subseteq X$ 是 $K$ 的支撑流形且 $H\cap K = \{x\}$，则 $x\in \operatorname{Ext}(K)$.
+\end{corollary}
+\begin{proof}
+任取 $f\in X^*$，由于 $K$ 弱紧，$f$ 在 $K$ 上达到最大值，记 $\alpha = \sup_K f$.\par
+则 $H = f^{-1}\{\alpha\}$ 为 $K$ 的支撑超平面.\par
+若支撑流形 $H$ 满足 $H\cap K = \{x\}$，由关键断言，$x$ 必为极点，故 $x\in \operatorname{Ext}(K)$.
+\end{proof}
 
 

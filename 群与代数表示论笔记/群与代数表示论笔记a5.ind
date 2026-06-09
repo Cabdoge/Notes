@@ -1,0 +1,182 @@
+\begin{theindex}
+\item \textbf{B}\nopagebreak
+
+  \item 不可分解模, \hyperpage{60}
+    \subitem 等价刻画, \hyperpage{60}
+  \item 不可约特征标（基定理）, \hyperpage{38}
+  \item 不可约表示, \hyperpage{21}
+  \item 不可约表示判别法, \hyperpage{35}
+  \item 半单代数, \hyperpage{74}
+  \item 本原幂等元, \hyperpage{58}
+  \item 表示同构, \hyperpage{10}
+  \item 表示的提升, \hyperpage{17}
+  \item 表示的直和, \hyperpage{12}
+
+  \indexspace
+\item \textbf{D}\nopagebreak
+
+  \item 代数
+    \subitem 环上的代数, \hyperpage{54}
+    \subitem 域上的代数, \hyperpage{52}
+  \item 代数同态, \hyperpage{53}
+  \item 代数整数, \hyperindexformat{\textbf}{47}
+  \item 代数的表示, \hyperpage{53}
+  \item 单代数, \hyperpage{53}
+  \item 单模同态, \hyperpage{62}
+  \item 定理
+    \subitem 单模的同构类有限性, \hyperpage{73}
+  \item 对称平方, \hyperpage{27}
+  \item 对称平方/交错平方
+    \subitem 特征标, \hyperpage{31}
+  \item 满模同态, \hyperpage{62}
+  \item 短正合列, \hyperpage{67}
+  \item 第一正交关系, \hyperpage{33}
+  \item 第二正交关系, \hyperpage{40}
+
+  \indexspace
+\item \textbf{F}\nopagebreak
+
+  \item 分裂单同态, \hyperpage{99}
+  \item 分裂域, \hyperpage{24}
+  \item 分裂正合列, \hyperpage{100}
+  \item 分裂满同态, \hyperpage{99}
+  \item 反代数, \hyperpage{76}
+  \item 反轭表示, \hyperpage{16}
+  \item 泛性质
+    \subitem 直积, \hyperpage{102}
+  \item 范畴, \hyperpage{64}
+
+  \indexspace
+\item \textbf{G}\nopagebreak
+
+  \item $G$-模同态, \hyperpage{9}
+  \item 共轭表示, \hyperpage{17}
+
+  \indexspace
+\item \textbf{H}\nopagebreak
+
+  \item 函子, \hyperpage{65}
+  \item 合成列, \hyperpage{24}, \hyperpage{71}
+  \item 合成因子, \hyperpage{71}
+  \item 换位子群, \hyperindexformat{\textbf}{45}
+  \item 核
+    \subitem 特征标, \hyperindexformat{\textbf}{43}
+
+  \indexspace
+\item \textbf{J}\nopagebreak
+
+  \item Jacobson 根, \hyperpage{88}
+  \item Jordan-Hölder 定理, \hyperpage{72}
+  \item 交错平方, \hyperpage{27}
+  \item 极小左理想, \hyperpage{74}
+
+  \indexspace
+\item \textbf{K}\nopagebreak
+
+  \item 可分解模, \hyperpage{60}
+  \item 扩张
+    \subitem 模的扩张, \hyperpage{72}
+
+  \indexspace
+\item \textbf{L}\nopagebreak
+
+  \item 类函数, \hyperpage{30}
+  \item 类函数诱导的线性变换 $\rho_f$, \hyperpage{36}
+
+  \indexspace
+\item \textbf{M}\nopagebreak
+
+  \item Maschke 定理, \hyperpage{15}
+  \item 幂等元, \hyperpage{56}
+  \item 幂零理想, \hyperpage{88}
+  \item 模
+    \subitem $R$-模, \hyperpage{54}
+
+  \indexspace
+\item \textbf{N}\nopagebreak
+
+  \item Nakayama 引理, \hyperpage{94}
+  \item 内射模, \hyperpage{105}
+  \item 内积
+    \subitem 特征标, \hyperpage{32}
+  \item 拟正则理想, \hyperpage{92}
+
+  \indexspace
+\item \textbf{P}\nopagebreak
+
+  \item Peirce 分解, \hyperpage{59}
+  \item 平坦模, \hyperpage{107}
+
+  \indexspace
+\item \textbf{Q}\nopagebreak
+
+  \item 群代数, \hyperpage{54}
+    \subitem 中心, \hyperpage{55}
+  \item 群表示, \hyperpage{3}
+  \item 群表示（群作用观点）, \hyperpage{4}
+
+  \indexspace
+\item \textbf{S}\nopagebreak
+
+  \item Schur 引理, \hyperpage{23}
+  \item 商表示, \hyperpage{7}
+
+  \indexspace
+\item \textbf{T}\nopagebreak
+
+  \item 投射模, \hyperpage{104}
+    \subitem 等价条件, \hyperpage{104}
+  \item 特征标, \hyperpage{28}
+    \subitem 对称平方/交错平方, \hyperpage{31}
+    \subitem 核, \hyperindexformat{\textbf}{43}
+    \subitem 内积, \hyperpage{32}
+    \subitem 中心, \hyperindexformat{\textbf}{46}
+    \subitem 正交, \hyperpage{32}
+
+  \indexspace
+\item \textbf{W}\nopagebreak
+
+  \item Wedderburn-Artin 定理, \hyperpage{77}
+  \item 完全可约, \hyperpage{21}
+
+  \indexspace
+\item \textbf{X}\nopagebreak
+
+  \item 线性映射空间上的表示, \hyperpage{11}
+
+  \indexspace
+\item \textbf{Y}\nopagebreak
+
+  \item 余像, \hyperpage{62}
+  \item 余核, \hyperpage{62}
+  \item 诱导表示, \hyperindexformat{\textbf}{50}
+
+  \indexspace
+\item \textbf{Z}\nopagebreak
+
+  \item 中心
+    \subitem 群代数, \hyperpage{55}
+    \subitem 特征标, \hyperindexformat{\textbf}{46}
+  \item 中心幂等元, \hyperpage{56}
+  \item 中心本原幂等元, \hyperpage{58}
+  \item 子表示, \hyperpage{6}
+  \item 张量积
+    \subitem 与Hom的伴随, \hyperpage{106}
+    \subitem 表示的张量积, \hyperpage{19}
+    \subitem 模的张量积, \hyperpage{106}
+    \subitem 外张量积, \hyperpage{21}
+    \subitem 线性变换的张量积, \hyperpage{18}
+    \subitem 线性空间的张量积, \hyperpage{17}
+    \subitem 右正合性, \hyperpage{107}
+  \item 正交幂等元, \hyperpage{56}
+  \item 正则表示的不可约分解, \hyperpage{26}
+  \item 正合列, \hyperpage{66}
+  \item 直和分解
+    \subitem 与左正则模的对应, \hyperpage{60}
+  \item 直积
+    \subitem 泛性质, \hyperpage{102}
+  \item 自由模, \hyperpage{95}
+    \subitem 秩, \hyperpage{98}
+    \subitem 子模的自由性, \hyperpage{98}
+
+\end{theindex}

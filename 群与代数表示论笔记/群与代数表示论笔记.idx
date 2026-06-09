@@ -45,7 +45,7 @@
 \indexentry{d@单代数|hyperpage}{41}
 \indexentry{d@代数同态|hyperpage}{41}
 \indexentry{d@代数的表示|hyperpage}{42}
-\indexentry{m@模!a@$A$-模|hyperpage}{42}
+\indexentry{m@模!a@$A-\!\!$模|hyperpage}{42}
 \indexentry{m@模!r@$R$-模|hyperpage}{42}
 \indexentry{d@代数!h@环上的代数|hyperpage}{43}
 \indexentry{q@群代数|hyperpage}{43}
@@ -65,19 +65,36 @@
 \indexentry{y@余像|hyperpage}{48}
 \indexentry{d@单模同态|hyperpage}{48}
 \indexentry{d@满模同态|hyperpage}{49}
-\indexentry{z@正合列|hyperpage}{50}
-\indexentry{d@短正合列|hyperpage}{51}
-\indexentry{h@合成列|hyperpage}{52}
-\indexentry{h@合成因子|hyperpage}{52}
-\indexentry{k@扩张!m@模的扩张|hyperpage}{52}
-\indexentry{J@Jordan-Hölder 定理|hyperpage}{52}
-\indexentry{d@定理!d@单模的同构类有限性|hyperpage}{53}
-\indexentry{z@自由模|hyperpage}{54}
-\indexentry{z@自由模!j@秩|hyperpage}{55}
-\indexentry{z@自由模!z@子模的自由性|hyperpage}{55}
-\indexentry{f@分裂单同态|hyperpage}{57}
-\indexentry{f@分裂满同态|hyperpage}{57}
-\indexentry{f@分裂正合列|hyperpage}{57}
-\indexentry{f@分裂正合列|hyperpage}{57}
-\indexentry{z@直积!f@泛性质|hyperpage}{59}
-\indexentry{f@泛性质!z@直积|hyperpage}{59}
+\indexentry{f@范畴|hyperpage}{50}
+\indexentry{h@函子|hyperpage}{51}
+\indexentry{z@正合列|hyperpage}{52}
+\indexentry{d@短正合列|hyperpage}{52}
+\indexentry{h@合成列|hyperpage}{56}
+\indexentry{h@合成因子|hyperpage}{56}
+\indexentry{k@扩张!m@模的扩张|hyperpage}{56}
+\indexentry{J@Jordan-Hölder 定理|hyperpage}{56}
+\indexentry{d@定理!d@单模的同构类有限性|hyperpage}{57}
+\indexentry{b@半单代数|hyperpage}{58}
+\indexentry{j@极小左理想|hyperpage}{58}
+\indexentry{f@反代数|hyperpage}{59}
+\indexentry{W@Wedderburn-Artin 定理|hyperpage}{60}
+\indexentry{m@幂零理想|hyperpage}{69}
+\indexentry{J@Jacobson 根|hyperpage}{69}
+\indexentry{n@拟正则理想|hyperpage}{72}
+\indexentry{N@Nakayama 引理|hyperpage}{73}
+\indexentry{z@自由模|hyperpage}{75}
+\indexentry{z@自由模!j@秩|hyperpage}{76}
+\indexentry{z@自由模!z@子模的自由性|hyperpage}{76}
+\indexentry{f@分裂单同态|hyperpage}{78}
+\indexentry{f@分裂满同态|hyperpage}{78}
+\indexentry{f@分裂正合列|hyperpage}{78}
+\indexentry{f@分裂正合列|hyperpage}{78}
+\indexentry{z@直积!f@泛性质|hyperpage}{80}
+\indexentry{f@泛性质!z@直积|hyperpage}{80}
+\indexentry{t@投射模|hyperpage}{81}
+\indexentry{t@投射模!d@等价条件|hyperpage}{82}
+\indexentry{n@内射模|hyperpage}{82}
+\indexentry{z@张量积!m@模的张量积|hyperpage}{83}
+\indexentry{z@张量积!b@与Hom的伴随|hyperpage}{83}
+\indexentry{z@张量积!y@右正合性|hyperpage}{84}
+\indexentry{p@平坦模|hyperpage}{84}

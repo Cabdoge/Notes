@@ -16,6 +16,16 @@
 \contentsline {section}{\numberline {3.4}弱拓扑与弱*拓扑}{52}{section.3.4}%
 \contentsline {section}{\numberline {3.5}Banach-Alaoglu 定理}{56}{section.3.5}%
 \contentsline {section}{\numberline {3.6}Krein-Milman 定理}{60}{section.3.6}%
-\contentsline {chapter}{关键词索引}{62}{section*.8}%
-\contentsline {chapter}{关键词索引}{62}{chapter*.9}%
+\contentsline {chapter}{\numberline {4}Banach空间上的紧算子}{63}{chapter.4}%
+\contentsline {section}{\numberline {4.1}紧算子的定义与基本性质}{63}{section.4.1}%
+\contentsline {section}{\numberline {4.2}有限秩算子与逼近问题}{65}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Schauder 定理}{67}{section.4.3}%
+\contentsline {section}{\numberline {4.4}紧自伴算子与谱定理}{69}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Fredholm 算子}{72}{section.4.5}%
+\contentsline {chapter}{\numberline {5}拓扑群与 Haar 测度}{75}{chapter.5}%
+\contentsline {section}{\numberline {5.1}拓扑群与表示}{75}{section.5.1}%
+\contentsline {section}{\numberline {5.2}不变测度}{77}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Kakutani-Markov 不动点定理}{78}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Haar 测度的存在性}{79}{section.5.4}%
+\contentsline {chapter}{关键词索引}{80}{chapter*.9}%
 \contentsfinish 

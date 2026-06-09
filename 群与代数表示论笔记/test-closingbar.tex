@@ -1,0 +1,86 @@
+\documentclass[10pt,a5paper]{book}
+\usepackage{xcolor,lipsum,geometry,amsmath,amsthm}
+\geometry{a5paper}
+
+\newlength{\belowsep}\setlength{\belowsep}{5pt plus 2pt minus 4pt}
+\definecolor{rbInstanceColor}{RGB}{120,189,39}
+\definecolor{rbInstanceCloser}{RGB}{187,222,147}
+\definecolor{rbRemarkColor}{RGB}{0,140,140}
+\definecolor{rbRemarkCloser}{RGB}{127,197,197}
+
+\makeatletter
+\newif\if@rb@nobar
+\newcommand{\nobar}{\global\@rb@nobartrue}
+
+% 通用闭合宏：三角形 + cleaders 色条
+\newcommand{\rbclosingbar}[1]{%
+  \popQED\par
+  \vspace{-\parskip}\nointerlineskip
+  \if@rb@nobar
+    \global\@rb@nobarfalse
+  \else
+    \cleaders\vbox{\offinterlineskip\vskip\belowsep\noindent{\color{#1}\rule{4em}{2pt}}}\vskip \dimexpr 2pt+\belowsep\relax
+  \fi
+  \vspace{\belowsep}%
+  \par\ignorespacesafterend
+}
+\makeatother
+
+% ===== instance =====
+\newcounter{rbinstance}[chapter]\renewcommand{\therbinstance}{\thechapter.\arabic{rbinstance}}
+\newenvironment{instance}[1][]{%
+  \refstepcounter{rbinstance}%
+  \pushQED{\qed}%
+  \renewcommand{\qedsymbol}{\textcolor{rbInstanceCloser}{$\triangleleft$}}%
+  \let\mhere\qedhere
+  \par\noindent{\bfseries\color{rbInstanceColor}%
+    Ex~\therbinstance\ifx\relax#1\relax\else~(#1)\fi}\enspace\ignorespaces
+}{\rbclosingbar{rbInstanceCloser}}
+
+% ===== remark =====
+\newcounter{rbremarkcounter}[chapter]\renewcommand{\therbremarkcounter}{\thechapter.\arabic{rbremarkcounter}}
+\newenvironment{remark}[1][]{%
+  \refstepcounter{rbremarkcounter}%
+  \pushQED{\qed}%
+  \renewcommand{\qedsymbol}{\textcolor{rbRemarkCloser}{$\triangleleft$}}%
+  \let\mhere\qedhere
+  \par\noindent{\bfseries\color{rbRemarkColor}%
+    Note~\therbremarkcounter\ifx\relax#1\relax\else~(#1)\fi}\enspace\ignorespaces
+}{\rbclosingbar{rbRemarkCloser}}
+
+\begin{document}
+\chapter{Test}
+
+% 场景 A：行间公式内 \mhere
+\begin{instance}[A -- math mhere]
+Some text:
+\begin{equation*}
+  E = mc^2 \mhere
+\end{equation*}
+\end{instance}
+
+\vspace*{3em}
+% 场景 B：正文中 \mhere
+\begin{instance}[B -- text mhere]
+\lipsum[1] \mhere
+\end{instance}
+
+% 场景 C：正常自动
+\begin{instance}[C -- normal]
+\lipsum[2]
+\end{instance}
+
+% 场景 D：remark 行间公式
+\begin{remark}[D -- remark math]
+\begin{equation}
+  a^2 + b^2 = c^2 \mhere
+\end{equation}
+\end{remark}
+
+\newpage
+% 场景 E：remark 正常
+\begin{remark}[E -- normal]
+\lipsum[2]
+\end{remark}
+
+\end{document}

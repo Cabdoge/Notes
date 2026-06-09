@@ -19,10 +19,12 @@
 \contentsline {section}{\numberline {3.1}代数与模}{41}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Peirce 分解}{46}{section.3.2}%
 \contentsline {section}{\numberline {3.3}模同态}{48}{section.3.3}%
-\contentsline {section}{\numberline {3.4}半单模与半单代数}{51}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Jordan-Hölder 定理}{52}{section.3.5}%
-\contentsline {section}{\numberline {3.6}自由模}{53}{section.3.6}%
-\contentsline {section}{\numberline {3.7}内射模和投射模}{56}{section.3.7}%
-\contentsline {chapter}{关键词索引}{61}{section*.8}%
-\contentsline {chapter}{关键词索引}{61}{chapter*.9}%
+\contentsline {section}{\numberline {3.4}范畴与函子}{50}{section.3.4}%
+\contentsline {section}{\numberline {3.5}半单模与半单代数}{54}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Jordan-Hölder 定理}{55}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Wedderburn-Artin 定理}{58}{section.3.7}%
+\contentsline {section}{\numberline {3.8}Jacobson 根}{69}{section.3.8}%
+\contentsline {section}{\numberline {3.9}自由模}{75}{section.3.9}%
+\contentsline {section}{\numberline {3.10}内射模和投射模}{77}{section.3.10}%
+\contentsline {chapter}{关键词索引}{85}{chapter*.12}%
 \contentsfinish 

@@ -3,7 +3,7 @@
 \indexentry{c@Cauchy列|hyperpage}{4}
 \indexentry{w@完备性|hyperpage}{4}
 \indexentry{b@Banach空间|hyperpage}{4}
-\indexentry{p@$p$- 范数|hyperpage}{5}
+\indexentry{p@$p$-范数|hyperpage}{5}
 \indexentry{h@H\"older不等式|hyperpage}{5}
 \indexentry{h@H\"older共轭|hyperpage}{5}
 \indexentry{d@单位球|hyperpage}{6}
@@ -96,3 +96,26 @@
 \indexentry{j@极点|hyperpage}{60}
 \indexentry{K@Krein-Milman 定理|hyperpage}{60}
 \indexentry{z@支撑流形|hyperpage}{61}
+\indexentry{j@紧算子|hyperpage}{63}
+\indexentry{j@紧算子空间|hyperpage}{63}
+\indexentry{j@紧算子空间|hyperpage}{64}
+\indexentry{j@紧算子!弱-强连续性|hyperpage}{64}
+\indexentry{y@有限秩算子|hyperpage}{65}
+\indexentry{y@有限秩逼近|hyperpage}{66}
+\indexentry{j@积分核算子|hyperpage}{66}
+\indexentry{H@Hilbert--Schmidt 算子|hyperpage}{67}
+\indexentry{b@伴随算子|hyperpage}{67}
+\indexentry{S@Schauder 定理|hyperpage}{68}
+\indexentry{z@自伴算子|hyperpage}{69}
+\indexentry{z@正规算子|hyperpage}{69}
+\indexentry{p@谱定理|hyperpage}{69}
+\indexentry{F@Fredholm 算子|hyperpage}{73}
+\indexentry{F@Fredholm 指标|hyperpage}{73}
+\indexentry{F@Fredholm 算子!开性|hyperpage}{73}
+\indexentry{F@Fredholm 算子!紧扰动|hyperpage}{74}
+\indexentry{t@拓扑群|hyperpage}{75}
+\indexentry{b@表示|hyperpage}{76}
+\indexentry{q@群作用|hyperpage}{76}
+\indexentry{b@不变测度|hyperpage}{78}
+\indexentry{K@Kakutani-Markov 定理|hyperpage}{78}
+\indexentry{H@Haar 测度|hyperpage}{79}

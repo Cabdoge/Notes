@@ -423,20 +423,24 @@ Crank-Nicolson 型的隐式差分格式为
 
 设欲求解的问题为如下抛物型方程
 \begin{equation}\label{eq:variable-coeff-parabolic}
-    u_t - a(x)u_{xx} = 0
+    \begin{cases}
+        u_t - a(x)u_{xx} = 0, \\
+        t=0,u=u_0(x),
+    \end{cases}
 \end{equation}
-的初值问题, 式中 $a(x)$ 是一个充分光滑函数, 且存在常数 $a_0 > 0$ 使得对任意 $x \in \mathbb{R}$, $a(x) \geq a_0 > 0$.
+的初值问题, 其中$a(x)$ 是一个充分光滑函数, 且存在常数 $a_0 > 0$ 使得对任意 $x \in \mathbb{R}$, $a(x) \geq a_0 > 0$.
 
 \subsection{Taylor 展开法}
 
-\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=Taylor 展开法核心思想]
+
+\begin{note}[Taylor展开法核心思想]
 \begin{itemize}
     \item 离散和连续的转换, 时间求导和空间求导的转换.
     \item Taylor 展开.
 \end{itemize}
-\end{tcolorbox}
+\end{note}
 
-引入紧致差分算子 $\delta_x^2 u = [u(x+h, t) - 2u(x,t) + u(x-h, t)]/h^2$. 则由 Taylor 展开和方程 \eqref{eq:variable-coeff-parabolic} 知
+引入中心差商算子 $\delta_x^2 u = [u(x+h, t) - 2u(x,t) + u(x-h, t)]/h^2$. 则由 Taylor 展开和方程 \eqref{eq:variable-coeff-parabolic} 知
 \begin{align*}
     \delta_x^2 u &= u_{xx} + \frac{h^2}{12} u_{xxxx} + O(h^4) \\
     &= \frac{1}{a} u_t + \frac{1}{12} \left(\frac{1}{a} u_t\right)_{xx} + O(h^4).
@@ -450,7 +454,7 @@ Crank-Nicolson 型的隐式差分格式为
 \begin{equation}\label{eq:compact-cn}
     \frac{1}{12} \frac{u_{j+1}^{n+1} - u_{j+1}^n}{a_{j+1}\tau} + \frac{5}{6} \frac{u_j^{n+1} - u_j^n}{a_j\tau} + \frac{1}{12} \frac{u_{j-1}^{n+1} - u_{j-1}^n}{a_{j-1}\tau} = \frac{(\delta_x^2 u)_j^{n+1} + (\delta_x^2 u)_j^n}{2}.
 \end{equation}
-由构造易知该格式的截断误差为 $O(\tau^2 + h^4)$. \par
+由构造易知该格式的截断误差为 $O(\tau^2 + h^4)$.使用能量方法可以证明该格式无条件稳定.\par
 格式 \eqref{eq:compact-cn} 实即紧致的 Crank-Nicolson 格式, 它也可以如下导出. 在点 $(x_j, t_{n+1/2})$ 处考虑微分方程 \eqref{eq:variable-coeff-parabolic}, 有
 \begin{equation*}
     u_t(x_j, t_{n+1/2}) = a_j u_{xx}(x_j, t_{n+1/2}).
@@ -472,14 +476,15 @@ Crank-Nicolson 型的隐式差分格式为
     u_t = (a(x)u_x)_x
 \end{equation}
 的初值问题的数值求解, 式中 $a(x)$ 仍然是一个充分光滑函数, 且存在常数 $a_0 > 0$ 使得对任意 $x \in \mathbb{R}$, $a(x) \geq a_0 > 0$. \par
-使用有限体积法来构造差分格式. 先将该方程写成一阶方程组. 令
-\begin{equation}\label{eq:variable-coeff-w}
-    w = a(x)u_x,
-\end{equation}
-则方程 \eqref{eq:variable-coeff-parabolic-divergence} 为
+使用有限体积法来构造差分格式. \par
+\noindent\allbf{Step1.将\eqref{eq:variable-coeff-parabolic-divergence}写为一阶方程组} 设$w = a(x)u_x$.则方程 \eqref{eq:variable-coeff-parabolic-divergence} 为
 \begin{equation}\label{eq:variable-coeff-system}
-    u_t - w_x = 0.
+    \begin{cases}
+        u_t - w_x = 0,\\
+        w=a(x)u_x.
+    \end{cases}
 \end{equation}
+\noindent\allbf{Step2.使用控制体积得格式}
 对于网格点 $(x_j, t_n)$, 取有限体积元为
 \begin{equation*}
     W = \{ (x,t) : t_n < t < t_{n+1}, x_{j-1/2} < x < x_{j+1/2} \}.
@@ -495,7 +500,7 @@ Crank-Nicolson 型的隐式差分格式为
 \begin{equation}\label{eq:I1-approx}
     I_1 \approx [u(x_j, t_{n+1}) - u(x_j, t_n)]h.
 \end{equation}
-对于 $I_2$ 的进一步离散更有技巧性. 首先, 由关系式 \eqref{eq:variable-coeff-w} 有
+对于 $I_2$ 的进一步离散更有技巧性. 首先, 由$w=a(x)u_x$有
 \begin{equation*}
     a^{-1}(x)w = u_x.
 \end{equation*}
@@ -531,7 +536,8 @@ Crank-Nicolson 型的隐式差分格式为
     \frac{u_j^{n+1} - u_j^n}{\tau} - \frac{1}{h^2} [\theta \Delta (A_j\nabla u_j^{n+1}) + (1 - \theta)\Delta (A_j\nabla u_j^n)] = 0.
 \end{equation}
 
-当 $\theta = 1/2$ 时，该格式的精度为 $O(\tau^2 + h^2)$，而当 $\theta \neq 1/2$ 时，该格式的精度为 $O(\tau + h^2)$.
+当 $\theta = 1/2$ 时，该格式的精度为 $O(\tau^2 + h^2)$，而当 $\theta \neq 1/2$ 时，该格式的精度为 $O(\tau + h^2)$.\par
+当$A_j$为常数时，上述格式即为古典隐式格式.\par
 
 \begin{remark}
 在热物理中，$u$ 表示温度场，而 $w$ 为负热流量，它们均为空间位置的连续函数，而对于界面问题 $u_x$ 可能是非连续函数，因此使用积分方式得到 $w(x_{j+1/2}, t)$ 近似值适用性更广.
@@ -558,22 +564,69 @@ Crank-Nicolson 型的隐式差分格式为
 \begin{equation*}
     \frac{u_{jl}^{n+1} - u_{jl}^n}{\tau} = a\left(\delta_x^2 u_{jl}^n + \delta_y^2 u_{jl}^n\right)
 \end{equation*}
-和隐式格式
-\begin{equation}\label{eq:6.2}
-    \frac{u_{jl}^{n+1} - u_{jl}^n}{\tau} = a\left(\delta_x^2 u_{jl}^{n+1} + \delta_y^2 u_{jl}^{n+1}\right).
+
+
+由于是常系数问题，因此仍可应用Fourier方法研究其稳定性条件.对于二维问题，为了获得增长因子，可令
+\begin{equation*}
+    u_{jl}^n = v^n e^{\iu(k_1 jh + k_2 lh)},
+\end{equation*}
+其中 $\boldsymbol{k} = (k_1, k_2)$ 为波数. 将其代入显式格式
+\begin{equation}\label{eq:6-exp-scheme}
+    \frac{u_{jl}^{n+1} - u_{jl}^n}{\tau} = a\left(\delta_x^2 u_{jl}^n + \delta_y^2 u_{jl}^n\right),
+\end{equation}
+首先计算 $x$ 方向的二阶中心差分：
+\begin{align*}
+    \delta_x^2 u_{jl}^n
+    &= \frac{u_{j+1,l}^n - 2u_{jl}^n + u_{j-1,l}^n}{h^2} \\
+    &= \frac{v^n e^{\iu(k_1 (j+1)h + k_2 lh)} - 2v^n e^{\iu(k_1 jh + k_2 lh)} + v^n e^{\iu(k_1 (j-1)h + k_2 lh)}}{h^2} \\
+    &= \frac{v^n e^{\iu(k_1 jh + k_2 lh)}\bigl(e^{\iu k_1 h} - 2 + e^{-\iu k_1 h}\bigr)}{h^2} \\
+    &= u_{jl}^n \cdot \frac{2\cos(k_1 h) - 2}{h^2}
+     = -u_{jl}^n \cdot \frac{4\sin^2 \frac{k_1 h}{2}}{h^2}.
+\end{align*}
+同理可得 $y$ 方向的二阶中心差分：
+\begin{equation*}
+    \delta_y^2 u_{jl}^n = -u_{jl}^n \cdot \frac{4\sin^2 \frac{k_2 h}{2}}{h^2}.
+\end{equation*}
+记网格比 $\lambda = \tau / h^2$，将以上两式代入显式格式 \eqref{eq:6-exp-scheme}：
+\begin{align*}
+    u_{jl}^{n+1}
+    &= u_{jl}^n + a\tau\bigl(\delta_x^2 u_{jl}^n + \delta_y^2 u_{jl}^n\bigr) \\
+    &= u_{jl}^n - a\tau \cdot u_{jl}^n \left(\frac{4\sin^2 \frac{k_1 h}{2}}{h^2} + \frac{4\sin^2 \frac{k_2 h}{2}}{h^2}\right) \\
+    &= u_{jl}^n \left[1 - 4a\lambda\left(\sin^2 \frac{k_1 h}{2} + \sin^2 \frac{k_2 h}{2}\right)\right].
+\end{align*}
+将 $u_{jl}^n = v^n e^{\iu(k_1 jh + k_2 lh)}$ 和 $u_{jl}^{n+1} = v^{n+1} e^{\iu(k_1 jh + k_2 lh)}$ 代入上式，消去公共因子 $e^{\iu(k_1 jh + k_2 lh)}$，得到
+\begin{equation*}
+    v^{n+1} = G(\tau, \boldsymbol{k}) v^n,
+\end{equation*}
+式中增长因子为
+\begin{equation}\label{eq:6-growth}
+    G(\tau, \boldsymbol{k}) = 1 - 4a\lambda \left(\sin^2 \frac{k_1 h}{2} + \sin^2 \frac{k_2 h}{2}\right).
 \end{equation}
 
-\begin{itemize}
-    \item 应用 Fourier 方法，前者的稳定性条件是 $a\lambda \le 1/4$，式中，$\lambda = \tau/h^2$，而后者是无条件稳定的. 事实上，对于二维问题，为了获得增长因子，可令 $u_{jl}^n = v^n e^{\iu(k_1 jh + k_2 lh)}$，把它代入显式格式得
-    \begin{equation*}
-        v^{n+1} = G(\tau, \boldsymbol{k})v^n, \quad \boldsymbol{k} = (k_1, k_2),
-    \end{equation*}
-    式中，
-    \begin{equation*}
-        G(\tau, \boldsymbol{k}) = 1 - 4a\lambda \left(\sin^2 \frac{k_1h}{2} + \sin^2 \frac{k_2h}{2}\right),
-    \end{equation*}
-    从而由 $|G(\tau, \boldsymbol{k})| \le 1$ 获得稳定性条件为 $a\lambda \le 1/4$. 也可知隐式格式是无条件稳定的.
-\end{itemize}
+格式稳定的充要条件是 $|G(\tau, \boldsymbol{k})| \leq 1$ 对一切 $\boldsymbol{k} \in \mathbb{R}^2$ 成立，即
+\begin{equation*}
+    -1 \leq 1 - 4a\lambda\left(\sin^2 \frac{k_1 h}{2} + \sin^2 \frac{k_2 h}{2}\right) \leq 1.
+\end{equation*}
+右端不等式 $1 - 4a\lambda(\sin^2 \frac{k_1 h}{2} + \sin^2 \frac{k_2 h}{2}) \leq 1$ 自然成立. 左端不等式给出
+\begin{equation*}
+    4a\lambda\left(\sin^2 \frac{k_1 h}{2} + \sin^2 \frac{k_2 h}{2}\right) \leq 2,
+\end{equation*}
+即
+\begin{equation*}
+    a\lambda \leq \frac{1}{2\left(\sin^2 \frac{k_1 h}{2} + \sin^2 \frac{k_2 h}{2}\right)}.
+\end{equation*}
+因此稳定性条件为$a\lambda \leq \frac{1}{4}.$\par
+同样地，我们可以直接求解方程的隐式格式\begin{equation}\label{eq:6.2}
+    \frac{u_{jl}^{n+1} - u_{jl}^n}{\tau} = a\left(\delta_x^2 u_{jl}^{n+1} + \delta_y^2 u_{jl}^{n+1}\right).
+\end{equation}
+对于隐式格式 \eqref{eq:6.2}，用同样方法可得其增长因子为
+\begin{equation*}
+    G(\tau, \boldsymbol{k}) = \frac{1}{1 + 4a\lambda\left(\sin^2 \frac{k_1 h}{2} + \sin^2 \frac{k_2 h}{2}\right)},
+\end{equation*}
+显然对任意 $\lambda > 0$ 均有 $0 < G \leq 1$，故隐式格式是无条件稳定的.\par
+将稳定性条件推广到 $d$ 维空间中, 显式格式的稳定性条件为 $2a\lambda\cdot d \leq 1$, 而隐式格式仍然是无条件稳定的.
+
+
 
 \begin{remark}[困难]
 \begin{itemize}
@@ -584,7 +637,7 @@ Crank-Nicolson 型的隐式差分格式为
 
 \section{交替方向隐式格式}
 
-\subsection{交替方向隐式格式 (Peaceman-Rachford)}
+采用二步思想，构造Peaceman-Rachford格式.
 
 \begin{itemize}
     \item 使用时间方向分数步思想，引入 $n + 1/2$ 层过渡时间层.
@@ -593,8 +646,8 @@ Crank-Nicolson 型的隐式差分格式为
 
 \begin{equation}\label{eq:7.1-7.2}
     \begin{cases}
-        \frac{u_{jl}^{n+1/2} - u_{jl}^n}{\tau/2} = a\left(\delta_x^2 u_{jl}^{n+1/2} + \delta_y^2 u_{jl}^n\right), \quad \text{在 } x \text{ 方向求解}, &\text{(7.1)} \\
-        \frac{u_{jl}^{n+1} - u_{jl}^{n+1/2}}{\tau/2} = a\left(\delta_x^2 u_{jl}^{n+1/2} + \delta_y^2 u_{jl}^{n+1}\right), \quad \text{在 } y \text{ 方向求解}. &\text{(7.2)}
+        \frac{u_{jl}^{n+1/2} - u_{jl}^n}{\tau/2} = a\left(\delta_x^2 u_{jl}^{n+1/2} + \delta_y^2 u_{jl}^n\right), \quad \text{在 } x \text{ 方向求解}, &(1)\\[7pt]
+        \frac{u_{jl}^{n+1} - u_{jl}^{n+1/2}}{\tau/2} = a\left(\delta_x^2 u_{jl}^{n+1/2} + \delta_y^2 u_{jl}^{n+1}\right), \quad \text{在 } y \text{ 方向求解}. &(2) 
     \end{cases}
 \end{equation}
 
@@ -649,22 +702,33 @@ Crank-Nicolson 型的隐式差分格式为
     \caption{交替方向隐式格式示意图}
 \end{figure}
 
-为了分析其稳定性，将格式变形为
+对于$(1)$，
 \begin{equation*}
-    \begin{cases}
-        (I - \frac{a\tau}{2}\delta_x^2)u_{jl}^{n+1/2} = (I + \frac{a\tau}{2}\delta_y^2)u_{jl}^n, \\
-        (I - \frac{a\tau}{2}\delta_y^2)u_{jl}^{n+1} = (I + \frac{a\tau}{2}\delta_x^2)u_{jl}^{n+1/2}.
-    \end{cases}
+    \frac{v^{n+1/2}-v^n}{\tau /2}=\frac{a}{h^2}\ab(-4\sin^2\frac{k_1h}{2}v^{n+1/2}-4\sin^2\frac{k_2h}{2}v^n)
 \end{equation*}
+即
+\begin{equation*}
+    \ab(1+2a\lambda\sin^2\frac{k_1h}{2})v^{n+1/2}=\ab(1-2a\lambda\sin^2\frac{k_2h}{2})v^n.
+\end{equation*}
+故
+\begin{equation*}
+    v^{n+1/2}=\frac{1-2a\lambda\sin^2\frac{k_2h}{2}}{1+2a\lambda\sin^2\frac{k_1h}{2}}v^n.
+\end{equation*}
+
+同理，对于$(2)$，我们有
+\begin{equation*}
+    v^{n+1}=\frac{1-2a\lambda\sin^2\frac{k_1h}{2}}{1+2a\lambda\sin^2\frac{k_2h}{2}}v^{n+1/2}.
+\end{equation*}
+
 消去 $u_{jl}^{n+1/2}$，有
 \begin{equation*}
-    (I - \frac{a\tau}{2}\delta_x^2)(I - \frac{a\tau}{2}\delta_y^2)u_{jl}^{n+1} = (I + \frac{a\tau}{2}\delta_x^2)(I + \frac{a\tau}{2}\delta_y^2)u_{jl}^n.
+    v^{n+1}=\frac{(1-2a\lambda\sin^2\frac{k_1h}{2})(1-2a\lambda\sin^2\frac{k_2h}{2})}{(1+2a\lambda\sin^2\frac{k_1h}{2})(1+2a\lambda\sin^2\frac{k_2h}{2})}v^n.
 \end{equation*}
-令 $u_{jl}^n = v^n e^{\iu(k_1 jh + k_2 lh)}$，可得 $v^{n+1} = G(\tau, \boldsymbol{k})v^n$，式中
+故$v^{n+1} = G(\tau, \boldsymbol{k})v^n$，式中
 \begin{equation*}
     G(\tau, \boldsymbol{k}) = \frac{(1 - 2a\lambda\sin^2\frac{k_1h}{2})(1 - 2a\lambda\sin^2\frac{k_2h}{2})}{(1 + 2a\lambda\sin^2\frac{k_1h}{2})(1 + 2a\lambda\sin^2\frac{k_2h}{2})}.
 \end{equation*}
-易知 $|G(\tau, \boldsymbol{k})| \le 1$，因此该格式是无条件稳定的. 另外，利用 Taylor 展开可知该方法的精度为 $O(\tau^2 + h^2)$.
+易知 $|G(\tau, \boldsymbol{k})| \leq 1$，因此该格式是无条件稳定的. 另外，利用 Taylor 展开可知该方法的精度为 $O(\tau^2 + h^2)$.
 
 \begin{remark}[小节]
 降维的技巧加上分数步技巧. 该格式计算量较小且无条件稳定. 另外需要注意的是，若将 PR 格式 \eqref{eq:7.1-7.2} 推广到三维问题时，相应的格式不再是无条件稳定的.
@@ -674,14 +738,14 @@ Crank-Nicolson 型的隐式差分格式为
 
 \subsection{从一个简单例子谈起}
 
-\begin{remark}[历史回顾]
+\begin{note}[历史回顾]
 分数步方法是求解多维复杂问题的经济且有效的方法. 早在 1971 年，苏联数学家 Yanenko 就在其专著中对该方法进行了系统性的论述. 前面介绍了求解抛物型方程的交替方向隐式差分格式，就是一种分数步格式. 这一节我们将介绍另一种分数步方法，与交替方向隐式格式不同的是，该方法在每一步仅处理发展方程右端的一个算子，因而称为算子分裂方法. 其实算子分裂方法有多种类型，这里只介绍其中的一种.
-\end{remark}
+\end{note}
 
 考虑问题
 \begin{equation}\label{eq:8.1}
     \begin{cases}
-        \frac{\mathrm{d}x}{\mathrm{d}t} = f(t) = 1, \quad 0 < t \le T, \\
+        \frac{\mathrm{d}x}{\mathrm{d}t} = f(t) = 1, \quad 0 < t \leq T, \\
         x(0) = 0.
     \end{cases}
 \end{equation}
@@ -699,8 +763,8 @@ Crank-Nicolson 型的隐式差分格式为
 显然，若把每个小区间 $[t_n, t_{n+1}]$ 上对 $f$ 的积分作用等效在该时间段的前半部分，则格点上的计算结果不变，此时 $f(\tau, t)$ 在 $[t_n, t_{n+1}]$ 的取值为
 \begin{equation}\label{eq:8.2}
     f(\tau, t) = \begin{cases}
-        2, & t_n < t \le t_{n+1/2}, \\
-        0, & t_{n+1/2} < t \le t_{n+1},
+        2, & t_n < t \leq t_{n+1/2}, \\
+        0, & t_{n+1/2} < t \leq t_{n+1},
     \end{cases}
 \end{equation}
 式中，$t_n = n\tau$，$t_{n+1/2} = (n+1/2)\tau$.
@@ -708,25 +772,25 @@ Crank-Nicolson 型的隐式差分格式为
 记 $x_\tau(t)$ 为如下问题之解：
 \begin{equation}\label{eq:8.3}
     \begin{cases}
-        \frac{\mathrm{d}x_\tau}{\mathrm{d}t} = f_\tau(t) = f(\tau, t), \quad 0 < t \le T, \\
+        \frac{\mathrm{d}x_\tau}{\mathrm{d}t} = f_\tau(t) = f(\tau, t), \quad 0 < t \leq T, \\
         x_\tau(0) = 0,
     \end{cases}
 \end{equation}
 式中 $f(\tau, t)$ 由 \eqref{eq:8.2} 确定. 该问题的等价描述为
 \begin{equation}\label{eq:8.4}
     \begin{cases}
-        \frac{\mathrm{d}x_\tau}{\mathrm{d}t} = 2, \quad n\tau < t \le (n+\frac{1}{2})\tau, \\
-        \frac{\mathrm{d}x_\tau}{\mathrm{d}t} = 0, \quad (n+\frac{1}{2})\tau < t \le (n+1)\tau.
+        \frac{\mathrm{d}x_\tau}{\mathrm{d}t} = 2, \quad n\tau < t \leq (n+\frac{1}{2})\tau, \\[7pt]
+        \frac{\mathrm{d}x_\tau}{\mathrm{d}t} = 0, \quad (n+\frac{1}{2})\tau < t \leq (n+1)\tau.
     \end{cases}
 \end{equation}
 
-直观上，当 $\tau \rightarrow 0+$ 时，近似解 $x_\tau$ 应该在某种意义下收敛到精确解 $x$. 具体而言，对任意的 $0 \le t_* < t^* \le T$，有
+直观上，当 $\tau \rightarrow 0+$ 时，近似解 $x_\tau$ 应该在某种意义下收敛到精确解 $x$. 具体而言，对任意的 $0 \leq t_* < t^* \leq T$，有
 \begin{equation*}
     x(t^*) = x(t_*) + \int_{t_*}^{t^*} f(s) \,\mathrm{d}s.
 \end{equation*}
 这样，对步长为 $\tau$ 的时间划分，如果 $f(t)$ 的近似 $f(\tau, t)$ 能在积分意义下收敛，即
 \begin{equation}\label{eq:8.5}
-    \int_{t_*}^{t^*} [f(\tau, s) - f(s)] \,\mathrm{d}s \rightarrow 0, \quad \tau \rightarrow 0+ \quad \forall\ 0 \le t_* < t^* \le T,
+    \int_{t_*}^{t^*} [f(\tau, s) - f(s)] \,\mathrm{d}s \rightarrow 0, \quad \tau \rightarrow 0+ \quad \forall\ 0 \leq t_* < t^* \leq T,
 \end{equation}
 那么近似问题的解 $x_\tau(t)$ 必逐点收敛于 $x(t)$. 我们称在 \eqref{eq:8.5} 的意义下，$f(\tau, t)$ 弱收敛于 $f(t)$. 可以证明，\eqref{eq:8.2} 给出的 $f(\tau, t)$ 弱收敛于 $f(t) \equiv 1$.
 
@@ -824,30 +888,30 @@ Crank-Nicolson 型的隐式差分格式为
     \caption{$f(t), x(t)$ 和 $f(\tau, t), x_\tau(t)$ 的比较}
 \end{figure}
 
-\begin{remark}[启示]
+\begin{note}[启示]
 \begin{itemize}
     \item 为了求解问题 \eqref{eq:8.1}，可以转而求解近似问题 \eqref{eq:8.3} 或它的等价问题 \eqref{eq:8.4}. 而构造近似问题 \eqref{eq:8.3} 的关键是在每个子区间 $[t_n, t_{n+1}]$ 如何合理修改右端函数.
     \item 从力学直观上看，如果将 $f(t)$ 理解为时刻 $t$ 受到的力，那么若时间步长 $\tau$ 很小时，它在 $[t_n, t_{n+1}]$ 的作用效应应和由 \eqref{eq:8.2} 给定的力 $f(\tau, t)$ 的作用效应差不多.
 \end{itemize}
-\end{remark}
+\end{note}
 
 \subsection{一般化及在抛物型方程中的应用}
 
 \begin{remark}[一般化]
 如果系统受到多个力的作用，$f(t) = f_1(t) + \cdots + f_p(t)$，可以定义
 \begin{equation*}
-    f(\tau, t) = p f_i(t), \quad t_{n+(i-1)/p} < t \le t_{n+i/p}, \quad i = 1, \dots, p,
+    f(\tau, t) = p f_i(t), \quad t_{n+(i-1)/p} < t \leq t_{n+i/p}, \quad i = 1, \dots, p,
 \end{equation*}
 转而求解近似问题
 \begin{equation*}
     \begin{cases}
-        \frac{\mathrm{d}x_\tau}{\mathrm{d}t} = f_\tau(t) = f(\tau, t), \quad 0 < t \le T, \\
+        \frac{\mathrm{d}x_\tau}{\mathrm{d}t} = f_\tau(t) = f(\tau, t), \quad 0 < t \leq T, \\
         x_\tau(0) = 0.
     \end{cases}
 \end{equation*}
 或等价地，
 \begin{equation*}
-    \frac{\mathrm{d}x_\tau}{\mathrm{d}t} = p f_i(t), \quad t_{n+(i-1)/p} < t \le t_{n+i/p}, \quad i = 1, \dots, p.
+    \frac{\mathrm{d}x_\tau}{\mathrm{d}t} = p f_i(t), \quad t_{n+(i-1)/p} < t \leq t_{n+i/p}, \quad i = 1, \dots, p.
 \end{equation*}
 于是，在每个子区间 $[t_{n+(i-1)/p}, t_{n+i/p}]$ 上，只需求解受到单个人力 $f_i(t)$ 作用的问题，从而可能将原问题转化为另一个便于处理的近似问题，达到\textbf{分而治之}的目的. 这正是算子分裂法思想的精髓.
 \end{remark}
@@ -869,7 +933,7 @@ Crank-Nicolson 型的隐式差分格式为
 \end{equation*}
 式中，
 \begin{equation*}
-    \alpha_s(\tau, t) = p \delta_{si}, \quad t_{n+(i-1)/p} < t \le t_{n+i/p},
+    \alpha_s(\tau, t) = p \delta_{si}, \quad t_{n+(i-1)/p} < t \leq t_{n+i/p},
 \end{equation*}
 \begin{equation*}
     \delta_{si} = \begin{cases}
@@ -883,17 +947,17 @@ Crank-Nicolson 型的隐式差分格式为
 \end{equation*}
 写成子区间描述的形式，上即
 \begin{equation*}
-    \frac{\partial u_\tau}{\partial t}(t) = p L_i u_\tau(t), \quad t_{n+(i-1)/p} < t \le t_{n+i/p}, \quad i = 1, \dots, p.
+    \frac{\partial u_\tau}{\partial t}(t) = p L_i u_\tau(t), \quad t_{n+(i-1)/p} < t \leq t_{n+i/p}, \quad i = 1, \dots, p.
 \end{equation*}
 
 \subsection{算子分裂方法在抛物型方程差分方法中的应用}
 
-\begin{remark}[算子分裂方法实施步骤]
+\begin{note}[算子分裂方法实施步骤]
 \begin{itemize}
     \item 首先，通过算子分裂技巧获得原问题的可分步求解近似问题.
     \item 然后再对相应的子问题使用合理的数值方法进行离散，最终获得求解原问题的高效数值方法.
 \end{itemize}
-\end{remark}
+\end{note}
 
 考虑二维抛物型方程
 \begin{equation*}
@@ -906,15 +970,15 @@ Crank-Nicolson 型的隐式差分格式为
 根据前面的讨论，分裂格式相当于在 $[t_n, t_{n+1}]$ 考虑如下问题的求解
 \begin{equation*}
     \begin{cases}
-        \frac{\partial u_\tau}{\partial t} = 2L_1 u_\tau = 2a \frac{\partial^2 u_\tau}{\partial x^2}, & t_n < t \le t_{n+1/2}, \\
-        \frac{\partial u_\tau}{\partial t} = 2L_2 u_\tau = 2a \frac{\partial^2 u_\tau}{\partial y^2}, & t_{n+1/2} < t \le t_{n+1}.
+        \frac{\partial u_\tau}{\partial t} = 2L_1 u_\tau = 2a \frac{\partial^2 u_\tau}{\partial x^2}, & t_n < t \leq t_{n+1/2}, \\[7pt]
+        \frac{\partial u_\tau}{\partial t} = 2L_2 u_\tau = 2a \frac{\partial^2 u_\tau}{\partial y^2}, & t_{n+1/2} < t \leq t_{n+1}.
     \end{cases}
 \end{equation*}
 
 如果采用 Crank-Nicholson 差分格式求解相应的子问题（一维抛物型方程），则最终获得如下的局部一维格式:
 \begin{equation*}
     \begin{cases}
-        \frac{1}{2} \frac{u_{jl}^{n+1/2} - u_{jl}^n}{\tau/2} = a\delta_x^2 \dfrac{u_{jl}^{n+1/2} + u_{jl}^n}{2}, \\
+        \frac{1}{2} \frac{u_{jl}^{n+1/2} - u_{jl}^n}{\tau/2} = a\delta_x^2 \dfrac{u_{jl}^{n+1/2} + u_{jl}^n}{2}, \\[6pt]
         \frac{1}{2} \frac{u_{jl}^{n+1} - u_{jl}^{n+1/2}}{\tau/2} = a\delta_y^2 \dfrac{u_{jl}^{n+1} + u_{jl}^{n+1/2}}{2}.
     \end{cases}
 \end{equation*}
@@ -933,5 +997,23 @@ Crank-Nicolson 型的隐式差分格式为
     \end{cases}
 \end{equation}
 
+借助算子分裂方法，可以构造三维抛物型方程的无条件稳定的差分格式. 例如，考虑如下三维抛物型方程
+\begin{equation*}
+    u_t=a\Delta u = au_{xx} + au_{yy} + au_{zz}.
+\end{equation*}
+则相应的分裂格式为
+\begin{equation*}
+    \begin{cases}
+        (u_\tau)_t=3a(u_\tau)_{xx},t_n<t\leq t_{n+1/3}, \\
+        (u_\tau)_t=3a(u_\tau)_{yy},t_{n+1/3}<t\leq t_{n+2/3}, \\
+        (u_\tau)_t=3a(u_\tau)_{zz},t_{n+2/3}<t\leq t_{n+1}.
+    \end{cases}
+\end{equation*}
+
 在本节中，主要研究了求解高维抛物型方程算子分裂方法的构造，实际上，使用相同的思想也可以构造求解高维双曲型方程算子分裂方法. 考虑到方法的构造思想是完全相同的，我们就在此不展开讨论了.
+
+
+
+
+
 

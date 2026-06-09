@@ -1,0 +1,341 @@
+% -*- coding: utf-8 -*-
+% 编译方式：XeLaTeX 或 pdfLaTeX（需安装中文字体）
+\documentclass[fontset=fandol]{ctexart}
+
+% ==================== 页面与样式 ====================
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{amsmath,amssymb}
+
+\hypersetup{
+  colorlinks = true,
+  linkcolor  = blue,
+  urlcolor   = blue,
+  pdftitle   = {exactseq 宏包用户手册},
+  pdfauthor  = {},
+}
+
+% ==================== 代码块样式 ====================
+\lstset{
+  basicstyle      = \ttfamily\small,
+  backgroundcolor = \color{gray!10},
+  frame           = single,
+  breaklines      = true,
+  xleftmargin     = 2em,
+  xrightmargin    = 2em,
+  gobble          = 2,
+  language        = [LaTeX]TeX,
+}
+
+% ==================== 命令速记 ====================
+\newcommand{\pkg}[1]{\texttt{#1}}
+\newcommand{\opt}[1]{\texttt{#1}}
+\newcommand{\cmd}[1]{\texttt{\textbackslash #1}}
+\newcommand{\marg}[1]{\texttt{\{#1\}}}
+\newcommand{\meta}[1]{\textlangle\textit{#1}\textrangle}
+
+% ==================== 文档信息 ====================
+\title{\bfseries exactseq 宏包用户手册}
+\author{}
+\date{v1.0，2026 年 6 月}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\vspace{2em}
+
+\begin{abstract}
+\pkg{exactseq} 是一个基于 Ti\textit{k}Z 的 \LaTeX{} 宏包，用于排版数学中的正合列（exact sequence）。
+它提供了四条核心命令，支持任意长度的正合列、可配置的箭头样式、最短箭头长度以及标签间距控制。
+本宏包使用 \LaTeX3（expl3）语法编写，依赖 \pkg{tikz} 和 \pkg{xparse}。
+\end{abstract}
+
+% ================================================================
+\section{简介}
+
+在代数学中，正合列是频繁出现的排版需求。传统做法是使用 \cmd{xrightarrow}（来自 \pkg{amsmath}）逐段拼接，
+但存在以下问题：
+
+\begin{itemize}
+  \item 拼接过程繁琐，容易出错；
+  \item 空标签时箭头过短，排版难看（$0 \xrightarrow{} M'$）；
+  \item 箭头样式固定为 Computer Modern 字体，无法更换。
+\end{itemize}
+
+\pkg{exactseq} 宏包解决了这些问题：
+
+\begin{itemize}
+  \item 一条命令即可写出任意长度的正合列；
+  \item 基于 Ti\textit{k}Z 绘制箭头，可自由配置箭头样式（Stealth、Latex 等）；
+  \item 箭头有最短长度保底，空标签不再过短；
+  \item 标签间距可调。
+\end{itemize}
+
+% ================================================================
+\section{安装与加载}
+
+\subsection{安装}
+
+将 \texttt{exactseq.sty} 放入工作目录，或复制到 \TeX{} 发行版的本地宏包路径：
+
+\begin{lstlisting}
+  # macOS / Linux
+  cp exactseq.sty ~/texmf/tex/latex/exactseq/
+  texhash ~/texmf
+
+  # Windows
+  copy exactseq.sty %USERPROFILE%\texmf\tex\latex\exactseq\
+  texhash %USERPROFILE%\texmf
+\end{lstlisting}
+
+\subsection{加载}
+
+\begin{lstlisting}
+  \usepackage{exactseq}
+\end{lstlisting}
+
+本宏包自动加载 \pkg{tikz}（含 \texttt{arrows.meta} 与 \texttt{cd} 库）和 \pkg{xparse}。
+
+% ================================================================
+\section{用户命令}
+
+\subsection{\cmd{exactseq} —— 任意长度正合列}
+
+这是最核心的命令，通过递归解析括号对实现任意长度序列的拼接。
+
+\medskip
+\textbf{语法}
+\begin{lstlisting}
+  \exactseq{<首个对象>}[<映射1>]{<对象2>}[<映射2>]{<对象3>}...
+\end{lstlisting}
+
+\medskip
+\textbf{规则}
+\begin{itemize}
+  \item 第一个参数 \marg{对象} 无前置箭头，直接输出；
+  \item 之后每个 \texttt{[}\meta{映射}\texttt{]\{}\meta{对象}\texttt{\}} 对输出
+        ``$\xrightarrow{\text{映射}}$ 对象''；
+  \item \texttt{[}\texttt{]} 为空时输出无标签箭头（使用最短长度）；
+  \item 序列以 \texttt{\{}\meta{最后一个对象}\texttt{\}} 结尾。
+\end{itemize}
+
+\medskip
+\textbf{示例}
+\begin{lstlisting}
+  % 短正合列
+  \exactseq{0}[]{M'}[f]{M}[g]{M''}[]{0}
+  % 输出：0 -> M' -f-> M -g-> M'' -> 0
+
+  % 多段序列
+  \exactseq{\cdots}[]{M_{i-1}}[]{M_i}[]{M_{i+1}}[]{\cdots}
+
+  % 长标签自动伸展
+  \exactseq{0}[]{M \otimes_R A}[1_M \otimes f]{M \otimes_R B}[]{0}
+\end{lstlisting}
+
+\subsection{\cmd{ses} —— 短正合列}
+
+预置好 ``$0 \to \cdot \to \cdot \to \cdot \to 0$'' 的格式，适合短正合列。
+
+\medskip
+\textbf{语法}
+\begin{lstlisting}
+  \ses[<映射1>][<映射2>]{<M'>}{<M>}{<M''>}
+\end{lstlisting}
+
+\medskip
+\textbf{示例}
+\begin{lstlisting}
+  \ses[f][g]{M'}{M}{M''}
+  % 输出：0 -> M' -f-> M -g-> M'' -> 0
+\end{lstlisting}
+
+\subsection{\cmd{injseq} —— 左侧正合列}
+
+预置好 ``$0 \to \cdot \to \cdot$'' 的格式，适合表示单射（injection）。
+
+\medskip
+\textbf{语法}
+\begin{lstlisting}
+  \injseq[<映射>]{<M'>}{<M>}
+\end{lstlisting}
+
+\medskip
+\textbf{示例}
+\begin{lstlisting}
+  \injseq[f]{M'}{M}
+  % 输出：0 -> M' -f-> M
+\end{lstlisting}
+
+\subsection{\cmd{surjseq} —— 右侧正合列}
+
+预置好 ``$\cdot \to \cdot \to 0$'' 的格式，适合表示满射（surjection）。
+
+\medskip
+\textbf{语法}
+\begin{lstlisting}
+  \surjseq[<映射>]{<M>}{<M''>}
+\end{lstlisting}
+
+\medskip
+\textbf{示例}
+\begin{lstlisting}
+  \surjseq[g]{M}{M''}
+  % 输出：M -g-> M'' -> 0
+\end{lstlisting}
+
+% ================================================================
+\section{配置选项}
+
+使用 \cmd{exactseqset} 命令在导言区或正文中调整各项参数。
+
+\medskip
+\textbf{语法}
+\begin{lstlisting}
+  \exactseqset{ <键1> = <值1>, <键2> = <值2>, ... }
+\end{lstlisting}
+
+\medskip
+\textbf{所有可配置选项}
+
+\begin{center}
+\begin{tabular}{lllp{6cm}}
+  \hline
+  键 & 类型 & 默认值 & 说明 \\
+  \hline
+  \opt{arrow style} & 字串 & \texttt{->} &
+    箭头样式，支持所有 Ti\textit{k}Z \texttt{arrows.meta} 样式 \\
+  \opt{min length}  & 尺寸 & \texttt{1.8em} &
+    箭头最短长度（标签长于此值时自动伸展） \\
+  \opt{label style} & 字串 & \texttt{\textbackslash scriptstyle} &
+    标签的字体命令 \\
+  \opt{label sep}   & 尺寸 & \texttt{1.5pt} &
+    标签与箭头线的垂直间距 \\
+  \hline
+\end{tabular}
+\end{center}
+
+\medskip
+\textbf{示例}
+\begin{lstlisting}
+  % 更换箭头为 Stealth 样式
+  \exactseqset{arrow style={-{Stealth}}}
+
+  % 自定义尺寸的 Latex 箭头 + 更宽的最短长度
+  \exactseqset{
+    arrow style = {-{Latex[length=3.5pt, width=2pt]}},
+    min length  = 2.2em,
+  }
+
+  % 调整标签间距
+  \exactseqset{label sep = 2.5pt}
+\end{lstlisting}
+
+% ================================================================
+\section{箭头样式参考}
+
+本宏包使用 Ti\textit{k}Z 的 \texttt{arrows.meta} 库，以下列出常用的数学场景箭头样式。
+
+\begin{center}
+\begin{tabular}{ll}
+  \hline
+  \opt{arrow style} 值 & 效果描述 \\
+  \hline
+  \texttt{->} & 默认实心三角，接近 CM 风格 \\
+  \texttt{-\{Stealth\}} & 实心三角，线条更粗 \\
+  \texttt{-\{Latex\}} & 类似 CM 但更均匀 \\
+  \texttt{-\{Latex[length=3.5pt,width=2pt]\}} & Latex 箭头，自定义尺寸 \\
+  \texttt{-\{Computer Modern Rightarrow\}} & 最接近 CM 字体的原始箭头 \\
+  \texttt{->>} & 双线箭头，适合表示满射 \\
+  \texttt{-\{>\}|>\}} & 双箭头（两个并列箭头） \\
+  \texttt{-\{Hooks\}} & 钩子，适合表示单射 \\
+  \texttt{-\{Straight Barb\}} & 细长直箭头 \\
+  \texttt{-\{Bar\}} & 竖线结尾（无箭头） \\
+  \hline
+\end{tabular}
+\end{center}
+
+更多样式请参阅 Ti\textit{k}Z 手册第 16 章（命令行运行 \texttt{texdoc tikz}）。
+
+% ================================================================
+\section{完整示例}
+
+\subsection{基础用法}
+
+\begin{lstlisting}
+  \documentclass{article}
+  \usepackage{amsmath}
+  \usepackage{exactseq}
+
+  \begin{document}
+
+  行内正合列：
+  $\exactseq{0}[]{M'}[f]{M}[g]{M''}[]{0}$
+
+  行间正合列：
+  \[
+    \exactseq{0}[]{M_1}[f_1]{M_2}[f_2]{M_3}[]{\cdots}[]{\cdots}
+  \]
+
+  短正合列：
+  \[
+    \ses[f][g]{M'}{M}{M''}
+  \]
+
+  \end{document}
+\end{lstlisting}
+
+\subsection{自定义箭头样式}
+
+\begin{lstlisting}
+  \documentclass{article}
+  \usepackage{exactseq}
+
+  % 全局设置
+  \exactseqset{
+    arrow style = {-{Stealth}},
+    min length  = 2em,
+  }
+
+  \begin{document}
+
+  \[
+    \exactseq{0}[]{\ker f}[i]{M}[f]{N}[\pi]{\coker f}[]{0}
+  \]
+
+  % 局部切换为双线箭头（满射用）
+  \exactseqset{arrow style={->>}}
+  \[
+    \exactseq{M}[g]{M''}[]{0}
+  \]
+
+  \end{document}
+\end{lstlisting}
+
+% ================================================================
+\section{注意事项}
+
+\begin{enumerate}
+  \item 所有命令仅可在数学模式（\texttt{\$...\$} 或 \texttt{\textbackslash[...\textbackslash]}）中使用。
+  \item 箭头标签会以 \cmd{scriptstyle} 排版（与 \cmd{xrightarrow} 行为一致）。
+  \item \cmd{exactseq} 的第一个参数是无前置箭头的对象，因此以 \texttt{0} 或 \texttt{\textbackslash cdots}
+        开始时，其后必须跟 \texttt{[]\{\}} 对。
+  \item 若序列过长导致行间溢出，可手动换行（本宏包不处理自动换行）。
+\end{enumerate}
+
+% ================================================================
+\section{版本历史}
+
+\begin{description}
+  \item[v1.0]（2026-06-01）
+    \begin{itemize}
+      \item 初始版本。
+      \item 提供 \cmd{exactseq}、\cmd{ses}、\cmd{injseq}、\cmd{surjseq} 四条命令。
+      \item 基于 Ti\textit{k}Z 的箭头绘制，支持 \texttt{arrows.meta} 样式。
+      \item 可配置最短箭头长度、标签间距。
+    \end{itemize}
+\end{description}
+
+\end{document}

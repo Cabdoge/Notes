@@ -50,10 +50,51 @@
 \contentsline {subsection}{\numberline {4.5.2}有限体积法}{79}{subsection.4.5.2}%
 \contentsline {section}{\numberline {4.6}二维抛物方程差分法：一维问题的直接推广}{80}{section.4.6}%
 \contentsline {subsection}{\numberline {4.6.1}显式和隐式格式}{80}{subsection.4.6.1}%
-\contentsline {section}{\numberline {4.7}交替方向隐式格式}{81}{section.4.7}%
-\contentsline {subsection}{\numberline {4.7.1}交替方向隐式格式 (Peaceman-Rachford)}{81}{subsection.4.7.1}%
-\contentsline {section}{\numberline {4.8}算子分裂方法}{83}{section.4.8}%
-\contentsline {subsection}{\numberline {4.8.1}从一个简单例子谈起}{83}{subsection.4.8.1}%
-\contentsline {subsection}{\numberline {4.8.2}一般化及在抛物型方程中的应用}{84}{subsection.4.8.2}%
-\contentsline {subsection}{\numberline {4.8.3}算子分裂方法在抛物型方程差分方法中的应用}{85}{subsection.4.8.3}%
+\contentsline {section}{\numberline {4.7}交替方向隐式格式}{83}{section.4.7}%
+\contentsline {section}{\numberline {4.8}算子分裂方法}{84}{section.4.8}%
+\contentsline {subsection}{\numberline {4.8.1}从一个简单例子谈起}{84}{subsection.4.8.1}%
+\contentsline {subsection}{\numberline {4.8.2}一般化及在抛物型方程中的应用}{86}{subsection.4.8.2}%
+\contentsline {subsection}{\numberline {4.8.3}算子分裂方法在抛物型方程差分方法中的应用}{87}{subsection.4.8.3}%
+\contentsline {chapter}{\numberline {5}变分方法}{89}{chapter.5}%
+\contentsline {section}{\numberline {5.1}历史背景}{89}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}典型例子}{89}{subsection.5.1.1}%
+\contentsline {section}{\numberline {5.2}变分问题解的必要条件}{91}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}变分学基本引理}{91}{subsection.5.2.1}%
+\contentsline {section}{\numberline {5.3}一维变分问题}{92}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}一维变分原理 —— Euler-Lagrange 方程}{92}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}用守恒定律求解最速降线问题}{94}{subsection.5.3.2}%
+\contentsline {section}{\numberline {5.4}二次函数极值问题}{94}{section.5.4}%
+\contentsline {section}{\numberline {5.5}一维变分问题}{95}{section.5.5}%
+\contentsline {section}{\numberline {5.6}二维变分问题}{98}{section.5.6}%
+\contentsline {subsection}{\numberline {5.6.1}发展方程的变分原理}{99}{subsection.5.6.1}%
+\contentsline {section}{\numberline {5.7}变分问题的近似计算}{100}{section.5.7}%
+\contentsline {subsection}{\numberline {5.7.1}Ritz 方法}{100}{subsection.5.7.1}%
+\contentsline {subsection}{\numberline {5.7.2}Galerkin 方法}{101}{subsection.5.7.2}%
+\contentsline {chapter}{\numberline {6}有限元方法的构造与理论基础}{102}{chapter.6}%
+\contentsline {section}{\numberline {6.1}一维问题的有限元方法---线性元}{102}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}有限元空间的构造}{103}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}有限元方程组的形成}{105}{subsection.6.1.2}%
+\contentsline {paragraph}{直接法}{105}{paragraph*.33}%
+\contentsline {paragraph}{子结构方法}{105}{paragraph*.34}%
+\contentsline {paragraph}{(2) 总刚度矩阵和总荷载向量的形成}{106}{paragraph*.35}%
+\contentsline {paragraph}{(3) 约束条件的处理}{107}{paragraph*.36}%
+\contentsline {subsection}{\numberline {6.1.3}子结构方法执行实例}{107}{subsection.6.1.3}%
+\contentsline {paragraph}{a. 局部刚度矩阵与局部荷载向量}{108}{paragraph*.37}%
+\contentsline {paragraph}{b. 整体刚度矩阵和整体荷载的形成}{108}{paragraph*.38}%
+\contentsline {paragraph}{c. 约束条件的处理}{110}{paragraph*.39}%
+\contentsline {subsection}{\numberline {6.1.4}子结构方法 (续)}{110}{subsection.6.1.4}%
+\contentsline {paragraph}{(2) 总刚度矩阵和总荷载向量的形成}{111}{paragraph*.40}%
+\contentsline {paragraph}{(3) 约束条件的处理}{111}{paragraph*.41}%
+\contentsline {subsection}{\numberline {6.1.5}子结构方法执行实例}{111}{subsection.6.1.5}%
+\contentsline {paragraph}{a. 局部刚度矩阵与局部荷载向量}{112}{paragraph*.42}%
+\contentsline {paragraph}{b. 整体刚度矩阵和整体荷载的形成}{113}{paragraph*.43}%
+\contentsline {paragraph}{c. 约束条件的处理}{114}{paragraph*.44}%
+\contentsline {section}{\numberline {6.2}一维线性有限元方法的理论分析}{114}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}可解性分析}{114}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}收敛性分析}{115}{subsection.6.2.2}%
+\contentsline {section}{\numberline {6.3}二维问题的有限元方法---线性元}{119}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}问题描述与变分原理}{119}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}单元划分及试探函数空间的形成}{119}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.3}有限元方程的形成}{122}{subsection.6.3.3}%
+\contentsline {subsection}{\numberline {6.3.4}仿射变换与单元积分计算}{126}{subsection.6.3.4}%
 \contentsfinish 

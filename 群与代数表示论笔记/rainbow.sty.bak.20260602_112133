@@ -1,0 +1,574 @@
+% rainbow.sty
+% Typst theorion/rainbow 主题的 LaTeX 移植版
+% 提供带彩色左边框的定理类环境
+% 编码：UTF-8)
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{rainbow}[2026/03/04 (1.0)Rainbow theorem environments (tcolorbox)]
+
+%================ 依赖宏包 ================
+\RequirePackage{xcolor}
+\RequirePackage{tcolorbox}
+\tcbuselibrary{skins, breakable, theorems}
+\RequirePackage{amssymb}       % 数学符号
+\RequirePackage{amsmath}
+\RequirePackage{etoolbox}     % 钩子：用于在 proof 环境开始时复位 claim 编号
+\RequirePackage{changepage}   % 可控左移：用于在 claim 内部的 proof 盒子整体左移
+\RequirePackage{ulem}        % 下划线
+\RequirePackage{bbding}     % 提供 \HandPencilLeft 图标
+\RequirePackage{adforn}     % 提供 \adftripleflourishleft 等装饰符
+\RequirePackage{xparse}
+
+%================ 伪粗体设置 ================
+% 覆盖 ctex 默认的字体映射，使仿宋和楷体的粗体使用伪粗体而非替换为黑体
+\setCJKfamilyfont{zhfs}{FangSong}[AutoFakeBold=5]
+\renewcommand{\fangsong}{\CJKfamily{zhfs}}
+\setCJKfamilyfont{zhkai}{KaiTi}[AutoFakeBold=2.5]
+\renewcommand{\kaishu}{\CJKfamily{zhkai}}
+\setCJKfamilyfont{zhsong}{SimSun}[AutoFakeBold=2.5]
+\renewcommand{\songti}{\CJKfamily{zhsong}}
+\setCJKfamilyfont{zhhei}{SimHei}[AutoFakeBold=2.5]
+\renewcommand{\heiti}{\CJKfamily{zhhei}}
+
+%================ 结构性颜色定义 ================
+
+\definecolor{rbStructureColor}{RGB}{60,113,183}      % green (main)，用于 exercise 分隔标题等
+
+%================ 加粗字体命令 ================
+
+\newcommand{\allbf}[1]{\boldmath\bfseries{#1}\unboldmath\normalfont}
+\colorlet{colorbf}{rbStructureColor}
+\newcommand{\bluebf}[1]{\textcolor{rbStructureColor}{\allbf{#1}}}
+\newcommand{\colorbf}[1]{\textcolor{colorbf}{\allbf{#1}}}
+\BeforeBeginEnvironment{theorem}{\colorlet{colorbf}{rbTheoremColor}}
+\BeforeBeginEnvironment{lemma}{\colorlet{colorbf}{rbLemmaColor}}
+\BeforeBeginEnvironment{corollary}{\colorlet{colorbf}{rbCorollaryColor}}
+\BeforeBeginEnvironment{definition}{\colorlet{colorbf}{rbDefinitionColor}}
+\BeforeBeginEnvironment{axiom}{\colorlet{colorbf}{rbAxiomColor}}
+\BeforeBeginEnvironment{postulate}{\colorlet{colorbf}{rbPostulateColor}}
+\BeforeBeginEnvironment{proposition}{\colorlet{colorbf}{rbPropositionColor}}
+\BeforeBeginEnvironment{assumption}{\colorlet{colorbf}{rbAssumptionColor}}
+\BeforeBeginEnvironment{property}{\colorlet{colorbf}{rbPropertyColor}}
+\BeforeBeginEnvironment{conjecture}{\colorlet{colorbf}{rbConjectureColor}}
+\BeforeBeginEnvironment{important}{\colorlet{colorbf}{rbImportantColor}}
+\BeforeBeginEnvironment{warning}{\colorlet{colorbf}{rbWarningColor}}
+\BeforeBeginEnvironment{note}{\colorlet{colorbf}{rbNoteColor}}
+\BeforeBeginEnvironment{attention}{\colorlet{colorbf}{rbAttentionColor}}
+\BeforeBeginEnvironment{caution}{\colorlet{colorbf}{rbCautionColor}}
+
+
+
+%================ 调控行距 ================
+\newcommand{\wideline}{\setlength{\lineskip}{\dimexpr\baselineskip-\ccwd\relax}\setlength{\lineskiplimit}{2.5pt}}
+
+%================ 定理类环境 ==================================
+
+% ======================================================================
+% 🌈 Rainbow 定理类环境使用说明 (User Guide)
+% ======================================================================
+%
+% 本模块使用工厂宏 \DeclareRainbowEnv 批量生成带彩色左边框的定理类环境。
+% 生成的环境具有类似 CSS 的“基础继承 -> 专属继承 -> 局部覆盖”三重样式体系，
+% 并且完美修复了 tcolorbox 与 LaTeX 原生交叉引用（label/ref）的作用域冲突。
+%
+% ----------------------------------------------------------------------
+% 【1】 宏的语法说明
+% ----------------------------------------------------------------------
+% \DeclareRainbowEnv{<英文环境名>}{<中文显示名>}{<颜色变量名>}[<计数层级>]
+% 
+% 示例：\DeclareRainbowEnv{theorem}{定理}{rbTheoremColor}[chapter]
+% 该命令将在后台自动生成以下内容：
+%   1. 计数器：rbtheorem (绑定到 chapter，自动显示为 "章号.序号")
+%   2. 引用别名：支持 \autoref 和 \cref 自动输出 "定理 1.1"
+%   3. 样式钩子：rainbow theorem style (初始为空，供全局专属修改)
+%   4. 带编号环境：\begin{theorem} ... \end{theorem}
+%   5. 无编号环境：\begin{theorem*} ... \end{theorem*}
+%
+% ----------------------------------------------------------------------
+% 【2】 环境的使用说明 (以 theorem 为例)
+% ----------------------------------------------------------------------
+% 带编号环境接收 3 个可选参数： \begin{theorem}[附加标题][引用标签][局部样式]
+% 无编号环境接收 2 个可选参数： \begin{theorem*}[附加标题][局部样式]
+%
+% 场景 A：最基础的用法（只有编号，无标题，无引用）
+%   \begin{theorem}
+%     直角三角形两条直角边的平方和等于斜边的平方。
+%   \end{theorem}
+%
+% 场景 B：带标题，且需要交叉引用 (最推荐的用法)
+%   % 注意：请将 label 放在第二个方括号内，绝对不要在环境内写 \label{...}！
+%   \begin{theorem}[勾股定理][thm:gougu]
+%     直角三角形两条直角边的平方和等于斜边的平方。
+%   \end{theorem}
+%   % 正文中引用：根据 \autoref{thm:gougu} 可知... (将输出 "根据 定理 2.1 可知...")
+%
+% 场景 C：不需要标题，但需要交叉引用
+%   % 此时第一个方括号必须留空，占位符不可省略。
+%   \begin{theorem}[][thm:noname]
+%     这是一个重要的但没有名字的定理。
+%   \end{theorem}
+%
+% 场景 D：无编号环境 (星号版本)
+%   \begin{theorem*}[费马大定理]
+%     当整数 n > 2 时，关于 x, y, z 的方程 x^n + y^n = z^n 没有正整数解。
+%   \end{theorem*}
+%
+% 场景 E：局部样式微调（临时改变单个盒子的外观）
+%   % 利用第三个参数（无编号环境为第二个），传入 tcolorbox 的原生选项
+%   \begin{theorem}[危险定理][thm:danger][colback=red!10, borderline west={3pt}{-1pt}{red}]
+%     这个定理的背景将变成浅红色，边框变成红色，但不影响其他的 theorem。
+%   \end{theorem}
+%
+% ----------------------------------------------------------------------
+% 【3】 全局样式修改指南 (CSS 层叠逻辑)
+% ----------------------------------------------------------------------
+% 方式 1：修改所有环境的共通属性 (修改 rainbow base style)
+%   \tcbset{
+%     rainbow base style/.append style={
+%       before skip=1em,  % 统一加大所有定理环境前后的间距
+%       after skip=1em,
+%       drop fuzzy shadow % 为所有彩虹环境添加阴影
+%     }
+%   }
+%
+% 方式 2：修改某一类特定环境的属性 (修改 rainbow <英文名> style)
+%   \tcbset{
+%     rainbow definition style/.append style={
+%       colback=green!5,          % 仅把所有“定义”环境的背景调为浅绿
+%       fontupper=\bfseries\songti % 仅把所有“定义”的正文改为宋体加粗
+%     }
+%   }
+% ======================================================================
+
+
+%================ 1. 颜色定义 ================
+% 对应 Typst 中各环境的颜色（darken 处理后的近似值）
+\definecolor{rbTheoremColor}{RGB}{255,134,24}      % red.darken(20%)
+\definecolor{rbLemmaColor}{RGB}{147,112,219}       % teal.darken(10%)
+\definecolor{rbCorollaryColor}{RGB}{178,34,178}    % fuchsia.darken(10%)
+\definecolor{rbDefinitionColor}{RGB}{0,166,82}     % orange
+\definecolor{rbAxiomColor}{RGB}{0,102,0}           % green.darken(20%)
+\definecolor{rbPostulateColor}{RGB}{128,0,0}       % maroon
+\definecolor{rbPropositionColor}{RGB}{0,174,247}   % blue.darken(10%)
+\definecolor{rbAssumptionColor}{RGB}{115,0,153}    % purple.darken(10%)
+\definecolor{rbPropertyColor}{RGB}{0,115,140}      % eastern.darken(10%)
+\definecolor{rbConjectureColor}{RGB}{0,0,102}      % navy.darken(10%)
+\definecolor{rbStructureColor}{RGB}{60,113,183}    % green (main)，用于 exercise 分隔标题等
+
+
+
+%================ 2. 全局基础样式 (CSS 第1层级) ================
+% 将所有彩虹环境共用的排版属性抽离，修改此处可全局生效
+\tcbset{
+  rainbow base style/.style={
+    enhanced, breakable, blanker, colback=white,
+    left=.66em, right=0pt, top=.66em, bottom=.66em,
+    before skip=.5em, after skip=.5em,
+    fontupper=\kaishu, % 正文字体
+    attach title to upper={\par\vspace{.3em}}, % 标题与正文的连接方式
+  }
+}
+
+%================ 3. 定理类环境批量生成宏 ================
+% 语法参数说明: 
+% #1: 环境的英文名称 (如 theorem)
+% #2: 环境的中文显示 (如 定理)
+% #3: 对应的主题颜色变量名 (如 rbTheoremColor)
+% #4: [可选] 计数器绑定的层级，默认为 chapter。如果写 article 类文章可传入 section
+\NewDocumentCommand{\DeclareRainbowEnv}{ m m m O{chapter} }{%
+  
+  % A. 注册专属样式钩子 (CSS 第2层级)
+  % 默认留空。用户可在使用时通过 \tcbset{rainbow #1 style/.append style={...}} 针对某一特定环境全局修改
+  \tcbset{rainbow #1 style/.style={}}
+
+  % B. 注册伪粗体颜色钩子 (兼容你的 \colorbf 设置)
+  \BeforeBeginEnvironment{#1}{\colorlet{colorbf}{#3}}
+  \BeforeBeginEnvironment{#1*}{\colorlet{colorbf}{#3}}
+
+  % C. 自动生成专属计数器 (保持纯净，不绑定层级)
+  \newcounter{rb#1}
+
+  % D. 自动注入交叉引用别名 (兼容 autoref 和 cleveref)
+  \expandafter\providecommand\csname rb#1autorefname\endcsname{#2}
+  \AtBeginDocument{%
+    \@ifpackageloaded{cleveref}{\crefname{rb#1}{#2}{#2}}{}%
+  }
+
+  % E. 定义带编号的主环境
+  % 环境接收 3 个可选参数: 
+  % [##1] 附加标题 (如 "勾股定理")
+  % [##2] 原生引用标签 (如 "thm:gougu")，彻底解决 tcolorbox 的引用作用域丢失问题
+  % [##3] 局部样式覆盖 (CSS 第3层级)，用于单个盒子的特殊定制
+  \NewTColorBox[
+    use counter=rb#1,       % 绑定刚创建的计数器
+    number within=#4,       % 让 tcolorbox 原生接管层级重置逻辑 (解决序号不带章号的 bug)
+  ]{#1}{ O{} O{} O{} }{
+    rainbow base style,     % 继承基础共用样式
+    rainbow #1 style,       % 继承该环境专属全局样式
+    borderline west={3pt}{-1pt}{#3!50}, % 动态生成左侧彩色边框
+    fonttitle=\heiti\bfseries\color{#3}, % 动态应用标题颜色
+    % 标题拼接逻辑：如果有附加标题则加上括号
+    title={#2~\thetcbcounter\ifx\\##1\\\else~(##1)\fi}, 
+    label={##2},            % 将参数 ##2 传入底层 label 引擎
+    ##3                     % 展开传入的局部样式覆盖选项
+  }
+
+  % F. 定义无编号环境 (带星号版)
+  % 接收 2 个可选参数: [##1] 附加标题, [##2] 局部样式覆盖
+  \NewTColorBox{#1*}{ O{} O{} }{
+    rainbow base style,     % 继承基础共用样式
+    rainbow #1 style,       % 继承该环境专属全局样式
+    borderline west={3pt}{-1pt}{#3!50},
+    fonttitle=\heiti\bfseries\color{#3},
+    title={#2\ifx\\##1\\\else~(##1)\fi},
+    ##2                     % 展开局部覆盖选项
+  }
+}
+
+%================ 4. 一键批量生成所需环境 ================
+\DeclareRainbowEnv{theorem}{定理}{rbTheoremColor}
+\DeclareRainbowEnv{lemma}{引理}{rbLemmaColor}
+\DeclareRainbowEnv{corollary}{推论}{rbCorollaryColor}
+\DeclareRainbowEnv{definition}{定义}{rbDefinitionColor}
+\DeclareRainbowEnv{axiom}{公理}{rbAxiomColor}
+\DeclareRainbowEnv{postulate}{公设}{rbPostulateColor}
+\DeclareRainbowEnv{proposition}{命题}{rbPropositionColor}
+\DeclareRainbowEnv{assumption}{假设}{rbAssumptionColor}
+\DeclareRainbowEnv{property}{性质}{rbPropertyColor}
+\DeclareRainbowEnv{conjecture}{猜想}{rbConjectureColor}
+
+%================ 附加：proof 环境 ================
+%对amsthm的环境修改，颜色改正，添加了下划装饰条，兼容 wrapfigure
+\definecolor{rbProofColor}{RGB}{199,79,109}           % 梅红
+\definecolor{rbProofBar}{RGB}{255,225,197}          % 左侧装饰条颜色
+\RequirePackage{mdframed}
+\RequirePackage{amsthm}
+
+% 先清除可能已有的 proof 定义（兼容 amsthm）
+\@ifundefined{proof}{}{\let\proof\relax\let\endproof\relax}
+
+\newlength{\belowsep}
+\setlength{\belowsep}{5pt plus 2pt minus 4pt}  % 定义弹性间距，允许在分页较紧时压缩其大小
+
+\newenvironment{proof}[1][证明]{%
+  \pushQED{\qed}%
+  \renewcommand{\qedsymbol}{{\color{rbProofColor}$\blacksquare$}}%
+  \par\noindent{\heiti\bfseries\color{rbProofColor}%
+    \hspace{-2pt}#1\hspace{-3.4pt}%
+  }\enspace\fangsong\ignorespaces
+}{%
+  \popQED\par
+  \vspace{-\parskip}\nointerlineskip
+  \nobreak\vspace{\belowsep}% 插入弹性间距并禁止在此换页
+  \noindent{\color{rbProofColor!50}\rule{4em}{2pt}}\par
+  \ignorespacesafterend
+}
+
+
+%================ 附加：solution 环境 ================
+% 使用 mdframed 实现带左侧色条的解答环境（兼容 wrapfigure）
+\definecolor{rbSolutionColor}{RGB}{12, 167, 169}           % teal
+\definecolor{rbSolutionBar}{RGB}{171, 235, 198}          % 左侧装饰条颜色
+
+\RequirePackage{mdframed}
+\mdfdefinestyle{rbSolutionStyle}{%
+  hidealllines=true,
+  leftline=true,
+  linewidth=3pt,
+  linecolor=rbSolutionColor!50,
+  leftmargin=0pt,
+  innerleftmargin=6pt,
+  innerrightmargin=0pt,
+  innertopmargin=2pt,
+  innerbottommargin=2pt,
+  skipabove=5pt,
+  skipbelow=5pt,
+}
+
+\newenvironment{solution}[1][解]{%
+  \par\vspace{-\parskip}%
+  \begin{adjustwidth}{-1pt}{0pt}%  ← 整体左移 0.5pt（色条随之突出）
+  \vspace{3pt}%
+  \begin{mdframed}[style=rbSolutionStyle]%
+  \hspace{-0.1pt}\fangsong\noindent{\bfseries\color{rbSolutionColor} #1 \hspace{3.2pt}} %
+  \setlength{\parindent}{2em}%
+  \wideline
+}{%
+  \par\end{mdframed}%
+  \nointerlineskip               % 阻止行间距 glue
+  \vspace{-5pt}%                   % ← 手动控制底部间距（替代失灵的 skipbelow）
+  \end{adjustwidth}%
+}
+
+%================ 附加：instance 示例（带编号，按 chapter 重置）================
+\definecolor{rbInstanceColor}{RGB}{120, 189, 39}       % green variant
+\definecolor{rbInstanceBar}{RGB}{197,237,213}       % 左侧装饰条颜色（浅绿）
+
+\newcounter{rbinstance}[chapter]
+\renewcommand{\therbinstance}{\thechapter.\arabic{rbinstance}}
+
+\newenvironment{instance}[1][]{%
+  \refstepcounter{rbinstance}%
+  \par\noindent{\heiti\bfseries\color{rbInstanceColor}%
+    例~\therbinstance%
+    \ifx\\#1\\\else~(#1)\fi
+  }\enspace\ignorespaces
+}{%
+  \par\vspace{-\parskip}\nointerlineskip\vspace{\belowsep}%
+  \noindent{\color{rbInstanceColor!50}\rule{4em}{2pt}}\par
+  \ignorespacesafterend
+}
+
+%================ 附加：exercise 练习（带编号，按 chapter 重置）================
+% 仿照 elegantbook 的 exercise 实现
+\definecolor{rbExerciseColor}{RGB}{0,166,82}        % green (main)
+
+\newcounter{rbexercise}[chapter]
+\renewcommand{\therbexercise}{\thechapter.\arabic{rbexercise}}
+
+% exercise：仿 elegantbook 的练习环境（带铅笔图标，编号，无边框）
+\newenvironment{exercise}[1][]{%
+  \refstepcounter{rbexercise}%
+  \par\noindent\makebox[-3pt][r]{%
+    \scriptsize\color{red!90}\HandPencilLeft\quad}%
+  \textbf{\color{rbExerciseColor}{练习}~\therbexercise\space #1 }\rmfamily\ignorespaces
+}{%
+  \par\ignorespacesafterend
+}
+
+% exerciseline：仿 elegantfix 的分隔标题（仅装饰居中标题，不含 enumerate）
+\newenvironment{exerciseline}[1][\thechapter~练习]{%
+  \vspace*{10pt}%
+  \begin{center}%
+    \textcolor{rbStructureColor}{\Large\bfseries\adftripleflourishleft~#1~\adftripleflourishright}%
+  \end{center}%
+}{}
+
+
+
+%================ 附加：remark / example（无编号，灰色边框）================
+\newcounter{rbremarkcounter}[chapter]
+\renewcommand{\therbremarkcounter}{\thechapter.\arabic{rbremarkcounter}}
+\newenvironment{remark}[1][]{%
+  \refstepcounter{rbremarkcounter}%
+  \par\noindent{\heiti\bfseries\color{rbNoteColor}%
+    注~\therbremarkcounter%
+    \ifx\\#1\\\else~(#1)\fi
+  }\enspace\kaishu\ignorespaces
+}{%
+  \par\vspace{-\parskip}\nointerlineskip\vspace{\belowsep}%
+  \noindent{\color{rbNoteColor!50}\rule{4em}{2pt}}\par
+  \ignorespacesafterend
+}
+
+\definecolor{rbExampleColor}{RGB}{120, 189, 39}       % green variant
+\definecolor{rbExampleBar}{RGB}{197,237,213}       % 左侧装饰条颜色（浅绿）
+
+\newcounter{rbexample}[chapter]
+\renewcommand{\therbexample}{\thechapter.\arabic{rbexample}}
+
+\newenvironment{example}[1][]{%
+  \refstepcounter{rbexample}%
+  \par\noindent{\heiti\bfseries\color{rbExampleColor}%
+    例题~\therbexample%
+    \ifx\\#1\\\else~(#1)\fi
+  }\enspace\ignorespaces
+}{%
+  \par\vspace{-\parskip}\nointerlineskip\vspace{\belowsep}%
+  \noindent{\color{rbExampleColor!50}\rule{4em}{2pt}}\par
+  \ignorespacesafterend
+}
+
+%================ 附加：admonition 提示类环境（无编号，带图标）================
+% 颜色定义
+\definecolor{rbImportantColor}{RGB}{115,0,153}     % 紫色
+\definecolor{rbWarningColor}{RGB}{178,135,0}       % 深金色
+\definecolor{rbNoteColor}{RGB}{0,140,140}          % 青色
+\definecolor{rbAttentionColor}{RGB}{0,90,200}      % 蓝色
+\definecolor{rbCautionColor}{RGB}{200,0,0}         % 红色
+
+% ---- important 重要 ----
+\newtcolorbox{important}[1][]{%
+  enhanced, breakable, blanker, colback=white,
+  borderline west={3pt}{-1pt}{rbImportantColor!50},
+  left=.66em, right=0pt, top=.66em, bottom=.66em,
+  before skip=.5em, after skip=.5em,
+  fonttitle=\bfseries\color{rbImportantColor},
+  attach title to upper={\par\vspace{.3em}},
+  title={$\boldsymbol{!}$\enspace 重要},
+  #1,
+}
+
+% ---- warning 警告 ----
+\newtcolorbox{warning}[1][]{%
+  enhanced, breakable, blanker, colback=white,
+  borderline west={3pt}{-1pt}{rbWarningColor!50},
+  left=.66em, right=0pt, top=.66em, bottom=.66em,
+  before skip=.5em, after skip=.5em,
+  fonttitle=\bfseries\color{rbWarningColor},
+  attach title to upper={\par\vspace{.3em}},
+  title={$\triangle$\enspace 警告},
+  #1,
+}
+
+% ---- note 注解 ----
+\newtcolorbox{note}[1][]{%
+  enhanced, breakable, blanker, colback=white,
+  borderline west={3pt}{-1pt}{rbNoteColor!50},
+  left=.66em, right=0pt, top=.66em, bottom=.66em,
+  before skip=.5em, after skip=.5em,
+  fonttitle=\bfseries\color{rbNoteColor},
+  attach title to upper={\par\vspace{.3em}},
+  title={$\square$\enspace 注解},
+  #1,
+}
+
+% ---- attention 注意 ----
+\newtcolorbox{attention}[1][]{%
+  enhanced, breakable, blanker, colback=white,
+  borderline west={3pt}{-1pt}{rbAttentionColor!50},
+  left=.66em, right=0pt, top=.66em, bottom=.66em,
+  before skip=.5em, after skip=.5em,
+  fonttitle=\bfseries\color{rbAttentionColor},
+  attach title to upper={\par\vspace{.3em}},
+  title={$\oplus$\enspace 注意},
+  #1,
+}
+
+% ---- caution 小心 ----
+\newtcolorbox{caution}[1][]{%
+  enhanced, breakable, blanker, colback=white,
+  borderline west={3pt}{-1pt}{rbCautionColor!50},
+  left=.66em, right=0pt, top=.66em, bottom=.66em,
+  before skip=.5em, after skip=.5em,
+  fonttitle=\bfseries\color{rbCautionColor},
+  attach title to upper={\par\vspace{.3em}},
+  title={$\oslash$\enspace 小心},
+  #1,
+}
+
+
+%================ claim / claim* 环境（在每个 proof 内从 1 开始编号） ================
+% 用法：
+%   \begin{proof}
+%     ...
+%     %需要证明的断言，使用 claim 环境
+%     \begin{claim}{这里是断言内容}
+%       这里是断言的证明
+%     \end{claim}
+%     %不需要证明的断言，使用 claim* 环境
+%     \begin{claim*}
+%      这里是断言内容（无需证明）
+%     \end{claim*}
+%   \end{proof}
+%
+% 说明：
+% - claim 的编号在每个 proof 环境开始时被重置，从 1 递增。
+% - 环境带一个必选参数作为断言的具体内容；如无需证明则不用再跟一个 proof。
+
+% 计数器：在每个“最外层” proof 开始时复位（嵌套 proof 不复位）
+\newcounter{claim}
+\renewcommand{\theclaim}{\arabic{claim}}
+\newcounter{claim@proofdepth}
+\AtBeginEnvironment{proof}{%
+  \stepcounter{claim@proofdepth}%
+  \ifnum\value{claim@proofdepth}=1 \setcounter{claim}{0}\fi
+}
+\AtEndEnvironment{proof}{\addtocounter{claim@proofdepth}{-1}}
+% sproof：可在 proof 内部单独使用的简单证明环境
+% 样式与 claim 内嵌的证明部分一致（缩进 + "证明" 标头 + 仿宋体 + □ 结尾）
+% 可选参数 #1 为标头文字，默认"证明"
+% 用法：
+%   \begin{claim*}断言内容\end{claim*}
+%   \begin{sproof}
+%     证明内容...
+%   \end{claimproof}
+\NewDocumentEnvironment{sproof}{O{证明}}{%
+    \par\noindent{\color{rbProofColor}\bfseries \fangsong #1}\hspace{-3.6pt}%
+    \fangsong%
+    \setlength{\parindent}{2em}%
+    \wideline
+}{%
+    \hfill{\color{rbProofColor}$\blacksquare$}\quad\par
+}
+% 版式：粗体“Claim n.” 后接断言内容，允许 \label/\ref 使用（通过 \refstepcounter）
+% 两个独立环境：claim（期望随后有 proof），claim*（不期望 proof）
+% 二者共享同一计数器，并且都会显示编号。
+% claim：带证明体的断言盒子（左侧细竖线）。编号显示为 Claim n. <内容>
+% 盒子左边框与上一行“C”字对齐。
+% 可自定义参数：左内边距、竖线颜色与宽度；用户可在导言区重定义
+\providecommand{\claimBoxLeft}{25pt}
+\NewDocumentEnvironment{claim}{m +b}{%
+  \refstepcounter{claim}% 允许 \label 引用
+  \par{\bfseries\boldmath{断言~\theclaim.}\;\kaishu #1}\par
+  \begin{adjustwidth}{\claimBoxLeft}{-1pt}%
+    \par\noindent{\color{rbProofColor}\bfseries \fangsong 证明}\hspace{0.3em}%
+    \fangsong%
+    \setlength{\parindent}{2em}%
+    \wideline
+    #2
+    \hfill{\color{rbProofColor}$\blacksquare$}\quad\par
+  \end{adjustwidth}%
+}{% end claim
+}
+
+
+% claim*：仅声明断言，不含证明体；有编号、无参数（内容写在环境体内）
+\NewDocumentEnvironment{claim*}{+b}{%
+  \refstepcounter{claim}% 与 claim 共用计数器，保持连续
+  \par{\bfseries\boldmath{断言~\theclaim.}\;\kaishu #1}\par
+}{% end claim*
+}
+
+%================ homework 习题环境（列表法，带自动编号与 index 重置） ================
+% 用法：
+%   \begin{homework} 题干 ... \end{homework}
+%   \begin{homework}[index=5] ... \end{homework} % 从第 5 题开始
+
+\RequirePackage{keyval}
+\RequirePackage[shortlabels]{enumitem}
+
+\newcounter{rbhomework}
+\newcommand{\therbhomeworklabel}{\arabic{rbhomework}.}
+\define@key{rbhomework}{index}{\setcounter{rbhomework}{\numexpr#1-1\relax}}
+
+\newlength{\rbhomeworklabelleftpad}
+\newlength{\rbhomeworklabelsep}
+\setlength{\rbhomeworklabelleftpad}{0.75em}
+\setlength{\rbhomeworklabelsep}{0.75em}
+
+\newlength{\rbhomework@labelwidth}
+\newcommand{\rbhomework@calcwidth}{%
+  \settowidth{\rbhomework@labelwidth}{%
+    \hspace*{\rbhomeworklabelleftpad}\therbhomeworklabel\hspace{\rbhomeworklabelsep}%
+  }%
+}
+\newcommand{\rbhomework@labbox}{%
+  \makebox[\rbhomework@labelwidth][l]{%
+    \hspace*{\rbhomeworklabelleftpad}\therbhomeworklabel\hspace{\rbhomeworklabelsep}%
+  }%
+}
+
+\NewDocumentEnvironment{homework}{O{}}{%
+  \setkeys{rbhomework}{#1}%
+  \refstepcounter{rbhomework}%
+  \rbhomework@calcwidth
+  \begin{list}{}{%
+    \labelwidth=\rbhomework@labelwidth
+    \leftmargin=\rbhomework@labelwidth
+    \labelsep=0pt
+    \itemindent=0pt
+    \parsep=0pt
+    \itemsep=0pt
+    \topsep=.5\baselineskip
+    \partopsep=0pt
+  }%
+  \wideline
+  \item[\rbhomework@labbox]%
+  \setlist[enumerate]{leftmargin=*,nosep}
+  \setlist[itemize]{leftmargin=*,nosep}
+  \setlist[description]{leftmargin=0pt,labelindent=0pt,nosep}
+}{%
+  \end{list}%
+}
+
+\endinput

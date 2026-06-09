@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.9)  19 MAY 2026 15:16
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.9)  9 JUN 2026 15:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1174,6 +1174,14 @@ File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
 File: tikzlibrarymatrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryquotes.code.tex
 File: tikzlibraryquotes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.misc.code.tex
+File: tikzlibraryshapes.misc.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.misc.code.tex
+File: pgflibraryshapes.misc.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypatterns.code.tex
+File: tikzlibrarypatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibrarypatterns.code.tex
+File: pgflibrarypatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )) (/usr/local/texlive/2025/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count442
@@ -1465,6 +1473,24 @@ LaTeX Warning: Label `eq:4.11' multiply defined.
 
 LaTeX Warning: Label `eq:4.11@cref' multiply defined.
 
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `@cref' multiply defined.
+
+
+LaTeX Warning: Label `eq:load_vector' multiply defined.
+
+
+LaTeX Warning: Label `eq:load_vector@cref' multiply defined.
+
+
+LaTeX Warning: Label `eq:local_K' multiply defined.
+
+
+LaTeX Warning: Label `eq:local_K@cref' multiply defined.
+
 )
 \openout1 = `微分方程数值解笔记.aux'.
 
@@ -1695,11 +1721,7 @@ Package fontspec Info:
 
 
 
-])
-\tf@toc=\write6
-\openout6 = `微分方程数值解笔记.toc'.
-
-
+]
 
 
 Package fontspec Info: 
@@ -1736,7 +1758,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
-[2]
+[2])
+\tf@toc=\write6
+\openout6 = `微分方程数值解笔记.toc'.
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2678,7 +2704,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [77]
-Overfull \hbox (2.6126pt too wide) in paragraph at lines 454--455
+Overfull \hbox (2.6126pt too wide) in paragraph at lines 458--459
 []\TU/STSong(0)/m/n/10 格 式 [] 实 即 紧 致 的 \TU/lmr/m/n/10 Crank-Nicolson \TU/STSong(0)/m/n/10 格 式\TU/lmr/m/n/10 , \TU/STSong(0)/m/n/10 它 也 可 以 如 下 导 出\TU/lmr/m/n/10 . \TU/STSong(0)/m/n/10 在 点 $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]; t[]\OT1/cmr/m/n/10 )$
  []
 
@@ -2710,6 +2736,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [80]
+Overfull \hbox (13.60194pt too wide) in paragraph at lines 596--598
+\TU/STSong(0)/m/n/10 将 $\OML/cmm/m/it/10 u[] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 v[]e[]$ \TU/STSong(0)/m/n/10 和 $\OML/cmm/m/it/10 u[] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 v[]e[]$ \TU/STSong(0)/m/n/10 代 入 上 式，|  消 去 公 共 因 子 $\OML/cmm/m/it/10 e[]$\TU/STSong(0)/m/n/10 ，|
+ []
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2737,7 +2768,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
 [83]
-Overfull \hbox (11.60207pt too wide) in paragraph at lines 823--824
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[84]
+Overfull \hbox (11.60207pt too wide) in paragraph at lines 887--888
  [][] 
  []
 
@@ -2750,7 +2790,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
-[84]
+[85]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2759,7 +2799,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
-[85])
+[86]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2768,7 +2808,361 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
 
-[86] (./微分方程数值解笔记.aux)
+[87]) (./变分方法.tex
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[88]
+5
+
+
+[89
+
+]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[90]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[91]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[92]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[93]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[94]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[95]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[96]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[97]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[98]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[99]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[100]) (./有限元方法的构造与理论基础.tex
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[101]
+6
+
+
+[102
+
+]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[103]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[104]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[105]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[106]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[107]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[108]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[109]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[110]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[111]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[112]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[113]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[114]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[115]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[116]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[117]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[118]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[119]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[120]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[121]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[122]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[123]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[124]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[125]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[126])
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.34525pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.34525pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.34525pt}.
+
+[127] (./微分方程数值解笔记.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2022/07/14>
@@ -2785,15 +3179,15 @@ LaTeX Warning: There were undefined references.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `微分方程数值解笔记.out' has not changed.
-(rerunfilecheck)             Checksum: 851A4FD30074AC8ABFBC931202296DD6;9839.
+(rerunfilecheck)             Checksum: C38A8A118BC0E81F00FAD7AD139A8AE0;14324.
  ) 
 Here is how much of TeX's memory you used:
- 44488 strings out of 473832
- 991424 string characters out of 5729481
- 1486262 words of memory out of 5000000
- 66652 multiletter control sequences out of 15000+600000
- 612293 words of font info for 314 fonts, out of 8000000 for 9000
+ 45868 strings out of 473832
+ 1023215 string characters out of 5729481
+ 1546155 words of memory out of 5000000
+ 68008 multiletter control sequences out of 15000+600000
+ 612325 words of font info for 318 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 131i,16n,135p,3238b,1204s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 131i,16n,135p,3238b,1200s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on 微分方程数值解笔记.pdf (91 pages).
+Output written on 微分方程数值解笔记.pdf (132 pages).

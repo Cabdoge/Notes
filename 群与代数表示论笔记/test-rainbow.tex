@@ -1,0 +1,31 @@
+\documentclass[10pt,a5paper]{book}
+\usepackage{xcolor,lipsum,geometry,refcount}
+\geometry{a5paper}
+
+% 只测试 rainbow.sty 中与闭合色条相关的部分能否正常加载
+\input{rainbow.sty}
+
+\begin{document}
+\chapter{Test}
+
+% instance
+\begin{instance}[Test]
+\lipsum[2-3]
+\end{instance}
+
+% remark  
+\begin{remark}[Test]
+\lipsum[2]
+\end{remark}
+
+% example
+\begin{example}[Test]
+\lipsum[2]
+\end{example}
+
+% proof
+\begin{proof}
+\lipsum[2]
+\end{proof}
+
+\end{document}

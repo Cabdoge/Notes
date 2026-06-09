@@ -1,0 +1,470 @@
+\chapter{Banach空间上的紧算子}
+
+紧算子是 Banach 空间理论中一类重要的有界线性算子，它将有界集映为预紧集.紧算子的理论深刻联系着有限维逼近和 Fredholm 理论.
+
+\section{紧算子的定义与基本性质}
+
+\begin{definition}[紧算子]\index{j@紧算子}
+设 $X,Y$ 是 Banach 空间，称 $T\in\mcal{B}(X,Y)$ 是\colorbf{紧算子}当且仅当其满足以下任一等价条件
+\begin{enumerate}[(i)]
+    \item 它将有界集映到预紧集，即对任意有界集 $E\subseteq X$，$\overline{T(E)}$ 是 $Y$ 中的紧集.
+    \item $\overline{T(\mb{B}_X)}$ 是紧集.
+    \item 对任意有界序列 $\{x_n\}\subseteq X$，存在子列 $\{x_{n_k}\}$，使得 $\{Tx_{n_k}\}$ 在 $Y$ 中收敛.
+\end{enumerate}
+\end{definition}
+
+\begin{note}
+\begin{enumerate}[label=(\arabic*)]
+\item 若 $\dim X<\infty$，则任意 $T\in\mcal{B}(X)$ 都是紧的.
+\item 若 $\dim X = \infty$，则恒等算子 $\mathrm{Id}_X$ 不是紧算子（F.~Riesz）.
+\end{enumerate}
+\end{note}
+
+记紧算子的全体为\index{j@紧算子空间}
+\begin{equation*}
+\mcal{K}(X,Y) = \{T\in\mcal{B}(X,Y) : T\text{ 紧}\}.
+\end{equation*}
+
+紧算子空间具有理想性质：若
+\begin{equation*}
+X \xrightarrow{S} X \xrightarrow{T} X \xrightarrow{U} X,
+\end{equation*}
+其中 $T\in\mcal{K}(X,X)$，$S,U\in\mcal{B}(X)$，则 $T\circ S,\,U\circ T\in\mcal{K}(X,X)$.换言之，$\mcal{K}(X)\triangleleft \mcal{B}(X)$ 是双边理想.
+
+% --- 新增过渡 ---
+紧算子不仅是 $\mcal{B}(X,Y)$ 的代数理想，还具备良好的拓扑性质：它关于算子范数是闭的.这意味着紧算子的极限仍然是紧算子，为我们提供了通过有限秩算子逼近一般紧算子的理论依据.
+% --- 新增过渡结束 ---
+
+\begin{theorem}[紧算子空间的闭性]\index{j@紧算子空间}
+设 $X,Y$ 是 Banach 空间，则 $\mcal{K}(X,Y)$ 是 $\mcal{B}(X,Y)$ 的闭子空间.
+\end{theorem}
+\begin{proof}
+任取 $\{T_j\}\subseteq\mcal{K}(X,Y)$，$\st \norm{T_j - T}\to 0$，其中 $T\in\mcal{B}(X,Y)$.\par
+任取有界序列 $\{x_n\}\subseteq X$.由于 $T_1$ 是紧算子，存在 $\{x_n\}$ 的子列 $\{x_{1,k}\}$，使得 $\{T_1 x_{1,k}\}$ 收敛；由于 $T_2$ 也是紧算子，存在 $\{x_{1,k}\}$ 的子列 $\{x_{2,k}\}$，使得 $\{T_2 x_{2,k}\}$ 收敛.以此类推，得到嵌套的子列 $\{x_{j,k}\}_{k\in\mb{N}}$ ($j\in\mb{N}$)，使得 $\{T_j x_{j,k}\}_{k\in\mb{N}}$ 收敛.\par
+由对角线法则，取子列 $x_{n_k} := x_{k,k}$.对于每个固定的 $j\in\mb{N}$，当 $k\geq j$ 时，$x_{k,k}$ 都属于第 $j$ 层子列 $\{x_{j,m}\}_{m\in\mb{N}}$，因此 $\{T_j x_{n_k}\}_{k\in\mb{N}}$ 在 $Y$ 中收敛.\par
+记 $M = \sup_{n\in\mb{N}} \norm{x_n}$，则$\forall\, j$，
+\begin{align*}
+\norm{Tx_{n_k} - Tx_{n_\ell}}
+&\leq \norm{Tx_{n_k} - T_j x_{n_k}} + \norm{T_j x_{n_k} - T_j x_{n_\ell}} + \norm{T_j x_{n_\ell} - Tx_{n_\ell}} \\
+&\leq 2M\norm{T - T_j} + \norm{T_j(x_{n_k} - x_{n_\ell})}.
+\end{align*}
+
+$\forall\,\varepsilon>0$，可取足够大的 $j$ 使 $\norm{T - T_j}<\frac{\varepsilon}{4M}$.\par
+对该 $j$，可以取 $N = N(j)\in\mb{N}$，$\st$ $\norm{T_j(x_{n_k} - x_{n_\ell})}<\frac{\varepsilon}{2}$，$\forall\, k,\ell\geq N$.\par
+因此 $\{Tx_{n_k}\}$ 是 $Y$ 中的 Cauchy 列，故收敛.从而 $T\in\mcal{K}(X,Y)$.
+\end{proof}
+
+% --- 新增过渡 ---
+紧算子的另一个关键特征是其强-弱连续性：紧算子将弱收敛序列映为强收敛序列.这一性质在变分法和偏微分方程中尤为重要.
+% --- 新增过渡结束 ---
+
+\begin{theorem}[紧算子的弱-强连续性]\index{j@紧算子!弱-强连续性}
+设 $X,Y$ 是 Banach 空间，$T\in\mcal{K}(X,Y)$，若 $x_n\rightharpoonup x$，则 $Tx_n\to Tx$.
+\end{theorem}
+\begin{proof}
+反证.设 $Tx_n\not\to Tx$，则 $\exists\,\varepsilon>0$ 及子列 $\{x_{n_k}\}\subseteq\{x_n\}$，$\st$
+\begin{equation*}
+\norm{Tx_{n_k} - Tx} \geq \varepsilon>0,\quad \forall\, k\in\mb{N}. \tag{*}
+\end{equation*}
+由 $x_n\rightharpoonup x$及弱收敛的性质知$\forall\, f\in Y^*$，$f(Tx_n) = (T^*f)(x_n)\to (T^*f)(x) = f(Tx)$.\par
+因此$Tx_n\rightharpoonup Tx$，且由一致有界原理知 $\sup_n\norm{x_n}<\infty$.\par
+由 $T$ 的紧性，$\{Tx_{n_k}\}$ 有收敛子列 $\{Tx_{n_{k_j}}\}$，其极限必与弱极限一致，故 $Tx_{n_{k_j}}\to Tx$，与 $(*)$ 矛盾.
+\end{proof}
+
+% --- 新增过渡 ---
+上述定理的意义在于：若存在紧嵌入 $I:X\hookrightarrow Y$，则有界序列 $\{x_n\}\subseteq X$ 的像 $\{Ix_n\}$ 在 $Y$ 中必有收敛子列.一个典型的例子是 Sobolev 空间到 Lebesgue 空间的紧嵌入.
+% --- 新增过渡结束 ---
+
+\begin{instance}[Sobolev 紧嵌入]
+设$X = W^{1,2}(\Omega)$，$Y = L^2(\Omega)$，则 $X$ 可紧嵌入 $Y$ 中.\par
+这意味着$L^2(\Omega)$中的函数可以使用光滑性更好的函数（Sobolev 空间中的函数）来近似，并且这种近似在 $L^2$ 范数意义下是强收敛的.这一性质在偏微分方程的解的存在性和正则性分析中具有重要作用.
+\end{instance}
+
+\section{有限秩算子与逼近问题}
+
+\begin{definition}[有限秩算子]\index{y@有限秩算子}
+设 $X,Y$ 是赋范线性空间.若$T\in\mcal{B}(X,Y)$ 的值域 $\ran T = T(X)$ 是 $Y$ 的有限维子空间，则称 $T$ 为\colorbf{有限秩算子}.
+\end{definition}
+
+\begin{note}
+有限秩算子可以通过泛函与向量的张量积形式简洁地表示：$T\in\mcal{B}(X,Y)$ 是有限秩算子当且仅当存在有限个向量 $y_1, \dots, y_n \in Y$ 及有界线性泛函 $f_1, \dots, f_n \in X^*$，使得对于任意 $x \in X$，有
+\begin{equation*}
+Tx = \sum_{i=1}^n f_i(x)y_i.
+\end{equation*}
+\end{note}
+介绍有限秩算子的原因在于有限秩算子都是紧算子.一个最简单的例子就是之前提到过的在有限维线性空间上，任意有界线性算子的值域总是有限维的，因此都是有限秩算子，自然也是紧算子.
+\begin{proposition}
+    任意有限秩算子都是紧算子.
+\end{proposition}
+\begin{proof}
+设 $T\in\mcal{B}(X,Y)$ 是有限秩算子，则 $\ran T$ 是 $Y$ 的有限维子空间.\par
+由Heine--Borel定理，$\overline{T(\mb{B}_X)}$ 是 $\ran T$ 中的紧集.\par
+由紧算子的定义，$T$ 是紧算子.
+\end{proof}
+
+结合前文的结果，若有一列有限秩算子 $\{T_j\}$ 使得 $T_j\to T\qin \mcal{B}(X,Y)$，则由于 $\mcal{K}(X,Y)$ 的闭性，$T$ 也是紧算子.
+
+一个自然的问题是：$\mcal{K}(X,Y)$ 中的任意元是否都是有限秩算子的极限？换言之，紧算子能否被有限秩算子逼近？\par
+该问题的答案是：若 $Y$ 是 Hilbert 空间，则成立.但对于一般的 Banach 空间 $Y$，Per~Enflo 在 1973 年构造了反例，给出了否定的回答.\par
+
+\begin{theorem}[有限秩逼近]\index{y@有限秩逼近}
+设 $X$ 是 Banach 空间，$Y$ 是 Hilbert 空间，则 $\mcal{K}(X,Y)$ 中的任意元素都可以被有限秩算子逼近，即 $\mcal{K}(X,Y) = \overline{\mcal{F}(X,Y)}$.
+\end{theorem}
+\begin{proof}
+    由于$Y = \mcal{H}$ 是 Hilbert 空间，给定 $T\in\mcal{K}(X,\mcal{H})$，则 $\overline{\ran T}$ 是可分的（紧算子的值域闭包必可分）.\par
+设 $\{\varphi_j\}_{j\in\mb{N}}$ 是 $\overline{\ran T}$ 的一组标准正交基，定义正交投影
+\begin{equation*}
+\pi_j : \overline{\ran T} \to \spann\{\varphi_1,\dots,\varphi_j\}.
+\end{equation*}
+令 $T_j := \pi_j T$，则 $T_j$ 是有限秩算子，且 $T_j\to T$ 在 $\mcal{B}(X,\mcal{H})$ 中.\par
+事实上，$\forall\, x\in X$ 满足 $\norm{x}\leq 1$，由 Bessel 不等式可得，
+\begin{equation*}
+\norm{T_j x - Tx}_{\mcal{H}}^2 = \sum_{k=j+1}^{\infty} |\aab{Tx, \varphi_k}|^2 \to 0,\quad j\to\infty.\qedhere
+\end{equation*}
+\end{proof}
+上述定理的证明中，Hilbert空间的结构帮助我们构造了一个自然的有限秩逼近序列，而对于一般的 Banach 空间，这样的构造可能无法实现，导致有限秩算子无法逼近所有紧算子.但是如果$Y$具有Schauder基，则可以仿照此构造这样的有限秩算子，因此我们还有：
+\begin{corollary}[]
+    设$X,Y$是Banach空间且$Y$具有Schauder基，则$\mcal{K}(X,Y) = \overline{\mcal{F}(X,Y)}$.
+\end{corollary}
+
+我们可以将上述理论应用于典型的$L^2$空间中，得到积分核的相关结论.\par
+
+\begin{proposition}[积分核算子]\index{j@积分核算子}
+设 $\Omega\subseteq\mb{R}^d$ 是开集，$K(x,y) = K\in L^2(\Omega\times\Omega)$.定义积分算子 $T_K:L^2(\Omega)\to L^2(\Omega)$ 为
+\begin{equation*}
+(T_K f)(x) = \int_{\Omega} K(x,y) f(y)\d y.
+\end{equation*}
+则 $T_K\in\mcal{K}(L^2(\Omega))$，称其为\colorbf{积分核算子}.
+\end{proposition}
+\begin{proof}
+\fbox{良定} 对任意 $f\in L^2(\Omega)$，
+\begin{align*}
+\norm{T_K f}_{L^2}^2
+&= \int_{\Omega} |T_K f(x)|^2\d x
+= \int_{\Omega} \left|\int_{\Omega} K(x,y) f(y)\d y\right|^2 \d x \\
+&\leq \int_{\Omega} \left(\int_{\Omega} |K(x,y)|^2\d y\right) \left(\int_{\Omega} |f(y)|^2\d y\right) \d x \\
+&= \norm{f}_{L^2(\Omega)}^2 \norm{K}_{L^2(\Omega\times\Omega)}^2.
+\end{align*}
+因此 $T_K\in\mcal{B}(L^2(\Omega))$，且 $\norm{T_K}\leq\norm{K}_{L^2(\Omega\times\Omega)}$.\par
+\fbox{紧算子} 设 $\{\varphi_i\}_{i\in\mb{N}}$ 是 $L^2(\Omega)$ 的一组标准正交基，则
+\begin{equation*}
+\{\varphi_i\otimes\varphi_j\}_{(i,j)\in\mb{N}^2},\quad \varphi_i\otimes\varphi_j(x,y) = \varphi_i(x)\varphi_j(y)
+\end{equation*}
+构成 $L^2(\Omega\times\Omega)$ 的标准正交基.\par
+将核函数 $K$ 按此基展开，得$K = \sum_{(i,j)\in\mb{N}^2} k_{ij}\, \varphi_i\otimes\varphi_j \qin L^2(\Omega\times\Omega).$\par
+
+定义有限秩逼近
+\begin{equation*}
+(T^{(n)} f)(x) = \int_{\Omega} \sum_{i,j\leq n} k_{ij}\, \varphi_i(x)\varphi_j(y) f(y)\d y.
+\end{equation*}
+则每个 $T^{(n)}$ 是有限秩算子，其值域包含在 $\spann\{\varphi_1,\dots,\varphi_n\}$ 中），且
+\begin{equation*}
+\norm{T^{(n)} - T_K} \leq \norm{K^{(n)} - K}_{L^2(\Omega\times\Omega)}\to 0,\quad n\to\infty,
+\end{equation*}
+其中 $K^{(n)} = \sum_{i,j\leq n} k_{ij}\,\varphi_i\otimes\varphi_j$.\par
+由于 $\mcal{K}(L^2(\Omega))$ 在 $\mcal{B}(L^2(\Omega))$ 中是闭的，有限秩算子列的极限 $T_K$ 必为紧算子.
+\end{proof}
+
+\begin{definition}[Hilbert--Schmidt 算子]\index{H@Hilbert--Schmidt 算子}
+上述 $T_K$ 称为 $L^2(\Omega)$ 上的\colorbf{Hilbert--Schmidt 算子}.
+\end{definition}
+
+\section{Schauder 定理}
+
+关于紧算子与伴随算子之间的关系，Schauder 定理给出了一个优美的对偶关系.在陈述这一定理之前，我们先正式引入伴随算子的定义.
+
+\begin{definition}[伴随算子]\index{b@伴随算子}
+设 $X,Y$ 是赋范线性空间，若 $T\in\mcal{B}(X,Y)$，则其\colorbf{伴随算子} $T^*\in\mcal{B}(Y^*,X^*)$ 由下式唯一确定：
+\begin{equation*}
+\forall\, x\in X,\, f\in Y^*,\quad (T^* f)(x) = f(Tx).
+\end{equation*}
+\end{definition}
+
+当空间为 Hilbert 空间时，借助 Riesz 表示定理可将空间与其对偶空间自然等同，伴随算子有更简洁的内积刻画：
+
+\begin{definition}[Hilbert 空间上的伴随算子]
+设 $X,Y$ 是 Hilbert 空间，$T\in\mcal{B}(X,Y)$，则其\colorbf{伴随算子} $T^*\in\mcal{B}(Y,X)$ 由下式唯一确定：
+\begin{equation*}
+\forall\, x\in X,\, y\in Y,\quad \aab{Tx, y}_Y = \aab{x, T^*y}_X.
+\end{equation*}
+\end{definition}
+
+\begin{note}
+Hilbert 空间上的伴随算子保范数（$\norm{T^*} = \norm{T}$），并在 $X=Y$ 时满足 $C^*$ 恒等式 $\norm{T^*T} = \norm{T}^2$.
+\end{note}
+
+Schauder 定理表明，紧性与伴随性之间有着优美的对偶关系：一个算子是紧的当且仅当其伴随算子也是紧的.这一结果在 Fredholm 理论中具有重要意义，因为它允许我们通过分析伴随算子的性质来推断原算子的性质，反之亦然.
+
+\begin{theorem}[Schauder 定理]\index{S@Schauder 定理}
+设 $X,Y$ 是 Banach 空间，$T\in\mcal{B}(X,Y)$.则
+\begin{equation*}
+T \text{ 是紧算子} \iff T^* \text{ 是紧算子}.
+\end{equation*}
+\end{theorem}
+\begin{proof}
+\textbf{($\Rightarrow$)} 设 $T$ 紧.任取 $\{f_n\}\subseteq Y^*$，$\norm{f_n}\leq C<\infty$，要证 $\{T^*f_n\}\subseteq X^*$ 是预紧的.\par
+考虑紧集 $K:=\overline{T(\mb{B}_X)}\subseteq Y$，定义
+\begin{equation*}
+\Phi_n: K\to\mb{K},\quad y\mapsto f_n(y),
+\end{equation*}
+即 $f_n$ 在 $K$ 上的限制.由于
+\begin{equation*}
+|\Phi_n(y) - \Phi_n(\tilde{y})| = |f_n(y - \tilde{y})| \leq C\norm{y - \tilde{y}},
+\end{equation*}
+$\{\Phi_n\}$ 在 $C(K)$ 中有界且等度连续.由 Arzel\`a-Ascoli 定理，存在一致收敛子列 $\{\Phi_{n_k}\}$.\par
+现在考虑
+\begin{equation*}
+g_k: \mb{B}_X\to\mb{K},\quad x\mapsto \Phi_{n_k}(Tx) = (T^*f_{n_k})(x).
+\end{equation*}
+则 $\{g_k\}$ 在 $C(\mb{B}_X)$ 中一致收敛到某个 $g\in C(\mb{B}_X)$.注意到每个 $g_k = T^*f_{n_k}|_{\mb{B}_X}$ 是 $X^*$ 中元素的限制，且一致收敛保证了 $\norm{T^*f_{n_k} - g}_{C(\mb{B}_X)}\to0$，因此 $\{T^*f_{n_k}\}$ 在 $X^*$ 中收敛.故 $T^*$ 紧.\par
+\textbf{($\Leftarrow$)} 设 $T^*$ 是紧算子.任取有界序列 $\{x_n\}\subseteq X$，下证 $\{Tx_n\}$ 有收敛子列.\par
+考虑典范嵌入 $J_X:X\hookrightarrow X^{**}$，$J_Y:Y\hookrightarrow Y^{**}$.注意到$\forall\, f\in Y^*$，
+\begin{equation*}
+[T^{**}(J_X(x_n))](f) = J_X(x_n)(T^* f) = (T^* f)(x_n) = f(Tx_n) = J_Y(Tx_n)(f).
+\end{equation*}
+因此就有$J_Y(Tx_n) = T^{**}(J_X(x_n)).$\par
+由于 $T^*$ 紧，由 $(\Rightarrow)$ 方向知 $T^{**}$ 也紧.又 $J_X$ 是等距嵌入，故 $\{x_n\}$ 有界 $\Rightarrow$ $\{J_X(x_n)\}$ 有界.\par
+于是 $\{T^{**}(J_X(x_n))\} = \{J_Y(Tx_n)\}$ 在 $Y^{**}$ 中预紧.\par
+由 $J_Y$ 是等距嵌入，知 $\{Tx_n\}$ 在 $Y$ 中预紧，即存在收敛子列.故 $T$ 是紧算子.
+\end{proof}
+
+\section{紧自伴算子与谱定理}
+
+在 Hilbert 空间框架下，紧算子理论与伴随算子、谱分解有着深刻的联系.本节将建立紧自伴算子的谱定理，这是泛函分析中最优美的结果之一.
+
+\begin{definition}[自伴算子]\index{z@自伴算子}
+设 $\mcal{H}$ 是 Hilbert 空间，若 $T^* = T\in\mcal{B}(\mcal{H})$，则称 $T$ 是\colorbf{自伴算子}.
+\end{definition}
+
+\begin{definition}[正规算子]\index{z@正规算子}
+设 $\mcal{H}$ 是 Hilbert 空间，若 $[T, T^*] := TT^* - T^*T = 0$，则称 $T$ 是\colorbf{正规算子}.
+\end{definition}
+
+显然自伴算子必为正规算子，反之不真.正规算子的重要性在于它恰为可酉对角化的算子类，而紧自伴算子的谱定理是这一般理论的起点.
+
+\begin{theorem}[紧自伴算子的谱定理]\index{p@谱定理}
+设 $\mcal{H}\neq\{0\}$ 为 Hilbert 空间，$T$ 为 $\mcal{H}$ 上的紧自伴算子，则 $\mcal{H}$ 具有由 $T$ 的特征向量构成的标准正交基，且：
+\begin{enumerate}[(i)]
+    \item $\forall\,\lambda\neq0$，特征空间 $E_\lambda:=\{x\in\mcal{H}: Tx = \lambda x\} = \ker(T - \lambda I)$ 是有限维的.
+    \item $\forall\,r>0$，集合 $\{\lambda: |\lambda|\geq r,\; \dim E_\lambda\geq 1\}$ 是有限集.
+    \item 所有的特征值都是实数.
+\end{enumerate}
+特别地，特征值只有 $0$ 这一个可能的极限点.
+\end{theorem}
+
+在给出证明之前，我们先看一个反例，以说明紧性假设在谱定理中是不可缺少的.
+
+\begin{instance}[乘积算子不是紧算子]
+取 $\mcal{H} = L^2[0,1]$，设$\varphi(x)=x$，可定义乘积算子
+\begin{align*}
+M_\varphi: L^2[0,1] &\to L^2[0,1],\\[-6pt]
+f &\mapsto \varphi f.
+\end{align*}
+
+若 $\lambda$ 是 $M_\varphi$ 的特征值，则存在 $f\in L^2[0,1]\setminus\{0\}$ 使得 $M_\varphi f = \lambda f$，即
+\begin{equation*}
+xf(x) = \lambda f(x)\quad \aew x\in[0,1],
+\end{equation*}
+这迫使 $f(x)=0$ a.e.，矛盾.因此 $M_\varphi$ 没有特征值.\par
+与谱定理对比可知，$\varphi(x)=x$ 对应的乘积算子不是紧算子.
+\end{instance}
+
+下面是一系列Hilbert空间上的有界线性算子的重要命题.它将给我们提供证明紧自伴算子谱定理的工具.
+\begin{lemma}\label{lem:self-adjoint-prop}
+设 $\mcal{H}$ 是 Hilbert 空间，$T\in\mcal{B}(\mcal{H})$.
+\begin{enumerate}[(i)]
+    \item 若 $T=T^*$，且 $W\subseteq\mcal{H}$ 是 $T-\!\!$不变子空间，则 $W^\perp$ 也是 $T-\!\!$不变的.
+    \item 若 $T=T^*$，则 $\forall\,x\in\mcal{H}$，$\aab{Tx, x}\in\mb{R}$.特别地，所有的特征值都是实数.
+    \item $\norm{T} = \sup\{\aab{Tx, y}: \norm{x},\norm{y}\leq 1\}$.
+    \item 若 $T=T^*$，则 $\norm{T} = \sup\{|\aab{Tx, x}|: \norm{x}\leq 1\}$.
+    \item 若 $T=T^*$，则对 $\lambda\neq\beta$，$E_\lambda\perp E_\beta\qin \mcal{H}$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) 任取 $z\in W^\perp$，$x\in W$，
+\begin{equation*}
+\aab{Tz, x} = \aab{z, T^*x} = \aab{z, Tx}.
+\end{equation*}
+由于 $W$ 是 $T-\!\!$不变的，$Tx\in W$，因此 $\aab{Tz, x} = \aab{z, Tx} = 0$，从而 $Tz\in W^\perp$.\par
+(ii) $\overline{\aab{Tx, x}} = \aab{x, Tx} = \aab{T^*x, x} = \aab{Tx, x}$，故 $\aab{Tx, x}\in\mb{R}$.\par
+(iii) 由 Cauchy--Schwarz 不等式，$|\aab{Tx, y}|\leq\norm{Tx}\norm{y}\leq\norm{T}\norm{x}\norm{y}$，因此
+\begin{equation*}
+\sup\{\aab{Tx, y}: \norm{x},\norm{y}\leq 1\}\leq\norm{T}.
+\end{equation*}
+反之，设 $T\neq0$，任取 $x\in\mcal{H}\setminus\ker T$，
+\begin{equation*}
+\norm{Tx} = \aab{Tx, \frac{Tx}{\norm{Tx}}} \leq \sup\{\aab{Tx, y}: \norm{x}=\norm{y}=1\}.
+\end{equation*}
+对 $\norm{x}\leq1$ 取上确界即得反向不等式.\par
+(iv) 记 $\alpha := \sup\{|\aab{Tx, x}|: \norm{x}\leq 1\}$.由 (iii)，只需证 $\forall\,x,y\in\mcal{H}$，$|\aab{Tx, y}|\leq\alpha\norm{x}\norm{y}$.\par
+考虑旋转 $y\mapsto \eu^{\iu\theta}y$，不妨设 $\aab{Tx, y}\in\mb{R}$.利用极化恒等式：
+\begin{align*}
+\aab{T(x+y), x+y} &= \aab{Tx, x} + \aab{Ty, y} + 2\aab{Tx, y},\\
+\aab{T(x-y), x-y} &= \aab{Tx, x} + \aab{Ty, y} - 2\aab{Tx, y}.
+\end{align*}
+两式相减得
+\begin{align*}
+\aab{Tx, y} &= \frac{1}{4}\ab(\aab{T(x+y), x+y} - \aab{T(x-y), x-y})\\ 
+&\leq \frac{\alpha}{4}\ab(\norm{x+y}^2 + \norm{x-y}^2)\\ 
+&= \frac{\alpha}{2}\ab(\norm{x}^2 + \norm{y}^2).
+\end{align*}
+
+取 $\tilde{x} = \sqrt{\lambda}x$，$\tilde{y} = y/\sqrt{\lambda}$，则
+\begin{equation*}
+\aab{T\tilde{x}, \tilde{y}} = \aab{Tx, y} \leq \frac{\alpha}{2}\ab(\lambda\norm{x}^2 + \frac{\norm{y}^2}{\lambda}).
+\end{equation*}
+上式对任意 $\lambda>0$ 均成立，且$\lambda = \frac{\norm{y}}{\norm{x}}(x,y\neq 0)$时右式最小，得
+\begin{equation*}
+\aab{Tx, y} \leq \alpha\norm{x}\norm{y}.
+\end{equation*}
+若 $x=0$ 或 $y=0$ 则不等式平凡成立.\par
+(v) 任取 $x\in E_\lambda\setminus\{0\}$，$y\in E_\beta\setminus\{0\}$，则 $Tx = \lambda x$，$Ty = \beta y$.于是
+\begin{align*}
+&\aab{Tx, y} = \aab{\lambda x, y} = \lambda\aab{x, y}\\
+&\aab{x, Ty} = \aab{x, \beta y} \xlongequal{\beta\in\mb{R}} \beta\aab{x, y}.
+\end{align*}
+由$T=T^*$，$\aab{Tx,y}=\aab{x,Ty}$，故$\lambda\aab{x,y}=\beta\aab{x,y}$.\par
+又由于 $\lambda\neq\beta$，必有 $\aab{x,y}=0$，即 $E_\lambda\perp E_\beta$.
+\end{proof}
+
+上面的引理为我们提供了自伴算子的基本性质，我们可以得到自伴算子的范数和内积的刻画以及自伴算子的特征空间之间的正交关系.这些性质在证明紧自伴算子的谱定理中将发挥重要作用.\par
+下面我们证明紧自伴算子的谱定理，我们的证明思路和线性代数中有限维情形矩阵的谱定理类似.\par
+
+\begin{proof}[证明(谱定理)]
+\fbox{\textbf{Step 1. 寻找非零特征向量}} 设$T\neq0$（否则结论平凡）.由引理~\ref{lem:self-adjoint-prop} (iv)，存在序列 $\{x_n\}\subseteq\mcal{H}$，$\norm{x_n}=1$，使得 $\aab{Tx_n, x_n}\to\lambda\in\mb{R}$ 且 $|\lambda| = \norm{T}$.\par
+由于 $T$ 紧，存在子列 $\{x_{n_k}\}\subset \{x_n\}$ 使得 $Tx_{n_k}\to y\in\mcal{H}$.现在估计 $\norm{Tx_{n_k} - \lambda x_{n_k}}$：
+\begin{align*}
+\norm{Tx_{n_k} - \lambda x_{n_k}}^2
+&= \norm{Tx_{n_k}}^2 + \lambda^2\norm{x_{n_k}}^2 - 2\lambda\aab{Tx_{n_k}, x_{n_k}}\\
+&= \norm{T}^2 + \norm{T}^2 - 2\lambda\aab{Tx_{n_k}, x_{n_k}}\\
+&= 2\norm{T}^2 - 2\lambda\aab{Tx_{n_k}, x_{n_k}}\to 0.
+\end{align*}
+
+结合紧性给出的 $Tx_{n_k}\to y$，有
+\begin{equation*}
+\lambda x_{n_k} = Tx_{n_k} - (Tx_{n_k} - \lambda x_{n_k}) \to y - 0 = y.
+\end{equation*}
+于是 $\lambda x_{n_k}\to y$ 且 $Tx_{n_k}\to y$，进而由 $T$ 的连续性
+\begin{equation*}
+Ty = \lim_{k\to\infty} T(\lambda x_{n_k}) = \lambda \lim_{k\to\infty} Tx_{n_k} = \lambda y.
+\end{equation*}
+因此 $\lambda$ 是 $T$ 的非零特征值，$y$ 是其对应的特征向量.\par
+\fbox{\textbf{Step 2. 构造特征向量基}} 由 Zorn 引理，存在由特征向量构成的最大标准正交集 $\mcal{B}\subseteq\mcal{H}$.令 $W:=\overline{\spann(\mcal{B})}$.
+\begin{claim}{$W=\mcal{H}$}
+    只需验证 $W^\perp = \{0\}$.\par
+    由特征向量定义，$W$是$T-\!\!$不变的，$TW\subseteq W$，由\cref{lem:self-adjoint-prop} (i) 知 $TW^\perp\subseteq W^\perp$.\par
+    因此 $T|_{W^\perp}: W^\perp\to W^\perp$ 是紧自伴算子.\par
+    若 $W^\perp\neq\{0\}$，由 Step 1，$T$ 有非零特征向量 $e\in W^\perp$，与 $\mcal{B}$ 最大矛盾.
+\end{claim}
+
+\fbox{\textbf{Step 3. 特征值的极限性质}} 设 $\{e_i\}_{i\in I}$ 为上述标准正交基，$Te_i = \lambda_i e_i$.\par
+下证特征值的唯一可能的极限点为$0$.\par
+若存在 $r>0$ 使得 $\#\{\lambda\text{ 为特征值}: |\lambda|>r\} = \infty$，则在该集合中,若$\lambda_i\neq\lambda_j$，
+\begin{equation*}
+\norm{Te_i - Te_j} = \norm{\lambda_i e_i - \lambda_j e_j} = \sqrt{\lambda_i^2 + \lambda_j^2} \geq \sqrt{2}\,r,
+\end{equation*}
+与$T$紧从而$\{Te_i\}$ 预紧矛盾.故满足 $|\lambda|>r$ 的特征值仅有有限个.特别地，特征值的唯一可能极限点为 $0$.\par
+相同的论证表明对每个 $\lambda\neq0$，$\dim E_\lambda<\infty$. 事实上，若 $\dim E_\lambda=\infty$，则可在 $E_\lambda$ 中取无穷标准正交列 $\{e_n\}_{n=1}^\infty$. 对任意 $n\neq m$，由 $Te_n=\lambda e_n$，$Te_m=\lambda e_m$ 及勾股定理，
+	\begin{equation*}
+	\norm{Te_n - Te_m}^2 = \norm{\lambda e_n - \lambda e_m}^2 = |\lambda|^2\norm{e_n - e_m}^2 = 2|\lambda|^2 > 0,
+	\end{equation*}
+	故 $\{Te_n\}$ 无 Cauchy 子列，从而无收敛子列. 但 $\{e_n\}$ 有界（$\norm{e_n}=1$），这与 $T$ 的紧性矛盾.
+\end{proof}
+
+由谱定理，若 $T$ 是紧自伴算子，则 $\mcal{H}$ 可分解为正交直和
+\begin{equation*}
+\mcal{H} = \bigoplus_{\lambda\in\sigma_p(T)} E_\lambda,
+\end{equation*}
+其中 $\sigma_p(T)$ 表示 $T$ 的点谱，即特征值全体.
+
+\begin{corollary}\label{cor:commuting-selfadjoint}
+设 $\{T_\alpha: \alpha\in I\}$ 是 $\mcal{H}$ 上一族紧自伴算子，满足 $\forall\,\alpha,\beta\in I$，$[T_\alpha, T_\beta] = 0$，则存在 $\mcal{H}$ 的标准正交基 $\{e_i\}$，其中每个 $e_i$ 同时是每个 $T_\alpha$ 的特征向量.
+\end{corollary}
+
+该推论在有限维情形即表明：两两可交换的自伴矩阵可以同时被对角化.\par
+若 $T$ 不是自伴的，可将其分解为
+\begin{equation*}
+T = \frac{T+T^*}{2} + \iu\frac{T-T^*}{2\iu} =: T_1 + \iu T_2,
+\end{equation*}
+其中 $T_1,T_2$ 均为自伴算子.容易验证 $[T_1, T_2] = 0 \Leftrightarrow T\text{ 是正规的}$.因此谱定理可向正规紧算子推广.
+
+\section{Fredholm 算子}
+
+紧算子理论与 Fredholm 算子有着天然的联系.Fredholm 算子是"几乎可逆"的有界线性算子，其理论将核与余核的有限维性质系统化.
+
+回忆：$T\in\mcal{B}(X)$ 的谱定义为 $\sigma(T) = \{\lambda\in\mb{C}: T - \lambda I \text{ 不可逆}\}$.$\lambda\in\sigma(T)$ 当且仅当以下二者之一成立：要么 $\ker(T - \lambda I) = E_\lambda\neq\{0\}$，此时称 $\lambda$ 为特征值或点谱，要么 $\ran(T - \lambda I)\neq X$，此时称 $\lambda$ 为连续谱.
+
+\begin{definition}[Fredholm 算子]\index{F@Fredholm 算子}
+设 $X,Y$ 是 Banach 空间，称 $T\in\mcal{B}(X,Y)$ 是\colorbf{Fredholm 算子}，记作 $T\in\mcal{F}(X,Y)$，当且仅当满足：
+\begin{enumerate}[(i)]
+    \item $\ran T$ 是闭的.
+    \item $\dim\ker T < \infty$.
+    \item $\codim\ran T = \dim\coker T < \infty$.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Fredholm 指标]\index{F@Fredholm 指标}
+$T\in\mcal{F}(X,Y)$ 的 \colorbf{Fredholm 指标}定义为
+\begin{equation*}
+\Ind(T) := \dim\ker T - \codim\ran T \in \mb{Z}.
+\end{equation*}
+\end{definition}
+
+Banach 空间的有限维及余有限维子空间均是可补的.对 $T\in\mcal{F}(X,Y)$，知$\ker T,\ran T$均是$X,Y$的闭子空间，故存在闭子空间 $X_1\subseteq X$，$Y_1\subseteq Y$ 使得
+\begin{equation*}
+X = X_1 \oplus \ker T,\quad Y = Y_1 \oplus \ran T.
+\end{equation*}
+
+\begin{theorem}[Fredholm 算子的开性]\index{F@Fredholm 算子!开性}
+$\mcal{F}(X,Y)$ 是 $\mcal{B}(X,Y)$ 中的开集.
+\end{theorem}
+
+\begin{proof}
+设 $T\in\mcal{F}(X,Y)$，取闭子空间 $X_1\subseteq X$，$Y_1\subseteq Y$ 满足上述直和分解.定义
+\begin{align*}
+\widetilde{T}: X_1\oplus Y_1&\to Y\\[-6pt]
+(x_1, y_1)&\mapsto Tx_1 + y_1.
+\end{align*}
+这是线性双射，由 Banach 逆算子定理，$\widetilde{T}$ 是同构.令 $\varepsilon_0 := \norm{\widetilde{T}^{-1}}^{-1}$.\par
+对任意 $S\in\mcal{B}(X,Y)$，类似定义
+\begin{align*}
+\widetilde{S}: X_1\oplus Y_1&\to Y,\\[-6pt]
+(x_1, y_1)&\mapsto Sx_1 + y_1.
+\end{align*}
+则 $\norm{\widetilde{T} - \widetilde{S}} = \norm{T - S}$.当 $\norm{T - S}<\varepsilon_0$ 时，由 Neumann 级数知 $\widetilde{S}$ 也是同构. 事实上，将 $\widetilde{S}$ 写为
+	\begin{equation*}
+	\widetilde{S} = \widetilde{T} - (\widetilde{T} - \widetilde{S}) = \widetilde{T}\bigl(I - \widetilde{T}^{-1}(\widetilde{T} - \widetilde{S})\bigr).
+	\end{equation*}
+	由于
+	\begin{equation*}
+	\norm{\widetilde{T}^{-1}(\widetilde{T} - \widetilde{S})} \leq \norm{\widetilde{T}^{-1}}\,\norm{\widetilde{T} - \widetilde{S}} < \varepsilon_0^{-1}\cdot\varepsilon_0 = 1,
+	\end{equation*}
+	由 Neumann 级数，$I - \widetilde{T}^{-1}(\widetilde{T} - \widetilde{S})$ 可逆，其逆为 $\sum_{k=0}^\infty (\widetilde{T}^{-1}(\widetilde{T} - \widetilde{S}))^k$. 于是 $\widetilde{S}$ 作为两个可逆算子的复合也是可逆的，从而是同构.\par
+现在验证 $S\in\mcal{F}(X,Y)$：
+\begin{itemize}
+    \item $\ker S\cap X_1 = \{0\}$.事实上，若 $x\in\ker S\cap X_1$，则 $(x,0)\in\ker\widetilde{S} = \{0\}$.因此 $\dim\ker S\leq\dim\ker T<\infty$.
+    \item $\ran S + Y_1 = Y$.事实上，$\forall\,y\in Y$，存在 $x_1\in X_1$，$y_1\in Y_1$ 使得 $y = \widetilde{S}((x_1,y_1)) = Sx_1 + y_1$.因此 $\codim\ran S\leq\codim\ran T<\infty$.
+\end{itemize}
+综上，$S\in\mcal{F}(X,Y)$，故 $\mcal{F}(X,Y)$ 是开集.
+\end{proof}
+
+\begin{note}
+在上述论证中，$\norm{T-S}<\varepsilon_0$ 时 $\widetilde{S}$ 仍是同构，因此 $\dim\ker S = \dim\ker T$ 且 $\codim\ran S = \codim\ran T$，从而 $\Ind(S) = \Ind(T)$.这表明
+\begin{equation*}
+\Ind: \mcal{F}(X,Y)\longrightarrow\mb{Z}
+\end{equation*}
+是局部常值映射.特别地，$\Ind$ 在 $\mcal{F}(X,Y)$ 的每个连通分支上为常数.
+\end{note}
+
+\begin{theorem}[紧扰动与 Fredholm 性]\index{F@Fredholm 算子!紧扰动}
+设 $X$ 是 Banach 空间，对任意紧算子 $K\in\mcal{K}(X)$，$I+K$ 是 Fredholm 的且指标为 $0$.
+\end{theorem}
+
+\begin{proof}
+先证 $I+K\in\mcal{F}(X)$.这可由紧算子的 Riesz 理论得到，此处从略.\par
+考虑连续族 $\{I + tK: t\in[0,1]\}$.对每个 $t$，$tK$ 仍是紧算子，故 $I+tK\in\mcal{F}(X)$.该族是 $\mcal{F}(X)$ 中的连通集，而指标在其上为常数，故
+\begin{equation*}
+\Ind(I+K) = \Ind(I) = 0.\qedhere
+\end{equation*}
+\end{proof}

@@ -10,9 +10,12 @@
   \item Banach代数, \hyperpage{11}
   \item Banach引理, \hyperpage{35}
   \item Banach空间, \hyperpage{4}
+  \item 不变测度, \hyperpage{78}
+  \item 伴随算子, \hyperpage{67}
   \item 半范数, \hyperpage{16}
   \item 标准正交基, \hyperpage{46}
   \item 标准正交集, \hyperpage{46}
+  \item 表示, \hyperpage{76}
   \item 闭图像定理, \hyperpage{37}
 
   \indexspace
@@ -41,6 +44,10 @@
   \indexspace
 \item \textbf{F}\nopagebreak
 
+  \item Fredholm 指标, \hyperpage{73}
+  \item Fredholm 算子, \hyperpage{73}
+    \subitem 开性, \hyperpage{73}
+    \subitem 紧扰动, \hyperpage{74}
   \item Fr\'echet空间, \hyperpage{18}
   \item Fredholm算子, \hyperpage{12}
   \item 范数, \hyperpage{3}
@@ -57,7 +64,9 @@
   \indexspace
 \item \textbf{H}\nopagebreak
 
+  \item Haar 测度, \hyperpage{79}
   \item Hilbert 空间, \hyperpage{43}
+  \item Hilbert--Schmidt 算子, \hyperpage{67}
   \item H\"older不等式, \hyperpage{5}
   \item H\"older共轭, \hyperpage{5}
   \item Hahn-Banach定理, \hyperpage{22}
@@ -72,12 +81,17 @@
   \item 极化恒等式, \hyperpage{43}
   \item 极大元, \hyperpage{19}
   \item 极点, \hyperpage{60}
+  \item 积分核算子, \hyperpage{66}
+  \item 紧算子, \hyperpage{63}
+    \subitem 弱-强连续性, \hyperpage{64}
+  \item 紧算子空间, \hyperpage{63, 64}
   \item 级数收敛, \hyperpage{8}
   \item 绝对收敛, \hyperpage{8}
 
   \indexspace
 \item \textbf{K}\nopagebreak
 
+  \item Kakutani-Markov 定理, \hyperpage{78}
   \item Krein-Milman 定理, \hyperpage{60}
   \item 可度量化, \hyperpage{59}
   \item 可补子空间, \hyperpage{37}
@@ -109,16 +123,18 @@
 \item \textbf{P}\nopagebreak
 
   \item Parseval 等式, \hyperpage{47}
-  \item $p$- 范数, \hyperpage{5}
+  \item $p$-范数, \hyperpage{5}
   \item 偏序关系, \hyperpage{19}
   \item 平行四边形法则, \hyperpage{42}
   \item 平衡集, \hyperpage{26}
   \item 谱, \hyperpage{13}
+  \item 谱定理, \hyperpage{69}
 
   \indexspace
 \item \textbf{Q}\nopagebreak
 
   \item 强范数收敛, \hyperpage{11}
+  \item 群作用, \hyperpage{76}
 
   \indexspace
 \item \textbf{R}\nopagebreak
@@ -134,6 +150,7 @@
   \indexspace
 \item \textbf{S}\nopagebreak
 
+  \item Schauder 定理, \hyperpage{68}
   \item Schur 定理, \hyperpage{51}
   \item Sobolev 空间, \hyperpage{43}
   \item 上界, \hyperpage{19}
@@ -146,6 +163,7 @@
   \item Tychonoff 定理, \hyperpage{57}
   \item 凸包, \hyperpage{55}
   \item 投影, \hyperpage{37}
+  \item 拓扑群, \hyperpage{75}
 
   \indexspace
 \item \textbf{W}\nopagebreak
@@ -167,6 +185,8 @@
   \item 一致有界原理, \hyperpage{40}
   \item 有界线性泛函, \hyperpage{14}
   \item 有界线性算子, \hyperpage{9}
+  \item 有限秩算子, \hyperpage{65}
+  \item 有限秩逼近, \hyperpage{66}
   \item 预解集, \hyperpage{14}
 
   \indexspace
@@ -178,6 +198,8 @@
   \item 最近点投影, \hyperpage{44}
   \item 正交, \hyperpage{44}
   \item 正交补空间, \hyperpage{44}
+  \item 正规算子, \hyperpage{69}
+  \item 自伴算子, \hyperpage{69}
   \item 自反空间, \hyperpage{24}
 
 \end{theindex}
