@@ -1,0 +1,614 @@
+%======================================================%
+%   Beamer Presentation — C*-代数的表示
+%   compile using PDFTeXify or PDFLaTeX
+%======================================================%
+
+%--------------------------------------------------------------------------------
+%   PACKAGES AND THEMES
+%--------------------------------------------------------------------------------
+
+%\documentclass[notheorems,11pt,compress]{beamer}
+\documentclass[notheorems,11pt]{beamer}
+
+\usetheme{moloch}
+\usepackage{appendixnumberbeamer}
+
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+
+\usepackage{pgfplots}
+\usepgfplotslibrary{dateplot}
+
+\usepackage[english]{babel}
+\molochset{block=fill}
+\usepackage{xspace}
+
+\usepackage{physics2}
+\usephysicsmodule{ab.legacy,op.legacy,diagmat}
+
+\usefonttheme{professionalfonts}
+
+\setbeamertemplate{blocks}[shadow=true]
+\setbeamertemplate{navigation symbols}{}
+
+\definecolor{iron}{RGB}{0,82,67}
+\definecolor{footed}{rgb}{0.5,0.2,0.5}
+\setbeamercolor{frametitle}{bg=iron}
+
+%分式使用行间版
+\everymath{\displaystyle}
+
+\setbeamertemplate{footline}
+{%
+\leavevmode%
+\hfill\normalfont\color{footed}\insertframenumber\,/\,\inserttotalframenumber \kern1em \hfill
+\vskip4pt%
+}
+
+
+%----------- 宏包 -------------
+\usepackage[UTF8,noindent]{ctex}
+\usepackage{amsmath,amssymb,version}
+\usepackage{graphicx,fancybox,mathrsfs,multirow}
+\usepackage{booktabs}
+\usepackage{epsfig,epstopdf}
+\usepackage{url}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=iron,
+    filecolor=magenta,
+    urlcolor=cyan,
+    citecolor=blue,
+}
+\usepackage{tabularx,array,makecell}
+\usepackage{color,xcolor}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage{makecell}
+
+\usepackage{scrextend}
+
+%---------- 定义表格命令 ----------
+\newcolumntype{P}[1]{>{\centering \arraybackslash}p{#1}}
+\newcolumntype{L}{X}
+\newcolumntype{C}{>{\centering \arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft \arraybackslash}X}
+
+
+%---------- 设置 定理环境  --------------
+\theoremstyle{plain}
+\setbeamertemplate{theorems}[numbered]
+\newtheorem{theorem}{定理}
+\numberwithin{theorem}{section}
+\newtheorem{definition}{定义}
+\newtheorem{lemma}{引理}
+\numberwithin{lemma}{section}
+\newtheorem{proposition}{命题}
+\newtheorem{corollary}{{推论}}
+\numberwithin{corollary}{section}
+\theoremstyle{example}
+\newtheorem{example}{例}
+\renewenvironment{proof}[1][证明]{\textbf{#1}:~}{\qed\par}
+
+\setbeamerfont{caption name}{family=\rmfamily,series=\normalfont}
+\setbeamertemplate{caption}[numbered]
+
+%---------- 定义行距 ----------
+\renewcommand{\baselinestretch}{1.15}
+
+\makeatletter
+\newcommand\HUGE{\@setfontsize\Huge{36}{42}}
+\makeatother
+
+%================ 缩小公式上下间距 ================
+\AtBeginDocument{
+  \abovedisplayskip=5pt plus 1pt minus 1.5pt
+  \belowdisplayskip=5pt plus 1pt minus 1.5pt
+  \abovedisplayshortskip=0pt plus 3pt
+  \belowdisplayshortskip=4pt plus 1pt minus 1.5pt
+}
+
+%---------- 自定义命令 ----------
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand{\hl}[1]{\textcolor{orange}{#1}}
+
+%---------- 算子 ----------
+\DeclareMathOperator{\Spec}{Spec}
+
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[$C^*$代数的表示]{$C^*-\!$代数的表示：从 Wedderburn--Artin 到 Gelfand 变换}
+
+\author{汇报人：庞逸天}
+\institute[SJTU]
+{
+上海交通大学 \\
+\medskip
+\textit{yitianpang@sjtu.edu.cn}
+}
+\date[2026.6。15]{2026~年~6~月~15~日}
+
+\graphicspath{{./figures/}}
+
+\renewcommand{\familydefault}{\rmdefault}
+
+\begin{document}
+
+%------------------------------------------------
+% TITLE
+%------------------------------------------------
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{目录}
+  \setbeamertemplate{section in toc}[sections numbered]
+\tableofcontents
+\end{frame}
+
+%=====================================================================
+\section{引言}
+%=====================================================================
+
+\begin{frame}{群表示与代数表示}
+  \begin{block}{课程主线}
+    有限群表示 $\longrightarrow$ 一般代数上的模论 $\longrightarrow$ \hl{Wedderburn--Artin}：半单代数 $\cong \bigoplus M_{n_i}(\mathbb{C})$
+  \end{block}
+  \pause
+  \begin{block}{一个自然的问题}
+    如果额外赋予\alert{分析结构}（范数 + 对合），半单代数的分类会发生什么改变？
+  \end{block}
+  \pause
+  \begin{itemize}
+    \item 有限维：$C^*$条件是否改变分类？
+    \item 交换：特征标群的无穷维推广 —— Gelfand 谱
+  \end{itemize}
+\end{frame}
+
+%=====================================================================
+\section{从矩阵代数到 $C^*-\!$代数}
+%=====================================================================
+
+\begin{frame}{矩阵代数的两个结构}
+  $M_n(\mathbb{C})$ 除了矩阵乘法，还天然携带：
+  \begin{enumerate}
+    \item \textbf{对合} $A \mapsto A^*$（共轭转置）：$(AB)^* = B^*A^*,\;(A^*)^* = A$
+    \item \textbf{算子范数} $\|A\| := \sup_{\|x\|=1} \|Ax\|$，后续选择谱范数$\|A\|_2=\max_{\lambda\in\sigma(A)}|\lambda|$
+  \end{enumerate}
+  \pause
+  \begin{alertblock}{核心相容关系}
+    \begin{equation*}
+      \boxed{\|A^*A\| = \|A\|^2} \quad \forall A \in M_n(\mathbb{C})
+    \end{equation*}
+  \end{alertblock}
+  将代数结构（对合）与分析结构（范数）紧密耦合在一起.
+\end{frame}
+
+\begin{frame}{$C^*$恒等式的两种证明}
+  \textbf{证明一（泛函分析视角）}：$A^*A$ 自伴，故\par
+  {\small$\|A^*A\| = \sup_{\|x\|=1}\langle A^*Ax,x\rangle =\sup_{\|x\|=1}\langle Ax,Ax\rangle= \sup_{\|x\|=1}\|Ax\|^2 = \|A\|^2$.}\par
+  \pause
+  \medskip
+  \textbf{证明二（矩阵视角）}：考虑奇异值分解 $A = U\Sigma V^*$，其中 $\Sigma$ 是对角矩阵，$\sigma_1 \geq \sigma_2 \geq \cdots \geq 0$ 是 $A$ 的奇异值.
+  则
+  \begin{equation*}
+    A^*A = V\Sigma^2 V^* \;\Rightarrow\; \|A^*A\| = \sigma_1^2 = \|A\|^2
+  \end{equation*}
+  \pause
+  \begin{block}{抽象化}
+    将这两个结构公理化 $\longrightarrow$ \alert{$C^*-\!$代数}
+  \end{block}
+\end{frame}
+
+\begin{frame}{$C^*-\!$代数的定义}
+  \begin{definition}[${}^*-\!$代数]
+    复代数 $A$，配备对合 $a \mapsto a^*$ 满足：
+    \begin{itemize}
+      \item $(a+b)^* = a^*+b^*$，$(\lambda a)^* = \overline{\lambda}a^*$
+      \item $(ab)^* = b^*a^*$（反同态），$(a^*)^* = a$
+    \end{itemize}
+  \end{definition}
+  \pause
+  \begin{definition}[$C^*-\!$代数]
+    一个 ${}^*-\!$代数 $A$ 配备完备范数 $\|\cdot\|$ 满足：
+    \begin{itemize}
+      \item $\|ab\| \le \|a\|\|b\|$（次乘性）
+      \item $\|a^*a\| = \|a\|^2$（\alert{$C^*$恒等式}）
+    \end{itemize}
+  \end{definition}
+\end{frame}
+
+\begin{frame}{关键性质：范数由对合唯一决定}
+  \begin{definition}[谱]
+    设 $A$ 有单位元 $1$.对 $a \in A$，定义其谱为
+\begin{equation*}
+    \sigma(a) := \{\lambda \in \mathbb{C} \mid a - \lambda \cdot 1 \text{ 在 } A \text{ 中不可逆}\}.
+\end{equation*}
+谱半径定义为 $\rho(a) := \sup\{|\lambda| : \lambda \in \sigma(a)\}$.
+  \end{definition}
+  \begin{proposition}
+    $C^*-\!$代数中，$\|a\| = \sqrt{\rho(a^*a)}$.
+  \end{proposition}
+  \pause
+  证明工具：\alert{Gelfand--Beurling 谱半径公式}
+  \begin{equation*}
+    \rho(a) = \lim_{n\to\infty} \|a^n\|^{1/n}
+  \end{equation*}
+\end{frame}
+
+\begin{frame}{范数由对合唯一决定}
+  \setcounter{proposition}{0}
+  \begin{proposition}
+    $C^*-\!$代数中，$\|a\| = \sqrt{\rho(a^*a)}$.
+  \end{proposition}
+  \begin{proof}
+    对自伴元 $h$，由$C^*-\!$恒等式, $\|h^2\| = \|h^*h\| = \|h\|^2$，归纳可得 $\|h^{2^n}\| = \|h\|^{2^n}$.\par
+    由 Gelfand--Beurling 谱半径公式 $\rho(h) = \lim_{k \to \infty} \|h^k\|^{1/k}$，取子列 $k = 2^n$，即得 $\rho(h) = \|h\|$.\par
+    对一般 $a$，注意到 $a^*a$ 恒为自伴元，故
+    \begin{equation*}
+        \|a\| = \sqrt{\|a^*a\|} = \sqrt{\rho(a^*a)}.
+    \end{equation*}
+\end{proof}
+  \begin{corollary}
+    $C^*$代数上的范数被其 ${}^*-\!$代数结构\alert{唯一决定}.
+  \end{corollary}
+\end{frame}
+
+\begin{frame}{对合是等距映射}
+  \begin{proposition}\label{prop:isometry}
+    在 $C^*$-代数中，$\|a^*\| = \|a\|$ 对所有 $a \in A$ 成立.
+  \end{proposition}
+  \pause
+  \begin{proof}\small
+    由 $C^*$恒等式和次乘性，$\|a\|^2 = \|a^*a\| \le \|a^*\|\|a\|$，故 $\|a\| \le \|a^*\|$.\par
+    将 $a$ 替换为 $a^*$ 并利用 $(a^*)^* = a$，得 $\|a^*\| \le \|a\|$.两不等式合并即得等号.
+  \end{proof}
+\end{frame}
+
+
+
+%=====================================================================
+\section{有限维 $C^*-\!$代数的分类}
+%=====================================================================
+
+\begin{frame}{有限维 $C^*-\!$代数的半单性}
+  \setcounter{lemma}{1}
+  \begin{lemma}[半单性]\label{lem:semisimple-beamer}
+    有限维 $C^*-\!$代数必为半单代数.
+  \end{lemma}
+  \pause
+  \begin{proof}\small
+    设 $J = \mathrm{rad}(A)$ 为 Jacobson 根.有限维代数的 Jacobson 根为幂零理想.
+    若 $J \neq 0$，取 $a \in J \setminus \{0\}$，则 $a^*a \in J$ 幂零：存在 $m$ 使 $(a^*a)^m = 0$.\par
+    取 $k$ 使 $2^k \ge m$，反复用 $C^*$恒等式：$\|a^*a\|^{2^k} = \|(a^*a)^{2^k}\| = 0$，故 $\|a^*a\| = 0$.\par
+    由 $C^*$恒等式 $\|a\|^2 = \|a^*a\| = 0$，得 $\|a\| = 0$，矛盾.\par
+    故 $J = 0$，$A$ 半单.
+  \end{proof}
+\end{frame}
+
+
+\begin{frame}{分类定理}
+  \begin{theorem}[有限维 $C^*-\!$代数的结构]
+    设 $A$ 为有限维含幺 $C^*-\!$代数，则存在 $n_1,\dots,n_t \in \mathbb{N}^+$ 使得
+    \begin{equation*}
+      A \cong \bigoplus_{i=1}^t M_{n_i}(\mathbb{C})
+    \end{equation*}
+    为等距 ${}^*-\!$同构，且 $M_{n_i}(\mathbb{C})$ 上的对合为共轭转置.
+  \end{theorem}
+  \pause
+  \begin{proof}\small
+    \textbf{第1步.} 由半单性，Wedderburn--Artin 给出 $A \cong \bigoplus_i M_{n_i}(D_i)$，$D_i$ 为 $\mathbb{C}$ 上有限维可除代数.\par
+    \textbf{第2步.} $\mathbb{C}$ 是代数闭域，其上有限维可除代数只有 $\mathbb{C}$ 自身.故 $D_i \cong \mathbb{C}$.\par
+    \textbf{第3步.} 首先利用同构$\psi$构造 $M_n(\mathbb{C})$上的对合$y^\dag := \psi\bigl(\psi^{-1}(y)^*\bigr)$.可以证明 $M_n(\mathbb{C})$ 上 $C^*$对合在 ${}^*-\!$同构意义下唯一（共轭转置）；命题1证明范数由对合唯一决定.故同构自动保持对合与范数.
+  \end{proof}
+\end{frame}
+
+
+%=====================================================================
+\section{Gelfand 表示理论}
+%=====================================================================
+
+\begin{frame}{动机：特征标群的推广}
+  \begin{block}{课程已知}
+    有限交换群的不可约表示均为 1 维，构成特征标群 $\widehat{G}$.
+  \end{block}
+  \pause
+  \begin{block}{$C^*-\!$代数的类比}
+    交换 $C^*-\!$代数的所有不可约表示均为 1 维 $\Leftrightarrow$ 非零代数同态 $A \to \mathbb{C}$.
+    所有这样的同态构成 \alert{Gelfand 谱} $\Spec(A)$.
+  \end{block}
+  \pause
+    \begin{definition}[Gelfand 谱]
+    $\Spec(A) := \{\varphi: A \to \mathbb{C} \mid \varphi \text{ 是非零代数同态}\}$.
+  \end{definition}
+\end{frame}
+
+\begin{frame}{Gelfand 谱：极大理想空间}
+  \begin{theorem}[谱与极大理想]
+    设 $A$ 为含幺交换 Banach 代数，则存在双射
+    \[
+      \varphi:\Spec(A)\longrightarrow \operatorname{Max}(A),\qquad
+      \varphi\longmapsto \ker\varphi.
+    \]
+  \end{theorem}
+  \pause
+  \begin{proof}\footnotesize
+    \fbox{$\ker\varphi$是极大理想.} 若 $0\neq\varphi:A\to\mathbb C$，则 $\varphi(1)=1$，且
+    \[
+      A/\ker\varphi\cong \operatorname{Im}\varphi=\mathbb C.
+    \]
+    商代数是域，故 $\ker\varphi$ 为极大理想.\par
+    \fbox{满射.} 设 $M$ 极大.先用 Neumann 级数知 $1$ 附近的元素均可逆，所以真理想闭包仍不含 $1$；极大性推出 $M=\overline M$，即 $M$ 闭.
+    因而 $A/M$ 是 Banach 可除代数，由 Gelfand--Mazur 定理
+    \[
+      A/M\cong\mathbb C.
+    \]
+    复合商映射 $A\twoheadrightarrow A/M$ 得到 $\varphi\in\Spec(A)$，且 $\ker\varphi=M$.\par
+    \fbox{单射.} 若$\ker\varphi_1=\ker\varphi_2$，则$\forall\, a\in A$，$a-\varphi_1(a)1\in\ker\varphi_1$.故$\varphi_2(a-\varphi_1(a)1)=\varphi_2(a)-\varphi_2(1)\varphi_1(a)=\varphi_2(a)-\varphi_1(a)=0$
+  \end{proof}
+\end{frame}
+
+
+
+\begin{frame}{谱 = Gelfand 谱上的点赋值}
+  \begin{theorem}
+    设 $A$ 为含幺交换 $C^*-\!$代数，$a \in A$.则
+    \begin{equation*}
+      \boxed{\sigma(a) = \{\varphi(a) \mid \varphi \in \Spec(A)\}}.
+    \end{equation*}
+  \end{theorem}
+  \pause
+  也就是说，元素 $a$ 的谱等于函数
+  \[
+    \widehat a:\Spec(A)\to\mathbb C,\qquad
+    \widehat a(\varphi)=\varphi(a)
+  \]
+  的值域.
+\end{frame}
+
+\begin{frame}{谱 = 点赋值：证明}
+  \begin{proof}\small
+    固定 $\lambda \in \mathbb{C}$.
+    \begin{itemize}
+      \item 按谱定义：$\lambda\in\sigma(a)$ 当且仅当 $a-\lambda1$ 不可逆.
+      \item 在交换含幺代数中，不可逆等价于生成的主理想 $(a-\lambda1)$ 是真理想.
+      \item 每个真理想包含于某个极大理想 $M$，而上页定理给出 $M=\ker\varphi$.
+    \end{itemize}
+    \begin{align*}
+      \lambda \in \sigma(a) &\iff a-\lambda\cdot 1 \text{ 不可逆} \\
+      &\iff a-\lambda\cdot 1 \in \text{某极大理想} \\
+      &\iff \exists\,\varphi \in \Spec(A),\; \varphi(a-\lambda\cdot 1) = 0 \\
+      &\iff \exists\,\varphi \in \Spec(A),\; \varphi(a) = \lambda.
+    \end{align*}
+    最后一行用到 $\varphi(1)=1$.
+    因此谱正是 $\widehat a:\varphi\mapsto\varphi(a)$ 的值域.
+  \end{proof}
+\end{frame}
+
+\begin{frame}{Gelfand 谱的紧 Hausdorff 性质}
+  \begin{theorem}
+    含幺交换 $C^*-\!$代数 $A$ 的 Gelfand 谱 $\Spec(A)$ 在弱*拓扑下是紧 Hausdorff 空间.
+  \end{theorem}
+  \pause
+  \begin{proof}\small
+    \fbox{Hausdorff 性.} 若 $\psi_1\neq\psi_2$，存在 $a\in A$ 使 $\psi_1(a)\neq\psi_2(a)$.
+    弱*拓扑使每个求值映射 $\psi\mapsto\psi(a)$ 连续，故可由 $\mathbb C$ 中不交开集拉回分离两点.\par
+    \fbox{紧性第一步.} 对 $\varphi\in\Spec(A)$，有 $\varphi(1)=1$.
+    又由谱值域关系的简单方向 $\varphi(a)\in\sigma(a)$，得
+    $|\varphi(a)|\le\rho(a)\le\|a\|$，故 $\|\varphi\|=1$.
+    因此 $\Spec(A)\subseteq B_{A^*}$；由 Banach--Alaoglu 定理，$B_{A^*}$ 弱*紧.\par
+    \fbox{紧性第二步.} 在 $B_{A^*}$ 中，
+    \begin{equation*}
+      \Spec(A)=
+      \{\psi:\psi(1)=1\}
+      \cap\bigcap_{a,b\in A}\{\psi:\psi(ab)=\psi(a)\psi(b)\}.
+    \end{equation*}
+    每个条件都是弱*闭条件，故 $\Spec(A)$ 是弱*闭子集，从而紧.
+  \end{proof}
+\end{frame}
+
+\begin{frame}{Gelfand 变换的定义}
+  \begin{definition}[Gelfand 变换]
+    设 $A$ 为含幺交换 $C^*-\!$代数.对每个 $a\in A$，定义函数
+    \[
+      \widehat a:\Spec(A)\longrightarrow\mathbb C,\qquad
+      \widehat a(\varphi)=\varphi(a).
+    \]
+    映射
+    \[
+      \Gamma:A\longrightarrow C(\Spec(A)),\qquad
+      a\longmapsto\widehat a
+    \]
+    称为 $A$ 的 \alert{Gelfand 变换}.
+  \end{definition}
+  \pause
+  \begin{block}{为什么是连续函数？}
+    $\Spec(A)$ 赋予弱*拓扑，而弱*拓扑正是使所有求值映射
+    \[
+      \varphi\longmapsto \varphi(a)
+    \]
+    连续的拓扑.因此 $\widehat a\in C(\Spec(A))$.
+  \end{block}
+\end{frame}
+
+\begin{frame}{Gelfand--Naimark 定理（交换版）}
+  \begin{theorem}[Gelfand--Naimark，交换版]
+    设 $A$ 为含幺交换 $C^*-\!$代数，则 Gelfand 变换
+    \[
+      \Gamma:A\longrightarrow C(\Spec(A)),\qquad
+      a\longmapsto\widehat a
+    \]
+    是一个 \alert{等距 ${}^*-\!$同构}.
+  \end{theorem}
+  \pause
+  \begin{block}{定理的含义}
+    每个抽象元素 $a\in A$ 都可以无损地看成谱空间上的连续函数 $\widehat a$.
+    代数运算、对合与范数全部被保留下来.
+  \end{block}
+\end{frame}
+
+\begin{frame}{Gelfand--Naimark 定理：${}^*-\!$同态}
+  \begin{proof}\small
+    \textbf{1. 代数同态：}
+    $\widehat{ab}(\varphi)=\varphi(ab)=\varphi(a)\varphi(b)=\widehat{a}(\varphi)\widehat{b}(\varphi)$，
+    且 $\widehat{1}=1$，线性也逐点成立.
+
+    \medskip
+    \textbf{2. 保持对合：}
+    先将 $a=x+iy$，其中 $x=x^*,y=y^*$.
+    自伴元谱为实数，故 $\varphi(x),\varphi(y)\in\mathbb R$，于是
+    \[
+      \widehat{a^*}(\varphi)=\varphi(x-iy)
+      =\overline{\varphi(x+iy)}
+      =\overline{\widehat a(\varphi)}.
+    \]
+    因而 $\Gamma$ 是 ${}^*-\!$同态.
+     \let\qed\relax
+  \end{proof}
+\end{frame}
+
+\begin{frame}{Gelfand--Naimark 定理：等距与满射}
+  \begin{proof}\small
+    \textbf{3. 等距.}
+    由于\begin{equation*}
+    \widehat{a}(\varphi)|^2=\overline{\widehat{a}(\varphi)}\widehat{a}(\varphi)=\widehat{a^*}(\varphi)\widehat{a}(\varphi)=\widehat{a^*a}(\varphi).\
+    \end{equation*}
+    故对一般 $a$，由 $C^*$ 恒等式和 $a^*a$ 自伴：
+    \[
+      \|\widehat a\|_\infty^2
+      =\|\widehat{a^*a}\|_\infty
+      =\rho(a^*a)
+      =\|a^*a\|
+      =\|a\|^2.
+    \]
+    故 $\Gamma$ 等距，特别地单射，且像 $\widehat A$ 是闭子代数.
+
+    \medskip
+    \textbf{4. 满射.}
+    $\widehat A$ 含常数函数、分离 $\Spec(A)$ 中不同点，并且对复共轭封闭.
+    由复 Stone--Weierstrass 定理，$\widehat A$ 在 $C(\Spec(A))$ 中稠密.
+    但 $\widehat A$ 已由等距性知为闭集，所以
+    \[
+      \widehat A=C(\Spec(A)).
+    \]
+  \end{proof}
+\end{frame}
+
+\begin{frame}{例子：无限维交换情形}
+  \begin{exampleblock}{$A=C[0,1]$}
+    取交换 $C^*-\!$代数 $A=C[0,1]$，配备一致范数，
+    对合为逐点复共轭 $f^*(x)=\overline{f(x)}$.
+  \end{exampleblock}
+  \pause
+  \textbf{首先，考察底空间 $\Spec(A)$.}
+  \begin{itemize}
+    \item 对每个实数 $x\in[0,1]$，点赋值泛函
+      \[
+        \varphi_x:C[0,1]\to\mathbb C,\qquad \varphi_x(f)=f(x)
+      \]
+      自然是代数同态.
+    \item 由紧性可严格证明：所有代数同态均由点赋值给出.
+    \item 映射 $x\mapsto\varphi_x$ 构成拓扑同胚，故
+      \[
+        \Spec(C[0,1])\cong[0,1].
+      \]
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{例子：$C[0,1]$ 的 Gelfand 变换}
+  \textbf{其次，考察元素的谱.}
+  \begin{itemize}
+    \item 任取 $f\in C[0,1]$，其 Gelfand 变换在点 $\varphi_x$ 处为
+      \[
+        \widehat f(\varphi_x)=\varphi_x(f)=f(x).
+      \]
+    \item 根据定理“谱 = Gelfand 谱上的点赋值”，
+      \[
+        \sigma(f)
+        =\{\varphi_x(f):x\in[0,1]\}
+        =f([0,1]).
+      \]
+  \end{itemize}
+  \pause
+  \begin{block}{核心含义}
+    连续函数代数中的谱，就是连续函数的值域.
+    抽象的“不可逆性”在这里变成了“函数是否取到某个值”.
+  \end{block}
+\end{frame}
+
+
+
+\begin{frame}{例子：循环群 $C_n$ 的对照}
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.48\textwidth}
+      \begin{block}{Wedderburn 解释}
+        $\mathbb C[C_n]$ 是有限维半单交换代数，矩阵块只能是 $1\times1$：
+        \[
+          \mathbb C[C_n]\cong \mathbb C^{\oplus n}.
+        \]
+      \end{block}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{block}{Gelfand 解释}
+        由特征标理论可得，谱空间是
+        \[
+          \Spec(\mathbb C[C_n])\cong\widehat{C_n}\cong \{1, \dots, n\}.
+        \]
+        故
+        \[
+          \mathbb C[C_n]\cong C(\{1, \dots, n\}).
+        \]
+      \end{block}
+    \end{column}
+  \end{columns}
+  \pause
+  显然
+  \[
+    \mathbb C^{\oplus n}\cong C(\{1,\dots,n\})
+  \]
+  Wedderburn--Artin 定理和Gelfand表示理论在有限维交换情形下给出完全一致的分类.
+\end{frame}
+
+%=====================================================================
+\section{总结}
+%=====================================================================
+
+\begin{frame}{有限维和交换情形的对照}
+  \begin{table}[H]
+    \centering
+    \renewcommand{\arraystretch}{1.35}
+    \caption{有限维与交换 $C^*-\!$代数表示论的对比}
+    \label{tab:comparison}
+    \resizebox{\linewidth}{!}{%
+    \begin{tabular}{c|c|c}
+        \hline
+        & \textbf{有限维} & \textbf{交换} \\
+        \hline
+        核心定理 & Wedderburn--Artin & Gelfand--Naimark（交换版） \\
+        \hline
+        结构 & $\displaystyle\bigoplus_{i=1}^t M_{n_i}(\mathbb{C})$ & $C(\Spec(A))$ 或 $C_0(\Spec(A))$ \\
+        \hline
+        不可约表示 & $M_{n_i}(\mathbb{C})$ 上自由模 $\mathbb{C}^{n_i}$ & 1 维表示（点赋值 $\varphi_x$） \\
+        \hline
+        谱 $\sigma(a)$ & $a$ 的特征值集合 & $\widehat{a}$ 的值域 \\
+        \hline
+    \end{tabular}%
+    }
+\end{table}
+\end{frame}
+
+
+\begin{frame}[standout]
+  \centering\LARGE
+  谢谢！\\
+  \smallskip
+  欢迎提问
+\end{frame}
+
+\end{document}

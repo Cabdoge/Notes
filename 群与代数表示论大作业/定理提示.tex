@@ -1,0 +1,478 @@
+\documentclass{ctexart}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{imakeidx}
+\usepackage{longtable}
+\makeindex[title=关键词索引, columns=2, columnsep=1.5cm, intoc, options=-s pinyin.ist]
+
+\usepackage[hidelinks]{hyperref}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{float}
+
+\usepackage{enumitem}
+
+
+%================ 页面布局 ================
+\usepackage{geometry}
+\geometry{margin=1.5cm,top=1cm,bottom=1cm}
+\pagestyle{empty}
+
+%================ 行距 ================
+\usepackage{setspace}
+\setstretch{1.3}
+
+\usepackage{calc}
+\setlength{\lineskip}{\baselineskip-\ccwd}
+\setlength{\lineskiplimit}{2.5pt}
+
+\usepackage{physics2}
+\usephysicsmodule{ab.legacy,op.legacy,diagmat}
+
+%================ 定理环境 (AJbook 风格) ================
+% 提前加载 ntheorem 并定义定理环境.sjtureport 在导言区末尾也加载
+% ntheorem 并定义定理（通过 \cs_if_exist:cF 检测已定义则跳过），因此
+% 此处先加载先定义可覆盖类的默认字体与样式设置.
+\usepackage[amsmath,thmmarks,hyperref]{ntheorem}
+
+\theorembodyfont{\fangsong}
+\theoremheaderfont{\sffamily\bfseries}
+\theoremseparator{\ }
+\setlength{\theorempreskipamount}{2mm}
+\setlength{\theorempostskipamount}{2mm}
+
+\newtheorem{theorem}{定理}[section]
+\newtheorem{lemma}[theorem]{引理}
+\newtheorem{proposition}[theorem]{命题}
+\newtheorem{corollary}[theorem]{推论}
+\newtheorem{definition}{定义}[section]
+
+\theorembodyfont{\songti}
+\newtheorem{example}{例}[section]
+\newtheorem{remark}{注}[section]
+
+\theorembodyfont{}
+\theoremstyle{plain}
+\theoremheaderfont{\sffamily\bfseries}
+\theoremseparator{\enspace}
+\theoremsymbol{\ensuremath{\square}}
+\newtheorem*{proof}{证明}
+\theoremsymbol{}
+% 重置样式为 plain，避免类端代码处 \theoremstyle 错误累积
+\theoremstyle{plain}
+
+%================ 缩小公式上下间距 ================
+\AtBeginDocument{
+  \abovedisplayskip=5pt plus 1pt minus 1.5pt
+  \belowdisplayskip=5pt plus 1pt minus 1.5pt
+  \abovedisplayshortskip=0pt plus 3pt
+  \belowdisplayshortskip=4pt plus 1pt minus 1.5pt
+}
+
+\renewcommand{\arraystretch}{1}
+\everymath{\displaystyle}
+
+%================ 自定义算子 ================
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Irr}{Irr}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\im}{Im}
+
+\title{$C^*-\!$代数的表示：从 Wedderburn--Artin 到 Gelfand 变换}
+\author{庞逸天}
+
+
+\begin{document}
+
+
+\begin{proposition}
+\begin{equation}\label{eq:Cstar-condition-matrix}
+    \|A^*A\| = \|A\|^2, \quad \forall A \in M_n(\mathbb{C}).
+\end{equation}
+\end{proposition}
+\begin{proof}
+
+
+\fbox{证明一(泛函分析视角)} $A^*A$ 是自伴矩阵，因此$\|A^*A\| = \sup_{\|x\|=1} |\langle A^*A x, x\rangle|.$\par
+由于 $\langle A^*A x, x\rangle = \langle Ax, Ax\rangle = \|Ax\|^2 \ge 0$，绝对值可去掉.于是
+\begin{equation}\label{eq:Cstar-proof}
+    \|A^*A\| = \sup_{\|x\|=1} \langle A^*A x, x\rangle = \sup_{\|x\|=1} \|Ax\|^2 = \bigl(\sup_{\|x\|=1} \|Ax\|\bigr)^2 = \|A\|^2.
+\end{equation}
+
+\fbox{证明二(矩阵视角)} 设 $A$ 的奇异值分解为 $A = U\Sigma V^*$，其中 $U,V$ 为酉矩阵，$\Sigma = \operatorname{diag}(\sigma_1,\dots,\sigma_n)$，$\sigma_1 \ge \cdots \ge \sigma_n \ge 0$ 为 $A$ 的奇异值.由谱范数定义，$\|A\| = \sigma_1$.可得
+\begin{equation*}
+    A^*A = (U\Sigma V^*)^*(U\Sigma V^*) = V\Sigma^*U^*U\Sigma V^* = V\Sigma^2 V^*,
+\end{equation*}
+其中 $\Sigma^2 = \operatorname{diag}(\sigma_1^2,\dots,\sigma_n^2)$.由于 $V$ 是酉矩阵，表明$A^*A$与$\Sigma^2$相似，进而$\Sigma^2$ 的对角元即为 $A^*A$ 的特征值.
+
+因 $\sigma_i^2 \ge 0$，$A^*A$ 的最大特征值为 $\sigma_1^2$，故 $\|A^*A\| = \sigma_1^2$.
+\end{proof}
+
+
+\begin{lemma}[Gelfand--Beurling 谱半径公式]\label{lem:spectral-radius-formula}
+    设 $A$ 为含幺 Banach 代数，则对任意 $a \in A$，
+    \begin{equation}\label{eq:gelfand-beurling}
+        \rho(a) = \lim_{n \to \infty} \|a^n\|^{1/n}.
+    \end{equation}
+\end{lemma}
+
+\begin{proof}
+    \textbf{第一步：$\rho(a) \le \liminf_{n \to \infty} \|a^n\|^{1/n}$.}
+    由谱映射定理，$\lambda \in \sigma(a) \implies \lambda^n \in \sigma(a^n)$.又因谱半径不超过范数，有 $|\lambda|^n \le \rho(a^n) \le \|a^n\|$.故 $|\lambda| \le \|a^n\|^{1/n}$ 对所有 $n$ 成立.对 $\lambda \in \sigma(a)$ 取上确界得 $\rho(a) \le \|a^n\|^{1/n}$，再取下极限即得所需不等式.
+
+    \textbf{第二步：$\limsup_{n \to \infty} \|a^n\|^{1/n} \le \rho(a)$.}
+    考虑预解式 $R(\lambda) = (\lambda 1 - a)^{-1}$.当 $|\lambda| > \|a\|$ 时，有 Neumann 级数展开
+    \begin{equation*}
+        R(\lambda) = \sum_{n=0}^{\infty} \frac{a^n}{\lambda^{n+1}},
+    \end{equation*}
+    该级数依范数收敛.视其为 $1/\lambda$ 的幂级数，由 Cauchy--Hadamard 公式，其收敛半径为
+    \begin{equation*}
+        \frac{1}{\limsup_{n \to \infty} \|a^n\|^{1/n}}.
+    \end{equation*}
+    另一方面，预解式 $\lambda \mapsto R(\lambda)$ 在 $\mathbb{C} \setminus \sigma(a)$ 上解析，故该 Laurent 级数对满足 $|\lambda| > \rho(a)$ 的所有 $\lambda$ 收敛.因此
+    \begin{equation*}
+        \rho(a) \ge \limsup_{n \to \infty} \|a^n\|^{1/n}.
+    \end{equation*}
+
+    综合两步，极限存在且等于 $\rho(a)$.
+\end{proof}
+
+
+\begin{lemma}\label{lem:semisimple}
+    有限维 $C^*$-代数必为半单代数.
+\end{lemma}
+\begin{proof}
+    设 $A$ 为有限维 $C^*$-代数，$J = \mathrm{rad}(A)$ 为其 Jacobson 根.\par
+    有限维代数的 Jacobson 根必为幂零理想.若 $J \neq 0$，取非零元 $a \in J$.由于 $J$ 是理想，$a^*a \in J$，故 $a^*a$ 幂零：存在 $m \in \mathbb{N}$ 使 $(a^*a)^m = 0$.\par
+    取 $k$ 使 $2^k \ge m$，反复应用 $C^*$恒等式于自伴元 $a^*a$：
+    \[
+        \|a^*a\|^{2^k} = \|(a^*a)^{2^k}\| = \|0\| = 0.
+    \]
+    故 $\|a^*a\| = 0$.再由 $C^*$恒等式 $\|a\|^2 = \|a^*a\| = 0$，得 $\|a\| = 0$，与 $a \neq 0$ 矛盾.\par
+    故 $J = 0$，$A$ 为半单代数.
+\end{proof}
+
+\begin{lemma}\label{lem:division}
+    $\mathbb{C}$ 上唯一（在同构意义下）的有限维可除代数是 $\mathbb{C}$ 自身.
+\end{lemma}
+
+\begin{proof}
+    设 $D$ 为 $\mathbb{C}$ 上有限维可除代数.对任意 $d \in D$，考虑由 $d$ 和 $\mathbb{C}$ 生成的 $D$ 的子代数$\mathbb{C}(d)$.\par
+    对任意$x\in \mathbb{C}(d)$，可以定义左乘算子$L_x:\mathbb{C}(d) \to \mathbb{C}(d)$，$L_x(y) = xy$.\par
+    由于 $D$ 可除，$\mathbb{C}(d)$ 无零因子，从而$L_x$是单射.\par
+    又 $\mathbb{C}(d)$ 是 $\mathbb{C}$ 上有限维代数，故$L_x$是满射.从而存在$y\in\mathbb{C}(d)$ 使得 $L_x(y) = 1$，即 $xy = 1$.\par
+    故 $\mathbb{C}(d)$ 是可除代数.又$\mathbb{C}(d)$可交换，$\mathbb{C}(d)$是域.特别地，它是 $\mathbb{C}$ 的有限维域扩张.\par
+    $\mathbb{C}$ 是代数闭域，它没有非平凡的有限维域扩张.因此 $\mathbb{C}(d) = \mathbb{C}$，即 $d \in \mathbb{C}$.由 $d$ 的任意性知 $D = \mathbb{C}$.
+\end{proof}
+
+
+
+\begin{theorem}[有限维 $C^*-\!$代数的结构定理]\label{thm:fd-cstar}
+    设 $A$ 为有限维含幺 $C^*-\!$代数，则存在正整数 $t$ 和 $n_1, \dots, n_t \in \mathbb{N}^+$，使得
+    \begin{equation}\label{eq:fd-cstar-classification}
+        A \cong \bigoplus_{i=1}^t M_{n_i}(\mathbb{C})
+    \end{equation}
+    为 $C^*-\!$代数的等距 ${}^*-\!$同构.换言之，每个直和分量 $M_{n_i}(\mathbb{C})$ 配备其标准的共轭转置对合和算子范数.
+\end{theorem}
+
+\begin{proof}
+    由引理 \ref{lem:semisimple}，$A$ 是半单 $\mathbb{C}-\!$代数.由 Wedderburn--Artin 定理，
+    \begin{equation}
+        A \cong \bigoplus_{i=1}^t M_{n_i}(D_i),
+    \end{equation}
+    其中 $D_i$ 为 $\mathbb{C}$ 上有限维可除代数.由引理 \ref{lem:division}，$D_i \cong \mathbb{C}$.\par
+    下证存在同构保对合，且该对合即为共轭转置\par
+    任取同构$\psi$，定义对合运算为：$\forall\, y\in M_n(\mathbb{C})$
+    \begin{equation*}
+        y^\dag := \psi\bigl(\psi^{-1}(y)^*\bigr).
+    \end{equation*}
+    则$\psi$是$A$和$(M_n(\mathbb{C}),\dag)$之间的${}^*-\!$同构.\par
+    由附录~\ref{app:involution-uniqueness} 证明，$M_n(\mathbb{C},\dag)$${}^*-\!$同构于$(M_n(\mathbb{C}), *)$，其中$*$是共轭转置.\par
+    命题~\ref{prop:norm-spectral} 已证明 $C^*-\!$代数中范数由对合唯一决定，由此范数也随之唯一确定.\par
+    前两步表明，Wedderburn--Artin 给出的代数同构自动保持对合，进而保持范数，即为等距 ${}^*-\!$同构.
+\end{proof}
+
+
+
+
+\begin{proposition}[商代数是域]\label{prop:quotient-maximal}
+    设 $A$ 为含幺交换代数，$M \subseteq A$ 为真理想.则 $M$ 是极大理想当且仅当商代数 $A/M$ 是域.
+\end{proposition}
+
+\begin{proof}
+    $(\Rightarrow)$ 设 $M$ 极大.取 $[a] \neq 0 \in A/M$，则 $a \notin M$.考虑理想 $M + (a)$，它严格包含 $M$，由极大性知 $M + (a) = A$.故存在 $m \in M$, $b \in A$ 使 $m + ba = 1$，在商代数中 $[b][a] = 1$，$[a]$ 可逆.由 $[a]$ 的任意性，$A/M$ 是域.
+
+    $(\Leftarrow)$ 设 $A/M$ 是域.若 $I$ 严格包含 $M$，取 $a \in I \setminus M$，则 $[a] \neq 0$，存在 $[b]$ 使 $[b][a] = [1]$.故 $ba - 1 \in M \subseteq I$，而 $ba \in I$，故 $1 \in I$，$I = A$.因此 $M$ 极大.
+\end{proof}
+
+\begin{theorem}[Gelfand--Mazur]\label{thm:gelfand-mazur}
+    设 $A$ 为含幺复 Banach 代数.若 $A$ 可除，则 $A$ 等距同构于 $\mathbb{C}$.
+\end{theorem}
+
+\begin{proof}
+    对任意 $a \in A$，由 Banach 代数的基本结论，谱 $\sigma(a)$ 非空（若 $\sigma(a) = \emptyset$，则预解式 $\lambda \mapsto (\lambda 1 - a)^{-1}$ 为 $\mathbb{C}$ 上的有界整函数，由 Liouville 定理知其为常数，与 $\lim_{|\lambda|\to\infty} \|(\lambda 1 - a)^{-1}\| = 0$ 矛盾）.
+
+    取 $\lambda \in \sigma(a)$，则 $a - \lambda 1$ 不可逆.但 $A$ 为可除代数，唯一不可逆元为 $0$，故 $a - \lambda 1 = 0$，即 $a = \lambda 1 \in \mathbb{C}\cdot 1$.
+
+    因此 $A = \mathbb{C}\cdot 1$.映射 $\varphi: \mathbb{C} \to A$, $\lambda \mapsto \lambda 1$ 是代数同构.$A$ 上范数满足 $\|\lambda 1\| = |\lambda|\|1\|$.由 $1 = 1^2$ 及次乘性得 $\|1\| \le \|1\|^2$，又 $1 \neq 0$，故 $\|1\| \ge 1$；可验证存在等价范数使 $\|1\| = 1$（或直接由 $C^*$恒等式 $\|1\| = \|1^*1\| = \|1\|^2$ 推出 $\|1\| = 1$）.在此范数下 $\varphi$ 为等距同构.
+\end{proof}
+\begin{theorem}[Gelfand 谱与极大理想的一一对应]\label{thm:spec-maximal-ideal}
+    设 $A$ 为含幺交换 Banach 代数，$\Spec(A)$ 为 $A$ 的所有非零代数同态构成的集合，$\operatorname{Max}(A)$ 为 $A$ 的所有极大理想构成的集合。则存在双射
+    \begin{equation}
+        \Phi: \Spec(A) \longrightarrow \operatorname{Max}(A), \quad \varphi \longmapsto \ker\varphi
+    \end{equation}
+\end{theorem}
+
+\begin{proof}
+    \fbox{(i)$\ker\varphi$ 是极大理想} 设 $0\neq \varphi \in \Spec(A)$，其核 $M = \ker\varphi$ 显然是 $A$ 中的一个理想，并且
+    \begin{equation*}
+        A / \ker\varphi \cong \operatorname{Im}\varphi.
+    \end{equation*}
+    因为 $\varphi: A \to \mathbb{C}$ 且 $\varphi(1) = 1 \neq 0$，像集 $\operatorname{Im}\varphi$ 必定是一个包含非零元素的 $\mathbb{C}$ 的子代数。由于 $\mathbb{C}$ 是一维的，必然有 $\operatorname{Im}\varphi = \mathbb{C}$。因此，$A / M \cong \mathbb{C}$。\par
+    在交换环论中，商环 $A/M$ 是一个域当且仅当 $M$ 是极大理想。既然复数域 $\mathbb{C}$ 是域，故 $M = \ker\varphi$ 必定是 $A$ 的极大理想。这证明了映射 $\Phi$ 的定义是合理的。
+
+    \fbox{(ii)$\Phi$ 是满射} 设 $M \in \operatorname{Max}(A)$ 是一个极大理想。\par
+    \textit{1. 证明 $M$ 是闭理想：} 
+    考察 $M$ 的拓扑闭包 $\overline{M}$。
+    
+    首先，证明 $\overline{M}$ 是理想。由于 $M$ 是理想，对任意 $a \in A$ 均有 $aM \subseteq M$ 且 $Ma \subseteq M$。因为 Banach 代数中的乘法是连续的，对上述包含关系取闭包即得 $a\overline{M} \subseteq \overline{M}$ 且 $\overline{M}a \subseteq \overline{M}$。由于 $\overline{M}$ 显然仍是线性子空间，故它是理想。
+    
+    其次，证明 $\overline{M}$ 是真子集，即证明单位元 $1 \notin \overline{M}$。对于任意$x \in A$满足$\|x\| < 1$，由 Neumann 级数可知：
+    \begin{equation*}
+        (1 - x)^{-1} = \sum_{n=0}^{\infty} x^n \in A,
+    \end{equation*}
+    这表明以单位元 $1$ 为中心、半径为 $1$ 的开球 $B(1, 1) = \{ y \in A \mid \|1 - y\| < 1 \}$ 由可逆元构成。\par
+    由于 $M$ 是真理想，它不包含任何可逆元，因此 $M \cap B(1, 1) = \emptyset$，故 $1\notin \overline{M}$。
+    
+    因此$\overline{M}$ 是真理想，且包含极大理想 $M$，则$M = \overline{M}$。即极大理想 $M$ 必然是闭的。\par
+    \textit{2. 利用 Gelfand-Mazur 定理：}
+    既然 $M$ 是闭理想，商空间 $A/M$ 赋予商范数 $\| [a] \| = \inf_{m \in M} \|a+m\|$ 后，构成一个完备的 Banach 代数。 \par
+    又因为 $M$ 是极大理想，代数理论保证了 $A/M$ 是一个域，从而每个非零元都可逆.\par
+    根据 Gelfand--Mazur 定理，任何作为域的复含幺 Banach 代数必等距同构于 $\mathbb{C}$。因此，存在一个等距代数同构 $\psi: A/M \xrightarrow{\sim} \mathbb{C}$。\par
+    \textit{3. 构造代数同态：}
+    考虑自然的商映射 $\pi: A \twoheadrightarrow A/M$。定义复合映射 $\varphi = \psi \circ \pi: A \to \mathbb{C}$。
+    由于 $\pi$ 和 $\psi$ 均为代数同态，$\varphi$ 显然是一个代数同态。且 $\varphi(1) = \psi([1]) = 1 \neq 0$，故 $\varphi \in \Spec(A)$。
+    显然，$\ker\varphi = \ker\pi = M$。这证明了映射 $\Phi$ 是满射。
+
+    \fbox{(iii)$\Phi$ 是单射}
+    
+    假设存在 $\varphi_1, \varphi_2 \in \Spec(A)$ 使得 $\ker\varphi_1 = \ker\varphi_2 = M$。\par
+    $\forall\, a \in A$，考虑标量 $\lambda = \varphi_1(a)$。那么 $a - \lambda 1$ 属于 $\varphi_1$ 的核，即 $a - \lambda 1 \in M$。\par
+    由于$\ker\varphi_2$ 也等于 $M$，有$\varphi_2(a - \lambda 1) = 0$。
+    利用 $\varphi_2$是代数同态，可得 $\varphi_2(a) - \lambda = 0$，即 $\varphi_2(a) = \lambda = \varphi_1(a)$。
+    由于 $a$ 是任意选取的，故 $\varphi_1 = \varphi_2$。$\Phi$ 是单射。
+\end{proof}
+
+\begin{theorem}[Krull]\label{thm:krull}
+    设 $R$ 为含幺交换环，$I \subsetneq R$ 为真理想.则存在极大理想 $M \subseteq R$ 使得 $I \subseteq M$.
+\end{theorem}
+
+\begin{proof}
+    令 $\mathcal{S} = \{J \subseteq R \mid J \text{ 是真理想且 } I \subseteq J\}$.因 $I \in \mathcal{S}$，$\mathcal{S} \neq \emptyset$.\par
+    在包含关系下，$(\mathcal{S}, \subseteq)$ 构成偏序集.若 $\{J_\alpha\}_{\alpha\in\Lambda}$ 为 $\mathcal{S}$ 中一条链，令 $J^* = \bigcup_{\alpha} J_\alpha$，则 $J^*$ 仍是理想（链中任两元属于某个共同的 $J_\alpha$，加法和乘法的封闭性在其中验证），且 $1 \notin J^*$（否则某 $J_\alpha$ 含 $1$ 而成为非真理想），故 $J^* \in \mathcal{S}$ 是链的上界.\par
+    由 Zorn 引理，$\mathcal{S}$ 存在极大元 $M$.现证 $M$ 是 $R$ 的极大理想：若 $M'$ 是真理想且 $M \subseteq M'$，则 $M' \in \mathcal{S}$，由 $M$ 在 $\mathcal{S}$ 中的极大性知 $M = M'$.故 $M$ 是包含 $I$ 的极大理想.
+\end{proof}
+
+
+\begin{theorem}[谱 = Gelfand 谱上的点赋值]\label{thm:spectrum-range}
+    设 $A$ 为含幺交换 $C^*-\!$代数，$a \in A$.则
+    \begin{equation}\label{eq:spectrum-range}
+        \boxed{\sigma(a) = \{\varphi(a) \mid \varphi \in \Spec(A)\}}.
+    \end{equation}
+\end{theorem}
+
+\begin{proof}
+    设 $\lambda \in \mathbb{C}$，首先，根据谱的定义，
+    \begin{equation*}
+        \lambda \in \sigma(a) \Longleftrightarrow a - \lambda 1 \text{ 在 } A \text{ 中不可逆}.
+    \end{equation*}
+    
+    在交换含幺代数中，一个元素不可逆当且仅当它生成的主理想是真理想。由 Krull 定理，任何真理想都必定包含在某个极大理想中。因此：
+    \begin{equation*}
+        a - \lambda 1 \text{ 不可逆 } \Longleftrightarrow a - \lambda 1 \text{ 属于 } A \text{ 的某个极大理想 } M.
+    \end{equation*}
+
+    由前文可知，$A$ 每个极大理想 $M$ 都是某个代数同态 $\varphi$ 的核.因此：
+    \begin{equation*}
+        a - \lambda 1 \in M \Longleftrightarrow \exists\, \varphi \in \Spec(A), \text{ 使得 } a - \lambda 1 \in \ker\varphi.
+    \end{equation*}
+
+    将同态 $\varphi$ 作用于该元素，并利用 $\varphi(1) = 1$，我们得到：
+    \begin{equation*}
+        \varphi(a - \lambda 1) = 0 \Longleftrightarrow \varphi(a) - \lambda = 0 \Longleftrightarrow \varphi(a) = \lambda.
+    \end{equation*}
+
+    最后，根据 Gelfand 变换的定义 $\widehat{a}(\varphi) = \varphi(a)$，这等价于：
+    \begin{equation*}
+        \lambda \in \{\widehat{a}(\varphi) \mid \varphi \in \Spec(A)\} = \operatorname{Range}(\widehat{a}).
+    \end{equation*}
+    
+    因此 ，等价链成立，定理得证。
+\end{proof}
+
+
+
+\begin{theorem}\label{thm:spec-compact}
+    设 $A$ 为含幺交换 $C^*-\!$代数，则 $\Spec(A)$在弱*拓扑下是紧Hausdorff空间.
+\end{theorem}
+\begin{proof}
+    \textbf{第1步：$\Spec(A)$ 包含于弱*紧致的单位球.} 
+    $\forall\,\varphi \in \Spec(A)$，由 $\varphi(1) = 1$ 可知 $\|\varphi\| \ge 1$. \par
+    另一方面，$\varphi(a) \in \sigma(a)$. 故$|\varphi(a)| \le \rho(a) \le \|a\|$，故 $\|\varphi\| \le 1$. 因此 $\|\varphi\| = 1$.\par
+    $\Spec(A)$ 包含于$A^*$ 的闭单位球 $B$ 中. 根据 Banach--Alaoglu 定理，$B$ 是弱*紧的.
+
+    \textbf{第2步：$\Spec(A)$ 是弱*闭集.} 
+    只需证 $\Spec(A)$ 在 $B$ 中是闭的. 我们可以将 $\Spec(A)$ 写为如下集合的交集：
+    \begin{equation*}
+        \{\psi \in B : \psi(1) = 1\} \cap \bigcap_{a,b \in A} \{\psi \in B : \psi(ab) - \psi(a)\psi(b) = 0\}.
+    \end{equation*}
+    在弱*拓扑下，对任何固定的 $x \in A$，求值映射 $\psi \mapsto \psi(x)$  是弱*连续的. 因此，上述交集中的每一项都是连续映射下单点集 $\{1\}$ 或 $\{0\}$ 的原像，必然是闭集. 闭集的任意交集仍为闭集，故 $\Spec(A)$ 弱*闭，从而紧致.
+
+    \textbf{第3步：Hausdorff 性.} 
+    弱*拓扑是使得所有求值映射连续的最弱拓扑. 若 $\psi_1 \neq \psi_2$，必存在 $a \in A$ 使得 $\psi_1(a) \neq \psi_2(a)$. 由于复平面 $\mathbb{C}$ 是 Hausdorff 的，可用不相交的开集将其分离，将其拉回后即可在 $\Spec(A)$ 中分离 $\psi_1$ 与 $\psi_2$.
+\end{proof}
+
+
+
+
+\begin{lemma}[代数同态自动保持对合]\label{lem:homo-involution}
+    设 $A$ 为含幺交换 $C^*-\!$代数，$\varphi \in \Spec(A)$ 是一非零代数同态。则 $\varphi$ 必定是 ${}^*-\!$同态，即对任意 $a \in A$，有 $\varphi(a^*) = \overline{\varphi(a)}$。
+\end{lemma}
+\begin{proof}
+
+
+    对任意元素 $a \in A$，我们总可以将其唯一地进行笛卡尔分解：
+    \begin{equation*}
+        a = x + i y, \quad \text{其中 } x = \frac{a+a^*}{2},\ y = \frac{a-a^*}{2i}.
+    \end{equation*}
+    显然 $x$ 和 $y$ 都是自伴元（$x^* = x, y^* = y$），且此时有 $a^* = x - i y$。
+    
+    由谱理论可知，自伴元的谱必定包含于实数轴 $\mathbb{R}$。
+    又由定理 \ref{thm:spectrum-range}），可得：
+    \begin{equation*}
+        \varphi(x) \in \sigma(x) \subset \mathbb{R}, \quad \text{且} \quad \varphi(y) \in \sigma(y) \subset \mathbb{R}.
+    \end{equation*}
+    
+    再由 $\varphi$ 的复线性，我们直接计算 $\varphi(a^*)$得：
+    \begin{equation*}
+        \varphi(a^*) = \varphi(x - i y) = \varphi(x) - i \varphi(y) = \overline{\varphi(x) + i \varphi(y)} = \overline{\varphi(a)}.
+    \end{equation*}
+
+\end{proof}
+
+\begin{theorem}[Stone--Weierstrass，复版本]\label{thm:stone-weierstrass}
+    设 $X$ 为紧 Hausdorff 空间，$A \subseteq C(X)$ 为包含常值函数、分离点、对复共轭封闭的子代数.则 $A$ 在 $C(X)$ 中依一致范数 $\|\cdot\|_\infty$ 稠密.
+\end{theorem}
+
+\begin{proof}
+    令 $A_{\mathbb{R}} = \{\operatorname{Re}f : f \in A\}$.由复共轭封闭性，$\operatorname{Re}f = \frac{f+\overline{f}}{2}$, $\operatorname{Im}f = \frac{f-\overline{f}}{2i} \in A_{\mathbb{R}}$，故 $A = A_{\mathbb{R}} + iA_{\mathbb{R}}$ 且 $A_{\mathbb{R}}$ 是实子代数，含常数、分离点.
+
+    \fbox{$|f|$ 可被逼近.} 对 $f \in A_{\mathbb{R}}$ 满足 $\|f\|_\infty \le 1$，由实多项式在 $[-1,1]$ 上一致逼近 $\sqrt{t}$（Weierstrass 逼近定理），存在多项式 $P_n(t)$ 使 $\sup_{t\in[-1,1]} |P_n(t) - \sqrt{t}| < 1/n$.则 $P_n(f^2) \in A_{\mathbb{R}}$ 且 $\|P_n(f^2) - |f|\|_\infty \to 0$，故 $|f| \in \overline{A_{\mathbb{R}}}$.
+
+    \fbox{$A_{\mathbb{R}}$ 是格.} 由 $\max(f,g) = \frac{f+g}{2} + \frac{|f-g|}{2}$, $\min(f,g) = \frac{f+g}{2} - \frac{|f-g|}{2}$ 及第1步，$\overline{A_{\mathbb{R}}}$ 对有限个函数的最大/最小值封闭.
+
+    \fbox{逼近任意实值函数.} 设 $f \in C(X,\mathbb{R})$, $\varepsilon > 0$.对任意 $x,y \in X$，由分离点性存在 $g \in A_{\mathbb{R}}$ 使 $g(x) = f(x)$, $g(y) = f(y)$（可构造线性组合实现）.固定 $y$，令 $U_x = \{z : g(z) < f(z) + \varepsilon\}$，由紧性选出有限子覆盖，取对应 $g$ 的最小值得 $h_y \in \overline{A_{\mathbb{R}}}$，满足 $h_y(y) = f(y)$ 且 $h_y \le f + \varepsilon$.再由紧覆盖，取 $h_y$ 的最大值得 $h \in \overline{A_{\mathbb{R}}}$ 满足 $f - \varepsilon \le h \le f + \varepsilon$.故 $f \in \overline{A_{\mathbb{R}}}$.
+
+    \fbox{复情形.} 对 $f \in C(X)$，写出 $f = u + iv$ 其中 $u,v \in C(X,\mathbb{R})$.由第3步，$u,v \in \overline{A_{\mathbb{R}}}$，故 $f \in \overline{A}$.
+\end{proof}
+
+\begin{theorem}[Gelfand--Naimark，交换版]\label{thm:gn-commutative}
+    设 $A$ 为含单位元的交换 $C^*-\!$代数.则 Gelfand 变换
+    \begin{equation}
+        \Gamma: A \longrightarrow C(\Spec(A)), \quad a \longmapsto \widehat{a}
+    \end{equation}
+    是一个等距 ${}^*-\!$同构.
+\end{theorem}
+
+\begin{proof}[证明概要]
+    我们仅勾勒核心步骤，详细证明可参阅 \cite{Murphy} 或 \cite{Davidson}.\par
+    \fbox{$\Gamma$ 是 ${}^*-\!$同态.} 对任意 $\varphi \in \Spec(A)$，
+    \begin{align}
+        \widehat{ab}(\varphi) &= \varphi(ab) = \varphi(a)\varphi(b) = \widehat{a}(\varphi)\widehat{b}(\varphi), \\
+        \widehat{a^*}(\varphi) &= \varphi(a^*) = \overline{\varphi(a)} = \overline{\widehat{a}(\varphi)}.
+    \end{align}
+
+    \fbox{$\Gamma$ 是等距同态.} 对 $a \in A$，
+    \begin{equation}
+        \|\widehat{a}\|_\infty = \sup_{\varphi \in \Spec(A)} |\varphi(a)| = \sup_{\lambda \in \sigma(a)} |\lambda| = \rho(a)= r(a^*a)^{1/2} = \|a\|.
+    \end{equation}
+    由此，$\Gamma$是单射.\par
+    \fbox{$\Gamma$是满射.} $\widehat{A}:=\Gamma(A)$ 是 $C(\Spec(A))$ 中含单位元$\hat{1}$、分离点、对复共轭封闭的子代数.由 Stone--Weierstrass 定理，$\widehat{A}$ 在 $C(\Spec(A))$ 中 $\|\cdot\|_\infty$-稠密.\par
+    由等距性，$\widehat{A}$是Banach 空间 $A$ 的等距像，故$\widehat{A}$完备，为闭集.因此 $\widehat{A} = C(\Spec(A))$.
+\end{proof}
+
+
+\begin{example}[连续函数代数的 Gelfand 谱]\label{ex:C01}
+    设 $A = C[0,1]$.则 $\Spec(C[0,1]) \cong [0,1]$，且每个代数同态由点赋值给出.
+\end{example}
+
+\begin{proof}
+    \textbf{1. 极大理想的刻画.} 对 $x \in [0,1]$，令 $M_x = \{f \in C[0,1] : f(x) = 0\}$.则 $M_x$ 是极大理想(因 $C[0,1]/M_x \cong \mathbb{C}$).下证所有极大理想均为此形式.
+
+    设 $M$ 为极大理想.若 $M \neq M_x$ 对所有 $x$ 成立，则 $\forall\,x \in [0,1]$，$\exists\,f_x \in M$ 使 $f_x(x) \neq 0$.由连续性，存在开邻域 $U_x$ 使 $f_x$ 在 $U_x$ 上非零.紧致性给出有限子覆盖 $\{U_{x_1},\dots,U_{x_n}\}$.令
+    \[
+        g = \sum_{i=1}^n |f_{x_i}|^2 = \sum_{i=1}^n f_{x_i}\overline{f_{x_i}} \in M,
+    \]
+    则 $g > 0$ 在 $[0,1]$ 上处处成立，故 $g$ 在 $C[0,1]$ 中可逆(倒数为逆)，与 $M$ 是真理想矛盾.因此 $M = M_x$ 对某 $x$ 成立.
+
+    \textbf{2. 代数同态的参数化.} 由定理~\ref{thm:spec-maximal-ideal}，每个 $\varphi \in \Spec(C[0,1])$ 对应极大理想 $\ker\varphi = M_x$.对任意 $f \in C[0,1]$，$f - f(x)\cdot 1 \in M_x = \ker\varphi$，故 $\varphi(f) = f(x) = \varphi_x(f)$，即 $\varphi = \varphi_x$.
+
+    \textbf{3. 拓扑同胚.} 映射 $\Phi: [0,1] \to \Spec(C[0,1])$, $x \mapsto \varphi_x$ 由第2步知为双射.对任意弱*开集 $\{\varphi : |\varphi(f) - \varphi_{x_0}(f)| < \varepsilon\}$，其原像 $\{x : |f(x) - f(x_0)| < \varepsilon\}$ 由 $f$ 的连续性知为开集，故 $\Phi$ 连续.$[0,1]$ 紧而 $\Spec(C[0,1])$ Hausdorff（定理~\ref{thm:spec-compact}），连续双射必为同胚.
+\end{proof}
+
+
+
+
+\section{矩阵代数上 $C^*$对合的唯一性}\label{app:involution-uniqueness}
+
+
+
+\begin{theorem}\label{thm:involution-unique}
+设 $*$ 为 $M_n(\mathbb{C})$ 上的对合，且存在某个范数使 $(M_n(\mathbb{C}), *, \|\cdot\|)$ 成为 $C^*$代数.则 $(M_n(\mathbb{C}), *)$ *-同构于 $(M_n(\mathbb{C}), \dagger)$，其中 $\dagger$ 为标准共轭转置.
+\end{theorem}
+
+\begin{proof}
+\textbf{第1步：$*$ 的参数化.} 定义 $\phi(A) := (A^\dagger)^*$.因 $*$ 与 $\dagger$ 均为反线性反自同构，$\phi$ 为 $\mathbb{C}$-线性代数自同构.由 Skolem--Noether 定理，存在 $P \in GL_n(\mathbb{C})$ 使 $\phi(A) = P A P^{-1}$.于是
+\begin{equation}\label{eq:star-form-app}
+    A^* = \phi(A^\dagger) = P A^\dagger P^{-1}.
+\end{equation}
+
+\textbf{第2步：对合性对 $P$ 的约束.} 由 $(A^*)^* = A$ 及 \eqref{eq:star-form-app}：
+\begin{equation*}
+    A = P (P A^\dagger P^{-1})^\dagger P^{-1} = P (P^{-1})^\dagger A P^\dagger P^{-1}, \quad \forall A.
+\end{equation*}
+故存在 $\alpha \in \mathbb{C}$ 使 $P^\dagger P^{-1} = \alpha I$.两端取 $\dagger$ 并利用 $(P^\dagger)^{-1} = (P^{-1})^\dagger$，可得 $|\alpha| = 1$ 且 $P^\dagger = \alpha P$.于是 $P$ 为正规矩阵，可酉对角化 $P = V \Lambda V^\dagger$.条件 $\overline{\lambda_i} = \alpha \lambda_i$ 表明各特征值的辐角只取 $-\frac{1}{2}\arg\alpha$ 或其对径点，故 $P = e^{-i\theta/2} H$，其中 $H = H^\dagger$ 可逆.代入 \eqref{eq:star-form-app}，相位消去：
+\begin{equation}\label{eq:star-hermitian}
+    A^* = H A^\dagger H^{-1}, \quad H = H^\dagger.
+\end{equation}
+
+\textbf{第3步：正定性决定 $H$ 的符号.} 对有限维 $C^*$代数，引理~\ref{lem:trace-inner} 的忠实迹即标准矩阵迹 $\Tr$，满足 $\Tr(A^*A) > 0$（$A \neq 0$）.由 \eqref{eq:star-hermitian}，
+\begin{equation*}
+    \Tr(A^*A) = \Tr(H A^\dagger H^{-1} A).
+\end{equation*}
+将 $H$ 酉对角化 $H = W D W^\dagger$，$D = \operatorname{diag}(d_1,\dots,d_n)$，$d_i \in \mathbb{R}\setminus\{0\}$.令 $B = W^\dagger A W$，则
+\begin{equation*}
+    \Tr(A^*A) = \Tr(D B^\dagger D^{-1} B) = \sum_{i,j} \frac{d_i}{d_j} |b_{ij}|^2.
+\end{equation*}
+若存在 $d_i, d_j$ 异号，取 $B = E_{ij}$ 将导致 $\Tr(A^*A) \le 0$，矛盾.故所有 $d_i$ 同号，$H$ 为正定或负定.若负定，以 $-H$ 替换之，不影响 \eqref{eq:star-hermitian}.因此可设 $H > 0$（正定）.
+
+\textbf{第4步：构造 *-同构.} 令 $U = H^{1/2}$（正定平方根），定义 $\psi(A) = U^{-1} A U$.则
+\begin{align*}
+    \psi(A^*) &= U^{-1} A^* U = U^{-1} H A^\dagger H^{-1} U = U^{-1} U^2 A^\dagger U^{-2} U \\
+             &= U A^\dagger U^{-1} = (U^{-1} A U)^\dagger = \psi(A)^\dagger,
+\end{align*}
+其中用到 $U^\dagger = U$ 与 $(U^{-1})^\dagger = U^{-1}$.故 $\psi$ 为 $(M_n(\mathbb{C}), *)$ 到 $(M_n(\mathbb{C}), \dagger)$ 的 *-同构.
+\end{proof}
+
+\begin{corollary}\label{cor:direct-sum}
+设有限维 $C^*$代数代数同构于 $\bigoplus_{i=1}^t M_{n_i}(\mathbb{C})$.则在适当基下，其 $C^*$对合必为各分量的共轭转置.
+\end{corollary}
+\begin{proof}
+代数同构将 $A$ 上的对合搬运至 $\bigoplus M_{n_i}(\mathbb{C})$.每个分块 $M_{n_i}(\mathbb{C})$ 上搬运后的对合与 $\dagger$ 仅相差一个 *-同构（定理~\ref{thm:involution-unique}），调整基即消去此差异.
+\end{proof}
+
+\end{document}

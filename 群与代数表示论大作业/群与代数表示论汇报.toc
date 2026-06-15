@@ -1,0 +1,6 @@
+\babel@toc {english}{}\relax 
+\beamer@sectionintoc {1}{引言}{3}{0}{1}
+\beamer@sectionintoc {2}{从矩阵代数到 $C^*-\!$代数}{7}{0}{2}
+\beamer@sectionintoc {3}{有限维 $C^*-\!$代数的分类}{20}{0}{3}
+\beamer@sectionintoc {4}{Gelfand 表示理论}{25}{0}{4}
+\beamer@sectionintoc {5}{总结}{48}{0}{5}
