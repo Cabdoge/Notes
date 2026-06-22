@@ -7,25 +7,27 @@
 \contentsline {chapter}{\numberline {2}Banach空间的重要定理}{19}{chapter.2}%
 \contentsline {section}{\numberline {2.1}超限归纳法与 Zorn 引理}{19}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Hahn-Banach 定理}{21}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Baire 纲定理}{28}{section.2.3}%
-\contentsline {section}{\numberline {2.4}开映射定理与逆算子定理}{35}{section.2.4}%
-\contentsline {chapter}{\numberline {3}弱拓扑和弱*拓扑}{41}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Hilbert 空间的定义与基本性质}{41}{section.3.1}%
-\contentsline {section}{\numberline {3.2}正交基与 Riesz 表示定理}{46}{section.3.2}%
-\contentsline {section}{\numberline {3.3}弱收敛}{49}{section.3.3}%
-\contentsline {section}{\numberline {3.4}弱拓扑与弱*拓扑}{52}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Banach-Alaoglu 定理}{56}{section.3.5}%
-\contentsline {section}{\numberline {3.6}Krein-Milman 定理}{60}{section.3.6}%
-\contentsline {chapter}{\numberline {4}Banach空间上的紧算子}{63}{chapter.4}%
-\contentsline {section}{\numberline {4.1}紧算子的定义与基本性质}{63}{section.4.1}%
-\contentsline {section}{\numberline {4.2}有限秩算子与逼近问题}{65}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Schauder 定理}{67}{section.4.3}%
-\contentsline {section}{\numberline {4.4}紧自伴算子与谱定理}{69}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Fredholm 算子}{72}{section.4.5}%
-\contentsline {chapter}{\numberline {5}拓扑群与 Haar 测度}{75}{chapter.5}%
-\contentsline {section}{\numberline {5.1}拓扑群与表示}{75}{section.5.1}%
-\contentsline {section}{\numberline {5.2}不变测度}{77}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Kakutani-Markov 不动点定理}{78}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Haar 测度的存在性}{79}{section.5.4}%
-\contentsline {chapter}{关键词索引}{80}{chapter*.9}%
+\contentsline {section}{\numberline {2.3}Baire 纲定理}{29}{section.2.3}%
+\contentsline {section}{\numberline {2.4}开映射定理与逆算子定理}{37}{section.2.4}%
+\contentsline {chapter}{\numberline {3}弱拓扑和弱*拓扑}{43}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Hilbert 空间的定义与基本性质}{43}{section.3.1}%
+\contentsline {section}{\numberline {3.2}正交基与 Riesz 表示定理}{48}{section.3.2}%
+\contentsline {section}{\numberline {3.3}弱收敛}{51}{section.3.3}%
+\contentsline {section}{\numberline {3.4}弱拓扑与弱*拓扑}{54}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Banach-Alaoglu 定理}{58}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Krein-Milman 定理}{62}{section.3.6}%
+\contentsline {chapter}{\numberline {4}Banach空间上的紧算子}{65}{chapter.4}%
+\contentsline {section}{\numberline {4.1}紧算子的定义与基本性质}{65}{section.4.1}%
+\contentsline {section}{\numberline {4.2}有限秩算子与逼近问题}{67}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Schauder 定理}{69}{section.4.3}%
+\contentsline {section}{\numberline {4.4}紧自伴算子与谱定理}{71}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Fredholm 算子}{74}{section.4.5}%
+\contentsline {section}{\numberline {4.6}紧算子的谱理论}{78}{section.4.6}%
+\contentsline {section}{\numberline {4.7}自反空间中的弱收敛与变分法}{80}{section.4.7}%
+\contentsline {chapter}{\numberline {5}拓扑群与 Haar 测度}{82}{chapter.5}%
+\contentsline {section}{\numberline {5.1}拓扑群与表示}{82}{section.5.1}%
+\contentsline {section}{\numberline {5.2}不变测度}{84}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Kakutani-Markov 不动点定理}{85}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Haar 测度的存在性}{86}{section.5.4}%
+\contentsline {chapter}{关键词索引}{87}{chapter*.14}%
 \contentsfinish 

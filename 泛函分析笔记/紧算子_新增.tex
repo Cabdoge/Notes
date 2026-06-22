@@ -1,0 +1,233 @@
+
+% ---------- 重构改动 ----------
+% 以下给出 Fredholm 指标局部常值性的更细致证明，显式追踪指标的维度变化.
+\begin{proof}[证明（指标局部常值）]
+不失一般性，要证：若 $\norm{T-S}<\varepsilon_0$，则 $\Ind T = \Ind S$.\par
+由于 $\ker S \cap X_1 = \{0\}$，则存在有限维子空间 $Z \subseteq X$，使得 $\ker S \oplus Z \oplus X_1 = X$.
+故
+\begin{equation}
+\dim \ker T = \dim(\ker S \oplus Z) = \dim \ker S + \dim Z. \tag{*}
+\end{equation}
+又 $S$ 在 $Z$ 上是单射，$\dim S(Z) = \dim Z < \infty$.\par
+对 $\widetilde{S}: X_1 \oplus Y_1 \to Y$，其为同构且 $Y = S(X_1) \oplus Y_1$（因为若 $\exists\, x_1 \in X_1$，$y_1 \in Y_1$ 使得 $Sx_1 = -y_1$，则 $\widetilde{S}(x_1,-y_1)=0$，与 $\widetilde{S}$ 为同构矛盾）.\par
+但 $S|_{Z \oplus X_1}$ 是到 $\ran S$ 的同构，故 $\ran S = S(Z) \oplus S(X_1)$，从而
+\begin{equation}
+\dim(Y/\ran S) = \dim(Y/S(X_1)) - \dim S(Z) = \dim Y_1 - \dim Z = \dim(Y/\ran T) - \dim Z. \tag{**}
+\end{equation}
+结合 $(*)$ 和 $(**)$ 得 $\Ind T = \Ind S$.
+\end{proof}
+% ---------- 重构改动 ----------
+
+\begin{definition}[模紧算子等价]\index{m@模紧算子}
+设 $X,Y$ 是 Banach 空间，$T,S \in \mcal{B}(X,Y)$，称：
+\begin{enumerate}[(i)]
+    \item $T \equiv S \pmod{\mcal{K}(X,Y)} \iff T-S \in \mcal{K}(X,Y)$.
+    \item $T$ 是\colorbf{模紧算子可逆}的 $\iff \exists\, T_1 \in \mcal{B}(Y,X)$，使得
+    \begin{equation*}
+    TT_1 \equiv I_Y \pmod{\mcal{K}(Y)},\quad T_1T \equiv I_X \pmod{\mcal{K}(X)}.
+    \end{equation*}
+\end{enumerate}
+\end{definition}
+
+\begin{lemma}\label{lem:fredholm-composition}
+\begin{enumerate}[(i)]
+    \item 若 $T \in \mcal{F}(Y,Z)$，$S \in \mcal{F}(X,Y)$，则 $T \circ S \in \mcal{F}(X,Z)$.
+    \item 若 $T \in \mcal{F}(X,Y)$，$K \in \mcal{K}(X,Y)$，则 $T+K \in \mcal{F}(X,Y)$ 且 $\Ind(T+K) = \Ind(T)$.
+\end{enumerate}
+\end{lemma}
+
+\begin{theorem}[Fredholm 算子的模紧刻画]\label{thm:fredholm-mod-compact}\index{F@Fredholm 算子!模紧刻画}
+设 $X,Y$ 是 Banach 空间，$T \in \mcal{B}(X,Y)$，则 $T$ 是 Fredholm 算子 $\iff$ $T$ 模紧算子可逆.
+\end{theorem}
+
+\begin{proof}
+\textbf{($\Rightarrow$)} 假设 $T \in \mcal{F}(X,Y)$，有 $X = \ker T \oplus X_1$，$Y = \ran T \oplus Y_1$，其中 $\dim Y_1 < \infty$. 取
+\begin{equation*}
+S = \tau \circ (T|_{X_1})^{-1} \circ \pi,
+\end{equation*}
+其中 $\tau: X_1 \hookrightarrow X$ 为嵌入，$\pi: Y \to \ran T$ 为投影. 则 $S \in \mcal{B}(Y,X)$.\par
+下证 $S$ 满足模紧可逆条件：
+\begin{align*}
+I_Y - TS &= I_Y - \pi \quad\text{为 $Y_1$ 上的投影},\\
+I_X - ST &= I_X - \tau \quad\text{为到 $\ker T$ 的投影}.
+\end{align*}
+由 $Y_1$，$\ker T$ 有限维知 $I_Y-TS$，$I_X-ST$ 均为紧算子.\par
+\textbf{($\Leftarrow$)} 设 $\exists\, T_1 \in \mcal{B}(Y,X)$ 使得
+\begin{equation*}
+I_X - T_1T = K_1,\quad I_Y - TT_1 = K_2,
+\end{equation*}
+其中 $K_1 \in \mcal{K}(X)$，$K_2 \in \mcal{K}(Y)$. 则
+\begin{align*}
+\ker T &\subset \ker(T_1T) = \ker(I_X-K_1),\\
+\ran T &\supset \ran(TT_1) = \ran(I_Y-K_2).
+\end{align*}
+由于 $I_X-K_1$，$I_Y-K_2$ 均为 Fredholm 算子（紧扰动定理），故 $\dim\ker(I_X-K_1) < \infty$，$\codim\ran(I_Y-K_2) < \infty$. 从而 $\dim\ker T < \infty$，$\codim\ran T < \infty$，且 $\ran T$ 闭（它是 $I_Y-K_2$ 的值的超空间，而该值域闭且余维有限），故 $T$ 是 Fredholm 算子.
+\end{proof}
+
+% ---------- 重构改动 ----------
+% 以下给出 ``I+K 是 Fredholm 算子'' 的完整证明，补充原文件中省略的细节.
+\begin{proof}[证明（$I+K\in\mcal{F}(X)$）]
+分三步验证 Fredholm 算子的三个条件.\par
+\textbf{1. $\dim\ker(I+K) < \infty$.} 设 $\{x_n\} \subset \ker(I+K)$，$\norm{x_n}\leq 1$. 由 $K$ 是紧算子，存在收敛子列，仍记作 $\{x_n\}$，$Kx_n \to y$. 但 $(I+K)x_n = 0 \Rightarrow x_n = -Kx_n \to -y$. 故 $\{x_n\}$ 收敛，由 Riesz 引理知 $\ker(I+K)$ 中的单位球紧，故 $\dim\ker(I+K) < \infty$.\par
+\textbf{2. $\ran(I+K)$ 闭.} 将 $X$ 分解为 $X = \ker(I+K) \oplus V$，其中 $V \subseteq X$ 为闭子空间. 则 $(I+K)|_V: V \to \ran(I+K)$ 为双射，只需证 $((I+K)|_V)^{-1}$ 在 $0$ 处有界.\par
+假设其无界，则 $\exists\,\{x_n\} \subseteq V$，使得 $\norm{x_n} \geq \varepsilon > 0$ 但 $(I+K)x_n \to 0$. 令 $y_n = x_n / \norm{x_n}$，则 $\norm{y_n}=1$ 且 $(I+K)y_n \to 0$. 由 $K$ 紧，存在子列 $Ky_{n_k} \to z$，故 $y_{n_k} = (I+K)y_{n_k} - Ky_{n_k} \to -z$. 于是 $\norm{z}=1$，$z \in V$ 且 $(I+K)z = 0$，与 $\ker(I+K) \cap V = \{0\}$ 矛盾.\par
+\textbf{3. $\codim\ran(I+K) < \infty$.} 若不然，存在一列闭子空间
+\begin{equation*}
+\ran(I+K) = H_0 \subsetneq H_1 \subsetneq \cdots \subsetneq X,
+\end{equation*}
+使得 $\dim(H_{n}/H_{n-1}) = 1$ ($\forall\, n \in \mb{N}$). 由 Riesz 引理，可取 $x_n \in H_n$，$\norm{x_n}=1$，使得 $\norm{x_n - y} \geq \tfrac{1}{2}$ ($\forall\, y \in H_{n-1}$).\par
+对 $1 \leq \ell \leq n-1$，
+\begin{align*}
+\norm{Kx_n - Kx_\ell}
+&= \norm{(x_n+Kx_n) - (x_\ell+Kx_\ell) - x_n + x_\ell}\\
+&= \norm{(I+K)(x_n) - (I+K)(x_\ell) - (x_n-x_\ell)}\\
+&\geq \tfrac{1}{2},
+\end{align*}
+其中最后一步用到 $(I+K)x_n, (I+K)x_\ell \in H_0 \subseteq H_{n-1}$ 及 $x_\ell \in H_\ell \subseteq H_{n-1}$，而 $x_n \notin H_{n-1}$ 的选取保证了 $\norm{x_n - w} \geq \tfrac{1}{2}$ ($\forall\, w \in H_{n-1}$). 这与 $K$ 紧矛盾.\par
+综上，$I+K \in \mcal{F}(X)$.
+\end{proof}
+% ---------- 重构改动 ----------
+
+\section{紧算子的谱理论}
+
+在 Hilbert 空间框架下，紧自伴算子的谱定理给出了完整的特征向量正交基分解. 对于 Banach 空间上的一般紧算子（未必自伴），Riesz--Schauder 理论刻画了其谱的精细结构：非零谱点均为特征值、谱至多可数且唯一可能的极限点为 $0$，以及 Fredholm 择一性原理.
+
+\begin{proposition}[特征子空间的独立性]\label{prop:eigenspace-independence}
+设 $X$ 是复 Banach 空间，$T \in \mcal{B}(X)$，则 $T$ 的不同特征值对应的特征子空间互相独立.
+\end{proposition}
+
+\begin{proof}
+使用归纳法. 假设对 $n-1$ 个特征向量结论成立. 若对 $\{x_1,\dots,x_n\}$ 有 $\sum_{k=1}^n a_k x_k = 0$ ($a_k \in \mb{C}$)，作用 $T$ 得
+\begin{equation*}
+0 = T\ab(\sum_{k=1}^n a_k x_k) = \sum_{k=1}^n a_k (Tx_k) = \sum_{k=1}^n a_k \lambda_k x_k,
+\end{equation*}
+其中 $\lambda_1,\dots,\lambda_n$ 为互异的特征值. 不妨设 $\lambda_1 \neq 0$，则有
+\begin{equation*}
+\begin{cases}
+a_1 x_1 + a_2 x_2 + \cdots + a_n x_n = 0,\\[2pt]
+a_1 x_1 + a_2 \dfrac{\lambda_2}{\lambda_1} x_2 + \cdots + a_n \dfrac{\lambda_n}{\lambda_1} x_n = 0.
+\end{cases}
+\end{equation*}
+相减得 $a_2\ab(1-\frac{\lambda_2}{\lambda_1})x_2 + \cdots + a_n\ab(1-\frac{\lambda_n}{\lambda_1})x_n = 0$. 由归纳假设 $a_2 = a_3 = \cdots = a_n = 0$，再代入得 $a_1 = 0$.
+\end{proof}
+
+\begin{theorem}[紧算子的谱]\label{thm:compact-spectrum}\index{j@紧算子!谱}
+设 $X$ 是复 Banach 空间，$T \in \mcal{K}(X)$，则
+\begin{enumerate}[(i)]
+    \item 任何 $\sigma(T)\setminus\{0\}$ 中的非零元均为特征值.
+    \item 若 $\dim X = \infty$，则 $0 \in \sigma(T)$.
+    \item $\sigma(T)$ 至多可数. 若 $\sigma(T)$ 无穷，则可以将其排列为 $\lambda_1, \lambda_2, \lambda_3, \dots$，使得 $|\lambda_1| \geq |\lambda_2| \geq |\lambda_3| \geq \cdots$ 且 $\lim_{n \to \infty} \lambda_n = 0$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\textbf{(i)} 取 $\lambda \in \sigma(T)\setminus\{0\}$，则 $T-\lambda I$ 为 Fredholm 算子，指标为 $0$，但不可逆. 若 $\ker(T-\lambda I) = \{0\}$，则其为单射，结合指标为零知 $\ran(T-\lambda I) = X$，由开映射定理 $T-\lambda I$ 可逆，矛盾. 故 $\ker(T-\lambda I) \neq \{0\}$，即 $\lambda$ 为特征值.\par
+\textbf{(ii)} 若 $0 \notin \sigma(T)$，则 $T$ 是可逆紧算子. 故 $I_X = TT^{-1}$ 也为紧算子，由 Riesz 引理知 $\dim X < \infty$.\par
+\textbf{(iii)} 只需证明 $\forall\, R>0$，集合 $\{\lambda \in \sigma(T): |\lambda| \geq R\}$ 有限.\par
+若不然，存在互异特征值 $\lambda_1, \lambda_2, \dots$ 使得 $|\lambda_j| \geq R$ ($\forall\, j$). 设 $x_1, x_2, \dots$ 为对应的特征向量，令 $H_n = \spann\{x_1,x_2,\dots,x_n\}$，则
+\begin{equation*}
+H_1 \subsetneq H_2 \subsetneq H_3 \subsetneq \cdots \subseteq X,\quad \dim(H_n/H_{n-1}) = 1\ (\forall\, n \in \mb{N}).
+\end{equation*}
+由 Riesz 引理，$\exists\, w_1, w_2, \dots$ 使得 $w_n \in H_n$ 且 $\norm{w_n - y} \geq \frac{1}{2}$ ($\forall\, y \in H_{n-1}$)，$\norm{w_n}=1$.\par
+下证 $\{Tw_n\}$ 没有收敛子列：取定 $n > \ell \in \mb{N}$，$w_n = a_n x_n + z_{n-1}$，其中 $z_{n-1} \in H_{n-1}$. 则
+\begin{align*}
+\norm{Tw_n - Tw_\ell}
+&= \norm{T(a_n x_n + z_{n-1}) - Tw_\ell}
+= \norm{a_n \lambda_n x_n + Ty_{n-1}},\quad y_{n-1} = z_{n-1} - w_\ell \in H_{n-1}\\
+&= \norm{\lambda_n(w_n - z_{n-1}) + Ty_{n-1}}
+= |\lambda_n| \,\norm{w_n - \ab(z_{n-1} - \frac{Ty_{n-1}}{\lambda_n})}\\
+&\geq \frac{1}{2}|\lambda_n| \geq \frac{R}{2}.
+\end{align*}
+故 $\{Tw_n\}$ 无 Cauchy 子列，与 $T$ 紧矛盾.
+\end{proof}
+
+\begin{theorem}[Riesz--Schauder]\label{thm:riesz-schauder}\index{R@Riesz--Schauder 定理}
+设 $X$ 是 Banach 空间，$T \in \mcal{K}(X)$，$\lambda \neq 0$，记
+\begin{equation*}
+M^0 = \{f \in X^*: f(x)=0,\ \forall x \in M\},\quad
+{}^\circ N = \{x \in X: f(x)=0,\ \forall f \in N\},
+\end{equation*}
+分别为湮没子 (annihilator) 与预湮没子 (preannihilator). 则：
+\begin{equation*}
+\begin{cases}
+\dim \ker(T-\lambda I) = \dim \ker(T^*-\lambda I) < +\infty,\\[4pt]
+\ran(T-\lambda I) = {}^\circ[\ker(T^*-\lambda I)],\\[4pt]
+\ran(T^*-\lambda I) = [\ker(T-\lambda I)]^0.
+\end{cases}
+\end{equation*}
+\end{theorem}
+
+\begin{lemma}[Fredholm 择一性]\label{lem:fredholm-alternative}\index{F@Fredholm 择一性}
+考虑方程 $(E): Tx - \lambda x = y$ 及其对偶方程 $(E^*): T^*f - \lambda f = g$，其中 $T \in \mcal{K}(X)$，$\lambda \in \mb{C}^*$，$X$ 为复 Banach 空间.
+\begin{itemize}
+    \item $(E)$ 有解 $\iff y \in \ran(T-\lambda I) = {}^\circ[\ker(T^*-\lambda I)] \iff f(y)=0$ 对一切满足 $T^*f = \lambda f$ 的 $f$ 成立（即 $(E^*)$ 齐次情形的可解条件）.
+    \item $(E^*)$ 有解 $\iff g \in \ran(T^*-\lambda I) = [\ker(T-\lambda I)]^0 \iff g(x)=0$ 对一切满足 $Tx = \lambda x$ 的 $x$ 成立（即 $(E)$ 齐次情形的可解条件）.
+\end{itemize}
+\end{lemma}
+
+\section{自反空间中的弱收敛与变分法}
+
+\begin{theorem}[自反空间中的弱紧性]\label{thm:weak-compact-reflexive}\index{r@弱紧性!自反空间}
+设 $X$ 是自反 Banach 空间，$\{x_n\} \subset X$. 若 $\{x_n\}$ 有界，则它有弱收敛子列.
+\end{theorem}
+
+\begin{proof}
+设 $\{x_n\}$ 有界，令 $Y = \overline{\spann\{x_n\}_{n=1}^\infty} \subseteq X$，则 $Y$ 自反. 因为 $Y^{**} \cong Y$ 可分，故 $Y^*$ 也可分.\par
+设 $\{f_j\}$ 是 $Y^*$ 中稠密序列，由对角化技巧，存在子列 $\{x_{n_k}\} \subset \{x_n\}$ 使得 $\{f_j(x_{n_k})\}_{k \in \mb{N}}$ 收敛 ($\forall\, j \in \mb{N}$).\par
+由于典范嵌入 $J: X \xrightarrow{\cong} X^{**}$，则 $f(x_{n_k}) = J(x_{n_k})(f) \xrightarrow{k \to \infty} \xi(f)$，对某个 $\xi \in X^{**}$. 但这等价于
+\begin{equation*}
+f(x_{n_k}) \to f(J^{-1}(\xi))\quad (\forall\, f \in X^*),
+\end{equation*}
+即 $x_{n_k} \rightharpoonup J^{-1}(\xi)$.
+\end{proof}
+
+现在转向变分问题：设 $X$ 是赋范线性空间，$I: X \to \mb{R}$ 是泛函，目标是寻找 $\tilde{x} \in X$ 使得 $I(\tilde{x}) = \inf_{x \in X} I(x)$.
+
+\begin{instance}[Dirichlet 边值问题]
+考虑 Dirichlet 边界的 Laplace 方程
+\begin{equation*}
+\begin{cases}
+-\Delta u = 0 & \text{in } \Omega,\\
+u = 0 & \text{on } \partial\Omega.
+\end{cases}
+\end{equation*}
+将方程乘以 $u$ 并在 $\Omega$ 上分部积分，得到与之对应的 Dirichlet 能量泛函
+\begin{equation*}
+I[u] = \int_\Omega |\nabla u|^2 \d x,
+\end{equation*}
+其中 $X = W^{1,2}(\Omega)$（Sobolev 空间）. 原 PDE 的弱解恰为 $I[u]$ 的临界点.
+\end{instance}
+
+\begin{definition}[序列弱下半连续与强制性]\index{x@序列弱下半连续}\index{q@强制性}
+设 $X$ 是 Banach 空间，$I: X \to \mb{R}$ 是泛函.
+\begin{enumerate}[(i)]
+    \item 称 $I$ \colorbf{序列弱下半连续}，若 $x_n \rightharpoonup x$ 时恒有 $I(x) \leq \liminf_{n \to \infty} I(x_n)$.
+    \item 称 $I$ \colorbf{强制}，若 $\|x_n\| \to +\infty$ 时恒有 $I[x_n] \to \infty$.
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}[极小值点的存在性]\label{thm:minimizer-existence}\index{j@极小值点}
+设 $X$ 是自反 Banach 空间，$I: X \to \mb{R}$ 是序列弱下半连续且强制的泛函，则 $I$ 在 $X$ 上达到极小值.
+\end{theorem}
+
+\begin{proof}
+取极小化序列 $\{u_n\} \subset X$，即 $I[u_n] \searrow \inf_{u \in X} I[u]$. 由 $I$ 的强制性，$\{u_n\}$ 有界. 由于 $X$ 自反，存在 $\tilde{u} \in X$ 使得 $u_n \rightharpoonup \tilde{u}$（取子列）. 由 $I$ 的序列弱下半连续性，
+\begin{equation*}
+I[\tilde{u}] \leq \liminf_{n \to \infty} I[u_n] = \inf_{u \in X} I[u],
+\end{equation*}
+故 $\tilde{u}$ 为极小元.
+\end{proof}
+
+\begin{proposition}[凸性与弱下半连续性]\label{prop:convex-swlsc}
+设 $X$ 是赋范线性空间，若 $I: X \to \mb{R}$ 是凸的且在范数下下半连续，则 $I$ 是序列弱下半连续的.
+\end{proposition}
+
+\begin{proof}
+任取 $x_n \rightharpoonup x$ in $X$. 由于 $\{x_n\}$ 弱收敛故有界，且 $I$ 下半连续，存在子列 $\{x_{n_k}\}$ 使得 $I[x_{n_k}] \to \liminf_{n \to \infty} I[x_n] < \infty$.\par
+由 Mazur 引理，存在 $\{x_{n_k}, x_{n_{k+1}}, \dots, x_{n_K}\}$ 的凸组合序列 $\alpha_k$，使得 $\alpha_k \to x$ 在范数下. 由 $I$ 的凸性与下半连续性，
+\begin{align*}
+I[x] &\leq \liminf_{k \to \infty} I[\alpha_k]
+\leq \liminf_{k \to \infty} \Bigl\{\sum \lambda_j I[x_{n_j}] : \text{凸组合}\Bigr\}\\
+&= \liminf_{n \to \infty} I[x_n].
+\end{align*}
+\end{proof}

@@ -66,9 +66,9 @@ $G = \mb{R}$, $G \curvearrowright X = \mb{R}$是平移$(a,x) \mapsto a+x$.\par
 则 $G$ 也可以自然作用在 $C_c(\mb{R})$ 上，有 $(a,f) \mapsto \pi_a(f)$ 且 $\pi_a(f)(x) = f(x-a)$.\par
 考虑 $\pi_t 1_{[0,1]} = 1_{[t,t+1]}$，则
 \begin{equation*}
-\norm{\pi_t 1_{[0,1]} - 1_{[0,1]}}_{L^p(\mb{R})} = \norm{1_{[t,1]} - 1_{[0,t]}}_{L^p} = (2t)^{\frac{1}{p}} \xrightarrow{t \to 0} 0, \quad \forall\, 1 \le p < \infty.
+\norm{\pi_t 1_{[0,1]} - 1_{[0,1]}}_{L^p(\mb{R})} = \norm{1_{[t,1]} - 1_{[0,t]}}_{L^p} = (2t)^{\frac{1}{p}} \xrightarrow{t \to 0} 0, \quad \forall\, 1 \leq p < \infty.
 \end{equation*}
-而 $\norm{1_{[0,t]}}_{L^p} = t^{\frac{1}{p}}$，故 $\norm{\pi_t - \mathrm{Id}} \ge 1$，这表明 $\pi_t$ 在范数拓扑下不收敛到 $\mathrm{Id}$.\par
+而 $\norm{1_{[0,t]}}_{L^p} = t^{\frac{1}{p}}$，故 $\norm{\pi_t - \mathrm{Id}} \geq 1$，这表明 $\pi_t$ 在范数拓扑下不收敛到 $\mathrm{Id}$.\par
 但 $\pi_t$ 在强算子拓扑下收敛到 $\mathrm{Id}$.
 \end{instance}
 
@@ -93,11 +93,11 @@ W_x \cdot N_x = \{g \cdot y: g \in W_x, y \in N_x\} \subset N.
 令 $U = \bigcap_{i=1}^p V_{z_i} \cap \widetilde{U}$，则 $e \in U \subset G$.\par
 那么，$\forall\, g \in U^{-1}$，$y \in \overline{N}$，
 \begin{equation*}
-g^{-1}y \in U\overline{N} \subset U \cdot M_{z_i}', \quad \text{for some } 1 \le i \le p.
+g^{-1}y \in U\overline{N} \subset U \cdot M_{z_i}', \quad \text{for some } 1 \leq i \leq p.
 \end{equation*}
 \begin{align*}
 \Rightarrow |f(g^{-1}y) - f(y)|
-&\le |f(g^{-1}y) - f(z_i)| + |f(z_i) - f(y)| \\
+&\leq |f(g^{-1}y) - f(z_i)| + |f(z_i) - f(y)| \\
 &< \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon.
 \end{align*}
 \end{proof}
@@ -120,7 +120,7 @@ $\mu$ 为 $X$ 上测度，则定义\colorbf{推前测度}：
 \end{definition}
 
 \begin{definition}[不变测度]\index{b@不变测度}
-称 $X$ 上的测度 $\mu$ 在作用 $G \times X \to X$ 下\colorbf{不变}当且仅当 $\forall\, g \in G$, $g_{\#}\mu = \mu$，称 $\mu$ 是 $G$-\textbf{不变的}.
+称 $X$ 上的测度 $\mu$ 在作用 $G \times X \to X$ 下\colorbf{不变}当且仅当 $\forall\, g \in G$, $g_{\#}\mu = \mu$，称 $\mu$ 是 \colorbf{$G-\!\!$不变的}.
 \end{definition}
 
 若 $\pi: G \to \mathrm{GL}(V)$ 为表示，考虑 $V^* = \{T: V \to \mb{R} \text{ 有界}\}$，可自然定义
@@ -141,11 +141,11 @@ $\mu$ 为 $X$ 上测度，则定义\colorbf{推前测度}：
 \section{Kakutani-Markov 不动点定理}
 
 \begin{theorem}[Kakutani-Markov]\index{K@Kakutani-Markov 定理}
-设 $E$ 是赋范线性空间（或更一般有弱范数族的拓扑线性空间），$\pi: G \to \operatorname{Aut}(E)$ 为 Abel 群的表示，设 $A \subset E$ 是 $G$-不变的、紧凸子集，则在 $A$ 中存在 $G$-不动点.
+设 $E$ 是赋范线性空间（或更一般有弱范数族的拓扑线性空间），$\pi: G \to \operatorname{Aut}(E)$ 为 Abel 群的表示，设 $A \subset E$ 是 $G-\!\!$不变的、紧凸子集，则在 $A$ 中存在 $G-\!\!$不动点.
 \end{theorem}
 
 \begin{corollary}
-设 $X$ 是紧度量空间，$G$ 是拓扑 Abel 群且 $G \curvearrowright X$ 连续，则可诱导 $M(X)$ 上的伴随表示.则存在 $G$-不变概率测度.\par
+设 $X$ 是紧度量空间，$G$ 是拓扑 Abel 群且 $G \curvearrowright X$ 连续，则可诱导 $M(X)$ 上的伴随表示.则存在 $G-\!\!$不变概率测度.\par
 特别地，若 $X = S^1$，且 $G = S^1 \curvearrowright X$ 为旋转，则存在 $S^1$ 上的 $S^1$-不变测度.
 \end{corollary}
 
@@ -186,6 +186,6 @@ $G = \mathrm{SO}(n) = \{T \in \mathrm{GL}(n): \det T = 1\}$.
 % ---------- 过渡 -----------
 
 \begin{corollary}
-设 $G$ 是紧群，$X$ 是紧度量空间，$G \curvearrowright X$ 连续，则存在 $G$-不变概率测度.\par
+设 $G$ 是紧群，$X$ 是紧度量空间，$G \curvearrowright X$ 连续，则存在 $G-\!\!$不变概率测度.\par
 若 $G$ 紧，$\mu$ 是左不变概率测度，则 $\mu$ 也是右不变的.
 \end{corollary}

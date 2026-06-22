@@ -231,7 +231,7 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
 
 赋范线性空间的另一研究方向是赋范线性空间之间的线性算子，其中更关注于有界线性算子.\par
 \begin{definition}[有界线性算子]\index{y@有界线性算子}
-    设$X,Y$是赋范线性空间，线性算子$T:X\to Y$是\bluebf{有界的}当且仅当它满足以下任意条件：
+    设$X,Y$是赋范线性空间，线性算子$T:X\to Y$是\colorbf{有界的}当且仅当它满足以下任意条件：
     \begin{enumerate}[label=(\roman*)]
         \item $\exists\, M>0,\st\forall\, x\in X.\|Tx\|_Y\leq M\|x\|_X$.
         \item $\|T\tilde{x}\|_Y\leq M,\forall\,\tilde{x}\in\mb{S}_X$
@@ -256,13 +256,15 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
     因此$T_n x\to Tx$，其中$T:X\to Y$是算子.\par
     有$T_n$的线性性可知，$T$是线性算子，下证$T\in\mcal{B}(X,Y)$.\par
     由于$\{T_n\}$为Cauchy列，$\exists\, N\in\mb{N},\st\,\forall\, n\geq N,\|T_n-T_{N_0}\|\leq 1$.\par
-    因此$\setjot[-2]\begin{aligned}[t]
+    因此\begin{align*}
         \|Tx\| &\leq \|T_{N_0}x\|+\lim_{n\to\infty}\|T_n x-T_{N_0} x\| \\
         &\leq \|T_{N_0}x\|+1\cdot\|x\| \\
         &\leq \left(\|T_{N_0}\|+1\right)\|x\|,\forall\, x\in X
-    \end{aligned}$\par
-    即$\|T\|\leq \|T_{N_0}\|+1<\infty$.\par
-    $\|T_n-T\|=\sup\left\{\|T_n x-Tx\|:x\in X,\|x\|\leq 1\right\}=\sup_{\|x\|\leq 1}\lim_{k\to\infty}\|T_n x-T_k x\|\xlongequal{n\to \infty}0$
+    \end{align*}
+    即$\|T\|\leq \|T_{N_0}\|+1<\infty$，且
+    \begin{equation*}
+        \|T_n-T\|=\sup\left\{\|T_n x-Tx\|:x\in X,\|x\|\leq 1\right\}=\sup_{\|x\|\leq 1}\lim_{k\to\infty}\|T_n x-T_k x\|\xlongequal{n\to \infty}0.\qedhere
+    \end{equation*}
 \end{proof}
 
 可以观察到，若$\{T_n\}\subset\mcal{B}(X,Y)$，$T_n$在范数下收敛到$T$，则$\|T_n\|\to\|T\|$以及$\forall\, x\in X,T_n x\to Tx$.\par
@@ -298,10 +300,11 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
     \end{aligned}$\par
     即$\|ST\|\leq \|S\|\|T\|$.
 \end{proof}
-特别地，如果$X=Y$，则记$\mcal{B}(X,X)=\mcal{B}(X)$，并且可以定义其中的乘法$\setjot[-6]\begin{aligned}[t]
-    \mcal{B}(X)\times\mcal{B}(X) &\to\mcal{B}(X) \\
-    (T,S) &\mapsto S\circ T
-\end{aligned}$，并且满足$\|ST\|\leq \|S\|\|T\|$.如果$X$为一个Banach空间，则$\mcal{B}(X)$也是一个Banach空间且在上方有乘法，称为\bluebf{Banach代数}.\index{b@Banach代数}\par
+特别地，如果$X=Y$，则记$\mcal{B}(X,X)=\mcal{B}(X)$，并且可以定义其中的乘法\begin{align*}
+    \mcal{B}(X)\times\mcal{B}(X) &\to\mcal{B}(X), \\[-6pt]
+    (T,S) &\mapsto S\circ T,
+\end{align*}
+并且满足$\|ST\|\leq \|S\|\|T\|$.如果$X$为一个Banach空间，则$\mcal{B}(X)$也是一个Banach空间且在上方有乘法，称为 \bluebf{Banach代数}.\index{b@Banach代数}\par
 \begin{instance}
     $n$阶矩阵是一个Banach代数.\par
     $\left(C[0,1],\|\cdot\|_\mathrm{sup}\right)$，$(fg)(x)=f(x)g(x)$是一个Banach代数.
@@ -328,11 +331,11 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
             \end{aligned}$ \par
             $"\geq "$：要证$\forall\,\varepsilon>0,\|{\lambda_j}\|_{\ell^\infty}\leq \|\Phi\left({\lambda_j}\right)\|_{\mcal{B}(\ell^p)}+\varepsilon$.\par
             取$j_0\in\mb{N}$满足$|\lambda_{j_0}|\geq \|\{\lambda_j\}\|_{\ell^\infty}-\varepsilon$.\par
-            则$\setjot[-2]\begin{aligned}[t]
+            则\begin{align*}
                 \|\Phi\left(\{\lambda_j\}\right)\|_{\mcal{B}(\ell^p)}&=\sup\left\{\|\Lambda x\|_{\ell^p}:x\in\ell^p,\|x\|_{\ell^p}\leq 1\right\} \\
                 &\geq \|\Lambda e_{j_0}\|_{\ell^p},e_{j_0}=(0,\ldots,1,\ldots,0) \\
-                &=|\lambda_{j_0}|\geq \|\{\lambda_j\}\|_{\ell^\infty}-\varepsilon
-            \end{aligned}$\par
+                &=|\lambda_{j_0}|\geq \|\{\lambda_j\}\|_{\ell^\infty}-\varepsilon. \qedhere
+            \end{align*}
         \end{proof}
         \item 设$X=\ell^p,1\leq p\leq \infty$，定义左右位移算子分别为$L:X\to X,L(x_1,x_2,x_3,\cdots)=(x_2,x_3,\cdots),R:X\to X,R(x_1,x_2,x_3,\cdots)=(0,x_1,x_2,\cdots)$.\par
         则$\|L\|=1=\|R\|$，并且$LR=\mathrm{Id}_X\neq RL$，这表明有界线性算子可能并不存在逆算子，而要区分左逆和右逆.\par
@@ -345,7 +348,12 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
         则$\forall\, x\in[0,1],\left|\int_0^xf(y)\d y\right|\leq\int_0^x|f(y)|\d y\leq \left(\int_0^x 1\d y\right)\|f\|_{C[0,1]}=x\|f\|_{C[0,1]}$.\par
         故$\|F\|_{C[0,1]}\leq \|f\|_{C[0,1]}$，从而$I\in\mcal{B}\left(C[0,1]\right)$的算子范数为$\|I\|=1$(在$f=1$时取等).
     \end{enumerate}
-    下面再看几个数列空间的例子，记$C:=\left\{{\alpha_j}\in\mb{C}\,\text{或}\,\mb{C}:\,\text{当}\,j\to\infty,\alpha_j\,\text{收敛}\right\}$.$C_0:=\left\{{\alpha_j}\in C:\lim_{j\to\infty}\alpha_j=0\right\}$，它是$\|\cdot\|_{\ell^\infty}$下的Banach空间.$C_{00}:=\left\{{\alpha_j}\in C:\,\text{有限项}\,\alpha_j\,\text{非零}\right\}$.
+    下面再看几个数列空间的例子，记
+    \begin{gather*}
+    C:=\left\{{\alpha_j}\in\mb{R}\,\text{或}\,\mb{C}:\,\text{当}\,j\to\infty,\alpha_j\,\text{收敛}\right\},\\
+    C_0:=\left\{{\alpha_j}\in C:\lim_{j\to\infty}\alpha_j=0\right\},
+    \end{gather*}
+    它是$\|\cdot\|_{\ell^\infty}$下的Banach空间.$C_{00}:=\left\{{\alpha_j}\in C:\,\text{有限项}\,\alpha_j\,\text{非零}\right\}$.
     \begin{enumerate}[label=(\arabic*),resume]
         \item 设$X=\left(C_{00},\|\cdot\|_{\ell^\infty}\right)$.\par
         考虑$\setjot[-2]\begin{aligned}[t]
@@ -353,7 +361,7 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
             (a_1,a_2,a_3,\cdots) &\mapsto \left(a_1,\frac{a_2}{2},\frac{a_3}{3},\cdots\right)
         \end{aligned}$\par
         由于$T$收缩，$T\in\mcal{B}(X)$且$\|T\|=1$.\par
-        $T$明显是一个双射，但$T^{-1}\in\mcal{L}(X)$，且$T^{-1}(b_1,b_2,b_3,\cdots)=(b_1,2b_2,3b_3,\cdots)$，因此$\|T^-1\|=\infty$，故$T^{-1}\notin\mcal{B}(X)$.
+        $T$明显是一个双射，但$T^{-1}\in\mcal{L}(X)$，且$T^{-1}(b_1,b_2,b_3,\cdots)=(b_1,2b_2,3b_3,\cdots)$，因此$\|T^{-1}\|=\infty$，故$T^{-1}\notin\mcal{B}(X)$.\qedhere
     \end{enumerate}
 \end{instance}
 上述的最后两例表明，有界线性算子不一定存在逆算子，并且即使其存在逆算子，其逆算子也未必是一个可逆线性算子，关于这一点，有以下定理阐述.
@@ -382,7 +390,10 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
             $\sum_{k=0}^\infty\|T^k\|\leq \sum_{k=0}^\infty \|T\|^k<\infty$.\par
             所以$\sum T^k$在$\mcal{B}(X)$中绝对收敛，故$\sum T^k$收敛.\par
             令$S=\sum_{k=0}^\infty T^k\in\mcal{B}(X)$，则当$n\to\infty$，$S_n=\sum_{k=0}^nT^k\to S$.\par
-            由于$S_n$只有有限项，因此$S_n(I-T)=(I-T)S_n=T^0-T^{n+1}\xlongrightarrow{n\to\infty}I$.\par
+            由于$S_n$只有有限项，因此
+            \begin{equation*}
+            S_n(I-T)=(I-T)S_n=T^0-T^{n+1}\xlongrightarrow{n\to\infty}I.
+            \end{equation*}\par
             再令$n\to\infty$，有$S(I-T)=(I-T)S=I$，因此$S=(I-T)^{-1}$.
         \end{claim}
         \item 取任意$T\in\Aut(X)$.\par
@@ -426,16 +437,25 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
 \end{theorem}
 \begin{proof}
     任取$V$的一组基$\{e_1,e_2,\cdots,e_d\}$.\par
-    考虑$\setjot[-6]\begin{aligned}[t]
-        \Lambda:\mb{R}^d &\to V \\
-        \lambda=\left(\lambda^1,\lambda^2,\cdots,\lambda^d\right) &\mapsto \sum_{i=1}^d{\lambda^i e_i}
-    \end{aligned}$.显然$\Lambda$是线性空间上的同构，下证$\Lambda$和$\Lambda^{-1}$均有界.\par
-    $\|\Lambda\lambda\|=\left\|\sum_{i=1}^d\lambda^i e_i\right\|\leq\sum_{i=1}^d\|\lambda^i\|\|e_i\|\leq\|\lambda\|_{\mb{R}^d}\sum_{i=1}^d\|e_i\|$，因此$\Lambda$有界.\par
-    使用反证法证明$\Lambda^{-1}$有界，假设$\Lambda^{-1}$无界，则$\exists\, \{x_n\}\subset V,\st \|x_n\|=1,\|\Lambda^{-1}x_n\|\to\infty$.\par
+    考虑\begin{align*}
+        \Lambda:\mb{R}^d &\to V \\[-6pt]
+        \lambda=\left(\lambda^1,\lambda^2,\cdots,\lambda^d\right) &\mapsto \sum_{i=1}^d{\lambda^i e_i}.
+    \end{align*}显然$\Lambda$是线性空间上的同构，下证$\Lambda$和$\Lambda^{-1}$均有界.\par
+    \begin{equation*}
+    \|\Lambda\lambda\|=\left\|\sum_{i=1}^d\lambda^i e_i\right\|\leq\sum_{i=1}^d\|\lambda^i\|\|e_i\|\leq\|\lambda\|_{\mb{R}^d}\sum_{i=1}^d\|e_i\|,
+    \end{equation*}
+    因此$\Lambda$有界.\par
+    使用反证法证明$\Lambda^{-1}$有界，假设$\Lambda^{-1}$无界，则
+    \begin{equation*}
+        \exists\, \{x_n\}\subset V,\st \|x_n\|=1,\|\Lambda^{-1}x_n\|\to\infty.
+    \end{equation*}\par
     考虑$a_n=\frac{\Lambda^{-1}x_n}{\|\Lambda^{-1}x_n\|}$，则$\forall\, n\in\mb{N},\|a_n\|=1$.\par
     由于$\mb{R}^d$中的单位球是紧的，可以取子列$\{a_{a_k}\},\st a_{n_k}\to a_\infty\in\mb{R}^d$且$\|a_\infty\|=1$.\par
-    但$\Lambda a_\infty=\lim_{\k\to\infty}\Lambda a_{n_k}=\lim_{k\to\infty}\Lambda\left(\frac{\Lambda^{-1}x_{n_k}}{\|\Lambda^{-1}x_{n_k}\|}\right)=\lim_{k\to\infty}\frac{x_{n_k}}{\|\Lambda^{-1}x_{n_k}\|}=0$.\par
-    $\Rightarrow a_\infty=0$，与$\|a_\infty\|=1$矛盾.
+    但
+    \begin{equation*}
+        \Lambda a_\infty=\lim_{\k\to\infty}\Lambda a_{n_k}=\lim_{k\to\infty}\Lambda\left(\frac{\Lambda^{-1}x_{n_k}}{\|\Lambda^{-1}x_{n_k}\|}\right)=\lim_{k\to\infty}\frac{x_{n_k}}{\|\Lambda^{-1}x_{n_k}\|}=0.
+    \end{equation*}
+    故$a_\infty=0$，与$\|a_\infty\|=1$矛盾.
 \end{proof}
 在上述证明中，我们并没证明对$\mb{R}^d$中的任意范数都成立，而是只选取了$\mb{R}^d$中的无穷范数，这背后的原因是$\mb{R}^d$从根本上只有一种范数，这需要引入范数等价的概念.
 \begin{definition}[范数的等价]\index{f@范数等价}
@@ -448,8 +468,23 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
    $\mb{R}^d$上的所有范数均等价. 
 \end{corollary}
 \begin{proof}
-    设$\Lambda:\left(\mb{R}^d,\|\cdot\|_1\right)\to\left(\mb{R}^d,\|\cdot\|_2\right)$是线性同构，则$\|\Lambda\|<\infty,\|\Lambda^{-1}\|<\infty$.\par
-    有$\|\Lambda x\|_2\leq\|\Lambda\|\|x\|_1\leq\|\Lambda^{-1}\|\|\Lambda\|\|x\|_2$
+    取恒等映射 $\Lambda = \mathrm{id}: (\mb{R}^d, \|\cdot\|_1) \to (\mb{R}^d, \|\cdot\|_2)$，即 $\Lambda x = x$. 易见 $\Lambda$ 是线性同构，其逆 $\Lambda^{-1} = \mathrm{id}: (\mb{R}^d, \|\cdot\|_2) \to (\mb{R}^d, \|\cdot\|_1)$.
+
+    由于 $\mb{R}^d$ 是有限维空间，有限维空间之间的线性映射必为有界算子，故 $\|\Lambda\| < \infty$，$\|\Lambda^{-1}\| < \infty$.
+
+    由算子范数的定义，对任意 $x \in \mb{R}^d$ 有
+    \begin{equation*}
+        \|x\|_2 = \|\Lambda x\|_2 \leq \|\Lambda\| \cdot \|x\|_1, \qquad
+        \|x\|_1 = \|\Lambda^{-1} x\|_1 \leq \|\Lambda^{-1}\| \cdot \|x\|_2.
+    \end{equation*}
+    进而
+    \begin{equation*}
+        \|x\|_2 \leq \|\Lambda\| \cdot \|x\|_1 \leq \|\Lambda\| \cdot \|\Lambda^{-1}\| \cdot \|x\|_2,
+    \end{equation*}
+    整理即得
+    \begin{equation*}
+        \frac{1}{\|\Lambda\|}\,\|x\|_2 \leq \|x\|_1 \leq \|\Lambda^{-1}\|\,\|x\|_2.\qedhere
+    \end{equation*}
 \end{proof}
 
 下一个定理要研究Heine-Borel性质.在$\mb{R}^d$中，Heine-Borel定理表明一个集合是紧的当且仅当它是闭的且有界的.但是这个性质无法推广到无限维空间，为此，有以下定理.
@@ -467,14 +502,20 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
     则称$\|\cdot\|$为$X$上的\colorbf{半范数}.
 \end{definition}
 相较于范数，半范数允许非零向量的半范数为零.那么如果能将半范数为零但是本身不是零的向量从整个空间中去除，剩余的空间和半范数就会构成一个范数.\par
-严谨来说，记$\mcal{N}:=\left\{x\in X:\|x\|=0\right\}\leq X$，可以定义商空间$X/\mcal{N}=\left\{[x]=x+\mcal{N}:x\in X\right\}$.则$[x]=[y]\iff x-y\in\mcal{N}$.\par
-定义商空间上的范数为$\big\|[x]\big\|_{X/\mcal{N}}\equiv\|x+\mcal{N}\|_{X/\mcal{N}}$.上述定义是良定的，因为若$x+\mcal{N}=y+\mcal{N}$，则$\exists\, n\in\mcal{N},\st x=y+n$，则$\|x\|=\|y+n\|\leq \|y\|+\|n\|=\|y\|=\|x-n\|\leq\|x\|+\|-n\|=\|x\|$，因此$\|x\|=\|y\|$.那么$\left(X/\mcal{N},\|\cdot\|_{X/\mcal{N}}\right)$是一个赋范线性空间.\par
+严谨来说，记$\mcal{N}:=\left\{x\in X:\|x\|=0\right\}\leq X$，可以定义商空间
+\begin{equation*}
+X/\mcal{N}=\left\{[x]=x+\mcal{N}:x\in X\right\}.
+\end{equation*}
+则$[x]=[y]\iff x-y\in\mcal{N}$.定义商空间上的范数为$\big\|[x]\big\|_{X/\mcal{N}}\equiv\|x+\mcal{N}\|_{X/\mcal{N}}$.上述定义是良定的，因为若$x+\mcal{N}=y+\mcal{N}$，则$\exists\, n\in\mcal{N},\st x=y+n$，则$\|x\|=\|y+n\|\leq \|y\|+\|n\|=\|y\|=\|x-n\|\leq\|x\|+\|-n\|=\|x\|$，因此$\|x\|=\|y\|$.那么$\left(X/\mcal{N},\|\cdot\|_{X/\mcal{N}}\right)$是一个赋范线性空间.\par
 利用商空间定义范数的一个经典例子是$L^p$空间.
 \begin{instance}[$L^p$空间]\index{l@$L^p$空间}
-    $1\leq p\leq\infty$，$\left(L^P\left(\Omega\subset\mb{R}^n\right),\|\cdot\|_{L^p}\right)$，定义$\|f\|_{L^p}:=\begin{cases}
+    $1\leq p\leq\infty$，$\left(L^P\left(\Omega\subset\mb{R}^n\right),\|\cdot\|_{L^p}\right)$，定义
+    \begin{equation*}
+    \|f\|_{L^p}:=\begin{cases}
     \left(\int_\Omega|f(x)|^p\d x\right)^\frac{1}{p},&1\leq p<\infty\\
     \mathrm{ess}\sup_{x\in\Omega}|f(x)|,&p=\infty
-    \end{cases}$\par
+    \end{cases}.
+    \end{equation*}\par
     取$\Omega=(0,1)\subset\mb{R}$，考虑$\chi_{\mb{Q}\cap(0,1)}=\begin{cases}
     1,&x\in\mb{Q}\cap(0,1)\\
     0,&x\in(0,1)\setminus\mb{Q}
@@ -488,7 +529,11 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
     设$(X,\|\cdot\|)$是Banach空间，设$Y\leq X$是一个闭子空间，则$X/Y$是商范数下的Banach空间，其中范数为$\big\|[x]\big\|_{X/Y}=\inf \left\{\|x+y\|:y\in Y\right\}=\inf\left\{\|x-y\|:y\in Y\right\}$.
 \end{theorem}
 \begin{proof}
-    注意到$\big\|[x]\big\|_{X/Y}=\dist(x,Y)$，故$\big\|[x]\big\|_{X/Y}=0\iff \dist(x,Y)=0\iff x\in\overline{Y}\xLeftrightarrow{Y\,\text{是闭子空间}} x\in Y\iff [x]=0$，因此$\|\cdot\|_{X/Y}$是范数.\par
+    注意到$\big\|[x]\big\|_{X/Y}=\dist(x,Y)$，故
+    \begin{equation*}
+    \big\|[x]\big\|_{X/Y}=0\iff \dist(x,Y)=0\iff x\in\overline{Y}\xLeftrightarrow{Y\,\text{是闭子空间}} x\in Y\iff [x]=0,
+    \end{equation*}
+    因此$\|\cdot\|_{X/Y}$是范数.\par
     设$\{[x_n]\}\subset X/Y$是Cauchy列，取子列$\left\{\left[x_{n_k}\right]\right\},\st \left\|\left[x_{n_{k+1}}\right]-\left[x_{n_k}\right]\right\|<2^{-k}$.\par
     $\Rightarrow \inf\left\{\left\|x_{n_{k+1}}-x_{n_k}-y\right\|:y\in Y\right\}<2^{-k}$\par
     $\Rightarrow \forall\, k,\exists\, w_{n_k}\in\left[x_{n_k}\right],\st \left\|w_{n_{k+1}}-w_{n_k}\right\|\leq 2^{-k}$\par 
@@ -508,7 +553,7 @@ Cauchy列中的元素之间的距离会逐渐被控制得任意小，但一般�
     则$\dist \left(x,Y\right)=\frac{\dist(z,Y)}{\|z\|}=\frac{\left\|\left[\tilde{z}\right]\right\|_{X/Y}}{\|z\|}\geq 1-\varepsilon$.\par
     则上述的$x$就是满足条件的向量.
 \end{proof}
-基于上述引理，若$\dim X=\infty$，则可取$x_1,x_2,\cdots\in X,\st \|x_j\|=1,\dist\left(x_j,\spann\{x_1,\cdots,x_{j-1}\} \right)\geq 0.99$，因此$\{x_j\}\subset \mb{S}_X$没有收敛子列.\par
+基于上述引理，若$\dim X=\infty$，则可取$x_1,x_2,\cdots\in X$，使得$\|x_j\|=1$，但它们的距离满足$\dist\left(x_j,\spann\{x_1,\cdots,x_{j-1}\} \right)\geq 0.99$，因此$\{x_j\}\subset \mb{S}_X$没有收敛子列.\par
 \begin{corollary}[]
     设$X$是赋范线性空间.若$\dim X=\infty$，则有界闭集不是紧集.
 \end{corollary}

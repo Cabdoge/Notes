@@ -12,6 +12,7 @@
 \usetikzlibrary{svg.path}
 \RequirePackage{amssymb}       % 数学符号
 \RequirePackage{amsmath}
+\RequirePackage{amsthm}     % \pushQED/\popQED/\qedhere
 \RequirePackage{etoolbox}     % 钩子：用于在 proof 环境开始时复位 claim 编号
 \RequirePackage{changepage}   % 可控左移：用于在 claim 内部的 proof 盒子整体左移
 \RequirePackage{ulem}        % 下划线
@@ -241,18 +242,60 @@
 \DeclareRainbowEnv{property}{性质}{rbPropertyColor}
 \DeclareRainbowEnv{conjecture}{猜想}{rbConjectureColor}
 
-%================ 附加：proof 环境 ================
-%对amsthm的环境修改，颜色改正，添加了下划装饰条，兼容 wrapfigure
+%================ 闭合装饰条环境 ================
+% proof / solution / instance / remark / example
+% 统一使用 pushQED/popQED + cleaders 闭合色条
+
 \definecolor{rbProofColor}{RGB}{199,79,109}           % 梅红
 \definecolor{rbProofBar}{RGB}{255,225,197}          % 左侧装饰条颜色
 \RequirePackage{mdframed}
-\RequirePackage{amsthm}
 
 % 先清除可能已有的 proof 定义（兼容 amsthm）
 \@ifundefined{proof}{}{\let\proof\relax\let\endproof\relax}
 
 \newlength{\belowsep}
 \setlength{\belowsep}{5pt plus 2pt minus 4pt}  % 定义弹性间距，允许在分页较紧时压缩其大小
+% \nobar：在环境内使用可手动抑制该环境的闭合色条
+\newif\if@rb@nobar
+\newcommand{\nobar}{\global\@rb@nobartrue}
+
+%================ 闭合装饰条宏（cleaders 方案）================
+% 色条放入 \vbox 后用 \cleaders 纵向填充等高的 \vskip。
+% cleaders 核心特性：若纵向 glue 在当前页放不下，整个内容被丢弃而非换页。
+
+% ----- 闭合色条浅色（均用显式 RGB 避开 xcolor \!50 bug）-----
+\definecolor{rbProofCloser}{RGB}{227,167,182}       % proof 梅红 50% mix
+\definecolor{rbInstanceCloser}{RGB}{187,222,147}    % instance 绿 50% mix
+\definecolor{rbNoteCloser}{RGB}{127,197,197}        % note 青 50% mix
+\definecolor{rbExampleCloser}{RGB}{187,222,147}     % example 绿 50% mix
+\definecolor{rbSolutionCloser}{RGB}{133,211,212}    % solution teal 50% mix
+
+\newcommand{\rbclosingbar}[1]{%
+  \popQED\par
+  \vspace{-\parskip}\nointerlineskip\vspace{\belowsep}%
+  \if@rb@nobar
+    \global\@rb@nobarfalse
+  \else
+    \cleaders\vbox{\offinterlineskip\noindent{\color{#1}\rule{4em}{2pt}}}\vskip 2pt\relax
+  \fi
+  \vspace{\belowsep}%
+  \par
+  \ignorespacesafterend
+}
+
+% proof 专用（保留 \nobreak 阻止 QED 行与间距分离）
+\newcommand{\rbproofclosingbar}{%
+  \nobreak
+  \if@rb@nobar
+    \global\@rb@nobarfalse
+  \else
+    \cleaders\vbox{\offinterlineskip\noindent{\color{rbProofCloser}\rule{4em}{2pt}}}\vskip 2pt\relax
+  \fi
+  \vspace{\belowsep}\vspace{2pt}%
+  \par
+  \ignorespacesafterend
+}
+
 
 \newenvironment{proof}[1][证明]{%
   \pushQED{\qed}%
@@ -262,65 +305,79 @@
   }\enspace\fangsong\ignorespaces
 }{%
   \popQED\par
-  \vspace{-\parskip}\nointerlineskip
-  \nobreak\vspace{\belowsep}% 插入弹性间距并禁止在此换页
-  \noindent{\color{rbProofColor!50}\rule{4em}{2pt}}\par
-  \ignorespacesafterend
+  \vspace{-\parskip}\nointerlineskip\vspace{\belowsep}%
+  \rbproofclosingbar
 }
 
-
-%================ 附加：solution 环境 ================
-% 使用 mdframed 实现带左侧色条的解答环境（兼容 wrapfigure）
+% --- solution ---
 \definecolor{rbSolutionColor}{RGB}{12, 167, 169}           % teal
-\definecolor{rbSolutionBar}{RGB}{171, 235, 198}          % 左侧装饰条颜色
-
-\RequirePackage{mdframed}
-\mdfdefinestyle{rbSolutionStyle}{%
-  hidealllines=true,
-  leftline=true,
-  linewidth=3pt,
-  linecolor=rbSolutionColor!50,
-  leftmargin=0pt,
-  innerleftmargin=6pt,
-  innerrightmargin=0pt,
-  innertopmargin=2pt,
-  innerbottommargin=2pt,
-  skipabove=5pt,
-  skipbelow=5pt,
-}
 
 \newenvironment{solution}[1][解]{%
-  \par\vspace{-\parskip}%
-  \begin{adjustwidth}{-1pt}{0pt}%  ← 整体左移 0.5pt（色条随之突出）
-  \vspace{3pt}%
-  \begin{mdframed}[style=rbSolutionStyle]%
-  \hspace{-0.1pt}\fangsong\noindent{\bfseries\color{rbSolutionColor} #1 \hspace{3.2pt}} %
-  \setlength{\parindent}{2em}%
-  \wideline
+  \pushQED{\qed}%
+  \renewcommand{\qedsymbol}{\textcolor{rbSolutionCloser}{{\scalebox{1.1}{$\blacktriangleleft$}}}}%
+  \let\mhere\qedhere
+  \par\noindent{\heiti\bfseries\color{rbSolutionColor}%
+    解%
+    \ifx\\#1\\\else~(#1)\fi
+  }\enspace\fangsong\ignorespaces
 }{%
-  \par\end{mdframed}%
-  \nointerlineskip               % 阻止行间距 glue
-  \vspace{-5pt}%                   % ← 手动控制底部间距（替代失灵的 skipbelow）
-  \end{adjustwidth}%
+  \rbclosingbar{rbSolutionCloser}%
 }
 
-%================ 附加：instance 示例（带编号，按 chapter 重置）================
+% --- instance ---
 \definecolor{rbInstanceColor}{RGB}{120, 189, 39}       % green variant
-\definecolor{rbInstanceBar}{RGB}{197,237,213}       % 左侧装饰条颜色（浅绿）
 
 \newcounter{rbinstance}[chapter]
 \renewcommand{\therbinstance}{\thechapter.\arabic{rbinstance}}
 
 \newenvironment{instance}[1][]{%
   \refstepcounter{rbinstance}%
+  \pushQED{\qed}%
+  \renewcommand{\qedsymbol}{\textcolor{rbInstanceCloser}{{\scalebox{1.1}{$\blacktriangleleft$}}}}%
+  \let\mhere\qedhere
   \par\noindent{\heiti\bfseries\color{rbInstanceColor}%
     例~\therbinstance%
     \ifx\\#1\\\else~(#1)\fi
   }\enspace\ignorespaces
 }{%
-  \par\vspace{-\parskip}\nointerlineskip\vspace{\belowsep}%
-  \noindent{\color{rbInstanceColor!50}\rule{4em}{2pt}}\par
-  \ignorespacesafterend
+  \rbclosingbar{rbInstanceCloser}%
+}
+
+
+% --- remark ---
+\newcounter{rbremarkcounter}[chapter]
+\renewcommand{\therbremarkcounter}{\thechapter.\arabic{rbremarkcounter}}
+\newenvironment{remark}[1][]{%
+  \refstepcounter{rbremarkcounter}%
+  \pushQED{\qed}%
+  \renewcommand{\qedsymbol}{\textcolor{rbNoteCloser}{{\scalebox{1.1}{$\blacktriangleleft$}}}}%
+  \let\mhere\qedhere
+  \par\noindent{\heiti\bfseries\color{rbNoteColor}%
+    注~\therbremarkcounter%
+    \ifx\\#1\\\else~(#1)\fi
+  }\enspace\kaishu\ignorespaces
+}{%
+  \rbclosingbar{rbNoteCloser}%
+}
+
+% --- example ---
+\definecolor{rbExampleColor}{RGB}{120, 189, 39}       % green variant
+\definecolor{rbExampleBar}{RGB}{197,237,213}       % 左侧装饰条颜色（浅绿）
+
+\newcounter{rbexample}[chapter]
+\renewcommand{\therbexample}{\thechapter.\arabic{rbexample}}
+
+\newenvironment{example}[1][]{%
+  \refstepcounter{rbexample}%
+  \pushQED{\qed}%
+  \renewcommand{\qedsymbol}{\textcolor{rbExampleCloser}{{\scalebox{1.1}{$\blacktriangleleft$}}}}%
+  \let\mhere\qedhere
+  \par\noindent{\heiti\bfseries\color{rbExampleColor}%
+    例题~\therbexample%
+    \ifx\\#1\\\else~(#1)\fi
+  }\enspace\ignorespaces
+}{%
+  \rbclosingbar{rbExampleCloser}%
 }
 
 %================ 附加：exercise 练习（带编号，按 chapter 重置）================
@@ -348,40 +405,6 @@
   \end{center}%
 }{}
 
-
-
-%================ 附加：remark / example（无编号，灰色边框）================
-\newcounter{rbremarkcounter}[chapter]
-\renewcommand{\therbremarkcounter}{\thechapter.\arabic{rbremarkcounter}}
-\newenvironment{remark}[1][]{%
-  \refstepcounter{rbremarkcounter}%
-  \par\noindent{\heiti\bfseries\color{rbNoteColor}%
-    注~\therbremarkcounter%
-    \ifx\\#1\\\else~(#1)\fi
-  }\enspace\kaishu\ignorespaces
-}{%
-  \par\vspace{-\parskip}\nointerlineskip\vspace{\belowsep}%
-  \noindent{\color{rbNoteColor!50}\rule{4em}{2pt}}\par
-  \ignorespacesafterend
-}
-
-\definecolor{rbExampleColor}{RGB}{120, 189, 39}       % green variant
-\definecolor{rbExampleBar}{RGB}{197,237,213}       % 左侧装饰条颜色（浅绿）
-
-\newcounter{rbexample}[chapter]
-\renewcommand{\therbexample}{\thechapter.\arabic{rbexample}}
-
-\newenvironment{example}[1][]{%
-  \refstepcounter{rbexample}%
-  \par\noindent{\heiti\bfseries\color{rbExampleColor}%
-    例题~\therbexample%
-    \ifx\\#1\\\else~(#1)\fi
-  }\enspace\ignorespaces
-}{%
-  \par\vspace{-\parskip}\nointerlineskip\vspace{\belowsep}%
-  \noindent{\color{rbExampleColor!50}\rule{4em}{2pt}}\par
-  \ignorespacesafterend
-}
 
 %================ 附加：admonition 提示类环境（无编号，带图标）================
 % 颜色定义
@@ -510,6 +533,16 @@
   \ifnum\value{claim@proofdepth}=1 \setcounter{claim}{0}\fi
 }
 \AtEndEnvironment{proof}{\addtocounter{claim@proofdepth}{-1}}
+% QED 符号（模式感知，支持 \qedhere）
+% 在 claim / sproof 环境中使用，配合 amsthm 的 \pushQED/\popQED 机制
+\newcommand{\rbqed}{%
+  \ifmmode
+    {\color{rbProofColor}\blacksquare}%
+  \else
+    {\color{rbProofColor}$\blacksquare$}%
+  \fi
+}
+
 % sproof：可在 proof 内部单独使用的简单证明环境
 % 样式与 claim 内嵌的证明部分一致（缩进 + "证明" 标头 + 仿宋体 + □ 结尾）
 % 可选参数 #1 为标头文字，默认"证明"
@@ -523,16 +556,18 @@
     \fangsong%
     \setlength{\parindent}{2em}%
     \wideline
+    \pushQED{\rbqed}%
 }{%
-    \hfill{\color{rbProofColor}$\blacksquare$}\quad\par
+    \hfill\popQED\quad\par
 }
+
 % 版式：粗体“Claim n.” 后接断言内容，允许 \label/\ref 使用（通过 \refstepcounter）
 % 两个独立环境：claim（期望随后有 proof），claim*（不期望 proof）
 % 二者共享同一计数器，并且都会显示编号。
 % claim：带证明体的断言盒子（左侧细竖线）。编号显示为 Claim n. <内容>
 % 盒子左边框与上一行“C”字对齐。
 % 可自定义参数：左内边距、竖线颜色与宽度；用户可在导言区重定义
-\providecommand{\claimBoxLeft}{25pt}
+\providecommand{\claimBoxLeft}{5pt}
 \NewDocumentEnvironment{claim}{m +b}{%
   \refstepcounter{claim}% 允许 \label 引用
   \par{\bfseries\boldmath{断言~\theclaim.}\;\kaishu #1}\par
@@ -541,8 +576,9 @@
     \fangsong%
     \setlength{\parindent}{2em}%
     \wideline
+    \pushQED{\rbqed}%
     #2
-    \hfill{\color{rbProofColor}$\blacksquare$}\quad\par
+    \hfill\popQED\quad\par
   \end{adjustwidth}%
 }{% end claim
 }
